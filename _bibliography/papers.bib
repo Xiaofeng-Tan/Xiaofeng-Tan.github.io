@@ -1,64 +1,34 @@
 ---
 ---
 
-@string{aps = {American Physical Society,}}
-
-@book{einstein1920relativity,
-  title={Relativity: the Special and General Theory},
-  author={Einstein, Albert},
-  year={1920},
-  publisher={Methuen & Co Ltd},
-  html={relativity.html}
-}
-
-@book{einstein1956investigations,
-  bibtex_show={true},
-  title={Investigations on the Theory of the Brownian Movement},
-  author={Einstein, Albert},
-  year={1956},
-  publisher={Courier Corporation},
-  preview={brownian-motion.gif}
-}
-
-@article{einstein1950meaning,
-  abbr={AJP},
-  bibtex_show={true},
-  title={The meaning of relativity},
-  author={Einstein, Albert and Taub, AH},
-  journal={American Journal of Physics},
-  volume={18},
-  number={6},
-  pages={403--404},
-  year={1950},
-  publisher={American Association of Physics Teachers}
-}
-
-@article{PhysRev.47.777,
-  abbr={PhysRev},
-  title={Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?},
-  author={Einstein*†, A. and Podolsky*, B. and Rosen*, N.},
-  abstract={In a complete theory there is an element corresponding to each element of reality. A sufficient condition for the reality of a physical quantity is the possibility of predicting it with certainty, without disturbing the system. In quantum mechanics in the case of two physical quantities described by non-commuting operators, the knowledge of one precludes the knowledge of the other. Then either (1) the description of reality given by the wave function in quantum mechanics is not complete or (2) these two quantities cannot have simultaneous reality. Consideration of the problem of making predictions concerning a system on the basis of measurements made on another system that had previously interacted with it leads to the result that if (1) is false then (2) is also false. One is thus led to conclude that the description of reality as given by a wave function is not complete.},
-  journal={Phys. Rev.},
-  location={New Jersey},
-  volume={47},
-  issue={10},
-  pages={777--780},
-  numpages={0},
-  year={1935},
-  month={May},
-  publisher=aps,
-  doi={10.1103/PhysRev.47.777},
-  url={http://link.aps.org/doi/10.1103/PhysRev.47.777},
-  html={https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777},
-  pdf={example_pdf.pdf},
-  altmetric={248277},
-  dimensions={true},
-  google_scholar_id={qyhmnyLat1gC},
-  video={https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ},
-  additional_info={. *More Information* can be [found here](https://github.com/alshedivat/al-folio/)},
-  annotation={* Example use of superscripts<br>† Albert Einstein},
+@article{tan2024sopo,
+  title={SoPo: Text-to-Motion Generation Using Semi-Online Preference Optimization},
+  author={Tan, Xiaofeng and Wang, Hongsong and Geng, Xin and Zhou, Pan},
+  journal={arXiv preprint arXiv:2412.05095},
+  website={https://sopo-motion.github.io/},
+  pdf={https://arxiv.org/abs/2412.05095},
+  supp={https://arxiv.org/abs/2412.05095},
+  arxiv={https://arxiv.org/abs/2412.05095},
+  code={https://github.com/Xiaofeng-Tan/SoPO},
   selected={true},
-  inspirehep_id = {3255}
+  preview={SoPo.png},
+  abstract = {Text-to-motion generation is essential for advancing the creative industry but often presents challenges in producing consistent, realistic motions. To address this, we focus on fine-tuning text-to-motion models to consistently favor high-quality, human-preferred motions—a critical yet largely unexplored problem. In this work, we theoretically investigate the DPO under both online and offline settings, and reveal their respective limitation: overfitting in offline DPO, and biased sampling in online DPO. Building on our theoretical insights, we introduce Semi-online Preference Optimization (SoPo), a DPO-based method for training text-to-motion models using ``semi-online” data pair, consisting of unpreferred motion from online distribution and preferred motion in offline datasets. This method leverages both online and offline DPO, allowing each to compensate for the other’s limitations. Extensive experiments demonstrate that SoPo outperforms other preference alignment methods, with an MM-Dist of 3.25% (vs e.g. 0.76% of MoDiPO) on the MLD model, 2.91% (vs e.g. 0.66% of MoDiPO) on MDM model, respectively. Additionally, the MLD model fine-tuned by our SoPo surpasses the SoTA model in terms of R-precision and MM Dist. Visualization results also show the efficacy of our SoPo in preference alignment.},
+  year={2024}
+}
+
+@article{tan2024frequency,
+  title={Frequency-Guided Diffusion Model with Perturbation Training for Skeleton-Based Video Anomaly Detection},
+  author={Tan, Xiaofeng and Wang, Hongsong and Geng, Xin},
+  journal={arXiv preprint arXiv:2412.03044},
+  website={https://fgad-sk.github.io/},
+  pdf={https://arxiv.org/abs/2412.03044},
+  supp={https://arxiv.org/abs/2412.03044},
+  arxiv={https://arxiv.org/abs/2412.03044},
+  code={https://github.com/Xiaofeng-Tan/FGDMAD-Code},
+  selected={true},
+  preview={FGDMAD.png},
+  abstract = {Video anomaly detection is an essential yet challenging open-set task in computer vision, often addressed by leveraging reconstruction as a proxy task. However, existing reconstruction-based methods encounter challenges in two main aspects: (1) limited model robustness for open-set scenarios, (2) and an overemphasis on, but restricted capacity for, detailed motion reconstruction. To this end, we propose a novel frequency-guided diffusion model with perturbation training, which enhances the model robustness by perturbation training and emphasizes the principal motion components guided by motion frequencies. Specifically, we first use a trainable generator to produce perturbative samples for perturbation training of the diffusion model. During the perturbation training phase, the model robustness is enhanced and the domain of the reconstructed model is broadened by training against this generator. Subsequently, perturbative samples are introduced for inference, which impacts the reconstruction of normal and abnormal motions differentially, thereby enhancing their separability. Considering that motion details originate from high-frequency information, we propose a masking method based on 2D discrete cosine transform to separate high-frequency information and low-frequency information. Guided by the high-frequency information from observed motion, the diffusion model can focus on generating low-frequency information, and thus reconstructing the motion accurately. Experimental results on five video anomaly detection datasets, including human-related and open-set benchmarks, demonstrate the effectiveness of the proposed method. The code will be released to the public.},
+  year={2024}
 }
 
 @article{TANTWD,
@@ -70,60 +40,29 @@ year = {2023},
 issn = {0888-613X},
 doi = {https://doi.org/10.1016/j.ijar.2023.108971},
 url = {https://www.sciencedirect.com/science/article/pii/S0888613X23001020},
+pdf={https://www.sciencedirect.com/science/article/pii/S0888613X23001020?via%3Dihub},
+selected={true},
 author = {Xiaofeng Tan and Can Gao and Jie Zhou and Jiajun Wen},
+preview={TWD.jpg},
 keywords = {Outlier detection, Fuzzy rough sets, Attribute reduction, Three-way decision, Co-detection},
 abstract = {Outlier detection is an important research topic in data mining and machine learning. However, existing unsupervised outlier detection methods suffer from irrelevant and redundant attributes in high-dimensional data, and their performance is also limited by their outlier detection models that rely on only one view. In this study, we propose a three-way decision-based co-detection model for unsupervised outlier detection. Specifically, we first improve the local outlier factor (LOF) method by introducing the Gaussian kernel function to make the measure of local reachability density more accurate. Then, we introduce fuzzy rough sets to perform attribute reduction, which further reduces the negative effect of irrelevant and redundant attributes on the measure of sample similarity. Finally, we develop a co-detection model that is trained on the original view and the transformed view generated by principal component analysis and uses the strategy of the three-way decision to collaboratively detect outliers. The results of comparative experiments on the selected UCI datasets show that the proposed model outperforms state-of-the-art methods in terms of AUC-ROC index.}
 }
 
-@article{einstein1905molekularkinetischen,
-  title={{\"U}ber die von der molekularkinetischen Theorie der W{\"a}rme geforderte Bewegung von in ruhenden Fl{\"u}ssigkeiten suspendierten Teilchen},
-  author={Einstein, A.},
-  journal={Annalen der physik},
-  volume={322},
-  number={8},
-  pages={549--560},
-  year={1905},
-  publisher={Wiley Online Library}
+@article{tanGB,
+  title={Fuzzy Granule Density-Based Outlier Detection with Multi-Scale Granular Balls},
+  author={Gao, Can and Tan, Xiaofeng and Zhou, Jie and Ding, Weiping and Pedrycz, Witold},
+  abstract = {Outlier detection refers to the identification of anomalous samples that deviate significantly from the distribution of normal data and has been extensively studied and used in a variety of practical tasks. However, most unsupervised outlier detection methods are carefully designed to detect specified outliers, while real-world data may be entangled with different types of outliers. In this study, we propose a fuzzy rough sets-based multi-scale outlier detection method to identify various types of outliers. Specifically, a novel fuzzy rough sets-based method that integrates relative fuzzy granule density is first introduced to improve the capability of detecting local outliers. Then, a multi-scale view generation method based on granular-ball computing is proposed to collaboratively identify group outliers at different levels of granularity. Moreover, reliable outliers and inliers determined by the three-way decision are used to train a weighted support vector machine to further improve the performance of outlier detection. The proposed method innovatively transforms unsupervised outlier detection into a semi-supervised classification problem and for the first time explores the fuzzy rough sets-based outlier detection from the perspective of multi-scale granular balls, allowing for high adaptability to different types of outliers. Extensive experiments carried out on both artificial and UCI datasets demonstrate that the proposed outlier detection method significantly outperforms the state-of-the-art methods, improving the results by at least 8.48% in terms of the Area Under the ROC Curve (AUROC) index.},
+  journal={Under Review},
+  selected={true},
+  preview={MGBOD.png},
+  supp={https://github.com/Xiaofeng-Tan/MGBOD},
+  year={2023}
 }
 
-@article{einstein1905movement,
-  abbr={Ann. Phys.},
-  title={Un the movement of small particles suspended in statiunary liquids required by the molecular-kinetic theory 0f heat},
-  author={Einstein, A.},
-  journal={Ann. Phys.},
-  volume={17},
-  pages={549--560},
-  year={1905}
-}
-
-@article{einstein1905electrodynamics,
-  title={On the electrodynamics of moving bodies},
-  author={Einstein, A.},
-  year={1905}
-}
-
-@Article{einstein1905photoelectriceffect,
-  bibtex_show={true},
-  abbr={Ann. Phys.},
-  title="{{\"U}ber einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt}",
-  author={Albert Einstein},
-  abstract={This is the abstract text.},
-  journal={Ann. Phys.},
-  volume={322},
-  number={6},
-  pages={132--148},
-  year={1905},
-  doi={10.1002/andp.19053220607},
-  award={Albert Einstein receveid the **Nobel Prize in Physics** 1921 *for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect*},
-  award_name={Nobel Prize}
-}
-
-@book{przibram1967letters,
-  bibtex_show={true},
-  title={Letters on wave mechanics},
-  author={Einstein, Albert and Schrödinger, Erwin and Planck, Max and Lorentz, Hendrik Antoon and Przibram, Karl},
-  year={1967},
-  publisher={Vision},
-  preview={wave-mechanics.gif},
-  abbr={Vision}
+@article{tan4785986multiple,
+  title={Multiple Autoencoder-Based Anomaly Detection with Fuzzy Rough Sets},
+  author={Tan, Xiaofeng and Gao, Can and Zhou, Jie and Yue, Xiaodong},
+  journal={Available at SSRN 4785986},
+  abstract = {Anomaly detection is a practical and essential research topic with a wide range of applications. However, existing anomaly detection methods may face challenges when handling high-dimensional data with complex distributions. In this study, we propose a multiple autoencoder-based anomaly detection method with the aid of fuzzy rough sets. Specifically, the autoencoder is first improved by introducing the kernel fuzzy relation to enhance its representation capability in low-dimensional space. Then, the theory of fuzzy rough sets is employed to perform anomaly detection in the learned low-dimensional representation by fusing multi-view proximity-based information. Finally, to handle complex data, multiple autoencoders are utilized to collaboratively detect anomalies by integrating local anomaly information from different perspectives. Comparative experiments conducted on the selected datasets reveal that the proposed method is superior to state-of-the-art methods, improving over classical autoencoder by 5.58% in terms of the AUC-ROC index.},
+  year={2024}
 }
