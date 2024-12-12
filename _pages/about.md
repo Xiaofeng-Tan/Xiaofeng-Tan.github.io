@@ -19,4 +19,4 @@ I am a first year M.Sc student in the [PAttern Learning and Mining(PALM) Lab](ht
 
 In [Shenzhen Unversity (SZU)](https://en.szu.edu.cn/), I obtained my B.E and B.Sc in [College of Computer Science and Software Engineering](https://csse.szu.edu.cn/) and [School of Mathematical Sciences](https://math.szu.edu.cn/), respectively. During my undergraduate, I did research under the supervision of Prof. [Can Gao](https://csse.szu.edu.cn/pages/user/index?id=953).
 
-If you have questions, feel free to reach out through [email](xiaofengtan@seu.edu.cn)!
+If you have questions, feel free to reach out through [email (xiaofengtan@seu.edu.cn)](xiaofengtan@seu.edu.cn)!
