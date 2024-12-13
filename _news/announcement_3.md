@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I graduated from SZU, with an honor B.E degree from CSSE and a B.Sc degree from MS.
+I graduated from SZU, with an honor B.E degree from CSSE and B.Sc degree from MS.
