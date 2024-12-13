@@ -88,9 +88,17 @@ layout: default
     <!-- Latest posts -->
     {% if site.latest_posts.enabled %}
       <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">Education Experience</a>
+        <a  style="color: inherit">Education Experience</a>
       </h2>
-      {% include latest_posts.liquid %}
+      Coming soon ... 🏗️ 🚧 🔨
+    {% endif %}
+
+    <!-- Latest posts -->
+    {% if site.latest_posts.enabled %}
+      <h2>
+        <a style="color: inherit">Selected Honors</a>
+      </h2>
+      Coming soon ... 🏗️ 🚧 🔨
     {% endif %}
 
     <!-- Selected papers -->
@@ -100,6 +108,39 @@ layout: default
       </h2>
       {% include selected_papers.liquid %}
     {% endif %}
+
+    <h2>
+      <a style="color: inherit">Teaching Assistant</a>
+    </h2>
+    <a>2022 Fall </a>
+    <div class="course-list">
+            <ul>
+              <li>Data Structure</li>
+              <li>Fundamental of Programming</li>
+            </ul>
+        </div>
+      <a>2023 Spring </a>
+      <div class="course-list">
+              <ul>
+                <li>Data Structure</li>
+                <li>Object-Oriented Programming</li>
+              </ul>
+      </div>
+      <a>2023 Fall </a>
+      <div class="course-list">
+              <ul>
+                <li>Data Structure</li>
+                <li>Fundamental of Programming</li>
+                <li>Introduction to Core Courses</li>
+              </ul>
+      </div>
+      <a> 2024 Spring </a>
+      <div class="course-list">
+              <ul>
+                <li>Operating System</li>
+                <li>Object-Oriented Programming</li>
+              </ul>
+      </div>
 
     <!-- Social -->
     {% if page.social %}
@@ -111,15 +152,7 @@ layout: default
     {% endif %}
 
 
-    {% if page.teaching  and site.announcements.enabled%}
-      <h2>
-        <a>OKOKOKOK</a>
-      </h2>
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">Teaching Assistant</a>
-      </h2>
-      {% include teaching.liquid limit=true %}
-    {% endif %}
+
 
     {% if site.newsletter.enabled and site.footer_fixed %}
       {% include scripts/newsletter.liquid center=true %}
