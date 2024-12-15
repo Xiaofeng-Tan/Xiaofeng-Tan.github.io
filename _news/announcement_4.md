@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Officially started my M.Sc journey at SEU.
+Officially started my M.Phil journey at SEU.
