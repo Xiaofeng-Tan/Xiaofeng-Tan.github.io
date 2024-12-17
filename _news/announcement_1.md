@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I am honored to deliver a speech at the graduation ceremony on behalf of all graduates.  [Photos](assets/img/SZU-Speech.jpg)
+🎙️🎙️ I am honored to deliver a speech at the graduation ceremony on behalf of all graduates.  [Photos](assets/img/SZU-Speech.jpg)
