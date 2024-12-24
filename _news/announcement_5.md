@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 One paper is accepted by _**IEEE Transactions on Knowledge and Data Engineering**_!
+🎉 One paper is accepted by _**IEEE Transactions on Knowledge and Data Engineering**_ !
