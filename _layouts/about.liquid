@@ -80,23 +80,33 @@ layout: default
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
       <h2>
-        <a style="color: inherit">News</a>
+        <a style="color: inherit">👀 News</a>
       </h2>
       {% include news.liquid limit=true %}
     {% endif %}
 
-    <!-- Latest posts -->
-    {% if site.latest_posts.enabled %}
-      <h2>
-        <a  style="color: inherit">Education Experience</a>
-      </h2>
-      Coming soon ... 🏗️ 🚧 🔨
-    {% endif %}
+  <!-- Education Experience -->
+  {% if site.latest_posts.enabled %}
+    <h2>
+      <a style="color: inherit">👨🏻‍🎓 Education Experience</a>
+    </h2>
+    <ul style="list-style-type: none; padding: 0;">
+      {% for education in site.education %}
+        <li >
+          <strong>{{ education.school }}</strong> 
+          <span style="color: #555;">| {{ education.degree }}</span><br>
+          <span style="font-size: 0.9em; color: #777;">{{ education.year }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Coming soon ... 🏗️ 🚧 🔨</p>
+  {% endif %}
 
     <!-- Latest posts -->
     {% if site.latest_posts.enabled %}
       <h2>
-        <a style="color: inherit">Selected Honors</a>
+        <a style="color: inherit">🌟 Selected Honors</a>
       </h2>
       Coming soon ... 🏗️ 🚧 🔨
     {% endif %}
@@ -104,13 +114,13 @@ layout: default
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected Publications</a>
+        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">📖 Selected Publications</a>
       </h2>
       {% include selected_papers.liquid %}
     {% endif %}
 
     <h2>
-      <a style="color: inherit">Teaching Assistant</a>
+      <a style="color: inherit">💡 Teaching Assistant</a>
     </h2>
     <a>2022 Fall </a>
     <div class="course-list">

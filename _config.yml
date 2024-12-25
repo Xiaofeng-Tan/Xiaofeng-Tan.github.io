@@ -686,3 +686,11 @@ jsonresume:
   - languages
   - interests
   - references
+
+education:
+  - school: Southeast Unversity
+    degree: Master student
+    year: 2024 - Present
+  - school: Shenzhen Unversity
+    degree: Bachelor of Engineering & Bachelor of Science
+    year: 2020 - 2024
