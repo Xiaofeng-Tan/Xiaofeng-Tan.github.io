@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-✊ I stand with my favorite player, [🏆 Olympic champion 🏓 Fan Zhendong](https://www.instagram.com/fanzhendong9248/), and advocate for justice against his unfair treatment!
+✊ I stand with my favorite player, [🏆 Olympic champion, 🏓 Zhendong Fan](https://www.instagram.com/fanzhendong9248/), and advocate for justice against his unfair treatment!
