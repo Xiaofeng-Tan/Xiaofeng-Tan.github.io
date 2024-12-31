@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-🌈 I am honored to be interviewed by SZU as an outstanding student, which is published in the _2024 Shenzhen University Admissions Guide_. [Link](https://book.yunzhan365.com/aeeh/bulw/mobile/index.html)
+🌈 I am honored to be interviewed by SZU as an outstanding student, which is published in the _2024 Shenzhen University Admissions Guide_. [[Link](https://book.yunzhan365.com/aeeh/bulw/mobile/index.html)]
