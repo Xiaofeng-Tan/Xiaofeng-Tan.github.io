@@ -6,31 +6,28 @@ layout: default
       <h1 class="post-title">
         {% if site.title == 'blank' %}
           <strong><span style="
-          font-size: 38px;
           letter-spacing: -1px;
           line-height: 0.6;
           margin-bottom: 10px;
           margin-top: 0;
-          color: #666;">
+          color: #555;">
           {{ site.first_name }}
         </span></strong>
           <span style="
-            font-size: 38px;
             letter-spacing: -1px;
             line-height: 0.6;
             margin-bottom: 10px;
             margin-top: 0;
-            color: #666;">
+            color: #555;">
             {{ site.last_name }}
           </span>
           
           <strong></strong><span style="
-              font-size: 38px;
               letter-spacing: -1px;
               line-height: 0.6;
               margin-bottom: 10px;
               margin-top: 0;
-              color: #666;">
+              color: #555;">
             ({{ site.Chinese_name }})
           </span></strong>
         {% else %}
@@ -39,7 +36,7 @@ layout: default
       </h1>
       <p class="desc" style="font-size: 14px; color: #999;">
       <a style="color: #999; text-decoration: none;">
-        M.Phil in Computer Sciences
+        M.Sc in Computer Sciences
       </a> • 
       <a style="color: #999; text-decoration: none;">
         Department of Computer Science and Engineering
@@ -80,7 +77,9 @@ layout: default
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
       <h2>
-        <a style="color: inherit">👀 News</a>
+        <strong><span style="color: #555;">
+          👀 News
+          </span></strong>
       </h2>
       {% include news.liquid %}
     {% endif %}
@@ -88,14 +87,17 @@ layout: default
   <!-- Education Experience -->
   {% if site.latest_posts.enabled %}
     <h2>
-      <a style="color: inherit">👨🏻‍🎓 Education Experience</a>
+
+    <strong><span style="color: #555;">
+    👨🏻‍🎓 Education Experience
+    </span></strong>
     </h2>
     <ul style="list-style-type: none; padding: 0;">
       {% for education in site.education %}
         <li style="margin-bottom: 0.8em;">
-          <strong>{{ education.school }}</strong> 
+          <strong><span style="color: #555;">{{ education.school }}</span></strong>
           <span style="color: #555;">| {{ education.degree }}</span><br>
-          <span style="font-size: 0.9em; color: #777;">{{ education.year }}</span>
+          <span style="font-size: 0.9em; color: #555;">{{ education.year }}</span>
         </li>
       {% endfor %}
     </ul>
@@ -103,53 +105,223 @@ layout: default
     <p>Coming soon ... 🏗️ 🚧 🔨</p>
   {% endif %}
 
-    <!-- Latest posts -->
-    {% if site.latest_posts.enabled %}
-      <h2>
-        <a style="color: inherit">🌟 Selected Honors</a>
-      </h2>
-      Coming soon ... 🏗️ 🚧 🔨
-    {% endif %}
-
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">📖 Selected Publications</a>
+        <strong><span style="color: #555;">
+          📖  Publications
+          </span></strong>
       </h2>
+      (# denotes co-first Author)
       {% include selected_papers.liquid %}
     {% endif %}
 
-    <h2>
-      <a style="color: inherit">💡 Teaching Assistant</a>
-    </h2>
-    <a>2022 Fall </a>
-    <div class="course-list">
-            <ul>
-              <li>Fundamental of Programming (for 2022 Mathematics and Computer Science Special Class, and WeBank Fintech Class)</li>
-              <li>Data Structure (for 2021 Computer Science Class)</li>
-            </ul>
+ <!-- Latest posts -->
+ {% if site.latest_posts.enabled %}
+  <h2>
+    <strong><span style="color: #555;">
+      🌟 Selected Honors
+      </span></strong>
+  </h2>
+  <div class="honors-section">
+    <ul class="honors-list">
+      <li>
+        <div class="honor-title">
+          <strong><span style="color: #555;">Outstanding Graduate Representative</span></strong>
+          <span class="year-right">2024</span>
         </div>
-      <a>2023 Spring </a>
-      <div class="course-list">
-              <ul>
-                <li>Object-Oriented Programming (for 2022 Mathematics and Computer Science Special Class, and WeBank Fintech Class)</li>
-                <li>Computer System (for 2022 Mathematics and Computer Special Class)</li>
-              </ul>
-      </div>
-      <a>2023 Fall </a>
-      <div class="course-list">
-              <ul>
-                <li>Data Structure (for 2022 Computer Science Class)</li>
-                <li>Intorduction of Computer (common optional course)</li>
-              </ul>
-      </div>
-      <a> 2024 Spring </a>
-      <div class="course-list">
-              <ul>
-                <li>Operating System (for 2021 Computer Science Class)</li>
-                <li>Object-Oriented Programming (for 2023 Computer Science Class)</li>
-              </ul>
-      </div>
+        <div class="honor-details">
+          <span class="description">Speaker in graduation</span>
+        </div>
+      </li>
+      <li>
+        <div class="honor-title">
+          <strong><span style="color: #555;">Honor Bachelor's Degree</span></strong>
+          <span class="year-right">2024</span>
+        </div>
+        <div class="honor-details">
+          <span class="description">Top 5% at Shenzhen University</span>
+        </div>
+      </li>
+      <li>
+        <div class="honor-title">
+          <strong><span style="color: #555;">Outstanding Graduate</span></strong>
+          <span class="year-right">2024</span>
+        </div>
+        <div class="honor-details">
+          <span class="description">Top 10% at Shenzhen University</span>
+        </div>
+      </li>
+      <li>
+        <div class="honor-title">
+          <strong><span style="color: #555;">Star of Liyuan Scholarship</span></strong>
+          <span class="year-right">2022, 2023</span>
+        </div>
+        <div class="honor-details">
+          <span class="description">Top 0.73% at Shenzhen University ("Liyuan" means Shenzhen University, ¥20,000)</span>
+        </div>
+      </li>
+      <li>
+        <div class="honor-title">
+          <strong><span style="color: #555;">Outstanding Innovative Talent Scholarship (from Shenzhen University)</span></strong>
+          <span class="year-right">2020</span>
+        </div>
+        <div class="honor-details">
+          <span class="description">Top 2% in Guangdong Province Science College Entrance Exam (¥20,000)</span>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+  <style>
+    .honors-section {
+      margin-top: 10px;
+      padding-left: 0;
+    }
+    .honors-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .honors-list li {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+    .honor-title {
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;  /* 使年份右对齐 */
+      width: 100%;
+    }
+    .honor-details {
+      font-size: 0.9em;
+      color: #555; /* 浅灰色 */
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .year-right {
+      color: #555; /* 保留原来颜色 */
+      text-align: right; /* 右对齐 */
+    }
+    .description {
+      color: #555;
+      flex-shrink: 0;
+    }
+    .separator {
+      margin: 0 8px;
+      color: #999; /* 分隔符颜色 */
+    }
+  </style>
+{% endif %}
+
+
+    <h2>
+      <strong><span style="color: #555;">
+        💡 Teaching Assistant
+        </span></strong>
+    </h2>
+    
+    <div class="teaching-section">
+      <ul class="teaching-list">
+        <li>
+          <div class="course-title">
+            <strong><span style="color: #555;">Fundamentals of Programming</span></strong>
+            <span class="term-right">2022 Fal.</span>
+          </div>
+          <div class="course-details">
+            <span class="description">2022 Mathematics and Computer Science Special Class, WeBank Fintech Class</span>
+          </div>
+        </li>
+        <li>
+          <div class="course-title">
+            <strong><span style="color: #555;">Data Structure</span></strong>
+            <span class="term-right">2022 Fal., 2023 Fal.</span>
+          </div>
+          <div class="course-details">
+            <span class="description">2021 and 2022 Computer Science Classes</span>
+          </div>
+        </li>
+        <li>
+          <div class="course-title">
+            <strong><span style="color: #555;">Object-Oriented Programming</span></strong>
+            <span class="term-right">2023 Spr., 2024 Spr.</span>
+          </div>
+          <div class="course-details">
+            <span class="description">2022 Mathematics and Computer Science Special Class, WeBank Fintech Class, 2023 Computer Science Class</span>
+          </div>
+        </li>
+        <li>
+          <div class="course-title">
+            <strong><span style="color: #555;">Computer System</span></strong>
+            <span class="term-right">2023 Spr.</span>
+          </div>
+          <div class="course-details">
+            <span class="description">2022 Mathematics and Computer Science Special Class</span>
+          </div>
+        </li>
+        <li>
+          <div class="course-title">
+            <strong><span style="color: #555;">Introduction to Computer Science</span></strong>
+            <span class="term-right">2023 Fal.</span>
+          </div>
+          <div class="course-details">
+            <span class="description">Common Optional Course</span>
+          </div>
+        </li>
+        <li>
+          <div class="course-title">
+            <strong><span style="color: #555;">Operating System</span></strong>
+            <span class="term-right">2024 Spr.</span>
+          </div>
+          <div class="course-details">
+            <span class="description">2021 Computer Science Class</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <style>
+      .teaching-section {
+        margin-top: 10px;
+        padding-left: 0;
+      }
+      .teaching-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      .teaching-list li {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+      }
+      .course-title {
+        display: flex;
+        justify-content: space-between;  /* 年份右对齐 */
+        width: 100%;
+      }
+      .course-details {
+        font-size: 0.9em;
+        color: #555; /* 浅灰色 */
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+      .term-right {
+        color: #555; /* 保留原来颜色 */
+        text-align: right; /* 右对齐 */
+        flex-shrink: 0;
+      }
+      .description {
+        color: #555;
+        flex-grow: 1; /* 描述占剩余空间 */
+      }
+      .separator {
+        margin: 0 8px;
+        color: #999; /* 分隔符稍深灰色 */
+      }
+    </style>
 
     <!-- Social -->
     {% if page.social %}

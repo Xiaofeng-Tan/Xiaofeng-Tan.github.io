@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 Merry Xmas! One paper is accepted by _**IEEE Transactions on Knowledge and Data Engineering**_ !
+🎉 Merry Xmas! One paper is accepted by _IEEE Transactions on Knowledge and Data Engineering_ !
