@@ -20,3 +20,5 @@ I am a first-year M.Sc student in [PAttern Learning and Mining(PALM) Lab](https:
 I earned my B.E from [College of Computer Science and Software Engineering(CSSE)](https://csse.szu.edu.cn/) and B.Sc from [School of Mathematical Sciences(MS)](https://math.szu.edu.cn/) at  [Shenzhen Unversity (SZU)](https://en.szu.edu.cn/). During my undergraduate, I conducted research under the supervision of Prof. [Can Gao](https://csse.szu.edu.cn/pages/user/index?id=953).
 
 If you have questions, feel free to reach out through [email (xiaofengtan@seu.edu.cn)](xiaofengtan@seu.edu.cn)!  I’m also happy to chat about anything related to Doraemon 🤣.
+
+🔍 <span style="color:#B22222"><strong>I am currently seeking on-site visiting student or RA opportunities. If you're interested, feel free to contact me via <a href="mailto:xiaofengtan@seu.edu.cn" style="color:#2F4F4F">email</a>.</strong></span>

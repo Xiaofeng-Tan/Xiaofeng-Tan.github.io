@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Bilingual Text-to-Motion Generation via Step-Aware Reward-Guided Alignment</title>
+  <link rel="icon" type="image/x-icon" href="">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+  <style>
+  .tldr {
+    font-size: 0.9em;          /* 比正文略大，温和突出 */
+    font-weight: bold;         /* 加粗标题部分 */
+    color: #33333389;            /* 深灰色，稳重且专业 */
+    font-style: italic;        /* 斜体正文，区分正文 */
+  }
+</style>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Bilingual Text-to-Motion Generation via Step-Aware Reward-Guided Alignment</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+<!--              <span class="author-block">-->
+<!--                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Anonymous ICCV submission</a></span>-->
+              <span class="author-block">
+                 </span>
+
+<!--                <span class="author-block">-->
+<!--                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>-->
+<!--                  <span class="author-block">-->
+<!--                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>-->
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"> </span>
+<!--                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>-->
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="static/pdfs/Bilingual_Text_to_Motion_Generation_with_Step_Aware_Reward_Guide_Alignment.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- Supplementary PDF link -->
+                    <span class="link-block">
+                      <a href="static/pdfs/Bilingual_Text-to-Motion_Generation_via_Step-Aware_Reward-Guided_Alignment_Supplementary_Material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span>
+
+<!--                  &lt;!&ndash; Github link &ndash;&gt;-->
+<!--                  <span class="link-block">-->
+<!--                    <a href="https://github.com/YOUR REPO HERE" target="_blank"-->
+<!--                    class="external-link button is-normal is-rounded is-dark">-->
+<!--                    <span class="icon">-->
+<!--                      <i class="fab fa-github"></i>-->
+<!--                    </span>-->
+<!--                    <span>Code</span>-->
+<!--                  </a>-->
+<!--                </span>-->
+
+                <!-- ArXiv abstract Link -->
+<!--                <span class="link-block">-->
+<!--                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"-->
+<!--                  class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                    <i class="ai ai-arxiv"></i>-->
+<!--                  </span>-->
+<!--                  <span>arXiv</span>-->
+<!--                </a>-->
+<!--              </span>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 在页面头部或全局 CSS 中添加以下样式 -->
+<style>
+  .has-text-justified {
+    text-align: justify;
+  }
+</style>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+
+        <!-- 第一块内容：TL;DR（行内加粗） -->
+        <div class="box has-background-white-ter mb-5 p-5">
+          <p class="has-text-justified">
+            <strong>TL;DR:</strong> We introduce the first bilingual text-to-motion dataset
+            and the corresponding model for bilingual text-to-motion generation,
+            and a plug-and-play reward-guided alignment to further enhance generation quality.
+          </p>
+        </div>
+
+        <!-- 第二块内容：主体段落 -->
+        <div class="box has-background-white-ter p-5">
+          <p class="has-text-justified">
+            Bilingual text-to-motion generation, which synthesizes 3D human motions from bilingual text inputs, holds immense potential for cross-linguistic applications in gaming, film, and robotics. However, this task faces critical challenges: the absence of bilingual motion-language datasets and the misalignment between text and motion distributions in diffusion models, leading to semantically inconsistent or low-quality motions. To address these challenges, we propose BiHumanML3D, a novel bilingual human motion dataset, which establishes a crucial benchmark for bilingual text-to-motion generation models. Furthermore, we propose a <strong>Bi</strong>lingual <strong>M</strong>otion <strong>D</strong>iffusion model (<strong>BiMD</strong>), which leverages cross-lingual aligned representations to capture semantics, thereby achieving a unified bilingual model. Building upon this, we propose <strong>Re</strong>ward-guided sampling <strong>Align</strong>ment (<strong>ReAlign</strong>) method, comprising a step-aware reward model to assess alignment quality during sampling and a reward-guided strategy that directs the diffusion process toward an optimally aligned distribution. This reward model integrates step-aware tokens and combines a text-aligned module for semantic consistency and a motion-aligned module for realism, refining noisy motions at each timestep to balance probability density and alignment. Experiments demonstrate that our approach significantly improves text-motion alignment and motion quality compared to existing state-of-the-art methods.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- End paper abstract -->
+
+<style>.two-image-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.image-row {
+  width: 90%;
+  text-align: center;
+  margin-bottom: 20px; /* 可根据需要调整间距 */
+}
+.caption {
+  width: 100%;
+  text-align: center;
+}
+.three-image-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#results-container {
+  display: block;
+}
+
+.item {
+  margin-bottom: 50px; /* 根据需要调整每个项目之间的间距 */
+}
+
+.image-row {
+  width: 90%;
+  margin: 0 auto 20px auto; /* 图片水平居中，设置上下间距 */
+  text-align: center;
+}
+.item {
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  padding: 20px;
+  margin-bottom: 50px;
+  background-color: #fff;
+}
+
+.image-row {
+  width: 90%;
+  margin: 0 auto 20px auto;
+  text-align: center;
+}
+
+.caption {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.top-caption h2 {
+  font-size: 1.3em !important;
+  font-weight: bold !important;
+  font-style: italic !important;
+}
+
+.image-row img[src*="kit.jpg"],
+.image-row img[src*="plug.jpg"] {
+  width: 50%;
+  height: auto;
+}
+.half-scale .image-row img {
+  width: 50%;
+  height: auto;
+}
+
+.half-scale .caption {
+  width: 50%;
+  margin: 0 auto; /* 使 caption 居中 */
+}
+/* 保持垂直排列的 item 样式 */
+#results-container .item {
+  margin-bottom: 50px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  padding: 20px;
+  background-color: #fff;
+}
+
+/* 图片和 caption 样式 */
+.image-row {
+  width: 90%;
+  margin: 0 auto 20px auto;
+  text-align: center;
+}
+
+.caption {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* top-caption 独特样式 */
+.top-caption h2 {
+  font-size: 2em !important;
+  font-weight: bold !important;
+  font-style: italic !important;
+}
+
+/* 水平滑动容器 */
+#horizontal-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  padding: 20px 0;
+}
+
+/* 单个滑动项 */
+#horizontal-slider .slider-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 300px;  /* 根据需要调整宽度 */
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  padding: 20px;
+  background-color: #fff;
+}
+
+.justify-text {
+  text-align: justify !important;
+}
+
+</style>
+
+
+<!-- Image carousel -->
+<!-- Image vertical layout: one image per row -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-container">
+
+        <div class="item">
+          <div class="caption top-caption">
+            <h2 class="subtitle has-text-centered">
+              Visual comparison of bilingual & monolingual motion generation results.
+            </h2>
+          </div>
+          <div class="image-row">
+            <img src="static/images/intro.jpg" alt="Image 5"/>
+          </div>
+          <h2 class="subtitle has-text-centered" style="text-align: justify;">
+            Observations reveal that: (1) in bilingual motion generation, MDM and MLD exhibit limitations in processing bilingual inputs; (2) in monolingual motion generation, generated motions demonstrate persistent misalignment with input texts. The left figure shows that our BiMD successfully generates motion from both English and Chinese inputs. Furthermore, the right figure highlights that BiMD, integrated with our ReAlign, successfully mitigates the misalignment issue.
+          </h2>
+
+        </div>
+
+        <div class="item">
+          <div class="caption top-caption">
+            <h2 class="subtitle has-text-centered">
+              Reward-Guided Sampling in Diffusion-Based Motion Generation.
+            </h2>
+          </div>
+          <div class="image-row">
+            <img src="static/images/sampling.jpg" alt="Image 5"/>
+          </div>
+          <h2 class="subtitle has-text-centered">
+            <p>
+              Illustration of the sampling process in diffusion-based motion generation frameworks. The blue region represents the sampling distribution \( p_t(\cdot) \) learned by the diffusion model, while the green region depicts the ideal sampling distribution \( p_t^I(\cdot) \) achieved by incorporating our proposed reward-guided sampling strategy with the sampling distribution \( p_t(\cdot) \).
+            </p>
+          </h2>
+        </div>
+
+
+
+        <div class="item">
+          <div class="caption top-caption">
+            <h2 class="subtitle has-text-centered">
+              More visual comparison of monolingual motion generation results.
+            </h2>
+          </div>
+          <div class="image-row">
+            <img src="static/images/visual.jpg" alt="Image 5"/>
+          </div>
+          <h2 class="subtitle has-text-centered">
+            Visual comparison of motion generation results on the HumanML3D dataset. Our proposed BiMD method with ReAlign integration improves alignment between text descriptions and generated motions and enhances overall motion quality compared to MLD. The red text denotes descriptions inconsistent with the generated motions.
+          </h2>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <!-- 添加统一标题 -->
+      <h1 class="title has-text-centered justify-top" style="font-size:2em; font-weight:bold; font-style:italic;">
+        Main Results
+      </h1>
+
+
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item">
+          <div class="caption top-caption">
+            <h2 class="subtitle has-text-centered">
+              Comparison of text-to-motion generation performance on the HumanML3D dataset
+            </h2>
+          </div>
+          <div class="image-row">
+            <img src="static/images/h3d.jpg" alt="Image 5"/>
+          </div>
+          <h2 class="subtitle has-text-centered">
+            Comparison of text-to-motion generation performance on the HumanML3D dataset. Percentages in subscripts indicate improvements over respective baselines. Our BiMD adopts a similar backbone of MLD's, and surpasses it on all metrics.
+          </h2>
+        </div>
+
+        <div class="item">
+          <div class="caption top-caption">
+            <h2 class="subtitle has-text-centered">
+              Comparison of text-to-motion generation performance on the KIT-ML dataset
+            </h2>
+          </div>
+          <div class="image-row">
+            <img src="static/images/kit.jpg" alt="Image 5"/>
+          </div>
+          <h2 class="subtitle has-text-centered">
+            Comparison of text-to-motion generation performance on the KIT-ML dataset. Since the models MLD and MLD++ for the KIT-ML dataset have not been released, we use the widely used MDM as the baseline.
+          </h2>
+        </div>
+
+        <div class="item">
+          <div class="caption top-caption">
+            <h2 class="subtitle has-text-centered">
+              Plug-and-Play Functionality of ReAlign
+            </h2>
+          </div>
+          <div class="image-row">
+            <img src="static/images/plug.jpg" alt="Image 5"/>
+          </div>
+          <h2 class="subtitle has-text-centered">
+            Performance enhancement of motion generation methods with plug-and-play step-aware reward guidance. Results are evaluated on the HumanML3D dataset, with improvements reported relative to baseline methods. Here, MLCM<sup>1</sup> and MLCM<sup>4</sup> denote the 1-step and 4-step model in MotionLCM. MDiff is an abbreviation of MotionDiffuse.
+          </h2>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- End image carousel -->
+
+
+
+
+<!--&lt;!&ndash; Youtube video &ndash;&gt;-->
+<!--<section class="hero is-small is-light">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      &lt;!&ndash; Paper video. &ndash;&gt;-->
+<!--      <h2 class="title is-3">Video Presentation</h2>-->
+<!--      <div class="columns is-centered has-text-centered">-->
+<!--        <div class="column is-four-fifths">-->
+<!--          -->
+<!--          <div class="publication-video">-->
+<!--            &lt;!&ndash; Youtube embed code here &ndash;&gt;-->
+<!--            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!--&lt;!&ndash; End youtube video &ndash;&gt;-->
+
+<style>
+  .video-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* 可选：设置间距 */
+  }
+  .video-list .item {
+    width: calc(50% - 10px); /* 两个视频之间的间距需要计算进去 */
+    box-sizing: border-box;
+  }
+</style>
+
+<!-- Chinese results on Chinese Text to Motion -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Visualizations on Chinese Text to Motion</h2>
+      <div class="video-list">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop>
+            <source src="static/videos/CN/CN_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/CN/CN_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop>
+            <source src="static/videos/CN/CN_3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop>
+            <source src="static/videos/CN/CN_4.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- English results on English Text to Motion -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Visualizations on English Text to Motion</h2>
+      <div class="video-list">
+        <div class="item item-video5">
+          <video poster="" id="video5" autoplay controls muted loop>
+            <source src="static/videos/EN/EN_5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video6">
+          <video poster="" id="video6" autoplay controls muted loop>
+            <source src="static/videos/EN/EN_6.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video7">
+          <video poster="" id="video7" autoplay controls muted loop>
+            <source src="static/videos/EN/EN_7.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video8">
+          <video poster="" id="video8" autoplay controls muted loop>
+            <source src="static/videos/EN/EN_8.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video9">
+          <video poster="" id="video9" autoplay controls muted loop>
+            <source src="static/videos/EN/EN_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video10">
+          <video poster="" id="video10" autoplay controls muted loop>
+            <source src="static/videos/EN/EN_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video11">
+          <video poster="" id="video11" autoplay controls muted loop>
+            <source src="static/videos/EN/EN_3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video11">
+          <video poster="" id="video13" autoplay controls muted loop>
+            <source src="static/videos/EN/EN_9.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video11">
+          <video poster="" id="video14" autoplay controls muted loop>
+            <source src="static/videos/EN/EN_10.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video12">
+          <video poster="" id="video12" autoplay controls muted loop>
+            <source src="static/videos/EN/EN_4.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- End video carousel -->
+
+
+
+
+
+
+<!-- Paper poster -->
+<!--<section class="hero is-small is-light">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      <h2 class="title">Poster</h2>-->
+
+<!--      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">-->
+<!--          </iframe>-->
+<!--        -->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--End paper poster -->
+
+
+<!--BibTex citation -->
+<!--  <section class="section" id="BibTeX">-->
+<!--    <div class="container is-max-desktop content">-->
+<!--      <h2 class="title">BibTeX</h2>-->
+<!--      <pre><code>BibTex Code Here</code></pre>-->
+<!--    </div>-->
+<!--</section>-->
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the Academic Project Page Template</a> which was adopted from the  Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
