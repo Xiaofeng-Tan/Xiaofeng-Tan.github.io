@@ -64,6 +64,9 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">SoPo: Text-to-Motion Generation Using Semi-Online Preference Optimization</h1>
             <div class="is-size-5 publication-authors">
+              <p class="tldr" style="max-width: 85%; margin: 0 auto;">
+                <strong>TL;DR:</strong> We propose SoPo, a semi-online preference optimization method, combining the strengths of online and offline direct preference optimization to overcome their individual shortcomings, delivering enhanced motion generation quality and preference alignment.
+              </p>
               <!-- Paper authors -->            
                <!-- 
               <span class="author-block">
@@ -120,7 +123,7 @@
       <h2 class="title is-3">Toy Example </h2>
       <img style="width: 100%; height: auto; display: block; margin: 0 auto;" src="static/images/toy.png" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-left">
-        Comparison of offline, online DPO, and our SoPo on synthetic data. Offline DPO suffers from mining unpreferred motions with high probability, and online DPO is limited by biased sampling. Our SoPo utilizes the dynamic unpreferred motions and preferred motions from unbiased offline dataset, overcoming their advantage. Here, the blue region is the distribution of generative model.
+        <strong>Comparison of offline, online DPO, and our SoPo on synthetic data. </strong>Offline DPO suffers from mining unpreferred motions with high probability, and online DPO is limited by biased sampling. Our SoPo utilizes the dynamic unpreferred motions and preferred motions from unbiased offline dataset, overcoming their advantage. Here, the blue region is the distribution of generative model.
       </h2>
       <br>
     </div>
@@ -132,7 +135,6 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <p class="tldr"><strong>TL;DR:</strong> We propose SoPo, a semi-online preference optimization method, combining the strengths of online and offline direct preference optimization to overcome their individual shortcomings, delivering enhanced motion generation quality and preference alignment.
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           </p>
@@ -152,28 +154,28 @@
       <h2 class="title is-3">Experiment Results </h2>
       <br>
       <h2 class="subtitle has-text-left">
-        Quantitative results of preference alignment methods for text-to-motion generation on the HumanML3D test set.
+        <strong>Quantitative results of preference alignment methods for text-to-motion generation on the HumanML3D test set.</strong>
       </h2>
       <img style="width: 100%; height: auto; display: block; margin: 0 auto;" src="static/images/t1.png" alt="MY ALT TEXT"/>
       
       <br>
 
       <h2 class="subtitle has-text-left">
-        Quantitative comparison of state-of-the-art text-to-motion generation on the HumanML3D test set.
+        <strong>Quantitative comparison of state-of-the-art text-to-motion generation on the HumanML3D test set.</strong>
       </h2>
       <img style="width: 100%; height: auto; display: block; margin: 0 auto;" src="static/images/t2.png" alt="MY ALT TEXT"/>
 
       <br>
 
       <h2 class="subtitle has-text-left">
-        Quantitative comparison of state-of-the-art text-to-motion generation on the KIT-ML test set.
+        <strong>Quantitative comparison of state-of-the-art text-to-motion generation on the KIT-ML test set.</strong>
       </h2>
       <img style="width: 60%; height: auto; display: block; margin: 0 auto;" src="static/images/t3.png" alt="MY ALT TEXT"/>
 
       <br>
 
       <h2 class="subtitle has-text-left">
-        Ablation studies on the threshold $\tau$ and the number of generated motion
+        <strong>Ablation studies on the threshold $\tau$ and the number of generated motion.</strong>
       </h2>
       <img style="width: 60%; height: auto; display: block; margin: 0 auto;" src="static/images/t4.png" alt="MY ALT TEXT"/>
     </div>
@@ -181,22 +183,26 @@
 </section>
 
 <!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
       <h2 class="title is-3">Visual results on HumanML3D dataset</h2>
        <div class="item">
         <!-- Your image here -->
-        <img src="static/images/vis.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Visual results on HumanML3D dataset. We integrate our SoPo into MLD. Here, the red text denotes descriptions inconsistent with the generated motion.
+        <img src="static/images/vis.png" alt="MY ALT TEXT"/ style="width: 90%; height: auto; display: block; margin: 0 auto;" >
+        <h2 class="subtitle has-text-centered" style="width: 90%; height: auto; display: block; margin: 0 auto;" >
+          <strong>Visual results on HumanML3D dataset. We integrate our SoPo into MLD.</strong> Here, the red text denotes descriptions inconsistent with the generated motion.
         </h2>
       </div>
+            <br>
+
+            <br>
+
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/demo01.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Visual results on HumanML3D dataset. We integrate our SoPo into MDM and MLD, respectively. Here, the red text denotes descriptions inconsistent with the generated motion.
+        <img src="static/images/demo01.png" alt="MY ALT TEXT"/ style="width: 90%; height: auto; display: block; margin: 0 auto;" >
+        <h2 class="subtitle has-text-centered" style="width: 90%; height: auto; display: block; margin: 0 auto;" >
+          <strong>Visual results on HumanML3D dataset. We integrate our SoPo into MDM and MLD, respectively.</strong> Here, the red text denotes descriptions inconsistent with the generated motion.
         </h2>
       </div>
 </div>
@@ -206,9 +212,9 @@
 
 
 
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
       <h2 class="title is-3">Visualizations</h2>
       <div class="video-list">
         <div class="item item-video1">
