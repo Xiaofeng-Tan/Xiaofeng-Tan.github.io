@@ -22,4 +22,4 @@ I earned my B.E from [College of Computer Science and Software Engineering(CSSE)
 If you have questions, feel free to reach out through [email (xiaofengtan@seu.edu.cn)](xiaofengtan@seu.edu.cn)!  I’m also happy to chat about anything related to Doraemon 🤣.
 
 
-<!-- 🔍 <span style="color:#B22222"><strong>I am currently seeking on-site visiting student or RA opportunities. If you're interested, feel free to contact me via <a href="mailto:xiaofengtan@seu.edu.cn" style="color:#2F4F4F">email</a>.</strong></span> -->
+ 🔍 <span style="color:#B22222"><strong>I am currently seeking collaboration opportunities. If you're interested, feel free to contact me via <a href="mailto:xiaofengtan@seu.edu.cn" style="color:#2F4F4F">email</a> or <a style="color:#2F4F4F">WeChat</a>   (txf_06_20).</strong></span> 
