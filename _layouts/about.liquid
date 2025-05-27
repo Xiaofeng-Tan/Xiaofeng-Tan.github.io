@@ -124,6 +124,35 @@ layout: default
 
  <!-- Latest posts -->
  {% if site.latest_posts.enabled %}
+<style>
+  .honors-section {
+    max-height: 220px; /* 可根据需要修改高度 */
+    overflow-y: auto;
+    padding-right: 10px; /* 防止滚动条遮住内容 */
+  }
+
+  .honors-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .honor-title {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+
+  .year-right {
+    color: #777;
+  }
+
+  .honor-details {
+    margin-bottom: 10px;
+    color: #444;
+  }
+</style>
+
   <h2>
     <strong><span style="color: #555;">
       🌟 Selected Honors
@@ -229,7 +258,7 @@ layout: default
 </h2>
 
 <div class="teaching-section" style="
-  max-height: 220px;
+  max-height: 150px;
   overflow-y: auto;
   padding-right: 10px;
   margin-bottom: 1em;
