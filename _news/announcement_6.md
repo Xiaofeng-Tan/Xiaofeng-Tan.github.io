@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 I become a research intern at Tencent YouTu Lab!
+👀 I become a research intern at Tencent YouTu Lab!
