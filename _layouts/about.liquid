@@ -6,66 +6,144 @@ layout: default
   /* ========== 全局样式 ========== */
   .post {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #2c3e50;
   }
 
-  /* ========== 页面标题区域 ========== */
+  /* ========== 页面标题区域（浅蓝色动态渐变）========== */
   .post-header {
     text-align: center;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 1.5rem;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(144, 202, 249, 0.12);
+    position: relative;
+    overflow: hidden;
+    animation: gradientShift 8s ease-in-out infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { 
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+    }
+    50% { 
+      background: linear-gradient(135deg, #bbdefb 0%, #90caf9 50%, #64b5f6 100%);
+    }
+  }
+
+  .post-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    animation: float 15s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-20px, -20px) rotate(180deg); }
   }
 
   .post-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: #2c3e50;
-    letter-spacing: -1px;
+    color: #fafafa;
+    font-weight: 700;
+    letter-spacing: -0.5px;
     line-height: 1.2;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+  }
+
+  .post-title strong {
+    color: #ffffff;
   }
 
   .desc {
-    font-size: 1rem;
-    color: #7f8c8d;
+    font-size: 0.95rem;
+    color: #f8f8f8;
     margin-top: 0.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
   }
 
   .desc a {
-    color: #7f8c8d;
+    color: #f8f8f8;
     text-decoration: none;
     transition: color 0.3s ease;
   }
 
   .desc a:hover {
-    color: #3498db;
+    color: #ffffff;
   }
 
-  /* ========== 通用章节标题样式 ========== */
+  /* ========== 社交图标样式 ========== */
+  .social-icons-header {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .social-icons-header a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    color: #1976d2;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .social-icons-header a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+    background: #1976d2;
+    color: white;
+  }
+
+  /* ========== 通用章节标题样式（统一风格）========== */
   .section-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #2c3e50;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid #e0e0e0;
+    padding-left: 1rem;
+    border-bottom: 2px solid #e8ecef;
     display: flex;
     align-items: center;
+    position: relative;
   }
 
   .section-title::before {
     content: '';
-    width: 4px;
-    height: 1.5rem;
+    width: 3px;
+    height: 1.2rem;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    margin-right: 0.75rem;
+    margin-right: 0.6rem;
     border-radius: 2px;
+    position: absolute;
+    left: 0;
   }
 
   /* ========== 教育经历样式 ========== */
   .education-section {
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
   }
 
   .education-list {
@@ -75,27 +153,27 @@ layout: default
   }
 
   .education-item {
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    padding: 0.9rem;
+    margin-bottom: 0.7rem;
     display: flex;
     align-items: flex-start;
     transition: all 0.3s ease;
-    border: 1px solid #f0f0f0;
+    border: 1px solid #e8ecef;
   }
 
   .education-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.12);
     border-color: #667eea;
   }
 
   .education-logo {
-    width: 70px;
-    height: 70px;
-    margin-right: 1.5rem;
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
     flex-shrink: 0;
     border-radius: 8px;
     object-fit: cover;
@@ -109,190 +187,403 @@ layout: default
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
     flex-wrap: wrap;
   }
 
   .education-school {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: #2c3e50;
   }
 
   .education-degree {
-    font-size: 1rem;
-    color: #34495e;
-    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    color: #5a6c7d;
+    margin-left: 0.4rem;
   }
 
   .education-year {
-    font-size: 0.9rem;
-    color: #7f8c8d;
+    font-size: 0.8rem;
+    color: #667eea;
     font-weight: 500;
-    background: #f0f0f0;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    margin-left: 1rem;
+    background: #f0f3ff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 16px;
+    margin-left: 0.8rem;
   }
 
   .education-intro {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.6;
+    font-size: 0.88rem;
+    color: #5a6c7d;
+    line-height: 1.5;
     margin: 0;
   }
+
   /* ========== 研究经历样式 ========== */
   .research-section {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
   }
+
   .research-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    color: #333;
-    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #e0e0e0;
+    padding-left: 1rem;
+    border-bottom: 2px solid #e8ecef;
+    display: flex;
+    align-items: center;
+    position: relative;
   }
+
+  .research-title::before {
+    content: '';
+    width: 3px;
+    height: 1.2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin-right: 0.6rem;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+  }
+
   .research-list {
     list-style-type: none;
     padding: 0;
+    margin: 0;
   }
+
   .research-item {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    padding: 0.9rem;
+    margin-bottom: 0.7rem;
     display: flex;
     align-items: flex-start;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    border: 1px solid #e8ecef;
   }
+
   .research-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.12);
+    border-color: #667eea;
   }
+
   .research-logo {
-    width: 65px;
-    height: 65px;
-    margin-right: 1.5rem;
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
     flex-shrink: 0;
+    border-radius: 8px;
+    object-fit: cover;
   }
+
   .research-details {
     flex-grow: 1;
   }
+
   .research-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 0.5rem;
+    flex-wrap: wrap;
   }
+
   .research-institution {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: #2c3e50;
   }
+
   .research-role {
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     color: #e74c3c;
     font-weight: 500;
-    margin-left: 0.5rem;
+    margin-left: 0.4rem;
+    background: #ffebee;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
   }
+
   .research-period {
-    font-size: 0.9rem;
-    color: #7f8c8d;
+    font-size: 0.8rem;
+    color: #667eea;
     font-weight: 500;
-    flex-shrink: 0;
-    margin-left: 1rem;
+    background: #f0f3ff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 16px;
+    margin-left: 0.8rem;
   }
-  .research-lab {
-    font-size: 0.95rem;
-    color: #34495e;
-    margin-bottom: 0.3rem;
-  }
-  .research-advisor {
-    font-size: 0.9rem;
-    color: #555;
+
+  .research-info {
+    font-size: 0.85rem;
+    color: #5a6c7d;
     margin-bottom: 0.5rem;
   }
-  .research-topic {
-    font-size: 0.95rem;
-    color: #2c3e50;
-    font-weight: 500;
-    margin-top: 0.8rem;
-    margin-bottom: 0.4rem;
-  }
-  .research-topic-content {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 0.6rem;
-  }
-  .research-output {
-    font-size: 0.9rem;
-    color: #27ae60;
-    font-weight: 500;
-    margin-top: 0.6rem;
-  }
-  .research-output-list {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.6;
-    margin-top: 0.3rem;
-    padding-left: 1.2rem;
-  }
-  .research-output-list li {
+
+  .research-lab {
     margin-bottom: 0.3rem;
+    color: #5a6c7d;
   }
-.research-output-section {
-  margin-top: 0.5rem;
-}
 
-.research-output-list {
-  display: inline-flex; /* 让列表项横向排列 */
-  flex-wrap: wrap; /* 如果内容太长，允许换行 */
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  gap: 0.5rem; /* 列表项之间的间距 */
-}
+  .research-lab strong,
+  .research-coauthors strong {
+    color: #2c3e50;
+    font-weight: 600;
+  }
 
-.research-output-list li {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background-color: #f0f0f0; /* 浅灰色背景 */
-  border-radius: 12px; /* 圆角 */
-  font-size: 0.9rem;
-  color: #555;
-}
+  .research-coauthors {
+    color: #5a6c7d;
+  }
 
-.research-output-list li:not(:last-child)::after {
-  content: '•'; /* 在每个项后面添加分隔符 */
-  margin-left: 0.75rem;
-  color: #999;
-}
+  .research-output-section {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed #e8ecef;
+  }
 
-  /* ========== 荣誉奖项样式 ========== */
-  .honors-section {
-    max-height: 400px;
+  .research-output-section strong {
+    color: #27ae60;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  /* 修复：研究工作横向排列 */
+  .research-output-list {
+    display: inline;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .research-output-list li {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    background: #e8f5e9;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #2e7d32;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid #c8e6c9;
+    margin-right: 0.4rem;
+    margin-top: 0.4rem;
+  }
+
+  .research-output-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.15);
+    background: #c8e6c9;
+  }
+
+  /* ========== 新闻动态样式（紧凑、浅色）========== */
+  .news {
+    max-height: 160px;
     overflow-y: auto;
-    padding-right: 10px;
-    margin-bottom: 2rem;
+    padding-right: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .news::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .news::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .news::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 10px;
+  }
+
+  .news::-webkit-scrollbar-thumb:hover {
+    background: #bdbdbd;
+  }
+
+  /* 新闻列表样式 - 紧凑、清爽 */
+  .news table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .news table tr {
+    background: transparent;
+    transition: all 0.2s ease;
+    display: block;
+    margin-bottom: 0.25rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .news table tr:last-child {
+    border-bottom: none;
+  }
+
+  .news table tr:hover {
+    background: #fafbfc;
+    padding-left: 0.5rem;
+  }
+
+  .news table tr th {
+    display: inline-block;
+    width: auto;
+    min-width: 90px;
+    max-width: 90px;
+    padding: 0.15rem 0.5rem;
+    background: #e3f2fd;
+    color: #1976d2;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-right: 0.6rem;
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .news table tr td {
+    display: inline;
+    font-size: 0.88rem;
+    color: #2c3e50;
+    line-height: 1.5;
+    vertical-align: middle;
+  }
+
+  .news table tr td p {
+    display: inline;
+    margin: 0;
+  }
+
+  .news table tr td a {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .news table tr td a:hover {
+    color: #0d47a1;
+  }
+
+  .news table tr td em {
+    color: #5a6c7d;
+    font-style: normal;
+    font-size: 0.78rem;
+    margin-left: 0.5rem;
+  }
+
+  /* ========== Publications 样式（美化版）========== */
+  .publications {
+    margin-bottom: 1rem;
+  }
+
+  .publications .bibliography {
+    margin-top: 0;
+  }
+
+  .publications .bibliography li {
+    margin-bottom: 0.7rem;
+    padding: 0.8rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e8ecef;
+    transition: all 0.3s ease;
+  }
+
+  .publications .bibliography li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.12);
+    border-color: #667eea;
+  }
+
+  .publications .bibliography li:last-child {
+    margin-bottom: 0;
+  }
+
+  .publications .title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #2c3e50;
+    line-height: 1.4;
+  }
+
+  .publications .author {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    color: #5a6c7d;
+  }
+
+  .publications .author em {
+    font-weight: 600;
+    font-style: normal;
+    color: #667eea;
+  }
+
+  .publications .periodical {
+    font-size: 0.83rem;
+    margin-bottom: 0.4rem;
+    color: #7f8c8d;
+    font-style: italic;
+  }
+
+  .publications .links {
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+  }
+
+  .publications .links a {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    margin-right: 0.4rem;
+    margin-top: 0.2rem;
+    background: #f0f3ff;
+    color: #667eea;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+
+  .publications .links a:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  /* ========== 荣誉奖项样式（带滚动条）========== */
+  .honors-section {
+    margin-bottom: 1rem;
+    max-height: 180px;
+    overflow-y: auto;
+    padding-right: 6px;
   }
 
   .honors-section::-webkit-scrollbar {
-    width: 6px;
+    width: 3px;
   }
 
   .honors-section::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
+    background: transparent;
   }
 
   .honors-section::-webkit-scrollbar-thumb {
-    background: #667eea;
+    background: #e0e0e0;
     border-radius: 10px;
+  }
+
+  .honors-section::-webkit-scrollbar-thumb:hover {
+    background: #bdbdbd;
   }
 
   .honors-list {
@@ -302,69 +593,76 @@ layout: default
   }
 
   .honors-list li {
-    background: #ffffff;
-    border-left: 4px solid #667eea;
-    padding: 1rem 1.25rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
+    padding: 0.5rem 0 0.5rem 2rem;
+    margin-bottom: 0.3rem;
+    border-left: 3px solid #ffd700;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .honors-list li::before {
+    content: '🏆';
+    position: absolute;
+    left: 0.4rem;
+    top: 0.5rem;
+    font-size: 0.9rem;
   }
 
   .honors-list li:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
-    border-left-color: #764ba2;
+    border-left-color: #ffb700;
+    padding-left: 2.2rem;
   }
 
   .honor-title {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
+    align-items: baseline;
+    margin-bottom: 0.2rem;
     flex-wrap: wrap;
   }
 
   .honor-title strong {
     color: #2c3e50;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
+    font-weight: 600;
   }
 
   .year-right {
     color: #7f8c8d;
     font-weight: 500;
-    background: #f0f0f0;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    margin-left: 0.8rem;
   }
 
   .honor-details {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.5;
+    font-size: 0.8rem;
+    color: #5a6c7d;
+    line-height: 1.4;
   }
 
-  /* ========== 助教经历样式 ========== */
+  /* ========== 助教经历样式（带滚动条）========== */
   .teaching-section {
-    max-height: 350px;
+    margin-bottom: 1rem;
+    max-height: 180px;
     overflow-y: auto;
-    padding-right: 10px;
-    margin-bottom: 2rem;
+    padding-right: 6px;
   }
 
   .teaching-section::-webkit-scrollbar {
-    width: 6px;
+    width: 3px;
   }
 
   .teaching-section::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
+    background: transparent;
   }
 
   .teaching-section::-webkit-scrollbar-thumb {
-    background: #667eea;
+    background: #e0e0e0;
     border-radius: 10px;
+  }
+
+  .teaching-section::-webkit-scrollbar-thumb:hover {
+    background: #bdbdbd;
   }
 
   .teaching-list {
@@ -374,99 +672,92 @@ layout: default
   }
 
   .teaching-list li {
-    background: #ffffff;
-    border-left: 4px solid #3498db;
-    padding: 1rem 1.25rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
+    padding: 0.5rem 0 0.5rem 2rem;
+    margin-bottom: 0.3rem;
+    border-left: 3px solid #3498db;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .teaching-list li::before {
+    content: '📚';
+    position: absolute;
+    left: 0.4rem;
+    top: 0.5rem;
+    font-size: 0.9rem;
   }
 
   .teaching-list li:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15);
     border-left-color: #2980b9;
+    padding-left: 2.2rem;
   }
 
   .course-title {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
+    align-items: baseline;
+    margin-bottom: 0.2rem;
     flex-wrap: wrap;
   }
 
   .course-title strong {
     color: #2c3e50;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
+    font-weight: 600;
   }
 
   .term-right {
     color: #7f8c8d;
     font-weight: 500;
-    background: #f0f0f0;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    margin-left: 0.8rem;
   }
 
   .course-details {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.5;
+    font-size: 0.8rem;
+    color: #5a6c7d;
+    line-height: 1.4;
   }
-
-  /* ========== 新闻动态样式 ========== */
-  .news {
-    max-height: 400px;
-    overflow-y: auto;
-    padding-right: 10px;
-    margin-bottom: 3rem;
-  }
-
-  .news::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .news::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-  }
-
-  .news::-webkit-scrollbar-thumb {
-    background: #667eea;
-    border-radius: 10px;
-  }
-
 
   /* ========== 响应式设计 ========== */
   @media (max-width: 768px) {
+    .post-header {
+      padding: 2rem 1.5rem;
+    }
+
     .post-title {
-      font-size: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .desc {
+      font-size: 0.95rem;
     }
 
     .section-title {
       font-size: 1.5rem;
     }
 
-    .education-item {
+    .education-item,
+    .research-item {
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
 
-    .education-logo {
+    .education-logo,
+    .research-logo {
       margin-right: 0;
       margin-bottom: 1rem;
     }
 
-    .education-header {
+    .education-header,
+    .research-header {
       flex-direction: column;
       align-items: center;
     }
 
-    .education-year {
+    .education-year,
+    .research-period {
       margin-left: 0;
       margin-top: 0.5rem;
     }
@@ -479,7 +770,18 @@ layout: default
 
     .year-right,
     .term-right {
+      margin-left: 0;
       margin-top: 0.5rem;
+    }
+
+    .news table tr th {
+      display: block;
+      margin-bottom: 0.5rem;
+      margin-right: 0;
+    }
+
+    .news table tr td {
+      display: block;
     }
   }
 </style>
@@ -495,11 +797,41 @@ layout: default
         {{ site.title }}
       {% endif %}
     </h1>
-    <p class="desc">
-      <a>M.Sc in Computer Sciences</a> • 
-      <a>Department of Computer Science and Engineering</a> • 
-      <a href="https://www.seu.edu.cn" target="_blank">Southeast University</a>
-    </p>
+
+    
+    <!-- 社交图标 -->
+    <div class="social-icons-header">
+      {% if site.email %}
+        <a href="mailto:{{ site.email }}" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      {% endif %}
+      {% if site.github_username %}
+        <a href="https://github.com/{{ site.github_username }}" title="GitHub" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      {% endif %}
+      {% if site.scholar_userid %}
+        <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar" target="_blank">
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      {% endif %}
+      {% if site.orcid_id %}
+        <a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" target="_blank">
+          <i class="fab fa-orcid"></i>
+        </a>
+      {% endif %}
+      {% if site.linkedin_username %}
+        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      {% endif %}
+      {% if site.twitter_username %}
+        <a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      {% endif %}
+    </div>
   </header>
 </div>
 
@@ -532,7 +864,6 @@ layout: default
     {% include news.liquid %}
   {% endif %}
 
-
   <!-- Education Experience -->
   <div class="education-section">
     <h2 class="section-title">
@@ -558,9 +889,10 @@ layout: default
     </ul>
   </div>
 
+  <!-- Research Experience -->
   <div class="research-section">
     <h2 class="research-title">
-      🔬 Research Experience
+      <span>🔬 Research Experience</span>
     </h2>
 
     <ul class="research-list">
@@ -572,18 +904,27 @@ layout: default
             <div class="research-header">
               <div>
                 <span class="research-institution">{{ research.institution }}</span>
-                <span class="research-role">| {{ research.role }}</span>
+                <span class="research-role">{{ research.role }}</span>
               </div>
               <span class="research-period">{{ research.period }}</span>
             </div>
             
-            <!-- 实验室 -->
-            <div class="research-lab">
-              <strong>Lab:</strong> {{ research.lab }}
+            <!-- 实验室和合作者 -->
+            <div class="research-info">
+              <div class="research-lab">
+                <strong>Lab:</strong> {{ research.lab }}
+              </div>
+              <div class="research-coauthors">
+                <strong>Co-Authors:</strong> 
+                {% if research.co-authors %}
+                  {{ research.co-authors | join: ", " }}
+                {% else %}
+                  N/A
+                {% endif %}
+              </div>
             </div>
-            
-            
-            <!-- 产出 -->
+
+            <!-- 产出（横向排列）-->
             {% if research.outputs %}
               <div class="research-output-section">
                 <strong>Research Works:</strong>
@@ -605,7 +946,7 @@ layout: default
     <h2 class="section-title">
       <span>📖 Publications</span>
     </h2>
-    <p style="color: #7f8c8d; font-size: 0.9rem; margin-top: -1rem; margin-bottom: 1.5rem;">
+    <p style="color: #5a6c7d; font-size: 0.85rem; margin-top: -0.5rem; margin-bottom: 0.8rem;">
       (# denotes co-first Author)
     </p>
     {% include selected_papers.liquid %}

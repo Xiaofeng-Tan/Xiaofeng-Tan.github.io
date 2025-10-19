@@ -1,9 +1,24 @@
 ---
 ---
 
+@article{tan2024sopo,
+  title={SoPo: Text-to-Motion Generation Using Semi-Online Preference Optimization},
+  author={Tan, Xiaofeng and Wang, Hongsong and Geng, Xin and Zhou, Pan},
+  journal={arXiv preprint arXiv:2412.05095 (Under Review)},
+  website={https://xiaofeng-tan.github.io/projects/SoPo/index.html},
+  pdf={https://arxiv.org/abs/2412.05095},
+  supp={https://arxiv.org/abs/2412.05095},
+  arxiv={Advances in Neural Information Processing Systems (NeurIPS) 2025},
+  code={https://github.com/Xiaofeng-Tan/SoPO},
+  selected={true},
+  preview={SoPo.png},
+  abstract = {Text-to-motion generation is essential for advancing the creative industry but often presents challenges in producing consistent, realistic motions. To address this, we focus on fine-tuning text-to-motion models to consistently favor high-quality, human-preferred motions—a critical yet largely unexplored problem. In this work, we theoretically investigate the DPO under both online and offline settings, and reveal their respective limitation: overfitting in offline DPO, and biased sampling in online DPO. Building on our theoretical insights, we introduce Semi-online Preference Optimization (SoPo), a DPO-based method for training text-to-motion models using ``semi-online” data pair, consisting of unpreferred motion from online distribution and preferred motion in offline datasets. This method leverages both online and offline DPO, allowing each to compensate for the other’s limitations. Extensive experiments demonstrate that SoPo outperforms other preference alignment methods, with an MM-Dist of 3.25\% (vs e.g. 0.76\% of MoDiPO) on the MLD model, 2.91\% (vs e.g. 0.66\% of MoDiPO) on MDM model, respectively. Additionally, the MLD model fine-tuned by our SoPo surpasses the SoTA model in terms of R-precision and MM Dist. Visualization results also show the efficacy of our SoPo in preference alignment.},
+  year={2025}
+}
+
 @article{Tan2025easytune,
   title={EasyTune: Efficient Step-Aware Fine-Tuning for Diffusion-Based Motion Generation},
-  author={Tan#, Xiaofeng and Weng#, Wanjiang and Lei, Haodong and  Wang, Hongsong},
+  author={Tan, Xiaofeng and Weng, Wanjiang and Lei, Haodong and  Wang, Hongsong},
   journal={Under Review},
   abstract={In recent years, motion generative models have undergone significant advancement, yet pose challenges in aligning with downstream objectives. Recent studies have shown that using differentiable rewards to directly align the preference of diffusion models yields promising results. However, these methods suffer from inefficient and coarse-grained optimization with high memory consumption. In this work, we first theoretically identify the \emph{fundamental reason} of these limitations: the recursive dependence between different steps in the denoising trajectory. Inspired by this insight, we propose \textbf{EasyTune}, which fine-tunes diffusion at each denoising step rather than over the entire trajectory.  This decouples the recursive dependence, allowing us to perform (1) a dense and effective, (2) memory-efficient, and (3) fine-grained optimization. Furthermore, the scarcity of preference motion pairs restricts the availability of motion reward model training. To this end, we further introduce a \textbf{S}elf-refinement \textbf{P}reference \textbf{L}earning (\textbf{SPL}) mechanism that dynamically identifies preference pairs and conducts preference learning. Extensive experiments demonstrate that EasyTune outperforms ReFL by 62.1\% in MM-Dist improvement while requiring only 34.5\% of its additional memory overhead. },
   selected={true},
@@ -16,27 +31,14 @@
   title={Bilingual Text-to-Motion Generation via Step-Aware Reward-Guided Alignment},
   author={Weng#, Wanjiang and Tan#, Xiaofeng and Wang, Hongsong and Zhou, Pan},
   journal={Under Review},
-  selected={true},
+  selected={False},
   website={https://wengwanjiang.github.io/ReAlign-page/},
   preview={ReAlign.png},
   abstract = {Bilingual text-to-motion generation, which synthesizes 3D human motions from bilingual text inputs, holds immense potential for cross-linguistic applications in gaming, film, and robotics. However, this task faces critical challenges: the absence of bilingual motion-language datasets and the misalignment between text and motion distributions in diffusion models, leading to semantically inconsistent or low-quality motions. To address these challenges, we propose BiHumanML3D, a novel bilingual human motion dataset, which establishes a crucial benchmark for bilingual text-to-motion generation models. Furthermore, we propose a \textbf{Bi}lingual \textbf{M}otion \textbf{D}iffusion model (\textbf{BiMD}), which leverages cross-lingual aligned representations to capture semantics, thereby achieving a unified bilingual model. Building upon this, we propose \textbf{Re}ward-guided sampling \textbf{Align}ment ({\textbf{ReAlign}}) method, comprising a step-aware reward model to assess alignment quality during sampling and a reward-guided strategy that directs the diffusion process toward an optimally aligned distribution. This reward model integrates step-aware tokens and combines a text-aligned module for semantic consistency and a motion-aligned module for realism, refining noisy motions at each timestep to balance probability density and alignment. Experiments demonstrate that our approach significantly improves text-motion alignment and motion quality compared to existing state-of-the-art methods.},
   year={2025}
 }
 
-@article{tan2024sopo,
-  title={SoPo: Text-to-Motion Generation Using Semi-Online Preference Optimization},
-  author={Tan, Xiaofeng and Wang, Hongsong and Geng, Xin and Zhou, Pan},
-  journal={arXiv preprint arXiv:2412.05095 (Under Review)},
-  website={https://xiaofeng-tan.github.io/projects/SoPo/index.html},
-  pdf={https://arxiv.org/abs/2412.05095},
-  supp={https://arxiv.org/abs/2412.05095},
-  arxiv={2412.05095},
-  code={https://github.com/Xiaofeng-Tan/SoPO},
-  selected={true},
-  preview={SoPo.png},
-  abstract = {Text-to-motion generation is essential for advancing the creative industry but often presents challenges in producing consistent, realistic motions. To address this, we focus on fine-tuning text-to-motion models to consistently favor high-quality, human-preferred motions—a critical yet largely unexplored problem. In this work, we theoretically investigate the DPO under both online and offline settings, and reveal their respective limitation: overfitting in offline DPO, and biased sampling in online DPO. Building on our theoretical insights, we introduce Semi-online Preference Optimization (SoPo), a DPO-based method for training text-to-motion models using ``semi-online” data pair, consisting of unpreferred motion from online distribution and preferred motion in offline datasets. This method leverages both online and offline DPO, allowing each to compensate for the other’s limitations. Extensive experiments demonstrate that SoPo outperforms other preference alignment methods, with an MM-Dist of 3.25\% (vs e.g. 0.76\% of MoDiPO) on the MLD model, 2.91\% (vs e.g. 0.66\% of MoDiPO) on MDM model, respectively. Additionally, the MLD model fine-tuned by our SoPo surpasses the SoTA model in terms of R-precision and MM Dist. Visualization results also show the efficacy of our SoPo in preference alignment.},
-  year={2024}
-}
+
 
 @article{tan2024frequency,
   title={Frequency-Guided Diffusion Model with Perturbation Training for Skeleton-Based Video Anomaly Detection},
@@ -78,7 +80,7 @@ issn = {0888-613X},
 doi = {10.1016/j.ijar.2023.108971},
 url = {https://www.sciencedirect.com/science/article/pii/S0888613X23001020},
 pdf={https://www.sciencedirect.com/science/article/pii/S0888613X23001020?via%3Dihub},
-selected={true},
+selected={False},
 author = {Xiaofeng Tan and Can Gao and Jie Zhou and Jiajun Wen},
 preview={TWD.jpg},
 keywords = {Outlier detection, Fuzzy rough sets, Attribute reduction, Three-way decision, Co-detection},
@@ -93,6 +95,6 @@ abstract = {Outlier detection is an important research topic in data mining and 
   journal={Under Review},
   abstract = {Anomaly detection is a practical and essential research topic with a wide range of applications. However, existing anomaly detection methods may face challenges when handling high-dimensional data with complex distributions. In this study, we propose a multiple autoencoder-based anomaly detection method with the aid of fuzzy rough sets. Specifically, the autoencoder is first improved by introducing the kernel fuzzy relation to enhance its representation capability in low-dimensional space. Then, the theory of fuzzy rough sets is employed to perform anomaly detection in the learned low-dimensional representation by fusing multi-view proximity-based information. Finally, to handle complex data, multiple autoencoders are utilized to collaboratively detect anomalies by integrating local anomaly information from different perspectives. Comparative experiments conducted on the selected datasets reveal that the proposed method is superior to state-of-the-art methods, improving over classical autoencoder by 5.58% in terms of the AUC-ROC index.},
   preview={AEAD.png},
-  selected={true},
+  selected={False},
   year={2024}
 }
