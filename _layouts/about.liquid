@@ -3,10 +3,21 @@ layout: default
 ---
 
 <style>
-  /* ========== 全局样式 ========== */
+  /* ========== 全局样式（液态玻璃背景）========== */
   .post {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: #2c3e50;
+    position: relative;
+  }
+
+  /* 为整个页面添加柔和的渐变背景，让玻璃效果更明显 */
+  body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-attachment: fixed;
+  }
+
+  article {
+    background: transparent;
   }
 
   /* ========== 页面标题区域（浅蓝色动态渐变）========== */
@@ -140,7 +151,7 @@ layout: default
     left: 0;
   }
 
-  /* ========== 教育经历样式 ========== */
+  /* ========== 教育经历样式（液态玻璃效果）========== */
   .education-section {
     margin-top: 0.5rem;
     margin-bottom: 1rem;
@@ -153,21 +164,43 @@ layout: default
   }
 
   .education-item {
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    /* 液态玻璃效果核心样式 */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
     padding: 0.9rem;
     margin-bottom: 0.7rem;
     display: flex;
     align-items: flex-start;
-    transition: all 0.3s ease;
-    border: 1px solid #e8ecef;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 玻璃反光效果 */
+  .education-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .education-item:hover::before {
+    left: 100%;
   }
 
   .education-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.12);
-    border-color: #667eea;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.25);
+    border-color: rgba(102, 126, 234, 0.3);
+    background: rgba(255, 255, 255, 0.85);
   }
 
   .education-logo {
@@ -220,7 +253,7 @@ layout: default
     margin: 0;
   }
 
-  /* ========== 研究经历样式 ========== */
+  /* ========== 研究经历样式（液态玻璃效果）========== */
   .research-section {
     margin-top: 0.5rem;
     margin-bottom: 1rem;
@@ -258,21 +291,43 @@ layout: default
   }
 
   .research-item {
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    /* 液态玻璃效果 */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
     padding: 0.9rem;
     margin-bottom: 0.7rem;
     display: flex;
     align-items: flex-start;
-    transition: all 0.3s ease;
-    border: 1px solid #e8ecef;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 玻璃反光效果 */
+  .research-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .research-item:hover::before {
+    left: 100%;
   }
 
   .research-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.12);
-    border-color: #667eea;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.25);
+    border-color: rgba(102, 126, 234, 0.3);
+    background: rgba(255, 255, 255, 0.85);
   }
 
   .research-logo {
@@ -383,7 +438,7 @@ layout: default
     background: #c8e6c9;
   }
 
-  /* ========== 新闻动态样式（紧凑、浅色）========== */
+  /* ========== 新闻动态样式（液态玻璃效果）========== */
   .news {
     max-height: 160px;
     overflow-y: auto;
@@ -392,23 +447,25 @@ layout: default
   }
 
   .news::-webkit-scrollbar {
-    width: 3px;
+    width: 4px;
   }
 
   .news::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .news::-webkit-scrollbar-thumb {
-    background: #e0e0e0;
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
   }
 
-  .news::-webkit-scrollbar-thumb:hover {
-    background: #bdbdbd;
+  .news::-webkit-scrollbar-thumb {
+    background: rgba(25, 118, 210, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
   }
 
-  /* 新闻列表样式 - 紧凑、清爽 */
+  .news::-webkit-scrollbar-thumb:hover {
+    background: rgba(25, 118, 210, 0.5);
+  }
+
+  /* 新闻列表样式 - 液态玻璃效果 */
   .news table {
     width: 100%;
     border-collapse: separate;
@@ -416,21 +473,47 @@ layout: default
   }
 
   .news table tr {
-    background: transparent;
-    transition: all 0.2s ease;
+    /* 液态玻璃效果 */
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px) saturate(180%);
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(31, 38, 135, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: block;
-    margin-bottom: 0.25rem;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 0.4rem;
+    padding: 0.5rem 0.6rem;
+    position: relative;
+    overflow: hidden;
   }
 
   .news table tr:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  /* 玻璃反光效果 */
+  .news table tr::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+    z-index: 0;
+  }
+
+  .news table tr:hover::before {
+    left: 100%;
   }
 
   .news table tr:hover {
-    background: #fafbfc;
-    padding-left: 0.5rem;
+    background: rgba(255, 255, 255, 0.75);
+    transform: translateX(3px) scale(1.01);
+    box-shadow: 0 4px 20px rgba(25, 118, 210, 0.15);
+    border-color: rgba(25, 118, 210, 0.2);
   }
 
   .news table tr th {
@@ -481,7 +564,7 @@ layout: default
     margin-left: 0.5rem;
   }
 
-  /* ========== Publications 样式（美化版）========== */
+  /* ========== Publications 样式（液态玻璃效果）========== */
   .publications {
     margin-bottom: 1rem;
   }
@@ -493,21 +576,50 @@ layout: default
   .publications .bibliography li {
     margin-bottom: 0.7rem;
     padding: 0.8rem;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    border: 1px solid #e8ecef;
-    transition: all 0.3s ease;
+    /* 液态玻璃效果 */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 玻璃反光效果 */
+  .publications .bibliography li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+    z-index: 0;
+  }
+
+  .publications .bibliography li:hover::before {
+    left: 100%;
   }
 
   .publications .bibliography li:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.12);
-    border-color: #667eea;
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.25);
+    border-color: rgba(102, 126, 234, 0.3);
+    background: rgba(255, 255, 255, 0.85);
   }
 
   .publications .bibliography li:last-child {
     margin-bottom: 0;
+  }
+
+  /* 确保文字在玻璃效果之上 */
+  .publications .bibliography li > * {
+    position: relative;
+    z-index: 1;
   }
 
   .publications .title {
@@ -561,7 +673,7 @@ layout: default
     transform: translateY(-1px);
   }
 
-  /* ========== 荣誉奖项样式（带滚动条）========== */
+  /* ========== 荣誉奖项样式（液态玻璃效果 + 滚动条）========== */
   .honors-section {
     margin-bottom: 1rem;
     max-height: 180px;
@@ -570,20 +682,22 @@ layout: default
   }
 
   .honors-section::-webkit-scrollbar {
-    width: 3px;
+    width: 4px;
   }
 
   .honors-section::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .honors-section::-webkit-scrollbar-thumb {
-    background: #e0e0e0;
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
   }
 
+  .honors-section::-webkit-scrollbar-thumb {
+    background: rgba(102, 126, 234, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+  }
+
   .honors-section::-webkit-scrollbar-thumb:hover {
-    background: #bdbdbd;
+    background: rgba(102, 126, 234, 0.5);
   }
 
   .honors-list {
@@ -593,24 +707,52 @@ layout: default
   }
 
   .honors-list li {
-    padding: 0.5rem 0 0.5rem 2rem;
-    margin-bottom: 0.3rem;
+    padding: 0.6rem 0.8rem 0.6rem 2.2rem;
+    margin-bottom: 0.5rem;
+    /* 液态玻璃效果 */
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px) saturate(180%);
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.15);
+    border: 1px solid rgba(255, 215, 0, 0.2);
     border-left: 3px solid #ffd700;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    overflow: hidden;
   }
 
   .honors-list li::before {
     content: '🏆';
     position: absolute;
-    left: 0.4rem;
-    top: 0.5rem;
+    left: 0.6rem;
+    top: 0.6rem;
     font-size: 0.9rem;
+    z-index: 2;
+  }
+
+  /* 玻璃反光效果 */
+  .honors-list li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+  }
+
+  .honors-list li:hover::after {
+    left: 100%;
   }
 
   .honors-list li:hover {
+    transform: translateX(5px) scale(1.02);
     border-left-color: #ffb700;
-    padding-left: 2.2rem;
+    box-shadow: 0 6px 24px rgba(255, 215, 0, 0.25);
+    background: rgba(255, 255, 255, 0.8);
   }
 
   .honor-title {
@@ -640,7 +782,7 @@ layout: default
     line-height: 1.4;
   }
 
-  /* ========== 助教经历样式（带滚动条）========== */
+  /* ========== 助教经历样式（液态玻璃效果 + 滚动条）========== */
   .teaching-section {
     margin-bottom: 1rem;
     max-height: 180px;
@@ -649,20 +791,22 @@ layout: default
   }
 
   .teaching-section::-webkit-scrollbar {
-    width: 3px;
+    width: 4px;
   }
 
   .teaching-section::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .teaching-section::-webkit-scrollbar-thumb {
-    background: #e0e0e0;
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
   }
 
+  .teaching-section::-webkit-scrollbar-thumb {
+    background: rgba(52, 152, 219, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+  }
+
   .teaching-section::-webkit-scrollbar-thumb:hover {
-    background: #bdbdbd;
+    background: rgba(52, 152, 219, 0.5);
   }
 
   .teaching-list {
@@ -672,24 +816,52 @@ layout: default
   }
 
   .teaching-list li {
-    padding: 0.5rem 0 0.5rem 2rem;
-    margin-bottom: 0.3rem;
+    padding: 0.6rem 0.8rem 0.6rem 2.2rem;
+    margin-bottom: 0.5rem;
+    /* 液态玻璃效果 */
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px) saturate(180%);
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(52, 152, 219, 0.15);
+    border: 1px solid rgba(52, 152, 219, 0.2);
     border-left: 3px solid #3498db;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    overflow: hidden;
   }
 
   .teaching-list li::before {
     content: '📚';
     position: absolute;
-    left: 0.4rem;
-    top: 0.5rem;
+    left: 0.6rem;
+    top: 0.6rem;
     font-size: 0.9rem;
+    z-index: 2;
+  }
+
+  /* 玻璃反光效果 */
+  .teaching-list li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+  }
+
+  .teaching-list li:hover::after {
+    left: 100%;
   }
 
   .teaching-list li:hover {
+    transform: translateX(5px) scale(1.02);
     border-left-color: #2980b9;
-    padding-left: 2.2rem;
+    box-shadow: 0 6px 24px rgba(52, 152, 219, 0.25);
+    background: rgba(255, 255, 255, 0.8);
   }
 
   .course-title {
