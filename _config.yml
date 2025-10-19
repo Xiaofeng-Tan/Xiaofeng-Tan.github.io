@@ -698,3 +698,36 @@ education:
     year: 2020 - 2024
     logo: /assets/img/szu_logo.png
     intro: Outstanding Graduate Representative (1/300+) who delivers a speech at the graduation ceremony.
+
+research:
+- institution: "Tencent Inc."
+  logo: "/assets/img/tencent-youtu-logo.png"
+  role: "Research Intern"
+  period: "2025.07 - Present"
+  lab: "YouTu Lab"
+  outputs:
+    - ""
+
+- institution: "Singapore Management University"
+  logo: "/assets/img/smu-logo-s.png"
+  role: "Remote Visiting Student"
+  period: "2024.07 - 2025.03"
+  lab: "Learning and Vision Lab (LV Lab)"
+  outputs:
+    - "SoPo (NeurIPS, 2025), ReAlign, BLMotionML3D"
+
+- institution: "Southeast University"
+  logo: "/assets/img/palm-logo.png"
+  role: "Master Student"
+  period: "2024.04 - 2025.07"
+  lab: "PAttern Learning and Mining (PALM) Lab"
+  outputs:
+    - "FG-Diff."
+
+- institution: "Shenzhen University"
+  logo: "/assets/img/szu_logo.png"
+  role: "Undergraduate Research Assistant"
+  period: "2022.10 - 2023.10"
+  lab: "Computer Vision Institute"
+  outputs:
+    - "MGBOD (TKDE), TWCOD (IJAR)"

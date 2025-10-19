@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 My first-author work, SoPo, has been accepted to NeurIPS 2025! Grateful to my co-authors—Prof. Wang, Prof. Zhou, and Prof. Geng—for their invaluable support.
+🎉 My first-author work, [SoPo](https://xiaofeng-tan.github.io/projects/SoPo/index.html), has been accepted to NeurIPS 2025!

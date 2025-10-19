@@ -15,12 +15,12 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a first-year M.Sc student in [PAttern Learning and Mining(PALM) Lab](https://palm.seu.edu.cn/) at [Southeast University (SEU)](https://www.seu.edu.cn/english/). My research interests mainly revolve around 3D Human Modeling, 3D/4D Asset Generation, and Video Generation. 
 
-Prior to that, I graduated with a dual bachelor’s degree from [Shenzhen University (SZU)](https://en.szu.edu.cn/): an honor B.E from [College of Computer Science and Software Engineering(CSSE)](https://csse.szu.edu.cn/) and B.Sc from [School of Mathematical Sciences(MS)](https://math.szu.edu.cn/). During my undergraduate, I conducted research under the supervision of Prof. [Can Gao](https://csse.szu.edu.cn/pages/user/index?id=953).
+I am a second-year M.Sc. student in the [PAttern Learning and Mining (PALM) Lab](https://palm.seu.edu.cn/) at [Southeast University (SEU)](https://www.seu.edu.cn/english/), currently exploring new frontiers as a Research Intern at [Tencent's YouTu Lab](https://open.youtu.qq.com/#/open).
 
+My academic journey began at [Shenzhen University (SZU)](https://en.szu.edu.cn/), where I built a strong interdisciplinary foundation by earning a dual bachelor's degree. I graduated with an honors B.E. from the [College of Computer Science and Software Engineering (CSSE)](https://csse.szu.edu.cn/) and a B.Sc. from the [School of Mathematical Sciences (MS)](https://math.szu.edu.cn/). It was there, under the mentorship of [Prof. Can Gao](https://csse.szu.edu.cn/pages/user/index?id=953), that I first delved into academic research.
 
-If you have questions, feel free to reach out through [email (xiaofengtan@seu.edu.cn)](xiaofengtan@seu.edu.cn)!  I’m also happy to chat about anything related to Doraemon 🤣.
+My research interests mainly revolve around RLHF, Agentic RL, AIGC, and 3D Human Modeling. Feel free to reach out through [email (xiaofengtan@seu.edu.cn)](xiaofengtan@seu.edu.cn) for any questions!  I’m also happy to chat about anything related to Doraemon 🤣.
 
 
 🔍 <span style="color:#B22222"><strong>I am currently seeking collaboration opportunities. If you're interested, feel free to contact me via <a href="mailto:xiaofengtan@seu.edu.cn" style="color:#2F4F4F">email</a> or <a style="color:#2F4F4F">WeChat</a>   (txf_06_20).</strong></span> 
