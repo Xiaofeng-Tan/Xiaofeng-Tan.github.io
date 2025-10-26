@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 Merry Xmas! One paper is accepted by _IEEE Transactions on Knowledge and Data Engineering_ !
+🎉 Merry Xmas! [One paper](https://ieeexplore.ieee.org/abstract/document/10821488) from my undergraduate research is accepted by [TKDE](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69)!
