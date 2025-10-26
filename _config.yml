@@ -717,7 +717,7 @@ research:
   logo: "/assets/img/smu-logo-s.png"
   role: "Remote Visiting Student"
   period: "2024.07 - 2025.03"
-  lab: "Learning and Vision Lab (LV Lab)"
+  lab: "Language and Vision Lab (LV Lab)"
   co-authors:
     - "Pan Zhou @ SMU"
     - "Hongsong Wang @ SEU"
@@ -732,9 +732,9 @@ research:
   lab: "PAttern Learning and Mining (PALM) Lab"
   co-authors:
     - "Hongsong Wang @ SEU"
+    - "Xin Geng  @ SEU"
     - "Wanjiang Weng  @ SEU"
     - "Haodong Lei  @ SEU"
-    - "Xin Geng  @ SEU"
   outputs:
     - "FG-Diff., EasyTune"
 
