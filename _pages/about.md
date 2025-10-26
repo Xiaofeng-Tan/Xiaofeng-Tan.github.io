@@ -21,6 +21,3 @@ I am a second-year M.Sc. student in the [PAttern Learning and Mining (PALM) Lab]
 My academic journey began at [Shenzhen University (SZU)](https://en.szu.edu.cn/), where I built a strong interdisciplinary foundation by earning a dual bachelor's degree. I graduated with an honors B.E. from the [College of Computer Science and Software Engineering (CSSE)](https://csse.szu.edu.cn/) and a B.Sc. from the [School of Mathematical Sciences (MS)](https://math.szu.edu.cn/). It was there, under the mentorship of [Prof. Can Gao](https://csse.szu.edu.cn/pages/user/index?id=953), that I first delved into academic research.
 
 My research interests mainly revolve around RLHF, Agentic RL, AIGC, and 3D Human Modeling. Feel free to reach out through [email (xiaofengtan@seu.edu.cn)](xiaofengtan@seu.edu.cn) for any questions!  I’m also happy to chat about anything related to Doraemon 🤣.
-
-
-🔍 <span style="color:#B22222"><strong>I am currently seeking collaboration opportunities. If you're interested, feel free to contact me via <a href="mailto:xiaofengtan@seu.edu.cn" style="color:#2F4F4F">email</a> or <a style="color:#2F4F4F">WeChat</a>   (txf_06_20).</strong></span> 
