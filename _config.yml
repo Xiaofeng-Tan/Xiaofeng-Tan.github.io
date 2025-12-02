@@ -711,7 +711,7 @@ research:
     - "Xi Jiang @ Tencent"
     - "Yuanting Fan @ Tencent"
   outputs:
-    - "Consist-RFT"
+    - "Consistent-RFT"
 
 - institution: "Singapore Management University"
   logo: "/assets/img/smu-logo-s.png"
