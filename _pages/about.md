@@ -20,4 +20,7 @@ I am a second-year M.Sc. student in the [PALM Lab](https://palm.seu.edu.cn/) (le
 
 My academic journey began at [Shenzhen University (SZU)](https://en.szu.edu.cn/), where I built a strong interdisciplinary foundation by earning a dual bachelor's degree. I graduated with an honors B.E. from the College of Computer Science and Software Engineering ([CSSE](https://csse.szu.edu.cn/)) and a B.Sc. from the School of Mathematical Sciences ([MS](https://math.szu.edu.cn/)). It was there, under the mentorship of [Prof. Can Gao](https://csse.szu.edu.cn/pages/user/index?id=953), that I first delved into academic research.
 
-My research interests mainly revolve around RLHF, Agentic RL, AIGC, and 3D Human Modeling. Feel free to reach out through [email (xiaofengtan@seu.edu.cn)](xiaofengtan@seu.edu.cn) for any questions!  I’m also happy to chat about anything related to Doraemon 🤣.
+
+My research interests mainly revolve around RLHF, RLVR, AIGC, and 3D Human Modeling. I am actively seeking **(1)** research internships at top-tier companies available after Feb 2026, **(2)** Ph.D. positions for Fall 2027 (preferably in Hong Kong, Singapore, or North America), and **(3)** any research collaborations. Feel free to reach out through email for any questions.  If you’re interested in my research, I’d be delighted to connect and explore potential opportunities together 😊.
+
+
