@@ -707,9 +707,8 @@ research:
   lab: "YouTu Lab"
   co-authors:
     - "Jun Liu @ Tencent"
-    - "Feng Zheng @ SUSTech"
-    - "Xi Jiang @ Tencent"
     - "Yuanting Fan @ Tencent"
+    - "Bin-Bin Gao @ Tencent"
   outputs:
     - "Consistent-RFT"
 
