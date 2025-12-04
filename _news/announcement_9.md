@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 [ReAlign](https://wengwanjiang.github.io/ReAlign-page/), has been accepted to [AAAI 2026](https://aaai.org/conference/aaai/aaai-26/)!
+🎉 [ReAlign](https://wengwanjiang.github.io/ReAlign-page/) has been accepted to [AAAI 2026](https://aaai.org/conference/aaai/aaai-26/)!
