@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://Xiaofeng-Tan.github.io/sitemap.xml
+Sitemap: https://xiaofeng-tan.github.io/sitemap.xml
