@@ -84,11 +84,16 @@ jobs:
           valueFile: "_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
+      - name: Install ImageMagick 🖼️
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick libwebp-dev
       - name: Install and Build 🔧
         run: |
           pip3 install --upgrade nbconvert
           export JEKYLL_ENV=production
           bundle exec jekyll build
+
       - name: Purge unused CSS 🧹
         run: |
           npm install -g purgecss
