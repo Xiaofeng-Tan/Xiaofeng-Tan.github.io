@@ -159,10 +159,14 @@
     {%- endif -%}
     <div class="periodical">
       {%- if entry.abbr -%}
+        {%- assign abbr_icon = "🏆" -%}
+        {%- if entry.abbr contains "UR" -%}
+          {%- assign abbr_icon = "⏱️" -%}
+        {%- endif -%}
         {%- if site.data.venues[entry.abbr] -%}
-          <span class="venue-abbr" style="color: {{ site.data.venues[entry.abbr].color }};">🏆 {{ entry.abbr }} {{ entry.year }}</span><span class="venue-separator">|</span>
+          <span class="venue-abbr" style="color: {{ site.data.venues[entry.abbr].color }};">{{ abbr_icon }} {{ entry.abbr }} {{ entry.year }}</span><span class="venue-separator">|</span>
         {% else %}
-          <span class="venue-abbr">🏆 {{ entry.abbr }} {{ entry.year }}</span><span class="venue-separator">|</span>
+          <span class="venue-abbr">{{ abbr_icon }} {{ entry.abbr }} {{ entry.year }}</span><span class="venue-separator">|</span>
         {% endif %}
       {%- endif -%}
       {{ periodical | strip }}
