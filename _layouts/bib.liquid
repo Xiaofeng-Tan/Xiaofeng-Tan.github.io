@@ -152,7 +152,11 @@
       {% include hook/bib.liquid %}
     {% endif %}
     {% assign entrytype_text = entrytype | strip_html | strip %}
-    {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+    {%- if entry.abbr -%}
+      {% capture periodical %}{{ entrytype }}{% endcapture %}
+    {%- else -%}
+      {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+    {%- endif -%}
     <div class="periodical">
       {%- if entry.abbr -%}
         {%- if site.data.venues[entry.abbr] -%}
@@ -162,6 +166,15 @@
         {% endif %}
       {%- endif -%}
       {{ periodical | strip }}
+      {%- if entry.ccf -%}
+        <span class="ccf-badge ccf-badge-{{ entry.ccf | downcase | replace: '-', '' }}">{{ entry.ccf }}</span>
+      {%- endif -%}
+      {%- if entry.core -%}
+        <span class="core-badge core-badge-{{ entry.core | downcase | replace: '-', '' | replace: '*', 'star' }}">{{ entry.core }}</span>
+      {%- endif -%}
+      {%- if entry.sci -%}
+        <span class="sci-badge sci-badge-{{ entry.sci | downcase | replace: '-', '' }}">{{ entry.sci }}</span>
+      {%- endif -%}
     </div>
     <div class="periodical">
       {{ entry.note | strip }}
