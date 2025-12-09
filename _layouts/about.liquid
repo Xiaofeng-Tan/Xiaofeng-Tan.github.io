@@ -428,29 +428,29 @@ layout: default
     margin-bottom: 0.3rem;
     line-height: 1.4;
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.1rem 0.8rem;
+    flex-wrap: nowrap;
+    align-items: baseline;
   }
 
   .research-lab {
     color: #5a6c7d;
     white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 230px;
+    width: 230px;
   }
 
   .research-info-separator {
-    color: #00A1E9;
+    color: #ccc;
     margin: 0 0.5rem;
-    font-size: 0.5rem;
-  }
-  
-  .research-info-separator::before {
-    content: "●";
+    flex-shrink: 0;
   }
 
   .research-coauthors {
     color: #5a6c7d;
     flex: 1;
-    min-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .research-lab a {
@@ -471,8 +471,8 @@ layout: default
   }
 
   .research-output-section {
-    margin-top: 0.3rem;
-    padding-top: 0.3rem;
+    margin-top: 0.15rem;
+    padding-top: 0.15rem;
     border-top: 1px dashed #e8ecef;
   }
 
@@ -492,7 +492,7 @@ layout: default
 
   .research-output-list li {
     display: inline-block;
-    padding: 0.15rem 0.45rem;
+    padding: 0.1rem 0.4rem;
     background: #e8f5e9;
     border-radius: 10px;
     font-size: 0.72rem;
@@ -500,8 +500,8 @@ layout: default
     font-weight: 500;
     transition: all 0.2s ease;
     border: 1px solid #c8e6c9;
-    margin-right: 0.3rem;
-    margin-top: 0.25rem;
+    margin-right: 0.2rem;
+    margin-top: 0.15rem;
   }
 
   .research-output-list li a {
@@ -638,8 +638,8 @@ layout: default
   }
 
   .publications .bibliography li {
-    margin-bottom: 0.4rem;
-    padding: 0.5rem 0.8rem;
+    margin-bottom: 0.25rem;
+    padding: 0.35rem 0.8rem;
     background: rgba(255, 255, 255, 0.65);
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 161, 233, 0.05);
@@ -695,9 +695,9 @@ layout: default
   .publications .title {
     font-size: 0.92rem;
     font-weight: 600;
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.1rem;
     color: #2c3e50;
-    line-height: 1.45;
+    line-height: 1.4;
     position: relative;
     z-index: 1;
     white-space: normal;
@@ -709,11 +709,11 @@ layout: default
 
   .publications .author {
     font-size: 0.8rem;
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.1rem;
     color: #5a6c7d;
     position: relative;
     z-index: 1;
-    line-height: 1.4;
+    line-height: 1.35;
   }
 
   .publications .author em {
@@ -736,12 +736,12 @@ layout: default
 
   .publications .periodical {
     font-size: 0.78rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
     color: #7f8c8d;
     font-style: italic;
     position: relative;
     z-index: 1;
-    line-height: 1.3;
+    line-height: 1.25;
   }
 
   .publications .periodical .venue-abbr {
@@ -758,23 +758,23 @@ layout: default
   }
 
   .publications .links {
-    font-size: 0.7rem;
-    margin-top: 0.35rem;
+    font-size: 0.72rem;
+    margin-top: 0.15rem;
     position: relative;
     z-index: 1;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.3rem;
+    gap: 0.15rem;
   }
 
   .publications .links a {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
-    padding: 0.25rem 0.6rem;
+    gap: 0.15rem;
+    padding: 0.1rem 0.4rem;
     background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%);
     color: #5a6c7d;
-    border-radius: 15px;
+    border-radius: 10px;
     text-decoration: none;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 500;
@@ -783,7 +783,7 @@ layout: default
   }
 
   .publications .links a i {
-    font-size: 0.75em;
+    font-size: 0.7em;
     opacity: 0.7;
   }
 
@@ -1380,6 +1380,7 @@ layout: default
                   {{ lab }}
                 {% endif %}
               </div>
+              <span class="research-info-separator">|</span>
               <div class="research-coauthors">
                 <strong>Co-Authors:</strong> 
                 {% if research.co-authors %}
