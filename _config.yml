@@ -690,12 +690,14 @@ jsonresume:
 
 education:
   - school: Southeast Unversity
-    degree: Master student
+    college: School of Computer Science and Engineering
+    degree: Master Student
     year: 2024 - Present
     logo: ./assets/img/seu_logo.png
     intro: Outstanding Camper (Ranked 2nd) in 2023 Graduate Admission Summer Camp.
   - school: Shenzhen Unversity
-    degree: Bachelor of Engineering & Bachelor of Science
+    college: College of Computer Science & Software Engineering / College of Mathematics and Statistics
+    degree: Dual Degree (B.Eng. & B.Sc.)
     year: 2020 - 2024
     logo: /assets/img/szu_logo.png
     intro: Outstanding Graduate Representative (1/300+) who delivers a speech at the graduation ceremony.
@@ -705,45 +707,63 @@ research:
   logo: "/assets/img/tencent-youtu-logo.png"
   role: "Research Intern"
   period: "2025.07 - Present"
-  lab: "YouTu Lab"
+  lab:
+    name: "YouTu Lab"
+    url: "https://open.youtu.qq.com/#/open"
   co-authors:
     - "Jun Liu @ Tencent"
     - "Yuanting Fan @ Tencent"
     - "Bin-Bin Gao @ Tencent"
   outputs:
-    - "Consistent-RFT"
+    - name: "Consistent-RFT"
+      url: ""
 
 - institution: "Singapore Management University"
   logo: "/assets/img/smu-logo-s.png"
   role: "Remote Visiting Student"
   period: "2024.07 - 2025.03"
-  lab: "Language and Vision Lab (LV Lab)"
+  lab:
+    name: "Language and Vision Lab (LV Lab)"
+    url: "https://www.lv-lab.org/SMU/index.html"
   co-authors:
     - "Pan Zhou @ SMU"
     - "Hongsong Wang @ SEU"
     - "Wanjiang Weng  @ SEU"
   outputs:
-    - "SoPo (NeurIPS, 2025), ReAlign(AAAI, 2026)"
+    - name: "SoPo (NeurIPS)"
+      url: "https://xiaofeng-tan.github.io/projects/SoPo/index.html"
+    - name: "ReAlign (AAAI)"
+      url: "https://wengwanjiang.github.io/ReAlign-page/"
 
 - institution: "Southeast University"
   logo: "/assets/img/palm-logo.png"
   role: "Master Student"
-  period: "2024.04 - 2025.07"
-  lab: "PAttern Learning and Mining (PALM) Lab"
+  period: "2024.04 - Present"
+  lab:
+    name: "PAttern Learning and Mining (PALM) Lab"
+    url: "https://palm.seu.edu.cn/"
   co-authors:
     - "Hongsong Wang @ SEU"
     - "Xin Geng  @ SEU"
     - "Wanjiang Weng  @ SEU"
     - "Haodong Lei  @ SEU"
   outputs:
-    - "FG-Diff., EasyTune"
+    - name: "FG-Diff."
+      url: "https://xiaofeng-tan.github.io/projects/FG-Diff/index.html"
+    - name: "EasyTune"
+      url: "https://xiaofeng-tan.github.io/projects/EasyTune/index.html"
 
 - institution: "Shenzhen University"
   logo: "/assets/img/szu_logo.png"
   role: "Undergraduate Research Assistant"
   period: "2022.10 - 2023.10"
-  lab: "Computer Vision Institute"
+  lab:
+    name: "Computer Vision Institute"
+    url: "https://csse.szu.edu.cn/"
   co-authors:
     - "Can Gao @ SZU"
   outputs:
-    - "MGBOD (TKDE), TWCOD (IJAR)"
+    - name: "MGBOD (TKDE)"
+      url: "https://ieeexplore.ieee.org/abstract/document/10821488"
+    - name: "TWCOD (IJAR)"
+      url: "https://www.sciencedirect.com/science/article/pii/S0888613X23001020"
