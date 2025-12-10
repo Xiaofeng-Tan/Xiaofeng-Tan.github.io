@@ -2721,7 +2721,7 @@ layout: default
     </ul>
   </div>
 
-  <!-- Hobbies -->
+  <!-- Live -->
   <h2 class="section-title">
     <span>🏠 Live</span>
   </h2>
@@ -2729,6 +2729,15 @@ layout: default
     <p class="hobbies-intro">
       I have a passion for exploring the underlying principles of the world, not only in my research but also across natural sciences, engineering, and social humanities. Beyond academics, I find quiet joy and inspiration in the arts. I practice hard-pen calligraphy (especially admiring the works of <a href="https://baike.baidu.com/item/%E9%A1%BE%E4%BB%B2%E5%AE%89/7536674" target="_blank"><em>Zhong'an Gu</em></a>), visit exhibitions, and listen to Cantonese pop (e.g., <a href="https://music.youtube.com/watch?v=ZXM7rRMnA7U&si=3CNV8lIUn0mGRrDY" target="_blank"><em>Peach Blossom Island</em></a> and <a href="https://music.youtube.com/watch?v=7O8YDJen5bs&si=FlTYVwFlUnp_3rp3" target="_blank"><em>The One For U</em></a> by <em>MC</em>) as well as Chinese pop music (e.g., <a href="https://music.youtube.com/watch?v=p4hxF-8HefE" target="_blank"><em>Cang Jie</em></a> and <a href="https://music.youtube.com/watch?v=FW2W9HM7IPs&si=HhjEKeAfYmNL7GLf" target="_blank"><em>Step by Step</em></a> by <em>Mayday</em>). I also stay active with table tennis (big fan of <a href="https://zh.wikipedia.org/zh-hk/%E6%A8%8A%E6%8C%AF%E4%B8%9C" target="_blank"><em>Zhendong Fan</em></a>) and badminton. Oh, and one more thing: I have been a huge fan of <a href="https://en.wikipedia.org/wiki/Doraemon" target="_blank"><em>Doraemon</em></a> since childhood!
     </p>
+  </div>
+
+  <!-- Blog -->
+  <h2 class="section-title">
+    <span>📝 Blog</span>
+    <span style="margin-left: 0.5rem; font-size: 0.75rem; color: #c09c6b; background: rgba(192, 156, 107, 0.15); padding: 0.2rem 0.5rem; border-radius: 12px; font-weight: 600;">coming soon</span>
+  </h2>
+  <div style="padding: 0.5rem 0; color: #8b949e; font-size: 0.9rem;">
+    Share thoughts on research, technology, and life insights.
   </div>
 
   <!-- Social -->
@@ -3648,11 +3657,21 @@ layout: default
     #mascot-container {
       bottom: 15px;
       right: 15px;
+      /* 增大触摸区域 */
+      padding: 10px;
+      margin: -10px -10px 0 0;
     }
     
     .mascot {
       width: 100px;
       height: 100px;
+      /* 移动端增加点击反馈 */
+      transition: all 0.2s ease;
+    }
+    
+    /* 移动端点击时的视觉反馈 */
+    .mascot.active:active {
+      transform: scale(0.95) !important;
     }
     
     #doraemon {
@@ -3752,11 +3771,16 @@ layout: default
       padding: 8px 12px;
       bottom: 115px;
       right: -5px;
+      /* 移动端气泡增加可见性 */
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
     
     .mascot-hint {
       font-size: 0.55rem;
       bottom: -16px;
+      /* 移动端提示更清晰 */
+      display: block !important;
+      opacity: 0.9 !important;
     }
   }
 </style>
@@ -4073,7 +4097,8 @@ layout: default
   // 双击检测
   let clickCount = 0;
   let clickTimer = null;
-  const DOUBLE_CLICK_DELAY = 300;
+  // 移动端双击延迟调整为400ms以提升易用性
+  const DOUBLE_CLICK_DELAY = window.innerWidth <= 768 ? 400 : 300;
   
   // 点击卡通人物
   container.addEventListener('click', function(e) {
@@ -4109,6 +4134,14 @@ layout: default
       // 双击：切换角色
       clearTimeout(clickTimer);
       clickCount = 0;
+      // 移动端添加视觉反馈
+      if (window.innerWidth <= 768) {
+        const mascot = document.getElementById(currentMascot);
+        mascot.style.transform = 'scale(0.9) rotate(-5deg)';
+        setTimeout(() => {
+          mascot.style.transform = 'scale(1) rotate(0deg)';
+        }, 100);
+      }
       switchToNextMascot();
     }
   });
