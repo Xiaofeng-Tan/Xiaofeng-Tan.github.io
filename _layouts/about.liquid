@@ -2721,9 +2721,9 @@ layout: default
     </ul>
   </div>
 
-  <!-- Live -->
+  <!-- Life -->
   <h2 class="section-title">
-    <span>🏠 Live</span>
+    <span>🏠 Life</span>
   </h2>
   <div class="hobbies-section">
     <p class="hobbies-intro">
@@ -4094,57 +4094,90 @@ layout: default
     }, 2500);
   }
   
-  // 双击检测
+  // 双击检测和触摸处理
   let clickCount = 0;
   let clickTimer = null;
-  // 移动端双击延迟调整为400ms以提升易用性
-  const DOUBLE_CLICK_DELAY = window.innerWidth <= 768 ? 400 : 300;
+  let lastTouchTime = 0;
+  const isMobile = window.innerWidth <= 768;
+  const DOUBLE_CLICK_DELAY = 300;
+  const TOUCH_DOUBLE_CLICK_DELAY = 300;
   
-  // 点击卡通人物
-  container.addEventListener('click', function(e) {
-    // 如果是拖拽，不触发点击
-    if (hasMoved) {
-      hasMoved = false;
-      return;
+  function playAnimationAndTalk() {
+    if (currentMascot === 'doraemon') {
+      doraemonJump();
+    } else if (currentMascot === 'tomjerry') {
+      tomjerryChase();
+    } else if (currentMascot === 'kitty') {
+      kittyJump();
+    } else if (currentMascot === 'pikachu') {
+      pikachuJump();
     }
-    
-    clickCount++;
-    
-    if (clickCount === 1) {
-      // 第一次点击，等待可能的第二次点击
-      clickTimer = setTimeout(function() {
-        // 单击：显示对话 + 播放动画
-        clickCount = 0;
-        
-        // 根据当前角色播放动画
-        if (currentMascot === 'doraemon') {
-          doraemonJump();
-        } else if (currentMascot === 'tomjerry') {
-          tomjerryChase();
-        } else if (currentMascot === 'kitty') {
-          kittyJump();
-        } else if (currentMascot === 'pikachu') {
-          pikachuJump();
-        }
-        
-        // 显示对话气泡
-        showBubble();
-      }, DOUBLE_CLICK_DELAY);
-    } else if (clickCount === 2) {
-      // 双击：切换角色
-      clearTimeout(clickTimer);
-      clickCount = 0;
-      // 移动端添加视觉反馈
-      if (window.innerWidth <= 768) {
-        const mascot = document.getElementById(currentMascot);
-        mascot.style.transform = 'scale(0.9) rotate(-5deg)';
-        setTimeout(() => {
-          mascot.style.transform = 'scale(1) rotate(0deg)';
-        }, 100);
+    showBubble();
+  }
+  
+  function switchRole() {
+    if (isMobile) {
+      const mascot = document.getElementById(currentMascot);
+      mascot.style.transform = 'scale(0.9) rotate(-5deg)';
+      setTimeout(() => {
+        mascot.style.transform = 'scale(1) rotate(0deg)';
+      }, 100);
+    }
+    switchToNextMascot();
+  }
+  
+  // 桌面端：使用 click 事件
+  if (!isMobile) {
+    container.addEventListener('click', function(e) {
+      if (hasMoved) {
+        hasMoved = false;
+        return;
       }
-      switchToNextMascot();
-    }
-  });
+      
+      clickCount++;
+      
+      if (clickCount === 1) {
+        clickTimer = setTimeout(function() {
+          clickCount = 0;
+          playAnimationAndTalk();
+        }, DOUBLE_CLICK_DELAY);
+      } else if (clickCount === 2) {
+        clearTimeout(clickTimer);
+        clickCount = 0;
+        switchRole();
+      }
+    });
+  }
+  
+  // 移动端：使用 touchend 事件处理
+  if (isMobile) {
+    let touchClickCount = 0;
+    let touchClickTimer = null;
+    
+    container.addEventListener('touchend', function(e) {
+      if (hasMoved) {
+        hasMoved = false;
+        return;
+      }
+      
+      e.preventDefault();
+      
+      touchClickCount++;
+      
+      if (touchClickCount === 1) {
+        // 第一次点击，等待可能的第二次
+        touchClickTimer = setTimeout(function() {
+          touchClickCount = 0;
+          playAnimationAndTalk();
+        }, TOUCH_DOUBLE_CLICK_DELAY);
+      } else if (touchClickCount === 2) {
+        // 双击：切换角色
+        clearTimeout(touchClickTimer);
+        touchClickCount = 0;
+        switchRole();
+      }
+    }, { passive: false });
+  }
   
   // 自动眨眼（仅 Hello Kitty）
   setInterval(function() {
