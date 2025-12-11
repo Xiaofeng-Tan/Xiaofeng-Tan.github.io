@@ -2875,9 +2875,9 @@ layout: default
   }
   
   /* ========== 哆啦A梦样式 (精灵图走路动画版) ========== */
-  /* 精灵图原始尺寸：每帧约 100x130，共6帧，总宽600px */
+  /* 精灵图原始尺寸：每帧约 130x169，共6帧，总宽780px */
   #doraemon {
-    width: 130px;
+    width: 120px;
     height: 169px;
     position: relative;
     background-image: url("https://files.a-fa.tw/images/Doraemons.png");
@@ -2885,6 +2885,7 @@ layout: default
     background-size: 780px 169px;
     background-repeat: no-repeat;
     animation: doraemon-walk 1s steps(6) infinite;
+    overflow: hidden;
   }
   
   /* 走路动画 - 6帧精灵图 */
@@ -3675,9 +3676,10 @@ layout: default
     }
     
     #doraemon {
-      width: 100px;
+      width: 90px;
       height: 130px;
       background-size: 600px 130px;
+      overflow: hidden;
     }
     
     @keyframes doraemon-walk {
