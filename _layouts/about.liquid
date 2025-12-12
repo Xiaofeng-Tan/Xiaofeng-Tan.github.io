@@ -2959,20 +2959,18 @@ layout: default
   
   /* 哆啦A梦离场动画 - 跑向屏幕右边（从左下角 20px 处到屏幕右边 + 200px）
      距离 = 100vw + 220px（屏幕宽度 + 初始位置20px + 超出200px）
-     时间 = 5s，速度 = (100vw + 220px) / 5s = 匀速 */
+     时间 = 10s，速度更慢更自然 */
   @keyframes doraemon-run-away {
     0% {
       transform: translateX(0);
-      opacity: 1;
     }
     100% {
       transform: translateX(calc(100vw + 220px));
-      opacity: 0;
     }
   }
   
   #doraemon.exit-animation {
-    animation: doraemon-walk 0.5s steps(6) infinite, doraemon-run-away 5s linear forwards;
+    animation: doraemon-walk 0.5s steps(6) infinite, doraemon-run-away 6s linear forwards;
   }
   
   /* 对话框离场动画 - 使用 JS 控制跟随 */
@@ -3805,20 +3803,18 @@ layout: default
       }
     }
     
-    /* 移动端哆啦A梦离场动画 - 5秒线性运动 */
+    /* 移动端哆啦A梦离场动画 - 10秒线性运动，不改变透明度 */
     @keyframes doraemon-run-away-mobile {
       0% {
         transform: translateX(0);
-        opacity: 1;
       }
       100% {
         transform: translateX(calc(100vw + 220px));
-        opacity: 0;
       }
     }
     
     #doraemon.exit-animation {
-      animation: doraemon-walk 0.5s steps(6) infinite, doraemon-run-away-mobile 5s linear forwards;
+      animation: doraemon-walk 0.5s steps(6) infinite, doraemon-run-away-mobile 6s linear forwards;
     }
     
     #kitty {
@@ -4042,7 +4038,7 @@ layout: default
       // 使用 requestAnimationFrame 让对话框跟随哆啦A梦
       let exitAnimationId = null;
       const startTime = performance.now();
-      const duration = 5000; // 5秒动画
+      const duration = 6000; // 6秒动画（与 CSS 动画时间一致）
       
       function updateBubblePosition(currentTime) {
         const elapsed = currentTime - startTime;
@@ -4058,8 +4054,7 @@ layout: default
         // 更新气泡位置，使其跟随哆啦A梦
         bubble.style.left = doraemonCenterX + 'px';
         
-        // 逐渐淡出
-        bubble.style.opacity = 1 - progress * 0.8;
+        // 保持透明度不变
         
         if (progress < 1) {
           exitAnimationId = requestAnimationFrame(updateBubblePosition);
@@ -4068,7 +4063,7 @@ layout: default
       
       exitAnimationId = requestAnimationFrame(updateBubblePosition);
       
-      // 5秒后清理并显示新角色
+      // 6秒后清理并显示新角色（与动画时间一致）
       setTimeout(() => {
         // 停止动画
         if (exitAnimationId) {
@@ -4091,7 +4086,7 @@ layout: default
         }
         updateBubbleColor(targetName);
         isSwitching = false;
-      }, 5000);
+      }, 6000);
     } else {
       // 其他角色：快速淡出淡入
       if (oldMascot) {
