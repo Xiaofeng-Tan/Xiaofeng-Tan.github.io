@@ -3257,49 +3257,84 @@ layout: default
     filter: drop-shadow(0 6px 16px rgba(255, 140, 0, 0.5));
   }
   
-  /* Tom & Jerry 离场动画 - 追逐跑出屏幕 */
-  @keyframes tomjerry-run-away {
-    0% {
-      transform: translateX(0) translateY(0) rotate(0deg);
-      opacity: 1;
-    }
-    10% {
-      transform: translateX(-20px) translateY(-15px) rotate(-8deg);
-    }
-    20% {
-      transform: translateX(30px) translateY(-5px) rotate(5deg);
-    }
-    30% {
-      transform: translateX(80px) translateY(-20px) rotate(-10deg);
-    }
-    40% {
-      transform: translateX(150px) translateY(0) rotate(8deg);
-    }
-    50% {
-      transform: translateX(250px) translateY(-25px) rotate(-12deg);
-    }
-    60% {
-      transform: translateX(380px) translateY(-10px) rotate(10deg);
-    }
-    70% {
-      transform: translateX(550px) translateY(-30px) rotate(-8deg);
-    }
-    80% {
-      transform: translateX(750px) translateY(-15px) rotate(5deg);
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(calc(100vw + 200px)) translateY(-20px) rotate(0deg);
-      opacity: 0;
-    }
+  /* Tom & Jerry 离场动画 - 被平底锅打晕效果 */
+  @keyframes tomjerry-dizzy {
+    0% { transform: rotate(0deg) scale(1); }
+    10% { transform: rotate(-15deg) scale(1.1); }
+    20% { transform: rotate(15deg) scale(1.05); }
+    30% { transform: rotate(-10deg) scale(1); }
+    40% { transform: rotate(10deg) scale(0.95); }
+    50% { transform: rotate(-5deg) scale(0.9); }
+    60% { transform: rotate(5deg) scale(0.85); }
+    70% { transform: rotate(-3deg) scale(0.7); }
+    80% { transform: rotate(0deg) scale(0.5); opacity: 0.8; }
+    90% { transform: rotate(0deg) scale(0.3); opacity: 0.5; }
+    100% { transform: rotate(0deg) scale(0); opacity: 0; }
   }
   
   #tomjerry.exit-animation {
-    animation: tomjerry-run-away 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards !important;
+    animation: tomjerry-dizzy 2s ease-out forwards !important;
   }
   
   #tomjerry.exit-animation img {
-    animation: tomjerry-chase 0.3s ease-out infinite !important;
+    animation: none !important;
+  }
+  
+  /* 星星眩晕效果容器 */
+  .dizzy-stars {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 40px;
+    pointer-events: none;
+    opacity: 0;
+  }
+  
+  .dizzy-stars.show {
+    opacity: 1;
+    animation: stars-fade 2s ease-out forwards;
+  }
+  
+  @keyframes stars-fade {
+    0% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  .dizzy-star {
+    position: absolute;
+    font-size: 1.2rem;
+    animation: star-orbit 0.6s linear infinite;
+  }
+  
+  .dizzy-star:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .dizzy-star:nth-child(2) {
+    left: 35%;
+    animation-delay: 0.15s;
+  }
+  
+  .dizzy-star:nth-child(3) {
+    left: 60%;
+    animation-delay: 0.3s;
+  }
+  
+  .dizzy-star:nth-child(4) {
+    left: 85%;
+    animation-delay: 0.45s;
+  }
+  
+  @keyframes star-orbit {
+    0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+    25% { transform: translateY(-8px) rotate(90deg) scale(1.2); }
+    50% { transform: translateY(0) rotate(180deg) scale(1); opacity: 0.8; }
+    75% { transform: translateY(8px) rotate(270deg) scale(0.8); }
+    100% { transform: translateY(0) rotate(360deg) scale(1); opacity: 1; }
   }
   
   /* ========== 皮卡丘样式 (纯CSS版本) ========== */
@@ -4103,66 +4138,42 @@ layout: default
         isSwitching = false;
       }, 5000);
     } else if (oldName === 'tomjerry' && oldMascot) {
-      // ========== 汤姆猫特殊离场动画 - 追逐跑出屏幕 ==========
-      const tomExitMessages = [
-        '等等我Jerry！🏃💨', 'Wait Jerry! 🏃💨',
-        '奶酪在那边！🧀➡️', 'Cheese over there! 🧀➡️',
-        '这次一定抓住你！🐱💨', 'I\'ll catch you! 🐱💨',
-        '别跑！🐭💨', 'Don\'t run! 🐭💨'
-      ];
-      const exitMsg = tomExitMessages[Math.floor(Math.random() * tomExitMessages.length)];
+      // Tom & Jerry 特殊离场动画 - 被平底锅打晕
+      bubble.textContent = '💫 Ouch! 被杰瑞打晕了... 😵‍💫';
+      bubble.classList.add('show');
       
-      bubble.textContent = exitMsg;
-      bubble.classList.add('show', 'exit-animation');
+      // 创建眩晕星星效果
+      let starsContainer = document.querySelector('.dizzy-stars');
+      if (!starsContainer) {
+        starsContainer = document.createElement('div');
+        starsContainer.className = 'dizzy-stars';
+        starsContainer.innerHTML = '<span class="dizzy-star">⭐</span><span class="dizzy-star">✨</span><span class="dizzy-star">⭐</span><span class="dizzy-star">✨</span>';
+        oldMascot.appendChild(starsContainer);
+      }
+      starsContainer.classList.add('show');
       
+      // 启动离场动画
       oldMascot.classList.remove('active');
       oldMascot.style.display = 'flex';
-      oldMascot.style.opacity = '1';
       oldMascot.classList.add('exit-animation');
       
-      // 使用 requestAnimationFrame 让对话框跟随汤姆猫
-      let exitAnimationId = null;
-      const startTime = performance.now();
-      const duration = 3000; // 3秒动画
-      
-      function updateBubblePosition(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        const tomRect = oldMascot.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        const tomCenterX = tomRect.left + tomRect.width / 2 - containerRect.left;
-        
-        bubble.style.left = tomCenterX + 'px';
-        bubble.style.opacity = 1 - progress * 0.7;
-        
-        if (progress < 1) {
-          exitAnimationId = requestAnimationFrame(updateBubblePosition);
-        }
-      }
-      
-      exitAnimationId = requestAnimationFrame(updateBubblePosition);
-      
-      // 3秒后清理并显示新角色
+      // 2秒后清理并显示新角色
       setTimeout(() => {
-        if (exitAnimationId) {
-          cancelAnimationFrame(exitAnimationId);
-        }
-        
+        // 清理旧角色
         oldMascot.classList.remove('exit-animation');
         oldMascot.style.display = '';
-        oldMascot.style.opacity = '';
+        starsContainer.classList.remove('show');
         
-        bubble.classList.remove('show', 'exit-animation');
-        bubble.style.left = '';
-        bubble.style.opacity = '';
+        // 清理气泡
+        bubble.classList.remove('show');
         
+        // 显示新角色
         if (newMascot) {
           newMascot.classList.add('active');
         }
         updateBubbleColor(targetName);
         isSwitching = false;
-      }, 3000);
+      }, 2000);
     } else {
       // 其他角色：快速淡出淡入
       if (oldMascot) {
