@@ -3685,6 +3685,11 @@ layout: default
     transform: translateX(-50%) translateY(0) scale(1);
   }
   
+  /* 对话框离场时覆盖 show 的样式 */
+  .mascot-bubble.show.exit-animation {
+    animation: bubble-run-away 5s linear forwards !important;
+  }
+  
   /* 暗色模式 - 气泡 */
   html[data-theme="dark"] .mascot-bubble {
     background: linear-gradient(135deg, #1e2328 0%, #161b22 100%);
