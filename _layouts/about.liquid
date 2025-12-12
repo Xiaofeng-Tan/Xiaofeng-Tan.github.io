@@ -1007,6 +1007,32 @@ layout: default
     box-shadow: 0 4px 12px rgba(155, 89, 182, 0.25);
   }
 
+  /* Publications 预览图片样式 - 桌面端 */
+  .publications .bibliography li .row {
+    align-items: stretch;
+  }
+
+  .publications .abbr {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-shrink: 0;
+    padding-right: 0.5rem;
+  }
+
+  .publications .abbr .preview {
+    width: 100px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .publications .bibliography li:hover .abbr .preview {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 161, 233, 0.2);
+  }
+
   /* ========== 荣誉奖项样式（带滚动条）========== */
   .honors-section {
     margin-bottom: 0.6rem;
@@ -2180,6 +2206,15 @@ layout: default
     box-shadow: 0 4px 12px rgba(179, 136, 255, 0.35);
   }
 
+  /* Publications 预览图片 - 暗色模式 */
+  html[data-theme="dark"] .publications .abbr .preview {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  html[data-theme="dark"] .publications .bibliography li:hover .abbr .preview {
+    box-shadow: 0 4px 12px rgba(94, 200, 242, 0.25);
+  }
+
   /* ===== 荣誉奖项 ===== */
   html[data-theme="dark"] .honors-section::-webkit-scrollbar-thumb {
     background: #30363d;
@@ -3257,86 +3292,6 @@ layout: default
     filter: drop-shadow(0 6px 16px rgba(255, 140, 0, 0.5));
   }
   
-  /* Tom & Jerry 离场动画 - 被平底锅打晕效果 */
-  @keyframes tomjerry-dizzy {
-    0% { transform: rotate(0deg) scale(1); }
-    10% { transform: rotate(-15deg) scale(1.1); }
-    20% { transform: rotate(15deg) scale(1.05); }
-    30% { transform: rotate(-10deg) scale(1); }
-    40% { transform: rotate(10deg) scale(0.95); }
-    50% { transform: rotate(-5deg) scale(0.9); }
-    60% { transform: rotate(5deg) scale(0.85); }
-    70% { transform: rotate(-3deg) scale(0.7); }
-    80% { transform: rotate(0deg) scale(0.5); opacity: 0.8; }
-    90% { transform: rotate(0deg) scale(0.3); opacity: 0.5; }
-    100% { transform: rotate(0deg) scale(0); opacity: 0; }
-  }
-  
-  #tomjerry.exit-animation {
-    animation: tomjerry-dizzy 2s ease-out forwards !important;
-  }
-  
-  #tomjerry.exit-animation img {
-    animation: none !important;
-  }
-  
-  /* 星星眩晕效果容器 */
-  .dizzy-stars {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 40px;
-    pointer-events: none;
-    opacity: 0;
-  }
-  
-  .dizzy-stars.show {
-    opacity: 1;
-    animation: stars-fade 2s ease-out forwards;
-  }
-  
-  @keyframes stars-fade {
-    0% { opacity: 1; }
-    70% { opacity: 1; }
-    100% { opacity: 0; }
-  }
-  
-  .dizzy-star {
-    position: absolute;
-    font-size: 1.2rem;
-    animation: star-orbit 0.6s linear infinite;
-  }
-  
-  .dizzy-star:nth-child(1) {
-    left: 10%;
-    animation-delay: 0s;
-  }
-  
-  .dizzy-star:nth-child(2) {
-    left: 35%;
-    animation-delay: 0.15s;
-  }
-  
-  .dizzy-star:nth-child(3) {
-    left: 60%;
-    animation-delay: 0.3s;
-  }
-  
-  .dizzy-star:nth-child(4) {
-    left: 85%;
-    animation-delay: 0.45s;
-  }
-  
-  @keyframes star-orbit {
-    0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
-    25% { transform: translateY(-8px) rotate(90deg) scale(1.2); }
-    50% { transform: translateY(0) rotate(180deg) scale(1); opacity: 0.8; }
-    75% { transform: translateY(8px) rotate(270deg) scale(0.8); }
-    100% { transform: translateY(0) rotate(360deg) scale(1); opacity: 1; }
-  }
-  
   /* ========== 皮卡丘样式 (纯CSS版本) ========== */
   #pikachu {
     width: 130px;
@@ -4137,43 +4092,6 @@ layout: default
         updateBubbleColor(targetName);
         isSwitching = false;
       }, 5000);
-    } else if (oldName === 'tomjerry' && oldMascot) {
-      // Tom & Jerry 特殊离场动画 - 被平底锅打晕
-      bubble.textContent = '💫 Ouch! 被杰瑞打晕了... 😵‍💫';
-      bubble.classList.add('show');
-      
-      // 创建眩晕星星效果
-      let starsContainer = document.querySelector('.dizzy-stars');
-      if (!starsContainer) {
-        starsContainer = document.createElement('div');
-        starsContainer.className = 'dizzy-stars';
-        starsContainer.innerHTML = '<span class="dizzy-star">⭐</span><span class="dizzy-star">✨</span><span class="dizzy-star">⭐</span><span class="dizzy-star">✨</span>';
-        oldMascot.appendChild(starsContainer);
-      }
-      starsContainer.classList.add('show');
-      
-      // 启动离场动画
-      oldMascot.classList.remove('active');
-      oldMascot.style.display = 'flex';
-      oldMascot.classList.add('exit-animation');
-      
-      // 2秒后清理并显示新角色
-      setTimeout(() => {
-        // 清理旧角色
-        oldMascot.classList.remove('exit-animation');
-        oldMascot.style.display = '';
-        starsContainer.classList.remove('show');
-        
-        // 清理气泡
-        bubble.classList.remove('show');
-        
-        // 显示新角色
-        if (newMascot) {
-          newMascot.classList.add('active');
-        }
-        updateBubbleColor(targetName);
-        isSwitching = false;
-      }, 2000);
     } else {
       // 其他角色：快速淡出淡入
       if (oldMascot) {
