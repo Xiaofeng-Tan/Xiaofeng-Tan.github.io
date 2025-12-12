@@ -2827,7 +2827,7 @@ layout: default
   #mascot-container {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     z-index: 9999;
     cursor: grab;
     transition: filter 0.3s ease;
@@ -2910,6 +2910,40 @@ layout: default
     0%, 100% { transform: scale(1.05) rotate(0deg); }
     25% { transform: scale(1.05) rotate(-2deg); }
     75% { transform: scale(1.05) rotate(2deg); }
+  }
+  
+  /* 哆啦A梦离场动画 - 跑向屏幕右边（从左下角 20px 处到屏幕右边 + 200px）
+     距离 = 100vw + 220px（屏幕宽度 + 初始位置20px + 超出200px）
+     时间 = 5s，速度 = (100vw + 220px) / 5s = 匀速 */
+  @keyframes doraemon-run-away {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(calc(100vw + 220px));
+      opacity: 0;
+    }
+  }
+  
+  #doraemon.exit-animation {
+    animation: doraemon-walk 0.5s steps(6) infinite, doraemon-run-away 5s linear forwards;
+  }
+  
+  /* 对话框离场动画 - 跟随哆啦A梦 */
+  @keyframes bubble-run-away {
+    0% {
+      transform: translateX(-50%) translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(calc(-50% + 100vw + 220px)) translateY(0) scale(1);
+      opacity: 0;
+    }
+  }
+  
+  .mascot-bubble.exit-animation {
+    animation: bubble-run-away 5s linear forwards;
   }
   
   /* ========== Hello Kitty 样式 (纯CSS版本) ========== */
@@ -3134,8 +3168,30 @@ layout: default
     50% { transform: rotate(-30deg); }
   }
   
+  /* Kitty 空闲时的持续摇摆动画 */
+  #kitty.active {
+    animation: kitty-idle-sway 3s ease-in-out infinite;
+  }
+  
+  @keyframes kitty-idle-sway {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1) rotate(-1deg); }
+    50% { transform: scale(1) rotate(0deg); }
+    75% { transform: scale(1) rotate(1deg); }
+  }
+  
   #kitty:hover .kitty-triangle {
     animation: kitty-bow-swing 0.5s ease-in-out;
+  }
+  
+  /* Kitty 眼睛眨眼（持续） */
+  @keyframes kitty-eyes-blink {
+    0%, 90%, 100% { height: 6px; }
+    95% { height: 1px; }
+  }
+  
+  .kitty-eye-left, .kitty-eye-right {
+    animation: kitty-eyes-blink 3s ease-in-out infinite;
   }
   
   /* ========== Tom & Jerry 样式 ========== */
@@ -3215,14 +3271,32 @@ layout: default
     transform-origin: center center;
   }
   
+  /* 皮卡丘空闲时的持续摇晃动画 */
+  #pikachu.active .pikachu-wrapper {
+    animation: pikachu-idle-bounce 2s ease-in-out infinite;
+  }
+  
+  @keyframes pikachu-idle-bounce {
+    0%, 100% { transform: scale(0.2) translate(-235px, -235px) translateY(0); }
+    50% { transform: scale(0.2) translate(-235px, -235px) translateY(-8px); }
+  }
+  
+  /* 皮卡丘尾巴持续摇摆 */
   .pika-tail {
     position: absolute;
     left: 33px;
     top: 228px;
     width: 300px;
     height: 300px;
-    animation: pika-tails 5s infinite linear;
+    animation: pika-tail-wag 1.5s ease-in-out infinite;
     transform-origin: 100% 100%;
+  }
+  
+  @keyframes pika-tail-wag {
+    0%, 100% { transform: rotate(-2deg); }
+    25% { transform: rotate(8deg); }
+    50% { transform: rotate(-2deg); }
+    75% { transform: rotate(8deg); }
   }
   
   .pika-tail-1 {
@@ -3535,15 +3609,6 @@ layout: default
   }
   
   /* 皮卡丘动画 */
-  @keyframes pika-tails {
-    0%, 20%, 100% {
-      transform: rotate(-2deg);
-    }
-    10% {
-      transform: rotate(2deg);
-    }
-  }
-  
   @keyframes pika-eyes {
     0%, 100% {
       box-shadow: 74px 84px 0 4px #fff, 66px 94px 0 17px #000, 201px 71px 0 2px #fff, 208px 77px 0 12px #000, 39px 160px 0 21px #f00, 39px 160px 0 26px #800, 257px 136px 0 17px #f00, 257px 136px 0 22px #800;
@@ -3692,6 +3757,22 @@ layout: default
       100% {
         background-position: -600px 0px;
       }
+    }
+    
+    /* 移动端哆啦A梦离场动画 - 5秒线性运动 */
+    @keyframes doraemon-run-away-mobile {
+      0% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(calc(100vw + 220px));
+        opacity: 0;
+      }
+    }
+    
+    #doraemon.exit-animation {
+      animation: doraemon-walk 0.5s steps(6) infinite, doraemon-run-away-mobile 5s linear forwards;
     }
     
     #kitty {
@@ -3915,44 +3996,88 @@ layout: default
     const oldMascot = document.getElementById(currentMascot);
     const newMascot = document.getElementById(mascotName);
     
-    // 淡出旧角色
-    if (oldMascot) {
-      oldMascot.classList.add('fade-out');
+    // 哆啦A梦的特殊离场效果
+    if (currentMascot === 'doraemon' && oldMascot) {
+      oldMascot.classList.add('exit-animation');
+      bubble.textContent = '铜锣烧！😍 どら焼き！😍 Dorayaki! 😍';
+      bubble.classList.add('show');
+      bubble.classList.add('exit-animation');
+      
       setTimeout(() => {
-        oldMascot.classList.remove('active', 'fade-out');
-      }, 400);
+        bubble.classList.remove('show', 'exit-animation');
+        oldMascot.classList.remove('active', 'exit-animation');
+      }, 5000);
+      
+      // 延后5秒再切换到新角色
+      setTimeout(() => {
+        if (newMascot) {
+          newMascot.classList.add('active');
+        }
+        currentMascot = mascotName;
+        currentMascotIndex = mascotOrder.indexOf(mascotName);
+        
+        // 检测是否为暗色模式
+        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+        
+        // 更新气泡边框颜色
+        if (mascotName === 'kitty') {
+          bubble.style.borderColor = '#FF69B4';
+          bubble.style.setProperty('--bubble-border-color', '#FF69B4');
+          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2d1f26' : '#ffe6f0');
+        } else if (mascotName === 'tomjerry') {
+          bubble.style.borderColor = '#FF8C00';
+          bubble.style.setProperty('--bubble-border-color', '#FF8C00');
+          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2a2415' : '#fff5e6');
+        } else if (mascotName === 'pikachu') {
+          bubble.style.borderColor = '#FAF305';
+          bubble.style.setProperty('--bubble-border-color', '#FAF305');
+          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2a281a' : '#fffbf0');
+        } else {
+          bubble.style.borderColor = '#0DACD6';
+          bubble.style.setProperty('--bubble-border-color', '#0DACD6');
+          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#1a2529' : '#f0fafb');
+        }
+      }, 5000);
+    } else {
+      // 其他角色的正常淡出效果
+      if (oldMascot) {
+        oldMascot.classList.add('fade-out');
+        setTimeout(() => {
+          oldMascot.classList.remove('active', 'fade-out');
+        }, 400);
+      }
+      
+      // 淡入新角色
+      setTimeout(() => {
+        if (newMascot) {
+          newMascot.classList.add('active');
+        }
+        currentMascot = mascotName;
+        currentMascotIndex = mascotOrder.indexOf(mascotName);
+        
+        // 检测是否为暗色模式
+        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+        
+        // 更新气泡边框颜色
+        if (mascotName === 'kitty') {
+          bubble.style.borderColor = '#FF69B4';
+          bubble.style.setProperty('--bubble-border-color', '#FF69B4');
+          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2d1f26' : '#ffe6f0');
+        } else if (mascotName === 'tomjerry') {
+          bubble.style.borderColor = '#FF8C00';
+          bubble.style.setProperty('--bubble-border-color', '#FF8C00');
+          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2a2415' : '#fff5e6');
+        } else if (mascotName === 'pikachu') {
+          bubble.style.borderColor = '#FAF305';
+          bubble.style.setProperty('--bubble-border-color', '#FAF305');
+          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2a281a' : '#fffbf0');
+        } else {
+          bubble.style.borderColor = '#0DACD6';
+          bubble.style.setProperty('--bubble-border-color', '#0DACD6');
+          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#1a2529' : '#f0fafb');
+        }
+      }, 300);
     }
-    
-    // 淡入新角色
-    setTimeout(() => {
-      if (newMascot) {
-        newMascot.classList.add('active');
-      }
-      currentMascot = mascotName;
-      currentMascotIndex = mascotOrder.indexOf(mascotName);
-      
-      // 检测是否为暗色模式
-      const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-      
-      // 更新气泡边框颜色和背景三角颜色
-      if (mascotName === 'kitty') {
-        bubble.style.borderColor = '#FF69B4';
-        bubble.style.setProperty('--bubble-border-color', '#FF69B4');
-        bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2d1f26' : '#ffe6f0');
-      } else if (mascotName === 'tomjerry') {
-        bubble.style.borderColor = '#FF8C00';
-        bubble.style.setProperty('--bubble-border-color', '#FF8C00');
-        bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2a2415' : '#fff5e6');
-      } else if (mascotName === 'pikachu') {
-        bubble.style.borderColor = '#FAF305';
-        bubble.style.setProperty('--bubble-border-color', '#FAF305');
-        bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2a281a' : '#fffbf0');
-      } else {
-        bubble.style.borderColor = '#0DACD6';
-        bubble.style.setProperty('--bubble-border-color', '#0DACD6');
-        bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#1a2529' : '#f0fafb');
-      }
-    }, 300);
   }
   
   // 切换到下一个角色
@@ -4213,6 +4338,16 @@ layout: default
     if (Math.random() > 0.85 && !bubble.classList.contains('show')) {
       showBubble();
     }
+  }, 15000);
+  
+  // 自动切换角色（15秒换一个角色，切换前说句话）
+  setInterval(function() {
+    // 先说句话
+    showBubble();
+    // 等待1秒后切换
+    setTimeout(function() {
+      switchToNextMascot();
+    }, 1000);
   }, 15000);
   
 })();
