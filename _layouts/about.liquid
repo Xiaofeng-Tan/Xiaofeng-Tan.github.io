@@ -2829,10 +2829,16 @@ layout: default
     position: fixed;
     bottom: 20px;
     left: 20px;
+    width: 130px;
+    height: 200px;  /* 增加高度容纳气泡和提示 */
     z-index: 9999;
     cursor: grab;
     transition: filter 0.3s ease;
     user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
   }
   
   #mascot-container:active {
@@ -2852,7 +2858,9 @@ layout: default
   .mascot {
     width: 130px;
     height: 130px;
-    position: relative;
+    position: absolute;
+    left: 0;
+    bottom: 25px;  /* 底部留出空间给提示 */
     filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.2));
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     display: none;
@@ -2887,6 +2895,7 @@ layout: default
     background-repeat: no-repeat;
     animation: doraemon-walk 1s steps(6) infinite;
     overflow: hidden;
+    bottom: 5px;  /* 哆啦A梦稍微下移 */
   }
   
   /* 走路动画 - 6帧精灵图 */
@@ -3636,28 +3645,29 @@ layout: default
   /* ========== 对话气泡样式 ========== */
   .mascot-bubble {
     position: absolute;
-    bottom: 160px;
-    right: auto;
+    top: 0;
     left: 50%;
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    padding: 12px 18px;
-    border-radius: 14px;
-    font-size: 13px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 12px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: #2c3e50;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
     opacity: 0;
-    transform: translateX(-50%) translateY(8px) scale(0.9);
+    transform: translateX(-50%) translateY(-8px) scale(0.9);
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     pointer-events: none;
     white-space: nowrap;
-    border: 2px solid #0DACD6;
+    border: 2px solid var(--bubble-border-color, #0DACD6);
+    z-index: 10;
     width: fit-content;
     max-width: 90vw;
-    min-width: 180px;
+    min-width: 140px;
     line-height: 1.4;
   }
   
+  /* 气泡箭头指向下方（角色） */
   .mascot-bubble::after {
     content: '';
     position: absolute;
@@ -3709,7 +3719,7 @@ layout: default
   /* ========== 操作提示样式 ========== */
   .mascot-hint {
     position: absolute;
-    bottom: -18px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.6rem;
@@ -3734,7 +3744,9 @@ layout: default
   @media (max-width: 768px) {
     #mascot-container {
       bottom: 15px;
-      right: 15px;
+      left: 15px;
+      width: 100px;
+      height: 170px;  /* 调整高度容纳气泡和提示 */
       /* 增大触摸区域 */
       padding: 10px;
       margin: -10px -10px 0 0;
@@ -3743,6 +3755,7 @@ layout: default
     .mascot {
       width: 100px;
       height: 100px;
+      bottom: 20px;  /* 底部留出空间给提示 */
       /* 移动端增加点击反馈 */
       transition: all 0.2s ease;
     }
@@ -3757,6 +3770,7 @@ layout: default
       height: 130px;
       background-size: 600px 130px;
       overflow: hidden;
+      bottom: 20px;  /* 移动端哆啦A梦稍微下移 */
     }
     
     @keyframes doraemon-walk {
@@ -3864,18 +3878,18 @@ layout: default
     .mascot-bubble {
       font-size: 11px;
       padding: 8px 12px;
-      bottom: 115px;
+      top: 0;
       left: 50%;
       width: fit-content;
       max-width: 80vw;
-      min-width: 140px;
+      min-width: 120px;
       /* 移动端气泡增加可见性 */
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
     
     .mascot-hint {
       font-size: 0.55rem;
-      bottom: -16px;
+      bottom: 0;
       /* 移动端提示更清晰 */
       display: block !important;
       opacity: 0.9 !important;
@@ -3891,267 +3905,218 @@ layout: default
   const mascots = document.querySelectorAll('.mascot');
   const mascotOrder = ['doraemon', 'tomjerry', 'kitty', 'pikachu'];
   
-  // 当前激活的卡通人物
+  // ========== 状态管理 ==========
   let currentMascot = 'doraemon';
   let currentMascotIndex = 0;
+  let isSwitching = false;  // 防止切换过程中重复触发
+  let bubbleTimer = null;   // 气泡隐藏定时器
   
-  // 各卡通人物的对话内容 - 中英文混合，随机出现
+  // ========== 各角色对话内容 ==========
   const messages = {
     doraemon: [
-      '铜锣烧真好吃！🥞',
-      'Dorayaki is the best! 🥞',
-      '大雄！快起床！⏰',
-      'Nobita! Wake up! ⏰',
-      '让我从口袋里找找...🎒',
-      'Let me check my pocket... 🎒',
-      '任意门！🚪',
-      'Anywhere Door! 🚪',
-      '竹蜻蜓启动！🚁',
-      'Take-copter, go! 🚁',
-      '时光机出发！⏳',
-      'Time Machine, depart! ⏳',
-      '缩小灯！🔦',
-      'Small Light! 🔦',
-      '记忆面包来了！🍞',
-      'Memory Bread here! 🍞',
-      '翻译魔芋～',
-      'Translation Konjac~',
-      '别提老鼠！我耳朵都没了😱',
-      'Don\'t mention mice! 😱',
-      'I\'m a robot cat from the future! 🤖',
-      '22世纪的机器猫来了！🤖'
+      '铜锣烧真好吃！🥞', 'Dorayaki is the best! 🥞',
+      '大雄！快起床！⏰', 'Nobita! Wake up! ⏰',
+      '让我从口袋里找找...🎒', 'Let me check my pocket... 🎒',
+      '任意门！🚪', 'Anywhere Door! 🚪',
+      '竹蜻蜓启动！🚁', 'Take-copter, go! 🚁',
+      '时光机出发！⏳', 'Time Machine, depart! ⏳',
+      '缩小灯！🔦', 'Small Light! 🔦',
+      '记忆面包来了！🍞', 'Memory Bread here! 🍞',
+      '翻译魔芋～', 'Translation Konjac~',
+      '别提老鼠！我耳朵都没了😱', 'Don\'t mention mice! 😱',
+      'I\'m a robot cat from the future! 🤖', '22世纪的机器猫来了！🤖'
     ],
     kitty: [
-      '苹果派最好吃了！🍎',
-      'Apple pie is the best! 🍎',
-      '我的蝴蝶结可爱吗？🎀',
-      'Is my bow cute? 🎀',
-      '和Mimmy一起玩吧！👭',
-      'Let\'s play with Mimmy! 👭',
-      '下午茶时间到了～☕',
-      'Tea time! ☕',
-      '今天也要开心哦！💕',
-      'Stay happy today! 💕',
-      '做饼干给你吃～🍪',
-      'I\'ll bake cookies for you~ 🍪',
-      '我喜欢弹钢琴！🎹',
-      'I love playing piano! 🎹',
-      '和朋友在一起最开心！',
-      'Being with friends is the best!',
-      '粉色是最美的颜色！💗',
-      'Pink is the prettiest color! 💗',
-      '甜甜的一天～🍰',
-      'A sweet day~ 🍰',
-      'Hello! I\'m Kitty! 🐱',
-      '你好！我是凯蒂！🐱'
+      '苹果派最好吃了！🍎', 'Apple pie is the best! 🍎',
+      '我的蝴蝶结可爱吗？🎀', 'Is my bow cute? 🎀',
+      '和Mimmy一起玩吧！👭', 'Let\'s play with Mimmy! 👭',
+      '下午茶时间到了～☕', 'Tea time! ☕',
+      '今天也要开心哦！💕', 'Stay happy today! 💕',
+      '做饼干给你吃～🍪', 'I\'ll bake cookies for you~ 🍪',
+      '我喜欢弹钢琴！🎹', 'I love playing piano! 🎹',
+      '和朋友在一起最开心！', 'Being with friends is the best!',
+      '粉色是最美的颜色！💗', 'Pink is the prettiest color! 💗',
+      '甜甜的一天～🍰', 'A sweet day~ 🍰',
+      'Hello! I\'m Kitty! 🐱', '你好！我是凯蒂！🐱'
     ],
     tomjerry: [
-      '等等我Jerry！🏃',
-      'Wait for me, Jerry! 🏃',
-      '你追不到我～🐭',
-      'You can\'t catch me~ 🐭',
-      '奶酪在哪里？🧀',
-      'Where\'s the cheese? 🧀',
-      '又被平底锅打了！🍳',
-      'Got hit by the pan again! 🍳',
-      '这次一定抓住你！',
-      'I\'ll catch you this time!',
-      '陷阱准备好了！',
-      'The trap is ready!',
-      '今天休战吧～',
-      'Let\'s call a truce today~',
-      '我们是最好的冤家！💫',
-      'We\'re the best frenemies! 💫',
-      '小心后面！⚠️',
-      'Watch your back! ⚠️',
-      '又是追逐的一天！',
-      'Another day of chase!',
-      'Classic never gets old! 🎬',
-      '经典永不过时！🎬'
+      '等等我Jerry！🏃', 'Wait for me, Jerry! 🏃',
+      '你追不到我～🐭', 'You can\'t catch me~ 🐭',
+      '奶酪在哪里？🧀', 'Where\'s the cheese? 🧀',
+      '又被平底锅打了！🍳', 'Got hit by the pan again! 🍳',
+      '这次一定抓住你！', 'I\'ll catch you this time!',
+      '陷阱准备好了！', 'The trap is ready!',
+      '今天休战吧～', 'Let\'s call a truce today~',
+      '我们是最好的冤家！💫', 'We\'re the best frenemies! 💫',
+      '小心后面！⚠️', 'Watch your back! ⚠️',
+      '又是追逐的一天！', 'Another day of chase!',
+      'Classic never gets old! 🎬', '经典永不过时！🎬'
     ],
     pikachu: [
-      '皮卡皮卡！⚡',
-      'Pika Pika! ⚡',
-      '皮卡～丘！✨',
-      'Pika~chu! ✨',
-      '十万伏特！⚡⚡⚡',
-      'Thunderbolt! ⚡⚡⚡',
-      '皮～卡～💛',
-      'Pi~ka~ 💛',
-      '番茄酱好吃！🍅',
-      'Ketchup is yummy! 🍅',
-      '电光一闪！💥',
-      'Quick Attack! 💥',
-      '皮卡皮！',
-      'Pikapipi!',
-      '雷电球！⚡',
-      'Electro Ball! ⚡',
-      '皮卡丘～🎉',
-      'Pikachu~ 🎉',
-      '充电完毕！🔋',
-      'Fully charged! 🔋',
-      'I choose you! 🎯',
-      '就决定是你了！🎯'
+      '皮卡皮卡！⚡', 'Pika Pika! ⚡',
+      '皮卡～丘！✨', 'Pika~chu! ✨',
+      '十万伏特！⚡⚡⚡', 'Thunderbolt! ⚡⚡⚡',
+      '皮～卡～💛', 'Pi~ka~ 💛',
+      '番茄酱好吃！🍅', 'Ketchup is yummy! 🍅',
+      '电光一闪！💥', 'Quick Attack! 💥',
+      '皮卡皮！', 'Pikapipi!',
+      '雷电球！⚡', 'Electro Ball! ⚡',
+      '皮卡丘～🎉', 'Pikachu~ 🎉',
+      '充电完毕！🔋', 'Fully charged! 🔋',
+      'I choose you! 🎯', '就决定是你了！🎯'
     ]
   };
   
-  // 切换卡通人物 - 平滑过渡
-  function switchMascot(mascotName) {
-    if (currentMascot === mascotName) return;
+  // ========== 气泡颜色配置 ==========
+  const bubbleColors = {
+    doraemon: { border: '#0DACD6', lightBg: '#f0fafb', darkBg: '#1a2529' },
+    kitty: { border: '#FF69B4', lightBg: '#ffe6f0', darkBg: '#2d1f26' },
+    tomjerry: { border: '#FF8C00', lightBg: '#fff5e6', darkBg: '#2a2415' },
+    pikachu: { border: '#FAF305', lightBg: '#fffbf0', darkBg: '#2a281a' }
+  };
+  
+  // 更新气泡颜色
+  function updateBubbleColor(mascotName) {
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    const colors = bubbleColors[mascotName] || bubbleColors.doraemon;
+    bubble.style.borderColor = colors.border;
+    bubble.style.setProperty('--bubble-border-color', colors.border);
+    bubble.style.setProperty('--bubble-bg-color', isDarkMode ? colors.darkBg : colors.lightBg);
+  }
+  
+  // ========== 核心切换逻辑 ==========
+  function switchMascot(targetName) {
+    // 防止重复切换或切换到当前角色
+    if (isSwitching || currentMascot === targetName) return;
+    isSwitching = true;
     
     const oldMascot = document.getElementById(currentMascot);
-    const newMascot = document.getElementById(mascotName);
+    const newMascot = document.getElementById(targetName);
+    const oldName = currentMascot;
     
-    // 哆啦A梦的特殊离场效果
-    if (currentMascot === 'doraemon' && oldMascot) {
-      oldMascot.classList.add('exit-animation');
+    // 立即更新状态（防止自动切换定时器干扰）
+    currentMascot = targetName;
+    currentMascotIndex = mascotOrder.indexOf(targetName);
+    
+    // 隐藏当前气泡
+    hideBubble();
+    
+    // 哆啦A梦特殊离场动画
+    if (oldName === 'doraemon' && oldMascot) {
+      // 显示离场对话
       bubble.textContent = '铜锣烧！😍 どら焼き！😍 Dorayaki! 😍';
-      bubble.classList.add('show');
-      bubble.classList.add('exit-animation');
+      bubble.classList.add('show', 'exit-animation');
       
+      // 启动离场动画
+      oldMascot.classList.remove('active');
+      oldMascot.style.display = 'block';
+      oldMascot.style.opacity = '1';
+      oldMascot.classList.add('exit-animation');
+      
+      // 5秒后清理并显示新角色
       setTimeout(() => {
+        // 清理旧角色
+        oldMascot.classList.remove('exit-animation');
+        oldMascot.style.display = '';
+        oldMascot.style.opacity = '';
+        
+        // 清理气泡
         bubble.classList.remove('show', 'exit-animation');
-        oldMascot.classList.remove('active', 'exit-animation');
-      }, 5000);
-      
-      // 延后5秒再切换到新角色
-      setTimeout(() => {
+        
+        // 显示新角色
         if (newMascot) {
           newMascot.classList.add('active');
         }
-        currentMascot = mascotName;
-        currentMascotIndex = mascotOrder.indexOf(mascotName);
-        
-        // 检测是否为暗色模式
-        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-        
-        // 更新气泡边框颜色
-        if (mascotName === 'kitty') {
-          bubble.style.borderColor = '#FF69B4';
-          bubble.style.setProperty('--bubble-border-color', '#FF69B4');
-          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2d1f26' : '#ffe6f0');
-        } else if (mascotName === 'tomjerry') {
-          bubble.style.borderColor = '#FF8C00';
-          bubble.style.setProperty('--bubble-border-color', '#FF8C00');
-          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2a2415' : '#fff5e6');
-        } else if (mascotName === 'pikachu') {
-          bubble.style.borderColor = '#FAF305';
-          bubble.style.setProperty('--bubble-border-color', '#FAF305');
-          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2a281a' : '#fffbf0');
-        } else {
-          bubble.style.borderColor = '#0DACD6';
-          bubble.style.setProperty('--bubble-border-color', '#0DACD6');
-          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#1a2529' : '#f0fafb');
-        }
+        updateBubbleColor(targetName);
+        isSwitching = false;
       }, 5000);
     } else {
-      // 其他角色的正常淡出效果
+      // 其他角色：快速淡出淡入
       if (oldMascot) {
         oldMascot.classList.add('fade-out');
-        setTimeout(() => {
-          oldMascot.classList.remove('active', 'fade-out');
-        }, 400);
+        oldMascot.classList.remove('active');
       }
       
-      // 淡入新角色
+      // 450ms 后显示新角色
       setTimeout(() => {
+        if (oldMascot) {
+          oldMascot.classList.remove('fade-out');
+        }
         if (newMascot) {
           newMascot.classList.add('active');
         }
-        currentMascot = mascotName;
-        currentMascotIndex = mascotOrder.indexOf(mascotName);
-        
-        // 检测是否为暗色模式
-        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-        
-        // 更新气泡边框颜色
-        if (mascotName === 'kitty') {
-          bubble.style.borderColor = '#FF69B4';
-          bubble.style.setProperty('--bubble-border-color', '#FF69B4');
-          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2d1f26' : '#ffe6f0');
-        } else if (mascotName === 'tomjerry') {
-          bubble.style.borderColor = '#FF8C00';
-          bubble.style.setProperty('--bubble-border-color', '#FF8C00');
-          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2a2415' : '#fff5e6');
-        } else if (mascotName === 'pikachu') {
-          bubble.style.borderColor = '#FAF305';
-          bubble.style.setProperty('--bubble-border-color', '#FAF305');
-          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#2a281a' : '#fffbf0');
-        } else {
-          bubble.style.borderColor = '#0DACD6';
-          bubble.style.setProperty('--bubble-border-color', '#0DACD6');
-          bubble.style.setProperty('--bubble-bg-color', isDarkMode ? '#1a2529' : '#f0fafb');
-        }
-      }, 300);
+        updateBubbleColor(targetName);
+        isSwitching = false;
+      }, 450);
     }
   }
   
   // 切换到下一个角色
   function switchToNextMascot() {
-    currentMascotIndex = (currentMascotIndex + 1) % mascotOrder.length;
-    switchMascot(mascotOrder[currentMascotIndex]);
+    if (isSwitching) return;
+    const nextIndex = (currentMascotIndex + 1) % mascotOrder.length;
+    switchMascot(mascotOrder[nextIndex]);
   }
   
-  // 眨眼函数（仅对 Hello Kitty 有效）
+  // ========== 角色动画 ==========
   function blink() {
-    if (currentMascot === 'kitty') {
-      const leftEye = document.querySelector('.kitty-eye-left');
-      const rightEye = document.querySelector('.kitty-eye-right');
-      if (leftEye && rightEye) {
-        leftEye.classList.add('blink');
-        rightEye.classList.add('blink');
-        
-        setTimeout(function() {
-          leftEye.classList.remove('blink');
-          rightEye.classList.remove('blink');
-        }, 150);
-      }
+    if (currentMascot !== 'kitty') return;
+    const leftEye = document.querySelector('.kitty-eye-left');
+    const rightEye = document.querySelector('.kitty-eye-right');
+    if (leftEye && rightEye) {
+      leftEye.classList.add('blink');
+      rightEye.classList.add('blink');
+      setTimeout(() => {
+        leftEye.classList.remove('blink');
+        rightEye.classList.remove('blink');
+      }, 150);
     }
   }
   
-  // 哆啦A梦跳跃动画
-  function doraemonJump() {
-    const doraemon = document.getElementById('doraemon');
-    if (doraemon && currentMascot === 'doraemon') {
-      doraemon.classList.add('jumping');
-      setTimeout(function() {
-        doraemon.classList.remove('jumping');
-      }, 400);
+  function playAnimation() {
+    const mascot = document.getElementById(currentMascot);
+    if (!mascot) return;
+    
+    switch (currentMascot) {
+      case 'doraemon':
+        mascot.classList.add('jumping');
+        setTimeout(() => mascot.classList.remove('jumping'), 400);
+        break;
+      case 'tomjerry':
+        mascot.classList.add('chasing');
+        setTimeout(() => mascot.classList.remove('chasing'), 500);
+        break;
+      case 'kitty':
+        mascot.classList.add('jumping');
+        blink();
+        setTimeout(() => mascot.classList.remove('jumping'), 400);
+        break;
+      case 'pikachu':
+        mascot.classList.add('jumping');
+        setTimeout(() => mascot.classList.remove('jumping'), 400);
+        break;
     }
   }
   
-  // Tom & Jerry 追逐动画
-  function tomjerryChase() {
-    const tomjerry = document.getElementById('tomjerry');
-    if (tomjerry && currentMascot === 'tomjerry') {
-      tomjerry.classList.add('chasing');
-      setTimeout(function() {
-        tomjerry.classList.remove('chasing');
-      }, 500);
-    }
+  // ========== 气泡控制 ==========
+  function getRandomMessage() {
+    const msgs = messages[currentMascot];
+    return msgs[Math.floor(Math.random() * msgs.length)];
   }
   
-  // Hello Kitty 跳跃动画
-  function kittyJump() {
-    const kitty = document.getElementById('kitty');
-    if (kitty && currentMascot === 'kitty') {
-      kitty.classList.add('jumping');
-      blink();
-      setTimeout(function() {
-        kitty.classList.remove('jumping');
-      }, 400);
-    }
+  function showBubble(customMessage) {
+    if (bubbleTimer) clearTimeout(bubbleTimer);
+    bubble.textContent = customMessage || getRandomMessage();
+    bubble.classList.add('show');
+    bubbleTimer = setTimeout(hideBubble, 2500);
   }
   
-  // 皮卡丘跳跃动画
-  function pikachuJump() {
-    const pikachu = document.getElementById('pikachu');
-    if (pikachu && currentMascot === 'pikachu') {
-      pikachu.classList.add('jumping');
-      setTimeout(function() {
-        pikachu.classList.remove('jumping');
-      }, 400);
+  function hideBubble() {
+    if (bubbleTimer) {
+      clearTimeout(bubbleTimer);
+      bubbleTimer = null;
     }
+    bubble.classList.remove('show');
   }
   
   // ========== 拖拽功能 ==========
@@ -4192,169 +4157,111 @@ layout: default
     const deltaX = clientX - dragStartX;
     const deltaY = clientY - dragStartY;
     
-    // 如果移动超过 5px，认为是拖拽
     if (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5) {
       hasMoved = true;
     }
     
     const newX = containerStartX + deltaX;
     const newY = containerStartY + deltaY;
-    
-    // 限制在视口内
     const maxX = window.innerWidth - container.offsetWidth;
     const maxY = window.innerHeight - container.offsetHeight;
     
-    const clampedX = Math.max(0, Math.min(newX, maxX));
-    const clampedY = Math.max(0, Math.min(newY, maxY));
-    
-    container.style.left = clampedX + 'px';
-    container.style.top = clampedY + 'px';
+    container.style.left = Math.max(0, Math.min(newX, maxX)) + 'px';
+    container.style.top = Math.max(0, Math.min(newY, maxY)) + 'px';
     container.style.right = 'auto';
     container.style.bottom = 'auto';
   }
   
-  function onDragEnd(e) {
+  function onDragEnd() {
     if (!isDragging) return;
     isDragging = false;
     container.classList.remove('dragging');
   }
   
-  // 鼠标事件
   container.addEventListener('mousedown', onDragStart);
   document.addEventListener('mousemove', onDragMove);
   document.addEventListener('mouseup', onDragEnd);
-  
-  // 触摸事件
   container.addEventListener('touchstart', onDragStart, { passive: false });
   document.addEventListener('touchmove', onDragMove, { passive: false });
   document.addEventListener('touchend', onDragEnd);
   
-  // 获取随机对话
-  function getRandomMessage() {
-    const msgs = messages[currentMascot];
-    const randomIndex = Math.floor(Math.random() * msgs.length);
-    return msgs[randomIndex];
-  }
-  
-  // 显示对话气泡
-  function showBubble() {
-    bubble.textContent = getRandomMessage();
-    bubble.classList.add('show');
-    
-    // 2.5秒后隐藏气泡
-    setTimeout(function() {
-      bubble.classList.remove('show');
-    }, 2500);
-  }
-  
-  // 双击检测和触摸处理
+  // ========== 统一的点击/双击检测 ==========
   let clickCount = 0;
   let clickTimer = null;
-  let lastTouchTime = 0;
-  const isMobile = window.innerWidth <= 768;
   const DOUBLE_CLICK_DELAY = 300;
-  const TOUCH_DOUBLE_CLICK_DELAY = 300;
   
-  function playAnimationAndTalk() {
-    if (currentMascot === 'doraemon') {
-      doraemonJump();
-    } else if (currentMascot === 'tomjerry') {
-      tomjerryChase();
-    } else if (currentMascot === 'kitty') {
-      kittyJump();
-    } else if (currentMascot === 'pikachu') {
-      pikachuJump();
-    }
+  function handleSingleClick() {
+    if (isSwitching) return;
+    playAnimation();
     showBubble();
   }
   
-  function switchRole() {
-    if (isMobile) {
-      const mascot = document.getElementById(currentMascot);
-      mascot.style.transform = 'scale(0.9) rotate(-5deg)';
-      setTimeout(() => {
-        mascot.style.transform = 'scale(1) rotate(0deg)';
-      }, 100);
-    }
+  function handleDoubleClick() {
+    if (isSwitching) return;
     switchToNextMascot();
   }
   
-  // 桌面端：使用 click 事件
-  if (!isMobile) {
-    container.addEventListener('click', function(e) {
-      if (hasMoved) {
-        hasMoved = false;
-        return;
-      }
-      
-      clickCount++;
-      
-      if (clickCount === 1) {
-        clickTimer = setTimeout(function() {
-          clickCount = 0;
-          playAnimationAndTalk();
-        }, DOUBLE_CLICK_DELAY);
-      } else if (clickCount === 2) {
-        clearTimeout(clickTimer);
+  function handleClick(e) {
+    if (hasMoved) {
+      hasMoved = false;
+      return;
+    }
+    
+    clickCount++;
+    
+    if (clickCount === 1) {
+      clickTimer = setTimeout(() => {
         clickCount = 0;
-        switchRole();
-      }
-    });
+        handleSingleClick();
+      }, DOUBLE_CLICK_DELAY);
+    } else if (clickCount >= 2) {
+      clearTimeout(clickTimer);
+      clickCount = 0;
+      handleDoubleClick();
+    }
   }
   
-  // 移动端：使用 touchend 事件处理
+  // 桌面端使用 click，移动端使用 touchend
+  const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  
   if (isMobile) {
-    let touchClickCount = 0;
-    let touchClickTimer = null;
-    
     container.addEventListener('touchend', function(e) {
-      if (hasMoved) {
-        hasMoved = false;
-        return;
-      }
-      
-      e.preventDefault();
-      
-      touchClickCount++;
-      
-      if (touchClickCount === 1) {
-        // 第一次点击，等待可能的第二次
-        touchClickTimer = setTimeout(function() {
-          touchClickCount = 0;
-          playAnimationAndTalk();
-        }, TOUCH_DOUBLE_CLICK_DELAY);
-      } else if (touchClickCount === 2) {
-        // 双击：切换角色
-        clearTimeout(touchClickTimer);
-        touchClickCount = 0;
-        switchRole();
+      if (!isDragging) {
+        e.preventDefault();
+        handleClick(e);
       }
     }, { passive: false });
+  } else {
+    container.addEventListener('click', handleClick);
   }
   
-  // 自动眨眼（仅 Hello Kitty）
-  setInterval(function() {
-    if (currentMascot === 'kitty' && Math.random() > 0.6) {
+  // ========== 自动行为 ==========
+  // 自动眨眼（Hello Kitty）
+  setInterval(() => {
+    if (currentMascot === 'kitty' && Math.random() > 0.6 && !isSwitching) {
       blink();
     }
   }, 4000);
   
-  // 随机自动显示对话（偶尔）
-  setInterval(function() {
-    if (Math.random() > 0.85 && !bubble.classList.contains('show')) {
+  // 随机自动对话
+  setInterval(() => {
+    if (Math.random() > 0.85 && !bubble.classList.contains('show') && !isSwitching) {
       showBubble();
     }
   }, 15000);
   
-  // 自动切换角色（15秒换一个角色，切换前说句话）
-  setInterval(function() {
-    // 先说句话
-    showBubble();
-    // 等待1秒后切换
-    setTimeout(function() {
-      switchToNextMascot();
-    }, 1000);
-  }, 15000);
+  // 自动切换角色（20秒）
+  setInterval(() => {
+    if (!isSwitching) {
+      showBubble();
+      setTimeout(() => {
+        if (!isSwitching) switchToNextMascot();
+      }, 1000);
+    }
+  }, 20000);
+  
+  // 初始化气泡颜色
+  updateBubbleColor(currentMascot);
   
 })();
 </script>
