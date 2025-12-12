@@ -2940,20 +2940,10 @@ layout: default
     animation: doraemon-walk 0.5s steps(6) infinite, doraemon-run-away 5s linear forwards;
   }
   
-  /* 对话框离场动画 - 跟随哆啦A梦 */
-  @keyframes bubble-run-away {
-    0% {
-      transform: translateX(-50%) translateY(0) scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(calc(-50% + 100vw + 220px)) translateY(0) scale(1);
-      opacity: 0;
-    }
-  }
-  
+  /* 对话框离场动画 - 使用 JS 控制跟随 */
   .mascot-bubble.exit-animation {
-    animation: bubble-run-away 5s linear forwards;
+    /* 由 JavaScript 动态更新 left 位置 */
+    transition: none !important;
   }
   
   /* ========== Hello Kitty 样式 (纯CSS版本) ========== */
@@ -3696,9 +3686,10 @@ layout: default
     transform: translateX(-50%) translateY(0) scale(1);
   }
   
-  /* 对话框离场时覆盖 show 的样式 */
+  /* 对话框离场时覆盖 show 的样式 - 使用 JS 控制 */
   .mascot-bubble.show.exit-animation {
-    animation: bubble-run-away 5s linear forwards !important;
+    opacity: 1;
+    /* left 由 JavaScript 动态更新 */
   }
   
   /* 暗色模式 - 气泡 */
@@ -4013,8 +4004,42 @@ layout: default
       oldMascot.style.opacity = '1';
       oldMascot.classList.add('exit-animation');
       
+      // 使用 requestAnimationFrame 让对话框跟随哆啦A梦
+      let exitAnimationId = null;
+      const startTime = performance.now();
+      const duration = 5000; // 5秒动画
+      
+      function updateBubblePosition(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // 获取哆啦A梦当前的 transform 位置
+        const doraemonRect = oldMascot.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        
+        // 计算哆啦A梦相对于容器的中心位置
+        const doraemonCenterX = doraemonRect.left + doraemonRect.width / 2 - containerRect.left;
+        
+        // 更新气泡位置，使其跟随哆啦A梦
+        bubble.style.left = doraemonCenterX + 'px';
+        
+        // 逐渐淡出
+        bubble.style.opacity = 1 - progress * 0.8;
+        
+        if (progress < 1) {
+          exitAnimationId = requestAnimationFrame(updateBubblePosition);
+        }
+      }
+      
+      exitAnimationId = requestAnimationFrame(updateBubblePosition);
+      
       // 5秒后清理并显示新角色
       setTimeout(() => {
+        // 停止动画
+        if (exitAnimationId) {
+          cancelAnimationFrame(exitAnimationId);
+        }
+        
         // 清理旧角色
         oldMascot.classList.remove('exit-animation');
         oldMascot.style.display = '';
@@ -4022,6 +4047,8 @@ layout: default
         
         // 清理气泡
         bubble.classList.remove('show', 'exit-animation');
+        bubble.style.left = '';
+        bubble.style.opacity = '';
         
         // 显示新角色
         if (newMascot) {
