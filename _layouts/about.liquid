@@ -2,10 +2,10 @@
 layout: default
 ---
 
-<!-- 引入学术风格衬线字体 -->
+<!-- 引入学术风格衬线字体 + 手写字体 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Long+Cang&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
 
 <style>
   /* ========== 全局样式与动画 ========== */
@@ -718,6 +718,11 @@ layout: default
     background: rgba(255, 255, 255, 0.8);
   }
 
+  /* 当 abstract 或 mycomment 展开时，禁用 hover 的 transform 效果 */
+  .publications .bibliography li:has(.hidden.open):hover {
+    transform: none;
+  }
+
   .publications .bibliography li:last-child {
     margin-bottom: 0;
   }
@@ -1007,6 +1012,86 @@ layout: default
     box-shadow: 0 4px 12px rgba(155, 89, 182, 0.25);
   }
 
+  /* My Take 按钮 - 学术优雅风格 */
+  .publications .links a.mycomment {
+    background: linear-gradient(135deg, #f5f0e8 0%, #ebe3d8 100%);
+    color: #6b5344;
+    border: 1px solid rgba(139, 115, 85, 0.25);
+    position: relative;
+    font-weight: 600;
+  }
+
+  .publications .links a.mycomment:hover {
+    background: linear-gradient(135deg, #8b7355 0%, #6b5344 100%);
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 83, 68, 0.3);
+  }
+
+  .publications .links a.mycomment i {
+    margin-right: 0.2rem;
+  }
+
+  /* My Comment 展开内容样式 - 参考 abstract 格式 */
+  .publications .mycomment-block.hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.15s ease;
+    border: dashed 1px transparent;
+  }
+
+  .publications .mycomment-block.hidden.open {
+    max-height: 100em;
+    transition: all 0.15s ease;
+    border-color: rgba(139, 115, 85, 0.3);
+    margin-top: 0.3rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .publications .mycomment-content {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .publications .mycomment-en {
+    color: #6b5344;
+    font-style: italic;
+    font-family: "Chalkboard SE", "Bradley Hand", "Comic Sans MS", cursive;
+  }
+
+  .publications .mycomment-zh {
+    color: #8b7355;
+    font-family: "Long Cang", "STXingkai", "Xingkai SC", cursive;
+  }
+
+  .publications .mycomment-content p {
+    margin: 0;
+  }
+
+  /* Coming Soon 样式 - 简洁标注 */
+  .publications .mycomment-content .coming-soon {
+    display: inline;
+  }
+
+  .publications .mycomment-content .coming-soon-icon {
+    font-size: 0.75rem;
+    margin-right: 0.2rem;
+  }
+
+  .publications .mycomment-content .coming-soon-text {
+    font-size: 0.75rem;
+    color: #8b7355;
+    font-family: "Chalkboard SE", "Bradley Hand", "Comic Sans MS", cursive;
+    font-style: italic;
+  }
+
+  .publications .mycomment-content .coming-soon-subtext {
+    font-size: 0.72rem;
+    color: #a08060;
+    font-family: "Long Cang", "STXingkai", "Xingkai SC", cursive;
+  }
+
   /* Publications 预览图片样式 - 桌面端 */
   .publications .bibliography li .row {
     align-items: stretch;
@@ -1025,12 +1110,6 @@ layout: default
     height: 100%;
     object-fit: cover;
     border-radius: 6px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .publications .bibliography li:hover .abbr .preview {
-    transform: scale(1.02);
-    box-shadow: 0 4px 12px rgba(0, 161, 233, 0.2);
   }
 
   /* ========== 荣誉奖项样式（带滚动条）========== */
@@ -2211,8 +2290,38 @@ layout: default
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   }
 
-  html[data-theme="dark"] .publications .bibliography li:hover .abbr .preview {
-    box-shadow: 0 4px 12px rgba(94, 200, 242, 0.25);
+  /* My Take 按钮 - 暗色模式 */
+  html[data-theme="dark"] .publications .links a.mycomment {
+    background: rgba(139, 115, 85, 0.15);
+    color: #d4c4b0;
+    border-color: rgba(139, 115, 85, 0.3);
+  }
+
+  html[data-theme="dark"] .publications .links a.mycomment:hover {
+    background: linear-gradient(135deg, #8b7355 0%, #6b5344 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.35);
+  }
+
+  /* My Comment 展开内容 - 暗色模式 */
+  html[data-theme="dark"] .publications .mycomment-block.hidden.open {
+    border-color: rgba(160, 128, 96, 0.4);
+  }
+
+  html[data-theme="dark"] .publications .mycomment-en {
+    color: #d4c4b0;
+  }
+
+  html[data-theme="dark"] .publications .mycomment-zh {
+    color: #c0a890;
+  }
+
+  html[data-theme="dark"] .publications .mycomment-content .coming-soon-text {
+    color: #c0a890;
+  }
+
+  html[data-theme="dark"] .publications .mycomment-content .coming-soon-subtext {
+    color: #a08060;
   }
 
   /* ===== 荣誉奖项 ===== */

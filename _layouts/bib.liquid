@@ -252,6 +252,7 @@
       {% if entry.website %}
         <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-globe"></i> Website</a>
       {% endif %}
+      <a class="mycomment btn btn-sm z-depth-0" role="button" onclick="var content = this.parentElement.parentElement.querySelector('.mycomment-block.hidden'); if(content) { content.classList.toggle('open'); }"><i class="fas fa-comment-dots"></i> My Take</a>
     </div>
     {% if site.enable_publication_badges %}
       {% assign entry_has_altmetric_badge = false %}
@@ -344,6 +345,25 @@
         <p>{{ entry.award | markdownify }}</p>
       </div>
     {% endif %}
+
+    <!-- Hidden My Comment block -->
+    <div class="mycomment-block hidden">
+      <div class="mycomment-content">
+        {% if entry.mycomment %}
+          {% assign comment_parts = entry.mycomment | split: ' | ' %}
+          <span class="mycomment-en">{{ comment_parts[0] }}</span>
+          {% if comment_parts[1] %}
+            <span class="mycomment-zh"> · {{ comment_parts[1] }}</span>
+          {% endif %}
+        {% else %}
+          <div class="coming-soon">
+            <span class="coming-soon-icon">✨</span>
+            <span class="coming-soon-text">Coming soon</span>
+            <span class="coming-soon-subtext">· 敬请期待</span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
 
     {% if entry.abstract %}
       <!-- Hidden abstract block -->
