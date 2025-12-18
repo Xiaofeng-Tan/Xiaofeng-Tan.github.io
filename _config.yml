@@ -99,6 +99,7 @@ publons_id: # your ID on Publons
 quora_username: # your Quora username
 research_gate_profile: # your profile on ResearchGate
 scholar_userid: C2F5mtgAAAAJ # your Google Scholar ID
+cv_pdf: CV_Xiaofeng_Tan.pdf # your CV PDF file in assets/pdf/
 scopus_id: # your profile on Scopus
 semanticscholar_id: # your Semantic Scholar ID
 spotify_id: # your spotify id
@@ -707,6 +708,7 @@ research:
   logo: "/assets/img/tencent-youtu-logo.png"
   role: "Research Intern"
   period: "2025.07 - Present"
+  topic: "RLHF, RLVR, AIGC"
   lab:
     name: "YouTu Lab"
     url: "https://open.youtu.qq.com/#/open"
@@ -722,6 +724,7 @@ research:
   logo: "/assets/img/smu-logo-s.png"
   role: "Remote Visiting Student"
   period: "2024.07 - 2025.03"
+  topic: "RLHF, Motion Generation"
   lab:
     name: "Language and Vision Lab (LV Lab)"
     url: "https://www.lv-lab.org/SMU/index.html"
@@ -739,6 +742,7 @@ research:
   logo: "/assets/img/palm-logo.png"
   role: "Master Student"
   period: "2024.04 - Present"
+  topic: "RLHF, Motion Generation, Action Recognition"
   lab:
     name: "PAttern Learning and Mining (PALM) Lab"
     url: "https://palm.seu.edu.cn/"
@@ -757,6 +761,7 @@ research:
   logo: "/assets/img/szu_logo.png"
   role: "Undergraduate Research Assistant"
   period: "2022.10 - 2023.10"
+  topic: "Outlier Detection, Anomaly Detection"
   lab:
     name: "Computer Vision Institute"
     url: "https://csse.szu.edu.cn/"

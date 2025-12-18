@@ -2576,6 +2576,11 @@ layout: default
           <i class="ai ai-google-scholar"></i>
         </a>
       {% endif %}
+      {% if site.cv_pdf %}
+        <a href="{{ '/assets/pdf/' | append: site.cv_pdf | relative_url }}" title="CV" target="_blank">
+          <i class="ai ai-cv"></i>
+        </a>
+      {% endif %}
       {% if site.orcid_id %}
         <a href="https://orcid.org/{{ site.orcid_id }}" title="ORCID" target="_blank">
           <i class="fab fa-orcid"></i>
