@@ -695,12 +695,14 @@ education:
     degree: Master Student
     year: 2024 - Present
     logo: ./assets/img/seu_logo.png
+    location: Nanjing, China
     intro: Outstanding Camper (Ranked 2nd) in 2023 Graduate Admission Summer Camp.
   - school: Shenzhen Unversity
     college: College of Computer Science & Software Engineering / College of Mathematics and Statistics
     degree: Dual Degree (B.Eng. & B.Sc.)
     year: 2020 - 2024
     logo: /assets/img/szu_logo.png
+    location: Shenzhen, China
     intro: Outstanding Graduate Representative (1/300+) who delivers a speech at the graduation ceremony.
 
 research:
@@ -708,14 +710,15 @@ research:
   logo: "/assets/img/tencent-youtu-logo.png"
   role: "Research Intern"
   period: "2025.07 - Present"
+  location: "Shenzhen, China"
   topic: "RLHF, RLVR, AIGC"
   lab:
-    name: "YouTu Lab"
+    name: "YouTu Lab（优图实验室）"
     url: "https://open.youtu.qq.com/#/open"
   co-authors:
-    - "Jun Liu @ Tencent"
-    - "Yuanting Fan @ Tencent"
-    - "Bin-Bin Gao @ Tencent"
+    - "Jun Liu (Mentor)"
+    - "Yuanting Fan"
+    - "Bin-Bin Gao"
   outputs:
     - name: "Consistent-RFT"
       url: ""
@@ -724,14 +727,15 @@ research:
   logo: "/assets/img/smu-logo-s.png"
   role: "Remote Visiting Student"
   period: "2024.07 - 2025.03"
+  location: "Singapore (Remote)"
   topic: "RLHF, Motion Generation"
   lab:
     name: "Language and Vision Lab (LV Lab)"
     url: "https://www.lv-lab.org/SMU/index.html"
   co-authors:
-    - "Pan Zhou @ SMU"
-    - "Hongsong Wang @ SEU"
-    - "Wanjiang Weng  @ SEU"
+    - "Pan Zhou (Mentor)"
+    - "Hongsong Wang"
+    - "Wanjiang Weng"
   outputs:
     - name: "SoPo (NeurIPS)"
       url: "https://xiaofeng-tan.github.io/projects/SoPo/index.html"
@@ -742,15 +746,16 @@ research:
   logo: "/assets/img/palm-logo.png"
   role: "Master Student"
   period: "2024.04 - Present"
+  location: "Nanjing, China"
   topic: "RLHF, Motion Generation, Action Recognition"
   lab:
     name: "PAttern Learning and Mining (PALM) Lab"
     url: "https://palm.seu.edu.cn/"
   co-authors:
-    - "Hongsong Wang @ SEU"
-    - "Xin Geng  @ SEU"
-    - "Wanjiang Weng  @ SEU"
-    - "Haodong Lei  @ SEU"
+    - "Hongsong Wang (Mentor)"
+    - "Xin Geng"
+    - "Wanjiang Weng"
+    - "Haodong Lei"
   outputs:
     - name: "FG-Diff."
       url: "https://xiaofeng-tan.github.io/projects/FG-Diff/index.html"
@@ -761,12 +766,13 @@ research:
   logo: "/assets/img/szu_logo.png"
   role: "Undergraduate Research Assistant"
   period: "2022.10 - 2023.10"
+  location: "Shenzhen, China"
   topic: "Outlier Detection, Anomaly Detection"
   lab:
     name: "Computer Vision Institute"
     url: "https://csse.szu.edu.cn/"
   co-authors:
-    - "Can Gao @ SZU"
+    - "Can Gao (Mentor)"
   outputs:
     - name: "MGBOD (TKDE)"
       url: "https://ieeexplore.ieee.org/abstract/document/10821488"

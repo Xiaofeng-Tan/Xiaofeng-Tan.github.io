@@ -12,6 +12,9 @@
             <div>
               <span class="education-school">{{ education.school }}</span>
               <span class="education-degree">{{ education.degree }}</span>
+              {% if education.location %}
+                <span class="education-location">📍 {{ education.location }}</span>
+              {% endif %}
             </div>
             <span class="education-year">{{ education.year }}</span>
           </div>

@@ -12,6 +12,9 @@
             <div>
               <span class="research-institution">{{ research.institution }}</span>
               <span class="research-role">{{ research.role }}</span>
+              {% if research.location %}
+                <span class="research-location">📍 {{ research.location }}</span>
+              {% endif %}
             </div>
             <span class="research-period">{{ research.period }}</span>
           </div>
