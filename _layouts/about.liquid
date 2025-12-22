@@ -138,11 +138,30 @@ layout: default
   .post-title {
     font-family: "Dancing Script", cursive;
     font-size: 2.5rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
     color: #4a5a6a;
     font-weight: 600;
     letter-spacing: 0.5px;
     line-height: 1.3;
+    display: inline-block;
+    position: relative;
+  }
+
+  .post-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(0, 161, 233, 0.3) 10%, 
+      #00A1E9 50%,
+      rgba(0, 161, 233, 0.3) 90%, 
+      transparent 100%);
+    border-radius: 1px;
   }
 
   .post-title strong {
@@ -497,6 +516,27 @@ layout: default
   .chinese-handwriting {
     font-family: 'Gu Xingshu', "Long Cang", cursive;
     font-weight: 400;
+  }
+
+  /* 标题中的中文名字 - 与英文对称 */
+  .post-title .chinese-name {
+    font-family: 'Gu Xingshu', "Long Cang", cursive;
+    font-size: 0.85em;
+    font-weight: 400;
+    vertical-align: baseline;
+    position: relative;
+    top: 0.05em;
+  }
+
+  /* 中点分隔符 - 优雅居中 */
+  .post-title .name-separator {
+    font-family: inherit;
+    font-size: 0.7em;
+    color: rgba(74, 90, 106, 0.5);
+    margin: 0 0.3em;
+    vertical-align: middle;
+    position: relative;
+    top: -0.05em;
   }
 
   .research-lab strong,
@@ -1936,6 +1976,10 @@ layout: default
     color: #ffffff;
   }
 
+  html[data-theme="dark"] .post-title .name-separator {
+    color: rgba(139, 148, 158, 0.6);
+  }
+
   html[data-theme="dark"] .desc {
     color: #8b949e;
   }
@@ -2526,7 +2570,8 @@ layout: default
       {% if site.title == 'blank' %}
         <strong><span>{{ site.first_name }}</span></strong>
         <span>{{ site.last_name }}</span>
-        <span class="chinese-handwriting">· {{ site.Chinese_name }}</span>
+        <span class="name-separator">·</span>
+        <span class="chinese-name">{{ site.Chinese_name }}</span>
       {% else %}
         {{ site.title }}
       {% endif %}
