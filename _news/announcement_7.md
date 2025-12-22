@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-👏 I become a research intern at [Youtu Lab @ Tencent](https://open.youtu.qq.com/#/open).
+👏 I become a research intern at <a href="https://open.youtu.qq.com/#/open">Youtu Lab<span class="chinese-handwriting">（优图实验室）</span>@ Tencent</a>.
