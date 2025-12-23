@@ -2595,6 +2595,11 @@ layout: default
           <i class="ai ai-google-scholar"></i>
         </a>
       {% endif %}
+      {% if site.semanticscholar_id %}
+        <a href="https://www.semanticscholar.org/author/{{ site.semanticscholar_id }}" title="Semantic Scholar" target="_blank">
+          <i class="ai ai-semantic-scholar"></i>
+        </a>
+      {% endif %}
       {% if site.cv_pdf %}
         <a href="{{ '/assets/pdf/' | append: site.cv_pdf | relative_url }}" title="CV" target="_blank">
           <i class="ai ai-cv"></i>
@@ -2778,7 +2783,7 @@ layout: default
             <span class="year-right">2025</span>
           </div>
           <div class="honor-details">
-            Top 2.5% at Southeast University
+            Top 2.5% at Southeast University (¥9,000)
           </div>
         </li>
         <li>
@@ -2787,7 +2792,7 @@ layout: default
             <span class="year-right">2025</span>
           </div>
           <div class="honor-details">
-            Top 10% at Southeast University
+            Top 10% at Southeast University (¥12,000)
           </div>
         </li>
         <li>
