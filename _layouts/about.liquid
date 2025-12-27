@@ -2954,58 +2954,6 @@ layout: default
     <img src="https://4.bp.blogspot.com/-HjOu-dGh2P4/UAv31SSQYQI/AAAAAAAAA3g/a9flM74pDqQ/s1600/Tom-and-jerry-psd57584.png" alt="Tom & Jerry">
   </div>
   
-  <!-- Hello Kitty（纯CSS版本） -->
-  <div id="kitty" class="mascot">
-    <div class="kitty-canvas">
-      <div class="kitty-head">
-        <div class="kitty-face-wrapper">
-          <div class="kitty-ruban">
-            <div class="kitty-triangle"></div>
-            <div class="kitty-triangle-2"></div>
-            <div class="kitty-circle"></div>
-            <div class="kitty-little-circle kitty-little-circle-1"></div>
-            <div class="kitty-little-circle kitty-little-circle-2"></div>
-          </div>
-          <div class="kitty-ear-left"></div>
-          <div class="kitty-ear-right"></div>
-          <div class="kitty-eyes">
-            <div class="kitty-eye-left"></div>
-            <div class="kitty-eye-right"></div>
-          </div>
-          <div class="kitty-noise"></div>
-          <div class="kitty-moustache kitty-moustache-1"></div>
-          <div class="kitty-moustache kitty-moustache-2"></div>
-          <div class="kitty-moustache kitty-moustache-3"></div>
-          <div class="kitty-moustache kitty-moustache-4"></div>
-          <div class="kitty-moustache kitty-moustache-5"></div>
-          <div class="kitty-moustache kitty-moustache-6"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- 皮卡丘（纯CSS版本） -->
-  <div id="pikachu" class="mascot">
-    <div class="pikachu-wrapper">
-      <div class="pika-left-ear"></div>
-      <div class="pika-right-ear"></div>
-      <div class="pika-head">
-        <div class="pika-mouth"></div>
-      </div>
-      <div class="pika-body"></div>
-      <div class="pika-right-hand"></div>
-      <div class="pika-left-hand"></div>
-      <div class="pika-right-foot"></div>
-      <div class="pika-left-foot"></div>
-      <div class="pika-tail">
-        <div class="pika-tail-1"></div>
-        <div class="pika-tail-2"></div>
-        <div class="pika-tail-3"></div>
-        <div class="pika-tail-4"></div>
-      </div>
-    </div>
-  </div>
-  
   <!-- 对话气泡 -->
   <div id="mascot-bubble" class="mascot-bubble"></div>
   <!-- 操作提示 -->
@@ -4079,7 +4027,7 @@ layout: default
   const container = document.getElementById('mascot-container');
   const bubble = document.getElementById('mascot-bubble');
   const mascots = document.querySelectorAll('.mascot');
-  const mascotOrder = ['doraemon', 'tomjerry', 'kitty', 'pikachu'];
+  const mascotOrder = ['doraemon', 'tomjerry'];
   
   // ========== 状态管理 ==========
   let currentMascot = 'doraemon';
@@ -4102,19 +4050,6 @@ layout: default
       '别提老鼠！我耳朵都没了😱', 'Don\'t mention mice! 😱',
       'I\'m a robot cat from the future! 🤖', '22世纪的机器猫来了！🤖'
     ],
-    kitty: [
-      '苹果派最好吃了！🍎', 'Apple pie is the best! 🍎',
-      '我的蝴蝶结可爱吗？🎀', 'Is my bow cute? 🎀',
-      '和Mimmy一起玩吧！👭', 'Let\'s play with Mimmy! 👭',
-      '下午茶时间到了～☕', 'Tea time! ☕',
-      '今天也要开心哦！💕', 'Stay happy today! 💕',
-      '做饼干给你吃～🍪', 'I\'ll bake cookies for you~ 🍪',
-      '我喜欢弹钢琴！🎹', 'I love playing piano! 🎹',
-      '和朋友在一起最开心！', 'Being with friends is the best!',
-      '粉色是最美的颜色！💗', 'Pink is the prettiest color! 💗',
-      '甜甜的一天～🍰', 'A sweet day~ 🍰',
-      'Hello! I\'m Kitty! 🐱', '你好！我是凯蒂！🐱'
-    ],
     tomjerry: [
       '等等我Jerry！🏃', 'Wait for me, Jerry! 🏃',
       '你追不到我～🐭', 'You can\'t catch me~ 🐭',
@@ -4127,28 +4062,13 @@ layout: default
       '小心后面！⚠️', 'Watch your back! ⚠️',
       '又是追逐的一天！', 'Another day of chase!',
       'Classic never gets old! 🎬', '经典永不过时！🎬'
-    ],
-    pikachu: [
-      '皮卡皮卡！⚡', 'Pika Pika! ⚡',
-      '皮卡～丘！✨', 'Pika~chu! ✨',
-      '十万伏特！⚡⚡⚡', 'Thunderbolt! ⚡⚡⚡',
-      '皮～卡～💛', 'Pi~ka~ 💛',
-      '番茄酱好吃！🍅', 'Ketchup is yummy! 🍅',
-      '电光一闪！💥', 'Quick Attack! 💥',
-      '皮卡皮！', 'Pikapipi!',
-      '雷电球！⚡', 'Electro Ball! ⚡',
-      '皮卡丘～🎉', 'Pikachu~ 🎉',
-      '充电完毕！🔋', 'Fully charged! 🔋',
-      'I choose you! 🎯', '就决定是你了！🎯'
     ]
   };
   
   // ========== 气泡颜色配置 ==========
   const bubbleColors = {
     doraemon: { border: '#0DACD6', lightBg: '#f0fafb', darkBg: '#1a2529' },
-    kitty: { border: '#FF69B4', lightBg: '#ffe6f0', darkBg: '#2d1f26' },
-    tomjerry: { border: '#FF8C00', lightBg: '#fff5e6', darkBg: '#2a2415' },
-    pikachu: { border: '#FAF305', lightBg: '#fffbf0', darkBg: '#2a281a' }
+    tomjerry: { border: '#FF8C00', lightBg: '#fff5e6', darkBg: '#2a2415' }
   };
   
   // 更新气泡颜色
@@ -4270,20 +4190,6 @@ layout: default
   }
   
   // ========== 角色动画 ==========
-  function blink() {
-    if (currentMascot !== 'kitty') return;
-    const leftEye = document.querySelector('.kitty-eye-left');
-    const rightEye = document.querySelector('.kitty-eye-right');
-    if (leftEye && rightEye) {
-      leftEye.classList.add('blink');
-      rightEye.classList.add('blink');
-      setTimeout(() => {
-        leftEye.classList.remove('blink');
-        rightEye.classList.remove('blink');
-      }, 150);
-    }
-  }
-  
   function playAnimation() {
     const mascot = document.getElementById(currentMascot);
     if (!mascot) return;
@@ -4296,15 +4202,6 @@ layout: default
       case 'tomjerry':
         mascot.classList.add('chasing');
         setTimeout(() => mascot.classList.remove('chasing'), 500);
-        break;
-      case 'kitty':
-        mascot.classList.add('jumping');
-        blink();
-        setTimeout(() => mascot.classList.remove('jumping'), 400);
-        break;
-      case 'pikachu':
-        mascot.classList.add('jumping');
-        setTimeout(() => mascot.classList.remove('jumping'), 400);
         break;
     }
   }
@@ -4447,13 +4344,6 @@ layout: default
   }
   
   // ========== 自动行为 ==========
-  // 自动眨眼（Hello Kitty）
-  setInterval(() => {
-    if (currentMascot === 'kitty' && Math.random() > 0.6 && !isSwitching) {
-      blink();
-    }
-  }, 4000);
-  
   // 随机自动对话
   setInterval(() => {
     if (Math.random() > 0.85 && !bubble.classList.contains('show') && !isSwitching) {
@@ -4461,15 +4351,7 @@ layout: default
     }
   }, 15000);
   
-  // 自动切换角色（20秒）
-  setInterval(() => {
-    if (!isSwitching) {
-      showBubble();
-      setTimeout(() => {
-        if (!isSwitching) switchToNextMascot();
-      }, 1000);
-    }
-  }, 20000);
+  // 自动切换角色已禁用（只保留双击手动切换）
   
   // 初始化气泡颜色
   updateBubbleColor(currentMascot);
