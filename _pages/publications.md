@@ -3,7 +3,7 @@ layout: page
 permalink: /Publications/
 title: Publications
 description:
-nav: true
+nav: false
 nav_order: 2
 _styles: |
   /* ========== Publications 页面样式 - 美化增强版 ========== */

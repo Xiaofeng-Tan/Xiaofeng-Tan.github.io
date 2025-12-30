@@ -252,6 +252,15 @@
       {% if entry.website %}
         <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-globe"></i> Website</a>
       {% endif %}
+      {% if entry.openreview %}
+        <a href="{{ entry.openreview }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-comments"></i> OpenReview</a>
+      {% endif %}
+      {% if entry.neurips %}
+        <a href="{{ entry.neurips }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-trophy"></i> NeurIPS</a>
+      {% endif %}
+      {% if entry.demo %}
+        <a href="{{ entry.demo }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-play-circle"></i> Demo</a>
+      {% endif %}
       <a class="mycomment btn btn-sm z-depth-0" role="button" onclick="var content = this.parentElement.parentElement.querySelector('.mycomment-block.hidden'); if(content) { content.classList.toggle('open'); }"><i class="fas fa-comment-dots"></i> My Take</a>
     </div>
     {% if site.enable_publication_badges %}
