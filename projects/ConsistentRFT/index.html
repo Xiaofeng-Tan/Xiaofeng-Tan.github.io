@@ -1,0 +1,784 @@
+<style>
+  /* 精致学术页面风格 */
+  :root {
+    --primary: #1e3a5f;
+    --primary-light: #2563eb;
+    --primary-dark: #0f172a;
+    --accent: #3b82f6;
+    --text-dark: #0f172a;
+    --text-body: #374151;
+    --text-muted: #6b7280;
+    --text-caption: #9ca3af;
+    --bg-white: #ffffff;
+    --bg-light: #fafafa;
+    --bg-gray: #f3f4f6;
+    --border: #e5e7eb;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background: var(--bg-white);
+    font-family: 'Charter', 'Georgia', 'Cambria', 'Times New Roman', serif;
+    color: var(--text-body);
+    line-height: 1.75;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.003em;
+  }
+
+  /* 精致页面加载动画 */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .hero {
+    background: var(--bg-white);
+    padding: 4.5rem 1.5rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .publication-title {
+    color: var(--text-dark) !important;
+    font-family: 'Crimson Pro', 'Georgia', 'Times New Roman', serif;
+    font-weight: 600;
+    margin-bottom: 1.75rem !important;
+    font-size: 2.6rem !important;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    -webkit-text-fill-color: var(--text-dark);
+    background: none;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @media screen and (max-width: 768px) {
+    .publication-title {
+      font-size: 1.75rem !important;
+    }
+  }
+
+  .publication-authors {
+    color: var(--text-body) !important;
+    margin-top: 1.5rem;
+    line-height: 2.4;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  .publication-authors .author-block {
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+  }
+
+  .publication-authors sup {
+    color: var(--primary);
+    font-size: 0.68em;
+    font-weight: 700;
+    margin-left: 0.1em;
+  }
+
+  .publication-authors a {
+    color: var(--primary) !important;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid transparent;
+  }
+
+  .publication-authors a:hover {
+    color: var(--primary-dark) !important;
+    border-bottom-color: var(--primary-light);
+  }
+
+  .affiliation-block {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+
+  /* 学术注释样式 */
+  .author-note {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.86rem !important;
+    color: var(--text-caption) !important;
+    font-style: italic;
+    letter-spacing: 0.005em;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  .author-note sup {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  .publication-links {
+    margin-top: 2rem;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  }
+
+  .publication-links .button {
+    margin: 0.3rem 0.35rem;
+    font-weight: 500;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    padding: 0.6rem 1.2rem;
+    transition: all 0.2s ease;
+    border: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .publication-links .button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-paper { 
+    background: var(--primary) !important; 
+    color: #fff !important;
+  }
+  
+  .btn-arxiv { 
+    background: #b91c1c !important; 
+    color: #fff !important;
+  }
+  
+  .btn-code { 
+    background: #1f2937 !important; 
+    color: #fff !important;
+  }
+  
+  .btn-poster { 
+    background: #6d28d9 !important; 
+    color: #fff !important;
+  }
+
+  .tldr-container {
+    background: var(--bg-white);
+    padding: 1.75rem 2rem;
+    margin: 2rem auto;
+    max-width: 860px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+    box-shadow: var(--shadow-sm);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tldr-container p { 
+    margin: 0.6rem 0; 
+    color: var(--text-body);
+    font-size: 1rem;
+    line-height: 1.85;
+    font-family: 'Charter', 'Georgia', 'Cambria', serif;
+    letter-spacing: -0.005em;
+  }
+
+  .tldr-container strong {
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+
+  .tldr-label {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    margin-bottom: 0.5rem;
+  }
+
+  .section.hero.is-light { 
+    background: var(--bg-light);
+    border-top: 1px solid var(--border);
+  }
+
+  .title.is-3 { 
+    color: var(--text-dark);
+    -webkit-text-fill-color: var(--text-dark);
+    background: none;
+    text-align: center; 
+    font-family: 'Crimson Pro', 'Georgia', 'Times New Roman', serif;
+    font-weight: 600; 
+    margin-bottom: 2rem; 
+    font-size: 1.75rem;
+    letter-spacing: -0.015em;
+    position: relative;
+    padding-bottom: 0;
+  }
+
+  .title.is-3::after {
+    display: none;
+  }
+
+  /* 精致图片样式 */
+  img { 
+    border-radius: 8px; 
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+  }
+
+  img:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  /* 学术图片说明文字 */
+  .subtitle, 
+  .figure-caption,
+  p.subtitle { 
+    margin-top: 1.5rem !important; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 0.96rem; 
+    line-height: 1.9; 
+    color: var(--text-muted);
+    text-align: justify;
+    letter-spacing: -0.005em;
+    font-weight: 400;
+  }
+
+  .subtitle strong,
+  .figure-caption strong {
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+
+  .card-section {
+    background-color: var(--bg-white);
+    padding: 3rem 2.5rem;
+  }
+
+  .abstract-section {
+    background-color: var(--bg-light);
+    padding: 3.5rem 2.5rem !important;
+  }
+
+  .toy-section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  /* 优雅的滚动显示动画 */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .abstract-content {
+    font-family: 'Charter', 'Georgia', 'Cambria', 'Times New Roman', serif;
+    font-size: 1.02rem;
+    line-height: 1.9;
+    color: var(--text-body);
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: justify;
+    letter-spacing: -0.003em;
+  }
+
+  .abstract-content::first-letter {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .toast {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    background: var(--primary-dark);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.4s ease;
+    font-size: 0.9rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 500;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .toast .toast-icon {
+    margin-right: 0.7rem;
+  }
+
+  .container.is-max-desktop {
+    max-width: 1040px;
+  }
+
+  /* 精致 BibTeX 区域 */
+  #BibTeX pre {
+    background: var(--bg-gray);
+    padding: 1.75rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'SF Mono', 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    color: var(--text-body);
+  }
+
+  #BibTeX pre:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .footer-section {
+    background: var(--bg-gray);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-section p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin: 0;
+    font-style: italic;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .footer-section a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .footer-section a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }
+
+  /* 平滑滚动 */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* 选中文本样式 */
+  ::selection {
+    background-color: rgba(30, 64, 175, 0.15);
+    color: var(--text-dark);
+  }
+
+  /* 响应式优化 */
+  @media screen and (max-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+
+    .hero {
+      padding: 2.5rem 1rem 2rem;
+    }
+
+    .card-section {
+      padding: 2rem 1.5rem;
+    }
+
+    .abstract-section {
+      padding: 2.5rem 1.5rem !important;
+    }
+
+    .title.is-3 {
+      font-size: 1.5rem;
+    }
+
+    .tldr-container {
+      padding: 1.5rem;
+      margin: 1.5rem 1rem;
+    }
+  }
+
+  /* 分隔线样式 */
+  hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 3rem auto;
+    max-width: 300px;
+  }
+</style>
+
+<script>
+function showToast(message, icon = 'fas fa-info-circle') {
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `<i class="${icon} toast-icon"></i>${message}`;
+  document.body.appendChild(toast);
+  
+  setTimeout(() => toast.classList.add('show'), 100);
+  
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => document.body.removeChild(toast), 400);
+  }, 3000);
+}
+
+// 滚动动画
+document.addEventListener('DOMContentLoaded', function() {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <title>ConsistentRFT: Reducing Visual Hallucinations in Flow-based Reinforcement Fine-Tuning</title>
+  <link rel="icon" type="image/x-icon" href="">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&display=swap"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ConsistentRFT: Reducing Visual Hallucinations in Flow-based Reinforcement Fine-Tuning</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://xiaofeng-tan.github.io/" target="_blank">Xiaofeng Tan</a><sup>1,3,†,*</sup>
+              </span>&emsp;
+              <span class="author-block">Jun Liu<sup>3,†</sup></span>&emsp;
+              <span class="author-block">Yuanting Fan<sup>3</sup></span>&emsp;
+              <span class="author-block">Bin-Bin Gao<sup>3</sup></span>&emsp;
+              <span class="author-block">Xi Jiang<sup>2</sup></span>&emsp;
+              <span class="author-block">Xiaochen Chen<sup>3</sup></span>&emsp;
+              <span class="author-block">Jinlong Peng<sup>3</sup></span>&emsp;
+              <span class="author-block">Chengjie Wang<sup>3</sup></span>&emsp;
+              <span class="author-block">Hongsong Wang<sup>1,‡</sup></span>&emsp;
+              <span class="author-block">Feng Zheng<sup>2,‡</sup></span>
+              <br>
+              <span class="affiliation-block">
+                <sup>1</sup>Southeast University&emsp;
+                <sup>2</sup>Southern University of Science and Technology&emsp;
+                <sup>3</sup>Tencent Youtu Lab
+              </span>
+              <br>
+              <span class="affiliation-block author-note" style="font-size: 0.85em;">
+                <sup>†</sup>Equal contribution.&emsp;
+                <sup>‡</sup>Corresponding authors.&emsp;
+                <sup>*</sup>Work done during Xiaofeng Tan's internship at Tencent Youtu Lab.
+              </span>
+            </div>
+
+            <br>
+                <div class="tldr-container" style="text-align: left;">
+                    <span class="tldr-label">Research Question</span>
+                    <p style="margin: 0.5rem 0 0;">
+                        <em>Why</em> do visual hallucinations arise in reinforcement fine-tuning, and <em>how</em> to reduce them? 
+                    </p>
+                    <p style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border);">
+                        <strong style="color: var(--primary);">TL;DR:</strong>
+                        This work analyzes the issue from two perspectives—limited exploration and trajectory imitation—and proposes <strong>Dynamic Granularity Rollout (DGR)</strong> and <strong>Consistent Policy Gradient Optimization (CPGO)</strong> to address them.
+                    </p>
+                </div>
+              </p>
+              <!-- Paper authors -->            
+               <!-- 
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                <span class="author-block">
+                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Institution Name<br>Conferance name and year</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                  </div>
+                -->
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Paper PDF -->
+                      <span class="link-block">
+                        <a href="#" onclick="showToast('Paper will be available after review period', 'fas fa-file-pdf'); return false;"
+                        class="external-link button is-normal is-rounded btn-paper" style="opacity: 0.6;">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper (Coming Soon)</span>
+                      </a>
+                    </span>
+
+                    <!-- arXiv -->
+                    <span class="link-block">
+                      <a href="#" onclick="showToast('Will be available after review period', 'fas fa-clock'); return false;"
+                      class="external-link button is-normal is-rounded btn-arxiv" style="opacity: 0.6;">
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv (Coming Soon)</span>
+                    </a>
+                  </span>
+
+                    <!-- CVPR 2026
+                    <span class="link-block">
+                      <a href="https://cvpr.thecvf.com/" target="_blank"
+                      class="external-link button is-normal is-rounded btn-neurips">
+                      <span class="icon">
+                        <i class="fas fa-trophy"></i>
+                      </span>
+                      <span>CVPR 2026 Submission</span>
+                    </a>
+                  </span> -->
+
+                    <!-- Code -->
+                    <span class="link-block">
+                        <a href="https://github.com/Xiaofeng-Tan/ConsistentRFT" target="_blank"
+                        class="external-link button is-normal is-rounded btn-code">
+                        <span class="icon">
+                          <i class="fab fa-github"></i>
+                        </span>
+                        <span>Code</span>
+                      </a>
+                    </span>
+
+                    <!-- Supplementary -->
+                    <span class="link-block">
+                        <a href="#" onclick="showToast('Supplementary materials will be available after review period', 'fas fa-chalkboard'); return false;"
+                        class="external-link button is-normal is-rounded btn-poster" style="opacity: 0.6;">
+                        <span class="icon">
+                          <i class="fas fa-chalkboard"></i>
+                        </span>
+                        <span>Supplementary (Coming Soon)</span>
+                      </a>
+                    </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="hero-body card-section abstract-section animate-on-scroll">
+      <h2 class="title is-3">Abstract</h2>
+      <div class="abstract-content" style="max-width: 940px; margin: 0 auto; text-align: justify;">
+          <p>
+            Reinforcement Fine-Tuning (RFT) on flow-based models is crucial for preference alignment. However, they often introduce visual hallucinations like over-optimized details and semantic misalignment. This work preliminarily explores why visual hallucinations arise and how to reduce them. We first investigate RFT methods from a unified perspective, and reveal the core problems stemming from two aspects, exploration and exploitation: (1) limited exploration during stochastic differential equation (SDE) rollouts, leading to an over-emphasis on local details at the expense of global semantics, and (2) trajectory imitation process inherent in policy gradient methods, distorting the model's foundational vector field and its cross-step consistency. Building on this, we propose ConsistentRFT, a general framework to mitigate these hallucinations. Specifically, we design a Dynamic Granularity Rollout (DGR) mechanism to balance exploration between global semantics and local details by dynamically scheduling different noise sources. We then introduce a Consistent Policy Gradient Optimization (CPGO) that preserves the model's consistency by aligning the current policy with a more stable prior. Extensive experiments demonstrate that ConsistentRFT significantly mitigates visual hallucinations, achieving average reductions of 49% for low-level and 38% for high-level perceptual hallucinations. Furthermore, ConsistentRFT outperforms other RFT methods on out-of-domain metrics, showing an improvement of 5.1% (v.s. the baseline's decrease of -0.4%) over FLUX1.dev.
+          </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body card-section toy-section animate-on-scroll">
+      <h2 class="title is-3">Visualization</h2>
+      <div style="text-align: center;">
+        <img style="width: 100%; max-width: 960px; height: auto; display: inline-block;" src="static/images/app_cover.png" alt="Visualization"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Motivation Section -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body card-section toy-section animate-on-scroll">
+      <h2 class="title is-3">Motivation</h2>
+      <div style="text-align: center;">
+        <img style="width: 100%; max-width: 960px; height: auto; display: inline-block;" src="static/images/motivation.png" alt="Motivation"/>
+        <p class="subtitle figure-caption" style="max-width: 880px; margin: 1.5rem auto 0; text-align: justify;">
+          <strong>Why do visual hallucinations arise?</strong> We investigate from two perspectives: (1) <strong>Limited Exploration Domain</strong> during SDE rollouts, where existing methods exhibit fine-grained optimization through SDE process noise alone, leading to overemphasis on local details while neglecting global semantics. (2) <strong>Trajectory Imitation Optimization</strong>, where policy gradient methods inadvertently cause the model to imitate stochastic SDE trajectories, disrupting the velocity field consistency fundamental to flow models.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body card-section toy-section animate-on-scroll">
+      <h2 class="title is-3">Method</h2>
+      <div style="text-align: center;">
+        <img style="width: 100%; max-width: 960px; height: auto; display: inline-block;" src="static/images/method_main.png" alt="Method"/>
+        <p class="subtitle figure-caption" style="max-width: 880px; margin: 1.5rem auto 0; text-align: justify;">
+          <strong>ConsistentRFT addresses hallucinations through two key components:</strong>
+          <br><br>
+          (1) <strong>Dynamic Granularity Rollout (DGR)</strong> targets the limited exploration domain by dynamically scheduling between fine-grained groups (same initial noise, varying process noise) and coarse-grained groups (independent random noise) to balance global semantics and local details.
+          <br><br>
+          (2) <strong>Consistent Policy Gradient Optimization (CPGO)</strong> resolves trajectory imitation issues by enforcing consistency through ODE-based single-step predictions, preserving the velocity field consistency learned during pre-training.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results Section -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body card-section toy-section animate-on-scroll">
+      <h2 class="title is-3">Main Results</h2>
+      <div style="text-align: center;">
+        <img style="width: 100%; max-width: 960px; height: auto; display: inline-block;" src="static/images/table_1_2.png" alt="Main Results Table 1 and 2"/>
+        <img style="width: 100%; max-width: 960px; height: auto; display: inline-block; margin-top: 2.5rem;" src="static/images/table_3.png" alt="Main Results Table 3"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Consistent Policy Gradient Optimization Section -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body card-section toy-section animate-on-scroll">
+      <h2 class="title is-3">Dynamic Granularity Rollout (DGR)</h2>
+        <p class="subtitle figure-caption" style="max-width: 880px; margin: 0 auto 1.5rem; text-align: center;">
+          Qualitative comparison of coarse-, fine-, and dynamic-grained optimization strategies.
+        </p>
+      <div style="text-align: center;">
+        <img style="width: 100%; max-width: 960px; height: auto; display: inline-block;" src="static/images/app_opt.png" alt="Consistent Policy Gradient Optimization"/>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX Citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop">
+    <div class="card-section animate-on-scroll" style="background: #f9fafb;">
+      <h2 class="title is-3">BibTeX</h2>
+      <pre><code>@article{tan2025consistentrft,
+  title={ConsistentRFT: Reducing Visual Hallucinations in Flow-based Reinforcement Fine-Tuning},
+  author={Tan, Xiaofeng and Liu, Jun and Fan, Yuanting and Gao, Bin-Bin and Jiang, Xi and Chen, Xiaochen and Peng, Jinlong and Wang, Chengjie and Wang, Hongsong and Zheng, Feng},
+  journal={arXiv preprint},
+  year={2025}
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-section">
+  <p>
+    This website template is adapted from <a href="https://nerfies.github.io/" target="_blank">Nerfies</a> and licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+  </p>
+</footer>
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
