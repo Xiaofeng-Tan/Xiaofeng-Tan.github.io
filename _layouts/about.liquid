@@ -4359,10 +4359,13 @@ layout: default
 })();
 </script>
 
-<!-- oneko.js 小猫 - 跟随鼠标的可爱小猫 -->
+<!-- oneko.js 小猫 - 跟随鼠标的可爱小猫 (已禁用) -->
 <!-- 原版来源: https://github.com/adryd325/oneko.js -->
 <script>
 (function oneko() {
+  // 已禁用 - 如需启用请删除下面的 return 语句
+  return;
+  
   const isReducedMotion =
     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
     window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;

@@ -8,9 +8,11 @@
   abbr={UR},
   ccf={CCF-None},
   selected={true},
-  preview={},
+  preview={ConsistentRFT.png},
   abstract={},
-
+  website={/projects/ConsistentRFT/index.html},
+  arxiv={xxxxx},
+  pdf={xxxxxxxxx},
   year={2025}
 }
 
@@ -21,12 +23,12 @@
   abbr={NeurIPS},
   ccf={CCF-A},
   core={CORE-A*},
-  website={https://xiaofeng-tan.github.io/projects/SoPo/index.html},
+  website={/projects/SoPo/index.html},
   pdf={https://arxiv.org/abs/2412.05095},
   supp={https://arxiv.org/abs/2412.05095},
   arxiv={2412.05095},
   code={https://github.com/Xiaofeng-Tan/SoPO},
-  poster={https://xiaofeng-tan.github.io/projects/SoPo/static/pdfs/poster.pdf},
+  poster={/projects/SoPo/static/pdfs/poster.pdf},
   selected={true},
   preview={SoPo.png},
   abstract = {Text-to-motion generation is essential for advancing the creative industry but often presents challenges in producing consistent, realistic motions. To address this, we focus on fine-tuning text-to-motion models to consistently favor high-quality, human-preferred motions—a critical yet largely unexplored problem. In this work, we theoretically investigate the DPO under both online and offline settings, and reveal their respective limitation: overfitting in offline DPO, and biased sampling in online DPO. Building on our theoretical insights, we introduce Semi-online Preference Optimization (SoPo), a DPO-based method for training text-to-motion models using ``semi-online" data pair, consisting of unpreferred motion from online distribution and preferred motion in offline datasets. This method leverages both online and offline DPO, allowing each to compensate for the other's limitations. Extensive experiments demonstrate that SoPo outperforms other preference alignment methods, with an MM-Dist of 3.25\% (vs e.g. 0.76\% of MoDiPO) on the MLD model, 2.91\% (vs e.g. 0.66\% of MoDiPO) on MDM model, respectively. Additionally, the MLD model fine-tuned by our SoPo surpasses the SoTA model in terms of R-precision and MM Dist. Visualization results also show the efficacy of our SoPo in preference alignment.},
@@ -43,7 +45,7 @@
   abstract={In recent years, motion generative models have undergone significant advancement, yet pose challenges in aligning with downstream objectives. Recent studies have shown that using differentiable rewards to directly align the preference of diffusion models yields promising results. However, these methods suffer from inefficient and coarse-grained optimization with high memory consumption. In this work, we first theoretically identify the \emph{fundamental reason} of these limitations: the recursive dependence between different steps in the denoising trajectory. Inspired by this insight, we propose \textbf{EasyTune}, which fine-tunes diffusion at each denoising step rather than over the entire trajectory.  This decouples the recursive dependence, allowing us to perform (1) a dense and effective, (2) memory-efficient, and (3) fine-grained optimization. Furthermore, the scarcity of preference motion pairs restricts the availability of motion reward model training. To this end, we further introduce a \textbf{S}elf-refinement \textbf{P}reference \textbf{L}earning (\textbf{SPL}) mechanism that dynamically identifies preference pairs and conducts preference learning. Extensive experiments demonstrate that EasyTune outperforms ReFL by 62.1\% in MM-Dist improvement while requiring only 34.5\% of its additional memory overhead. },
   selected={true},
   preview={EasyTune.png},
-  website={https://xiaofeng-tan.github.io/projects/EasyTune/index.html},
+  website={/projects/EasyTune/index.html},
   openreview={https://openreview.net/forum?id=Fy1EoIaAzQ},
   pdf={https://openreview.net/forum?id=Fy1EoIaAzQ},
 
@@ -76,7 +78,7 @@
   journal={Under Review},
   abbr={UR (MiR*3+MR*1)},
   ccf={CCF-None},
-  website={https://xiaofeng-tan.github.io/projects/FG-Diff/index.html},
+  website={/projects/FG-Diff/index.html},
   pdf={https://arxiv.org/abs/2412.03044},
   supp={https://arxiv.org/abs/2412.03044},
   arxiv={2412.03044},
