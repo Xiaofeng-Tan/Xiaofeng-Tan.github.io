@@ -66,7 +66,7 @@
           </em>
         {%- else -%}
           {%- if coauthor_url -%}
-            <a href="{{ coauthor_url }}">
+            <a href="{{ coauthor_url }}" target="_blank">
               {{- author.first }}
               {{ author_last_html -}}
             </a>
@@ -195,31 +195,31 @@
         <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-file-alt"></i> Abs</a>
       {% endif %}
       {% if entry.doi %}
-        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button"><i class="ai ai-doi"></i> DOI</a>
+        <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="ai ai-doi"></i> DOI</a>
       {% endif %}
       {% if entry.arxiv %}
-        <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button"><i class="ai ai-arxiv"></i> arXiv</a>
+        <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="ai ai-arxiv"></i> arXiv</a>
       {% endif %}
       {% if entry.bibtex_show %}
         <a class="bibtex btn btn-sm z-depth-0" role="button"><i class="fas fa-quote-right"></i> Bib</a>
       {% endif %}
       {% if entry.html %}
         {% if entry.html contains '://' %}
-          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-file-code"></i> HTML</a>
+          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-file-code"></i> HTML</a>
         {% else %}
           <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-file-code"></i> HTML</a>
         {% endif %}
       {% endif %}
       {% if entry.pdf %}
         {% if entry.pdf contains '://' %}
-          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-file-pdf"></i> PDF</a>
+          <a href="{{ entry.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
         {% else %}
           <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-file-pdf"></i> PDF</a>
         {% endif %}
       {% endif %}
       {% if entry.supp %}
         {% if entry.supp contains '://' %}
-          <a href="{{ entry.supp }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-paperclip"></i> Supp</a>
+          <a href="{{ entry.supp }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-paperclip"></i> Supp</a>
         {% else %}
           <a href="{{ entry.supp | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-paperclip"></i> Supp</a>
         {% endif %}
@@ -227,39 +227,43 @@
       {% if entry.video and site.enable_video_embedding %}
         <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-video"></i> Video</a>
       {% elsif entry.video %}
-        <a href="{{ entry.video }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-video"></i> Video</a>
+        <a href="{{ entry.video }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-video"></i> Video</a>
       {% endif %}
       {% if entry.blog %}
-        <a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-blog"></i> Blog</a>
+        <a href="{{ entry.blog }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-blog"></i> Blog</a>
       {% endif %}
       {% if entry.code %}
-        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button"><i class="fab fa-github"></i> Code</a>
+        <a href="{{ entry.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fab fa-github"></i> Code</a>
       {% endif %}
       {% if entry.poster %}
         {% if entry.poster contains '://' %}
-          <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-image"></i> Poster</a>
+          <a href="{{ entry.poster }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-image"></i> Poster</a>
         {% else %}
           <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-image"></i> Poster</a>
         {% endif %}
       {% endif %}
       {% if entry.slides %}
         {% if entry.slides contains '://' %}
-          <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-presentation"></i> Slides</a>
+          <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-presentation"></i> Slides</a>
         {% else %}
           <a href="{{ entry.slides | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-presentation"></i> Slides</a>
         {% endif %}
       {% endif %}
       {% if entry.website %}
-        <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-globe"></i> Website</a>
+        {% if entry.website contains '://' %}
+          <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
+        {% else %}
+          <a href="{{ entry.website | relative_url }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
+        {% endif %}
       {% endif %}
       {% if entry.openreview %}
-        <a href="{{ entry.openreview }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-comments"></i> OpenReview</a>
+        <a href="{{ entry.openreview }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-comments"></i> OpenReview</a>
       {% endif %}
       {% if entry.neurips %}
-        <a href="{{ entry.neurips }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-trophy"></i> NeurIPS</a>
+        <a href="{{ entry.neurips }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-trophy"></i> NeurIPS</a>
       {% endif %}
       {% if entry.demo %}
-        <a href="{{ entry.demo }}" class="btn btn-sm z-depth-0" role="button"><i class="fas fa-play-circle"></i> Demo</a>
+        <a href="{{ entry.demo }}" class="btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-play-circle"></i> Demo</a>
       {% endif %}
       <a class="mycomment btn btn-sm z-depth-0" role="button" onclick="var content = this.parentElement.parentElement.querySelector('.mycomment-block.hidden'); if(content) { content.classList.toggle('open'); }"><i class="fas fa-comment-dots"></i> My Take</a>
     </div>
@@ -325,6 +329,7 @@
               href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user={{ site.scholar_userid }}&citation_for_view={{ site.scholar_userid }}:{{ entry.google_scholar_id }}"
               aria-label="Google Scholar link"
               role="button"
+              target="_blank"
             >
               <img
                 src="https://img.shields.io/badge/scholar-{% google_scholar_citations site.scholar_userid entry.google_scholar_id %}-4285F4?logo=googlescholar&labelColor=beige"
@@ -337,6 +342,7 @@
               href="https://inspirehep.net/literature/{{ entry.inspirehep_id }}"
               aria-label="Inspirehep link"
               role="button"
+              target="_blank"
             >
               <img
                 src="https://img.shields.io/badge/inspire-{% inspirehep_citations entry.inspirehep_id %}-001628?logo=inspire&logoColor=001628&labelColor=beige"
