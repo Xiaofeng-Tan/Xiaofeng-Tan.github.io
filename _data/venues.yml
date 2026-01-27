@@ -10,10 +10,14 @@
 
 "NeurIPS":
   url: https://neurips.cc/
-  color: "#B8336A"
+  color: "#00A1E9"
 
 "AAAI":
   url: https://aaai.org/
+  color: "#00A1E9"
+
+"ICLR":
+  url: https://iclr.cc/
   color: "#00A1E9"
 
 "TKDE":
