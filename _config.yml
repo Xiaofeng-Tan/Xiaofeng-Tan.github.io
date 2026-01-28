@@ -759,7 +759,7 @@ research:
   outputs:
     - name: "FG-Diff."
       url: "https://xiaofeng-tan.github.io/projects/FG-Diff/index.html"
-    - name: "EasyTune"
+    - name: "EasyTune (ICLR)"
       url: "https://xiaofeng-tan.github.io/projects/EasyTune/index.html"
 
 - institution: "Shenzhen University"
