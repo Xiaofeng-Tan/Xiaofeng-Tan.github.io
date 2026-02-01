@@ -1,3 +1,13 @@
 <div class="publications">
-  {% bibliography --group_by none --query @*[selected=true]* %}
+  <div class="pub-section-header">
+    <span class="pub-section-icon">📝</span>
+    <span class="pub-section-title">Preprints</span>
+  </div>
+  {% bibliography --group_by none --query @*[selected=true && abbr=UR]* %}
+
+  <div class="pub-section-header" style="margin-top: 1.8rem;">
+    <span class="pub-section-icon">📄</span>
+    <span class="pub-section-title">Published</span>
+  </div>
+  {% bibliography --group_by none --query @*[selected=true && abbr!=UR]* %}
 </div>

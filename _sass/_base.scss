@@ -653,6 +653,43 @@ footer.sticky-bottom {
     margin-bottom: 1rem;
     text-align: right;
   }
+
+  // Modern publication section header
+  .pub-section-header {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0 1rem 0;
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--global-divider-color);
+    }
+
+    &::before {
+      margin-right: 0.8rem;
+    }
+
+    &::after {
+      margin-left: 0.8rem;
+    }
+
+    .pub-section-icon {
+      margin-right: 0.4rem;
+      font-size: 0.85rem;
+    }
+
+    .pub-section-title {
+      font-size: 0.75rem;
+      font-weight: 500;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--global-theme-color);
+    }
+  }
 }
 
 // Publications
