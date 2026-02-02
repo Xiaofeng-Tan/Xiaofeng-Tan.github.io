@@ -214,6 +214,11 @@ body {
 }
 
 /* Academic Button Colors */
+.btn-iclr {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%) !important;
+  color: #fff !important;
+}
+
 .btn-openreview {
   background: #8c1515 !important;
   color: #fff !important;

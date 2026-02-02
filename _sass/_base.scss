@@ -653,12 +653,18 @@ footer.sticky-bottom {
     margin-bottom: 1rem;
     text-align: right;
   }
+}
+
+// Publications
+
+.publications {
+  margin-top: 2rem;
 
   // Modern publication section header
   .pub-section-header {
     display: flex;
     align-items: center;
-    margin: 0.5rem 0 1rem 0;
+    margin: 0.2rem 0 1.5rem 0;
 
     &::before,
     &::after {
@@ -690,12 +696,6 @@ footer.sticky-bottom {
       color: var(--global-theme-color);
     }
   }
-}
-
-// Publications
-
-.publications {
-  margin-top: 2rem;
 
   h1 {
     color: var(--global-theme-color);
