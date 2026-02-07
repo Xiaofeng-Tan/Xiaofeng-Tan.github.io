@@ -178,32 +178,23 @@
         </p>
       </div>
       
-      <div class="figure-grid-2col">
-        <div class="figure-container">
-          <div class="figure-wrapper">
-            <img src="static/images/t4.png" alt="Enhancement results"/>
-          </div>
-          <p class="figure-caption">
-            <strong>Table 4.</strong> Performance enhancement of diffusion-based motion generation methods with EasyTune.
-          </p>
-        </div>
-        <div class="figure-container">
-          <div class="figure-wrapper">
-            <img src="static/images/t5.png" alt="KIT-ML results"/>
-          </div>
-          <p class="figure-caption">
-            <strong>Table 5.</strong> Comparison of SoTA fine-tuning methods on KIT-ML dataset.
-          </p>
-        </div>
-      </div>
-      
-      <h3 class="subsection-title">📉 Training Analysis</h3>
+      <h3 class="subsection-title">🔄 Generalization</h3>
       <div class="figure-container">
         <div class="figure-wrapper">
-          <img src="static/images/fig_exp.png" alt="Training analysis"/>
+          <img src="static/images/t4.png" alt="Enhancement results"/>
         </div>
         <p class="figure-caption">
-          <strong>Figure 4.</strong> Loss curves for EasyTune and existing fine-tuning methods (Left). Comparison of winning rates % for diffusion models fine-tuned with and without SPL (Right).
+          <strong>Table 4.</strong> Performance enhancement of diffusion-based motion generation methods with EasyTune.
+        </p>
+      </div>
+
+      <h3 class="subsection-title">⚡ Computational Overhead</h3>
+      <div class="figure-container">
+        <div class="figure-wrapper">
+          <img src="static/images/t6.png" alt="Computational overhead"/>
+        </div>
+        <p class="figure-caption">
+          <strong>Table 5.</strong> Computational overhead comparison. We report the training time and TFLOPs required to reach different reward scores. Total time is measured in seconds on a single NVIDIA RTX A6000 GPU. "-" indicates the method could not reach that reward level within a reasonable training budget.
         </p>
       </div>
     </div>
