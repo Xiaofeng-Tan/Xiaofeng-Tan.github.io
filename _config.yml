@@ -721,7 +721,7 @@ research:
     - "Bin-Bin Gao"
   outputs:
     - name: "Consistent-RFT"
-      url: ""
+      url: "https://xiaofeng-tan.github.io/projects/ConsistentRFT/index.html"
 
 - institution: "Singapore Management University"
   logo: "/assets/img/smu-logo-s.png"
@@ -761,6 +761,8 @@ research:
       url: "https://xiaofeng-tan.github.io/projects/FG-Diff/index.html"
     - name: "EasyTune (ICLR)"
       url: "https://xiaofeng-tan.github.io/projects/EasyTune/index.html"
+    - name: "MotionRFT"
+      url: "https://xiaofeng-tan.github.io/projects/MotionRFT/index.html"
 
 - institution: "Shenzhen University"
   logo: "/assets/img/szu_logo.png"
