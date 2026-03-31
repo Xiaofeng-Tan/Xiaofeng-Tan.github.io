@@ -707,9 +707,22 @@ education:
 
 research:
 - institution: "Tencent Inc."
+  logo: "/assets/img/hy-logo.png"
+  role: "Research Intern"
+  period: "2026.03 - Present"
+  location: "Shenzhen, China"
+  topic: "RLHF, RLVR, AIGC"
+  lab:
+    name: "HY（混元）"
+    url: "https://hunyuan.tencent.com/"
+  co-authors:
+    - "TBD"
+  outputs:
+
+- institution: "Tencent Inc."
   logo: "/assets/img/tencent-youtu-logo.png"
   role: "Research Intern"
-  period: "2025.07 - Present"
+  period: "2025.07 - 2026.03"
   location: "Shenzhen, China"
   topic: "RLHF, RLVR, AIGC"
   lab:
