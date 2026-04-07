@@ -251,44 +251,7 @@ layout: default
     left: 0;
   }
 
-  /* Selected Publications — refined heading */
-  .selected-pubs-title.section-title {
-    margin-top: 1.35rem;
-    margin-bottom: 0.35rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-    font-size: 1.02rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: #1f2d3a;
-  }
-
-  .selected-pubs-title.section-title:hover {
-    color: #00A1E9;
-  }
-
-  .selected-pubs-title.section-title:hover .selected-pubs-title__text {
-    color: inherit;
-  }
-
-  .selected-pubs-title__main {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    min-width: 0;
-  }
-
-  .selected-pubs-title__emoji {
-    font-size: 1em;
-    line-height: 1;
-    opacity: 0.88;
-  }
-
-  .selected-pubs-title__text {
-    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-    letter-spacing: 0.03em;
-    font-weight: 600;
-  }
+  /* Selected Publications — now uses unified .section-title styles */
 
   /* ========== Timeline Section Styles (Logo Row + Expandable Details) ========== */
   .timeline-section {
@@ -2773,10 +2736,7 @@ layout: default
     color: #5ec8f2;
   }
 
-  html[data-theme="dark"] .selected-pubs-title.section-title {
-    border-bottom-color: rgba(255, 255, 255, 0.09);
-    color: #e6edf3;
-  }
+  /* selected-pubs-title now uses unified dark .section-title styles */
 
   html[data-theme="dark"] .pub-category {
     border-bottom-color: rgba(255, 255, 255, 0.1);
@@ -3610,11 +3570,8 @@ layout: default
 
   <!-- Selected papers -->
   {% if page.selected_papers %}
-    <h2 class="section-title selected-pubs-title">
-      <span class="selected-pubs-title__main">
-        <span class="selected-pubs-title__emoji" aria-hidden="true">📖</span>
-        <span class="selected-pubs-title__text">Selected Publications</span>
-      </span>
+    <h2 class="section-title">
+      <span>📖 Selected Publications</span>
     </h2>
     {% include selected_papers.liquid %}
   {% endif %}
