@@ -304,6 +304,17 @@ layout: default
     min-width: 80px;
   }
 
+  /* Education section: wider cards to fit full school names */
+  .education-section .logo-item {
+    min-width: auto;
+    padding: 0.6rem 1rem;
+  }
+
+  .education-section .logo-label {
+    max-width: none;
+    white-space: nowrap;
+  }
+
   .logo-item:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 16px rgba(0, 161, 233, 0.15);
@@ -2326,6 +2337,16 @@ layout: default
       padding: 0.5rem;
     }
 
+    .education-section .logo-item {
+      min-width: auto;
+      padding: 0.5rem 0.8rem;
+    }
+
+    .education-section .logo-label {
+      max-width: none;
+      font-size: 0.58rem;
+    }
+
     .timeline-logo {
       width: 40px;
       height: 40px;
@@ -3371,7 +3392,7 @@ layout: default
   {% endif %}
 
   <!-- Education Experience - Logo Timeline Style -->
-  <div class="timeline-section">
+  <div class="timeline-section education-section">
     <h2 class="section-title">
       <span>👨🏻‍🎓 Education Experience</span>
     </h2>
@@ -3382,7 +3403,7 @@ layout: default
       {% for education in site.education %}
         <div class="logo-item" onclick="toggleEducationDetail('{{ forloop.index }}')" data-index="{{ forloop.index }}">
           <img src="{{ education.logo }}" alt="{{ education.school }}" class="timeline-logo">
-          <span class="logo-label">{{ education.abbr | default: education.school }}</span>
+          <span class="logo-label">{{ education.school }}</span>
           <span class="logo-role">{{ education.role_short | default: education.degree }}</span>
           <span class="logo-year">{{ education.year }}</span>
         </div>

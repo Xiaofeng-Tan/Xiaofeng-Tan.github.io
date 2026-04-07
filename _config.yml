@@ -763,7 +763,7 @@ research:
   outputs:
     - name: "Consistent-RFT"
       url: "https://xiaofeng-tan.github.io/projects/ConsistentRFT/index.html"
-    - name: "pec"
+    - name: "PEC"
       url: ""
 
 - institution: "Singapore Management University"
@@ -782,9 +782,9 @@ research:
     - "Hongsong Wang"
     - "Wanjiang Weng"
   outputs:
-    - name: "SoPo (NeurIPS)"
+    - name: "SoPo (NeurIPS'25)"
       url: "https://xiaofeng-tan.github.io/projects/SoPo/index.html"
-    - name: "ReAlign (AAAI)"
+    - name: "ReAlign (AAAI'26)"
       url: "https://wengwanjiang.github.io/ReAlign-page/"
 
 - institution: "Southeast University"
@@ -806,7 +806,7 @@ research:
   outputs:
     - name: "FG-Diff."
       url: "https://xiaofeng-tan.github.io/projects/FG-Diff/index.html"
-    - name: "EasyTune (ICLR)"
+    - name: "EasyTune (ICLR'26)"
       url: "https://xiaofeng-tan.github.io/projects/EasyTune/index.html"
     - name: "MotionRFT"
       url: "https://xiaofeng-tan.github.io/projects/MotionRFT/index.html"
@@ -825,7 +825,7 @@ research:
   co-authors:
     - "Can Gao (Mentor)"
   outputs:
-    - name: "MGBOD (TKDE)"
+    - name: "MGBOD (TKDE'25)"
       url: "https://ieeexplore.ieee.org/abstract/document/10821488"
-    - name: "TWCOD (IJAR)"
+    - name: "TWCOD (IJAR'23)"
       url: "https://www.sciencedirect.com/science/article/pii/S0888613X23001020"
