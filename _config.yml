@@ -692,7 +692,7 @@ jsonresume:
 education:
   - school: Southeast Unversity
     abbr: SEU
-    role_short: Master's
+    role_short: Master
     college: School of Computer Science and Engineering
     degree: Master Student
     year: 2024 - Present
@@ -701,7 +701,7 @@ education:
     intro: Outstanding Camper (Ranked 2nd) in 2024 Graduate Admission Summer Camp.
   - school: Shenzhen Unversity
     abbr: SZU
-    role_short: Dual bachelor's
+    role_short: Dual Bachelor
     college: College of Computer Science & Software Engineering / College of Mathematics and Statistics
     degree: Dual Degree (B.Eng. & B.Sc.)
     year: 2020 - 2024
@@ -763,6 +763,8 @@ research:
   outputs:
     - name: "Consistent-RFT"
       url: "https://xiaofeng-tan.github.io/projects/ConsistentRFT/index.html"
+    - name: "pec"
+      url: ""
 
 - institution: "Singapore Management University"
   abbr: SMU

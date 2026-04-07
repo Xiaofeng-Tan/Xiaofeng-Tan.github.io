@@ -330,7 +330,10 @@ layout: default
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease;
     padding: 0.6rem;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.6);
@@ -441,25 +444,40 @@ layout: default
     margin-top: 0.1rem;
   }
 
-  /* Detail Card - Expandable */
+  /* Detail Card - Expandable (CSS grid trick for smooth height animation) */
   .detail-card {
-    max-height: 0;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+                margin 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+                background 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+    margin: 0;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background: transparent;
+  }
+
+  .detail-card-inner {
     overflow: hidden;
     opacity: 0;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    margin: 0;
     padding: 0;
+    transition: opacity 0.3s ease 0.05s,
+                padding 0.4s cubic-bezier(0.33, 1, 0.68, 1);
   }
 
   .detail-card.active {
-    max-height: 500px;
-    opacity: 1;
+    grid-template-rows: 1fr;
     margin: 0.8rem 0;
-    padding: 1rem;
     background: rgba(255, 255, 255, 0.85);
-    border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 161, 233, 0.1);
-    border: 1px solid rgba(0, 161, 233, 0.15);
+    border-color: rgba(0, 161, 233, 0.15);
+  }
+
+  .detail-card.active .detail-card-inner {
+    opacity: 1;
+    padding: 1rem;
   }
 
   .detail-header {
@@ -3414,23 +3432,25 @@ layout: default
     <!-- Detail Cards -->
     {% for education in site.education %}
       <div class="detail-card" id="education-detail-{{ forloop.index }}">
-        <div class="detail-header">
-          <img src="{{ education.logo }}" alt="{{ education.school }}" class="detail-logo">
-          <div class="detail-header-text">
-            <h3 class="detail-title">{{ education.school }}</h3>
+        <div class="detail-card-inner">
+          <div class="detail-header">
+            <img src="{{ education.logo }}" alt="{{ education.school }}" class="detail-logo">
+            <div class="detail-header-text">
+              <h3 class="detail-title">{{ education.school }}</h3>
+            </div>
+            <div class="detail-meta">
+              <span class="detail-degree">{{ education.degree }}</span>
+              {% if education.location %}
+                <span class="detail-location">📍 {{ education.location }}</span>
+              {% endif %}
+            </div>
+            <span class="detail-period">{{ education.year }}</span>
           </div>
-          <div class="detail-meta">
-            <span class="detail-degree">{{ education.degree }}</span>
-            {% if education.location %}
-              <span class="detail-location">📍 {{ education.location }}</span>
-            {% endif %}
-          </div>
-          <span class="detail-period">{{ education.year }}</span>
+          {% if education.college %}
+            <p class="detail-college">{{ education.college }}</p>
+          {% endif %}
+          <p class="detail-intro"><em>{{ education.intro }}</em></p>
         </div>
-        {% if education.college %}
-          <p class="detail-college">{{ education.college }}</p>
-        {% endif %}
-        <p class="detail-intro">{{ education.intro }}</p>
       </div>
     {% endfor %}
   </div>
@@ -3457,25 +3477,26 @@ layout: default
     <!-- Detail Cards -->
     {% for research in site.research %}
       <div class="detail-card" id="research-detail-{{ forloop.index }}">
-        <div class="detail-header">
-          <img src="{{ research.logo }}" alt="{{ research.institution }}" class="detail-logo">
-          <div class="detail-header-text">
-            <h3 class="detail-title">{{ research.institution }}</h3>
-            {% if research.lab_at %}
-              <p class="detail-lab-at">{{ research.lab_at }}</p>
-            {% endif %}
+        <div class="detail-card-inner">
+          <div class="detail-header">
+            <img src="{{ research.logo }}" alt="{{ research.institution }}" class="detail-logo">
+            <div class="detail-header-text">
+              <h3 class="detail-title">{{ research.institution }}</h3>
+              {% if research.lab_at %}
+                <p class="detail-lab-at">{{ research.lab_at }}</p>
+              {% endif %}
+            </div>
+            <div class="detail-meta">
+              <span class="detail-role">{{ research.role }}</span>
+              {% if research.location %}
+                <span class="detail-location">📍 {{ research.location }}</span>
+              {% endif %}
+            </div>
+            <span class="detail-period">{{ research.period }}</span>
           </div>
-          <div class="detail-meta">
-            <span class="detail-role">{{ research.role }}</span>
-            {% if research.location %}
-              <span class="detail-location">📍 {{ research.location }}</span>
-            {% endif %}
-          </div>
-          <span class="detail-period">{{ research.period }}</span>
-        </div>
 
-        <!-- Lab and Co-authors -->
-        <div class="detail-info">
+          <!-- Lab and Co-authors -->
+          <div class="detail-info">
           <div class="detail-lab">
             <strong>Lab:</strong>
             {% assign lab = research.lab %}
@@ -3522,6 +3543,7 @@ layout: default
             {% endfor %}
           </div>
         {% endif %}
+        </div>
       </div>
     {% endfor %}
   </div>
@@ -3633,7 +3655,7 @@ layout: default
         </li>
         <li>
           <div class="honor-title">
-            <strong><span>Honor Bachelor's Degree</span></strong>
+<strong><span>Honor Bachelor Degree</span></strong>
             <span class="year-right">2024</span>
           </div>
           <div class="honor-details">
