@@ -1,13 +1,25 @@
-<div class="publications">
-  <div class="pub-section-header">
-    <span class="pub-section-icon">📝</span>
-    <span class="pub-section-title">Preprints</span>
-  </div>
-  {% bibliography --group_by none --query @*[selected=true && abbr=UR]* %}
+<div class="publications-grouped">
+  <details class="pub-category" open>
+    <summary class="pub-category__summary">
+      <span class="pub-category__label">Publications</span>
+      <span class="pub-category__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="pub-category__body">
+      <div class="publications">
+        {% bibliography --group_by none --query @*[selected=true && abbr!=UR]* %}
+      </div>
+    </div>
+  </details>
 
-  <div class="pub-section-header" style="margin-top: 0.2rem;">
-    <span class="pub-section-icon">📄</span>
-    <span class="pub-section-title">Published</span>
-  </div>
-  {% bibliography --group_by none --query @*[selected=true && abbr!=UR]* %}
+  <details class="pub-category" open>
+    <summary class="pub-category__summary">
+      <span class="pub-category__label">Preprints</span>
+      <span class="pub-category__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="pub-category__body">
+      <div class="publications">
+        {% bibliography --group_by none --query @*[selected=true && abbr=UR]* %}
+      </div>
+    </div>
+  </details>
 </div>

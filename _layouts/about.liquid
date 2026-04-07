@@ -251,7 +251,384 @@ layout: default
     left: 0;
   }
 
-  /* ========== 教育经历样式 ========== */
+  /* Selected Publications — refined heading */
+  .selected-pubs-title.section-title {
+    margin-top: 1.35rem;
+    margin-bottom: 0.35rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    font-size: 1.02rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #1f2d3a;
+  }
+
+  .selected-pubs-title.section-title:hover {
+    color: #00A1E9;
+  }
+
+  .selected-pubs-title.section-title:hover .selected-pubs-title__text {
+    color: inherit;
+  }
+
+  .selected-pubs-title__main {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 0;
+  }
+
+  .selected-pubs-title__emoji {
+    font-size: 1em;
+    line-height: 1;
+    opacity: 0.88;
+  }
+
+  .selected-pubs-title__text {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    letter-spacing: 0.03em;
+    font-weight: 600;
+  }
+
+  /* ========== Timeline Section Styles (Logo Row + Expandable Details) ========== */
+  .timeline-section {
+    margin-top: 0.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .timeline-expand-hint {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #64748b;
+    margin: -0.15rem 0 0.35rem 0;
+    padding-left: 1rem;
+    line-height: 1.45;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .timeline-expand-hint::before {
+    content: '→';
+    font-size: 0.85em;
+    opacity: 0.65;
+    color: #00A1E9;
+  }
+
+  /* Logo Row - Horizontal layout */
+  .logo-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: flex-start;
+    padding: 0.8rem 0;
+  }
+
+  .logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0.6rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid transparent;
+    min-width: 80px;
+  }
+
+  .logo-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 161, 233, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 161, 233, 0.3);
+  }
+
+  .logo-item.active {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 161, 233, 0.35);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 248, 255, 0.98) 100%);
+    border-color: #00A1E9;
+    border-width: 2px;
+  }
+
+  .logo-item.active .timeline-logo {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 161, 233, 0.3);
+  }
+
+  .logo-item.active .logo-label,
+  .logo-item.active .logo-lab-at {
+    color: #00A1E9;
+    font-weight: 600;
+  }
+
+  .logo-item.active .logo-role {
+    color: #2c5282;
+  }
+
+  .logo-item.active .logo-year {
+    background: #00A1E9;
+    color: white;
+    padding: 0.1rem 0.4rem;
+    border-radius: 8px;
+  }
+
+  .timeline-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    object-fit: contain;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 0.3rem;
+  }
+
+  .logo-item:hover .timeline-logo,
+  .logo-item.active .timeline-logo {
+    transform: scale(1.08);
+  }
+
+  .logo-label {
+    font-size: 0.68rem;
+    color: #3d4f5f;
+    text-align: center;
+    max-width: 88px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-top: 0.2rem;
+  }
+
+  .logo-role {
+    font-size: 0.58rem;
+    color: #7b8a9a;
+    text-align: center;
+    max-width: 92px;
+    line-height: 1.25;
+    margin-top: 0.12rem;
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+  }
+
+  .logo-lab-at {
+    font-size: 0.62rem;
+    color: #3d4f5f;
+    text-align: center;
+    max-width: 100px;
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin-top: 0.2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+  }
+
+  .logo-year {
+    font-size: 0.6rem;
+    color: #00A1E9;
+    font-weight: 600;
+    margin-top: 0.1rem;
+  }
+
+  /* Detail Card - Expandable */
+  .detail-card {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0;
+    padding: 0;
+  }
+
+  .detail-card.active {
+    max-height: 500px;
+    opacity: 1;
+    margin: 0.8rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 161, 233, 0.1);
+    border: 1px solid rgba(0, 161, 233, 0.15);
+  }
+
+  .detail-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .detail-header-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .detail-lab-at {
+    margin: 0.2rem 0 0 0;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #64748b;
+    line-height: 1.35;
+  }
+
+  .detail-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    object-fit: contain;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+  }
+
+  .detail-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+    margin-left: auto;
+  }
+
+  .detail-degree,
+  .detail-role {
+    font-size: 0.68rem;
+    font-weight: 500;
+    padding: 0.12rem 0.45rem;
+    border-radius: 10px;
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.1);
+    white-space: nowrap;
+  }
+
+  .detail-role {
+    color: #059669;
+    background: rgba(5, 150, 105, 0.1);
+  }
+
+  .detail-location {
+    font-size: 0.68rem;
+    font-weight: 500;
+    padding: 0.12rem 0.45rem;
+    border-radius: 10px;
+    color: #64748b;
+    background: rgba(100, 116, 139, 0.1);
+    white-space: nowrap;
+  }
+
+  .detail-period {
+    font-size: 0.68rem;
+    color: #0891b2;
+    font-weight: 600;
+    background: rgba(8, 145, 178, 0.1);
+    padding: 0.12rem 0.5rem;
+    border-radius: 10px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .detail-college {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin: 0.3rem 0;
+    line-height: 1.4;
+  }
+
+  .detail-intro {
+    font-size: 0.82rem;
+    color: #5a6c7d;
+    line-height: 1.5;
+    margin: 0.3rem 0;
+  }
+
+  .detail-info {
+    font-size: 0.78rem;
+    color: #5a6c7d;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed rgba(0, 161, 233, 0.15);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+
+  .detail-lab {
+    flex-shrink: 0;
+  }
+
+  .detail-lab a {
+    color: #00A1E9;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .detail-lab a:hover {
+    color: #0082C8;
+    text-decoration: underline;
+  }
+
+  .detail-info-separator {
+    color: #d0d0d0;
+  }
+
+  .detail-coauthors {
+    flex: 1;
+    text-align: right;
+  }
+
+  .detail-info strong {
+    color: #2c3e50;
+    font-weight: 600;
+  }
+
+  .detail-outputs {
+    margin-top: 0.4rem;
+    padding-top: 0.4rem;
+    border-top: 1px dashed rgba(0, 161, 233, 0.15);
+    font-size: 0.78rem;
+    color: #5a6c7d;
+  }
+
+  .detail-outputs strong {
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  .output-link {
+    color: #00A1E9;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .output-link:hover {
+    color: #0082C8;
+    text-decoration: underline;
+  }
+
+  .output-text {
+    color: #64748b;
+  }
+
+  /* ========== 旧版教育经历样式（保留以防回退）========== */
   .education-section {
     margin-top: 0.3rem;
     margin-bottom: 0.8rem;
@@ -290,7 +667,7 @@ layout: default
     margin-right: 0.9rem;
     flex-shrink: 0;
     border-radius: 10px;
-    object-fit: cover;
+    object-fit: contain;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     transition: transform 0.25s ease;
   }
@@ -368,7 +745,7 @@ layout: default
     margin: 0;
   }
 
-  /* ========== 研究经历样式 ========== */
+  /* ========== 旧版研究经历样式（保留以防回退）========== */
   .research-section {
     margin-top: 0.3rem;
     margin-bottom: 0.8rem;
@@ -408,7 +785,7 @@ layout: default
     margin-top: 0.1rem;
     flex-shrink: 0;
     border-radius: 10px;
-    object-fit: cover;
+    object-fit: contain;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     transition: transform 0.25s ease;
   }
@@ -499,6 +876,7 @@ layout: default
     flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: right;
   }
 
   .research-lab a {
@@ -671,9 +1049,98 @@ layout: default
     margin-left: 0.4rem;
   }
 
-  /* ========== Publications 样式（美化版）========== */
+  /* Collapsible publication sections (single-line headers) */
+  .publications-grouped {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .pub-category {
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .pub-category__summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.32rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748b;
+    user-select: none;
+    transition: color 0.15s ease;
+  }
+
+  .pub-category__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .pub-category__summary::marker {
+    display: none;
+    content: '';
+  }
+
+  .pub-category__label {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.2;
+  }
+
+  .pub-category__chevron {
+    flex-shrink: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    margin-top: -0.2rem;
+    opacity: 0.55;
+    transition: transform 0.2s ease, opacity 0.15s ease;
+  }
+
+  .pub-category:not([open]) .pub-category__chevron {
+    transform: rotate(-45deg);
+    margin-top: 0.1rem;
+  }
+
+  .pub-category[open] .pub-category__chevron {
+    transform: rotate(45deg);
+    margin-top: -0.15rem;
+  }
+
+  .pub-category__summary:hover {
+    color: #00A1E9;
+  }
+
+  .pub-category__summary:hover .pub-category__chevron {
+    opacity: 0.9;
+  }
+
+  .pub-category__body {
+    padding: 0 0 0.35rem 0;
+    border: 0;
+  }
+
+  .pub-category__body .publications {
+    margin-top: 0.25rem;
+    margin-bottom: 0.15rem;
+  }
+
+  /* ========== Publications — Minimalist Academic Style ========== */
   .publications {
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
   }
 
   .publications .bibliography {
@@ -681,16 +1148,18 @@ layout: default
   }
 
   .publications .bibliography li {
-    margin-bottom: 0.25rem;
-    padding: 0.35rem 0.8rem;
-    background: rgba(255, 255, 255, 0.65);
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 161, 233, 0.05);
-    border: 1px solid rgba(0, 161, 233, 0.08);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 0;
+    padding: 0.4rem 0 0.4rem 0.6rem;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    border-left: 2px solid transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s ease, background 0.2s ease;
     position: relative;
     overflow: visible;
-    backdrop-filter: blur(10px);
+    backdrop-filter: none;
     width: 100%;
     min-width: 0;
   }
@@ -698,6 +1167,7 @@ layout: default
   .publications .bibliography li .row {
     display: flex;
     flex-wrap: nowrap;
+    align-items: flex-start;
     width: 100%;
   }
 
@@ -706,46 +1176,30 @@ layout: default
     flex: 1;
     max-width: none;
     width: auto;
+    min-width: 0;
   }
 
   .publications .bibliography li::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 161, 233, 0.06) 0%, rgba(118, 75, 162, 0.06) 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  .publications .bibliography li:hover::before {
-    opacity: 1;
+    display: none;
   }
 
   .publications .bibliography li:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 161, 233, 0.1);
-    border-color: rgba(0, 161, 233, 0.2);
-    background: rgba(255, 255, 255, 0.8);
-  }
-
-  /* 当 abstract 或 mycomment 展开时，禁用 hover 的 transform 效果 */
-  .publications .bibliography li:has(.hidden.open):hover {
     transform: none;
+    box-shadow: none;
+    border-left-color: #00A1E9;
+    background: rgba(0, 161, 233, 0.015);
   }
 
   .publications .bibliography li:last-child {
-    margin-bottom: 0;
+    border-bottom: none;
   }
 
   .publications .title {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     font-weight: 600;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.02rem;
     color: #2c3e50;
-    line-height: 1.4;
+    line-height: 1.35;
     position: relative;
     z-index: 1;
     white-space: normal;
@@ -756,12 +1210,12 @@ layout: default
   }
 
   .publications .author {
-    font-size: 0.8rem;
-    margin-bottom: 0.1rem;
+    font-size: 0.76rem;
+    margin-bottom: 0.02rem;
     color: #5a6c7d;
     position: relative;
     z-index: 1;
-    line-height: 1.35;
+    line-height: 1.3;
   }
 
   .publications .author em {
@@ -784,36 +1238,36 @@ layout: default
 
   .publications .periodical {
     font-family: "Crimson Pro", Georgia, "Times New Roman", serif;
-    font-size: 0.78rem;
-    margin-bottom: 0.1rem;
+    font-size: 0.74rem;
+    margin-bottom: 0.02rem;
     color: #7f8c8d;
     font-style: italic;
     position: relative;
     z-index: 1;
-    line-height: 1.25;
+    line-height: 1.2;
   }
 
   .publications .periodical .venue-abbr {
     font-style: normal;
     font-weight: 600;
     margin-right: 0.3rem;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
   }
 
   .publications .periodical .venue-separator {
     color: #ccc;
-    margin: 0 0.4rem;
+    margin: 0 0.35rem;
     font-style: normal;
   }
 
   /* CCF 等级徽章 */
   .ccf-badge {
     display: inline-block;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 600;
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    margin-left: 0.4rem;
+    padding: 0.05rem 0.35rem;
+    border-radius: 3px;
+    margin-left: 0.35rem;
     font-style: normal;
     vertical-align: middle;
   }
@@ -845,11 +1299,11 @@ layout: default
   /* CORE 等级徽章 */
   .core-badge {
     display: inline-block;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 600;
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    margin-left: 0.4rem;
+    padding: 0.05rem 0.35rem;
+    border-radius: 3px;
+    margin-left: 0.35rem;
     font-style: normal;
     vertical-align: middle;
   }
@@ -875,11 +1329,11 @@ layout: default
   /* SCI 分区徽章 */
   .sci-badge {
     display: inline-block;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 600;
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    margin-left: 0.4rem;
+    padding: 0.05rem 0.35rem;
+    border-radius: 3px;
+    margin-left: 0.35rem;
     font-style: normal;
     vertical-align: middle;
   }
@@ -910,142 +1364,130 @@ layout: default
 
   .publications .links {
     font-size: 0.72rem;
-    margin-top: 0.15rem;
+    margin-top: 0.1rem;
     position: relative;
     z-index: 1;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.15rem;
+    align-items: center;
+    gap: 0.28rem 0.5rem;
+    row-gap: 0.32rem;
   }
 
   .publications .links a {
     display: inline-flex;
     align-items: center;
-    gap: 0.15rem;
-    padding: 0.1rem 0.4rem;
-    background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%);
-    color: #5a6c7d;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 0.2rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 0 !important;
+    margin: 0;
+    background: transparent !important;
+    color: #00A1E9;
+    border-radius: 0 !important;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 161, 233, 0.3);
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
     font-weight: 500;
-    border: 1px solid #e0e3e7;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    line-height: 1.25;
+    font-size: 0.72rem;
   }
 
   .publications .links a i {
-    font-size: 0.7em;
-    opacity: 0.7;
+    font-size: 0.75em;
+    opacity: 0.65;
+    flex-shrink: 0;
+    text-decoration: none;
   }
 
   .publications .links a:hover {
-    background: linear-gradient(135deg, #00A1E9 0%, #0082C8 100%);
-    color: white;
-    border-color: transparent;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 161, 233, 0.35);
+    color: #0077b6;
+    text-decoration: underline;
+    text-decoration-color: #0077b6;
+    transform: none;
+    box-shadow: none !important;
+    background: transparent !important;
   }
 
   .publications .links a:hover i {
     opacity: 1;
   }
 
-  /* PDF 按钮 */
   .publications .links a[href*="pdf"],
   .publications .links a[href*="arxiv"] {
-    background: linear-gradient(135deg, #fef9f9 0%, #fdf5f5 100%);
-    color: #d9534f;
-    border-color: #f8d7da;
+    color: #c0392b;
+    text-decoration-color: rgba(192, 57, 43, 0.3);
   }
 
   .publications .links a[href*="pdf"]:hover,
   .publications .links a[href*="arxiv"]:hover {
-    background: linear-gradient(135deg, #f5a5a2 0%, #e88985 100%);
-    color: white;
-    border-color: transparent;
-    box-shadow: 0 4px 12px rgba(217, 83, 79, 0.25);
+    color: #922b21;
+    text-decoration-color: #922b21;
   }
 
-  /* Code/GitHub 按钮 */
   .publications .links a[href*="github"] {
-    background: linear-gradient(135deg, #fafbfc 0%, #f3f4f6 100%);
-    color: #586069;
-    border-color: #e1e4e8;
+    color: #4a5568;
+    text-decoration-color: rgba(74, 85, 104, 0.3);
   }
 
   .publications .links a[href*="github"]:hover {
-    background: linear-gradient(135deg, #6a737d 0%, #586069 100%);
-    color: white;
-    border-color: transparent;
-    box-shadow: 0 4px 12px rgba(88, 96, 105, 0.25);
+    color: #2d3748;
+    text-decoration-color: #2d3748;
   }
 
-  /* Website 按钮 */
   .publications .links a[href*="xiaofeng-tan.github.io/projects"],
   .publications .links a[href*="wengwanjiang.github.io"] {
-    background: linear-gradient(135deg, #f4faf5 0%, #e8f5e9 100%);
-    color: #5cb85c;
-    border-color: #c3e6cb;
+    color: #27ae60;
+    text-decoration-color: rgba(39, 174, 96, 0.3);
   }
 
   .publications .links a[href*="xiaofeng-tan.github.io/projects"]:hover,
   .publications .links a[href*="wengwanjiang.github.io"]:hover {
-    background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
-    color: white;
-    border-color: transparent;
-    box-shadow: 0 4px 12px rgba(92, 184, 92, 0.25);
+    color: #1e8449;
+    text-decoration-color: #1e8449;
   }
 
-  /* Award 按钮 */
   .publications .links a.award {
-    background: linear-gradient(135deg, #fffcf5 0%, #fff8e7 100%);
-    color: #f0ad4e;
-    border-color: #ffeeba;
+    color: #e67e22;
+    text-decoration-color: rgba(230, 126, 34, 0.3);
   }
 
   .publications .links a.award:hover {
-    background: linear-gradient(135deg, #ffcc80 0%, #ffb74d 100%);
-    color: white;
-    border-color: transparent;
-    box-shadow: 0 4px 12px rgba(240, 173, 78, 0.25);
+    color: #ca6f1e;
+    text-decoration-color: #ca6f1e;
   }
 
-  /* Abstract/Bib 按钮 */
   .publications .links a.abstract,
   .publications .links a.bibtex {
-    background: linear-gradient(135deg, #faf5fc 0%, #f3e8f7 100%);
-    color: #9b59b6;
-    border-color: #e2d4ea;
+    color: #8e44ad;
+    text-decoration-color: rgba(142, 68, 173, 0.3);
   }
 
   .publications .links a.abstract:hover,
   .publications .links a.bibtex:hover {
-    background: linear-gradient(135deg, #b388c9 0%, #a370b8 100%);
-    color: white;
-    border-color: transparent;
-    box-shadow: 0 4px 12px rgba(155, 89, 182, 0.25);
+    color: #6c3483;
+    text-decoration-color: #6c3483;
   }
 
-  /* My Take 按钮 - 学术优雅风格 */
   .publications .links a.mycomment {
     display: none;
-    background: linear-gradient(135deg, #f5f0e8 0%, #ebe3d8 100%);
     color: #6b5344;
-    border: 1px solid rgba(139, 115, 85, 0.25);
-    position: relative;
+    text-decoration-color: rgba(107, 83, 68, 0.3);
     font-weight: 600;
   }
 
   .publications .links a.mycomment:hover {
-    background: linear-gradient(135deg, #8b7355 0%, #6b5344 100%);
-    color: #fff;
-    border-color: transparent;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(107, 83, 68, 0.3);
+    color: #4a3728;
+    text-decoration-color: #4a3728;
   }
 
   .publications .links a.mycomment i {
-    margin-right: 0.2rem;
+    margin-right: 0.15rem;
   }
 
   /* My Comment 展开内容样式 - 参考 abstract 格式 */
@@ -1107,24 +1549,93 @@ layout: default
     font-family: "Long Cang", "STXingkai", "Xingkai SC", cursive;
   }
 
-  /* Publications 预览图片样式 - 桌面端 */
-  .publications .bibliography li .row {
-    align-items: stretch;
-  }
-
+  /* Publications 预览图：固定比例 + cover 裁切 */
   .publications .abbr {
     display: flex;
-    align-items: stretch;
+    align-items: flex-start;
     justify-content: center;
-    flex-shrink: 0;
-    padding-right: 0.5rem;
+    flex: 0 0 3.75rem;
+    width: 3.75rem;
+    max-width: 3.75rem;
+    padding-right: 0.55rem;
+    padding-top: 0.12rem;
   }
 
-  .publications .abbr .preview {
-    width: 100px;
-    height: 100%;
+  .publications .abbr:has(> img.preview) {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.04);
+    padding: 0;
+    margin-right: 0.55rem;
+    align-self: flex-start;
+  }
+
+  .publications .abbr > img.preview {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
     object-fit: cover;
-    border-radius: 6px;
+    object-position: center;
+    display: block;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    vertical-align: top;
+  }
+
+  .publications .abbr figure {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    line-height: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .publications .abbr picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .publications .abbr .preview,
+  .publications .abbr figure img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    vertical-align: top;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .publications .bibliography li:hover .abbr .preview,
+  .publications .bibliography li:hover .abbr figure img {
+    opacity: 0.95;
+  }
+
+  @media (min-width: 768px) {
+    .publications .abbr {
+      flex: 0 0 4.25rem;
+      width: 4.25rem;
+      max-width: 4.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .publications .abbr {
+      flex: 0 0 3.25rem;
+      width: 3.25rem;
+      max-width: 3.25rem;
+      padding-right: 0.45rem;
+    }
   }
 
   /* ========== 荣誉奖项样式（带滚动条）========== */
@@ -1824,6 +2335,76 @@ layout: default
       margin-top: 0.1rem;
     }
 
+    /* ====== Timeline Section - 响应式 ====== */
+    .logo-row {
+      gap: 0.6rem;
+    }
+
+    .logo-item {
+      min-width: 70px;
+      padding: 0.5rem;
+    }
+
+    .timeline-logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .logo-label {
+      font-size: 0.62rem;
+      max-width: 76px;
+    }
+
+    .logo-role {
+      font-size: 0.54rem;
+      max-width: 80px;
+    }
+
+    .logo-lab-at {
+      font-size: 0.58rem;
+      max-width: 88px;
+    }
+
+    .logo-year {
+      font-size: 0.55rem;
+    }
+
+    .detail-header {
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .detail-logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .detail-title {
+      font-size: 0.85rem;
+    }
+
+    .detail-meta {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .detail-degree,
+    .detail-role,
+    .detail-location,
+    .detail-period {
+      font-size: 0.62rem;
+      padding: 0.1rem 0.35rem;
+    }
+
+    .detail-info {
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .detail-info-separator {
+      display: none;
+    }
+
     /* 底部社交图标 */
     .contact-icons a {
       width: 36px !important;
@@ -1834,12 +2415,16 @@ layout: default
     /* 禁用悬停动画效果（触屏设备无意义） */
     .education-item:hover,
     .research-item:hover,
-    .publications .bibliography li:hover {
+    .publications .bibliography li:hover,
+    .logo-item:hover,
+    .detail-card.active:hover {
       transform: none;
     }
 
     .education-item:hover .education-logo,
-    .research-item:hover .research-logo {
+    .research-item:hover .research-logo,
+    .logo-item:hover .timeline-logo,
+    .logo-item.active:hover .timeline-logo {
       transform: none;
     }
 
@@ -1936,11 +2521,11 @@ layout: default
   /* ========================================== */
   /* ========== 暗色模式 - 完整重设计 ========== */
   /* ========================================== */
-  /* 
+  /*
    * 设计原则：与亮色模式形成优雅对偶
    * 亮色：浅色背景 + 深色文字 + 蓝色强调
    * 暗色：深色背景 + 浅色文字 + 青蓝色强调
-   * 
+   *
    * 主色调对偶：
    * - 亮色主色 #00A1E9 → 暗色主色 #5ec8f2 (更亮的青蓝)
    * - 亮色强调 #764ba2 → 暗色强调 #b388ff (淡紫)
@@ -1969,6 +2554,146 @@ layout: default
   html[data-theme="dark"] article > .clearfix p,
   html[data-theme="dark"] article > .clearfix .interest-card {
     color: #c9d1d9;
+  }
+
+  /* ===== Timeline Section - 暗色模式 ===== */
+  html[data-theme="dark"] .logo-item {
+    background: rgba(33, 38, 45, 0.6);
+    border-color: transparent;
+  }
+
+  html[data-theme="dark"] .logo-item:hover {
+    background: rgba(48, 54, 61, 0.9);
+    border-color: rgba(94, 200, 242, 0.4);
+    box-shadow: 0 6px 16px rgba(94, 200, 242, 0.15);
+  }
+
+  html[data-theme="dark"] .logo-item.active {
+    background: linear-gradient(135deg, rgba(48, 54, 61, 0.98) 0%, rgba(33, 38, 45, 0.98) 100%);
+    border-color: #5ec8f2;
+    box-shadow: 0 6px 20px rgba(94, 200, 242, 0.35);
+  }
+
+  html[data-theme="dark"] .logo-item.active .logo-label,
+  html[data-theme="dark"] .logo-item.active .logo-lab-at {
+    color: #5ec8f2;
+  }
+
+  html[data-theme="dark"] .logo-item.active .logo-role {
+    color: #8db4d4;
+  }
+
+  html[data-theme="dark"] .logo-item.active .logo-year {
+    background: #5ec8f2;
+    color: #0d1117;
+  }
+
+  html[data-theme="dark"] .timeline-logo {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  html[data-theme="dark"] .logo-label {
+    color: #c9d1d9;
+  }
+
+  html[data-theme="dark"] .logo-lab-at {
+    color: #c9d1d9;
+  }
+
+  html[data-theme="dark"] .logo-role {
+    color: #8b949e;
+  }
+
+  html[data-theme="dark"] .logo-year {
+    color: #5ec8f2;
+  }
+
+  html[data-theme="dark"] .detail-card.active {
+    background: rgba(22, 27, 34, 0.9);
+    border-color: rgba(48, 54, 61, 0.8);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  html[data-theme="dark"] .detail-logo {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  html[data-theme="dark"] .detail-title {
+    color: #e6edf3;
+  }
+
+  html[data-theme="dark"] .detail-lab-at {
+    color: #8b949e;
+  }
+
+  html[data-theme="dark"] .detail-degree {
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.15);
+  }
+
+  html[data-theme="dark"] .detail-role {
+    color: #7ee787;
+    background: rgba(126, 231, 135, 0.15);
+  }
+
+  html[data-theme="dark"] .detail-location {
+    color: #b1bac4;
+    background: rgba(139, 148, 158, 0.15);
+  }
+
+  html[data-theme="dark"] .detail-period {
+    background: rgba(94, 200, 242, 0.15);
+    color: #5ec8f2;
+  }
+
+  html[data-theme="dark"] .detail-college {
+    color: #8b949e;
+  }
+
+  html[data-theme="dark"] .detail-intro {
+    color: #b1bac4;
+  }
+
+  html[data-theme="dark"] .detail-info {
+    border-top-color: rgba(48, 54, 61, 0.8);
+    color: #b1bac4;
+  }
+
+  html[data-theme="dark"] .detail-info strong {
+    color: #e6edf3;
+  }
+
+  html[data-theme="dark"] .detail-lab a {
+    color: #5ec8f2;
+  }
+
+  html[data-theme="dark"] .detail-lab a:hover {
+    color: #79d4f8;
+  }
+
+  html[data-theme="dark"] .detail-info-separator {
+    color: #484f58;
+  }
+
+  html[data-theme="dark"] .detail-outputs {
+    border-top-color: rgba(48, 54, 61, 0.8);
+    color: #b1bac4;
+  }
+
+  html[data-theme="dark"] .detail-outputs strong {
+    color: #8b949e;
+  }
+
+  html[data-theme="dark"] .output-link {
+    color: #5ec8f2;
+  }
+
+  html[data-theme="dark"] .output-link:hover {
+    color: #79d4f8;
+  }
+
+  html[data-theme="dark"] .output-text {
+    color: #8b949e;
   }
 
   /* ===== 页面标题 ===== */
@@ -2019,6 +2744,31 @@ layout: default
   }
 
   html[data-theme="dark"] .section-title:hover {
+    color: #5ec8f2;
+  }
+
+  html[data-theme="dark"] .timeline-expand-hint {
+    color: #8b949e;
+  }
+
+  html[data-theme="dark"] .timeline-expand-hint::before {
+    color: #5ec8f2;
+  }
+
+  html[data-theme="dark"] .selected-pubs-title.section-title {
+    border-bottom-color: rgba(255, 255, 255, 0.09);
+    color: #e6edf3;
+  }
+
+  html[data-theme="dark"] .pub-category {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .pub-category__summary {
+    color: #8b949e;
+  }
+
+  html[data-theme="dark"] .pub-category__summary:hover {
     color: #5ec8f2;
   }
 
@@ -2199,21 +2949,18 @@ layout: default
     color: #8b949e;
   }
 
-  /* ===== Publications ===== */
+  /* ===== Publications — Dark Mode ===== */
   html[data-theme="dark"] .publications .bibliography li {
-    background: rgba(22, 27, 34, 0.85);
-    border-color: rgba(48, 54, 61, 0.8);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
-
-  html[data-theme="dark"] .publications .bibliography li::before {
-    background: linear-gradient(135deg, rgba(94, 200, 242, 0.08) 0%, rgba(179, 136, 255, 0.08) 100%);
+    background: transparent;
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+    border-left-color: transparent;
+    box-shadow: none;
   }
 
   html[data-theme="dark"] .publications .bibliography li:hover {
-    background: rgba(33, 38, 45, 0.95);
-    border-color: rgba(94, 200, 242, 0.4);
-    box-shadow: 0 4px 16px rgba(94, 200, 242, 0.15);
+    background: rgba(94, 200, 242, 0.025);
+    border-left-color: #5ec8f2;
+    box-shadow: none;
   }
 
   html[data-theme="dark"] .publications .title {
@@ -2235,97 +2982,85 @@ layout: default
     color: #8b949e;
   }
 
-  /* 链接按钮 - 通用 */
   html[data-theme="dark"] .publications .links a {
-    background: rgba(48, 54, 61, 0.6);
-    color: #b1bac4;
-    border-color: rgba(48, 54, 61, 0.8);
+    color: #5ec8f2;
+    text-decoration-color: rgba(94, 200, 242, 0.3);
   }
 
   html[data-theme="dark"] .publications .links a:hover {
-    background: linear-gradient(135deg, #5ec8f2 0%, #3db8e5 100%);
-    color: #ffffff;
-    border-color: transparent;
-    box-shadow: 0 4px 12px rgba(94, 200, 242, 0.35);
+    color: #8dd8f8;
+    text-decoration-color: #8dd8f8;
   }
 
-  /* PDF/arXiv 按钮 - 红色系 */
+  html[data-theme="dark"] .publications .links a + a::before {
+    color: #3b4048;
+  }
+
   html[data-theme="dark"] .publications .links a[href*="pdf"],
   html[data-theme="dark"] .publications .links a[href*="arxiv"] {
-    background: rgba(255, 123, 114, 0.12);
     color: #ffa198;
-    border-color: rgba(255, 123, 114, 0.25);
+    text-decoration-color: rgba(255, 161, 152, 0.3);
   }
 
   html[data-theme="dark"] .publications .links a[href*="pdf"]:hover,
   html[data-theme="dark"] .publications .links a[href*="arxiv"]:hover {
-    background: linear-gradient(135deg, #ff7b72 0%, #f85149 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(248, 81, 73, 0.35);
+    color: #ffcbc7;
+    text-decoration-color: #ffcbc7;
   }
 
-  /* GitHub 按钮 - 灰色系 */
   html[data-theme="dark"] .publications .links a[href*="github"] {
-    background: rgba(110, 118, 129, 0.15);
     color: #c9d1d9;
-    border-color: rgba(110, 118, 129, 0.3);
+    text-decoration-color: rgba(201, 209, 217, 0.3);
   }
 
   html[data-theme="dark"] .publications .links a[href*="github"]:hover {
-    background: linear-gradient(135deg, #6e7681 0%, #57606a 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(110, 118, 129, 0.35);
+    color: #f0f3f6;
+    text-decoration-color: #f0f3f6;
   }
 
-  /* Website 按钮 - 绿色系 */
   html[data-theme="dark"] .publications .links a[href*="xiaofeng-tan.github.io/projects"],
   html[data-theme="dark"] .publications .links a[href*="wengwanjiang.github.io"] {
-    background: rgba(63, 185, 80, 0.12);
     color: #7ee787;
-    border-color: rgba(63, 185, 80, 0.25);
+    text-decoration-color: rgba(126, 231, 135, 0.3);
   }
 
   html[data-theme="dark"] .publications .links a[href*="xiaofeng-tan.github.io/projects"]:hover,
   html[data-theme="dark"] .publications .links a[href*="wengwanjiang.github.io"]:hover {
-    background: linear-gradient(135deg, #3fb950 0%, #2ea043 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(63, 185, 80, 0.35);
+    color: #a5f0ad;
+    text-decoration-color: #a5f0ad;
   }
 
-  /* Abstract/Bib 按钮 - 紫色系 */
   html[data-theme="dark"] .publications .links a.abstract,
   html[data-theme="dark"] .publications .links a.bibtex {
-    background: rgba(179, 136, 255, 0.12);
     color: #d2a8ff;
-    border-color: rgba(179, 136, 255, 0.25);
+    text-decoration-color: rgba(210, 168, 255, 0.3);
   }
 
   html[data-theme="dark"] .publications .links a.abstract:hover,
   html[data-theme="dark"] .publications .links a.bibtex:hover {
-    background: linear-gradient(135deg, #b388ff 0%, #a371f7 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(179, 136, 255, 0.35);
+    color: #e4c8ff;
+    text-decoration-color: #e4c8ff;
   }
 
-  /* Publications 预览图片 - 暗色模式 */
-  html[data-theme="dark"] .publications .abbr .preview {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  html[data-theme="dark"] .publications .abbr figure {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
   }
 
-  /* My Take 按钮 - 暗色模式 */
+  html[data-theme="dark"] .publications .abbr > img.preview {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
   html[data-theme="dark"] .publications .links a.mycomment {
-    background: rgba(139, 115, 85, 0.15);
     color: #d4c4b0;
-    border-color: rgba(139, 115, 85, 0.3);
+    text-decoration-color: rgba(212, 196, 176, 0.3);
   }
 
   html[data-theme="dark"] .publications .links a.mycomment:hover {
-    background: linear-gradient(135deg, #8b7355 0%, #6b5344 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.35);
+    color: #e8ddd0;
+    text-decoration-color: #e8ddd0;
   }
 
-  /* My Comment 展开内容 - 暗色模式 */
   html[data-theme="dark"] .publications .mycomment-block.hidden.open {
     border-color: rgba(160, 128, 96, 0.4);
   }
@@ -2657,120 +3392,208 @@ layout: default
     {% include news.liquid %}
   {% endif %}
 
-  <!-- Education Experience -->
-  <div class="education-section">
+  <!-- Education Experience - Logo Timeline Style -->
+  <div class="timeline-section">
     <h2 class="section-title">
       <span>👨🏻‍🎓 Education Experience</span>
     </h2>
+    <p class="timeline-expand-hint">Click a school below to expand details.</p>
 
-    <ul class="education-list">
+    <!-- Logo Row -->
+    <div class="logo-row">
       {% for education in site.education %}
-        <li class="education-item">
-          <img src="{{ education.logo }}" alt="{{ education.school }} logo" class="education-logo">
-          <div class="education-details">
-            <div class="education-header">
-              <div>
-                <span class="education-school">{{ education.school }}</span>
-                {% if education.location %}
-                  <span class="education-location">📍 {{ education.location }}</span>
-                {% endif %}
-                <span class="education-degree">🎓 {{ education.degree }}</span>
-              </div>
-              <span class="education-year">{{ education.year }}</span>
-            </div>
-            {% if education.college %}
-              <p class="education-college">{{ education.college }}</p>
-            {% endif %}
-            <p class="education-intro"><em>{{ education.intro }}</em></p>
-          </div>
-        </li>
+        <div class="logo-item" onclick="toggleEducationDetail('{{ forloop.index }}')" data-index="{{ forloop.index }}">
+          <img src="{{ education.logo }}" alt="{{ education.school }}" class="timeline-logo">
+          <span class="logo-label">{{ education.abbr | default: education.school }}</span>
+          <span class="logo-role">{{ education.role_short | default: education.degree }}</span>
+          <span class="logo-year">{{ education.year }}</span>
+        </div>
       {% endfor %}
-    </ul>
+    </div>
+
+    <!-- Detail Cards -->
+    {% for education in site.education %}
+      <div class="detail-card" id="education-detail-{{ forloop.index }}">
+        <div class="detail-header">
+          <img src="{{ education.logo }}" alt="{{ education.school }}" class="detail-logo">
+          <div class="detail-header-text">
+            <h3 class="detail-title">{{ education.school }}</h3>
+          </div>
+          <div class="detail-meta">
+            <span class="detail-degree">{{ education.degree }}</span>
+            {% if education.location %}
+              <span class="detail-location">📍 {{ education.location }}</span>
+            {% endif %}
+          </div>
+          <span class="detail-period">{{ education.year }}</span>
+        </div>
+        {% if education.college %}
+          <p class="detail-college">{{ education.college }}</p>
+        {% endif %}
+        <p class="detail-intro">{{ education.intro }}</p>
+      </div>
+    {% endfor %}
   </div>
 
-  <!-- Research Experience -->
-  <div class="research-section">
+  <!-- Research Experience - Logo Timeline Style -->
+  <div class="timeline-section">
     <h2 class="section-title">
       <span>🔬 Research Experience</span>
     </h2>
+    <p class="timeline-expand-hint">Click an institution below to expand details.</p>
 
-    <ul class="research-list">
+    <!-- Logo Row -->
+    <div class="logo-row">
       {% for research in site.research %}
-        <li class="research-item">
-          <img src="{{ research.logo }}" alt="{{ research.institution }} logo" class="research-logo">
-          <div class="research-details">
-            <!-- 机构、身份和时间 -->
-            <div class="research-header">
-              <div>
-                <span class="research-institution">{{ research.institution }}</span>
-                {% if research.location %}
-                  <span class="research-location">📍 {{ research.location }}</span>
-                {% endif %}
-                <span class="research-role">💼 {{ research.role }}</span>
-              </div>
-              <span class="research-period">{{ research.period }}</span>
-            </div>
-            
-            <!-- 实验室和合作者 -->
-            <div class="research-info">
-              <div class="research-lab">
-                <strong>Lab:</strong> 
-                {% assign lab = research.lab %}
-                {% if lab.url and lab.url != "" %}
-                  {% assign lab_parts = lab.name | split: "（" %}
-                  {% if lab_parts.size > 1 %}
-                    <a href="{{ lab.url }}" target="_blank">{{ lab_parts[0] }}<span class="chinese-handwriting">（{{ lab_parts[1] }}</span></a>
-                  {% else %}
-                    <a href="{{ lab.url }}" target="_blank">{{ lab.name }}</a>
-                  {% endif %}
-                {% elsif lab.name %}
-                  {% assign lab_parts = lab.name | split: "（" %}
-                  {% if lab_parts.size > 1 %}
-                    {{ lab_parts[0] }}<span class="chinese-handwriting">（{{ lab_parts[1] }}</span>
-                  {% else %}
-                    {{ lab.name }}
-                  {% endif %}
-                {% else %}
-                  {{ lab }}
-                {% endif %}
-              </div>
-              <span class="research-info-separator">|</span>
-              <div class="research-coauthors">
-                <strong>Co-Authors:</strong> 
-                {% if research.co-authors %}
-                  {{ research.co-authors | join: ", " }}
-                {% else %}
-                  N/A
-                {% endif %}
-              </div>
-            </div>
+        <div class="logo-item" onclick="toggleResearchDetail('{{ forloop.index }}')" data-index="{{ forloop.index }}">
+          <img src="{{ research.logo }}" alt="{{ research.institution }}" class="timeline-logo">
+          <span class="logo-lab-at">{{ research.lab_at | default: research.abbr | default: research.institution }}</span>
+          <span class="logo-role">{{ research.role }}</span>
+          <span class="logo-year">{{ research.period }}</span>
+        </div>
+      {% endfor %}
+    </div>
 
-            <!-- 产出（文字+链接）-->
-            {% if research.outputs %}
-              <div class="research-output-section">
-                <strong>Research Works:</strong>
-                {% for output in research.outputs %}
-                  {% if output.url and output.url != "" %}
-                    <a href="{{ output.url }}" target="_blank" class="research-output-link">{{ output.name }}</a>{% unless forloop.last %}, {% endunless %}
-                  {% else %}
-                    <span class="research-output-text">{{ output.name }}</span>{% unless forloop.last %}, {% endunless %}
-                  {% endif %}
-                {% endfor %}
-              </div>
+    <!-- Detail Cards -->
+    {% for research in site.research %}
+      <div class="detail-card" id="research-detail-{{ forloop.index }}">
+        <div class="detail-header">
+          <img src="{{ research.logo }}" alt="{{ research.institution }}" class="detail-logo">
+          <div class="detail-header-text">
+            <h3 class="detail-title">{{ research.institution }}</h3>
+            {% if research.lab_at %}
+              <p class="detail-lab-at">{{ research.lab_at }}</p>
             {% endif %}
           </div>
-        </li>
-      {% endfor %}
-    </ul>
+          <div class="detail-meta">
+            <span class="detail-role">{{ research.role }}</span>
+            {% if research.location %}
+              <span class="detail-location">📍 {{ research.location }}</span>
+            {% endif %}
+          </div>
+          <span class="detail-period">{{ research.period }}</span>
+        </div>
+
+        <!-- Lab and Co-authors -->
+        <div class="detail-info">
+          <div class="detail-lab">
+            <strong>Lab:</strong>
+            {% assign lab = research.lab %}
+            {% if lab.url and lab.url != "" %}
+              {% assign lab_parts = lab.name | split: "（" %}
+              {% if lab_parts.size > 1 %}
+                <a href="{{ lab.url }}" target="_blank">{{ lab_parts[0] }}<span class="chinese-handwriting">（{{ lab_parts[1] }}</span></a>
+              {% else %}
+                <a href="{{ lab.url }}" target="_blank">{{ lab.name }}</a>
+              {% endif %}
+            {% elsif lab.name %}
+              {% assign lab_parts = lab.name | split: "（" %}
+              {% if lab_parts.size > 1 %}
+                {{ lab_parts[0] }}<span class="chinese-handwriting">（{{ lab_parts[1] }}</span>
+              {% else %}
+                {{ lab.name }}
+              {% endif %}
+            {% else %}
+              {{ lab }}
+            {% endif %}
+          </div>
+          <div class="detail-coauthors">
+            <strong>Co-Authors:</strong>
+            {% if research.coauthor_links %}
+              {% for person in research.coauthor_links %}{% if person.url and person.url != "" %}<a href="{{ person.url }}" target="_blank">{{ person.name }}</a>{% else %}{{ person.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
+            {% elsif research.co-authors %}
+              {{ research.co-authors | join: ", " }}
+            {% else %}
+              N/A
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Research Outputs -->
+        {% if research.outputs %}
+          <div class="detail-outputs">
+            <strong>Research Works:</strong>
+            {% for output in research.outputs %}
+              {% if output.url and output.url != "" %}
+                <a href="{{ output.url }}" target="_blank" class="output-link">{{ output.name }}</a>{% unless forloop.last %}, {% endunless %}
+              {% else %}
+                <span class="output-text">{{ output.name }}</span>{% unless forloop.last %}, {% endunless %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
   </div>
+
+  <script>
+    // Toggle education detail
+    function toggleEducationDetail(index) {
+      const detail = document.getElementById('education-detail-' + index);
+      const section = detail.closest('.timeline-section');
+      const logoItems = section.querySelectorAll('.logo-item');
+
+      // Toggle this detail
+      detail.classList.toggle('active');
+
+      // Update logo item state
+      logoItems.forEach((item) => {
+        if (item.dataset.index === index) {
+          item.classList.toggle('active');
+        }
+      });
+
+      // Close other details
+      section.querySelectorAll('.detail-card').forEach((card) => {
+        if (card.id !== 'education-detail-' + index) {
+          card.classList.remove('active');
+        }
+      });
+      logoItems.forEach((item) => {
+        if (item.dataset.index !== index) {
+          item.classList.remove('active');
+        }
+      });
+    }
+
+    // Toggle research detail
+    function toggleResearchDetail(index) {
+      const detail = document.getElementById('research-detail-' + index);
+      const section = detail.closest('.timeline-section');
+      const logoItems = section.querySelectorAll('.logo-item');
+
+      // Toggle this detail
+      detail.classList.toggle('active');
+
+      // Update logo item state
+      logoItems.forEach((item) => {
+        if (item.dataset.index === index) {
+          item.classList.toggle('active');
+        }
+      });
+
+      // Close other details
+      section.querySelectorAll('.detail-card').forEach((card) => {
+        if (card.id !== 'research-detail-' + index) {
+          card.classList.remove('active');
+        }
+      });
+      logoItems.forEach((item) => {
+        if (item.dataset.index !== index) {
+          item.classList.remove('active');
+        }
+      });
+    }
+  </script>
 
   <!-- Selected papers -->
   {% if page.selected_papers %}
-    <h2 class="section-title">
-      <span>📖 Selected Publications</span>
+    <h2 class="section-title selected-pubs-title">
+      <span class="selected-pubs-title__main">
+        <span class="selected-pubs-title__emoji" aria-hidden="true">📖</span>
+        <span class="selected-pubs-title__text">Selected Publications</span>
+      </span>
     </h2>
-    <p style="color: #5a6c7d; font-size: 0.85rem; margin-top: -0.5rem; margin-bottom: 0.8rem;">
-    </p>
     {% include selected_papers.liquid %}
   {% endif %}
 

@@ -1,28 +1,31 @@
-// ========== Publications Styles ==========
+// ========== Publications — Minimalist Academic Style ==========
 
 .publications {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
 
   .bibliography {
     margin-top: 0;
 
     li {
-      margin-bottom: 0.25rem;
-      padding: 0.35rem 0.8rem;
-      background: rgba(255, 255, 255, 0.65);
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 161, 233, 0.05);
-      border: 1px solid rgba(0, 161, 233, 0.08);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-bottom: 0;
+      padding: 0.4rem 0 0.4rem 0.6rem;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      border: none;
+      border-left: 2px solid transparent;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      transition: border-color 0.2s ease, background 0.2s ease;
       position: relative;
       overflow: visible;
-      backdrop-filter: blur(10px);
+      backdrop-filter: none;
       width: 100%;
       min-width: 0;
 
       .row {
         display: flex;
         flex-wrap: nowrap;
+        align-items: flex-start;
         width: 100%;
       }
 
@@ -31,43 +34,32 @@
         flex: 1;
         max-width: none;
         width: auto;
+        min-width: 0;
       }
 
       &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(0, 161, 233, 0.06) 0%, rgba(118, 75, 162, 0.06) 100%);
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-
-      &:hover::before {
-        opacity: 1;
+        display: none;
       }
 
       &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 161, 233, 0.1);
-        border-color: rgba(0, 161, 233, 0.2);
-        background: rgba(255, 255, 255, 0.8);
+        transform: none;
+        box-shadow: none;
+        border-left-color: #00A1E9;
+        background: rgba(0, 161, 233, 0.015);
       }
 
       &:last-child {
-        margin-bottom: 0;
+        border-bottom: none;
       }
     }
   }
 
   .title {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     font-weight: 600;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.02rem;
     color: #2c3e50;
-    line-height: 1.4;
+    line-height: 1.35;
     position: relative;
     z-index: 1;
     white-space: normal;
@@ -78,12 +70,12 @@
   }
 
   .author {
-    font-size: 0.8rem;
-    margin-bottom: 0.1rem;
+    font-size: 0.76rem;
+    margin-bottom: 0.02rem;
     color: #5a6c7d;
     position: relative;
     z-index: 1;
-    line-height: 1.35;
+    line-height: 1.3;
 
     em {
       font-weight: 700;
@@ -105,24 +97,24 @@
   }
 
   .periodical {
-    font-size: 0.78rem;
-    margin-bottom: 0.1rem;
+    font-size: 0.74rem;
+    margin-bottom: 0.02rem;
     color: #7f8c8d;
     font-style: italic;
     position: relative;
     z-index: 1;
-    line-height: 1.25;
+    line-height: 1.2;
 
     .venue-abbr {
       font-style: normal;
       font-weight: 600;
       margin-right: 0.3rem;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
     }
 
     .venue-separator {
       color: #ccc;
-      margin: 0 0.4rem;
+      margin: 0 0.35rem;
       font-style: normal;
     }
   }
@@ -130,216 +122,293 @@
   // ========== Badge Styles ==========
   .ccf-badge {
     display: inline-block;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 600;
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    margin-left: 0.4rem;
+    padding: 0.05rem 0.35rem;
+    border-radius: 3px;
+    margin-left: 0.35rem;
     font-style: normal;
     vertical-align: middle;
 
     &-ccfa {
       background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
       color: white;
-      box-shadow: 0 2px 4px rgba(238, 90, 90, 0.3);
+      box-shadow: 0 1px 3px rgba(238, 90, 90, 0.25);
     }
 
     &-ccfb {
       background: linear-gradient(135deg, #ffa726 0%, #fb8c00 100%);
       color: white;
-      box-shadow: 0 2px 4px rgba(251, 140, 0, 0.3);
+      box-shadow: 0 1px 3px rgba(251, 140, 0, 0.25);
     }
 
     &-ccfc {
       background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%);
       color: white;
-      box-shadow: 0 2px 4px rgba(67, 160, 71, 0.3);
+      box-shadow: 0 1px 3px rgba(67, 160, 71, 0.25);
     }
 
     &-ccfnone {
       background: linear-gradient(135deg, #90a4ae 0%, #78909c 100%);
       color: white;
-      box-shadow: 0 2px 4px rgba(120, 144, 156, 0.3);
+      box-shadow: 0 1px 3px rgba(120, 144, 156, 0.25);
     }
   }
 
   .core-badge {
     display: inline-block;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 600;
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    margin-left: 0.4rem;
+    padding: 0.05rem 0.35rem;
+    border-radius: 3px;
+    margin-left: 0.35rem;
     font-style: normal;
     vertical-align: middle;
 
     &-coreastar {
       background: linear-gradient(135deg, #7c4dff 0%, #651fff 100%);
       color: white;
-      box-shadow: 0 2px 4px rgba(101, 31, 255, 0.3);
+      box-shadow: 0 1px 3px rgba(101, 31, 255, 0.25);
     }
 
     &-corea {
       background: linear-gradient(135deg, #448aff 0%, #2979ff 100%);
       color: white;
-      box-shadow: 0 2px 4px rgba(41, 121, 255, 0.3);
+      box-shadow: 0 1px 3px rgba(41, 121, 255, 0.25);
     }
 
     &-coreb {
       background: linear-gradient(135deg, #69f0ae 0%, #00e676 100%);
       color: #1b5e20;
-      box-shadow: 0 2px 4px rgba(0, 230, 118, 0.3);
+      box-shadow: 0 1px 3px rgba(0, 230, 118, 0.25);
     }
   }
 
   .sci-badge {
     display: inline-block;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 600;
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    margin-left: 0.4rem;
+    padding: 0.05rem 0.35rem;
+    border-radius: 3px;
+    margin-left: 0.35rem;
     font-style: normal;
     vertical-align: middle;
 
     &-sciq1 {
       background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
       color: white;
-      box-shadow: 0 2px 4px rgba(194, 24, 91, 0.3);
+      box-shadow: 0 1px 3px rgba(194, 24, 91, 0.25);
     }
 
     &-sciq2 {
       background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
       color: white;
-      box-shadow: 0 2px 4px rgba(245, 124, 0, 0.3);
+      box-shadow: 0 1px 3px rgba(245, 124, 0, 0.25);
     }
 
     &-sciq3 {
       background: linear-gradient(135deg, #8bc34a 0%, #689f38 100%);
       color: white;
-      box-shadow: 0 2px 4px rgba(104, 159, 56, 0.3);
+      box-shadow: 0 1px 3px rgba(104, 159, 56, 0.25);
     }
 
     &-sciq4 {
       background: linear-gradient(135deg, #9e9e9e 0%, #757575 100%);
       color: white;
-      box-shadow: 0 2px 4px rgba(117, 117, 117, 0.3);
+      box-shadow: 0 1px 3px rgba(117, 117, 117, 0.25);
     }
   }
 
-  // ========== Publication Links ==========
+  // ========== Publication Links — Hyperlink Style ==========
   .links {
     font-size: 0.72rem;
-    margin-top: 0.15rem;
+    margin-top: 0.1rem;
     position: relative;
     z-index: 1;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.15rem;
+    align-items: center;
+    gap: 0.28rem 0.5rem;
+    row-gap: 0.32rem;
 
     a {
       display: inline-flex;
       align-items: center;
-      gap: 0.15rem;
-      padding: 0.1rem 0.4rem;
-      background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%);
-      color: #5a6c7d;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      gap: 0.2rem;
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding: 0 !important;
+      margin: 0;
+      background: transparent !important;
+      color: #00A1E9;
+      border-radius: 0 !important;
+      text-decoration: underline;
+      text-decoration-color: rgba(0, 161, 233, 0.3);
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
       font-weight: 500;
-      border: 1px solid #e0e3e7;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      border: none !important;
+      box-shadow: none !important;
+      cursor: pointer;
+      line-height: 1.25;
+      font-size: 0.72rem;
 
       i {
-        font-size: 0.7em;
-        opacity: 0.7;
+        font-size: 0.75em;
+        opacity: 0.65;
+        flex-shrink: 0;
+        text-decoration: none;
       }
 
       &:hover {
-        background: linear-gradient(135deg, #00A1E9 0%, #0082C8 100%);
-        color: white;
-        border-color: transparent;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 161, 233, 0.35);
+        color: #0077b6;
+        text-decoration: underline;
+        text-decoration-color: #0077b6;
+        transform: none;
+        box-shadow: none !important;
+        background: transparent !important;
 
         i {
           opacity: 1;
         }
       }
 
-      // PDF buttons
       &[href*="pdf"],
       &[href*="arxiv"] {
-        background: linear-gradient(135deg, #fef9f9 0%, #fdf5f5 100%);
-        color: #d9534f;
-        border-color: #f8d7da;
+        color: #c0392b;
+        text-decoration-color: rgba(192, 57, 43, 0.3);
 
         &:hover {
-          background: linear-gradient(135deg, #f5a5a2 0%, #e88985 100%);
-          color: white;
-          border-color: transparent;
-          box-shadow: 0 4px 12px rgba(217, 83, 79, 0.25);
+          color: #922b21;
+          text-decoration-color: #922b21;
         }
       }
 
-      // GitHub buttons
       &[href*="github"] {
-        background: linear-gradient(135deg, #fafbfc 0%, #f3f4f6 100%);
-        color: #586069;
-        border-color: #e1e4e8;
+        color: #4a5568;
+        text-decoration-color: rgba(74, 85, 104, 0.3);
 
         &:hover {
-          background: linear-gradient(135deg, #6a737d 0%, #586069 100%);
-          color: white;
-          border-color: transparent;
-          box-shadow: 0 4px 12px rgba(88, 96, 105, 0.25);
+          color: #2d3748;
+          text-decoration-color: #2d3748;
         }
       }
 
-      // Website buttons
       &[href*="xiaofeng-tan.github.io/projects"],
       &[href*="wengwanjiang.github.io"] {
-        background: linear-gradient(135deg, #f4faf5 0%, #e8f5e9 100%);
-        color: #5cb85c;
-        border-color: #c3e6cb;
+        color: #27ae60;
+        text-decoration-color: rgba(39, 174, 96, 0.3);
 
         &:hover {
-          background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%);
-          color: white;
-          border-color: transparent;
-          box-shadow: 0 4px 12px rgba(92, 184, 92, 0.25);
+          color: #1e8449;
+          text-decoration-color: #1e8449;
         }
       }
 
-      // Award buttons
       &.award {
-        background: linear-gradient(135deg, #fffcf5 0%, #fff8e7 100%);
-        color: #f0ad4e;
-        border-color: #ffeeba;
+        color: #e67e22;
+        text-decoration-color: rgba(230, 126, 34, 0.3);
 
         &:hover {
-          background: linear-gradient(135deg, #ffcc80 0%, #ffb74d 100%);
-          color: white;
-          border-color: transparent;
-          box-shadow: 0 4px 12px rgba(240, 173, 78, 0.25);
+          color: #ca6f1e;
+          text-decoration-color: #ca6f1e;
         }
       }
 
-      // Abstract/Bib buttons
       &.abstract,
       &.bibtex {
-        background: linear-gradient(135deg, #faf5fc 0%, #f3e8f7 100%);
-        color: #9b59b6;
-        border-color: #e2d4ea;
+        color: #8e44ad;
+        text-decoration-color: rgba(142, 68, 173, 0.3);
 
         &:hover {
-          background: linear-gradient(135deg, #b388c9 0%, #a370b8 100%);
-          color: white;
-          border-color: transparent;
-          box-shadow: 0 4px 12px rgba(155, 89, 182, 0.25);
+          color: #6c3483;
+          text-decoration-color: #6c3483;
         }
       }
+    }
+  }
+
+  // ========== Preview thumbnail (4:3 crop) ==========
+  .abbr {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 0 0 3.75rem;
+    width: 3.75rem;
+    max-width: 3.75rem;
+    padding-right: 0.55rem;
+    padding-top: 0.12rem;
+  }
+
+  .abbr:has(> img.preview) {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.04);
+    padding: 0;
+    align-self: flex-start;
+    margin-right: 0.55rem;
+  }
+
+  .abbr > img.preview {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    vertical-align: top;
+  }
+
+  .abbr figure {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    line-height: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .abbr picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .abbr .preview,
+  .abbr figure img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    vertical-align: top;
+  }
+
+  @media (min-width: 768px) {
+    .abbr {
+      flex: 0 0 4.25rem;
+      width: 4.25rem;
+      max-width: 4.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .abbr {
+      flex: 0 0 3.25rem;
+      width: 3.25rem;
+      max-width: 3.25rem;
+      padding-right: 0.45rem;
     }
   }
 }

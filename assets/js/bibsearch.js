@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    document.querySelectorAll("h2.bibliography").forEach(function (element) {
+    document.querySelectorAll("h2.bibliography, h2.year").forEach(function (element) {
       let iterator = element.nextElementSibling; // get next sibling element after h2, which can be h3 or ol
       let hideFirstGroupingElement = true;
       // iterate until next group element (h2), which is already selected by the querySelectorAll(-).forEach(-)

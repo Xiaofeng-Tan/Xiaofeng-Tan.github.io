@@ -691,6 +691,8 @@ jsonresume:
 
 education:
   - school: Southeast Unversity
+    abbr: SEU
+    role_short: Master's
     college: School of Computer Science and Engineering
     degree: Master Student
     year: 2024 - Present
@@ -698,6 +700,8 @@ education:
     location: Nanjing, China
     intro: Outstanding Camper (Ranked 2nd) in 2024 Graduate Admission Summer Camp.
   - school: Shenzhen Unversity
+    abbr: SZU
+    role_short: Dual bachelor's
     college: College of Computer Science & Software Engineering / College of Mathematics and Statistics
     degree: Dual Degree (B.Eng. & B.Sc.)
     year: 2020 - 2024
@@ -706,9 +710,31 @@ education:
     intro: Outstanding Graduate Representative (1/300+) who delivers a speech at the graduation ceremony.
 
 research:
+- institution: "UC Merced"
+  abbr: UCM
+  lab_at: "VLL @ UCM"
+  logo: "/assets/img/ucm_logo.png"
+  role: "Visiting student"
+  period: "2026.04 - Present"
+  location: "Merced, CA (Remote)"
+  topic: "Computer Vision"
+  lab:
+    name: "Vision and Learning Lab"
+    url: "https://faculty.ucmerced.edu/mhyang/"
+  coauthor_links:
+    - name: "Ming-Hsuan Yang (Mentor)"
+      url: "https://faculty.ucmerced.edu/mhyang/"
+    - name: "Haobo Yuan"
+      url: ""
+    - name: "Tiancheng Shen"
+      url: ""
+  outputs:
+
 - institution: "Tencent Inc."
+  abbr: HY
+  lab_at: "HY @ Tencent"
   logo: "/assets/img/hy-logo.png"
-  role: "Research Intern"
+  role: "Research intern"
   period: "2026.03 - Present"
   location: "Shenzhen, China"
   topic: "RLHF, RLVR, AIGC"
@@ -720,8 +746,10 @@ research:
   outputs:
 
 - institution: "Tencent Inc."
+  abbr: YouTu
+  lab_at: "YouTu Lab @ Tencent"
   logo: "/assets/img/tencent-youtu-logo.png"
-  role: "Research Intern"
+  role: "Research intern"
   period: "2025.07 - 2026.03"
   location: "Shenzhen, China"
   topic: "RLHF, RLVR, AIGC"
@@ -737,8 +765,10 @@ research:
       url: "https://xiaofeng-tan.github.io/projects/ConsistentRFT/index.html"
 
 - institution: "Singapore Management University"
+  abbr: SMU
+  lab_at: "LV Lab @ SMU"
   logo: "/assets/img/smu-logo-s.png"
-  role: "Remote Visiting Student"
+  role: "Visiting student"
   period: "2024.07 - 2025.03"
   location: "Singapore (Remote)"
   topic: "RLHF, Motion Generation"
@@ -756,8 +786,10 @@ research:
       url: "https://wengwanjiang.github.io/ReAlign-page/"
 
 - institution: "Southeast University"
+  abbr: SEU
+  lab_at: "PALM Lab @ SEU"
   logo: "/assets/img/palm-logo.png"
-  role: "Master Student"
+  role: "Master student"
   period: "2024.04 - Present"
   location: "Nanjing, China"
   topic: "RLHF, Motion Generation, Action Recognition"
@@ -778,8 +810,10 @@ research:
       url: "https://xiaofeng-tan.github.io/projects/MotionRFT/index.html"
 
 - institution: "Shenzhen University"
+  abbr: SZU
+  lab_at: "CV Institute @ SZU"
   logo: "/assets/img/szu_logo.png"
-  role: "Undergraduate Research Assistant"
+  role: "Research intern"
   period: "2022.10 - 2023.10"
   location: "Shenzhen, China"
   topic: "Outlier Detection, Anomaly Detection"
