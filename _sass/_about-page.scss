@@ -4,7 +4,7 @@
 
 // ========== Global Styles & Animations ==========
 body {
-  background: linear-gradient(135deg, #fdfbfb 0%, #f7f4f9 50%, #faf8fc 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #fefefe 50%, #ffffff 100%);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
@@ -14,10 +14,10 @@ body {
 
 @keyframes backgroundShiftLight {
   0%, 100% { 
-    background: linear-gradient(135deg, #fdfbfb 0%, #f7f4f9 50%, #faf8fc 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #fefefe 50%, #ffffff 100%);
   }
   50% { 
-    background: linear-gradient(135deg, #faf8fc 0%, #fdfbfb 50%, #f7f4f9 100%);
+    background: linear-gradient(135deg, #fefefe 0%, #ffffff 50%, #fefefe 100%);
   }
 }
 
@@ -36,7 +36,7 @@ body::after {
   content: '';
   position: fixed;
   border-radius: 50%;
-  opacity: 0.4;
+  opacity: 0.25;
   z-index: 0;
   pointer-events: none;
 }
@@ -44,7 +44,7 @@ body::after {
 body::before {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(0, 161, 233, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 161, 233, 0.06) 0%, transparent 70%);
   top: -100px;
   right: -100px;
   animation: floatBubble1 25s ease-in-out infinite;
@@ -53,7 +53,7 @@ body::before {
 body::after {
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(118, 75, 162, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(118, 75, 162, 0.04) 0%, transparent 70%);
   bottom: -80px;
   left: -80px;
   animation: floatBubble2 30s ease-in-out infinite;
@@ -230,7 +230,7 @@ article > .clearfix a {
 }
 
 .education-item {
-  background: rgba(255, 255, 255, 0.65);
+  background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 161, 233, 0.05);
   padding: 0.6rem 0.9rem;
@@ -241,7 +241,6 @@ article > .clearfix a {
   border: 1px solid rgba(0, 161, 233, 0.08);
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
 
   &::before {
     content: '';

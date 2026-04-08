@@ -760,6 +760,7 @@ research:
     - "Jun Liu (Mentor)"
     - "Yuanting Fan"
     - "Bin-Bin Gao"
+    - "Chengjie Wang"
   outputs:
     - name: "Consistent-RFT"
       url: "https://xiaofeng-tan.github.io/projects/ConsistentRFT/index.html"
