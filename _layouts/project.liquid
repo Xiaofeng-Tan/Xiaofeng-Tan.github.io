@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+  <head>
+    {% include head.liquid %}
+    {% if page.project_fonts %}
+      {% for font in page.project_fonts %}
+        <link rel="stylesheet" href="{{ font }}">
+      {% endfor %}
+    {% endif %}
+    {% if page.project_css %}
+      {% for css in page.project_css %}
+        <link rel="stylesheet" href="{{ css }}">
+      {% endfor %}
+    {% endif %}
+    <style>
+      /*
+       * ===== Restore Bootstrap navbar styles overridden by Bulma =====
+       * Bulma redefines .navbar, .navbar-brand, .container etc.
+       * We use high-specificity selectors + !important to restore Bootstrap behavior
+       * exclusively within the <header> element (site shell).
+       */
+
+      /* --- Navbar wrapper --- */
+      /* Bulma: .navbar { min-height:3.25rem; position:relative; z-index:30 }
+         Bootstrap: .navbar { position:relative; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; padding:.5rem 1rem } */
+      header nav#navbar.navbar {
+        position: relative !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0.5rem 1rem !important;
+        min-height: auto !important;
+        background-color: var(--global-bg-color, #fff) !important;
+        box-shadow: none !important;
+        border-bottom: 1px solid var(--global-divider-color, #dee2e6) !important;
+        opacity: 0.95;
+        z-index: 1030 !important;
+      }
+      /* When fixed-top is applied */
+      header nav#navbar.navbar.fixed-top {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+      }
+
+      /* --- .container inside navbar --- */
+      /* Bulma: .navbar>.container { align-items:stretch; display:flex; min-height:3.25rem; width:100% }
+         Bulma: .container { flex-grow:1; margin:0 auto; position:relative; width:auto }
+         Bootstrap: .container { width:100%; padding-right:15px; padding-left:15px; margin-right:auto; margin-left:auto } */
+      header nav#navbar .container {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+        margin-right: auto !important;
+        margin-left: auto !important;
+        position: static !important;
+        flex-grow: 0 !important;
+      }
+
+      /* --- .navbar-brand --- */
+      /* Bulma: .navbar-brand { align-items:stretch; display:flex; flex-shrink:0; min-height:3.25rem }
+         Bulma: .navbar>.container .navbar-brand { margin-left:-.75rem }
+         Bootstrap: .navbar-brand { display:inline-block; padding-top:.3125rem; padding-bottom:.3125rem; margin-right:1rem; font-size:1.25rem; line-height:inherit; white-space:nowrap } */
+      header nav#navbar .navbar-brand {
+        display: inline-block !important;
+        align-items: center !important;
+        padding-top: 0.3125rem !important;
+        padding-bottom: 0.3125rem !important;
+        margin-right: 1rem !important;
+        margin-left: 0 !important;
+        font-size: 1.25rem !important;
+        line-height: inherit !important;
+        white-space: nowrap !important;
+        background: none !important;
+        color: var(--global-text-color, #333) !important;
+        min-height: auto !important;
+        flex-shrink: initial !important;
+      }
+      header nav#navbar .navbar-brand:hover,
+      header nav#navbar .navbar-brand:focus {
+        text-decoration: none !important;
+      }
+
+      /* --- .navbar-collapse --- */
+      /* Bootstrap .navbar-expand-sm: .navbar-collapse { display:flex!important; flex-basis:auto } */
+      header nav#navbar .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto !important;
+        flex-grow: 1 !important;
+        align-items: center !important;
+      }
+
+      /* --- .navbar-nav --- */
+      /* Bootstrap .navbar-expand-sm: .navbar-nav { flex-direction:row }
+         Bootstrap: .navbar-nav { display:flex; flex-direction:column; padding-left:0; margin-bottom:0; list-style:none } */
+      header nav#navbar .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        padding-left: 0 !important;
+        margin-bottom: 0 !important;
+        list-style: none !important;
+      }
+
+      /* --- .nav-item --- */
+      header nav#navbar .navbar-nav .nav-item {
+        padding: 0 !important;
+      }
+
+      /* --- .nav-link --- */
+      /* Bootstrap .navbar-expand-sm: .nav-link { padding-right:.5rem; padding-left:.5rem }
+         Bootstrap: .nav-link { display:block; padding:.5rem 1rem } */
+      header nav#navbar .navbar-nav .nav-link {
+        display: block !important;
+        padding: 0.5rem !important;
+        padding-right: 0.5rem !important;
+        padding-left: 0.5rem !important;
+        color: var(--global-text-color, #333) !important;
+        text-decoration: none !important;
+        background: none !important;
+        background-color: transparent !important;
+      }
+      header nav#navbar .navbar-nav .nav-link:hover {
+        color: var(--global-hover-color, #2c5aa0) !important;
+        text-decoration: none !important;
+      }
+      header nav#navbar .navbar-nav .nav-item.active > .nav-link {
+        font-weight: bolder !important;
+        color: var(--global-theme-color, #2c5aa0) !important;
+      }
+
+      /* --- .navbar-toggler --- */
+      /* Bootstrap: .navbar-toggler { padding:.25rem .75rem; font-size:1.25rem; line-height:1; background-color:transparent; border:1px solid transparent; border-radius:.25rem }
+         Bootstrap .navbar-expand-sm: .navbar-toggler { display:none } */
+      header nav#navbar .navbar-toggler {
+        padding: 0.25rem 0.75rem !important;
+        font-size: 1.25rem !important;
+        line-height: 1 !important;
+        background-color: transparent !important;
+        border: 1px solid transparent !important;
+        border-radius: 0.25rem !important;
+      }
+
+      /* --- Toggle container (dark mode) --- */
+      header nav#navbar .toggle-container {
+        padding: 0 !important;
+      }
+      header nav#navbar .toggle-container button {
+        background: none !important;
+        border: none !important;
+        cursor: pointer !important;
+        padding: 0.5rem !important;
+      }
+
+      /* --- Search button --- */
+      header nav#navbar #search-toggle {
+        background: none !important;
+        border: none !important;
+        cursor: pointer !important;
+      }
+
+      /* --- Progress bar --- */
+      header progress#progress {
+        position: fixed !important;
+        z-index: 1029 !important;
+      }
+
+      /* --- Prevent Bulma's global resets from affecting header --- */
+      header, header * {
+        box-sizing: border-box !important;
+      }
+      /* Restore site font for the navbar (EasyTune's body sets Noto Sans) */
+      header nav#navbar {
+        font-family: 'Roboto', sans-serif !important;
+        line-height: 1.5 !important;
+      }
+
+      /* --- Site footer (not the project's own footer) --- */
+      body > footer {
+        background-color: var(--global-bg-color, #fff) !important;
+        font-family: 'Roboto', sans-serif !important;
+      }
+    </style>
+  </head>
+
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+    <!-- Header (with site navbar) -->
+    {% include header.liquid %}
+
+    <!-- Project Content (no Bootstrap container wrapper) -->
+    <div class="project-page-content">
+      {{ content }}
+    </div>
+
+    <!-- Footer -->
+    {% include footer.liquid %}
+
+    <!-- JavaScripts -->
+    {% include scripts/jquery.liquid %}
+    {% include scripts/bootstrap.liquid %}
+    {% include scripts/misc.liquid %}
+    {% include scripts/analytics.liquid %}
+    {% include scripts/progressBar.liquid %}
+    {% include scripts/back_to_top.liquid %}
+    {% include scripts/search.liquid %}
+  </body>
+</html>

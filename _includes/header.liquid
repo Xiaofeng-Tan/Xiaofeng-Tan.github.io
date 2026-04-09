@@ -139,6 +139,24 @@
       </div>
     </div>
   </nav>
+  {% if page.permalink == '/' %}
+    <!-- Section Sub-Navigation (About page only) -->
+    <div class="section-subnav" id="sectionSubnav">
+      <div class="container">
+        <div class="section-subnav-inner">
+          <a href="#sec-news" class="section-subnav-link" data-section="sec-news">News</a>
+          <a href="#sec-education" class="section-subnav-link" data-section="sec-education">Education</a>
+          <a href="#sec-research" class="section-subnav-link" data-section="sec-research">Research</a>
+          <a href="#sec-publications" class="section-subnav-link" data-section="sec-publications">Publications</a>
+          <a href="#sec-honors" class="section-subnav-link" data-section="sec-honors">Honors</a>
+          <a href="#sec-teaching" class="section-subnav-link" data-section="sec-teaching">Teaching</a>
+          <a href="#sec-service" class="section-subnav-link" data-section="sec-service">Service</a>
+          <a href="#sec-life" class="section-subnav-link" data-section="sec-life">Life</a>
+          <a href="#sec-blog" class="section-subnav-link" data-section="sec-blog">Blog</a>
+        </div>
+      </div>
+    </div>
+  {% endif %}
   {% if site.enable_progressbar %}
     <!-- Scrolling Progress Bar -->
     <progress id="progress" value="0">

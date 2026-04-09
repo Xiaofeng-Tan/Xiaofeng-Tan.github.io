@@ -92,6 +92,10 @@ layout: default
   }
 
   /* About 正文段落样式 - 与 Publications 标题一致 */
+  article > .clearfix::after {
+    clear: none;
+  }
+
   article > .clearfix p,
   article > .clearfix .interest-card {
     font-size: 0.92rem;
@@ -217,6 +221,70 @@ layout: default
     background: rgba(0, 161, 233, 0.05);
   }
 
+  /* ========== Section Sub-Navigation (integrated with navbar) ========== */
+  .section-subnav {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    z-index: 1029;
+    background: var(--global-bg-color, #fff);
+    border-bottom: 1px solid var(--global-divider-color, rgba(0, 0, 0, 0.06));
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+  }
+
+  .section-subnav.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .section-subnav-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.05rem;
+    padding: 0.32rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .section-subnav-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .section-subnav-link {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--global-text-color, #6b7c8d);
+    text-decoration: none;
+    padding: 0.22rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: color 0.2s ease, background 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .section-subnav-link:hover {
+    color: var(--global-theme-color, #2c5aa0);
+    background: rgba(44, 90, 160, 0.06);
+    text-decoration: none;
+  }
+
+  .section-subnav-link.active {
+    color: var(--global-theme-color, #2c5aa0);
+    background: rgba(44, 90, 160, 0.1);
+    font-weight: 600;
+  }
+
+  /* Scroll offset for anchors (navbar height + subnav height) */
+  [id^="sec-"] {
+    scroll-margin-top: 110px;
+  }
+
   /* ========== 通用章节标题样式（紧凑）========== */
   .section-title {
     font-family: "Playfair Display", Georgia, "Times New Roman", serif;
@@ -257,6 +325,7 @@ layout: default
   .timeline-section {
     margin-top: 0.3rem;
     margin-bottom: 0.8rem;
+    clear: both;
   }
 
   .timeline-expand-hint {
@@ -1404,113 +1473,221 @@ layout: default
   .publications .links a {
     display: inline-flex;
     align-items: center;
-    gap: 0.2rem;
+    gap: 0.22rem;
     flex-shrink: 0;
     white-space: nowrap;
-    padding: 0 !important;
+    padding: 0.18rem 0.52rem !important;
     margin: 0;
-    background: transparent !important;
-    color: #00A1E9;
-    border-radius: 0 !important;
-    text-decoration: underline;
-    text-decoration-color: rgba(0, 161, 233, 0.3);
-    text-underline-offset: 2px;
-    text-decoration-thickness: 1px;
-    transition: color 0.2s ease, text-decoration-color 0.2s ease;
-    font-weight: 500;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    font-weight: 550;
     border: none !important;
     box-shadow: none !important;
     cursor: pointer;
     line-height: 1.25;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
+    /* Default: muted blue-gray */
+    background: rgba(108, 117, 125, 0.1) !important;
+    color: #5a6672;
   }
 
   .publications .links a i {
-    font-size: 0.75em;
-    opacity: 0.65;
+    font-size: 0.78em;
+    opacity: 0.8;
     flex-shrink: 0;
-    text-decoration: none;
   }
 
   .publications .links a:hover {
-    color: #0077b6;
-    text-decoration: underline;
-    text-decoration-color: #0077b6;
     transform: none;
-    box-shadow: none !important;
-    background: transparent !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
   }
 
   .publications .links a:hover i {
     opacity: 1;
   }
 
-  .publications .links a[href*="pdf"],
-  .publications .links a[href*="arxiv"] {
-    color: #c0392b;
-    text-decoration-color: rgba(192, 57, 43, 0.3);
-  }
-
-  .publications .links a[href*="pdf"]:hover,
-  .publications .links a[href*="arxiv"]:hover {
-    color: #922b21;
-    text-decoration-color: #922b21;
-  }
-
-  .publications .links a[href*="github"] {
-    color: #4a5568;
-    text-decoration-color: rgba(74, 85, 104, 0.3);
-  }
-
-  .publications .links a[href*="github"]:hover {
-    color: #2d3748;
-    text-decoration-color: #2d3748;
-  }
-
-  .publications .links a[href*="xiaofeng-tan.github.io/projects"],
-  .publications .links a[href*="wengwanjiang.github.io"] {
-    color: #27ae60;
-    text-decoration-color: rgba(39, 174, 96, 0.3);
-  }
-
-  .publications .links a[href*="xiaofeng-tan.github.io/projects"]:hover,
-  .publications .links a[href*="wengwanjiang.github.io"]:hover {
-    color: #1e8449;
-    text-decoration-color: #1e8449;
-  }
-
+  /* Award - warm amber */
   .publications .links a.award {
-    color: #e67e22;
-    text-decoration-color: rgba(230, 126, 34, 0.3);
+    background: rgba(180, 130, 60, 0.12) !important;
+    color: #8a6d3b;
   }
-
   .publications .links a.award:hover {
-    color: #ca6f1e;
-    text-decoration-color: #ca6f1e;
+    background: rgba(180, 130, 60, 0.2) !important;
+    color: #6d5530;
   }
 
-  .publications .links a.abstract,
+  /* Abs - muted purple */
+  .publications .links a.abstract {
+    background: rgba(128, 90, 160, 0.1) !important;
+    color: #6b5b8a;
+  }
+  .publications .links a.abstract:hover {
+    background: rgba(128, 90, 160, 0.18) !important;
+    color: #54477a;
+  }
+
+  /* DOI - muted teal */
+  .publications .links a.btn-doi {
+    background: rgba(60, 140, 140, 0.1) !important;
+    color: #3d7a7a;
+  }
+  .publications .links a.btn-doi:hover {
+    background: rgba(60, 140, 140, 0.18) !important;
+    color: #2d6060;
+  }
+
+  /* arXiv - muted red */
+  .publications .links a.btn-arxiv {
+    background: rgba(175, 70, 60, 0.1) !important;
+    color: #8b4049;
+  }
+  .publications .links a.btn-arxiv:hover {
+    background: rgba(175, 70, 60, 0.18) !important;
+    color: #6e3038;
+  }
+
+  /* Bib - muted indigo */
   .publications .links a.bibtex {
-    color: #8e44ad;
-    text-decoration-color: rgba(142, 68, 173, 0.3);
+    background: rgba(90, 100, 160, 0.1) !important;
+    color: #5a6080;
   }
-
-  .publications .links a.abstract:hover,
   .publications .links a.bibtex:hover {
-    color: #6c3483;
-    text-decoration-color: #6c3483;
+    background: rgba(90, 100, 160, 0.18) !important;
+    color: #454b6a;
   }
 
+  /* HTML - muted cyan */
+  .publications .links a.btn-html {
+    background: rgba(60, 130, 160, 0.1) !important;
+    color: #3d7090;
+  }
+  .publications .links a.btn-html:hover {
+    background: rgba(60, 130, 160, 0.18) !important;
+    color: #2d5a75;
+  }
+
+  /* PDF - muted rose */
+  .publications .links a.btn-pdf {
+    background: rgba(170, 65, 65, 0.1) !important;
+    color: #8b4545;
+  }
+  .publications .links a.btn-pdf:hover {
+    background: rgba(170, 65, 65, 0.18) !important;
+    color: #6e3535;
+  }
+
+  /* Supp - muted olive */
+  .publications .links a.btn-supp {
+    background: rgba(120, 130, 60, 0.1) !important;
+    color: #6b7040;
+  }
+  .publications .links a.btn-supp:hover {
+    background: rgba(120, 130, 60, 0.18) !important;
+    color: #555a30;
+  }
+
+  /* Video - muted plum */
+  .publications .links a.btn-video {
+    background: rgba(140, 80, 130, 0.1) !important;
+    color: #7a5070;
+  }
+  .publications .links a.btn-video:hover {
+    background: rgba(140, 80, 130, 0.18) !important;
+    color: #603d58;
+  }
+
+  /* Blog - muted brown */
+  .publications .links a.btn-blog {
+    background: rgba(140, 100, 70, 0.1) !important;
+    color: #7a5a40;
+  }
+  .publications .links a.btn-blog:hover {
+    background: rgba(140, 100, 70, 0.18) !important;
+    color: #604530;
+  }
+
+  /* Code (GitHub) - muted charcoal */
+  .publications .links a.btn-code {
+    background: rgba(70, 80, 90, 0.1) !important;
+    color: #4a5568;
+  }
+  .publications .links a.btn-code:hover {
+    background: rgba(70, 80, 90, 0.18) !important;
+    color: #2d3748;
+  }
+
+  /* Poster - muted coral */
+  .publications .links a.btn-poster {
+    background: rgba(170, 100, 80, 0.1) !important;
+    color: #8a5a48;
+  }
+  .publications .links a.btn-poster:hover {
+    background: rgba(170, 100, 80, 0.18) !important;
+    color: #6e4538;
+  }
+
+  /* Slides - muted steel */
+  .publications .links a.btn-slides {
+    background: rgba(80, 100, 130, 0.1) !important;
+    color: #506080;
+  }
+  .publications .links a.btn-slides:hover {
+    background: rgba(80, 100, 130, 0.18) !important;
+    color: #3d4d68;
+  }
+
+  /* Website - muted green */
+  .publications .links a.btn-website {
+    background: rgba(60, 130, 80, 0.1) !important;
+    color: #3d7a50;
+  }
+  .publications .links a.btn-website:hover {
+    background: rgba(60, 130, 80, 0.18) !important;
+    color: #2d6040;
+  }
+
+  /* OpenReview - muted blue */
+  .publications .links a.btn-openreview {
+    background: rgba(60, 100, 160, 0.1) !important;
+    color: #3d6090;
+  }
+  .publications .links a.btn-openreview:hover {
+    background: rgba(60, 100, 160, 0.18) !important;
+    color: #2d4d75;
+  }
+
+  /* NeurIPS - muted gold */
+  .publications .links a.btn-neurips {
+    background: rgba(160, 130, 50, 0.1) !important;
+    color: #7a6a30;
+  }
+  .publications .links a.btn-neurips:hover {
+    background: rgba(160, 130, 50, 0.18) !important;
+    color: #605225;
+  }
+
+  /* Demo - muted emerald */
+  .publications .links a.btn-demo {
+    background: rgba(50, 140, 100, 0.1) !important;
+    color: #3a7a5a;
+  }
+  .publications .links a.btn-demo:hover {
+    background: rgba(50, 140, 100, 0.18) !important;
+    color: #2d6048;
+  }
+
+  /* My Take - muted warm */
   .publications .links a.mycomment {
     display: none;
+    background: rgba(140, 110, 80, 0.1) !important;
     color: #6b5344;
-    text-decoration-color: rgba(107, 83, 68, 0.3);
     font-weight: 600;
   }
 
   .publications .links a.mycomment:hover {
+    background: rgba(140, 110, 80, 0.18) !important;
     color: #4a3728;
-    text-decoration-color: #4a3728;
   }
 
   .publications .links a.mycomment i {
@@ -2779,6 +2956,26 @@ layout: default
     background: rgba(94, 200, 242, 0.1);
   }
 
+  /* ===== Section Sub-Navigation — Dark Mode ===== */
+  html[data-theme="dark"] .section-subnav {
+    background: var(--global-bg-color);
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+  }
+
+  html[data-theme="dark"] .section-subnav-link {
+    color: #8b949e;
+  }
+
+  html[data-theme="dark"] .section-subnav-link:hover {
+    color: #5ec8f2;
+    background: rgba(94, 200, 242, 0.08);
+  }
+
+  html[data-theme="dark"] .section-subnav-link.active {
+    color: #5ec8f2;
+    background: rgba(94, 200, 242, 0.12);
+  }
+
   /* ===== 章节标题 ===== */
   html[data-theme="dark"] .section-title {
     color: #e6edf3;
@@ -3026,82 +3223,117 @@ layout: default
   }
 
   html[data-theme="dark"] .publications .links a {
-    color: #5ec8f2;
-    text-decoration-color: rgba(94, 200, 242, 0.3);
+    background: rgba(200, 210, 220, 0.1) !important;
+    color: #a0b0c0;
   }
 
   html[data-theme="dark"] .publications .links a:hover {
-    color: #8dd8f8;
-    text-decoration-color: #8dd8f8;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2) !important;
   }
 
   html[data-theme="dark"] .publications .links a + a::before {
     color: #3b4048;
   }
 
-  html[data-theme="dark"] .publications .links a[href*="pdf"],
-  html[data-theme="dark"] .publications .links a[href*="arxiv"] {
-    color: #ffa198;
-    text-decoration-color: rgba(255, 161, 152, 0.3);
+  /* Award - dark warm amber */
+  html[data-theme="dark"] .publications .links a.award {
+    background: rgba(200, 160, 80, 0.15) !important;
+    color: #d4b070;
+  }
+  html[data-theme="dark"] .publications .links a.award:hover {
+    background: rgba(200, 160, 80, 0.25) !important;
+    color: #e0c080;
   }
 
-  html[data-theme="dark"] .publications .links a[href*="pdf"]:hover,
-  html[data-theme="dark"] .publications .links a[href*="arxiv"]:hover {
-    color: #ffcbc7;
-    text-decoration-color: #ffcbc7;
+  /* Abs - dark muted purple */
+  html[data-theme="dark"] .publications .links a.abstract {
+    background: rgba(170, 130, 210, 0.12) !important;
+    color: #c0a0e0;
+  }
+  html[data-theme="dark"] .publications .links a.abstract:hover {
+    background: rgba(170, 130, 210, 0.22) !important;
+    color: #d0b5f0;
   }
 
-  html[data-theme="dark"] .publications .links a[href*="github"] {
-    color: #c9d1d9;
-    text-decoration-color: rgba(201, 209, 217, 0.3);
+  /* DOI - dark muted teal */
+  html[data-theme="dark"] .publications .links a.btn-doi {
+    background: rgba(80, 180, 180, 0.12) !important;
+    color: #70b8b8;
+  }
+  html[data-theme="dark"] .publications .links a.btn-doi:hover {
+    background: rgba(80, 180, 180, 0.22) !important;
+    color: #90d0d0;
   }
 
-  html[data-theme="dark"] .publications .links a[href*="github"]:hover {
-    color: #f0f3f6;
-    text-decoration-color: #f0f3f6;
+  /* arXiv - dark muted red */
+  html[data-theme="dark"] .publications .links a.btn-arxiv {
+    background: rgba(210, 110, 100, 0.12) !important;
+    color: #e0a098;
+  }
+  html[data-theme="dark"] .publications .links a.btn-arxiv:hover {
+    background: rgba(210, 110, 100, 0.22) !important;
+    color: #f0b8b0;
   }
 
-  html[data-theme="dark"] .publications .links a[href*="xiaofeng-tan.github.io/projects"],
-  html[data-theme="dark"] .publications .links a[href*="wengwanjiang.github.io"] {
-    color: #7ee787;
-    text-decoration-color: rgba(126, 231, 135, 0.3);
-  }
-
-  html[data-theme="dark"] .publications .links a[href*="xiaofeng-tan.github.io/projects"]:hover,
-  html[data-theme="dark"] .publications .links a[href*="wengwanjiang.github.io"]:hover {
-    color: #a5f0ad;
-    text-decoration-color: #a5f0ad;
-  }
-
-  html[data-theme="dark"] .publications .links a.abstract,
+  /* Bib - dark muted indigo */
   html[data-theme="dark"] .publications .links a.bibtex {
-    color: #d2a8ff;
-    text-decoration-color: rgba(210, 168, 255, 0.3);
+    background: rgba(130, 140, 200, 0.12) !important;
+    color: #a0a8d0;
   }
-
-  html[data-theme="dark"] .publications .links a.abstract:hover,
   html[data-theme="dark"] .publications .links a.bibtex:hover {
-    color: #e4c8ff;
-    text-decoration-color: #e4c8ff;
+    background: rgba(130, 140, 200, 0.22) !important;
+    color: #b8c0e0;
   }
 
-  html[data-theme="dark"] .publications .abbr figure {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.1);
+  /* PDF - dark muted rose */
+  html[data-theme="dark"] .publications .links a.btn-pdf {
+    background: rgba(200, 100, 100, 0.12) !important;
+    color: #e0a0a0;
+  }
+  html[data-theme="dark"] .publications .links a.btn-pdf:hover {
+    background: rgba(200, 100, 100, 0.22) !important;
+    color: #f0b8b8;
   }
 
-  html[data-theme="dark"] .publications .abbr > img.preview {
-    border-color: rgba(255, 255, 255, 0.1);
+  /* Code - dark muted silver */
+  html[data-theme="dark"] .publications .links a.btn-code {
+    background: rgba(180, 190, 200, 0.12) !important;
+    color: #c0c8d0;
+  }
+  html[data-theme="dark"] .publications .links a.btn-code:hover {
+    background: rgba(180, 190, 200, 0.22) !important;
+    color: #d8e0e8;
   }
 
+  /* Website - dark muted green */
+  html[data-theme="dark"] .publications .links a.btn-website {
+    background: rgba(100, 190, 130, 0.12) !important;
+    color: #80d0a0;
+  }
+  html[data-theme="dark"] .publications .links a.btn-website:hover {
+    background: rgba(100, 190, 130, 0.22) !important;
+    color: #a0e0b8;
+  }
+
+  /* OpenReview - dark muted blue */
+  html[data-theme="dark"] .publications .links a.btn-openreview {
+    background: rgba(100, 150, 210, 0.12) !important;
+    color: #90b8e0;
+  }
+  html[data-theme="dark"] .publications .links a.btn-openreview:hover {
+    background: rgba(100, 150, 210, 0.22) !important;
+    color: #a8d0f0;
+  }
+
+  /* My Take - dark warm */
   html[data-theme="dark"] .publications .links a.mycomment {
+    background: rgba(180, 150, 120, 0.12) !important;
     color: #d4c4b0;
-    text-decoration-color: rgba(212, 196, 176, 0.3);
   }
 
   html[data-theme="dark"] .publications .links a.mycomment:hover {
+    background: rgba(180, 150, 120, 0.22) !important;
     color: #e8ddd0;
-    text-decoration-color: #e8ddd0;
   }
 
   html[data-theme="dark"] .publications .mycomment-block.hidden.open {
@@ -3429,7 +3661,7 @@ layout: default
 
   <!-- News -->
   {% if page.news and site.announcements.enabled %}
-    <h2 class="section-title">
+    <h2 id="sec-news" class="section-title">
       <span>👀 News</span>
     </h2>
     {% include news.liquid %}
@@ -3437,7 +3669,7 @@ layout: default
 
   <!-- Education Experience - Logo Timeline Style -->
   <div class="timeline-section education-section">
-    <h2 class="section-title">
+    <h2 id="sec-education" class="section-title">
       <span>👨🏻‍🎓 Education Experience</span>
     </h2>
     <p class="timeline-expand-hint">Click a school below to expand details.</p>
@@ -3488,7 +3720,7 @@ layout: default
 
   <!-- Research Experience - Logo Timeline Style -->
   <div class="timeline-section">
-    <h2 class="section-title">
+    <h2 id="sec-research" class="section-title">
       <span>🔬 Research Experience</span>
     </h2>
     <p class="timeline-expand-hint">Click an institution below to expand details.</p>
@@ -3647,7 +3879,7 @@ layout: default
 
   <!-- Selected papers -->
   {% if page.selected_papers %}
-    <h2 class="section-title">
+    <h2 id="sec-publications" class="section-title">
       <span>📖 Selected Publications</span>
     </h2>
     {% include selected_papers.liquid %}
@@ -3655,7 +3887,7 @@ layout: default
 
   <!-- Selected Honors -->
   {% if site.latest_posts.enabled %}
-    <h2 class="section-title">
+    <h2 id="sec-honors" class="section-title">
       <span>🌟 Selected Honors</span>
     </h2>
     <div class="honors-section">
@@ -3728,7 +3960,7 @@ layout: default
   {% endif %}
 
   <!-- Teaching Assistant -->
-  <h2 class="section-title">
+  <h2 id="sec-teaching" class="section-title">
     <span>💡 Teaching Assistant</span>
   </h2>
   <div class="teaching-section">
@@ -3791,7 +4023,7 @@ layout: default
   </div>
 
   <!-- Service -->
-  <h2 class="section-title">
+  <h2 id="sec-service" class="section-title">
     <span>📋 Service</span>
   </h2>
   <p style="font-size: 0.88rem; color: #5a6c7d; margin-bottom: 0.8rem;">
@@ -3799,7 +4031,7 @@ layout: default
   </p>
 
   <!-- Life -->
-  <h2 class="section-title">
+  <h2 id="sec-life" class="section-title">
     <span>🏠 Life</span>
   </h2>
   <div class="hobbies-section">
@@ -3809,7 +4041,7 @@ layout: default
   </div>
 
   <!-- Blog -->
-  <h2 class="section-title">
+  <h2 id="sec-blog" class="section-title">
     <span>📝 Blog</span>
     <span style="margin-left: 0.5rem; font-size: 0.75rem; color: #c09c6b; background: rgba(192, 156, 107, 0.15); padding: 0.2rem 0.5rem; border-radius: 12px; font-weight: 600;">coming soon</span>
   </h2>
@@ -5516,6 +5748,75 @@ layout: default
   }
 
   init();
+})();
+</script>
+<!-- Section Navigation Script -->
+<script>
+(function() {
+  const sectionNav = document.getElementById('sectionSubnav');
+  if (!sectionNav) return;
+
+  const navbar = document.getElementById('navbar');
+  const navLinks = sectionNav.querySelectorAll('.section-subnav-link');
+  const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  // Dynamically position subnav below navbar
+  function positionSubnav() {
+    if (navbar) {
+      sectionNav.style.top = navbar.offsetHeight + 'px';
+    }
+  }
+  positionSubnav();
+  window.addEventListener('resize', positionSubnav);
+
+  // Smooth scroll on click
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('data-section');
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Show/hide nav and scroll spy
+  function updateNav() {
+    const scrollY = window.scrollY;
+    const firstSection = sections[0];
+    const navHeight = navbar ? navbar.offsetHeight : 56;
+    const subnavHeight = sectionNav.offsetHeight || 36;
+    const offset = navHeight + subnavHeight + 20;
+
+    // Show subnav when scrolled past the first section
+    if (firstSection && scrollY >= firstSection.offsetTop - offset - 50) {
+      sectionNav.classList.add('visible');
+    } else {
+      sectionNav.classList.remove('visible');
+    }
+
+    // Scroll spy: highlight active section
+    let currentSection = '';
+    sections.forEach(section => {
+      if (section.offsetTop - offset <= scrollY) {
+        currentSection = section.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-section') === currentSection) {
+        link.classList.add('active');
+        // Scroll the active link into view within the subnav
+        link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
 })();
 </script>
 <!-- Build: 2025-12-12 -->

@@ -1,12 +1,14 @@
 /* ========== EasyTune Project Page - Academic Style ========== */
 /* Design: Clean, formal academic style inspired by SoPo */
 
-/* ========== Global Styles ========== */
-* {
+/* ========== Global Styles (scoped to project content) ========== */
+.project-page-content *,
+.project-page-content *::before,
+.project-page-content *::after {
   box-sizing: border-box;
 }
 
-body {
+.project-page-content {
   background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
   font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   color: #333;
@@ -617,25 +619,25 @@ body {
   font-size: inherit !important;
 }
 
-/* ========== Footer ========== */
-.footer {
+/* ========== Footer (scoped to project content) ========== */
+.project-page-content .footer {
   background: #f8f9fa;
   padding: 1.5rem;
   text-align: center;
   border-top: 1px solid #e8e8e8;
 }
 
-.footer p {
+.project-page-content .footer p {
   font-size: 0.82rem;
   color: #888;
 }
 
-.footer a {
+.project-page-content .footer a {
   color: #2c5aa0;
   text-decoration: none;
 }
 
-.footer a:hover {
+.project-page-content .footer a:hover {
   text-decoration: underline;
 }
 
