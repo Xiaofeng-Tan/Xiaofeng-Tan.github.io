@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="When Policy Entropy Constraint Fails: Preserving Diversity in Flow-based RLHF via Perceptual Entropy">
+  <meta property="og:title" content="When Policy Entropy Constraint Fails: Preserving Diversity in Flow-based RLHF via Perceptual Entropy"/>
+  <meta property="og:description" content="We theoretically reveal why policy entropy stays constant while diversity collapses in flow-based RLHF, and propose perceptual entropy and two regularization strategies (PEC, PCVAE) to mitigate it."/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="Flow Matching, RLHF, Entropy, Diversity Collapse, Perceptual Entropy, PEC, PCVAE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>When Policy Entropy Constraint Fails | Preserving Diversity in Flow-based RLHF via Perceptual Entropy</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="title is-1 publication-title">
+            When <span class="highlight">Policy Entropy Constraint</span> Fails: Preserving <span class="highlight">Diversity</span> in Flow-based RLHF via <span class="highlight">Perceptual Entropy</span>
+          </h1>
+
+          <div class="venue-badge">arXiv Preprint</div>
+
+          <div class="publication-authors">
+            <span class="author-block"><a href="https://xiaofeng-tan.github.io" target="_blank">Xiaofeng Tan</a><sup>1,2,*</sup>,</span>
+            <span class="author-block">Jun Liu<sup>2</sup>,</span>
+            <span class="author-block">Bin-Bin Gao<sup>2</sup>,</span>
+            <span class="author-block">Yuanting Fan<sup>2</sup>,</span>
+            <span class="author-block">Xi Jiang<sup>3</sup>,</span>
+            <span class="author-block">Chengjie Wang<sup>2</sup>,</span>
+            <span class="author-block">Hongsong Wang<sup>1,&dagger;</sup>,</span>
+            <span class="author-block">Feng Zheng<sup>3,&dagger;</sup></span>
+          </div>
+          <div class="publication-affiliations">
+            <span class="affiliation-block"><sup>1</sup>Southeast University,</span>
+            <span class="affiliation-block"><sup>2</sup>Tencent Youtu Lab,</span>
+            <span class="affiliation-block"><sup>3</sup>Southern University of Science and Technology</span>
+          </div>
+          <div class="publication-affiliations" style="font-size:0.85rem; margin-top:0.4rem;">
+            <span class="affiliation-block"><sup>*</sup>Work done during Xiaofeng Tan's internship at Tencent Youtu Lab.</span>
+            <span class="affiliation-block"><sup>&dagger;</sup>Corresponding authors.</span>
+          </div>
+
+          <div class="tldr-container">
+            <p><strong>TL;DR:</strong> We reveal a paradox in flow-based RLHF: <strong>diversity collapses while policy entropy stays constant</strong>. We theoretically explain this through the fixed noise schedule and the mode-seeking nature of policy gradients, then introduce <strong>perceptual entropy</strong> and two regularized strategies (<strong>PEC</strong> &amp; <strong>PCVAE</strong>) that achieve an overall score of <strong>0.734</strong> (vs. 0.366 baseline) while reaching a diversity average of <strong>0.989</strong> (vs. 0.047 baseline) on FLUX.dev and SD3.5-M.</p>
+          </div>
+          
+          <div class="publication-links">
+            <a href="javascript:void(0)" class="button btn-paper btn-cs" onclick="showTooltip(this, 'Coming Soon')">
+              <span class="icon"><i class="fas fa-file-alt"></i></span>
+              <span>Paper</span>
+            </a>
+            <a href="javascript:void(0)" class="button btn-arxiv btn-cs" onclick="showTooltip(this, 'Coming Soon')">
+              <span class="icon"><i class="ai ai-arxiv"></i></span>
+              <span>arXiv</span>
+            </a>
+            <a href="javascript:void(0)" class="button btn-code btn-cs" onclick="showTooltip(this, 'Coming Soon')">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Visual Results -->
+<section class="section alt-bg">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Visual Results</h2>
+
+      <div class="figure-container">
+        <div class="figure-wrapper large">
+          <img src="static/images/vis.png" alt="Visual results showing diversity improvement"/>
+        </div>
+        <p class="figure-caption">
+          Visual comparison on FLUX.dev. Our methods (PEC &amp; PCVAE) maintain diverse outputs across prompts while significantly improving quality, unlike the baseline which collapses to a single mode.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Abstract</h2>
+      <p class="abstract-text">
+        RLHF is widely used to align flow-matching text-to-image models with human preferences, but often leads to severe diversity collapse after fine-tuning. In RL, diversity is often assumed to correlate with policy entropy, motivating entropy regularization. However, we show this intuition breaks in flow models: <strong>policy entropy remains constant, even while perceptual diversity collapses</strong>. We explain this mismatch both theoretically and empirically: the constant entropy arises from the <strong>fixed, pre-defined noise schedule</strong>, while the diversity collapse is driven by the <strong>mode-seeking nature of policy gradients</strong>. As a result, policy entropy fails to prevent the model from converging to a narrow high-reward region in the perceptual space. To this end, we introduce <strong>perceptual entropy</strong> that captures diversity in a perceptual space and maintains the property of standard entropy. Building upon this insight, we propose two entropy-regularized strategies, <strong>Perceptual Entropy Constraint (PEC)</strong> and <strong>Perceptual Constraints on Generation Space (PCVAE)</strong>, to preserve perceptual diversity and improve the quality. Experiments across two base models (FLUX.dev, SD3.5-M), neural and rule-based rewards, and three perceptual spaces (PickScore, DINO, CLIP) demonstrate consistent gains in the quality-diversity trade-off; PEC achieves the best overall score of <strong>0.734</strong> (vs. baseline's 0.366); a complementary setting of PEC further reaches a diversity average of <strong>0.989</strong> (vs. baseline's 0.047).
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Motivation -->
+<section class="section alt-bg">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Motivation: The Entropy Paradox</h2>
+
+      <div class="remark-box">
+        <div class="remark-header">
+          <span class="remark-icon"><i class="fas fa-exclamation-triangle"></i></span>
+          <span class="remark-label">The Paradox</span>
+        </div>
+        <p class="remark-text">In LLM RL, an entropy decrease directly signals diversity loss. But in flow models, we observe a striking paradox: <strong>policy entropy stays constant while perceptual diversity collapses</strong>. This means existing entropy-based regularization methods fundamentally cannot capture or prevent diversity collapse in flow-based RLHF.</p>
+      </div>
+
+      <div class="figure-container">
+        <div class="figure-wrapper">
+          <img src="static/images/fig_motivation.png" alt="Motivation: constant policy entropy vs. collapsing perceptual diversity"/>
+        </div>
+        <p class="figure-caption">
+          <strong>Figure 1.</strong> Training-time metrics. (a) Policy entropy and variance in VAE space — both remain constant. (b) Variance in pixel and reward space — diversity <em>really</em> collapses despite constant policy entropy.
+        </p>
+      </div>
+
+      <h3 class="subsection-title">Why Does Policy Entropy Stay Constant?</h3>
+      <p class="abstract-text" style="font-size:0.93rem;">
+        We prove that the policy entropy in flow-based RL is <strong>independent of model parameters</strong> $\theta$. The key insight: in flow models, the reverse transition $p_\theta(\mathbf{x}_{t-1}\mid\mathbf{x}_t) \sim \mathcal{N}(\mathbf{x}_{t-1}; \mu_\theta, \sigma_t^2\,\mathrm{d}t\,\mathbf{I})$ has variance <strong>fixed by the prescribed noise schedule</strong> $\sigma_t$, while only the mean $\mu_\theta$ is learned. Since entropy depends on the shape (variance), not the location (mean), it remains constant:
+      </p>
+      <div class="equation-block">
+        $\mathcal{H}(p_\theta) = \frac{d}{2} - C_t$
+      </div>
+
+      <h3 class="subsection-title">Why Does Diversity Still Collapse?</h3>
+      <p class="abstract-text" style="font-size:0.93rem;">
+        We trace the collapse to the <strong>mode-seeking nature</strong> of online policy gradients: the policy is driven to concentrate probability on high-reward regions in reward space, so a multi-peak pretrained distribution can collapse into a single-peak perceptual distribution. This motivates an RLHF framework that <strong>encourages broad coverage of multiple high-reward regions in perceptual space</strong>, rather than convergence to a single peak.
+      </p>
+
+      <div class="figure-container">
+        <div class="figure-wrapper">
+          <img src="static/images/fig_prob.png" alt="Mode-seeking evidence in flow-based RLHF"/>
+        </div>
+        <p class="figure-caption">
+          <strong>Figure 2.</strong> (a) Maximum and minimum advantage probabilities converge. (b) Reward standard deviation decreases alongside sample variance, supporting the mode-seeking convergence onto a narrow high-reward region.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Method: Perceptual Entropy</h2>
+
+      <p class="abstract-text" style="font-size:0.93rem;">
+        Since standard entropy cannot capture diversity collapse in flow models, we introduce <strong>perceptual entropy</strong> $\mathcal{H}_{\mathrm{perc}}$, which measures diversity in the representation space of reward models rather than the VAE latent space. We further establish an empirical entropy mechanism analogous to LLMs:
+      </p>
+
+      <div class="equation-block">
+        $\mathcal{R} = -a\exp(\mathcal{H}_{\text{perc}}) + b$
+      </div>
+
+      <div class="figure-container">
+        <div class="figure-wrapper medium">
+          <img src="static/images/fig_relation.png" alt="Relationship between reward and perceptual entropy"/>
+        </div>
+        <p class="figure-caption">
+          <strong>Figure 3.</strong> Relationship between Reward and Perceptual Entropy, validating the empirical entropy mechanism for flow models.
+        </p>
+      </div>
+
+      <div class="remark-box">
+        <div class="remark-header">
+          <span class="remark-icon"><i class="fas fa-lightbulb"></i></span>
+          <span class="remark-label">Key Insight</span>
+        </div>
+        <p class="remark-text">Perceptual entropy is proportional to the variance of samples in perceptual space: $\mathcal{H}_{\text{perc}} \propto \mathrm{Var}(\{\phi(\mathbf{x}_{t-1}^k)\})$. Unlike standard entropy, it faithfully tracks diversity collapse and aligns with existing entropy-based methods from LLMs.</p>
+      </div>
+
+      <h3 class="subsection-title">Perceptual Entropy Constraint (PEC)</h3>
+      <p class="abstract-text" style="font-size:0.93rem;">
+        PEC incorporates perceptual entropy directly into the reward function, treating it as a reward component that encourages the model to maintain high perceptual diversity:
+      </p>
+      <div class="equation-block">
+        $\tilde{\mathcal{R}}^k = \mathcal{R}(\mathbf{x}^k, c) + \lambda\, \omega_t^k \cdot (-\log p_\theta^{\text{perc}})$
+      </div>
+
+      <h3 class="subsection-title">Perceptual Constraints on VAE (PCVAE)</h3>
+      <p class="abstract-text" style="font-size:0.93rem;">
+        PCVAE aligns the collapsed perceptual distribution with the constant VAE distribution by minimizing their KL divergence, incorporated as a unified reward:
+      </p>
+      <div class="equation-block">
+        $\tilde{\mathcal{R}}(\mathbf{x}, c) = \mathcal{R}(\mathbf{x}, c) - \lambda \left[\omega_t \log p_\theta^{\text{perc}} - \omega_t \log p_\theta\right]$
+      </div>
+
+      <div class="figure-container">
+        <div class="figure-wrapper">
+          <img src="static/images/fig_kl_cmp.png" alt="KL divergence comparison"/>
+        </div>
+        <p class="figure-caption">
+          <strong>Figure 4.</strong> (a) Naïve KL (red) vs. KL as Reward (blue) — our unified reward formulation provides stable optimization. (b) Entropy with (blue) and without (red) PCVAE.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experiments -->
+<section class="section alt-bg">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Experiments</h2>
+
+      <h3 class="subsection-title">Training Dynamics</h3>
+      <div class="figure-grid-2col training-dynamics-grid">
+        <div class="figure-container">
+          <div class="figure-wrapper">
+            <img src="static/images/fig_exp_std_rw.png" alt="Training curves"/>
+          </div>
+          <p class="figure-caption">
+            <strong>Figure 5.</strong> Training curves comparing Flow-GRPO, Flow-GRPO+KL, and PEC.
+          </p>
+        </div>
+        <div class="figure-container">
+          <div class="figure-wrapper">
+            <img src="static/images/training_curves.png" alt="Additional training curves"/>
+          </div>
+          <p class="figure-caption">
+            Training reward curves showing stable optimization with our methods.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Main Results: Comparison with Entropy-based Methods</h3>
+      <p class="abstract-text" style="font-size:0.9rem; margin-bottom:1rem;">
+        We compare against various entropy-based regularization methods on FLUX.dev and SD3.5-M, with PickScore, DINO, and CLIP perceptual encoders. Our methods (PEC &amp; PCVAE) using perceptual entropy consistently outperform standard entropy variants across quality and diversity metrics. <strong>PEC</strong> achieves the best overall score of <strong>0.734</strong>, and a complementary setting of PEC further reaches a diversity average of <strong>0.989</strong>.
+      </p>
+
+      <div class="figure-container">
+        <div class="figure-wrapper large">
+          <img src="static/images/tab_main_results.png" alt="Main results table"/>
+        </div>
+        <p class="figure-caption">
+          <strong>Table 1.</strong> Comparison with different entropy-based regularization methods. <span style="color:#c0392b;font-weight:700;">Bold</span> = best, <span style="color:#1a5276;text-decoration:underline;">underline</span> = second best.
+        </p>
+      </div>
+
+      <h3 class="subsection-title">SoTA Comparison</h3>
+      <p class="abstract-text" style="font-size:0.9rem; margin-bottom:1rem;">
+        We compare against state-of-the-art pretrained models including SDXL, SD-3.5, HiDream-Dev, and Qwen-Image. Our methods achieve the best quality-diversity trade-off.
+      </p>
+
+      <div class="figure-container">
+        <div class="figure-wrapper large">
+          <img src="static/images/tab_sota.png" alt="SoTA comparison table"/>
+        </div>
+        <p class="figure-caption">
+          <strong>Table 2.</strong> Comparison with SoTA pretrained models. Type: N = None, U = Unknown, D = DPO, R = Reinforcement Fine-Tuning.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Extended Visualization -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Extended Visualization</h2>
+      
+      <div class="figure-container">
+        <div class="figure-wrapper large">
+          <img src="static/images/app_vis.png" alt="Extended visualization"/>
+        </div>
+        <p class="figure-caption">
+          Extended diversity visualization across various prompts, showing consistent improvements in both quality and diversity.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section alt-bg">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">BibTeX</h2>
+      <div class="bibtex-container">
+        <button class="copy-btn" onclick="copyBibtex()">
+          <i class="far fa-copy"></i> Copy
+        </button>
+        <pre class="bibtex"><code>@article{tan2026perceptualentropy,
+  title={When Policy Entropy Constraint Fails: Preserving Diversity in Flow-based RLHF via Perceptual Entropy},
+  author={Tan, Xiaofeng and Liu, Jun and Gao, Bin-Bin and Fan, Yuanting and Jiang, Xi and Wang, Chengjie and Wang, Hongsong and Zheng, Feng},
+  journal={arXiv preprint},
+  year={2026}
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>
+      Template adapted from <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+      Licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+
+<script>
+function copyBibtex() {
+  const bibtex = document.querySelector('.bibtex code').textContent;
+  navigator.clipboard.writeText(bibtex).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.innerHTML = '<i class="fas fa-check"></i> Copied';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="far fa-copy"></i> Copy';
+    }, 2000);
+  });
+}
+
+function showTooltip(el, msg) {
+  if (el.querySelector('.tooltip-msg')) return;
+  const tip = document.createElement('span');
+  tip.className = 'tooltip-msg';
+  tip.textContent = msg;
+  el.style.position = 'relative';
+  el.appendChild(tip);
+  setTimeout(() => { tip.remove(); }, 1800);
+}
+</script>
+
+</body>
+</html>
