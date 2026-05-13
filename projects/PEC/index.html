@@ -229,23 +229,13 @@
       <h2 class="section-title">Experiments</h2>
 
       <h3 class="subsection-title">Training Dynamics</h3>
-      <div class="figure-grid-2col training-dynamics-grid">
-        <div class="figure-container">
-          <div class="figure-wrapper">
-            <img src="static/images/fig_exp_std_rw.png" alt="Training curves"/>
-          </div>
-          <p class="figure-caption">
-            <strong>Figure 5.</strong> Training curves comparing Flow-GRPO, Flow-GRPO+KL, and PEC.
-          </p>
+      <div class="figure-container">
+        <div class="figure-wrapper">
+          <img src="static/images/fig_exp_std_rw.png" alt="Training curves"/>
         </div>
-        <div class="figure-container">
-          <div class="figure-wrapper">
-            <img src="static/images/training_curves.png" alt="Additional training curves"/>
-          </div>
-          <p class="figure-caption">
-            Training reward curves showing stable optimization with our methods.
-          </p>
-        </div>
+        <p class="figure-caption">
+          <strong>Figure 5.</strong> Training dynamics of Flow-GRPO, Flow-GRPO+KL, and PEC with perceptual entropy. (a) Mean reward. (b) Reward standard deviation. Flow-GRPO improves quality but reduces diversity; KL alleviates the drop at a quality cost; PEC strikes a better balance ($\lambda{=}0.10$ preserves diversity, $\lambda{=}0.05$ keeps quality close to Flow-GRPO).
+        </p>
       </div>
 
       <h3 class="subsection-title">Main Results: Comparison with Entropy-based Methods</h3>
@@ -258,13 +248,13 @@
           <img src="static/images/tab_main_results.png" alt="Main results table"/>
         </div>
         <p class="figure-caption">
-          <strong>Table 1.</strong> Comparison with different entropy-based regularization methods. <span style="color:#c0392b;font-weight:700;">Bold</span> = best, <span style="color:#1a5276;text-decoration:underline;">underline</span> = second best.
+          <strong>Table 1. Entropy Regularization Comparison.</strong> Gray-shaded rows denote our methods. Abbreviations: P.S.=PickScore, I.R.=ImageReward, U.R.=Unified Reward, V.S.=Vendi Score. <span style="color:#c0392b;font-weight:700;">Bold</span> = best, <span style="color:#1a5276;text-decoration:underline;">underline</span> = second best.
         </p>
       </div>
 
       <h3 class="subsection-title">SoTA Comparison</h3>
       <p class="abstract-text" style="font-size:0.9rem; margin-bottom:1rem;">
-        We compare against state-of-the-art pretrained models including SDXL, SD-3.5, HiDream-Dev, and Qwen-Image. Our methods achieve the best quality-diversity trade-off.
+        We compare against state-of-the-art pretrained models including SDXL, SD-3.5, HiDream-Dev, and Qwen-Image. Existing models exhibit a clear quality–diversity trade-off: SDXL attains the highest diversity (0.937) but a lower quality (0.205), while Qwen-Image attains higher quality (0.711) with substantially reduced diversity (0.045). PEC with perceptual entropy achieves the best overall score of <strong>0.702</strong> while maintaining strong diversity of <strong>0.773</strong>.
       </p>
 
       <div class="figure-container">
@@ -272,7 +262,35 @@
           <img src="static/images/tab_sota.png" alt="SoTA comparison table"/>
         </div>
         <p class="figure-caption">
-          <strong>Table 2.</strong> Comparison with SoTA pretrained models. Type: N = None, U = Unknown, D = DPO, R = Reinforcement Fine-Tuning.
+          <strong>Table 2. SoTA Comparison.</strong> Type denotes post-training: N=None, U=Unknown, D=DPO, R=Reinforcement Fine-Tuning.
+        </p>
+      </div>
+
+      <h3 class="subsection-title">Ablation: Perceptual Entropy</h3>
+      <p class="abstract-text" style="font-size:0.9rem; margin-bottom:1rem;">
+        Replacing the native per-step entropy $\mathcal{H}$ with perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ inside PEC consistently improves every metric, confirming that the gains stem from operating in perceptual space rather than from any other implementation detail.
+      </p>
+
+      <div class="figure-container">
+        <div class="figure-wrapper medium">
+          <img src="static/images/tab_ablation_perc_entropy.png" alt="Perceptual entropy ablation table"/>
+        </div>
+        <p class="figure-caption">
+          <strong>Table 3. Perceptual Entropy Ablation.</strong> Our perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ for PEC is replaced with native entropy $\mathcal{H}$ to examine its effectiveness.
+        </p>
+      </div>
+
+      <h3 class="subsection-title">Computational Cost</h3>
+      <p class="abstract-text" style="font-size:0.9rem; margin-bottom:1rem;">
+        The perceptual encoder is much smaller than the flow model and is evaluated asynchronously from generation and optimization, so additional iteration-time overhead is marginal and peak memory usage is nearly unchanged.
+      </p>
+
+      <div class="figure-container">
+        <div class="figure-wrapper medium">
+          <img src="static/images/tab_runtime_overhead.png" alt="Computational cost table"/>
+        </div>
+        <p class="figure-caption">
+          <strong>Table 4. Computational Cost.</strong> Iteration time is normalized by Flow-GRPO. Additional cost is limited.
         </p>
       </div>
 
