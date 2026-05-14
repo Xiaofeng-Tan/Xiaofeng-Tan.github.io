@@ -2022,6 +2022,22 @@ layout: default
     line-height: 1.3;
   }
 
+  /* ========== Service 标记（低调）========== */
+  .service-gold {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+  }
+
+  /* ========== Page-level Last Updated（低调）========== */
+  .page-last-updated {
+    margin: 1.2rem 0 0.2rem;
+    font-size: 0.72rem;
+    color: #9aa5b1;
+    text-align: right;
+    font-style: italic;
+  }
+
   /* ========== 爱好样式 ========== */
   .hobbies-section {
     margin-bottom: 0.6rem;
@@ -3379,7 +3395,6 @@ layout: default
     color: #e6edf3;
   }
 
-  /* 时间标签 - 统一青蓝渐变 */
   html[data-theme="dark"] .year-right {
     background: linear-gradient(135deg, #1a7f9e 0%, #238eb8 100%) !important;
     color: #ffffff !important;
@@ -3415,7 +3430,6 @@ layout: default
     color: #e6edf3;
   }
 
-  /* 时间标签 - 统一青蓝渐变 */
   html[data-theme="dark"] .term-right {
     background: linear-gradient(135deg, #1a7f9e 0%, #238eb8 100%) !important;
     color: #ffffff !important;
@@ -3426,6 +3440,11 @@ layout: default
 
   html[data-theme="dark"] .course-details {
     color: #b1bac4;
+  }
+
+  /* ===== Page-level Last Updated（暗色低调）===== */
+  html[data-theme="dark"] .page-last-updated {
+    color: #6e7681;
   }
 
   /* ===== 爱好 ===== */
@@ -4027,7 +4046,7 @@ layout: default
     <span>📋 Service</span>
   </h2>
   <p style="font-size: 0.88rem; color: #5a6c7d; margin-bottom: 0.8rem;">
-    <strong>Reviewer:</strong> ICML 2026 (🏅 <strong>Gold Reviewer</strong>), NeurIPS 2026
+    <strong>Reviewer:</strong> ICML 2026 (<span class="service-gold">🏅 Gold Reviewer</span>), NeurIPS 2026
   </p>
 
   <!-- Life -->
@@ -4060,6 +4079,11 @@ layout: default
   {% if site.newsletter.enabled and site.footer_fixed %}
     {% include scripts/newsletter.liquid center=true %}
   {% endif %}
+
+  <!-- Page-level Last Updated -->
+  <div class="page-last-updated">
+    Last updated: {{ site.time | date: '%B %d, %Y' }}
+  </div>
 </article>
 
 <!-- 交互式卡通人物（可切换：哆啦A梦、Tom & Jerry、Hello Kitty、皮卡丘） -->
