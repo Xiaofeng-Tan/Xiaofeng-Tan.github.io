@@ -4093,15 +4093,15 @@ function copyToClipboard(text, label) {
 
   // === States: row, frames, duration (ms) ===
   var STATES = {
-    idle:     { row: 0, frames: 6, dur: 2700 },
-    runRight: { row: 1, frames: 8, dur: 1950 },
-    runLeft:  { row: 2, frames: 8, dur: 1950 },
-    waving:   { row: 3, frames: 4, dur: 2400 },
-    jumping:  { row: 4, frames: 5, dur: 2250 },
-    failed:   { row: 5, frames: 8, dur: 2700 },
-    waiting:  { row: 6, frames: 6, dur: 3000 },
-    running:  { row: 7, frames: 6, dur: 2100 },
-    review:   { row: 8, frames: 6, dur: 2550 }
+    idle:     { row: 0, frames: 6, dur: 3800 },
+    runRight: { row: 1, frames: 8, dur: 2700 },
+    runLeft:  { row: 2, frames: 8, dur: 2700 },
+    waving:   { row: 3, frames: 4, dur: 3300 },
+    jumping:  { row: 4, frames: 5, dur: 3100 },
+    failed:   { row: 5, frames: 8, dur: 3800 },
+    waiting:  { row: 6, frames: 6, dur: 4200 },
+    running:  { row: 7, frames: 6, dur: 2900 },
+    review:   { row: 8, frames: 6, dur: 3500 }
   };
 
   var STATE_ORDER = ['idle', 'waving', 'jumping', 'failed', 'waiting', 'running', 'review'];
@@ -4236,14 +4236,31 @@ function copyToClipboard(text, label) {
     nextStateAt = manualUntil;
   }
 
-  // === Drag interaction ===
+  // === Drag interaction (with click-to-cycle detection) ===
+  // We treat a press-release as a "click" when the pointer hasn't moved
+  // beyond CLICK_MOVE_THRESHOLD pixels and the press lasted less than
+  // CLICK_TIME_THRESHOLD ms. A click cycles to the next state.
+  var CLICK_MOVE_THRESHOLD = 5;
+  var CLICK_TIME_THRESHOLD = 350;
+  var pressX = 0, pressY = 0, pressTs = 0, petMoved = false;
+
+  function cycleState() {
+    var idx = STATE_ORDER.indexOf(current);
+    var next = STATE_ORDER[(idx + 1) % STATE_ORDER.length];
+    applyManualState(next);
+  }
+
   function onPointerDown(e) {
     if (hidden) return;
     dragging = true;
+    petMoved = false;
     pet.classList.add('is-dragging');
     var rect = pet.getBoundingClientRect();
-    dragOffsetX = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
-    dragOffsetY = (e.clientY || (e.touches && e.touches[0].clientY)) - rect.top;
+    var cx = e.clientX || (e.touches && e.touches[0].clientX);
+    var cy = e.clientY || (e.touches && e.touches[0].clientY);
+    dragOffsetX = cx - rect.left;
+    dragOffsetY = cy - rect.top;
+    pressX = cx; pressY = cy; pressTs = performance.now();
     setSpriteState(STATES.jumping);
     current = 'jumping';
     velX = 0;
@@ -4256,6 +4273,10 @@ function copyToClipboard(text, label) {
     var cx = e.clientX || (e.touches && e.touches[0].clientX);
     var cy = e.clientY || (e.touches && e.touches[0].clientY);
     if (cx == null) return;
+    if (!petMoved && (Math.abs(cx - pressX) > CLICK_MOVE_THRESHOLD ||
+                      Math.abs(cy - pressY) > CLICK_MOVE_THRESHOLD)) {
+      petMoved = true;
+    }
     posX = clampX(cx - dragOffsetX);
     var top = cy - dragOffsetY;
     posY = clampY(window.innerHeight - top - SPRITE_H);
@@ -4265,6 +4286,14 @@ function copyToClipboard(text, label) {
     if (!dragging) return;
     dragging = false;
     pet.classList.remove('is-dragging');
+    var heldFor = performance.now() - pressTs;
+    var wasClick = !petMoved && heldFor < CLICK_TIME_THRESHOLD;
+    if (wasClick) {
+      // Click -> cycle to the next state, no drop-back animation needed.
+      cycleState();
+      return;
+    }
+    // Real drag: gradually fall back to the ground line.
     var dropAnim = function () {
       if (posY > GROUND_OFFSET + 1) {
         posY = Math.max(GROUND_OFFSET, posY - 8);
@@ -4286,13 +4315,10 @@ function copyToClipboard(text, label) {
   window.addEventListener('touchmove', onPointerMove, { passive: false });
   window.addEventListener('touchend', onPointerUp);
 
-  // Double-click sprite -> cycle through states
-  sprite.addEventListener('dblclick', function (e) {
-    e.preventDefault();
-    var idx = STATE_ORDER.indexOf(current);
-    var next = STATE_ORDER[(idx + 1) % STATE_ORDER.length];
-    applyManualState(next);
-  });
+  // Single-click on sprite (without drag) -> cycle through states.
+  // Detection lives inside onPointerUp so it works for touch too;
+  // we just suppress the synthesized 'click' default here.
+  sprite.addEventListener('click', function (e) { e.preventDefault(); });
 
   // Bell button: toggle panel; shift-click hides the pet
   bellBtn.addEventListener('click', function (e) {
