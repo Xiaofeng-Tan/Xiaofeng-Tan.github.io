@@ -1,0 +1,24 @@
+# =============================================================================
+# Education timeline (used by _layouts/about.liquid)
+# Reference via {{ site.data.education }}
+# =============================================================================
+
+- school: Southeast Unversity
+  abbr: SEU
+  role_short: Master
+  college: School of Computer Science and Engineering
+  degree: Master Student
+  year: 2024 - Present
+  logo: ./assets/img/seu_logo.png
+  location: Nanjing, China
+  intro: Outstanding Camper (Ranked 2nd) in 2024 Graduate Admission Summer Camp.
+
+- school: Shenzhen Unversity
+  abbr: SZU
+  role_short: Dual Bachelor
+  college: College of Computer Science & Software Engineering / College of Mathematics and Statistics
+  degree: Dual Degree (B.Eng. & B.Sc.)
+  year: 2020 - 2024
+  logo: /assets/img/szu_logo.png
+  location: Shenzhen, China
+  intro: Outstanding Graduate Representative (1/300+) who delivers a speech at the graduation ceremony.
