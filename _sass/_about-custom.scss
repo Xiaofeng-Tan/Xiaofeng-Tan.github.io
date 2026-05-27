@@ -364,15 +364,20 @@
     gap: 0.5rem;
   }
 
-  /* Education section: wider cards to fit full school names */
+  /* Education section: allow long school names to breathe over multiple lines. */
   .education-section .logo-item {
-    min-width: auto;
-    padding: 0.5rem 0.8rem;
+    width: 240px;
+    min-width: 220px;
+    align-items: flex-start;
+    padding: 0.55rem 0.75rem;
   }
 
   .education-section .logo-label {
-    max-width: none;
-    white-space: nowrap;
+    max-width: 100%;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.25;
   }
 
   .logo-item:hover {
@@ -497,10 +502,11 @@
                 border-color 0.3s ease,
                 transform 0.3s ease;
     margin: 0;
-    border-radius: 12px;
+    border-radius: 10px;
     border: 1px solid transparent;
     background: transparent;
     transform: translateY(-4px);
+    overflow: hidden;
   }
 
   .logo-row > .detail-card {
@@ -518,37 +524,20 @@
 
   .detail-card.active {
     grid-template-rows: 1fr;
-    margin: 0.5rem 0 0.65rem;
-    background: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 161, 233, 0.08);
-    border-color: rgba(0, 161, 233, 0.12);
+    margin: 0.48rem 0 0.62rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 253, 255, 0.98));
+    box-shadow: none;
+    border-color: rgba(0, 161, 233, 0.13);
     transform: translateY(0);
   }
 
   .detail-card.active .detail-card-inner {
     opacity: 1;
-    padding: 0.65rem 0.75rem;
+    padding: 0.64rem 0.78rem;
     display: flex;
     flex-direction: row;
-    align-items: stretch;
-    gap: 0.7rem;
-  }
-
-  .detail-card-logo {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    align-self: center;
-  }
-
-  .detail-card-logo .detail-logo {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    object-fit: contain;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    align-items: flex-start;
+    gap: 0.72rem;
   }
 
   .detail-card-content {
@@ -556,155 +545,157 @@
     min-width: 0;
   }
 
+  .detail-mark {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: rgba(0, 161, 233, 0.045);
+    border: 1px solid rgba(0, 161, 233, 0.09);
+  }
+
+  .detail-card .detail-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: contain;
+    box-shadow: none;
+  }
+
+  /* Row 1: Title ............ Meta Tags */
   .detail-header {
     display: flex;
     align-items: center;
-    gap: 0.45rem;
-    margin-bottom: 0.28rem;
+    gap: 0.7rem;
+    margin: 0;
+    padding: 0 0 0.26rem;
+    border: 0;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.045);
     flex-wrap: wrap;
-  }
-
-  .detail-header-text {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .detail-lab-at {
-    margin: 0.08rem 0 0 0;
-    font-size: 0.68rem;
-    font-weight: 500;
-    color: #64748b;
-    line-height: 1.35;
-  }
-
-  .detail-logo {
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    object-fit: contain;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0;
   }
 
   .detail-title {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #2c3e50;
+    font-size: 0.95rem;
+    font-weight: 650;
+    color: #1f2937;
     margin: 0;
     line-height: 1.3;
+    letter-spacing: -0.005em;
   }
 
-  .detail-meta {
+  .detail-title-group {
     display: flex;
+    align-items: baseline;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 0.25rem;
-    margin-left: auto;
+    gap: 0 0.38rem;
+    flex: 1 1 14rem;
+    min-width: 0;
   }
 
-  .detail-degree,
-  .detail-role {
-    font-size: 0.68rem;
-    font-weight: 500;
-    padding: 0.08rem 0.38rem;
-    border-radius: 10px;
-    color: #6366f1;
-    background: rgba(99, 102, 241, 0.1);
-    white-space: nowrap;
-  }
-
-  .detail-role {
-    color: #059669;
-    background: rgba(5, 150, 105, 0.1);
-  }
-
-  .detail-location {
-    font-size: 0.68rem;
-    font-weight: 500;
-    padding: 0.08rem 0.38rem;
-    border-radius: 10px;
+  .detail-title-meta {
+    margin-top: 0;
     color: #64748b;
-    background: rgba(100, 116, 139, 0.1);
-    white-space: nowrap;
-  }
-
-  .detail-period {
-    font-size: 0.66rem;
-    color: #0891b2;
-    font-weight: 600;
-    background: rgba(8, 145, 178, 0.1);
-    padding: 0.08rem 0.4rem;
-    border-radius: 10px;
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-
-  .detail-college {
-    font-size: 0.74rem;
-    color: #7f8c8d;
-    margin: 0.18rem 0;
+    font-size: 0.73rem;
     line-height: 1.35;
   }
 
-  .detail-intro {
-    font-size: 0.76rem;
-    color: #5a6c7d;
-    line-height: 1.4;
-    margin: 0.18rem 0;
+  .detail-title-meta::before {
+    content: '·';
+    color: #cbd5e1;
+    margin-right: 0.38rem;
   }
 
-  .detail-info {
-    font-size: 0.72rem;
-    color: #5a6c7d;
-    margin-top: 0.32rem;
-    padding-top: 0.32rem;
-    border-top: 1px dashed rgba(0, 161, 233, 0.15);
+  .detail-title-sep {
+    color: #cbd5e1;
+    margin: 0 0.34rem;
+  }
+
+  .detail-tags {
     display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-left: auto;
     flex-wrap: wrap;
-    gap: 0.3rem 0.6rem;
+    justify-content: flex-end;
+  }
+
+  .detail-tag {
+    font-size: 0.66rem;
+    color: var(--primary);
+    background: rgba(0, 161, 233, 0.07);
+    padding: 0.1rem 0.42rem;
+    border-radius: 999px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Adaptive detail fields: compact, aligned, and resistant to awkward wrapping. */
+  .detail-fields {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0.2rem 0.9rem;
+    margin-top: 0.34rem;
+    font-size: 0.74rem;
+    color: #475569;
+    line-height: 1.38;
+  }
+
+  .detail-field {
+    min-width: 0;
+    display: flex;
     align-items: baseline;
+    gap: 0.34rem;
   }
 
-  .detail-lab {
-    flex-shrink: 0;
+  .detail-field--small {
+    grid-column: span 3;
   }
 
-  .detail-lab a {
-    color: #00A1E9;
+  .detail-field--medium {
+    grid-column: span 4;
+  }
+
+  .detail-field--wide {
+    grid-column: span 6;
+  }
+
+  .detail-fields--education .detail-field--wide {
+    grid-column: span 12;
+  }
+
+  .detail-field-label {
+    display: inline;
+    flex: 0 0 auto;
+    color: #94a3b8;
+    font-size: 0.61rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .detail-field-value {
+    display: inline;
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow-wrap: anywhere;
+  }
+
+  .detail-intro-text {
+    color: #64748b;
+  }
+
+  .detail-field a {
+    color: var(--primary);
     text-decoration: none;
     transition: color 0.2s ease;
   }
 
-  .detail-lab a:hover {
-    color: #0082C8;
+  .detail-field a:hover {
+    color: var(--primary-hover);
     text-decoration: underline;
-  }
-
-  .detail-info-separator {
-    color: #d0d0d0;
-  }
-
-  .detail-coauthors {
-    flex: 1;
-    text-align: right;
-  }
-
-  .detail-info strong {
-    color: #2c3e50;
-    font-weight: 600;
-  }
-
-  .detail-outputs {
-    margin-top: 0.28rem;
-    padding-top: 0.28rem;
-    border-top: 1px dashed rgba(0, 161, 233, 0.15);
-    font-size: 0.72rem;
-    color: #5a6c7d;
-  }
-
-  .detail-outputs strong {
-    color: #64748b;
-    font-weight: 600;
   }
 
   .output-link {
@@ -2391,13 +2382,15 @@
     }
 
     .education-section .logo-item {
-      min-width: auto;
-      padding: 0.4rem 0.6rem;
+      width: min(100%, 230px);
+      min-width: 190px;
+      padding: 0.45rem 0.6rem;
     }
 
     .education-section .logo-label {
-      max-width: none;
+      max-width: 100%;
       font-size: 0.78rem;
+      white-space: normal;
     }
 
     .timeline-logo {
@@ -2429,44 +2422,40 @@
       gap: 0.4rem;
     }
 
-    .detail-card-logo {
-      width: 48px;
+    .detail-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
     }
 
-    .detail-card-logo .detail-logo {
-      width: 48px;
-      height: 48px;
-    }
-
-    .detail-logo {
-      width: 40px;
-      height: 40px;
+    .detail-card .detail-logo {
+      width: 35px;
+      height: 35px;
+      border-radius: 6px;
     }
 
     .detail-title {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
     }
 
-    .detail-meta {
-      margin-left: 0;
-      width: 100%;
-    }
-
-    .detail-degree,
-    .detail-role,
-    .detail-location,
     .detail-period {
-      font-size: 0.62rem;
-      padding: 0.1rem 0.35rem;
+      font-size: 0.7rem;
     }
 
-    .detail-info {
-      flex-direction: column;
-      gap: 0.3rem;
+    .detail-fields {
+      font-size: 0.72rem;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.2rem 0.7rem;
     }
 
-    .detail-info-separator {
-      display: none;
+    .detail-field--small,
+    .detail-field--medium {
+      grid-column: span 3;
+    }
+
+    .detail-field--wide,
+    .detail-fields--education .detail-field--wide {
+      grid-column: span 6;
     }
 
     /* 底部社交图标 */
@@ -2664,79 +2653,68 @@
   }
 
   html[data-theme="dark"] .detail-card.active {
-    background: rgba(22, 27, 34, 0.9);
-    border-color: rgba(48, 54, 61, 0.8);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(180deg, rgba(22, 27, 34, 0.92), rgba(13, 17, 23, 0.92));
+    border-color: rgba(94, 200, 242, 0.14);
+    box-shadow: none;
   }
 
-  html[data-theme="dark"] .detail-logo {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  html[data-theme="dark"] .detail-mark {
+    background: rgba(94, 200, 242, 0.06);
+    border-color: rgba(94, 200, 242, 0.12);
+  }
+
+  html[data-theme="dark"] .detail-card .detail-logo {
+    box-shadow: none;
+  }
+
+  html[data-theme="dark"] .detail-header {
+    border-bottom-color: rgba(240, 246, 252, 0.08);
   }
 
   html[data-theme="dark"] .detail-title {
     color: #e6edf3;
   }
 
-  html[data-theme="dark"] .detail-lab-at {
+  html[data-theme="dark"] .detail-title-meta {
     color: #8b949e;
   }
 
-  html[data-theme="dark"] .detail-degree {
-    color: #a78bfa;
-    background: rgba(167, 139, 250, 0.15);
-  }
-
-  html[data-theme="dark"] .detail-role {
-    color: #7ee787;
-    background: rgba(126, 231, 135, 0.15);
-  }
-
-  html[data-theme="dark"] .detail-location {
-    color: #b1bac4;
-    background: rgba(139, 148, 158, 0.15);
-  }
-
-  html[data-theme="dark"] .detail-period {
-    background: rgba(94, 200, 242, 0.15);
-    color: #5ec8f2;
-  }
-
-  html[data-theme="dark"] .detail-college {
-    color: #8b949e;
-  }
-
-  html[data-theme="dark"] .detail-intro {
-    color: #b1bac4;
-  }
-
-  html[data-theme="dark"] .detail-info {
-    border-top-color: rgba(48, 54, 61, 0.8);
-    color: #b1bac4;
-  }
-
-  html[data-theme="dark"] .detail-info strong {
-    color: #e6edf3;
-  }
-
-  html[data-theme="dark"] .detail-lab a {
-    color: #5ec8f2;
-  }
-
-  html[data-theme="dark"] .detail-lab a:hover {
-    color: #79d4f8;
-  }
-
-  html[data-theme="dark"] .detail-info-separator {
+  html[data-theme="dark"] .detail-title-sep {
     color: #484f58;
   }
 
-  html[data-theme="dark"] .detail-outputs {
-    border-top-color: rgba(48, 54, 61, 0.8);
+  html[data-theme="dark"] .detail-title-meta::before {
+    color: #484f58;
+  }
+
+  html[data-theme="dark"] .detail-tag {
+    color: #5ec8f2;
+    background: rgba(94, 200, 242, 0.09);
+  }
+
+  html[data-theme="dark"] .detail-period {
+    color: #5ec8f2;
+    background: transparent;
+  }
+
+  html[data-theme="dark"] .detail-fields {
     color: #b1bac4;
   }
 
-  html[data-theme="dark"] .detail-outputs strong {
+  html[data-theme="dark"] .detail-field-label {
+    color: #6e7681;
+  }
+
+  html[data-theme="dark"] .detail-intro-text {
     color: #8b949e;
+  }
+
+  html[data-theme="dark"] .detail-field a {
+    color: #5ec8f2;
+  }
+
+  html[data-theme="dark"] .detail-field a:hover {
+    color: #79d4f8;
   }
 
   html[data-theme="dark"] .output-link {
@@ -4508,8 +4486,13 @@
   }
 
   .detail-card.active {
-    box-shadow: 0 4px 16px var(--primary-glow);
-    border-color: var(--primary-line);
+    box-shadow: none;
+    border-color: rgba(15, 23, 42, 0.06);
+  }
+
+  html[data-theme="dark"] .detail-card.active {
+    box-shadow: none;
+    border-color: rgba(240, 246, 252, 0.08);
   }
 
   .detail-lab a {

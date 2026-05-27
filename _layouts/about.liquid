@@ -122,26 +122,34 @@ layout: default
     {% for education in site.data.education %}
       <div class="detail-card" id="education-detail-{{ forloop.index }}">
         <div class="detail-card-inner">
-          <div class="detail-card-logo">
+          <div class="detail-mark">
             <img src="{{ education.logo }}" alt="{{ education.school }}" class="detail-logo">
           </div>
           <div class="detail-card-content">
             <div class="detail-header">
-              <div class="detail-header-text">
+              <div class="detail-title-group">
                 <h3 class="detail-title">{{ education.school }}</h3>
-              </div>
-              <div class="detail-meta">
-                <span class="detail-degree">{{ education.degree }}</span>
-                {% if education.location %}
-                  <span class="detail-location">📍 {{ education.location }}</span>
+                {% if education.college or education.location %}
+                  <div class="detail-title-meta">
+                    {% if education.college %}<span>{{ education.college }}</span>{% endif %}
+                    {% if education.college and education.location %}<span class="detail-title-sep">·</span>{% endif %}
+                    {% if education.location %}<span>📍 {{ education.location }}</span>{% endif %}
+                  </div>
                 {% endif %}
               </div>
-              <span class="detail-period">{{ education.year }}</span>
+              <div class="detail-tags">
+                <span class="detail-tag">{{ education.degree }}</span>
+                <span class="detail-tag">{{ education.year }}</span>
+              </div>
             </div>
-            {% if education.college %}
-              <p class="detail-college">{{ education.college }}</p>
-            {% endif %}
-            <p class="detail-intro"><em>{{ education.intro }}</em></p>
+            <div class="detail-fields detail-fields--education">
+              {% if education.intro %}
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Note</span>
+                  <span class="detail-field-value detail-intro-text"><em>{{ education.intro }}</em></span>
+                </div>
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
@@ -173,74 +181,81 @@ layout: default
     {% for research in site.data.research %}
       <div class="detail-card" id="research-detail-{{ forloop.index }}">
         <div class="detail-card-inner">
-          <div class="detail-card-logo">
+          <div class="detail-mark">
             <img src="{{ research.logo }}" alt="{{ research.institution }}" class="detail-logo">
           </div>
           <div class="detail-card-content">
             <div class="detail-header">
-              <div class="detail-header-text">
+              <div class="detail-title-group">
                 <h3 class="detail-title">{{ research.institution }}</h3>
-                {% if research.lab_at %}
-                  <p class="detail-lab-at">{{ research.lab_at }}</p>
+                {% if research.lab_at or research.location %}
+                  <div class="detail-title-meta">
+                    {% if research.lab_at %}<span>{{ research.lab_at }}</span>{% endif %}
+                    {% if research.lab_at and research.location %}<span class="detail-title-sep">·</span>{% endif %}
+                    {% if research.location %}<span>📍 {{ research.location }}</span>{% endif %}
+                  </div>
                 {% endif %}
               </div>
-              <div class="detail-meta">
-                <span class="detail-role">{{ research.role }}</span>
-                {% if research.location %}
-                  <span class="detail-location">📍 {{ research.location }}</span>
-                {% endif %}
-              </div>
-              <span class="detail-period">{{ research.period }}</span>
-            </div>
-
-            <!-- Lab and Co-authors -->
-            <div class="detail-info">
-              <div class="detail-lab">
-                <strong>Lab:</strong>
-                {% assign lab = research.lab %}
-                {% if lab.url and lab.url != "" %}
-                  {% assign lab_parts = lab.name | split: "（" %}
-                  {% if lab_parts.size > 1 %}
-                    <a href="{{ lab.url }}" target="_blank">{{ lab_parts[0] }}<span class="chinese-handwriting">（{{ lab_parts[1] }}</span></a>
-                  {% else %}
-                    <a href="{{ lab.url }}" target="_blank">{{ lab.name }}</a>
-                  {% endif %}
-                {% elsif lab.name %}
-                  {% assign lab_parts = lab.name | split: "（" %}
-                  {% if lab_parts.size > 1 %}
-                    {{ lab_parts[0] }}<span class="chinese-handwriting">（{{ lab_parts[1] }}</span>
-                  {% else %}
-                    {{ lab.name }}
-                  {% endif %}
-                {% else %}
-                  {{ lab }}
-                {% endif %}
-              </div>
-              <div class="detail-coauthors">
-                <strong>Co-Authors:</strong>
-                {% if research.coauthor_links %}
-                  {% for person in research.coauthor_links %}{% if person.url and person.url != "" %}<a href="{{ person.url }}" target="_blank">{{ person.name }}</a>{% else %}{{ person.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
-                {% elsif research.co-authors %}
-                  {{ research.co-authors | join: ", " }}
-                {% else %}
-                  N/A
-                {% endif %}
+              <div class="detail-tags">
+                <span class="detail-tag">{{ research.role }}</span>
+                <span class="detail-tag">{{ research.period }}</span>
               </div>
             </div>
+            <div class="detail-fields detail-fields--research">
+              {% if research.lab %}
+                <div class="detail-field detail-field--medium">
+                  <span class="detail-field-label">Lab</span>
+                  <span class="detail-field-value">
+                    {% assign lab = research.lab %}
+                    {% if lab.url and lab.url != "" %}
+                      {% assign lab_parts = lab.name | split: "（" %}
+                      {% if lab_parts.size > 1 %}
+                        <a href="{{ lab.url }}" target="_blank">{{ lab_parts[0] }}<span class="chinese-handwriting">（{{ lab_parts[1] }}</span></a>
+                      {% else %}
+                        <a href="{{ lab.url }}" target="_blank">{{ lab.name }}</a>
+                      {% endif %}
+                    {% elsif lab.name %}
+                      {% assign lab_parts = lab.name | split: "（" %}
+                      {% if lab_parts.size > 1 %}
+                        {{ lab_parts[0] }}<span class="chinese-handwriting">（{{ lab_parts[1] }}</span>
+                      {% else %}
+                        {{ lab.name }}
+                      {% endif %}
+                    {% else %}
+                      {{ lab }}
+                    {% endif %}
+                  </span>
+                </div>
+              {% endif %}
 
-            <!-- Research Outputs -->
-            {% if research.outputs %}
-              <div class="detail-outputs">
-                <strong>Research Works:</strong>
-                {% for output in research.outputs %}
-                  {% if output.url and output.url != "" %}
-                    <a href="{{ output.url }}" target="_blank" class="output-link">{{ output.name }}</a>{% unless forloop.last %}, {% endunless %}
-                  {% else %}
-                    <span class="output-text">{{ output.name }}</span>{% unless forloop.last %}, {% endunless %}
-                  {% endif %}
-                {% endfor %}
-              </div>
-            {% endif %}
+              {% if research.coauthor_links or research.co-authors %}
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Co-authors</span>
+                  <span class="detail-field-value">
+                    {% if research.coauthor_links %}
+                      {% for person in research.coauthor_links %}{% if person.url and person.url != "" %}<a href="{{ person.url }}" target="_blank">{{ person.name }}</a>{% else %}{{ person.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
+                    {% elsif research.co-authors %}
+                      {{ research.co-authors | join: ", " }}
+                    {% endif %}
+                  </span>
+                </div>
+              {% endif %}
+
+              {% if research.outputs %}
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Works</span>
+                  <span class="detail-field-value">
+                    {% for output in research.outputs %}
+                      {% if output.url and output.url != "" %}
+                        <a href="{{ output.url }}" target="_blank" class="output-link">{{ output.name }}</a>{% unless forloop.last %}, {% endunless %}
+                      {% else %}
+                        <span class="output-text">{{ output.name }}</span>{% unless forloop.last %}, {% endunless %}
+                      {% endif %}
+                    {% endfor %}
+                  </span>
+                </div>
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
