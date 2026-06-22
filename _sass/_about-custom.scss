@@ -1801,6 +1801,10 @@
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     gap: 0.3rem;
     margin-bottom: 0.65rem;
+    /* 让每张卡片高度由自身内容决定，避免展开一张时，
+       同一行的其他卡片被 grid 默认的 stretch 行为撑高，
+       视觉上误以为"其他卡片也展开了"。 */
+    align-items: start;
   }
 
   .compact-card {
