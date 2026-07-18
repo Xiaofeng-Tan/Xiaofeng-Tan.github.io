@@ -69,3 +69,15 @@
       items:
         - Human Motion Analysis
         - Action Recognition
+
+- title: Academic Service
+  type: nested_list
+  contents:
+    - title: Conference Reviewer
+      items:
+        - ICML 2026 (Gold Reviewer)
+        - NeurIPS 2026
+        - AAAI 2027
+    - title: Journal Reviewer
+      items:
+        - Transactions on Machine Learning Research (TMLR)
