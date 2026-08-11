@@ -2067,6 +2067,36 @@
     font-style: italic;
   }
 
+  /* Google Scholar citation count: sits inside the sentence, not on top of it */
+  .interest-card .scholar-badge {
+    color: inherit;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(100, 116, 139, 0.28);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .interest-card .scholar-badge__icon {
+    margin-right: 0.24em;
+    color: #8a97a6;
+    font-size: 0.94em;
+    transition: color 0.2s ease;
+  }
+
+  .interest-card .scholar-badge__count {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .interest-card .scholar-badge:hover,
+  .interest-card .scholar-badge:hover .scholar-badge__icon {
+    color: var(--primary);
+  }
+
+  .interest-card .scholar-badge:hover {
+    border-bottom-color: var(--primary);
+  }
+
   /* 复制成功提示 */
   .copy-toast {
     position: fixed;
@@ -3256,6 +3286,14 @@
 
   html[data-theme="dark"] .interest-card .doraemon-text em {
     color: #5ec8f2;
+  }
+
+  html[data-theme="dark"] .interest-card .scholar-badge {
+    border-bottom-color: rgba(240, 246, 252, 0.2);
+  }
+
+  html[data-theme="dark"] .interest-card .scholar-badge__icon {
+    color: #7d8896;
   }
 
   /* ===== 复制提示 ===== */

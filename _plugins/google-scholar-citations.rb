@@ -18,58 +18,85 @@ module Jekyll
     end
 
     def render(context)
-      article_id = context[@article_id.strip]
-      scholar_id = context[@scholar_id.strip]
-      article_url = "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=#{scholar_id}&citation_for_view=#{scholar_id}:#{article_id}"
+      scholar_id = context[@scholar_id.strip] || @scholar_id
 
       begin
-          # If the citation count has already been fetched, return it
-          if GoogleScholarCitationsTag::Citations[article_id]
-            return GoogleScholarCitationsTag::Citations[article_id]
+        if @article_id.nil? || @article_id.empty?
+          cache_key = "TOTAL_#{scholar_id}"
+          if GoogleScholarCitationsTag::Citations[cache_key]
+            return GoogleScholarCitationsTag::Citations[cache_key]
           end
 
-          # Sleep for a random amount of time to avoid being blocked
           sleep(rand(1.5..3.5))
 
-          # Fetch the article page
-          doc = Nokogiri::HTML(URI.open(article_url, "User-Agent" => "Ruby/#{RUBY_VERSION}"))
+          profile_url = "https://scholar.google.com/citations?hl=en&user=#{scholar_id}"
+          doc = Nokogiri::HTML(URI.open(profile_url, "User-Agent" => "Ruby/#{RUBY_VERSION}"))
 
-          # Attempt to extract the "Cited by n" string from the meta tags
           citation_count = 0
 
-          # Look for meta tags with "name" attribute set to "description"
-          description_meta = doc.css('meta[name="description"]')
-          og_description_meta = doc.css('meta[property="og:description"]')
-
-          if !description_meta.empty?
-            cited_by_text = description_meta[0]['content']
-            matches = cited_by_text.match(/Cited by (\d+[,\d]*)/)
-
-            if matches
-              citation_count = matches[1].sub(",", "").to_i
-            end
-
-          elsif !og_description_meta.empty?
-            cited_by_text = og_description_meta[0]['content']
-            matches = cited_by_text.match(/Cited by (\d+[,\d]*)/)
-
-            if matches
-              citation_count = matches[1].sub(",", "").to_i
+          total_cell = doc.at_css('#gsc_rsb_st tbody tr:first-child td.gsc_rsb_std') || doc.at_css('#gsc_rsb_st tr:nth-child(1) td:nth-child(2)')
+          if total_cell
+            citation_count = total_cell.text.gsub(",", "").strip.to_i
+          else
+            description_meta = doc.css('meta[name="description"]')
+            if !description_meta.empty?
+              desc_text = description_meta[0]['content']
+              matches = desc_text.match(/Citations\s*(\d+[,\d]*)/i)
+              citation_count = matches[1].gsub(",", "").to_i if matches
             end
           end
+
+          citation_count = Helpers.number_to_human(citation_count, :format => '%n%u', :precision => 2, :units => { :thousand => 'K', :million => 'M', :billion => 'B' })
+          GoogleScholarCitationsTag::Citations[cache_key] = citation_count
+          return "#{citation_count}"
+        end
+
+        article_id = context[@article_id.strip] || @article_id
+        article_url = "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=#{scholar_id}&citation_for_view=#{scholar_id}:#{article_id}"
+
+        if GoogleScholarCitationsTag::Citations[article_id]
+          return GoogleScholarCitationsTag::Citations[article_id]
+        end
+
+        sleep(rand(1.5..3.5))
+
+        doc = Nokogiri::HTML(URI.open(article_url, "User-Agent" => "Ruby/#{RUBY_VERSION}"))
+
+        citation_count = 0
+
+        description_meta = doc.css('meta[name="description"]')
+        og_description_meta = doc.css('meta[property="og:description"]')
+
+        if !description_meta.empty?
+          cited_by_text = description_meta[0]['content']
+          matches = cited_by_text.match(/Cited by (\d+[,\d]*)/)
+
+          if matches
+            citation_count = matches[1].sub(",", "").to_i
+          end
+
+        elsif !og_description_meta.empty?
+          cited_by_text = og_description_meta[0]['content']
+          matches = cited_by_text.match(/Cited by (\d+[,\d]*)/)
+
+          if matches
+            citation_count = matches[1].sub(",", "").to_i
+          end
+        end
 
         citation_count = Helpers.number_to_human(citation_count, :format => '%n%u', :precision => 2, :units => { :thousand => 'K', :million => 'M', :billion => 'B' })
 
       rescue Exception => e
-        # Handle any errors that may occur during fetching
         citation_count = "N/A"
-
-        # Print the error message including the exception class and message
-        puts "Error fetching citation count for #{article_id}: #{e.class} - #{e.message}"
+        puts "Error fetching citation count: #{e.class} - #{e.message}"
       end
 
-
-      GoogleScholarCitationsTag::Citations[article_id] = citation_count
+      if @article_id.nil? || @article_id.empty?
+        GoogleScholarCitationsTag::Citations["TOTAL_#{scholar_id}"] = citation_count
+      else
+        article_id = context[@article_id.strip] || @article_id
+        GoogleScholarCitationsTag::Citations[article_id] = citation_count
+      end
       return "#{citation_count}"
     end
   end
