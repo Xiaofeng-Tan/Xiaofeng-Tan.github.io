@@ -1,0 +1,50 @@
+name: Update scholar citations
+
+# Google Scholar has no API and blocks scraping from datacenter IPs, so the
+# citation count the site renders is a value cached in .scholar-citations.json.
+# This job refreshes that cache through SerpAPI and asks the site to redeploy
+# whenever the number actually moved.
+on:
+  schedule:
+    # Daily at 03:37 UTC. Off the hour, since runners on the hour are busiest.
+    - cron: "37 3 * * *"
+  # Manual runs land on a different runner pool and are worth a retry if a
+  # scheduled run ever fails.
+  workflow_dispatch:
+
+permissions:
+  contents: write # commit the refreshed count
+  actions: write # dispatch the deploy workflow
+
+jobs:
+  update-scholar-citations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v5
+      - name: Setup Ruby 💎
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3.5"
+          bundler-cache: true
+      - name: Refresh citation count 🔢
+        id: refresh
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: bundle exec ruby bin/update_scholar_citations.rb
+      - name: Commit the new count 📌
+        if: steps.refresh.outputs.changed == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .scholar-citations.json
+          git commit -m "Update primary-author citation count"
+          git push
+      - name: Redeploy the site 🚀
+        if: steps.refresh.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # The commit above cannot trigger "Deploy site" on its own: pushes made
+        # with GITHUB_TOKEN never trigger workflows, and that workflow's path
+        # filters ignore .json anyway. So dispatch it explicitly.
+        run: gh workflow run deploy.yml --ref ${{ github.ref_name }}
