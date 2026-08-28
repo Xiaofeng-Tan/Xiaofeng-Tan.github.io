@@ -98,7 +98,7 @@
     - "Wanjiang Weng"
     - "Haodong Lei"
   outputs:
-    - name: "FG-Diff."
+    - name: "FG-Diff (TIP'26)"
       url: "https://xiaofeng-tan.github.io/projects/FG-Diff/index.html"
     - name: "EasyTune (ICLR'26)"
       url: "https://xiaofeng-tan.github.io/projects/EasyTune/index.html"

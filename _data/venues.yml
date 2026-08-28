@@ -20,6 +20,10 @@
   url: https://iclr.cc/
   color: "#00A1E9"
 
+"TIP":
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7
+  color: "#2E7D32"
+
 "TKDE":
   url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69
   color: "#2E7D32"
