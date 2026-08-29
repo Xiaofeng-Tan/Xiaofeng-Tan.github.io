@@ -70,8 +70,13 @@ module ScholarCitations
   end
 
   def humanize(total)
+    n = total.to_i
+    # number_to_human(precision: 2) uses significant digits, so 101 → "100"
+    # and 123 → "120". Keep exact integers until the count reaches thousands.
+    return n.to_s if n < 1000
+
     Helpers.number_to_human(
-      total.to_i,
+      n,
       format: "%n%u",
       precision: 2,
       units: { thousand: "K", million: "M", billion: "B" }

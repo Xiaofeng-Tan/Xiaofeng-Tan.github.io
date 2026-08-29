@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🏆 I am honored to receive the **Tencent Scholarship** and **Southeast University First-Class Academic Scholarship**.
+🏆 I am honored to receive the **Tencent-SEU Scholarship** and **Southeast University First-Class Academic Scholarship**.
