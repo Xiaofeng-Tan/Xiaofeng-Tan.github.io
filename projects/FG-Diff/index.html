@@ -105,19 +105,10 @@
       
       <div class="figure-container">
         <div class="figure-wrapper">
-          <img src="static/images/intro.png" alt="Motivation illustration"/>
+          <img src="static/images/intro.png" alt="Motivation illustration" style="--pt: 348"/>
         </div>
         <p class="figure-caption">
-          <strong>Figure 1.</strong> (a) Training data consists of seen normal motions; testing data contains unseen normal and abnormal motions. Although seen and unseen motions may represent the same action (e.g., walking), local details such as stride length and joint angles differ. (b) Frequency analysis shows that a motion retaining only 70% low-frequency information remains similar to the original in global structure.
-        </p>
-      </div>
-
-      <div class="figure-container">
-        <div class="figure-wrapper">
-          <img src="static/images/reconstruction.png" alt="Reconstruction-based VAD illustration"/>
-        </div>
-        <p class="figure-caption">
-          <strong>Figure 2.</strong> Reconstruction-based methods struggle to capture fine details of unseen actions (e.g., the same action from a different camera view), but excel at reconstructing global action information (blue trajectory).
+          <strong>Figure 1.</strong> (a) Training data consists of seen normal motions; testing data contains unseen normal and abnormal motions. (b) A motion retaining only 70% low-frequency information remains similar to the original in global structure.
         </p>
       </div>
       
@@ -132,39 +123,29 @@
       <h2 class="section-title">🏗️ Method</h2>
       
       <div class="figure-container">
-        <div class="figure-wrapper">
+        <div class="figure-wrapper wide">
           <img src="static/images/framework.png" alt="FG-Diff Framework"/>
         </div>
         <p class="figure-caption">
-          <strong>Figure 3.</strong> Overview of FG-Diff. Training includes: (1) minimizing MSE to train the noise predictor, and (2) maximizing MSE to train the perturbation generator. During testing, high-frequency information of observed motions and low-frequency information of generated motions are fused.
+          <strong>Figure 2.</strong> Overview of FG-Diff. Training includes: (1) minimizing MSE to train the noise predictor, and (2) maximizing MSE to train the perturbation generator. During testing, high-frequency information of observed motions and low-frequency information of generated motions are fused.
         </p>
-      </div>
-      
-      <div class="figure-grid-2col">
-        <div class="figure-container">
-          <div class="figure-wrapper">
-            <img src="static/images/intro_method.png" alt="Method comparison"/>
-          </div>
-          <p class="figure-caption">
-            <strong>Figure 4.</strong> Comparison with existing methods. <em>Training:</em> adversarial training of the perturbation generator and denoiser. <em>Inference:</em> DCT separates motion into global (low-freq) and local (high-freq) components.
-          </p>
-        </div>
-        <div class="figure-container">
-          <div class="figure-wrapper">
-            <img src="static/images/perturb.png" alt="Perturbation Training"/>
-          </div>
-          <p class="figure-caption">
-            <strong>Figure 5.</strong> Perturbation training. (a) Green and yellow points denote original and perturbed motions. (b) The reconstruction domain is extended by perturbation training.
-          </p>
-        </div>
       </div>
 
       <div class="figure-container">
         <div class="figure-wrapper">
-          <img src="static/images/dct.png" alt="2D-DCT motion visualization"/>
+          <img src="static/images/intro_method.png" alt="Method comparison" style="--pt: 461"/>
         </div>
         <p class="figure-caption">
-          <strong>Figure 6.</strong> Human motions processed by 2D-DCT. (a) original motions; (b) motions with low-frequency information only; (c) comparison between (a) and (b); (d) skeletal example. Red lines denote discarded high-frequency information; red circles mark high-frequency joints.
+          <strong>Figure 3.</strong> Comparison with existing methods. <em>Training:</em> adversarial training of the perturbation generator and denoiser. <em>Inference:</em> DCT separates motion into global (low-freq) and local (high-freq) components.
+        </p>
+      </div>
+
+      <div class="figure-container">
+        <div class="figure-wrapper">
+          <img src="static/images/perturb.png" alt="Perturbation Training" style="--pt: 266"/>
+        </div>
+        <p class="figure-caption">
+          <strong>Figure 4.</strong> Perturbation training. (a) Green and yellow points denote original and perturbed motions. (b) The reconstruction domain is extended by perturbation training.
         </p>
       </div>
     </div>
@@ -261,36 +242,10 @@
         </table>
       </div>
 
-      <h3 class="subsection-title">⚖️ Supervised &amp; Weakly Supervised Comparison</h3>
-      <div class="table-wrap">
-        <table class="result-table compact">
-          <caption><strong>Table 2.</strong> Comparison with supervised and weakly supervised methods on UBnormal. FPS is measured on a single 1080Ti GPU.</caption>
-          <thead>
-            <tr>
-              <th>Method</th>
-              <th>Training</th>
-              <th>Params</th>
-              <th>UBnormal</th>
-              <th>Memory</th>
-              <th>FPS</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Sultani et al.</td><td>S.</td><td>-</td><td>50.3</td><td>&lt;11GB</td><td>30.7</td></tr>
-            <tr><td>AED-SSMTL</td><td>S.</td><td>&gt;80M</td><td>61.3</td><td>&lt;11GB</td><td>23.9</td></tr>
-            <tr><td>TimeSformer</td><td>S.</td><td>121M</td><td>68.5</td><td>&lt;11GB</td><td>10.2</td></tr>
-            <tr><td>AED-SSMTL</td><td>W.S.</td><td>&gt;80M</td><td>59.3</td><td>&lt;11GB</td><td>23.9</td></tr>
-            <tr class="ours">
-              <td>FG-Diff (Ours)</td><td>U.S.</td><td><strong>556K</strong></td><td><strong>68.9</strong></td><td>&lt;6GB</td><td><strong>50.6</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
       <h3 class="subsection-title">🔬 Ablation Study</h3>
       <div class="table-wrap">
         <table class="result-table compact">
-          <caption><strong>Table 3.</strong> Ablation of each component. IP: input perturbation; DCT-Mask: frequency-guided masking.</caption>
+          <caption><strong>Table 2.</strong> Ablation of each component. IP: input perturbation; DCT-Mask: frequency-guided masking.</caption>
           <thead>
             <tr>
               <th>Method</th>
@@ -310,142 +265,6 @@
           </tbody>
         </table>
       </div>
-
-      <div class="table-wrap">
-        <table class="result-table compact">
-          <caption><strong>Table 4.</strong> Robustness of perturbation training. “PT” denotes perturbation training; λ<sub>PI</sub> is perturbation intensity at inference. “w/o PT” uses Gaussian noise augmentation instead.</caption>
-          <thead>
-            <tr>
-              <th rowspan="2">λ<sub>PI</sub></th>
-              <th colspan="3">w/ PT</th>
-              <th colspan="3">w/o PT</th>
-            </tr>
-            <tr>
-              <th>HR-A.</th><th>HR-S.</th><th>HR-U.</th>
-              <th>HR-A.</th><th>HR-S.</th><th>HR-U.</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>0.00</td><td>90.7</td><td>78.7</td><td>68.5</td><td>88.7</td><td>76.2</td><td>67.4</td></tr>
-            <tr><td>0.02</td><td>90.6</td><td>78.4</td><td>68.8</td><td>86.9</td><td>75.0</td><td>66.8</td></tr>
-            <tr><td>0.05</td><td>90.7</td><td>78.2</td><td>68.7</td><td>84.7</td><td>73.8</td><td>64.2</td></tr>
-            <tr><td>0.10</td><td>90.7</td><td>78.6</td><td>69.0</td><td>80.3</td><td>71.2</td><td>63.5</td></tr>
-            <tr><td>0.15</td><td>90.5</td><td>77.9</td><td>68.1</td><td>76.4</td><td>69.5</td><td>61.3</td></tr>
-            <tr class="ours">
-              <td><strong>Avg.</strong></td>
-              <td><strong>90.6</strong><sub>+7.2%</sub></td>
-              <td><strong>78.4</strong><sub>+5.3%</sub></td>
-              <td><strong>68.6</strong><sub>+4.0%</sub></td>
-              <td>83.4</td><td>73.1</td><td>64.6</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="figure-grid-2col">
-        <div class="figure-container">
-          <div class="figure-wrapper">
-            <img src="static/images/sen_dct.png" alt="DCT-Mask sensitivity"/>
-          </div>
-          <p class="figure-caption">
-            <strong>Figure 7(a).</strong> Sensitivity to DCT-Mask threshold λ<sub>dct</sub>.
-          </p>
-        </div>
-        <div class="figure-container">
-          <div class="figure-wrapper">
-            <img src="static/images/sen_pt.png" alt="Perturbation weight sensitivity"/>
-          </div>
-          <p class="figure-caption">
-            <strong>Figure 7(b).</strong> Sensitivity to perturbation training weight λ<sub>p</sub>.
-          </p>
-        </div>
-      </div>
-
-      <h3 class="subsection-title">🌍 Unseen Motions &amp; Real-World Scenarios</h3>
-      <div class="figure-grid-2col">
-        <div class="figure-container">
-          <div class="figure-wrapper">
-            <img src="static/images/unseen_vis.jpg" alt="Unseen motion visualization"/>
-          </div>
-          <p class="figure-caption">
-            <strong>Figure 8(a).</strong> Qualitative comparison on unseen motions from UBnormal.
-          </p>
-        </div>
-        <div class="figure-container">
-          <div class="figure-wrapper">
-            <img src="static/images/unseen.png" alt="Unseen motion quantitative results"/>
-          </div>
-          <p class="figure-caption">
-            <strong>Figure 8(b).</strong> Cross-dataset results: train on HR-STC / HR-UBnormal and test on unseen motions.
-          </p>
-        </div>
-      </div>
-
-      <div class="table-wrap">
-        <table class="result-table compact">
-          <caption><strong>Table 5.</strong> Violence action detection on RWF-2000. Non-violent actions are treated as normal and violent actions as abnormal.</caption>
-          <thead>
-            <tr>
-              <th>PointNet++</th>
-              <th>DGCNN</th>
-              <th>SPIL</th>
-              <th>ST-GCN</th>
-              <th>PDSF</th>
-              <th>FG-Diff</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>78.2</td><td>80.6</td><td>89.3</td><td>83.3</td><td>82.5</td><td class="ours"><strong>91.6</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="figure-grid-2col">
-        <div class="figure-container">
-          <div class="figure-wrapper">
-            <img src="static/images/type.png" alt="Specific abnormal behaviors"/>
-          </div>
-          <p class="figure-caption">
-            <strong>Figure 9.</strong> Detection accuracy on specific abnormal actions from UBnormal: running, falling, laying down, and shuffling.
-          </p>
-        </div>
-        <div class="figure-container">
-          <div class="figure-wrapper">
-            <img src="static/images/occlusion_s.png" alt="Spatial occlusion robustness"/>
-          </div>
-          <p class="figure-caption">
-            <strong>Figure 10(a).</strong> Robustness under spatial pose occlusion on HR-Avenue (masked body parts).
-          </p>
-        </div>
-      </div>
-      <div class="figure-container">
-        <div class="figure-wrapper medium">
-          <img src="static/images/occlusion_t.png" alt="Temporal occlusion robustness"/>
-        </div>
-        <p class="figure-caption">
-          <strong>Figure 10(b).</strong> Robustness under temporal pose occlusion on HR-Avenue (10%–50% randomly masked frames).
-        </p>
-      </div>
-
-      <h3 class="subsection-title">📈 Qualitative Results</h3>
-      <div class="figure-container">
-        <div class="figure-wrapper">
-          <img src="static/images/vis_ave.png" alt="Anomaly score visualization on Avenue"/>
-        </div>
-        <p class="figure-caption">
-          <strong>Figure 11(a).</strong> Anomaly score curves on Avenue. Red circles: abnormal events (e.g., throwing); green circles: normal events.
-        </p>
-      </div>
-      <div class="figure-container">
-        <div class="figure-wrapper">
-          <img src="static/images/vis_ub.png" alt="Anomaly score visualization on HR-UBnormal"/>
-        </div>
-        <p class="figure-caption">
-          <strong>Figure 11(b).</strong> Anomaly score curves on HR-UBnormal. The score peaks during chasing and other dynamic anomalies.
-        </p>
-      </div>
     </div>
   </div>
 </section>
@@ -453,7 +272,7 @@
 <!-- Demo Videos -->
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="content-block">
+    <div class="content-block wide">
       <h2 class="section-title">🎥 Demo</h2>
       <p class="demo-description">Left: ground truth labels. Right: detection results.</p>
       <div class="video-grid">
