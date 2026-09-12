@@ -875,6 +875,16 @@ function copyToClipboard(text, label) {
         
         
           <tr>
+            <th scope="row" style="width: 20%; color: #666;">Sep 12, 2026</th>
+            <td>
+              
+                📄 <a href="https://xiaofeng-tan.github.io/projects/FG-Diff/index.html">FG-Diff</a> is now available on <a href="https://ieeexplore.ieee.org/document/11689693" rel="external nofollow noopener" target="_blank">IEEE Xplore</a> (TIP 2026)! Code: <a href="https://github.com/Xiaofeng-Tan/FG-Diff" rel="external nofollow noopener" target="_blank">GitHub</a>.
+
+              
+            </td>
+          </tr>
+        
+          <tr>
             <th scope="row" style="width: 20%; color: #666;">Aug 28, 2026</th>
             <td>
               
@@ -2097,6 +2107,8 @@ function copyToClipboard(text, label) {
         <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-file-alt"></i> Abs</a>
       
       
+        <a href="https://doi.org/10.1109/TIP.2026.3730816" class="btn-doi btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="ai ai-doi"></i> DOI</a>
+      
       
         <a href="http://arxiv.org/abs/2412.03044" class="btn-arxiv btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="ai ai-arxiv"></i> arXiv</a>
       
@@ -2104,18 +2116,14 @@ function copyToClipboard(text, label) {
       
       
         
-          <a href="https://arxiv.org/abs/2412.03044" class="btn-pdf btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-file-pdf"></i> PDF</a>
-        
-      
-      
-        
-          <a href="https://arxiv.org/abs/2412.03044" class="btn-supp btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-paperclip"></i> Supp</a>
+          <a href="https://ieeexplore.ieee.org/document/11689693" class="btn-pdf btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-file-pdf"></i> PDF</a>
         
       
       
       
       
-        <a href="https://github.com/Xiaofeng-Tan/FGDMAD-Code" class="btn-code btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fab fa-github"></i> Code</a>
+      
+        <a href="https://github.com/Xiaofeng-Tan/FG-Diff" class="btn-code btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fab fa-github"></i> Code</a>
       
       
       
@@ -2162,7 +2170,7 @@ function copyToClipboard(text, label) {
     
       <!-- Hidden abstract block -->
       <div class="abstract hidden">
-        <p>Video anomaly detection is an essential yet challenging open-set task in computer vision, often addressed by leveraging reconstruction as a proxy task. However, existing reconstruction-based methods encounter challenges in two main aspects: (1) limited model robustness for open-set scenarios, (2) and an overemphasis on, but restricted capacity for, detailed motion reconstruction. To this end, we propose a novel frequency-guided diffusion model with perturbation training, which enhances the model robustness by perturbation training and emphasizes the principal motion components guided by motion frequencies. Specifically, we first use a trainable generator to produce perturbative samples for perturbation training of the diffusion model. During the perturbation training phase, the model robustness is enhanced and the domain of the reconstructed model is broadened by training against this generator. Subsequently, perturbative samples are introduced for inference, which impacts the reconstruction of normal and abnormal motions differentially, thereby enhancing their separability. Considering that motion details originate from high-frequency information, we propose a masking method based on 2D discrete cosine transform to separate high-frequency information and low-frequency information. Guided by the high-frequency information from observed motion, the diffusion model can focus on generating low-frequency information, and thus reconstructing the motion accurately. Experimental results on five video anomaly detection datasets, including human-related and open-set benchmarks, demonstrate the effectiveness of the proposed method. The code will be released to the public.</p>
+        <p>Video anomaly detection (VAD) is a vital yet complex open-set task in computer vision, commonly tackled through reconstruction-based methods. However, these methods struggle with two key limitations: (1) insufficient robustness in open-set scenarios, where unseen normal motions are frequently misclassified as anomalies, and (2) an overemphasis on, but restricted capacity for, local motion reconstruction, which are inherently difficult to capture accurately due to their diversity. To overcome these challenges, we introduce a novel frequency-guided diffusion model with perturbation training. First, we enhance robustness by training a generator to produce perturbed samples, which are similar to normal samples and target the weakness of the reconstruction model. This training paradigm expands the reconstruction domain of the model, improving its generalization to unseen normal motions. Second, to address the overemphasis on motion details, we employ the 2D Discrete Cosine Transform (DCT) to separate high-frequency (local) and low-frequency (global) motion components. By guiding the diffusion model with observed high-frequency information, we prioritize the reconstruction of low-frequency components, enabling more accurate and robust anomaly detection. Extensive experiments on five widely used VAD datasets demonstrate that our approach surpasses state-of-the-art methods, underscoring its effectiveness in open-set scenarios and diverse motion contexts.</p>
       </div>
     
 
@@ -2930,7 +2938,7 @@ function copyToClipboard(text, label) {
 
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
-    Last updated: September 06, 2026
+    Last updated: September 12, 2026
   </div>
 </article>
 
@@ -2973,7 +2981,7 @@ function copyToClipboard(text, label) {
 
       
       
-        Last updated: September 06, 2026.
+        Last updated: September 12, 2026.
       
     </div>
   </footer>
@@ -3232,6 +3240,9 @@ function copyToClipboard(text, label) {
               description: "",
               section: "News",},{id: "news-fg-diff-has-been-accepted-to-ieee-transactions-on-image-processing-tip",
               title: '🎉 FG-Diff has been accepted to IEEE Transactions on Image Processing (TIP)!',
+              description: "",
+              section: "News",},{id: "news-fg-diff-is-now-available-on-ieee-xplore-tip-2026-code-github",
+              title: '📄 FG-Diff is now available on IEEE Xplore (TIP 2026)! Code: GitHub.',
               description: "",
               section: "News",},{
             id: 'socials-email',
