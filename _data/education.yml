@@ -14,18 +14,16 @@
   intro: Outstanding Camper (Ranked 2nd) in 2024 Graduate Admission Summer Camp.
   csrankings:
     - label: AI
-      rank: "#22"
+      rank: "#14"
     - label: CV
       rank: "#41"
   global_rankings:
     - label: ARWU
       rank: "#89"
-      highlight: true
-    - label: U.S. News
-      rank: "#155"
     - label: QS
       rank: "#392"
-  classification: 985
+    - label: U.S. News
+      rank: "#155"
 
 - school: Shenzhen University
   abbr: SZU
@@ -38,14 +36,13 @@
   intro: Outstanding Graduate Representative (1/300+) who delivers a speech at the graduation ceremony.
   csrankings:
     - label: AI
-      rank: "#8"
-      highlight: true
+      rank: "#12"
     - label: CV
       rank: "#31"
   global_rankings:
     - label: ARWU
       rank: "151–200"
-    - label: U.S. News
-      rank: "#156"
     - label: QS
       rank: "#452"
+    - label: U.S. News
+      rank: "#156"
