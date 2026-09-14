@@ -3,7 +3,7 @@
 # Reference via {{ site.data.education }}
 # =============================================================================
 
-- school: Southeast Unversity
+- school: Southeast University
   abbr: SEU
   role_short: Master
   college: School of Computer Science and Engineering
@@ -12,8 +12,22 @@
   logo: ./assets/img/seu_logo.png
   location: Nanjing, China
   intro: Outstanding Camper (Ranked 2nd) in 2024 Graduate Admission Summer Camp.
+  csrankings:
+    - label: AI
+      rank: "#22"
+    - label: CV
+      rank: "#41"
+  global_rankings:
+    - label: ARWU
+      rank: "#89"
+      highlight: true
+    - label: U.S. News
+      rank: "#155"
+    - label: QS
+      rank: "#392"
+  classification: 985
 
-- school: Shenzhen Unversity
+- school: Shenzhen University
   abbr: SZU
   role_short: Dual Bachelor
   college: College of Computer Science & Software Engineering / College of Mathematics and Statistics
@@ -22,3 +36,16 @@
   logo: /assets/img/szu_logo.png
   location: Shenzhen, China
   intro: Outstanding Graduate Representative (1/300+) who delivers a speech at the graduation ceremony.
+  csrankings:
+    - label: AI
+      rank: "#8"
+      highlight: true
+    - label: CV
+      rank: "#31"
+  global_rankings:
+    - label: ARWU
+      rank: "151–200"
+    - label: U.S. News
+      rank: "#156"
+    - label: QS
+      rank: "#452"

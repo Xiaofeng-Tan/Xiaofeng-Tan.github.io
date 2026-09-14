@@ -4552,3 +4552,48 @@
   .output-link:hover {
     color: var(--primary-hover);
   }
+
+/* ========== Rankings inside Education Experience details ========== */
+.ranking-highlight {
+  font-weight: 700;
+}
+
+.education-ranking-field .detail-field-value {
+  color: #64748b;
+}
+
+.education-ranking-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.72rem;
+  row-gap: 0.16rem;
+}
+
+.education-ranking-entry {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.22rem;
+  white-space: nowrap;
+}
+
+.education-ranking-name {
+  color: inherit;
+}
+
+.education-ranking-value {
+  font-variant-numeric: tabular-nums;
+  color: #334155;
+}
+
+.education-ranking-entry.ranking-highlight .education-ranking-value {
+  font-weight: 700;
+}
+
+html[data-theme="dark"] .education-ranking-field .detail-field-value {
+  color: #8b949e;
+}
+
+html[data-theme="dark"] .education-ranking-value {
+  color: #c9d1d9;
+}

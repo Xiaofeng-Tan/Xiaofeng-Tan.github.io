@@ -143,6 +143,34 @@ layout: default
               </div>
             </div>
             <div class="detail-fields detail-fields--education">
+              {% if education.global_rankings or education.csrankings %}
+                <div class="detail-field detail-field--wide education-ranking-field">
+                  <span class="detail-field-label">Rankings</span>
+                  <span class="detail-field-value">
+                    <span class="education-ranking-list">
+                      {% if education.csrankings %}
+                        {% for ranking in education.csrankings %}
+                          <span class="education-ranking-entry{% if ranking.highlight %} ranking-highlight{% endif %}">
+                            <span class="education-ranking-name">CSRankings {{ ranking.label }}</span>
+                            <span class="education-ranking-value">{{ ranking.rank }}</span>
+                          </span>
+                        {% endfor %}
+                      {% endif %}
+                      {% if education.global_rankings %}
+                        {% for ranking in education.global_rankings %}
+                          <span class="education-ranking-entry{% if ranking.highlight %} ranking-highlight{% endif %}">
+                            <span class="education-ranking-name">{{ ranking.label }}</span>
+                            <span class="education-ranking-value">{{ ranking.rank }}</span>
+                          </span>
+                        {% endfor %}
+                      {% endif %}
+                      {% if education.classification %}
+                        <span class="education-ranking-entry">{{ education.classification }}</span>
+                      {% endif %}
+                    </span>
+                  </span>
+                </div>
+              {% endif %}
               {% if education.intro %}
                 <div class="detail-field detail-field--wide">
                   <span class="detail-field-label">Note</span>
