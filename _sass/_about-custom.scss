@@ -4601,3 +4601,12 @@ html[data-theme="dark"] .education-ranking-field .detail-field-value {
 html[data-theme="dark"] .education-ranking-value {
   color: #c9d1d9;
 }
+
+/* AlphaXiv icon in social rows */
+.social-icons-header a svg,
+.contact-icons a svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  display: block;
+}
