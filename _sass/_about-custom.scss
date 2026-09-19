@@ -1223,6 +1223,33 @@
     margin-bottom: 0.15rem;
   }
 
+  .teaching-section.teaching-section--collapsible {
+    display: block;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .teaching-section--collapsible .pub-category__body {
+    padding-top: 0.25rem;
+  }
+
+  .teaching-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 0.3rem;
+    align-items: start;
+  }
+
+  .teaching-summary-meta {
+    color: var(--text-soft);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    white-space: nowrap;
+  }
+
   /* ========== Publications — Minimalist Academic Style ========== */
   .publications {
     margin-bottom: 0.5rem;
@@ -1873,6 +1900,21 @@
     font-size: 0.68rem;
     white-space: nowrap;
     flex-shrink: 0;
+  }
+
+  .contact-reveal {
+    appearance: none;
+    border: 0;
+    border-bottom: 1px dashed currentColor;
+    padding: 0;
+    color: var(--primary);
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .contact-reveal:hover {
+    color: var(--primary-hover);
   }
 
   /* ========== Service（低调学术风格）========== */

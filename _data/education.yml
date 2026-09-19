@@ -20,10 +20,6 @@
   global_rankings:
     - label: ARWU
       rank: "#89"
-    - label: QS
-      rank: "#392"
-    - label: U.S. News
-      rank: "#155"
 
 - school: Shenzhen University
   abbr: SZU
@@ -42,7 +38,3 @@
   global_rankings:
     - label: ARWU
       rank: "151–200"
-    - label: QS
-      rank: "#452"
-    - label: U.S. News
-      rank: "#156"

@@ -6,7 +6,6 @@
   author={Tan, Xiaofeng and Weng, Wanjiang and Wang, Hongsong and Zhao, Fang and Geng, Xin and Wang, Liang},
   journal={Under Review (TPAMI)},
   abbr={UR},
-  ccf={CCF-None},
   selected={true},
   preview={MotionRFT.png},
   website={/projects/MotionRFT/index.html},
@@ -20,7 +19,6 @@
   author={Tan, Xiaofeng and Liu, Jun and Gao, Bin-Bin and Fan, Yuanting and Jiang, Xi and Wang, Chengjie and Wang, Hongsong and Zheng, Feng},
   journal={Under Review},
   abbr={UR},
-  ccf={CCF-None},
   selected={true},
   preview={PEC.png},
   website={/projects/PEC/index.html},
@@ -35,7 +33,6 @@
   author={Tan, Xiaofeng and Liu, Jun and Fan, Yuanting and Gao, Bin-Bin and Jiang, Xi and Chen, Xiaochen and Peng, Jinlong and Wang, Chengjie and Wang, Hongsong and Zheng, Feng},
   journal={Under Review (AAAI 2027)},
   abbr={UR},
-  ccf={CCF-None},
   selected={true},
   preview={ConsistentRFT.png},
   abstract={},
@@ -43,7 +40,7 @@
   arxiv={2602.03425},
   pdf={https://arxiv.org/abs/2602.03425},
   code={https://github.com/Xiaofeng-Tan/ConsistentRFT},
-  year={2025}
+  year={2026}
 }
 
 @article{tan2024sopo,
@@ -73,7 +70,7 @@
   abbr={ICLR},
   ccf={CCF-A},
   core={CORE-A*},
-  abstract={In recent years, motion generative models have undergone significant advancement, yet pose challenges in aligning with downstream objectives. Recent studies have shown that using differentiable rewards to directly align the preference of diffusion models yields promising results. However, these methods suffer from inefficient and coarse-grained optimization with high memory consumption. In this work, we first theoretically identify the \emph{fundamental reason} of these limitations: the recursive dependence between different steps in the denoising trajectory. Inspired by this insight, we propose \textbf{EasyTune}, which fine-tunes diffusion at each denoising step rather than over the entire trajectory.  This decouples the recursive dependence, allowing us to perform (1) a dense and effective, (2) memory-efficient, and (3) fine-grained optimization. Furthermore, the scarcity of preference motion pairs restricts the availability of motion reward model training. To this end, we further introduce a \textbf{S}elf-refinement \textbf{P}reference \textbf{L}earning (\textbf{SPL}) mechanism that dynamically identifies preference pairs and conducts preference learning. Extensive experiments demonstrate that EasyTune outperforms ReFL by 62.1\% in MM-Dist improvement while requiring only 34.5\% of its additional memory overhead. },
+  abstract={In recent years, motion generative models have advanced significantly, but aligning them with downstream objectives remains challenging. Recent work shows that differentiable rewards can directly align diffusion models with preferences, but existing approaches are inefficient, coarse-grained, and memory-intensive. We identify the fundamental cause of these limitations as the recursive dependence among steps in the denoising trajectory. Inspired by this insight, we propose EasyTune, which fine-tunes diffusion at each denoising step rather than across the entire trajectory. This decouples the recursive dependence and enables dense, effective, memory-efficient, and fine-grained optimization. To address the scarcity of preference motion pairs for training reward models, we further introduce Self-refinement Preference Learning (SPL), which dynamically identifies preference pairs for preference learning. Extensive experiments show that EasyTune improves MM-Dist over ReFL by 62.1% while requiring only 34.5% of its additional memory overhead.},
   selected={true},
   preview={EasyTune.png},
   website={/projects/EasyTune/index.html},
@@ -169,7 +166,6 @@ abstract = {Outlier detection is an important research topic in data mining and 
   title={Multi-Scale Fuzzy Rough Sets based Anomaly Detection with Multiple Autoencoders},
   author={Tan, Xiaofeng and Gao, Can and Zhou, Jie and Ding, Weiping},
   journal={Under Review},
-  ccf={CCF-None},
   abstract = {Anomaly detection is a practical and essential research topic with a wide range of applications. However, existing anomaly detection methods may face challenges when handling high-dimensional data with complex distributions. In this study, we propose a multiple autoencoder-based anomaly detection method with the aid of fuzzy rough sets. Specifically, the autoencoder is first improved by introducing the kernel fuzzy relation to enhance its representation capability in low-dimensional space. Then, the theory of fuzzy rough sets is employed to perform anomaly detection in the learned low-dimensional representation by fusing multi-view proximity-based information. Finally, to handle complex data, multiple autoencoders are utilized to collaboratively detect anomalies by integrating local anomaly information from different perspectives. Comparative experiments conducted on the selected datasets reveal that the proposed method is superior to state-of-the-art methods, improving over classical autoencoder by 5.58% in terms of the AUC-ROC index.},
   preview={AEAD.png},
   selected={False},
