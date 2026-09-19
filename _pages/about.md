@@ -20,7 +20,7 @@ I am a final-year M.Sc. student in the [PALM Lab](https://palm.seu.edu.cn/) at [
 
 <div class="interest-card" markdown="0">
 My research interests include RL, AIGC, world models, and 3D human modeling. I am looking for <strong>Ph.D.</strong> opportunities starting in Fall 2027 and welcome research collaborations in RL and AIGC. If you'd like to connect, feel free to reach out via 📧 <button type="button" class="contact-reveal" onclick="revealAndCopyContact(this, 'xiaofengtan@seu.edu.cn', 'Email')">Show email</button> or 💬 <button type="button" class="contact-reveal" onclick="revealAndCopyContact(this, 'txf_06_20', 'WeChat ID')">Show WeChat ID</button> 😊. You can find more about my background in my <a href="/assets/pdf/CV_Xiaofeng_Tan.pdf" target="_blank">CV</a> / <a href="/assets/pdf/CV_Xiaofeng_Tan_CN.pdf" target="_blank" style="font-family: 'Songti SC', 'STSong', 'SimSun', serif;">中文简历</a>.
-<br><br>
+<div class="interest-card__divider"></div>
 I'm a <span class="doraemon-text"><a href="https://en.wikipedia.org/wiki/Doraemon" target="_blank"><em>Doraemon</em></a></span> fan 😺, as the little companions in the bottom corners suggest. Based on our long history of conversations, GPT, Gemini, and Doubao all characterize me as an <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>. This may be biased by the work-related nature of our conversations. I hope this offers a useful starting point for understanding how I work in collaborations.
 </div>
 

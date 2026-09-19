@@ -95,6 +95,20 @@
     color: #2c3e50;
   }
 
+  /* Keep the introductory text compact without affecting content sections below. */
+  article > .clearfix > p {
+    margin-bottom: 0.5rem;
+  }
+
+  article > .clearfix > .interest-card {
+    margin: 0.5rem 0;
+  }
+
+  .interest-card__divider {
+    height: 0;
+    margin: 0.55rem 0;
+  }
+
   article > .clearfix a {
     color: #00A1E9;
     text-decoration: none;
