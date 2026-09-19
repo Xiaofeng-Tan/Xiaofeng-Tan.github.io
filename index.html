@@ -114,6 +114,14 @@
   </script>
 
 
+<script>
+  try {
+    if (localStorage.getItem('site-language') === 'zh') {
+      document.documentElement.lang = 'zh-CN';
+    }
+  } catch (error) { /* Storage may be disabled; English remains the default. */ }
+</script>
+<link rel="stylesheet" href="/assets/css/language.css?2a21affd4788667b34911b6a5b4d5b22">
 
 <!-- Bootstrap & MDB -->
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04">
@@ -216,6 +224,8 @@
             
           
             
+          
+            
               
                 
                 <li class="nav-item ">
@@ -228,6 +238,9 @@
           
             
           
+          <li class="nav-item">
+            <button type="button" id="language-toggle" class="nav-link language-toggle" aria-label="切换为中文" title="切换为中文">中文</button>
+          </li>
           
             <!-- Search -->
             <li class="nav-item">
@@ -372,30 +385,59 @@
   
 
   <div class="clearfix">
-<p>I am a final-year M.Sc. student in the <a href="https://palm.seu.edu.cn/" rel="external nofollow noopener" target="_blank">PALM Lab</a> at <a href="https://www.seu.edu.cn/english/" rel="external nofollow noopener" target="_blank">Southeast University (SEU)</a>, advised by Prof. <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang</a>, and expect to graduate in June 2027. I am currently a research intern at <a href="https://hunyuan.tencent.com/" rel="external nofollow noopener" target="_blank">Tencent Hunyuan</a> and also collaborate remotely with Prof. <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a> at <a href="https://www.ucmerced.edu/" rel="external nofollow noopener" target="_blank">UC Merced</a>. Previously, I interned at <a href="https://open.youtu.qq.com/#/open" rel="external nofollow noopener" target="_blank">Tencent’s Youtu Lab</a> and, before that, was a remote visiting student in the <a href="https://www.lv-lab.org/SMU/index.html" rel="external nofollow noopener" target="_blank">LV LAB</a> at Singapore Management University (SMU), working closely with Prof. <a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">Pan Zhou</a>. I received dual bachelor’s degrees in Computer Science (B.E.) and Mathematics (B.Sc.) from <a href="https://en.szu.edu.cn/" rel="external nofollow noopener" target="_blank">Shenzhen University (SZU)</a> in 2024, where I began my research journey with Prof. <a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">Can Gao</a>.</p>
+<div data-language="en" lang="en">
 
-<div class="interest-card">
-My research interests include RL, AIGC, world models, and 3D human modeling. I am looking for <strong>Ph.D.</strong> opportunities starting in Fall 2027 and welcome research collaborations in RL and AIGC. If you'd like to connect, feel free to reach out via 📧 <button type="button" class="contact-reveal" onclick="revealAndCopyContact(this, 'xiaofengtan@seu.edu.cn', 'Email')">Show email</button> or 💬 <button type="button" class="contact-reveal" onclick="revealAndCopyContact(this, 'txf_06_20', 'WeChat ID')">Show WeChat ID</button> 😊. You can find more about my background in my <a href="/assets/pdf/CV_Xiaofeng_Tan.pdf" target="_blank">CV</a> / <a href="/assets/pdf/CV_Xiaofeng_Tan_CN.pdf" target="_blank" style="font-family: 'Songti SC', 'STSong', 'SimSun', serif;">中文简历</a>.
+  <p>I am a final-year M.Sc. student in the <a href="https://palm.seu.edu.cn/" rel="external nofollow noopener" target="_blank">PALM Lab</a> at <a href="https://www.seu.edu.cn/english/" rel="external nofollow noopener" target="_blank">Southeast University (SEU)</a>, advised by Prof. <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang</a>, and expect to graduate in June 2027. I am currently a research intern at <a href="https://hunyuan.tencent.com/" rel="external nofollow noopener" target="_blank">Tencent Hunyuan</a> and also collaborate remotely with Prof. <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a> at <a href="https://www.ucmerced.edu/" rel="external nofollow noopener" target="_blank">UC Merced</a>. Previously, I interned at <a href="https://open.youtu.qq.com/#/open" rel="external nofollow noopener" target="_blank">Tencent’s Youtu Lab</a> and, before that, was a remote visiting student in the <a href="https://www.lv-lab.org/SMU/index.html" rel="external nofollow noopener" target="_blank">LV LAB</a> at Singapore Management University (SMU), working closely with Prof. <a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">Pan Zhou</a>. I received dual bachelor’s degrees in Computer Science (B.E.) and Mathematics (B.Sc.) from <a href="https://en.szu.edu.cn/" rel="external nofollow noopener" target="_blank">Shenzhen University (SZU)</a> in 2024, where I began my research journey with Prof. <a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">Can Gao</a>.</p>
+
+  <div class="interest-card">
+My research interests include RL, AIGC, world models, and 3D human modeling. I am looking for <strong>Ph.D.</strong> opportunities starting in Fall 2027 and welcome research collaborations in RL and AIGC. If you'd like to connect, feel free to reach out via 📧 <button type="button" class="contact-reveal" onclick="revealAndCopyContact(this, 'xiaofengtan@seu.edu.cn', 'Email')">Show email</button> or 💬 <button type="button" class="contact-reveal" onclick="revealAndCopyContact(this, 'txf_06_20', 'WeChat ID')">Show WeChat ID</button> 😊. You can find more about my background in my <a href="/cv/">CV / 中文简历</a>.
 <div class="interest-card__divider"></div>
 I'm a <span class="doraemon-text"><a href="https://en.wikipedia.org/wiki/Doraemon" target="_blank" rel="external nofollow noopener"><em>Doraemon</em></a></span> fan 😺, as the little companions in the bottom corners suggest. Based on our long history of conversations, GPT, Gemini, and Doubao all characterize me as an <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>. This may be biased by the work-related nature of our conversations. I hope this offers a useful starting point for understanding how I work in collaborations.
 </div>
 
-<div id="copy-toast" class="copy-toast"></div>
+</div>
+
+<div data-language="zh" lang="zh-CN">
+<p>我是<a href="https://www.seu.edu.cn/" rel="external nofollow noopener" target="_blank">东南大学</a> <a href="https://palm.seu.edu.cn/" rel="external nofollow noopener" target="_blank">PALM 实验室</a>的硕士三年级学生，师从<a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">王洪松</a>教授，预计于 2027 年 6 月毕业。目前在<a href="https://hunyuan.tencent.com/" rel="external nofollow noopener" target="_blank">腾讯混元</a>担任研究实习生，同时与<a href="https://www.ucmerced.edu/" rel="external nofollow noopener" target="_blank">加州大学默塞德分校</a>的 <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a> 教授开展远程科研合作。此前，我曾在<a href="https://open.youtu.qq.com/#/open" rel="external nofollow noopener" target="_blank">腾讯优图实验室</a>实习，也曾作为远程访问学生，在新加坡管理大学 <a href="https://www.lv-lab.org/SMU/index.html" rel="external nofollow noopener" target="_blank">LV 实验室</a>与<a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">周攀</a>教授合作。2024 年，我获得了<a href="https://www.szu.edu.cn/" rel="external nofollow noopener" target="_blank">深圳大学</a>计算机科学与数学双学位，分别为工学学士和理学学士。本科期间，我在<a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">高灿</a>教授的指导下开始科研。</p>
+<div class="interest-card">
+我的研究兴趣包括强化学习（RL）、生成式人工智能（AIGC）、世界模型和三维人体建模。我计划申请 2027 年秋季入学的<strong>博士</strong>项目，也期待在 RL 和 AIGC 方向开展科研合作。欢迎通过 📧 <button type="button" class="contact-reveal" title="点击显示并复制邮箱" onclick="revealAndCopyContact(this, 'xiaofengtan@seu.edu.cn', 'Email')">邮箱</button> 或 💬 <button type="button" class="contact-reveal" title="点击显示并复制微信号" onclick="revealAndCopyContact(this, 'txf_06_20', 'WeChat ID')">微信</button> 与我交流 😊。更多信息请见<a href="/cv/">中英文简历</a>。
+<div class="interest-card__divider"></div>
+我很喜欢<span class="doraemon-text"><a href="https://zh.wikipedia.org/wiki/%E5%93%86%E5%95%A6A%E5%A4%A2" target="_blank" rel="noopener">哆啦 A 梦</a></span> 😺，于是也把它请到了网页的角落里。根据长期聊天记录，GPT、Gemini 和豆包都判断我是 <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>，不过聊天大多与工作有关，判断可能有偏差。放在这里，供合作者了解我的工作方式时参考。
+</div>
+</div>
+
+<div id="copy-toast" class="copy-toast" role="status" aria-live="polite"></div>
 
 <script>
 function copyToClipboard(text, label) {
-  navigator.clipboard.writeText(text).then(function() {
+  var chinese = document.documentElement.lang === 'zh-CN';
+  var displayLabel = chinese ? (label === 'Email' ? '邮箱' : '微信号') : label;
+  function showToast(message) {
     var toast = document.getElementById('copy-toast');
-    toast.textContent = '✓ ' + label + ' copied!';
+    toast.textContent = message;
     toast.classList.add('show');
     setTimeout(function() {
       toast.classList.remove('show');
     }, 2000);
+  }
+  if (!navigator.clipboard) {
+    showToast(chinese ? '请手动复制已显示的联系方式' : 'Please copy the displayed contact manually.');
+    return;
+  }
+  navigator.clipboard.writeText(text).then(function() {
+    showToast(chinese ? '✓ ' + displayLabel + '已复制' : '✓ ' + label + ' copied!');
+  }).catch(function() {
+    showToast(chinese ? '复制失败，请手动复制' : 'Unable to copy. Please copy manually.');
   });
 }
 
 function revealAndCopyContact(button, text, label) {
-  button.outerHTML = '<span class="copyable" onclick="copyToClipboard(\'' + text + '\', \'' + label + '\')">' + text + ' <i class="fas fa-copy"></i></span>';
+  button.textContent = text + ' ';
+  var icon = document.createElement('i');
+  icon.className = 'fas fa-copy';
+  icon.setAttribute('aria-hidden', 'true');
+  button.appendChild(icon);
+  button.classList.add('copyable');
   copyToClipboard(text, label);
 }
 </script>
@@ -967,8 +1009,12 @@ function revealAndCopyContact(button, text, label) {
             <th scope="row" style="width: 20%; color: #666;">Aug 28, 2026</th>
             <td>
               
-                🎉 <a href="https://xiaofeng-tan.github.io/projects/FG-Diff/index.html">FG-Diff</a> has been accepted to <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7" rel="external nofollow noopener" target="_blank">IEEE Transactions on Image Processing (TIP)</a>!
-
+                
+                
+                  <span data-language="en" lang="en">🎉 <a href="https://xiaofeng-tan.github.io/projects/FG-Diff/index.html">FG-Diff</a> has been accepted to <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7" rel="external nofollow noopener" target="_blank">IEEE Transactions on Image Processing (TIP)</a>!
+</span>
+                  <span data-language="zh" lang="zh-CN">🎉 <a href="/projects/FG-Diff/">FG-Diff</a> 被 <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7" rel="external nofollow noopener" target="_blank">IEEE Transactions on Image Processing（TIP）</a> 录用！</span>
+                
               
             </td>
           </tr>
@@ -977,8 +1023,12 @@ function revealAndCopyContact(button, text, label) {
             <th scope="row" style="width: 20%; color: #666;">May 13, 2026</th>
             <td>
               
-                🏅 I am honored to be selected as a <strong>Gold Reviewer</strong> for <a href="https://icml.cc/" target="_blank" rel="external nofollow noopener">ICML 2026</a>!
-
+                
+                
+                  <span data-language="en" lang="en">🏅 I am honored to be selected as a <strong>Gold Reviewer</strong> for <a href="https://icml.cc/" target="_blank" rel="external nofollow noopener">ICML 2026</a>!
+</span>
+                  <span data-language="zh" lang="zh-CN">🏅 很荣幸获评 <a href="https://icml.cc/" rel="external nofollow noopener" target="_blank">ICML 2026</a> <strong>金牌审稿人</strong>！</span>
+                
               
             </td>
           </tr>
@@ -987,8 +1037,12 @@ function revealAndCopyContact(button, text, label) {
             <th scope="row" style="width: 20%; color: #666;">Mar 31, 2026</th>
             <td>
               
-                👏 I have joined <a href="https://hunyuan.tencent.com/" target="_blank" rel="external nofollow noopener">Tencent Hunyuan<span class="chinese-handwriting">（混元）</span></a> as a Research Intern! Looking forward to exploring RLHF, and AIGC.
-
+                
+                
+                  <span data-language="en" lang="en">👏 I have joined <a href="https://hunyuan.tencent.com/" target="_blank" rel="external nofollow noopener">Tencent Hunyuan<span class="chinese-handwriting">（混元）</span></a> as a Research Intern! Looking forward to exploring RLHF, and AIGC.
+</span>
+                  <span data-language="zh" lang="zh-CN">👏 我已加入<a href="https://hunyuan.tencent.com/" rel="external nofollow noopener" target="_blank">腾讯混元</a>担任研究实习生，期待探索 RLHF 和 AIGC。</span>
+                
               
             </td>
           </tr>
@@ -997,8 +1051,12 @@ function revealAndCopyContact(button, text, label) {
             <th scope="row" style="width: 20%; color: #666;">Jan 26, 2026</th>
             <td>
               
-                🎉 <a href="https://xiaofeng-tan.github.io/projects/EasyTune/">EasyTune</a> has been accepted to <a href="https://iclr.cc/" rel="external nofollow noopener" target="_blank">ICLR 2026</a>!
-
+                
+                
+                  <span data-language="en" lang="en">🎉 <a href="https://xiaofeng-tan.github.io/projects/EasyTune/">EasyTune</a> has been accepted to <a href="https://iclr.cc/" rel="external nofollow noopener" target="_blank">ICLR 2026</a>!
+</span>
+                  <span data-language="zh" lang="zh-CN">🎉 <a href="/projects/EasyTune/">EasyTune</a> 被 <a href="https://iclr.cc/" rel="external nofollow noopener" target="_blank">ICLR 2026</a> 录用！</span>
+                
               
             </td>
           </tr>
@@ -1007,8 +1065,12 @@ function revealAndCopyContact(button, text, label) {
             <th scope="row" style="width: 20%; color: #666;">Nov 08, 2025</th>
             <td>
               
-                🎉 <a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a> has been accepted to <a href="https://aaai.org/conference/aaai/aaai-26/" rel="external nofollow noopener" target="_blank">AAAI 2026</a>!
-
+                
+                
+                  <span data-language="en" lang="en">🎉 <a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a> has been accepted to <a href="https://aaai.org/conference/aaai/aaai-26/" rel="external nofollow noopener" target="_blank">AAAI 2026</a>!
+</span>
+                  <span data-language="zh" lang="zh-CN">🎉 <a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a> 被 <a href="https://aaai.org/conference/aaai/aaai-26/" rel="external nofollow noopener" target="_blank">AAAI 2026</a> 录用！</span>
+                
               
             </td>
           </tr>
@@ -1017,8 +1079,12 @@ function revealAndCopyContact(button, text, label) {
             <th scope="row" style="width: 20%; color: #666;">Oct 26, 2025</th>
             <td>
               
-                🏆 I am honored to receive the <strong>Tencent-SEU Scholarship</strong> and <strong>Southeast University First-Class Academic Scholarship</strong>.
-
+                
+                
+                  <span data-language="en" lang="en">🏆 I am honored to receive the <strong>Tencent-SEU Scholarship</strong> and <strong>Southeast University First-Class Academic Scholarship</strong>.
+</span>
+                  <span data-language="zh" lang="zh-CN">🏆 很荣幸获得<strong>腾讯–东南大学奖学金</strong>和<strong>东南大学一等学业奖学金</strong>。</span>
+                
               
             </td>
           </tr>
@@ -1027,8 +1093,12 @@ function revealAndCopyContact(button, text, label) {
             <th scope="row" style="width: 20%; color: #666;">Sep 19, 2025</th>
             <td>
               
-                🎉 <a href="https://xiaofeng-tan.github.io/projects/SoPo/index.html">SoPo</a> has been accepted to <a href="https://neurips.cc/virtual/2025/poster/118773" rel="external nofollow noopener" target="_blank">NeurIPS 2025</a>!
-
+                
+                
+                  <span data-language="en" lang="en">🎉 <a href="https://xiaofeng-tan.github.io/projects/SoPo/index.html">SoPo</a> has been accepted to <a href="https://neurips.cc/virtual/2025/poster/118773" rel="external nofollow noopener" target="_blank">NeurIPS 2025</a>!
+</span>
+                  <span data-language="zh" lang="zh-CN">🎉 <a href="/projects/SoPo/">SoPo</a> 被 <a href="https://neurips.cc/virtual/2025/poster/118773" rel="external nofollow noopener" target="_blank">NeurIPS 2025</a> 录用！</span>
+                
               
             </td>
           </tr>
@@ -1037,8 +1107,12 @@ function revealAndCopyContact(button, text, label) {
             <th scope="row" style="width: 20%; color: #666;">Jul 01, 2025</th>
             <td>
               
-                👏 I become a research intern at <a href="https://open.youtu.qq.com/#/open" rel="external nofollow noopener" target="_blank">Youtu Lab<span class="chinese-handwriting">（优图实验室）</span>@ Tencent</a>.
-
+                
+                
+                  <span data-language="en" lang="en">👏 I become a research intern at <a href="https://open.youtu.qq.com/#/open" rel="external nofollow noopener" target="_blank">Youtu Lab<span class="chinese-handwriting">（优图实验室）</span>@ Tencent</a>.
+</span>
+                  <span data-language="zh" lang="zh-CN">👏 我开始在<a href="https://open.youtu.qq.com/#/open" rel="external nofollow noopener" target="_blank">腾讯优图实验室</a>担任研究实习生。</span>
+                
               
             </td>
           </tr>
@@ -1047,8 +1121,12 @@ function revealAndCopyContact(button, text, label) {
             <th scope="row" style="width: 20%; color: #666;">Dec 24, 2024</th>
             <td>
               
-                🎉 Merry Xmas! <a href="https://ieeexplore.ieee.org/abstract/document/10821488" rel="external nofollow noopener" target="_blank">One paper</a> from my undergraduate research is accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69" rel="external nofollow noopener" target="_blank">TKDE</a>!
-
+                
+                
+                  <span data-language="en" lang="en">🎉 Merry Xmas! <a href="https://ieeexplore.ieee.org/abstract/document/10821488" rel="external nofollow noopener" target="_blank">One paper</a> from my undergraduate research is accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69" rel="external nofollow noopener" target="_blank">TKDE</a>!
+</span>
+                  <span data-language="zh" lang="zh-CN">🎉 圣诞快乐！我的一篇本科研究论文被 <a href="https://ieeexplore.ieee.org/abstract/document/10821488" rel="external nofollow noopener" target="_blank">TKDE</a> 录用！</span>
+                
               
             </td>
           </tr>
@@ -1057,8 +1135,12 @@ function revealAndCopyContact(button, text, label) {
             <th scope="row" style="width: 20%; color: #666;">Sep 13, 2024</th>
             <td>
               
-                🏃🏻‍➡️ Officially started my M.Sc journey at SEU.
-
+                
+                
+                  <span data-language="en" lang="en">🏃🏻‍➡️ Officially started my M.Sc journey at SEU.
+</span>
+                  <span data-language="zh" lang="zh-CN">🏃🏻‍➡️ 正式开启在东南大学的硕士学习。</span>
+                
               
             </td>
           </tr>
@@ -1067,9 +1149,13 @@ function revealAndCopyContact(button, text, label) {
             <th scope="row" style="width: 20%; color: #666;">Jun 29, 2024</th>
             <td>
               
-                🎙️ I am honored to deliver a speech at the graduation ceremony on behalf of all graduates.  [<a href="/assets/img/SZU-Speech.jpg">Photos</a>]
+                
+                
+                  <span data-language="en" lang="en">🎙️ I am honored to deliver a speech at the graduation ceremony on behalf of all graduates.  [<a href="/assets/img/SZU-Speech.jpg">Photos</a>]
 
-
+</span>
+                  <span data-language="zh" lang="zh-CN">🎙️ 很荣幸作为毕业生代表在毕业典礼上发言。<a href="/assets/img/SZU-Speech.jpg">查看照片</a></span>
+                
               
             </td>
           </tr>
@@ -1078,8 +1164,12 @@ function revealAndCopyContact(button, text, label) {
             <th scope="row" style="width: 20%; color: #666;">Jun 12, 2024</th>
             <td>
               
-                🌈 I am honored to be interviewed by SZU as an outstanding student, and is published in the <em>2024 Shenzhen University Admissions Guide</em>. [<a href="https://book.yunzhan365.com/aeeh/bulw/mobile/index.html" rel="external nofollow noopener" target="_blank">Link</a>]
-
+                
+                
+                  <span data-language="en" lang="en">🌈 I am honored to be interviewed by SZU as an outstanding student, and is published in the <em>2024 Shenzhen University Admissions Guide</em>. [<a href="https://book.yunzhan365.com/aeeh/bulw/mobile/index.html" rel="external nofollow noopener" target="_blank">Link</a>]
+</span>
+                  <span data-language="zh" lang="zh-CN">🌈 很荣幸作为优秀学生接受深圳大学采访，相关报道收录于《深圳大学 2024 年招生指南》。<a href="https://book.yunzhan365.com/aeeh/bulw/mobile/index.html" rel="external nofollow noopener" target="_blank">查看报道</a></span>
+                
               
             </td>
           </tr>
@@ -1088,6 +1178,7 @@ function revealAndCopyContact(button, text, label) {
     </div>
   
 </div>
+
   
 
   <!-- Education Experience - Logo Timeline Style -->
@@ -2976,7 +3067,7 @@ function revealAndCopyContact(button, text, label) {
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <span>Last updated: <time datetime="2026-09-19T13:29:17+00:00">September 19, 2026</time></span>
+    <span>Last updated: <time datetime="2026-09-19T14:16:16+00:00">September 19, 2026</time></span>
   </div>
 </article>
 
@@ -3338,5 +3429,6 @@ function revealAndCopyContact(button, text, label) {
   <script src="/assets/js/shortcut-key.js?6f508d74becd347268a7f822bca7309d"></script>
 
 
+    <script src="/assets/js/language.js?7218a18a5e927db3a24eecb9a559fc23"></script>
   </body>
 </html>
