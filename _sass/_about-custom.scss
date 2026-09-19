@@ -1914,11 +1914,21 @@
 
   /* ========== Page-level Last Updated（低调）========== */
   .page-last-updated {
-    margin: 1.2rem 0 0.2rem;
-    font-size: 0.72rem;
-    color: #9aa5b1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    margin: 1.6rem 0 0.2rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 0.82rem;
+    color: #6b7a8c;
     text-align: right;
-    font-style: italic;
+  }
+
+  .page-last-updated i {
+    font-size: 0.78rem;
+    opacity: 0.85;
   }
 
   /* ========== 爱好样式 ========== */
@@ -3196,7 +3206,8 @@
 
   /* ===== Page-level Last Updated（暗色低调）===== */
   html[data-theme="dark"] .page-last-updated {
-    color: #6e7681;
+    color: #8b949e;
+    border-top-color: rgba(48, 54, 61, 0.8);
   }
 
   /* ===== 爱好 ===== */
@@ -4609,4 +4620,37 @@ html[data-theme="dark"] .education-ranking-value {
   height: 1em;
   fill: currentColor;
   display: block;
+}
+
+/* ========== Research Experience: uniform logo cards ==========
+   The research row used to be a wrapping flexbox with content-sized cards
+   (min-width: 80px), so every card had a different width and the row looked
+   ragged. A grid gives all cards the same width and (per row) the same height. */
+.logo-row--research {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: 0.9rem;
+  align-items: stretch;
+}
+
+.logo-row--research .logo-item {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+/* custom.js moves the expanded detail card INTO the logo row (right after the
+   clicked card's row). In a grid it would otherwise take a single column and
+   turn into a narrow vertical strip, so force it to span the whole row. */
+.logo-row--research > .detail-card {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .logo-row--research {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.6rem;
+  }
 }

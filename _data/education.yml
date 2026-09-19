@@ -7,11 +7,11 @@
   abbr: SEU
   role_short: Master
   college: School of Computer Science and Engineering
-  degree: Master Student
-  year: 2024 - Present
+  degree: Master Student (Final Year)
+  year: 2024 - 2027 (Expected)
   logo: ./assets/img/seu_logo.png
   location: Nanjing, China
-  intro: Outstanding Camper (Ranked 2nd) in 2024 Graduate Admission Summer Camp.
+  intro: "Expected graduation: June 2027. Outstanding Camper (Ranked 2nd) in 2024 Graduate Admission Summer Camp."
   csrankings:
     - label: AI
       rank: "#14"

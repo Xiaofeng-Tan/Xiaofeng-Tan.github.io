@@ -11,7 +11,7 @@
   contents:
     - title: M.Sc. in Computer Science
       institution: Southeast University (SEU), Nanjing, China
-      year: 2024.09 - Present
+      year: 2024.09 - 2027.06 (Expected)
       description:
         - School of Computer Science and Engineering.
         - Supervised by Prof. <a href="https://cs.seu.edu.cn/hongsongwang/main.htm">Hongsong Wang</a>.
@@ -31,7 +31,14 @@
       institution: Tencent Hunyuan（混元）, Shenzhen, China
       year: 2026.03 - Present
       description:
+        - Mentored by Jiaxin Lin; collaborated with Rui Chen.
         - Research on RLHF, RLVR, AIGC.
+    - title: Remote Visiting Student
+      institution: University of California, Merced (UC Merced), Merced, CA (Remote)
+      year: 2026.04 - Present
+      description:
+        - Vision and Learning Lab (VLL), mentored by Prof. <a href="https://faculty.ucmerced.edu/mhyang/">Ming-Hsuan Yang</a>.
+        - Research on Computer Vision.
     - title: Research Intern
       institution: Tencent YouTu Lab, Shenzhen, China
       year: 2025.07 - 2026.03

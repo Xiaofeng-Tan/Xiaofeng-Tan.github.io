@@ -35,7 +35,8 @@
     name: "HY（混元）"
     url: "https://hunyuan.tencent.com/"
   co-authors:
-    - "TBD"
+    - "Jiaxin Lin (Mentor)"
+    - "Rui Chen"
   outputs:
 
 - institution: "Tencent Inc."
@@ -85,7 +86,7 @@
   abbr: SEU
   lab_at: "PALM Lab @ SEU"
   logo: "/assets/img/palm-logo.png"
-  role: "Master student"
+  role: "Final-year Master student"
   period: "2024.04 - Present"
   location: "Nanjing, China"
   topic: "RLHF, Motion Generation, Action Recognition"
