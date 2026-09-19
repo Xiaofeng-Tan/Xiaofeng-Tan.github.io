@@ -26,8 +26,33 @@ nav_order: 2
 
   <div class="row justify-content-center mt-4">
     <div class="col-12">
-      <h4 class="text-center mb-4">Preview (English)</h4>
-      <embed src="/assets/pdf/CV_Xiaofeng_Tan.pdf" type="application/pdf" width="100%" height="800px" />
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+        <h4 id="cv-preview-heading" class="mb-0" data-preview-label>Preview · English CV</h4>
+        <button id="cv-preview-toggle" type="button" class="btn btn-outline-primary btn-sm" aria-controls="cv-preview" data-preview-label>预览中文简历</button>
+      </div>
+      <object id="cv-preview" data="/assets/pdf/CV_Xiaofeng_Tan.pdf" type="application/pdf" width="100%" height="800" aria-label="English CV">
+        <p>PDF preview unavailable. / 无法预览 PDF，请使用上方链接下载简历。</p>
+      </object>
     </div>
   </div>
 </div>
+
+<script>
+(function () {
+  var chinese = document.documentElement.lang === 'zh-CN';
+  var button = document.getElementById('cv-preview-toggle');
+  var heading = document.getElementById('cv-preview-heading');
+  var preview = document.getElementById('cv-preview');
+  function render() {
+    preview.setAttribute('data', chinese ? '/assets/pdf/CV_Xiaofeng_Tan_CN.pdf' : '/assets/pdf/CV_Xiaofeng_Tan.pdf');
+    preview.setAttribute('aria-label', chinese ? '中文简历' : 'English CV');
+    heading.textContent = chinese ? '预览 · 中文简历' : 'Preview · English CV';
+    button.textContent = chinese ? 'Preview English CV' : '预览中文简历';
+  }
+  button.addEventListener('click', function () {
+    chinese = !chinese;
+    render();
+  });
+  render();
+})();
+</script>

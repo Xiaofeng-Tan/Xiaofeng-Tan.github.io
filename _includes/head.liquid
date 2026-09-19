@@ -1,5 +1,13 @@
 <!-- Metadata, OpenGraph and Schema.org -->
 {% include metadata.liquid %}
+<script>
+  try {
+    if (localStorage.getItem('site-language') === 'zh') {
+      document.documentElement.lang = 'zh-CN';
+    }
+  } catch (error) { /* Storage may be disabled; English remains the default. */ }
+</script>
+<link rel="stylesheet" href="{{ '/assets/css/language.css' | relative_url | bust_file_cache }}">
 
 <!-- Bootstrap & MDB -->
 <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url | bust_file_cache }}">

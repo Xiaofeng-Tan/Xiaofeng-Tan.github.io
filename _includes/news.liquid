@@ -19,7 +19,13 @@
             <th scope="row" style="width: 20%; color: #666;">{{ item.date | date: '%b %d, %Y' }}</th>
             <td>
               {% if item.inline %}
-                {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+                {% assign news_key = item.path | split: '/' | last | remove: '.md' %}
+                {% if site.data.news_zh[news_key] %}
+                  <span data-language="en" lang="en">{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}</span>
+                  <span data-language="zh" lang="zh-CN">{{ site.data.news_zh[news_key] }}</span>
+                {% else %}
+                  {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+                {% endif %}
               {% else %}
                 <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
               {% endif %}
