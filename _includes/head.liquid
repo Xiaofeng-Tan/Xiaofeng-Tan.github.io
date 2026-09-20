@@ -1,5 +1,8 @@
 <!-- Metadata, OpenGraph and Schema.org -->
 {% include metadata.liquid %}
+{% if page.layout == 'about' %}
+  <link rel="preload" href="{{ '/assets/fonts/gu-xingshu-subset.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{% endif %}
 <script>
   try {
     if (localStorage.getItem('site-language') === 'zh') {
