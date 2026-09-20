@@ -14,10 +14,12 @@ layout: default
       {% if site.title == 'blank' %}
         <strong><span>{{ site.first_name }}</span></strong>
         <span>TAN</span>
-        <span class="name-separator">·</span>
-        <span class="chinese-name">{{ site.Chinese_name }}</span>
       {% else %}
         {{ site.title }}
+      {% endif %}
+      {% if site.Chinese_name %}
+        <span class="name-separator">·</span>
+        <span class="chinese-name">{{ site.Chinese_name }}</span>
       {% endif %}
     </h1>
 
