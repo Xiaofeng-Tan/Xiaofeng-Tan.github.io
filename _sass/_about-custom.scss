@@ -74,6 +74,16 @@
     content: none;
   }
 
+  /* Keep cards and section dividers subtly refined while retaining the original page background. */
+  html:not([data-theme="dark"]) .logo-item:not(.active):not(:hover) {
+    background: #ffffff;
+    border-color: rgba(74, 66, 52, 0.065);
+  }
+
+  html:not([data-theme="dark"]) .section-title {
+    border-bottom-color: rgba(0, 161, 233, 0.065);
+  }
+
   .post {
     font-family: "Crimson Pro", "Source Serif 4", Georgia, "Times New Roman", serif;
     color: #2c3e50;
@@ -4708,5 +4718,318 @@ html[data-theme="dark"] .education-ranking-value {
   .logo-row--research {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 0.6rem;
+  }
+}
+
+/* ========== Publications: calmer visual hierarchy ==========
+ * Keep the title as the primary reading target. Metadata, rankings, and
+ * resource links remain available but intentionally recede until hovered.
+ */
+.publications .bibliography li {
+  margin-bottom: 1.08rem;
+}
+
+.publications .title {
+  color: #253547;
+  font-size: 0.94rem;
+  font-weight: 650;
+  line-height: 1.32;
+  letter-spacing: -0.012em;
+}
+
+.publications .author {
+  color: #718090;
+  font-size: 0.73rem;
+  line-height: 1.28;
+}
+
+.publications .periodical {
+  color: #8995a1;
+  font-size: 0.71rem;
+  line-height: 1.25;
+}
+
+.publications .periodical .venue-abbr {
+  font-size: 0.69rem;
+  opacity: 0.82;
+}
+
+.publications .periodical .venue-separator {
+  color: #b6c0c9;
+  margin: 0 0.28rem;
+}
+
+.publications .ccf-badge,
+.publications .core-badge,
+.publications .sci-badge {
+  border: 1px solid transparent !important;
+  font-size: 0.54rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  margin-left: 0.28rem;
+  padding: 0.02rem 0.25rem;
+}
+
+.publications .ccf-badge-ccfa {
+  background: rgba(229, 85, 85, 0.075) !important;
+  border-color: rgba(209, 72, 72, 0.28) !important;
+  color: #bf4e4e !important;
+}
+
+.publications .ccf-badge-ccfb {
+  background: rgba(231, 157, 43, 0.09) !important;
+  border-color: rgba(204, 130, 22, 0.28) !important;
+  color: #a97218 !important;
+}
+
+.publications .ccf-badge-ccfc {
+  background: rgba(77, 157, 91, 0.08) !important;
+  border-color: rgba(57, 132, 69, 0.27) !important;
+  color: #397f46 !important;
+}
+
+.publications .core-badge-coreastar {
+  background: rgba(108, 83, 193, 0.075) !important;
+  border-color: rgba(94, 70, 175, 0.26) !important;
+  color: #6951af !important;
+}
+
+.publications .core-badge-corea {
+  background: rgba(64, 128, 202, 0.075) !important;
+  border-color: rgba(50, 111, 181, 0.25) !important;
+  color: #3f78bb !important;
+}
+
+.publications .core-badge-coreb {
+  background: rgba(68, 145, 104, 0.075) !important;
+  border-color: rgba(51, 124, 85, 0.24) !important;
+  color: #3a7a58 !important;
+}
+
+.publications .sci-badge-sciq1 {
+  background: rgba(193, 76, 128, 0.07) !important;
+  border-color: rgba(173, 57, 109, 0.25) !important;
+  color: #a9416d !important;
+}
+
+.publications .sci-badge-sciq2,
+.publications .sci-badge-sciq3,
+.publications .sci-badge-sciq4 {
+  background: rgba(100, 116, 139, 0.05) !important;
+  border-color: rgba(100, 116, 139, 0.24) !important;
+  color: #718093 !important;
+}
+
+.publications .links {
+  font-size: 0.68rem;
+  gap: 0.18rem;
+  margin-top: 0.14rem;
+  row-gap: 0.18rem;
+}
+
+.publications .links a {
+  color: #7b8997 !important;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.publications .links a + a::before {
+  color: #c5ccd3;
+  content: '·';
+  font-weight: 400;
+  margin: 0 0.28rem 0 0.04rem;
+}
+
+.publications .links a i {
+  font-size: 0.8em;
+  opacity: 0.72;
+}
+
+.publications .links a:hover {
+  color: var(--primary) !important;
+  text-decoration: none !important;
+}
+
+.publications .links a:hover i {
+  opacity: 1;
+}
+
+html[data-theme="dark"] .publications .title {
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] .publications .author {
+  color: #9aa7b4;
+}
+
+html[data-theme="dark"] .publications .periodical {
+  color: #7d8995;
+}
+
+html[data-theme="dark"] .publications .ccf-badge,
+html[data-theme="dark"] .publications .core-badge,
+html[data-theme="dark"] .publications .sci-badge {
+  background: rgba(148, 163, 184, 0.09) !important;
+}
+
+html[data-theme="dark"] .publications .ccf-badge-ccfa {
+  border-color: rgba(238, 117, 117, 0.35) !important;
+  color: #ec9696 !important;
+}
+
+html[data-theme="dark"] .publications .ccf-badge-ccfb {
+  border-color: rgba(243, 179, 76, 0.35) !important;
+  color: #f0bd68 !important;
+}
+
+html[data-theme="dark"] .publications .ccf-badge-ccfc {
+  border-color: rgba(101, 193, 122, 0.34) !important;
+  color: #86cf97 !important;
+}
+
+html[data-theme="dark"] .publications .core-badge-coreastar {
+  border-color: rgba(170, 146, 248, 0.35) !important;
+  color: #b7a1f3 !important;
+}
+
+html[data-theme="dark"] .publications .core-badge-corea {
+  border-color: rgba(104, 173, 246, 0.35) !important;
+  color: #8ec4fa !important;
+}
+
+html[data-theme="dark"] .publications .core-badge-coreb {
+  border-color: rgba(100, 200, 140, 0.32) !important;
+  color: #84d5a4 !important;
+}
+
+html[data-theme="dark"] .publications .sci-badge-sciq1 {
+  border-color: rgba(238, 116, 166, 0.34) !important;
+  color: #f0a0c1 !important;
+}
+
+html[data-theme="dark"] .publications .links a {
+  color: #98a6b4 !important;
+}
+
+html[data-theme="dark"] .publications .links a + a::before {
+  color: #46515d;
+}
+
+@media (max-width: 768px) {
+  .publications .bibliography li {
+    margin-bottom: 0.65rem;
+  }
+
+  .publications .title {
+    font-size: 0.86rem;
+  }
+
+  .publications .author {
+    font-size: 0.72rem;
+  }
+
+  .publications .periodical {
+    font-size: 0.69rem;
+  }
+
+.publications .links a {
+    font-size: 0.66rem;
+  }
+}
+
+/* ========== Interaction polish: deliberate, spring-free expansion ==========
+ * The transition curve is the same style of deceleration commonly used in
+ * platform UI: fast enough to feel responsive, with a gentle settle and no
+ * overshoot. The JavaScript height animation handles native <details>; these
+ * rules cover the timeline detail cards and the content fade/slide. */
+.detail-card {
+  will-change: grid-template-rows, transform;
+  transition:
+    grid-template-rows 460ms cubic-bezier(0.22, 1, 0.36, 1),
+    margin 460ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 260ms ease,
+    border-color 260ms ease,
+    transform 460ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.detail-card-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.72rem;
+  min-height: 0;
+  transform: translateY(-8px) scale(0.992);
+  transform-origin: top center;
+  transition:
+    opacity 180ms ease,
+    transform 460ms cubic-bezier(0.22, 1, 0.36, 1),
+    padding 460ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.detail-card.active .detail-card-inner {
+  display: flex;
+  transform: translateY(0) scale(1);
+}
+
+details.compact-card,
+details.pub-category {
+  will-change: height;
+}
+
+details.compact-card.is-animating,
+details.pub-category.is-animating {
+  overflow: hidden;
+}
+
+.compact-card summary,
+.pub-category__summary {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    padding 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.compact-card .compact-card-body,
+.pub-category__body {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity 180ms ease,
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.compact-card[open] .compact-card-body,
+.pub-category[open] .pub-category__body {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.compact-card.is-closing .compact-card-body,
+.pub-category.is-closing .pub-category__body {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.pub-category__chevron {
+  transition:
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    margin-top 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms ease;
+}
+
+.pub-category.is-closing .pub-category__chevron {
+  transform: rotate(-45deg);
+  margin-top: 0.1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-card,
+  .detail-card-inner,
+  .compact-card summary,
+  .pub-category__summary,
+  .compact-card .compact-card-body,
+  .pub-category__body,
+  .pub-category__chevron {
+    transition: none !important;
   }
 }

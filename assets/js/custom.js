@@ -4,6 +4,12 @@
 // ============================================================================
 
 // ========== Block 1: Education / Research detail toggles ==========
+    const TIMELINE_TRANSITION_MS = 460;
+
+    function prefersReducedMotion() {
+      return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
     // Move the detail card under the visual row that contains the clicked logo.
     // This avoids a first-row click expanding below later wrapped rows.
     function placeDetailAfterLogoRow(detail, clickedItem, logoItems) {
@@ -15,6 +21,27 @@
       const lastItemInRow = sameRowItems[sameRowItems.length - 1] || clickedItem;
 
       lastItemInRow.insertAdjacentElement('afterend', detail);
+    }
+
+    function restoreDetailAfterCollapse(detail, section) {
+      if (prefersReducedMotion()) {
+        if (!detail.classList.contains('active') && detail.parentElement !== section) section.appendChild(detail);
+        return;
+      }
+
+      let settled = false;
+      const restore = () => {
+        if (settled) return;
+        settled = true;
+        detail.removeEventListener('transitionend', onTransitionEnd);
+        if (!detail.classList.contains('active') && detail.parentElement !== section) section.appendChild(detail);
+      };
+      const onTransitionEnd = (event) => {
+        if (event.target === detail && event.propertyName === 'grid-template-rows') restore();
+      };
+
+      detail.addEventListener('transitionend', onTransitionEnd);
+      window.setTimeout(restore, TIMELINE_TRANSITION_MS + 80);
     }
 
     function toggleTimelineDetail(kind, index) {
@@ -29,24 +56,24 @@
       if (!clickedItem) return;
 
       const wasActive = detail.classList.contains('active');
+      const activeDetails = Array.from(section.querySelectorAll('.detail-card.active'));
 
-      section.querySelectorAll('.detail-card.active').forEach((card) => {
+      activeDetails.forEach((card) => {
         card.classList.remove('active');
-        if (card !== detail) {
-          window.setTimeout(() => section.appendChild(card), 420);
-        }
+        restoreDetailAfterCollapse(card, section);
       });
-
       logoItems.forEach((item) => item.classList.remove('active'));
 
-      if (wasActive) {
-        window.setTimeout(() => section.appendChild(detail), 420);
-        return;
-      }
+      if (wasActive) return;
 
       placeDetailAfterLogoRow(detail, clickedItem, logoItems);
       clickedItem.classList.add('active');
-      window.requestAnimationFrame(() => detail.classList.add('active'));
+
+      // Two frames ensure the collapsed state is committed before expansion,
+      // avoiding the occasional one-frame "pop" on Safari and Chromium.
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => detail.classList.add('active'));
+      });
     }
 
     // Toggle education detail
@@ -58,6 +85,80 @@
     function toggleResearchDetail(index) {
       toggleTimelineDetail('research', index);
     }
+
+// ========== Block 1b: Smooth native <details> expansion ==========
+(function () {
+  const selector = 'details.compact-card, details.pub-category';
+  const easing = 'cubic-bezier(0.22, 1, 0.36, 1)';
+
+  function reducedMotion() {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function duration(startHeight, endHeight) {
+    return Math.min(460, Math.max(240, 210 + Math.abs(endHeight - startHeight) * 0.42));
+  }
+
+  function enhance(details) {
+    const summary = details.querySelector(':scope > summary');
+    if (!summary) return;
+
+    let animation = null;
+
+    summary.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      if (reducedMotion()) {
+        details.open = !details.open;
+        return;
+      }
+
+      const opening = !details.open || details.classList.contains('is-closing');
+      const startHeight = details.getBoundingClientRect().height;
+
+      if (animation) animation.cancel();
+
+      details.classList.add('is-animating');
+
+      if (opening) {
+        details.open = true;
+        details.classList.remove('is-closing');
+        details.style.height = 'auto';
+        const endHeight = details.offsetHeight;
+        details.style.height = `${startHeight}px`;
+
+        animation = details.animate(
+          [{ height: `${startHeight}px` }, { height: `${endHeight}px` }],
+          { duration: duration(startHeight, endHeight), easing, fill: 'both' }
+        );
+
+        animation.onfinish = () => {
+          details.style.height = '';
+          details.classList.remove('is-animating');
+          animation = null;
+        };
+      } else {
+        const endHeight = summary.getBoundingClientRect().height;
+        details.style.height = `${startHeight}px`;
+        details.classList.add('is-closing');
+
+        animation = details.animate(
+          [{ height: `${startHeight}px` }, { height: `${endHeight}px` }],
+          { duration: duration(startHeight, endHeight), easing, fill: 'both' }
+        );
+
+        animation.onfinish = () => {
+          details.open = false;
+          details.style.height = '';
+          details.classList.remove('is-animating', 'is-closing');
+          animation = null;
+        };
+      }
+    });
+  }
+
+  document.querySelectorAll(selector).forEach(enhance);
+})();
 
 // ========== Block 2: Mascot (Doraemon / Tom & Jerry) ==========
 (function() {
