@@ -21,3 +21,9 @@ html[lang="zh-CN"] span[data-language="zh"] { display: inline; }
 }
 article > .clearfix > [data-language] > p { margin-bottom: 0.5rem; }
 article > .clearfix > [data-language] > .interest-card { margin: 0.5rem 0; }
+
+.translation-disclaimer {
+  margin-top: 0.2rem;
+  color: var(--global-text-color-light);
+  font-size: 0.78em;
+}
