@@ -5,9 +5,9 @@
 
 - institution: "UC Merced"
   abbr: UCM
-  lab_at: "VLL @ UCM"
+  lab_at: "VLLab @ UCM"
   logo: "/assets/img/ucm_logo.png"
-  role: "Visiting student"
+  role: "Remote Visiting Student"
   period: "2026.04 - Present"
   location: "Merced, CA (Remote)"
   topic: "Computer Vision"
@@ -65,7 +65,7 @@
   abbr: SMU
   lab_at: "LV Lab @ SMU"
   logo: "/assets/img/smu-logo-s.png"
-  role: "Visiting student"
+  role: "Remote Visiting Student"
   period: "2024.07 - 2025.03"
   location: "Singapore (Remote)"
   topic: "RLHF, Motion Generation"
@@ -110,7 +110,7 @@
   abbr: SZU
   lab_at: "CV Institute @ SZU"
   logo: "/assets/img/szu_logo.png"
-  role: "Research intern"
+  role: "Undergraduate Research Intern"
   period: "2022.10 - 2023.10"
   location: "Shenzhen, China"
   topic: "Outlier Detection, Anomaly Detection"
