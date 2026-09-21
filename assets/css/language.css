@@ -22,6 +22,36 @@ html[lang="zh-CN"] span[data-language="zh"] { display: inline; }
 article > .clearfix > [data-language] > p { margin-bottom: 0.5rem; }
 article > .clearfix > [data-language] > .interest-card { margin: 0.5rem 0; }
 
+.intro-language-switch {
+  margin: 0.18rem 0 0.7rem;
+}
+
+.intro-language-toggle {
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  padding: 0;
+  background: transparent;
+  color: var(--text-soft, #7f8c8d);
+  font: 500 0.76rem/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: 0;
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.intro-language-toggle::after {
+  content: ' ↗';
+  margin-left: 0.18rem;
+  opacity: 0.6;
+}
+
+.intro-language-toggle:hover,
+.intro-language-toggle:focus-visible {
+  color: var(--primary, #00a1e9);
+  border-bottom-color: var(--primary-line, rgba(0, 161, 233, 0.22));
+  outline: none;
+}
+
 .translation-disclaimer {
   margin-top: 0.2rem;
   color: var(--global-text-color-light);

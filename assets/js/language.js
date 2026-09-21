@@ -9,7 +9,8 @@
   const originals = new WeakMap();
   const attributes = new WeakMap();
   const button = document.getElementById('language-toggle');
-  if (!button) return;
+  const introButtons = Array.from(document.querySelectorAll('[data-language-target]'));
+  if (!button && introButtons.length === 0) return;
 
   function translate(text) {
     const key = text.trim().replace(/\s+/g, ' ');
@@ -56,14 +57,23 @@
         element.setAttribute(name, chinese ? translate(value) : value);
       });
     });
-    button.textContent = chinese ? 'EN' : '中文';
-    button.title = chinese ? 'Switch to English' : '切换为中文';
-    button.setAttribute('aria-label', button.title);
+    if (button) {
+      button.textContent = chinese ? 'EN' : '中文';
+      button.title = chinese ? 'Switch to English' : '切换为中文';
+      button.setAttribute('aria-label', button.title);
+    }
     // Notify layout-dependent widgets after the text changes.
     window.dispatchEvent(new Event('resize'));
   }
-  button.addEventListener('click', function () {
-    setLanguage(document.documentElement.lang === 'zh-CN' ? 'en' : 'zh');
+  if (button) {
+    button.addEventListener('click', function () {
+      setLanguage(document.documentElement.lang === 'zh-CN' ? 'en' : 'zh');
+    });
+  }
+  introButtons.forEach(function (introButton) {
+    introButton.addEventListener('click', function () {
+      setLanguage(introButton.dataset.languageTarget);
+    });
   });
   setLanguage(document.documentElement.lang === 'zh-CN' ? 'zh' : 'en');
 })();

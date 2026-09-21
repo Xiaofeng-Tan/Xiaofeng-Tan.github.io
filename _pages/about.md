@@ -25,6 +25,10 @@ My research interests include RL, AIGC, world models, and 3D human modeling. My 
 I'm a <span class="doraemon-text"><a href="https://en.wikipedia.org/wiki/Doraemon" target="_blank"><em>Doraemon</em></a></span> fan 😺, as the little companions in the bottom corners suggest. Based on our long history of conversations, GPT, Gemini, and Doubao all characterize me as an <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>. This may be biased by the work-related nature of our conversations. I hope this offers a useful starting point for understanding how I work in collaborations.
 </div>
 
+<div class="intro-language-switch">
+  <button type="button" class="intro-language-toggle" data-language-target="zh" aria-label="点击跳转简体中文版">点击跳转简体中文版</button>
+</div>
+
 </div>
 
 <div data-language="zh" lang="zh-CN" markdown="0">
@@ -33,6 +37,9 @@ I'm a <span class="doraemon-text"><a href="https://en.wikipedia.org/wiki/Doraemo
 我的研究兴趣包括强化学习（RL）、生成式人工智能（AIGC）、世界模型和三维人体建模。一作论文发表于 NeurIPS、ICLR、AAAI 和 IEEE TIP；我也担任 ICML（金牌审稿人）、NeurIPS、AAAI、ICLR、TMLR 和 IJDSA 的审稿人。我计划申请 2027 年秋季入学的<strong>博士</strong>项目。如有意在 RL 或 AIGC 方向合作，欢迎通过 📧 <button type="button" class="contact-reveal" title="点击显示并复制邮箱" onclick="revealAndCopyContact(this, 'xiaofengtan@seu.edu.cn', 'Email')">邮箱</button> 或 💬 <button type="button" class="contact-reveal" title="点击显示并复制微信号" onclick="revealAndCopyContact(this, 'txf_06_20', 'WeChat ID')">微信</button> 与我交流 😊。更多信息请见<a href="{{ '/cv/' | relative_url }}">中英文简历</a>。
 <div class="interest-card__divider"></div>
 我很喜欢<span class="doraemon-text"><a href="https://zh.wikipedia.org/wiki/哆啦A夢" target="_blank" rel="noopener">哆啦 A 梦</a></span> 😺，于是也把它请到了网页的角落里。根据长期聊天记录，GPT、Gemini 和豆包都判断我是 <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>，不过聊天大多与工作有关，判断可能有偏差。放在这里，供合作者了解我的工作方式时参考。
+</div>
+<div class="intro-language-switch">
+  <button type="button" class="intro-language-toggle" data-language-target="en" aria-label="View English introduction">English introduction</button>
 </div>
 </div>
 
