@@ -267,7 +267,7 @@
   }
 
   .section-subnav-inner::-webkit-scrollbar {
-    display: none;
+    display: none !important;
   }
 
   .section-subnav-link {
@@ -310,7 +310,6 @@
     padding-bottom: 0.4rem;
     padding-left: 1rem;
     border-bottom: 2px solid rgba(0, 161, 233, 0.1);
-    display: flex;
     align-items: center;
     position: relative;
     transition: all 0.3s ease;
