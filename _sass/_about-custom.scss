@@ -2010,6 +2010,24 @@
     text-align: justify;
   }
 
+  .hobbies-intro a {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--primary-line);
+    transition: color 0.18s ease, border-color 0.18s ease;
+  }
+
+  .hobbies-intro a:hover {
+    color: var(--primary-hover);
+    border-bottom-color: var(--primary-hover);
+  }
+
+  html[lang="zh-CN"] #sec-life [data-language="zh"],
+  html[lang="zh-CN"] .hobbies-intro[data-language="zh"],
+  html[lang="zh-CN"] .hobbies-intro[data-language="zh"] a {
+    font-family: 'Songti SC', 'STSong', 'SimSun', serif !important;
+  }
+
   .hobbies-intro em {
     font-family: "Crimson Pro", Georgia, serif;
     font-style: italic;
