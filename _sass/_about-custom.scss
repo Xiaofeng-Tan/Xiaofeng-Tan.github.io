@@ -2022,6 +2022,7 @@
     border-bottom-color: var(--primary-hover);
   }
 
+  /* Keep the Chinese Life & Interests copy aligned with the site's Chinese text. */
   html[lang="zh-CN"] #sec-life [data-language="zh"],
   html[lang="zh-CN"] .hobbies-intro[data-language="zh"],
   html[lang="zh-CN"] .hobbies-intro[data-language="zh"] a {
