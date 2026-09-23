@@ -22,7 +22,7 @@ I am a final-year M.Sc. student in the [PALM Lab](https://palm.seu.edu.cn/) at [
 <div class="interest-card" markdown="0">
 My research interests include RL, AIGC, world models, and 3D human modeling. My first-author publications include work at NeurIPS, ICLR, and AAAI, as well as in IEEE TIP. I also serve as a reviewer for ICML <span class="service-note">(Gold Reviewer)</span>, NeurIPS, AAAI, ICLR, TMLR, and IJDSA. I am looking for <strong>Ph.D.</strong> opportunities starting in Fall 2027. If you are interested in collaborating on RL or AIGC, please feel free to reach out via 📧 <button type="button" class="contact-reveal" onclick="revealAndCopyContact(this, 'xiaofengtan@seu.edu.cn', 'Email')">Show email</button> or 💬 <button type="button" class="contact-reveal" onclick="revealAndCopyContact(this, 'txf_06_20', 'WeChat ID')">Show WeChat ID</button> 😊. You can find more about my background in my <a href="{{ '/cv/' | relative_url }}">CV / <span style="font-family: 'Songti SC', 'STSong', 'SimSun', serif; color: inherit;">中文简历</span></a>.
 <div class="interest-card__divider"></div>
-I'm a <span class="doraemon-text"><a href="https://en.wikipedia.org/wiki/Doraemon" target="_blank"><em>Doraemon</em></a></span> fan, as the little companions in the bottom corners suggest. Based on our long history of conversations, GPT, Gemini, and Doubao all characterize me as an <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>, although these conversations have primarily been work-related and may introduce some bias. I share it as a useful starting point for collaboration.
+Based on our long history of conversations, GPT, Gemini, and Doubao all characterize me as an <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>, although these conversations have primarily been work-related and may introduce some bias. I share it as a useful starting point for collaboration.
 </div>
 
 <div class="intro-language-switch">
@@ -36,7 +36,7 @@ I'm a <span class="doraemon-text"><a href="https://en.wikipedia.org/wiki/Doraemo
 <div class="interest-card">
 我的研究兴趣包括强化学习（RL）、生成式人工智能（AIGC）、世界模型和三维人体建模。一作论文发表于 NeurIPS、ICLR、AAAI 和 IEEE TIP；我也担任 ICML（金牌审稿人）、NeurIPS、AAAI、ICLR、TMLR 和 IJDSA 的审稿人。我计划申请 2027 年秋季入学的<strong>博士</strong>项目。如有意在 RL 或 AIGC 方向合作，欢迎通过 📧 <button type="button" class="contact-reveal" title="点击显示并复制邮箱" onclick="revealAndCopyContact(this, 'xiaofengtan@seu.edu.cn', 'Email')">邮箱</button> 或 💬 <button type="button" class="contact-reveal" title="点击显示并复制微信号" onclick="revealAndCopyContact(this, 'txf_06_20', 'WeChat ID')">微信</button> 与我交流 😊。更多信息请见<a href="{{ '/cv/' | relative_url }}">中英文简历</a>。
 <div class="interest-card__divider"></div>
-我很喜欢<span class="doraemon-text"><a href="https://zh.wikipedia.org/wiki/哆啦A夢" target="_blank" rel="noopener">哆啦 A 梦</a></span> 😺，于是也把它请到了网页的角落里。基于长期聊天记录，GPT、Gemini 和豆包均判断我是 <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>，但这些对话主要围绕工作，可能带来一定偏差。分享于此，供合作时参考。
+基于长期聊天记录，GPT、Gemini 和豆包均判断我是 <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>，但这些对话主要围绕工作，可能带来一定偏差。分享于此，供合作时参考。
 </div>
 <div class="intro-language-switch">
   <button type="button" class="intro-language-toggle" data-language-target="en" aria-label="View English introduction">English introduction</button>

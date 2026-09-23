@@ -3454,6 +3454,8 @@
 // ========== Block 2: Mascot (Doraemon / Tom & Jerry) styles ==========
   /* ========== 卡通人物容器样式 ========== */
   #mascot-container {
+    /* Temporarily hide the interactive mascot in the lower-left corner. */
+    display: none;
     position: fixed;
     bottom: 20px;
     left: 20px;
