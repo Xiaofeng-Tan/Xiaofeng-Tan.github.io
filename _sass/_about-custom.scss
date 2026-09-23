@@ -2022,13 +2022,6 @@
     border-bottom-color: var(--primary-hover);
   }
 
-  /* Keep the Chinese Life & Interests copy aligned with the site's Chinese text. */
-  html[lang="zh-CN"] #sec-life [data-language="zh"],
-  html[lang="zh-CN"] .hobbies-intro[data-language="zh"],
-  html[lang="zh-CN"] .hobbies-intro[data-language="zh"] a {
-    font-family: 'Songti SC', 'STSong', 'SimSun', serif !important;
-  }
-
   .hobbies-intro em {
     font-family: "Crimson Pro", Georgia, serif;
     font-style: italic;
@@ -5053,4 +5046,37 @@ details.pub-category.is-animating {
   .pub-category__chevron {
     transition: none !important;
   }
+}
+
+/* ========== Typography alignment: Service and Life ==========
+ * These two sections previously used smaller, lighter, and more muted text
+ * than the introductory prose. Keep their content typography aligned with the
+ * main body while retaining the role label as a small visual anchor. */
+.service-list li,
+.hobbies-intro {
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.service-details {
+  color: var(--text-muted);
+  line-height: inherit;
+}
+
+.hobbies-intro {
+  margin-bottom: 0.55rem;
+  text-align: left;
+  color: #5a6c7d;
+}
+
+html[data-theme="dark"] .service-list li,
+html[data-theme="dark"] .hobbies-intro {
+  color: #b1bac4;
+}
+
+html[data-theme="dark"] .service-details {
+  color: #8b949e;
 }

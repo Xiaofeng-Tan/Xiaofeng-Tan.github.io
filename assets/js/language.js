@@ -62,6 +62,7 @@
       button.title = chinese ? 'Switch to English' : '切换为中文';
       button.setAttribute('aria-label', button.title);
     }
+    document.dispatchEvent(new CustomEvent('site-language-changed', { detail: { language: language } }));
     // Notify layout-dependent widgets after the text changes.
     window.dispatchEvent(new Event('resize'));
   }
