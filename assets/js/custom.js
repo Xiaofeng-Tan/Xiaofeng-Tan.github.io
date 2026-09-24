@@ -62,17 +62,23 @@
         card.classList.remove('active');
         restoreDetailAfterCollapse(card, section);
       });
-      logoItems.forEach((item) => item.classList.remove('active'));
+      logoItems.forEach((item) => {
+        item.classList.remove('active');
+        item.setAttribute('aria-expanded', 'false');
+      });
 
       if (wasActive) return;
 
       placeDetailAfterLogoRow(detail, clickedItem, logoItems);
       clickedItem.classList.add('active');
+      clickedItem.setAttribute('aria-expanded', 'true');
 
       // Two frames ensure the collapsed state is committed before expansion,
       // avoiding the occasional one-frame "pop" on Safari and Chromium.
       window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => detail.classList.add('active'));
+        window.requestAnimationFrame(() => {
+          if (clickedItem.getAttribute('aria-expanded') === 'true') detail.classList.add('active');
+        });
       });
     }
 
@@ -85,6 +91,15 @@
     function toggleResearchDetail(index) {
       toggleTimelineDetail('research', index);
     }
+
+    document.querySelectorAll('.logo-item[role="button"]').forEach((item) => {
+      item.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          item.click();
+        }
+      });
+    });
 
 // ========== Block 1b: Smooth native <details> expansion ==========
 (function () {
@@ -792,7 +807,7 @@
       const targetId = this.getAttribute('data-section');
       const target = document.getElementById(targetId);
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
       }
     });
   });
@@ -821,11 +836,19 @@
     });
 
     navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('data-section') === currentSection) {
-        link.classList.add('active');
-        // Scroll the active link into view within the subnav
-        link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      const active = link.getAttribute('data-section') === currentSection;
+      const newlyActive = active && !link.classList.contains('active');
+      link.classList.toggle('active', active);
+      if (active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+      if (newlyActive) {
+        // Move only the horizontal strip. scrollIntoView also scrolls the
+        // document and used to fight the reader's vertical swipe.
+        const strip = link.parentElement;
+        strip.scrollTo({
+          left: link.offsetLeft - strip.offsetLeft - (strip.clientWidth - link.offsetWidth) / 2,
+          behavior: prefersReducedMotion() ? 'auto' : 'smooth'
+        });
       }
     });
   }

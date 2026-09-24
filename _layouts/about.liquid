@@ -15,7 +15,7 @@ layout: default
         <strong><span>{{ site.first_name }}</span></strong>
         <span>TAN</span>
       {% else %}
-        {{ site.title }}
+        {{ site.first_name }} {{ site.last_name }}
       {% endif %}
       {% if site.Chinese_name %}
         <span class="name-separator">·</span>
@@ -114,7 +114,7 @@ layout: default
     <!-- Logo Row -->
     <div class="logo-row">
       {% for education in site.data.education %}
-        <div class="logo-item" onclick="toggleEducationDetail('{{ forloop.index }}')" data-index="{{ forloop.index }}">
+        <div class="logo-item" role="button" tabindex="0" aria-expanded="false" aria-controls="education-detail-{{ forloop.index }}" onclick="toggleEducationDetail('{{ forloop.index }}')" data-index="{{ forloop.index }}">
           <img src="{{ education.logo }}" alt="{{ education.school }}" class="timeline-logo">
           <div class="logo-text-group">
             <span class="logo-label">{{ education.school }}</span>
@@ -209,7 +209,7 @@ layout: default
     <!-- Logo Row -->
     <div class="logo-row logo-row--research">
       {% for research in site.data.research %}
-        <div class="logo-item" onclick="toggleResearchDetail('{{ forloop.index }}')" data-index="{{ forloop.index }}">
+        <div class="logo-item" role="button" tabindex="0" aria-expanded="false" aria-controls="research-detail-{{ forloop.index }}" onclick="toggleResearchDetail('{{ forloop.index }}')" data-index="{{ forloop.index }}">
           <img src="{{ research.logo }}" alt="{{ research.institution }}" class="timeline-logo">
           <div class="logo-text-group">
             <span class="logo-lab-at">{{ research.lab_at | default: research.abbr | default: research.institution }}</span>
@@ -422,8 +422,8 @@ layout: default
     </span>
   </h2>
   <div class="hobbies-section">
-    <p class="hobbies-intro" data-language="en" lang="en">Outside research, I enjoy exploring ideas across science, engineering, and the humanities. I'm a <a class="doraemon-text" href="https://en.wikipedia.org/wiki/Doraemon" target="_blank" rel="noopener">Doraemon</a> fan, as the little companions in the bottom corners suggest. I practice hard-pen calligraphy, often drawing inspiration from Zhong'an Gu, and enjoy visiting exhibitions. I also play table tennis and badminton.</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">科研之外，我喜欢从科学、工程和人文中寻找新的视角。我很喜欢<a class="doraemon-text" href="https://zh.wikipedia.org/wiki/哆啦A夢" target="_blank" rel="noopener">哆啦 A 梦</a>，所以页面下方的角落里有它陪伴。我练习硬笔书法，尤其欣赏顾仲安的作品，也常看展览；平时也会打乒乓球和羽毛球。</p>
+    <p class="hobbies-intro" data-language="en" lang="en">Outside research, I enjoy exploring ideas across science, engineering, and the humanities. I'm a <a class="doraemon-text" href="https://en.wikipedia.org/wiki/Doraemon" target="_blank" rel="noopener">Doraemon</a> fan, as the little companions in the bottom corners suggest. I practice hard-pen calligraphy, often drawing inspiration from Zhong'an Gu, and enjoy visiting exhibitions. I also play table tennis and badminton. Over a decade ago, I was an avid Chinese chess (xiangqi) player, an individual bronze medalist and a member of a championship-winning team in city-level competitions, though I'm no longer as drawn to the game.</p>
+    <p class="hobbies-intro" data-language="zh" lang="zh-CN">科研之外，我喜欢从科学、工程和人文中寻找新的视角。我很喜欢<a class="doraemon-text" href="https://zh.wikipedia.org/wiki/哆啦A夢" target="_blank" rel="noopener">哆啦 A 梦</a>，所以页面下方的角落里有它陪伴。我练习硬笔书法，尤其欣赏顾仲安的作品，也常看展览；平时也会打乒乓球和羽毛球。十多年前，我很喜欢下中国象棋，曾在市级比赛中获得个人赛季军、团体赛冠军等成绩，不过已经多年没有接触了。</p>
 
     <p class="hobbies-intro" data-language="en" lang="en">Music is another way I unwind. Cantopop has a special place in my playlists, especially songs that dwell on life's milestones and emotions. <em>Gareth.T</em> (<span class="song-title-cjk" lang="zh-CN">汤令山</span>)'s <a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a> (<span class="song-title-cjk" lang="zh-CN">国际孤独等级</span>) is a particular favorite, while <a href="https://www.youtube.com/watch?v=5gZk9MSHuyE" target="_blank" rel="noopener"><em>We Grew This Way</em></a> (<span class="song-title-cjk" lang="zh-CN">我们都是这样长大的</span>) and <a href="https://www.youtube.com/watch?v=1pnpVlGrb_8" target="_blank" rel="noopener"><em>Life Instructions</em></a> (<span class="song-title-cjk" lang="zh-CN">人生使用说明</span>) are two others I often return to. I also enjoy <em>MC Cheung Tinfu</em> (<span class="song-title-cjk" lang="zh-CN">张天赋</span>)'s <a href="https://www.youtube.com/watch?v=iDIEK6193wU" target="_blank" rel="noopener"><em>Peach Blossom Island</em></a> (<span class="song-title-cjk" lang="zh-CN">东邪</span>) and <a href="https://music.youtube.com/watch?v=7O8YDJen5bs&amp;si=FlTYVwFlUnp_3rp3" target="_blank" rel="noopener"><em>The One For U</em></a> (<span class="song-title-cjk" lang="zh-CN">世一</span>). In Mandopop, I often return to <em>Mayday</em> (<span class="song-title-cjk" lang="zh-CN">五月天</span>)'s <a href="https://music.youtube.com/watch?v=p4hxF-8HefE" target="_blank" rel="noopener"><em>Cang Jie</em></a> (<span class="song-title-cjk" lang="zh-CN">仓颉</span>) and <em>Crowd Lu</em> (<span class="song-title-cjk" lang="zh-CN">卢广仲</span>)'s <a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a> (<span class="song-title-cjk" lang="zh-CN">几分之几</span>).</p>
     <p class="hobbies-intro" data-language="zh" lang="zh-CN">音乐也是我放松的一种方式。粤语流行在我的歌单中占了很大一部分，我尤其喜欢那些带有人生感悟的歌。其中，Gareth.T（汤令山）的<a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener">《国际孤独等级》</a>（Loner Anthem）最打动我；<a href="https://www.youtube.com/watch?v=5gZk9MSHuyE" target="_blank" rel="noopener">《我们都是这样长大的》</a>（We Grew This Way）和<a href="https://www.youtube.com/watch?v=1pnpVlGrb_8" target="_blank" rel="noopener">《人生使用说明》</a>（Life Instructions）也常让我反复听。我也喜欢 MC Cheung Tinfu（张天赋）的<a href="https://www.youtube.com/watch?v=iDIEK6193wU" target="_blank" rel="noopener">《东邪》</a>（Peach Blossom Island）和<a href="https://music.youtube.com/watch?v=7O8YDJen5bs&amp;si=FlTYVwFlUnp_3rp3" target="_blank" rel="noopener">《世一》</a>（The One For U）。国语流行中，我常听 Mayday（五月天）的<a href="https://music.youtube.com/watch?v=p4hxF-8HefE" target="_blank" rel="noopener">《仓颉》</a>（Cang Jie）和 Crowd Lu（卢广仲）的<a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener">《几分之几》</a>（A Few Percent）。</p>
