@@ -139,8 +139,7 @@ layout: default
                 {% if education.college or education.location %}
                   <div class="detail-title-meta">
                     {% if education.college %}<span>{{ education.college }}</span>{% endif %}
-                    {% if education.college and education.location %}<span class="detail-title-sep">·</span>{% endif %}
-                    {% if education.location %}<span>📍 {{ education.location }}</span>{% endif %}
+                    {% if education.location %}<span class="education-location">📍 {{ education.location }}</span>{% endif %}
                   </div>
                 {% endif %}
               </div>
