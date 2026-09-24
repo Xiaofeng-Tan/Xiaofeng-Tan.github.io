@@ -14,7 +14,7 @@
 
   /* Keep the small number of primary actions visible, including language. */
   #navbar > .container {
-    padding: 0 12px;
+    padding: 0 10px;
     gap: 0;
     max-width: 100%;
   }
@@ -56,20 +56,23 @@
   }
   #navbar #search-toggle i { font-size: 1.125rem; }
   #navbar .toggle-container { margin: 0; }
+  html[data-theme="dark"] #navbar .nav-link,
+  html[data-theme="dark"] #navbar #search-toggle { color: var(--text); }
 
-  body.fixed-top-nav { padding-top: 64px; }
+  #navbar { padding-top: 0; padding-bottom: 0; }
+  body.fixed-top-nav { padding-top: 48px; }
   body > .container[role="main"] {
     width: 100%;
     max-width: 640px;
-    padding-left: max(20px, env(safe-area-inset-left));
-    padding-right: max(20px, env(safe-area-inset-right));
-    margin-top: 24px !important;
+    padding-left: max(18px, env(safe-area-inset-left));
+    padding-right: max(18px, env(safe-area-inset-right));
+    margin-top: 18px !important;
   }
 
   /* Horizontally scroll only the section index, never the article itself. */
   .section-subnav .container { padding: 0 12px; }
   .section-subnav-inner {
-    min-height: 44px;
+    min-height: 36px;
     padding: 0;
     overscroll-behavior-x: contain;
     scroll-padding-inline: 12px;
@@ -78,37 +81,38 @@
   .section-subnav-link {
     display: inline-flex;
     align-items: center;
-    min-height: 44px;
-    padding: 8px 12px;
-    font-size: 0.875rem;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 0.8125rem;
   }
-  [id^="sec-"] { scroll-margin-top: 126px; }
+  [id^="sec-"] { scroll-margin-top: 100px; }
 
   /* A compact identity block, then full-width prose, not text beside a photo. */
   .about-page > .container[role="main"] { position: relative; }
   .about-page .post-header {
-    min-height: 130px;
-    padding-right: 100px;
-    margin-bottom: 20px;
+    min-height: 0;
+    padding-right: 0;
+    margin-bottom: 14px;
   }
   .about-page .post-title {
     font-size: 2rem;
     line-height: 1.2;
-    padding-bottom: 10px;
-    margin-bottom: 6px;
+    padding: 0 78px 0 0;
+    margin-bottom: 0;
   }
+  .about-page .post-title::after { display: none; }
   .about-page .post-title .name-separator { display: none; }
   .about-page .post-title .chinese-name {
     display: block;
-    margin: 8px 0 0;
-    font-size: 1.6rem;
+    margin: 4px 0 0;
+    font-size: 1.4rem;
   }
   .about-page article > .profile {
     position: absolute;
     top: 4px;
-    right: max(20px, env(safe-area-inset-right));
+    right: max(18px, env(safe-area-inset-right));
     float: none !important;
-    width: 84px;
+    width: 64px;
     margin: 0;
   }
   .about-page .profile figure { margin: 0; }
@@ -116,17 +120,20 @@
   .about-page .social-icons-header {
     display: flex;
     flex-wrap: wrap;
-    gap: 2px;
-    margin: 4px 0 0;
+    gap: 8px;
+    margin: 8px 0 0;
   }
   .about-page .social-icons-header a {
-    width: 40px;
-    height: 44px;
-    font-size: 1.125rem;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
   }
   .about-page article > .clearfix :is(p, .interest-card),
   .about-page .hobbies-intro {
-    font-size: 1.0625rem;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0;
@@ -134,7 +141,7 @@
     overflow-wrap: break-word;
   }
   .about-page article > .clearfix > [data-language] > p,
-  .about-page .hobbies-intro { margin-bottom: 1rem; }
+  .about-page .hobbies-intro { margin-bottom: 10px; }
   .about-page article > .clearfix .interest-card {
     padding: 0;
     border: 0;
@@ -142,64 +149,89 @@
     background: transparent;
     margin: 0;
   }
-  .about-page .interest-card__divider { margin: 1rem 0; }
+  .about-page .interest-card__divider { margin: 10px 0; }
   .about-page .contact-reveal {
-    min-height: 36px;
+    min-height: 24px;
     max-width: 100%;
     white-space: normal;
     overflow-wrap: anywhere;
     font-size: inherit;
   }
   .intro-language-toggle {
-    min-height: 44px;
-    font-size: 0.875rem;
+    min-height: 28px;
+    font-size: 0.8125rem;
   }
+  .intro-language-switch { margin: 0; }
   .about-page .section-title {
-    font-size: 1.25rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 10px;
+    flex-wrap: wrap;
+    font-size: 1.125rem;
     line-height: 1.35;
-    margin: 32px 0 16px;
-    padding: 0 0 10px;
+    margin: 24px 0 8px;
+    padding: 0 0 6px;
     letter-spacing: 0;
   }
   .about-page .section-title::before { display: none; }
+  .about-page :is(.timeline-section, .education-section, .honors-section, .service-section, .hobbies-section) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 
-  /* Dates precede news rather than consuming a narrow table column. */
+  /* Compact date rail, with complete dates retained and a flexible text column. */
   .news .table-responsive { overflow: visible; max-height: none !important; }
   .news table, .news tbody, .news tr, .news th, .news td { display: block; width: 100%; }
-  .news tr { padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .news table { margin: 0; }
+  .news table tr {
+    display: grid;
+    grid-template-columns: 66px minmax(0, 1fr);
+    align-items: baseline;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
   .news table tr th {
     width: auto !important;
     padding: 0 0 4px !important;
     color: var(--text-muted) !important;
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
+    white-space: normal;
+    line-height: 1.35;
     font-weight: 500;
     background: transparent;
     border: 0;
   }
-  .news table tr td { padding: 0 !important; font-size: 1rem; line-height: 1.45; }
+  .news table tr td { padding: 0 !important; font-size: 0.9375rem; line-height: 1.45; }
+  html[data-theme="dark"] .news table tr th {
+    background: transparent !important;
+    box-shadow: none;
+    color: var(--text-muted) !important;
+  }
 
   /* Single-column institution list; each detail expands directly below it. */
   .about-page .timeline-expand-hint {
-    font-size: 0.875rem;
-    margin: -6px 0 12px;
+    display: none; /* Each row has its own disclosure chevron and button semantics. */
   }
   .about-page .logo-row,
   .about-page .logo-row--research {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 8px;
+    gap: 0;
     width: 100%;
+    padding: 0;
   }
   .about-page .logo-row .logo-item {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
     width: 100%;
     min-width: 0;
     max-width: none;
-    min-height: 78px;
-    padding: 12px 0;
+    min-height: 66px;
+    padding: 9px 0;
     text-align: left;
     border: 0;
     border-bottom: 1px solid var(--border);
@@ -212,8 +244,8 @@
     background: transparent;
     box-shadow: none;
   }
-  .about-page .timeline-logo { width: 44px; height: 44px; flex-shrink: 0; margin: 0; }
-  .about-page .logo-text-group { flex: 1; min-width: 0; text-align: left; align-items: flex-start; }
+  .about-page .timeline-logo { width: 32px; height: 32px; flex-shrink: 0; margin: 0; box-shadow: none; }
+  .about-page .logo-text-group { display: flex; flex-direction: row; flex-wrap: wrap; gap: 2px 8px; flex: 1; min-width: 0; text-align: left; align-items: baseline; }
   .about-page :is(.logo-label, .logo-lab-at, .logo-role, .logo-year) {
     max-width: none;
     white-space: normal;
@@ -221,8 +253,8 @@
     text-overflow: clip;
     line-height: 1.4;
   }
-  .about-page :is(.logo-label, .logo-lab-at) { font-size: 1rem; }
-  .about-page :is(.logo-role, .logo-year) { font-size: 0.875rem; }
+  .about-page :is(.logo-label, .logo-lab-at) { flex-basis: 100%; font-size: 0.9375rem; }
+  .about-page :is(.logo-role, .logo-year) { font-size: 0.8125rem; color: var(--text-muted); }
   .about-page .logo-item::after {
     content: "";
     position: static;
@@ -236,24 +268,26 @@
   }
   .about-page .logo-item.active::after { transform: rotate(225deg); }
   .about-page .detail-card { grid-column: 1 / -1; width: 100%; }
+  .about-page .detail-card.active { margin: 4px 0 8px; border-radius: 6px; }
   .about-page .detail-mark { display: none; } /* Same logo is immediately above. */
   .about-page .detail-card-content { min-width: 0; width: 100%; }
   .about-page .detail-header { display: block; }
-  .about-page .detail-title { font-size: 1rem; line-height: 1.4; }
+  .about-page .detail-title { font-size: 0.9375rem; line-height: 1.4; }
   .about-page .detail-title-meta { font-size: 0.875rem; line-height: 1.45; flex-wrap: wrap; }
   .about-page .detail-tags { flex-wrap: wrap; justify-content: flex-start; margin-top: 8px; }
   .about-page .detail-tag { font-size: 0.8125rem; white-space: normal; }
-  .about-page .detail-fields { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 16px; }
+  .about-page .detail-fields { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin-top: 10px; }
   .about-page .detail-field { grid-column: 1 / -1; display: block; }
   .about-page .detail-field-label { display: block; margin-bottom: 4px; font-size: 0.75rem; }
   .about-page .detail-field-value { font-size: 0.9375rem; line-height: 1.4; }
   .about-page .education-ranking-entry { flex-wrap: wrap; }
 
   /* Papers: text-only on phones; hide the entire figure column, not just its image. */
-  .publications .bibliography { padding-left: 0; }
+  .about-page .publications-grouped { gap: 8px; margin: 0; }
+  .publications .bibliography { padding-left: 0; margin: 0; }
   .publications .bibliography > li {
     padding: 12px 0;
-    margin: 0;
+    margin: 0 !important; /* Override the theme's li spacing, including !important. */
     border: 0;
     border-bottom: 1px solid var(--border);
     border-radius: 0;
@@ -263,63 +297,176 @@
   .publications .bibliography > li > .row { display: flex; flex-direction: column; margin: 0; gap: 0; }
   .publications .bibliography > li > .row > div { flex: 0 0 auto; width: 100%; max-width: 100%; padding: 0; min-width: 0; }
   .publications .bibliography > li > .row > .abbr { display: none; }
-  .publications .title { font-size: 1.0625rem; line-height: 1.3; letter-spacing: 0; margin-bottom: 4px; }
-  .publications .author { font-size: 0.9375rem; line-height: 1.4; overflow-wrap: anywhere; }
+  .publications .title { font-size: 1rem; line-height: 1.3; letter-spacing: 0; margin-bottom: 4px; }
+  .publications .author { font-size: 0.875rem; line-height: 1.4; overflow-wrap: anywhere; }
   .publications .periodical { font-size: 0.875rem; line-height: 1.4; margin-top: 4px; overflow-wrap: anywhere; }
   .publications .periodical .venue-abbr { font-size: inherit; }
   .publications :is(.ccf-badge, .core-badge, .sci-badge) { font-size: 0.75rem; }
-  .publications .links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .publications .links { display: flex; flex-wrap: wrap; gap: 2px 12px; margin-top: 4px; }
   .publications .links a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 44px;
-    padding: 8px 12px;
+    min-height: 30px;
+    padding: 4px 0;
     margin: 0;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
+    text-transform: none;
+    color: var(--primary) !important;
   }
+  .publications .links a + a::before { content: none; }
+  .publications .periodical:empty { display: none; }
   .publications .hidden.open { max-height: none; }
-  .publications .abstract p { font-size: 1rem; line-height: 1.5; text-align: left; }
+  .publications .abstract p { font-size: 0.9375rem; line-height: 1.5; text-align: left; }
   .publications pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.8125rem; }
 
   /* Honors / TA retain all details without miniature multi-column cards. */
-  .about-page :is(.honors-section, .teaching-cards) { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
-  .about-page .compact-card { font-size: 1rem; box-shadow: none; }
+  .about-page :is(.honors-section, .teaching-cards) { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .about-page .compact-card {
+    font-size: 0.9375rem;
+    box-shadow: none;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+  }
   .about-page .compact-card summary {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 6px 12px;
-    padding: 14px;
-    min-height: 52px;
+    grid-template-columns: minmax(0, 1fr) auto 10px;
+    gap: 6px 8px;
+    padding: 10px 0;
+    min-height: 44px;
     line-height: 1.4;
   }
-  .about-page .compact-title { font-size: 1rem; white-space: normal; }
+  .about-page .compact-title { font-size: 0.9375rem; white-space: normal; }
+  .about-page .compact-card summary::after { grid-column: 3; grid-row: 1; text-align: right; }
   .about-page .compact-card .year { font-size: 0.8125rem; white-space: normal; text-align: right; max-width: 90px; }
   .about-page .compact-card-body { font-size: 0.9375rem; line-height: 1.45; }
-  .pub-category__summary { min-height: 48px; padding: 12px 0; gap: 8px; flex-wrap: wrap; }
-  .pub-category__label { font-size: 1rem; }
+  .pub-category__summary { min-height: 32px; padding: 4px 0; gap: 8px; flex-wrap: wrap; text-transform: none; letter-spacing: 0; }
+  .pub-category__label { font-size: 0.8125rem; }
+  .about-page .pub-category__body { padding-bottom: 0; }
   .teaching-summary-meta { font-size: 0.8125rem; }
   .about-page .service-list { padding: 0; }
-  .about-page .service-list li { display: block; padding: 12px 0; font-size: 1rem; line-height: 1.45; }
-  .about-page .service-role { display: block; font-size: 1rem; margin-bottom: 6px; }
-  .about-page .service-details { display: block; font-size: 1rem; line-height: 1.45; }
-  .about-page .hobbies-intro { margin-bottom: 20px; }
+  .about-page .service-list li { display: block; padding: 6px 0; font-size: 0.9375rem; line-height: 1.45; }
+  .about-page .service-role { display: block; font-size: 0.9375rem; margin-bottom: 2px; }
+  .about-page .service-details { display: block; font-size: 0.9375rem; line-height: 1.45; }
+  .about-page .hobbies-intro { margin-bottom: 10px; }
 
   .about-page .mobile-disclosure {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 44px;
-    margin: 8px 0 12px;
-    padding: 8px 0;
+    min-height: 28px;
+    margin: 2px 0 6px;
+    padding: 4px 0;
     border: 0;
     background: transparent;
     color: var(--primary);
     font: inherit;
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
+    line-height: 1.4;
     cursor: pointer;
   }
   .about-page .mobile-disclosure:hover { text-decoration: underline; }
+  .about-page .mobile-disclosure span { color: inherit; font-weight: inherit; }
+  .about-page .section-title > .mobile-disclosure {
+    flex-shrink: 0;
+    margin: 0 0 0 auto;
+    padding: 2px 0;
+    min-height: 28px;
+    font-family: var(--site-songti), "Crimson Pro", Georgia, serif;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .about-page .publications .mobile-disclosure { display: flex; margin-left: auto; }
+  .about-page .social { margin-top: 18px; }
+  .about-page .contact-icons { gap: 6px; }
+  .about-page .page-last-updated { margin-top: 12px; padding-top: 8px; }
+
+  /* Lower half: understated headings and compact information rows.
+   * Keep this hierarchy local to publications and the sections that follow. */
+  .about-page :is(#sec-publications, #sec-honors, #sec-teaching, #sec-service, #sec-life) {
+    margin-top: 18px;
+    margin-bottom: 6px;
+    padding: 4px 0;
+    border-left: 0;
+    border-bottom: 0;
+    background: transparent;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+  }
+  .about-page :is(#sec-honors, #sec-life) > .mobile-disclosure {
+    padding-right: 6px;
+    min-height: 26px;
+  }
+  .about-page .publications-grouped { gap: 4px; }
+  .about-page .publications-grouped .pub-category { border-bottom: 0; }
+  .about-page .publications-grouped .pub-category__summary {
+    min-height: 28px;
+    padding: 2px 0;
+    color: var(--text-muted);
+  }
+  .about-page .publications-grouped .pub-category__body .publications { margin: 0; }
+  .about-page .publications .bibliography > li { padding: 8px 0; border: 0; }
+  .about-page .publications .title {
+    margin-bottom: 3px;
+    font-weight: 500;
+    line-height: 1.28;
+  }
+  .about-page .publications .author { line-height: 1.35; }
+  .about-page .publications .periodical { margin-top: 3px; line-height: 1.35; }
+  .about-page .publications .links { gap: 0 9px; margin-top: 3px; }
+  .about-page .publications .links a { min-height: 28px; padding: 3px 0; }
+  .about-page .publications .mobile-disclosure {
+    min-height: 26px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 2px 0;
+  }
+  /* Small Chinese hint alongside the publication disclosure chevron. */
+  .about-page .publications .mobile-disclosure--arrow {
+    width: auto;
+    height: 28px;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-family: var(--site-songti), "Songti SC", "STSong", "SimSun", serif;
+  }
+  .mobile-disclosure--arrow > span {
+    white-space: nowrap;
+  }
+  .mobile-disclosure--arrow::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+  .mobile-disclosure--arrow[aria-expanded="true"]::after {
+    transform: rotate(225deg);
+  }
+  .about-page .compact-card summary {
+    padding: 7px 0;
+    min-height: 38px;
+    column-gap: 6px;
+  }
+  .about-page .compact-card .year {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+  .about-page .compact-card-body {
+    padding: 0 0 8px 8px;
+    border-left: 2px solid var(--primary-line);
+  }
+  .about-page .teaching-section > .pub-category { border-bottom: 0; }
+  .about-page .teaching-section .pub-category__summary { min-height: 30px; padding: 3px 0; }
+  .about-page .service-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .about-page .service-role { font-size: 0.875rem; margin-bottom: 2px; }
+  .about-page .service-details { font-size: 0.875rem; line-height: 1.4; }
+  .about-page .hobbies-intro { font-size: 0.9375rem; line-height: 1.45; margin-bottom: 8px; }
 
   /* Chinese remains Songti, with a tighter rhythm than English. */
   html[lang="zh-CN"] .about-page article :is(p, li, td, .interest-card, .service-details, .compact-card-body) {
@@ -334,7 +481,7 @@
   body { padding-bottom: 0; }
   footer.fixed-bottom {
     position: static;
-    margin-top: 32px;
+    margin-top: 16px;
   }
   footer { padding-bottom: max(16px, env(safe-area-inset-bottom)); }
   footer .container { font-size: 0.8125rem; line-height: 1.5; }
@@ -345,9 +492,9 @@
 
 @media screen and (max-width: 359.98px) {
   body > .container[role="main"] { padding-left: 16px; padding-right: 16px; }
-  .about-page .post-header { padding-right: 84px; }
+  .about-page .post-header { padding-right: 0; }
   .about-page .post-title { font-size: 1.8rem; }
-  .about-page article > .profile { right: 16px; width: 72px; }
+  .about-page article > .profile { right: 16px; width: 60px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

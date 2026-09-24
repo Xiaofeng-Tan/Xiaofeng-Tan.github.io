@@ -188,3 +188,12 @@ article > .clearfix > [data-language] > .interest-card { margin: 0.5rem 0; }
   color: var(--global-text-color-light);
   font-size: 0.78em;
 }
+
+/* Chinese section headings use bold Heiti on desktop and mobile.
+ * Body text, handwritten name, and disclosure controls keep their own fonts. */
+html[lang="zh-CN"] .section-title,
+html[lang="zh-CN"] .section-title > span,
+html[lang="zh-CN"] .section-title > span span {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "SimHei", sans-serif;
+  font-weight: 700;
+}

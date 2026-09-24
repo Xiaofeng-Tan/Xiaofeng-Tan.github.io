@@ -148,6 +148,10 @@
         );
 
         animation.onfinish = () => {
+          // Remove the fill-forwards height once layout can size naturally.
+          // Keeping it freezes the section when nested content is collapsed,
+          // translated or reflowed, leaving a blank area below the content.
+          animation.cancel();
           details.style.height = '';
           details.classList.remove('is-animating');
           animation = null;
@@ -164,6 +168,7 @@
 
         animation.onfinish = () => {
           details.open = false;
+          animation.cancel();
           details.style.height = '';
           details.classList.remove('is-animating', 'is-closing');
           animation = null;
