@@ -74,5 +74,8 @@
     {% include scripts/back_to_top.liquid %}
     {% include scripts/search.liquid %}
     <script src="{{ '/assets/js/language.js' | relative_url | bust_file_cache }}"></script>
+    {% if page.permalink == '/' %}
+      <script src="{{ '/assets/js/mobile-disclosure.js' | relative_url | bust_file_cache }}"></script>
+    {% endif %}
   </body>
 </html>

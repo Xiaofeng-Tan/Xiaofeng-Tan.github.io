@@ -1,3 +1,7 @@
+/* The hidden attribute must win over existing component display declarations. */
+.about-page [hidden] { display: none !important; }
+.mobile-disclosure { display: none; }
+
 /*
  * Reading-first small-screen layout. Loaded after main.css and language.css
  * so the desktop layout and Songti definitions can remain unchanged.
@@ -124,7 +128,7 @@
   .about-page .hobbies-intro {
     font-size: 1.0625rem;
     font-weight: 400;
-    line-height: 1.65;
+    line-height: 1.5;
     letter-spacing: 0;
     text-align: left;
     overflow-wrap: break-word;
@@ -172,7 +176,7 @@
     background: transparent;
     border: 0;
   }
-  .news table tr td { padding: 0 !important; font-size: 1rem; line-height: 1.55; }
+  .news table tr td { padding: 0 !important; font-size: 1rem; line-height: 1.45; }
 
   /* Single-column institution list; each detail expands directly below it. */
   .about-page .timeline-expand-hint {
@@ -194,12 +198,19 @@
     width: 100%;
     min-width: 0;
     max-width: none;
-    min-height: 90px;
-    padding: 14px;
+    min-height: 78px;
+    padding: 12px 0;
     text-align: left;
-    border-radius: 10px;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
     box-shadow: none;
     transform: none;
+  }
+  html:not([data-theme="dark"]) .about-page .logo-row .logo-item:not(.active):not(:hover),
+  .about-page .logo-row .logo-item {
+    background: transparent;
+    box-shadow: none;
   }
   .about-page .timeline-logo { width: 44px; height: 44px; flex-shrink: 0; margin: 0; }
   .about-page .logo-text-group { flex: 1; min-width: 0; text-align: left; align-items: flex-start; }
@@ -235,13 +246,13 @@
   .about-page .detail-fields { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 16px; }
   .about-page .detail-field { grid-column: 1 / -1; display: block; }
   .about-page .detail-field-label { display: block; margin-bottom: 4px; font-size: 0.75rem; }
-  .about-page .detail-field-value { font-size: 0.9375rem; line-height: 1.5; }
+  .about-page .detail-field-value { font-size: 0.9375rem; line-height: 1.4; }
   .about-page .education-ranking-entry { flex-wrap: wrap; }
 
-  /* Papers: readable titles, full-width figures, wrapped metadata and actions. */
+  /* Papers: text-only on phones; hide the entire figure column, not just its image. */
   .publications .bibliography { padding-left: 0; }
   .publications .bibliography > li {
-    padding: 16px 0;
+    padding: 12px 0;
     margin: 0;
     border: 0;
     border-bottom: 1px solid var(--border);
@@ -249,18 +260,15 @@
     box-shadow: none;
     background: transparent;
   }
-  .publications .bibliography > li > .row { display: flex; flex-direction: column; margin: 0; gap: 12px; }
+  .publications .bibliography > li > .row { display: flex; flex-direction: column; margin: 0; gap: 0; }
   .publications .bibliography > li > .row > div { flex: 0 0 auto; width: 100%; max-width: 100%; padding: 0; min-width: 0; }
-  .publications .abbr { text-align: left; }
-  .publications .abbr:empty { display: none; }
-  .publications .abbr figure { margin: 0; }
-  .publications .abbr .preview { width: 100%; max-width: 100%; height: auto; max-height: 180px; object-fit: contain; box-shadow: none !important; }
-  .publications .title { font-size: 1.0625rem; line-height: 1.4; letter-spacing: 0; margin-bottom: 6px; }
-  .publications .author { font-size: 0.9375rem; line-height: 1.5; overflow-wrap: anywhere; }
-  .publications .periodical { font-size: 0.875rem; line-height: 1.5; margin-top: 6px; overflow-wrap: anywhere; }
+  .publications .bibliography > li > .row > .abbr { display: none; }
+  .publications .title { font-size: 1.0625rem; line-height: 1.3; letter-spacing: 0; margin-bottom: 4px; }
+  .publications .author { font-size: 0.9375rem; line-height: 1.4; overflow-wrap: anywhere; }
+  .publications .periodical { font-size: 0.875rem; line-height: 1.4; margin-top: 4px; overflow-wrap: anywhere; }
   .publications .periodical .venue-abbr { font-size: inherit; }
   .publications :is(.ccf-badge, .core-badge, .sci-badge) { font-size: 0.75rem; }
-  .publications .links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .publications .links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
   .publications .links a {
     display: inline-flex;
     align-items: center;
@@ -271,7 +279,7 @@
     font-size: 0.875rem;
   }
   .publications .hidden.open { max-height: none; }
-  .publications .abstract p { font-size: 1rem; line-height: 1.6; text-align: left; }
+  .publications .abstract p { font-size: 1rem; line-height: 1.5; text-align: left; }
   .publications pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.8125rem; }
 
   /* Honors / TA retain all details without miniature multi-column cards. */
@@ -287,19 +295,35 @@
   }
   .about-page .compact-title { font-size: 1rem; white-space: normal; }
   .about-page .compact-card .year { font-size: 0.8125rem; white-space: normal; text-align: right; max-width: 90px; }
-  .about-page .compact-card-body { font-size: 0.9375rem; line-height: 1.55; }
+  .about-page .compact-card-body { font-size: 0.9375rem; line-height: 1.45; }
   .pub-category__summary { min-height: 48px; padding: 12px 0; gap: 8px; flex-wrap: wrap; }
   .pub-category__label { font-size: 1rem; }
   .teaching-summary-meta { font-size: 0.8125rem; }
   .about-page .service-list { padding: 0; }
-  .about-page .service-list li { display: block; padding: 12px 0; font-size: 1rem; line-height: 1.55; }
+  .about-page .service-list li { display: block; padding: 12px 0; font-size: 1rem; line-height: 1.45; }
   .about-page .service-role { display: block; font-size: 1rem; margin-bottom: 6px; }
-  .about-page .service-details { display: block; font-size: 1rem; line-height: 1.55; }
+  .about-page .service-details { display: block; font-size: 1rem; line-height: 1.45; }
   .about-page .hobbies-intro { margin-bottom: 20px; }
+
+  .about-page .mobile-disclosure {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    margin: 8px 0 12px;
+    padding: 8px 0;
+    border: 0;
+    background: transparent;
+    color: var(--primary);
+    font: inherit;
+    font-size: 0.9375rem;
+    cursor: pointer;
+  }
+  .about-page .mobile-disclosure:hover { text-decoration: underline; }
 
   /* Chinese remains Songti, with a tighter rhythm than English. */
   html[lang="zh-CN"] .about-page article :is(p, li, td, .interest-card, .service-details, .compact-card-body) {
-    line-height: 1.55 !important;
+    line-height: 1.45 !important;
     letter-spacing: 0;
   }
 
