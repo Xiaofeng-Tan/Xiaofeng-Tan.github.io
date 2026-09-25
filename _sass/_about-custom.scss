@@ -9,25 +9,65 @@
 
 .publications .presentation-spotlight {
   display: inline-block;
-  margin-right: 0.28em;
-  padding: 0.08em 0.4em;
-  color: #573274;
-  background: #f0e9f7;
-  border: 1px solid #9d7cba;
-  border-radius: 0.16rem;
-  box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34em;
+  margin-right: 0.34em;
+  padding: 0.14em 0.48em 0.14em 0.34em;
+  color: #3b4651;
+  background: #f5f7f8;
+  border: 1px solid #71808b;
+  border-radius: 0.18rem;
+  box-shadow:
+    inset 3px 0 0 #596c78,
+    inset 0 -1px 0 rgba(89, 108, 120, 0.18);
   font-size: 0.88em;
   font-weight: 700;
   font-style: normal;
-  letter-spacing: 0.01em;
-  line-height: 1.25;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
   white-space: nowrap;
 }
 
+.publications .presentation-spotlight__mark {
+  position: relative;
+  display: inline-block;
+  width: 0.72em;
+  height: 0.72em;
+  flex: 0 0 0.72em;
+  border: 1px solid #596c78;
+  background: #e5eaed;
+  transform: rotate(45deg);
+}
+
+.publications .presentation-spotlight__mark::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.24em;
+  height: 0.24em;
+  border-radius: 50%;
+  background: #596c78;
+  transform: translate(-50%, -50%);
+}
+
 html[data-theme="dark"] .publications .presentation-spotlight {
-  color: #eadcf6;
-  background: rgba(126, 87, 159, 0.28);
-  border-color: #a98ac4;
+  color: #d7e0e5;
+  background: #202a30;
+  border-color: #8496a2;
+  box-shadow:
+    inset 3px 0 0 #9aadb8,
+    inset 0 -1px 0 rgba(154, 173, 184, 0.2);
+}
+
+html[data-theme="dark"] .publications .presentation-spotlight__mark {
+  border-color: #9aadb8;
+  background: #34424a;
+}
+
+html[data-theme="dark"] .publications .presentation-spotlight__mark::after {
+  background: #b6c6ce;
 }
 
 // ========== Block 1: About page main styles ==========
