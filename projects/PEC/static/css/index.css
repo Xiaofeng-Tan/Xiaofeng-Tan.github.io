@@ -1,4 +1,4 @@
-/* ========== Diversity Collapse — ICML 2026 — Academic Style ========== */
+/* ========== Diversity Collapse — NeurIPS 2026 — Academic Style ========== */
 
 * { box-sizing: border-box; }
 
@@ -34,6 +34,12 @@ body {
   border: 1.5px solid #1a5276;
   padding: 0.25rem 0.85rem;
   border-radius: 2px;
+}
+
+.venue-badge--spotlight {
+  color: #006d77;
+  border-color: #006d77;
+  background: rgba(0, 109, 119, 0.06);
 }
 
 .publication-title {
