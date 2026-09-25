@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 Two papers accepted to NeurIPS 2026: [When Policy Entropy Constraint Fails](/projects/PEC/) (first author, Spotlight) and BiMoGen (Poster)!
+🎉 Two papers accepted to NeurIPS 2026: [When Policy Entropy Constraint Fails: Preserving Diversity in Flow-based RLHF via Perceptual Entropy](/projects/PEC/) (first author, Spotlight) and BiMoGen (Poster)!

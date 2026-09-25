@@ -56,9 +56,9 @@
     - "Bin-Bin Gao"
     - "Chengjie Wang"
   outputs:
-    - name: "Consistent-RFT"
+    - name: "Consistent-RFT (Under Review)"
       url: "https://xiaofeng-tan.github.io/projects/ConsistentRFT/index.html"
-    - name: "PEC"
+    - name: "PEC (NeurIPS'26 Spotlight)"
       url: ""
 
 - institution: "Singapore Management University"
