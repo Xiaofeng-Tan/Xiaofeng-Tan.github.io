@@ -500,3 +500,45 @@
 @media (prefers-reduced-motion: reduce) {
   .section-subnav, .detail-card, .detail-card-inner { transition: none !important; }
 }
+
+/* Shared reading scale for summaries and revealed content, in either language.
+ * Keep this after responsive overrides: opening a panel must not change scale. */
+:root {
+  --entry-text-size: 0.8rem;
+  --entry-title-size: 0.88rem;
+  --entry-label-size: 0.72rem;
+}
+@media screen and (max-width: 767.98px) {
+  :root {
+    --entry-text-size: 0.875rem;
+    --entry-title-size: 0.9375rem;
+    --entry-label-size: 0.75rem;
+  }
+}
+
+.about-page :is(.logo-role, .logo-year, .detail-title-meta, .detail-tag,
+  .detail-fields, .detail-field-value, .compact-card, .compact-title, .compact-card-body),
+.publications .author,
+.publications .bibliography li :is(.abstract.hidden, .award.hidden, .bibtex.hidden) {
+  font-size: var(--entry-text-size);
+  line-height: 1.45;
+}
+
+.about-page :is(.logo-label, .logo-lab-at, .detail-title) {
+  font-size: var(--entry-title-size);
+  line-height: 1.35;
+}
+
+.about-page .detail-field-label {
+  font-size: var(--entry-label-size);
+  line-height: 1.35;
+}
+
+/* Markdown paragraphs and links must inherit the panel's scale rather than
+ * picking up larger global paragraph or mobile abstract rules. */
+.about-page :is(.detail-field-value, .compact-card-body) :is(p, li, a, em, strong),
+.publications .bibliography li :is(.abstract.hidden, .award.hidden, .bibtex.hidden)
+  :is(p, li, a, em, strong, pre, code) {
+  font-size: inherit;
+  line-height: inherit;
+}
