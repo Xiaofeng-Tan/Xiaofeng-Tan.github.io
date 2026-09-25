@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 [SoPo](https://xiaofeng-tan.github.io/projects/SoPo/index.html) has been accepted to [NeurIPS 2025](https://neurips.cc/virtual/2025/poster/118773)!
+🎉 [SoPo](https://xiaofeng-tan.github.io/projects/SoPo/index.html) (first author) has been accepted to [NeurIPS 2025](https://neurips.cc/virtual/2025/poster/118773)!

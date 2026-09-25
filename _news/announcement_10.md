@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 [EasyTune](https://xiaofeng-tan.github.io/projects/EasyTune/) has been accepted to [ICLR 2026](https://iclr.cc/)!
+🎉 [EasyTune](https://xiaofeng-tan.github.io/projects/EasyTune/) (co-first author) has been accepted to [ICLR 2026](https://iclr.cc/)!

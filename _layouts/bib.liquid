@@ -170,6 +170,9 @@
         {% endif %}
       {%- endif -%}
       {{ periodical | strip }}
+      {% if entry.presentation %}
+        <span class="presentation-type">{{ entry.presentation }}</span>
+      {% endif %}
       {%- if entry.ccf -%}
         <span class="ccf-badge ccf-badge-{{ entry.ccf | downcase | replace: '-', '' }}">{{ entry.ccf }}</span>
       {%- endif -%}

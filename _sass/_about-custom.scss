@@ -3,6 +3,10 @@
 // Extracted from _layouts/about.liquid
 // ============================================================================
 
+.publications .presentation-type {
+  margin-left: 0.35em;
+}
+
 // ========== Block 1: About page main styles ==========
   /* 顾仲安行书 - 子集化字体 */
   @font-face {
