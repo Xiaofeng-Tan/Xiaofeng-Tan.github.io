@@ -171,7 +171,7 @@
       {%- endif -%}
       {{ periodical | strip }}
       {% if entry.presentation %}
-        <span class="presentation-type">{% if entry.presentation contains 'Spotlight' %}<strong class="presentation-spotlight">Spotlight</strong>{{ entry.presentation | remove_first: 'Spotlight' }}{% else %}{{ entry.presentation }}{% endif %}</span>
+        <span class="presentation-type">{% if entry.presentation contains 'Spotlight' %}<span class="presentation-spotlight">Spotlight</span>{{ entry.presentation | remove_first: 'Spotlight' }}{% else %}{{ entry.presentation }}{% endif %}</span>
       {% endif %}
       {%- if entry.ccf -%}
         <span class="ccf-badge ccf-badge-{{ entry.ccf | downcase | replace: '-', '' }}">{{ entry.ccf }}</span>

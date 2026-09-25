@@ -8,9 +8,18 @@
 }
 
 .publications .presentation-spotlight {
+  display: inline-block;
+  margin-right: 0.28em;
+  padding: 0.08em 0.38em;
   color: var(--primary);
+  background: var(--primary-soft);
+  border: 1px solid var(--primary-line);
+  border-radius: 0.28rem;
+  font-size: 0.9em;
   font-weight: 700;
   font-style: normal;
+  line-height: 1.25;
+  white-space: nowrap;
 }
 
 // ========== Block 1: About page main styles ==========
