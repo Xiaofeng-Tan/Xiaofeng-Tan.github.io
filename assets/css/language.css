@@ -150,6 +150,26 @@ html[lang="zh-CN"] span[data-language="zh"] { display: inline; }
   color: var(--global-theme-color);
   border-color: var(--global-theme-color);
 }
+
+/* Keep the mixed-language navbar brand typographically stable on every page.
+ * The surrounding navbar may switch to Songti in Chinese mode, but the
+ * English and Chinese name segments need independent font stacks. */
+#navbar .navbar-brand .navbar-brand-name-en {
+  font-family: "Crimson Pro", "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-style: normal;
+}
+
+#navbar .navbar-brand .navbar-brand-name-zh {
+  font-family: "Songti SC", "STSong", "SimSun", serif;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+#navbar .navbar-brand .navbar-brand-separator {
+  font-family: "Crimson Pro", "Source Serif 4", Georgia, "Times New Roman", serif;
+  font-style: normal;
+}
+
 article > .clearfix > [data-language] > p { margin-bottom: 0.5rem; }
 article > .clearfix > [data-language] > .interest-card { margin: 0.5rem 0; }
 
