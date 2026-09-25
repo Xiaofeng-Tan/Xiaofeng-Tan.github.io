@@ -158,20 +158,27 @@
       {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
     {%- endif -%}
     <div class="periodical">
+      {% assign presentation_label = entry.presentation | split: ' (' | first %}
+      {% capture presentation_highlight %}{% if presentation_label == 'Spotlight' or presentation_label == 'Oral' %} <strong class="presentation-distinction">({{ presentation_label }})</strong>{% endif %}{% endcapture %}
       {%- if entry.abbr -%}
         {%- assign abbr_icon = "🏆" -%}
         {%- if entry.abbr contains "UR" -%}
           {%- assign abbr_icon = "⏱️" -%}
         {%- endif -%}
         {%- if site.data.venues[entry.abbr] -%}
-          <span class="venue-abbr" style="color: {{ site.data.venues[entry.abbr].color }};">{{ abbr_icon }} {{ entry.abbr }} {{ entry.year }}</span><span class="venue-separator">|</span>
+          <span class="venue-abbr" style="color: {{ site.data.venues[entry.abbr].color }};">{{ abbr_icon }} {{ entry.abbr }} {{ entry.year }}{{ presentation_highlight }}</span><span class="venue-separator">|</span>
         {% else %}
-          <span class="venue-abbr">{{ abbr_icon }} {{ entry.abbr }} {{ entry.year }}</span><span class="venue-separator">|</span>
+          <span class="venue-abbr">{{ abbr_icon }} {{ entry.abbr }} {{ entry.year }}{{ presentation_highlight }}</span><span class="venue-separator">|</span>
         {% endif %}
       {%- endif -%}
       {{ periodical | strip }}
       {% if entry.presentation %}
-        <span class="presentation-type">{% if entry.presentation contains 'Spotlight' %}<span class="presentation-spotlight" title="NeurIPS Spotlight presentation">Spotlight</span>{{ entry.presentation | remove_first: 'Spotlight' }}{% else %}{{ entry.presentation }}{% endif %}</span>
+        {% if presentation_label == 'Spotlight' or presentation_label == 'Oral' %}
+          {% unless entry.abbr %}{{ presentation_highlight }}{% endunless %}
+          <span class="presentation-type presentation-statistics">{{ entry.presentation | remove_first: presentation_label }}</span>
+        {% else %}
+          <span class="presentation-type">{{ entry.presentation }}</span>
+        {% endif %}
       {% endif %}
       {%- if entry.ccf -%}
         <span class="ccf-badge ccf-badge-{{ entry.ccf | downcase | replace: '-', '' }}">{{ entry.ccf }}</span>
