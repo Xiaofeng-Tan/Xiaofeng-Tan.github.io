@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 Two papers accepted to NeurIPS 2026: a theoretical paper on entropy constraints in flow-based RLHF (first author, Spotlight) and BiMoGen (Poster)!
+🎉 Two papers accepted to NeurIPS 2026: a flow-based RLHF theory paper (first author, Spotlight) and BiMoGen (Poster)!
