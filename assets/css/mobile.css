@@ -504,20 +504,20 @@
 /* Shared reading scale for summaries and revealed content, in either language.
  * Keep this after responsive overrides: opening a panel must not change scale. */
 :root {
-  --entry-text-size: 0.8rem;
+  --entry-text-size: 0.72rem;
   --entry-title-size: 0.88rem;
   --entry-label-size: 0.72rem;
 }
 @media screen and (max-width: 767.98px) {
   :root {
-    --entry-text-size: 0.875rem;
+    --entry-text-size: 0.8125rem;
     --entry-title-size: 0.9375rem;
     --entry-label-size: 0.75rem;
   }
 }
 
 .about-page :is(.logo-role, .logo-year, .detail-title-meta, .detail-tag,
-  .detail-fields, .detail-field-value, .compact-card, .compact-title, .compact-card-body),
+  .detail-card-content, .detail-fields, .detail-field-value, .compact-card, .compact-title, .compact-card-body),
 .publications .author,
 .publications .bibliography li :is(.abstract.hidden, .award.hidden, .bibtex.hidden) {
   font-size: var(--entry-text-size);
@@ -530,7 +530,7 @@
 }
 
 .about-page .detail-field-label {
-  font-size: var(--entry-label-size);
+  font-size: var(--entry-text-size);
   line-height: 1.35;
 }
 
@@ -541,4 +541,16 @@
   :is(p, li, a, em, strong, pre, code) {
   font-size: inherit;
   line-height: inherit;
+}
+
+/* Nested spans (rankings, locations, Chinese lab names) had their own em/rem
+ * sizes. Match the compact summary explicitly, including deeply nested links. */
+.about-page .detail-card :is(.detail-title-meta, .detail-tag, .detail-fields)
+  :is(span, a, p, li, em, strong),
+.about-page .compact-card-body :is(span, a, p, li, em, strong) {
+  font-size: var(--entry-text-size);
+}
+
+.about-page .detail-title {
+  font-weight: 600;
 }
