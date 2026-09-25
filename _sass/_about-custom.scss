@@ -82,12 +82,12 @@ html[data-theme="dark"] .publications .periodical .presentation-distinction {
 
 
   /* ========== Global background (solid, no animation) ==========
-   * Light mode: very light grey for subtle warmth and reduced eye-strain.
+   * Light mode: pure white for a clean academic presentation.
    * Dark mode (overridden below): GitHub-Dark-style #0d1117.
    * Animations & decorative blobs removed for performance and minimalism.
    */
   body {
-    background: #fafafa;
+    background: #ffffff;
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
