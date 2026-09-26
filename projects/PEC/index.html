@@ -238,34 +238,6 @@
         </p>
       </div>
 
-      <h3 class="subsection-title">Main Results: Comparison with Entropy-based Methods</h3>
-      <p class="abstract-text" style="font-size:0.9rem; margin-bottom:1rem;">
-        We compare against various entropy-based regularization methods on FLUX.dev and SD3.5-M, with PickScore, DINO, and CLIP perceptual encoders. Our methods (PEC &amp; PCVAE) using perceptual entropy consistently outperform standard entropy variants across quality and diversity metrics. <strong>PEC</strong> achieves the best overall score of <strong>0.734</strong>, and a complementary setting of PEC further reaches a diversity average of <strong>0.989</strong>.
-      </p>
-
-      <div class="figure-container">
-        <div class="figure-wrapper large">
-          <img src="static/images/tab_main_results.png" alt="Main results table"/>
-        </div>
-        <p class="figure-caption">
-          <strong>Table 1. Entropy Regularization Comparison.</strong> Gray-shaded rows denote our methods. Abbreviations: P.S.=PickScore, I.R.=ImageReward, U.R.=Unified Reward, V.S.=Vendi Score. <span style="color:#c0392b;font-weight:700;">Bold</span> = best, <span style="color:#1a5276;text-decoration:underline;">underline</span> = second best.
-        </p>
-      </div>
-
-      <h3 class="subsection-title">SoTA Comparison</h3>
-      <p class="abstract-text" style="font-size:0.9rem; margin-bottom:1rem;">
-        We compare against state-of-the-art pretrained models including SDXL, SD-3.5, HiDream-Dev, and Qwen-Image. Existing models exhibit a clear quality–diversity trade-off: SDXL attains the highest diversity (0.937) but a lower quality (0.205), while Qwen-Image attains higher quality (0.711) with substantially reduced diversity (0.045). PEC with perceptual entropy achieves the best overall score of <strong>0.702</strong> while maintaining strong diversity of <strong>0.773</strong>.
-      </p>
-
-      <div class="figure-container">
-        <div class="figure-wrapper large">
-          <img src="static/images/tab_sota.png" alt="SoTA comparison table"/>
-        </div>
-        <p class="figure-caption">
-          <strong>Table 2. SoTA Comparison.</strong> Type denotes post-training: N=None, U=Unknown, D=DPO, R=Reinforcement Fine-Tuning.
-        </p>
-      </div>
-
       <h3 class="subsection-title">Ablation: Perceptual Entropy</h3>
       <p class="abstract-text" style="font-size:0.9rem; margin-bottom:1rem;">
         Replacing the native per-step entropy $\mathcal{H}$ with perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ inside PEC consistently improves every metric, confirming that the gains stem from operating in perceptual space rather than from any other implementation detail.
@@ -276,7 +248,7 @@
           <img src="static/images/tab_ablation_perc_entropy.png" alt="Perceptual entropy ablation table"/>
         </div>
         <p class="figure-caption">
-          <strong>Table 3. Perceptual Entropy Ablation.</strong> Our perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ for PEC is replaced with native entropy $\mathcal{H}$ to examine its effectiveness.
+          <strong>Table 1. Perceptual Entropy Ablation.</strong> Our perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ for PEC is replaced with native entropy $\mathcal{H}$ to examine its effectiveness.
         </p>
       </div>
 
@@ -290,7 +262,7 @@
           <img src="static/images/tab_runtime_overhead.png" alt="Computational cost table"/>
         </div>
         <p class="figure-caption">
-          <strong>Table 4. Computational Cost.</strong> Iteration time is normalized by Flow-GRPO. Additional cost is limited.
+          <strong>Table 2. Computational Cost.</strong> Iteration time is normalized by Flow-GRPO. Additional cost is limited.
         </p>
       </div>
 
