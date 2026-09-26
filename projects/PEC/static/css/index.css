@@ -42,7 +42,9 @@ body {
   background: rgba(0, 109, 119, 0.06);
 }
 
-.publication-title {
+/* Bulma's `.title.is-1` otherwise raises this to 3rem. Keep the long
+ * paper title compact, closer to the restrained typography of the homepage. */
+.hero .publication-title.title.is-1 {
   font-family: 'Noto Serif', Georgia, serif;
   font-size: 1.65rem;
   font-weight: 700;
@@ -77,13 +79,17 @@ body {
 }
 
 .publication-authors .author-block a {
-  color: #222;
-  text-decoration: none;
+  color: #1a5276;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(26, 82, 118, 0.4);
+  text-underline-offset: 0.16em;
   font-weight: 600;
 }
 
 .publication-authors .author-block a:hover {
-  color: #1a5276;
+  color: #123c58;
+  text-decoration-color: currentColor;
 }
 
 /* ========== Affiliations ========== */
@@ -678,7 +684,7 @@ body {
 
 /* ========== Responsive ========== */
 @media (max-width: 768px) {
-  .publication-title { font-size: 1.45rem; }
+  .hero .publication-title.title.is-1 { font-size: 1.45rem; }
   .hero .hero-body { padding: 2rem 1rem; }
   .section { padding: 2rem 1rem; }
   .section-title { font-size: 1.2rem; }
@@ -694,7 +700,7 @@ body {
 }
 
 @media (max-width: 480px) {
-  .publication-title { font-size: 1.2rem; }
+  .hero .publication-title.title.is-1 { font-size: 1.2rem; }
   .section-title { font-size: 1.1rem; }
   .subsection-title { font-size: 0.95rem; }
   .publication-links .button { padding: 0.35rem 0.65rem; font-size: 0.78rem; }
