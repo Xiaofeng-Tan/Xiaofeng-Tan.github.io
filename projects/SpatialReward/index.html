@@ -3,238 +3,559 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Getting Space Right: Agentic Rewards for Image Generation. SpatialCritic grounds reward judgments in visual evidence and guides generation through a capability-based curriculum.">
+  <meta name="description" content="Getting Space Right: Agentic Rewards for Image Generation. SpatialCritic combines tool-grounded spatial verification with a capability-guided curriculum for text-to-image generation.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Getting Space Right: Agentic Rewards for Image Generation">
   <meta property="og:description" content="SpatialCritic: tool-grounded rewards and curriculum-guided reinforcement learning for spatial image generation.">
   <meta property="og:url" content="https://xiaofeng-tan.github.io/projects/SpatialReward/">
   <meta property="og:image" content="https://xiaofeng-tan.github.io/projects/SpatialReward/static/images/social.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#24425f">
   <title>SpatialCritic | Getting Space Right</title>
   <link rel="canonical" href="https://xiaofeng-tan.github.io/projects/SpatialReward/">
   <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
-  <link rel="stylesheet" href="static/style.css">
-  <link rel="stylesheet" href="static/project-series.css">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
   <script src="static/site.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="paper-header" id="top">
-  <div class="container">
-    <h1>Getting <span class="title-emphasis">Space Right</span>:<br>Agentic Rewards for Image Generation</h1>
-    <p class="project-name">SpatialCritic</p>
-    <!-- Author list, affiliations, and venue intentionally await confirmed metadata. -->
-    <div class="research-summary">
-      <p class="research-question">How can reinforcement learning teach image generators to satisfy spatial constraints beyond the training distribution?</p>
-      <p><strong>TL;DR:</strong> We introduce <strong>SpatialCritic</strong>, an agentic reward model that grounds spatial judgments in vision-tool evidence, together with a <strong>capability-guided curriculum</strong> for progressive learning. The 8B critic achieves <strong>95.08%</strong> verification accuracy; the full framework improves average generation scores from <strong>78.4 to 83.9</strong> on SD3.5-Medium and <strong>83.2 to 86.5</strong> on BAGEL.</p>
-    </div>
-    <div class="publication-links">
-      <a class="publication-button primary" href="static/paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h5"/></svg>Paper <span aria-hidden="true">↗</span></a>
-      <span class="publication-button unavailable"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-16-2 20"/></svg>Code <small>Link pending</small></span>
-      <a class="publication-button" href="#results">Experiments <span aria-hidden="true">↓</span></a>
-      <a class="publication-button" href="../../">Homepage <span aria-hidden="true">↗</span></a>
+
+<!-- Hero -->
+<section class="hero publication-hero" id="top">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-11 has-text-centered">
+
+          <h1 class="title is-1 publication-title">
+            Getting <span class="highlight">Space Right</span>:<br>
+            Agentic Rewards for Image Generation
+          </h1>
+
+          <p class="project-name">SpatialCritic</p>
+
+          <!-- Author list, affiliations, and venue intentionally await confirmed metadata. -->
+          <div class="research-summary">
+            <p class="research-question">Spatial text-to-image generation requires faithful spatial relations, yet RL post-training often assumes both reliable rewards and effectively organized rollouts.</p>
+            <p><strong>Summary.</strong> We study these two assumptions and propose a curriculum-guided RL framework. <strong>SpatialCritic</strong> verifies spatial claims through a perception harness and specialized vision tools; a <strong>compositional capability graph</strong> then schedules rollouts from foundational skills to complex compositions. The 8B critic reaches <strong>95.08%</strong> verification accuracy on SpaRW-Eval, and the full framework raises average generation scores from <strong>78.4 to 83.9</strong> on SD3.5-Medium and <strong>83.2 to 86.5</strong> on BAGEL.</p>
+          </div>
+
+          <div class="publication-links">
+            <a class="button primary" href="static/paper.pdf" target="_blank" rel="noopener">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h5"/></svg></span>
+              <span>Paper</span>
+            </a>
+            <span class="button unavailable" aria-disabled="true" title="Public code link pending">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-16-2 20"/></svg></span>
+              <span>Code</span>
+              <small>Link pending</small>
+            </span>
+            <a class="button" href="#results">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h16M8 15l3-3 3 3 4-6"/></svg></span>
+              <span>Experiments</span>
+            </a>
+            <a class="button" href="../../">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-8h6v8"/></svg></span>
+              <span>Homepage</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
-</header>
+</section>
 
 <main id="main">
-  <section class="teaser container" id="examples" aria-labelledby="teaser-title">
-    <div class="teaser-heading"><h2 id="teaser-title">Spatial Preference Examples</h2><p>Which image satisfies the prompt? Inspect the evidence below each pair.</p></div>
-    <div class="examples-grid">
-      <article class="example" id="example-count">
-        <div class="example-heading"><span class="case-index">01</span><h3>Counting</h3><span class="constraint-tag">How many?</span></div>
-        <div class="image-pair">
-          <button type="button" class="figure-zoom" data-zoom="static/images/count-a.webp" aria-label="Enlarge counting example image A"><img src="static/images/count-a.webp" width="800" height="800" alt="Image A: three white candles on a round table." fetchpriority="high"><span class="image-label" aria-hidden="true">A</span></button>
-          <button type="button" class="figure-zoom" data-zoom="static/images/count-b.webp" aria-label="Enlarge counting example image B"><img src="static/images/count-b.webp" width="800" height="800" alt="Image B: two white candles on a round table."><span class="image-label" aria-hidden="true">B</span></button>
-        </div>
-        <p class="example-prompt">“<mark>Three</mark> white candles arranged in a single row on the round table.”</p>
-        <button type="button" class="evidence-toggle" aria-expanded="true" aria-controls="evidence-count">Inspect the evidence <span aria-hidden="true">+</span></button>
-        <div class="example-evidence" id="evidence-count"><p><strong>Prefer A.</strong> The counting evidence identifies three candles in A and two in B. B violates the required count.</p><span class="evidence-type">Decisive evidence: instance count</span></div>
-      </article>
-      <article class="example" id="example-layout">
-        <div class="example-heading"><span class="case-index">02</span><h3>Layout</h3><span class="constraint-tag">In what arrangement?</span></div>
-        <div class="image-pair">
-          <button type="button" class="figure-zoom" data-zoom="static/images/layout-a.webp" aria-label="Enlarge layout example image A"><img src="static/images/layout-a.webp" width="800" height="800" alt="Image A: three sunflowers form a cluster on a bench."><span class="image-label" aria-hidden="true">A</span></button>
-          <button type="button" class="figure-zoom" data-zoom="static/images/layout-b.webp" aria-label="Enlarge layout example image B"><img src="static/images/layout-b.webp" width="800" height="800" alt="Image B: three sunflowers arranged in one row on a bench."><span class="image-label" aria-hidden="true">B</span></button>
-        </div>
-        <p class="example-prompt">“Three sunflowers arranged <mark>in a single row</mark> on a wooden bench.”</p>
-        <button type="button" class="evidence-toggle" aria-expanded="true" aria-controls="evidence-layout">Inspect the evidence <span aria-hidden="true">+</span></button>
-        <div class="example-evidence" id="evidence-layout"><p><strong>Prefer B.</strong> Both images contain three flowers. The decisive distinction is their arrangement: a cluster in A versus a single row in B.</p><span class="evidence-type">Decisive evidence: arrangement, not count alone</span></div>
-      </article>
-      <article class="example" id="example-position">
-        <div class="example-heading"><span class="case-index">03</span><h3>Relative position</h3><span class="constraint-tag">Where?</span></div>
-        <div class="image-pair">
-          <button type="button" class="figure-zoom" data-zoom="static/images/position-a.webp" aria-label="Enlarge relative position example image A"><img src="static/images/position-a.webp" width="800" height="800" alt="Image A: the turtle is to the viewer's left of the diver."><span class="image-label" aria-hidden="true">A</span></button>
-          <button type="button" class="figure-zoom" data-zoom="static/images/position-b.webp" aria-label="Enlarge relative position example image B"><img src="static/images/position-b.webp" width="800" height="800" alt="Image B: the turtle is to the viewer's right of the diver."><span class="image-label" aria-hidden="true">B</span></button>
-        </div>
-        <p class="example-prompt">“A turtle is <mark>to the viewer’s right of</mark> a diver, with a coral reef.”</p>
-        <button type="button" class="evidence-toggle" aria-expanded="true" aria-controls="evidence-position">Inspect the evidence <span aria-hidden="true">+</span></button>
-        <div class="example-evidence" id="evidence-position"><p><strong>Prefer B.</strong> The object-level horizontal ordering places the turtle left of the diver in A and right of the diver in B.</p><span class="evidence-type">Decisive evidence: viewer-relative grounding</span></div>
-      </article>
-    </div>
-    <p class="teaser-caption"><strong>The objects alone are not enough.</strong> A spatial reward must verify the requested relations. These are preference-verification examples, <em>not</em> before/after generator outputs; the expandable notes summarize the source cases, not live model inference.</p>
-  </section>
 
-  <nav class="section-nav" aria-label="Paper sections"><div class="container"><a href="#abstract">Abstract</a><a href="#motivation">Motivation</a><a href="#approach">Method</a><a href="#data">Dataset</a><a href="#curriculum">Curriculum</a><a href="#results">Experiments</a></div></nav>
-
-  <section class="section" id="abstract">
-    <div class="reading-width">
-      <h2>Abstract</h2>
-      <p class="abstract-text">Reinforcement learning (RL) is promising for spatial text-to-image generation, but existing work largely focuses on policy optimization, assuming accurate rewards and effective online rollouts. We observe in-domain gains with out-of-domain degradation, exposing two limitations: <strong>unreliable spatial rewards in open-world settings</strong> and <strong>rollouts lacking basic-to-complex progression</strong>. We propose a curriculum-guided RL framework. First, we introduce <strong>SpatialCritic</strong>, an agentic reward model equipped with a spatial perception harness that combines reusable verification guidance with specialized vision tools. We then construct spatial preference datasets through targeted counterfactual perturbations and perform agent–harness alignment to improve tool selection and evidence integration efficiently. Second, curriculum learning organizes shared foundational capabilities and their compositional dependencies in a capability graph for mastery-guided rollouts, periodic review, and targeted remediation. On SpaRW-Eval, SpatialCritic achieves <strong>95.08% verification accuracy</strong>, outperforming 320B GLM-5.3-Flash with a 40× smaller 8B backbone and raising average baseline scores from <strong>78.4 to 83.9 on SD3.5-Medium</strong> and <strong>83.2 to 86.5 on BAGEL</strong>.</p>
+<!-- Abstract -->
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Abstract</h2>
+      <p class="abstract-text">
+        Reinforcement learning (RL) is promising for spatial text-to-image generation, but existing work largely focuses on policy optimization, assuming accurate rewards and effective online rollouts. We observe in-domain gains with out-of-domain degradation, exposing two limitations: <strong>unreliable spatial rewards in open-world settings</strong> and <strong>rollouts lacking basic-to-complex progression</strong>. We propose a curriculum-guided RL framework. First, we introduce <strong>SpatialCritic</strong>, an agentic reward model equipped with a spatial perception harness that combines reusable verification guidance with specialized vision tools. We then construct spatial preference datasets through targeted counterfactual perturbations and perform agent–harness alignment to improve tool selection and evidence integration efficiently. Second, curriculum learning organizes shared foundational capabilities and their compositional dependencies in a capability graph for mastery-guided rollouts, periodic review, and targeted remediation. On SpaRW-Eval, SpatialCritic achieves <strong>95.08% verification accuracy</strong>, outperforming 320B GLM-5.3-Flash with a 40× smaller 8B backbone and raising average baseline scores from <strong>78.4 to 83.9 on SD3.5-Medium</strong> and <strong>83.2 to 86.5 on BAGEL</strong>.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section ruled" id="motivation">
-    <div class="reading-width">
-      <h2>Motivation &amp; Framework</h2>
-      <p>Benchmark-specific rewards can improve in-domain scores while out-of-domain performance deteriorates. At the same time, training directly on complex compositions can overlook their foundational spatial capabilities. We address both issues with <strong>tool-grounded reward modeling</strong> and <strong>capability-guided curriculum learning</strong>.</p>
-      <div class="core-insight"><h3>Two complementary questions</h3><p><strong>Reward modeling:</strong> How can the critic verify spatial claims reliably in open-world scenes?</p><p><strong>Rollout organization:</strong> How can the generator learn foundational capabilities before composing them?</p></div>
-    </div>
-    <div class="framework container">
-      <div class="framework-title"><span>Framework at a glance</span><span class="small-note">Two complementary components</span></div>
+<!-- Introduction -->
+<section class="section alt-bg" id="motivation">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Introduction</h2>
+
+      <p class="abstract-text">
+        Enhancing spatial intelligence in text-to-image generation—producing spatial relationships that are faithful to the prompt—remains a critical challenge in post-training. RL has become a prevailing paradigm for aligning pretrained generators with task-specific objectives, but its effectiveness depends jointly on <strong>rollout organization</strong>, <strong>reward accuracy</strong>, and <strong>policy optimization</strong>. Existing work primarily advances the third factor, often assuming that the other two are already reliable.
+      </p>
+
+      <div class="remark-box">
+        <div class="remark-header"><span class="remark-label">Two research questions</span></div>
+        <div class="remark-features">
+          <div class="remark-feature"><span class="feature-tag">Q1</span><span>Are reward models sufficiently accurate and robust in open-world spatial scenarios?</span></div>
+          <div class="remark-feature"><span class="feature-tag">Q2</span><span>Can rollout organization support progressive learning from basic spatial capabilities to complex compositions?</span></div>
+        </div>
+      </div>
+
+      <figure class="figure-container">
+        <div class="figure-wrapper medium">
+          <button type="button" class="figure-zoom" data-zoom="static/images/generalization.webp" aria-label="Enlarge in-domain and out-of-domain comparison">
+            <img src="static/images/generalization.webp" width="1600" height="1051" loading="lazy" alt="Line charts showing in-domain accuracy improving while out-of-domain performance eventually declines.">
+          </button>
+        </div>
+        <p class="figure-caption"><strong>Generalization collapse.</strong> In-domain accuracy improves while out-of-domain performance eventually falls, indicating that benchmark-specific rewards do not by themselves ensure spatial generalization.</p>
+      </figure>
+
+      <p class="abstract-text">
+        This failure arises when benchmark suites and their rule-based scoring pipelines are repurposed as training prompts and online rewards. Such rewards generalize poorly to open-world scenes, particularly under occlusion, while reused evaluation prompts emphasize joint constraint satisfaction rather than the foundational capabilities that compose into complex spatial relations.
+      </p>
+
+      <p class="abstract-text">
+        Learned reward models partially address this brittleness, but regression-based scorers treat vision foundation models as black-box feature extractors, and generative evaluators rely on ungrounded teacher generation. Neither paradigm explicitly resolves geometric quantities such as occlusion, orientation, or depth ordering. SpatialCritic instead grounds verification in tool-mediated evidence, and the curriculum addresses the complementary rollout-organization problem.
+      </p>
+
+      <h3 class="subsection-title">Contributions</h3>
+      <ol class="contribution-list">
+        <li><strong>An agentic reward model.</strong> SpatialCritic combines a VLM policy with a spatial perception harness, decomposes prompts into atomic claims, and selectively invokes specialized vision tools under uncertainty.</li>
+        <li><strong>Verifiable preference learning.</strong> Counterfactual spatial preference pairs and RLVR align the agent’s tool selection and evidence integration, improving both judgment accuracy and efficiency.</li>
+        <li><strong>A capability-guided curriculum.</strong> A compositional capability graph organizes rollouts from foundational spatial skills to complex compositions, with mastery-based progression, review, and remediation.</li>
+      </ol>
+
       <div class="framework-flow">
-        <div class="flow-stage"><span class="flow-label">01 · ORGANIZE</span><strong>Capability curriculum</strong><p>Select prompts from skills<br>the generator is ready to learn.</p><span class="stage-detail">Advance · Review · Remediate</span></div>
-        <span class="flow-arrow" aria-hidden="true">→</span>
-        <div class="flow-stage"><span class="flow-label">02 · GENERATE</span><strong>Text-to-image policy</strong><p>Generate candidates for<br>the selected spatial prompts.</p><span class="stage-detail">Prompt → Image candidates</span></div>
-        <span class="flow-arrow" aria-hidden="true">→</span>
-        <div class="flow-stage agent-stage"><span class="flow-label">03 · VERIFY</span><strong>SpatialCritic</strong><p>Resolve spatial claims with<br>reasoning and perceptual tools.</p><span class="stage-detail">Claims → Evidence → Reward</span></div>
-      </div>
-      <div class="feedback-line"><span aria-hidden="true">↶</span> Reward-guided policy updates <span class="feedback-separator">·</span> Mastery estimates guide subsequent rollouts</div>
-    </div>
-  </section>
-
-  <section class="section ruled" id="approach">
-    <div class="reading-width">
-      <h2>SpatialCritic: Agentic Reward Modeling</h2>
-      <p>The agent first decomposes the prompt into atomic claims and identifies perceptual uncertainty. A <strong>spatial perception harness</strong> then provides both reusable verification skills and a catalog of specialized vision tools. Common relations use standardized routines; unfamiliar compositions can use query-specific tool plans.</p>
-    </div>
-    <figure class="container paper-figure paradigm-figure"><button class="figure-zoom" type="button" data-zoom="static/images/paradigms.webp" aria-label="Enlarge comparison of reward-modeling paradigms"><img src="static/images/paradigms.webp" width="2400" height="690" loading="lazy" alt="Comparison of regression, generative, and agentic reward models. SpatialCritic reasons with specialized vision tools."></button><figcaption><strong>Reward-modeling paradigms.</strong> SpatialCritic explicitly connects prompt decomposition, tool use, and visual evidence, rather than directly regressing a preference score.</figcaption></figure>
-    <div class="reading-width"><h3 class="subsection-title">Spatial Perception Harness</h3></div>
-    <div class="container figure-text-layout">
-      <figure class="paper-figure"><button class="figure-zoom" type="button" data-zoom="static/images/harness.webp" aria-label="Enlarge spatial perception harness"><img src="static/images/harness.webp" width="2400" height="1802" loading="lazy" alt="A reusable mask-depth routine verifies a tree and umbrella's depth ordering. A composed tool plan verifies the orientations and counts of dogs around a fountain."></button><figcaption><strong>Two routes to grounded verification.</strong> A fixed local routine handles a familiar depth relation; composed tools handle a multi-object orientation constraint.</figcaption></figure>
-      <div class="step-explainer">
-        <ol class="method-steps">
-          <li><span>1</span><div><h3>Decompose</h3><p>Separate object, attribute, and relation claims. Identify what remains uncertain.</p></div></li>
-          <li><span>2</span><div><h3>Plan & execute</h3><p>Obtain targeted evidence using grounding, counting, segmentation, depth, or orientation tools.</p></div></li>
-          <li><span>3</span><div><h3>Integrate evidence</h3><p>Resolve the outstanding claims and produce an image-pair preference verdict.</p></div></li>
-        </ol>
-        <p class="margin-note">The tools provide observations. The agent must still interpret them and make an evidence-consistent decision.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section ruled" id="alignment">
-    <div class="reading-width">
-      <h2>Agent–Harness Alignment</h2>
-      <p>In the candle example, both trajectories receive the count evidence: three candles in A and two in B. The unaligned agent nevertheless makes an inconsistent final choice. Agent–harness alignment improves how the policy uses the evidence, rather than merely adding more tools.</p>
-    </div>
-    <div class="evidence-comparison container">
-      <div class="observation"><span class="comparison-label">Shared counting evidence</span><div class="count-evidence"><span>Image A <strong>3</strong> candles</span><span>Image B <strong>2</strong> candles</span></div></div>
-      <div class="verdict-comparison"><div><span class="comparison-label">Before alignment</span><p>Identifies the count violation,<br>but chooses <strong class="incorrect">B</strong>.</p></div><span aria-hidden="true" class="comparison-arrow">→</span><div><span class="comparison-label">After alignment</span><p>Retains the evidence-consistent<br>preference for <strong class="correct">A</strong>.</p></div></div>
-      <p class="comparison-caveat">Illustrative case, not a controlled causal ablation: the injected count evidence matches, but the earlier reasoning notes differ.</p>
-    </div>
-    <div class="reading-width"><p>We use verifiable outcome rewards and a bounded token-budget penalty to align the agent’s tool-selection and evidence-integration policy. The harness and perceptual tools remain fixed. With the same 8B backbone, alignment improves SpaRW-Eval accuracy from <strong>92.91% to 95.08%</strong>.</p></div>
-    <figure class="container paper-figure alignment-figure"><button class="figure-zoom" type="button" data-zoom="static/images/cases.webp" aria-label="Enlarge agent–harness alignment cases"><img src="static/images/cases.webp" width="2400" height="496" loading="lazy" alt="Paper cases contrast counting judgments for candles and single-row layout judgments for sunflowers."></button><figcaption><strong>Qualitative alignment cases.</strong> Left: evidence-consistent counting. Right: identifying a single-row constraint rather than relying on object count alone.</figcaption></figure>
-  </section>
-
-  <section class="section ruled" id="data">
-    <div class="reading-width">
-      <h2>Verifiable Spatial Preference Dataset</h2>
-      <p>We construct counterfactual prompt pairs intended to violate one spatial constraint while preserving the others. Text-level checks, image-level verification, and sampled human inspection filter the pairs, so that the final preference reflects the <strong>actual visual contrast</strong>.</p>
-    </div>
-    <figure class="container paper-figure dataset-figure"><button class="figure-zoom" type="button" data-zoom="static/images/dataset.webp" aria-label="Enlarge spatial preference dataset construction"><img src="static/images/dataset.webp" width="2400" height="1339" loading="lazy" alt="Dataset construction from conditioned prompts and targeted perturbations through image generation, visual verification, and human review."></button><figcaption><strong>Constraint-targeted preference construction.</strong> Prompt perturbations are not enough on their own: the generated images must exhibit the intended contrast.</figcaption></figure>
-    <dl class="dataset-stats container"><div><dt>Scene settings</dt><dd>36</dd></div><div><dt>Task categories</dt><dd>13</dd></div><div><dt>Agent training pairs</dt><dd>4,389</dd></div><div><dt>SpaRW-Eval pairs</dt><dd>5,572</dd></div></dl>
-    <p class="reading-width small-note">The taxonomy covers attributes, existence, counting, background, comparison, 3D pose, depth, orientation, 2D position, topology, layout, occlusion, and distance. <strong>3D pose is held out from agent training.</strong></p>
-  </section>
-
-  <section class="section ruled" id="curriculum">
-    <div class="reading-width">
-      <h2>Curriculum Learning for Spatial Generation</h2>
-      <p>A reliable reward tells the generator how it did. The curriculum determines what it should practice next. A <strong>compositional capability graph</strong> represents shared prerequisites rather than imposing a single easy-to-hard ordering.</p>
-    </div>
-    <div class="container figure-text-layout curriculum-layout">
-      <div class="step-explainer">
-        <div class="dependency-example"><span class="comparison-label">Example dependencies</span><p>Count + Position + Topology <span>→ Layout</span></p><p>Topology + Depth <span>→ Occlusion</span></p></div>
-        <ol class="method-steps">
-          <li><span>1</span><div><h3>Advance</h3><p>Unlock dependent capabilities when their prerequisites meet the progression criterion.</p></div></li>
-          <li><span>2</span><div><h3>Review</h3><p>Reassess learned skills in individual and compositional tasks.</p></div></li>
-          <li><span>3</span><div><h3>Remediate</h3><p>Target the capabilities that fall below the mastery threshold.</p></div></li>
-        </ol>
-      </div>
-      <figure class="paper-figure"><button class="figure-zoom" type="button" data-zoom="static/images/curriculum.webp" aria-label="Enlarge compositional capability graph"><img src="static/images/curriculum.webp" width="2400" height="1732" loading="lazy" alt="Capability graph showing dependencies and the advance, review, and remediation cycle."></button><figcaption><strong>Progress without forgetting.</strong> A bounded fallback avoids curriculum deadlock without labeling unmastered capabilities as mastered.</figcaption></figure>
-    </div>
-  </section>
-
-  <section class="section ruled" id="results">
-    <div class="reading-width">
-      <h2>Experiments</h2>
-      <p>We evaluate three distinct questions: whether the critic judges image pairs correctly, whether its rewards select better candidates, and whether those rewards improve generation through RL post-training.</p>
-    </div>
-    <div class="container experiment-block">
-      <div class="experiment-heading"><div><h3>Spatial Preference Verification</h3><p>SpaRW-Eval · category-size-weighted accuracy</p></div></div>
-      <div class="verification-results">
-        <div class="verification-chart" role="img" aria-label="SpaRW-Eval accuracy, zero to 100 percent: Qwen3-VL-8B 84.94, SpatialCritic without alignment 92.91, SpatialCritic with alignment 95.08.">
-          <div class="chart-row"><span>Qwen3-VL-8B</span><div class="bar-track"><i style="--score:84.94%"></i></div><strong>84.94</strong></div>
-          <div class="chart-row"><span>+ spatial harness</span><div class="bar-track"><i style="--score:92.91%"></i></div><strong>92.91</strong></div>
-          <div class="chart-row chart-ours"><span>+ agent–harness alignment</span><div class="bar-track"><i style="--score:95.08%"></i></div><strong>95.08</strong></div>
-          <div class="chart-axis"><span>0%</span><span>100%</span></div>
+        <div class="flow-stage">
+          <span class="flow-label">01 · Organize</span>
+          <strong>Capability curriculum</strong>
+          <p>Select prompts from skills the generator is ready to learn.</p>
+          <span class="stage-detail">Advance · Review · Remediate</span>
         </div>
-        <p class="result-interpretation"><strong>Same backbone, better verification.</strong> An 8B agent reaches 95.08% with the harness and alignment. The 30B harness-equipped variant reaches 95.53%.</p>
-      </div>
-      <details class="table-details"><summary>Selected reward-model comparisons <span aria-hidden="true">+</span></summary>
-        <div class="table-scroll" tabindex="0" role="region" aria-label="Spatial preference verification results">
-          <table class="research-table compact-table"><caption>SpaRW-Eval · selected comparisons from the manuscript</caption><thead><tr><th scope="col">Model</th><th scope="col">Parameters</th><th scope="col">Overall accuracy ↑</th></tr></thead><tbody>
-            <tr><th scope="row">Qwen3-VL-8B</th><td>8B</td><td>84.94%</td></tr>
-            <tr><th scope="row">SpatialScore</th><td>7B</td><td>87.49%</td></tr>
-            <tr><th scope="row">GLM-5.3-Flash</th><td>320B</td><td>94.47%</td></tr>
-            <tr><th scope="row">SpatialCritic (without alignment)</th><td>8B</td><td>92.91%</td></tr>
-            <tr class="highlight-row"><th scope="row">SpatialCritic + agent–harness alignment</th><td>8B</td><td>95.08%</td></tr>
-            <tr class="highlight-row"><th scope="row">SpatialCritic</th><td>30B</td><td>95.53%</td></tr>
-          </tbody></table>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-stage">
+          <span class="flow-label">02 · Generate</span>
+          <strong>Text-to-image policy</strong>
+          <p>Generate candidates for the selected spatial prompts.</p>
+          <span class="stage-detail">Prompt → Image candidates</span>
         </div>
-      </details>
-    </div>
-    <div class="container experiment-block selection-block">
-      <div class="experiment-heading"><div><h3>Best-of-10 Image Selection</h3><p>SD3.5-Medium · reward-guided candidate selection</p></div></div>
-      <div class="selection-result"><div class="selection-numbers"><span>70.76<small>Selection-free baseline</small></span><b aria-hidden="true">→</b><span>74.44<small>SpatialCritic selection</small></span></div><p>Generate ten candidates and select with SpatialCritic. The reported overall accuracy improves by <strong>3.68 percentage points</strong>.</p></div>
-      <p class="small-note">Qwen3-VL-235B judges selection accuracy; the overall score is macro-averaged across ten categories. This is a separate evaluation from SpaRW-Eval.</p>
-    </div>
-    <div class="container experiment-block">
-      <div class="experiment-heading"><div><h3>Reward-Guided RL Post-Training</h3><p>Generation quality across two backbones</p></div></div>
-      <div class="generation-summary"><p><span>SD3.5-Medium</span><strong>78.4 → 83.9</strong><small>Average benchmark score</small></p><p><span>BAGEL</span><strong>83.2 → 86.5</strong><small>Average benchmark score</small></p><p class="summary-description">The full framework improves average scores and reaches <strong>69.5%</strong> and <strong>77.8%</strong> SpatialGenEval spatial accuracy, respectively.</p></div>
-      <div class="backbone-controls" role="group" aria-label="Generator backbone"><button type="button" class="active" data-backbone="sd" aria-pressed="true">SD3.5-Medium</button><button type="button" data-backbone="bagel" aria-pressed="false">BAGEL</button></div>
-      <div class="table-scroll" tabindex="0" role="region" aria-label="SD3.5-Medium results. Scroll horizontally to see all metrics." id="table-sd">
-        <table class="research-table generation-table"><caption>SD3.5-Medium · selected comparisons from the manuscript</caption><thead><tr><th scope="col">Method / reward</th><th scope="col">TIIF<br>BR</th><th scope="col">TIIF<br>AR</th><th scope="col">TIIF<br>RR</th><th scope="col">UniGen<br>2D</th><th scope="col">UniGen<br>3D</th><th scope="col">SGE<br>Basic</th><th scope="col">SGE<br>Spatial</th><th scope="col">Avg.</th></tr></thead><tbody>
-          <tr><th scope="row">Base model</th><td>82.2</td><td>77.6</td><td>68.0</td><td>82.9</td><td>81.4</td><td>92.0</td><td>65.0</td><td>78.4</td></tr>
-          <tr><th scope="row">Flow-GRPO / SpatialScore</th><td>83.4</td><td>80.9</td><td>69.4</td><td>92.1</td><td>78.7</td><td>93.7</td><td>67.3</td><td>80.8</td></tr>
-          <tr><th scope="row">DiffusionNFT / GenEval-2</th><td>85.1</td><td>83.7</td><td>73.4</td><td>89.0</td><td>82.8</td><td>94.0</td><td>68.3</td><td>82.3</td></tr>
-          <tr><th scope="row">Flow-GRPO / SpatialCritic †</th><td>83.3</td><td>80.3</td><td>69.8</td><td>93.3</td><td>85.3</td><td>94.4</td><td>67.0</td><td>81.9</td></tr>
-          <tr class="highlight-row"><th scope="row">SpatialCritic + curriculum</th><td>86.2</td><td>83.9</td><td>74.1</td><td>93.3</td><td>85.3</td><td>95.0</td><td>69.5</td><td>83.9</td></tr>
-        </tbody></table>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-stage agent-stage">
+          <span class="flow-label">03 · Verify</span>
+          <strong>SpatialCritic</strong>
+          <p>Resolve spatial claims with reasoning and perceptual tools.</p>
+          <span class="stage-detail">Claims → Evidence → Reward</span>
+        </div>
       </div>
-      <div class="table-scroll" tabindex="0" role="region" aria-label="BAGEL results. Scroll horizontally to see all metrics." id="table-bagel">
-        <table class="research-table generation-table"><caption>BAGEL · selected comparisons from the manuscript</caption><thead><tr><th scope="col">Method / reward</th><th scope="col">TIIF<br>BR</th><th scope="col">TIIF<br>AR</th><th scope="col">TIIF<br>RR</th><th scope="col">UniGen<br>2D</th><th scope="col">UniGen<br>3D</th><th scope="col">SGE<br>Basic</th><th scope="col">SGE<br>Spatial</th><th scope="col">Avg.</th></tr></thead><tbody>
-          <tr><th scope="row">Base model</th><td>86.4</td><td>82.5</td><td>73.8</td><td>91.8</td><td>82.8</td><td>94.2</td><td>70.9</td><td>83.2</td></tr>
-          <tr><th scope="row">DiffusionNFT / GenEval-2</th><td>87.6</td><td>80.7</td><td>77.3</td><td>90.6</td><td>87.3</td><td>92.2</td><td>70.0</td><td>83.7</td></tr>
-          <tr><th scope="row">Flow-GRPO / GenEval-2</th><td>86.9</td><td>80.9</td><td>74.9</td><td>90.8</td><td>84.0</td><td>80.5</td><td>65.6</td><td>80.5</td></tr>
-          <tr><th scope="row">Flow-GRPO / SpatialCritic</th><td>86.1</td><td>82.2</td><td>74.8</td><td>93.2</td><td>82.7</td><td>93.6</td><td>73.1</td><td>83.7</td></tr>
-          <tr class="highlight-row"><th scope="row">SpatialCritic + curriculum</th><td>88.3</td><td>83.9</td><td>77.1</td><td>94.6</td><td>89.3</td><td>94.7</td><td>77.8</td><td>86.5</td></tr>
-        </tbody></table>
-      </div>
-      <div class="table-notes"><p><strong>Metric definitions.</strong> Avg. is the unweighted mean of the seven benchmark scores shown, excluding human-preference metrics. TIIF = TIIF-Bench (basic, advanced, and reasoning following); UniGen = UniGenBench++; SGE = SpatialGenEval.</p><p>† The SD3.5-Medium non-curriculum setting uses GenEval-2 prompts without its benchmark-specific questions. The main comparison also changes prompt pools. Same-pool, matched-budget controls are reported in the manuscript to examine the scheduling contribution.</p></div>
-      <p class="table-status sr-only" role="status" aria-live="polite"></p>
+      <div class="feedback-line"><span aria-hidden="true">↶</span> Reward-guided policy updates · Mastery estimates guide subsequent rollouts</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section ruled paper-end" id="resources"><div class="reading-width">
-    <h2>Read the full paper</h2>
-    <p>The manuscript includes the spatial harness, dataset construction, optimization details, extended comparisons, and curriculum controls.</p>
-    <a class="publication-button primary" href="static/paper.pdf" target="_blank" rel="noopener">Manuscript & appendix <span aria-hidden="true">↗</span></a>
-    <p class="release-note">Results reflect the supplied research draft. Author information, publication metadata, and public code / dataset links will be added when confirmed.</p>
-  </div></section>
+<!-- Spatial preference examples -->
+<section class="section" id="examples">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Qualitative Preference Examples</h2>
+
+      <p class="abstract-text">The reward model must resolve atomic spatial claims rather than assign a single global aesthetic or preference score. The following pairs illustrate three representative claims from our qualitative materials.</p>
+
+      <div class="examples-grid">
+        <article class="example" id="example-count">
+          <div class="example-heading">
+            <span class="case-index">01</span>
+            <h3>Counting</h3>
+            <span class="constraint-tag">Atomic claim</span>
+          </div>
+          <div class="image-pair">
+            <button type="button" class="figure-zoom" data-zoom="static/images/count-a.webp" aria-label="Enlarge counting example image A">
+              <img src="static/images/count-a.webp" width="800" height="800" alt="Image A: three white candles on a round table." loading="lazy">
+              <span class="image-label" aria-hidden="true">A</span>
+            </button>
+            <button type="button" class="figure-zoom" data-zoom="static/images/count-b.webp" aria-label="Enlarge counting example image B">
+              <img src="static/images/count-b.webp" width="800" height="800" alt="Image B: two white candles on a round table." loading="lazy">
+              <span class="image-label" aria-hidden="true">B</span>
+            </button>
+          </div>
+          <p class="example-prompt">“<mark>Three</mark> white candles arranged in a single row on the round table.”</p>
+          <button type="button" class="evidence-toggle" aria-expanded="true" aria-controls="evidence-count">Inspect the evidence <span aria-hidden="true">+</span></button>
+          <div class="example-evidence" id="evidence-count">
+            <p><strong>Preference: A.</strong> Counting evidence identifies three candles in A and two in B; B violates the specified count.</p>
+            <span class="evidence-type">Evidence type: instance count</span>
+          </div>
+        </article>
+
+        <article class="example" id="example-layout">
+          <div class="example-heading">
+            <span class="case-index">02</span>
+            <h3>Layout</h3>
+            <span class="constraint-tag">Atomic claim</span>
+          </div>
+          <div class="image-pair">
+            <button type="button" class="figure-zoom" data-zoom="static/images/layout-a.webp" aria-label="Enlarge layout example image A">
+              <img src="static/images/layout-a.webp" width="800" height="800" alt="Image A: three sunflowers form a cluster on a bench." loading="lazy">
+              <span class="image-label" aria-hidden="true">A</span>
+            </button>
+            <button type="button" class="figure-zoom" data-zoom="static/images/layout-b.webp" aria-label="Enlarge layout example image B">
+              <img src="static/images/layout-b.webp" width="800" height="800" alt="Image B: three sunflowers arranged in one row on a bench." loading="lazy">
+              <span class="image-label" aria-hidden="true">B</span>
+            </button>
+          </div>
+          <p class="example-prompt">“Three sunflowers arranged <mark>in a single row</mark> on a wooden bench.”</p>
+          <button type="button" class="evidence-toggle" aria-expanded="true" aria-controls="evidence-layout">Inspect the evidence <span aria-hidden="true">+</span></button>
+          <div class="example-evidence" id="evidence-layout">
+            <p><strong>Preference: B.</strong> Both images contain three flowers; the decisive distinction is arrangement—a cluster in A versus a single row in B.</p>
+            <span class="evidence-type">Evidence type: relational layout</span>
+          </div>
+        </article>
+
+        <article class="example" id="example-position">
+          <div class="example-heading">
+            <span class="case-index">03</span>
+            <h3>Relative position</h3>
+            <span class="constraint-tag">Atomic claim</span>
+          </div>
+          <div class="image-pair">
+            <button type="button" class="figure-zoom" data-zoom="static/images/position-a.webp" aria-label="Enlarge relative position example image A">
+              <img src="static/images/position-a.webp" width="800" height="800" alt="Image A: the turtle is to the viewer's left of the diver." loading="lazy">
+              <span class="image-label" aria-hidden="true">A</span>
+            </button>
+            <button type="button" class="figure-zoom" data-zoom="static/images/position-b.webp" aria-label="Enlarge relative position example image B">
+              <img src="static/images/position-b.webp" width="800" height="800" alt="Image B: the turtle is to the viewer's right of the diver." loading="lazy">
+              <span class="image-label" aria-hidden="true">B</span>
+            </button>
+          </div>
+          <p class="example-prompt">“A turtle is <mark>to the viewer’s right of</mark> a diver, with a coral reef.”</p>
+          <button type="button" class="evidence-toggle" aria-expanded="true" aria-controls="evidence-position">Inspect the evidence <span aria-hidden="true">+</span></button>
+          <div class="example-evidence" id="evidence-position">
+            <p><strong>Preference: B.</strong> Object-level horizontal coordinates place the turtle left of the diver in A and right of the diver in B.</p>
+            <span class="evidence-type">Decisive evidence: viewer-relative grounding</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="teaser-caption">These are preference-verification examples, <em>not</em> before/after generator outputs. The notes summarize source-case evidence and do not represent live model inference.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SpatialCritic -->
+<section class="section" id="approach">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">SpatialCritic: Agentic Reward Modeling</h2>
+
+      <figure class="figure-container">
+        <div class="figure-wrapper large">
+          <button type="button" class="figure-zoom" data-zoom="static/images/paradigms.webp" aria-label="Enlarge comparison of reward-modeling paradigms">
+            <img src="static/images/paradigms.webp" width="2400" height="690" loading="lazy" alt="Comparison of regression, generative, and agentic reward models. SpatialCritic reasons with specialized vision tools.">
+          </button>
+        </div>
+        <p class="figure-caption"><strong>Reward-modeling paradigms.</strong> SpatialCritic explicitly connects prompt decomposition, tool use, and visual evidence, rather than directly regressing a preference score.</p>
+      </figure>
+
+      <h3 class="subsection-title">Spatial Perception Harness</h3>
+
+      <div class="method-columns">
+        <div>
+          <ol class="method-steps">
+            <li><span>1</span><div><h3>Decompose</h3><p>Separate object, attribute, and relation claims. Identify what remains uncertain.</p></div></li>
+            <li><span>2</span><div><h3>Plan &amp; execute</h3><p>Obtain targeted evidence using grounding, counting, segmentation, depth, or orientation tools.</p></div></li>
+            <li><span>3</span><div><h3>Integrate evidence</h3><p>Resolve the outstanding claims and produce an image-pair preference verdict.</p></div></li>
+          </ol>
+          <p class="margin-note">The tools provide observations. The agent must still interpret them and make an evidence-consistent decision.</p>
+        </div>
+        <figure class="figure-container">
+          <div class="figure-wrapper">
+            <button type="button" class="figure-zoom" data-zoom="static/images/harness.webp" aria-label="Enlarge spatial perception harness">
+              <img src="static/images/harness.webp" width="2400" height="1802" loading="lazy" alt="A reusable mask-depth routine verifies a tree and umbrella's depth ordering. A composed tool plan verifies the orientations and counts of dogs around a fountain.">
+            </button>
+          </div>
+          <p class="figure-caption"><strong>Two routes to grounded verification.</strong> A fixed local routine handles a familiar depth relation; composed tools handle a multi-object orientation constraint.</p>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Agent-harness alignment -->
+<section class="section alt-bg" id="alignment">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Agent–Harness Alignment</h2>
+
+      <p class="abstract-text">A correct observation can still lead to an incorrect verdict. In the candle example, both trajectories receive the count evidence: three candles in A and two in B. The unaligned agent nevertheless makes an inconsistent final choice. Agent–harness alignment improves how the policy uses the evidence, rather than merely adding more tools.</p>
+
+      <div class="evidence-comparison">
+        <div class="observation">
+          <span class="comparison-label">Shared counting evidence</span>
+          <div class="count-evidence">
+            <span>Image A <strong>3</strong> candles</span>
+            <span>Image B <strong>2</strong> candles</span>
+          </div>
+        </div>
+        <div class="verdict-comparison">
+          <div>
+            <span class="comparison-label">Before alignment</span>
+            <p>Identifies the count violation,<br>but chooses <strong class="incorrect">B</strong>.</p>
+          </div>
+          <span class="comparison-arrow" aria-hidden="true">→</span>
+          <div>
+            <span class="comparison-label">After alignment</span>
+            <p>Retains the evidence-consistent<br>preference for <strong class="correct">A</strong>.</p>
+          </div>
+        </div>
+        <p class="comparison-caveat">Illustrative case, not a controlled causal ablation: the injected count evidence matches, but the earlier reasoning notes differ.</p>
+      </div>
+
+      <p class="abstract-text">We use verifiable outcome rewards and a bounded token-budget penalty to align the agent’s tool-selection and evidence-integration policy. The harness and perceptual tools remain fixed. With the same 8B backbone, alignment improves SpaRW-Eval accuracy from <strong>92.91% to 95.08%</strong>.</p>
+
+      <figure class="figure-container">
+        <div class="figure-wrapper large">
+          <button type="button" class="figure-zoom" data-zoom="static/images/cases.webp" aria-label="Enlarge agent-harness alignment cases">
+            <img src="static/images/cases.webp" width="2400" height="496" loading="lazy" alt="Paper cases contrast counting judgments for candles and single-row layout judgments for sunflowers.">
+          </button>
+        </div>
+        <p class="figure-caption"><strong>Qualitative alignment cases.</strong> Left: evidence-consistent counting. Right: identifying a single-row constraint rather than relying on object count alone.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Dataset -->
+<section class="section" id="data">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Verifiable Spatial Preference Dataset</h2>
+
+      <p class="abstract-text">We construct counterfactual prompt pairs intended to violate one spatial constraint while preserving the others. Text-level checks, image-level verification, and sampled human inspection filter the pairs, so that the final preference reflects the <strong>actual visual contrast</strong>.</p>
+
+      <figure class="figure-container">
+        <div class="figure-wrapper large">
+          <button type="button" class="figure-zoom" data-zoom="static/images/dataset.webp" aria-label="Enlarge spatial preference dataset construction">
+            <img src="static/images/dataset.webp" width="2400" height="1339" loading="lazy" alt="Dataset construction from conditioned prompts and targeted perturbations through image generation, visual verification, and human review.">
+          </button>
+        </div>
+        <p class="figure-caption"><strong>Constraint-targeted preference construction.</strong> Prompt perturbations are not enough on their own: the generated images must exhibit the intended contrast.</p>
+      </figure>
+
+      <dl class="dataset-stats">
+        <div><dt>Scene settings</dt><dd>36</dd></div>
+        <div><dt>Task categories</dt><dd>13</dd></div>
+        <div><dt>Agent training pairs</dt><dd>4,389</dd></div>
+        <div><dt>SpaRW-Eval pairs</dt><dd>5,572</dd></div>
+      </dl>
+
+      <p class="taxonomy-note">The taxonomy covers attributes, existence, counting, background, comparison, 3D pose, depth, orientation, 2D position, topology, layout, occlusion, and distance. <strong>3D pose is held out from agent training.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- Curriculum -->
+<section class="section alt-bg" id="curriculum">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Curriculum Learning for Spatial Generation</h2>
+
+      <p class="abstract-text">A reliable reward tells the generator how it did. The curriculum determines what it should practice next. A <strong>compositional capability graph</strong> represents shared prerequisites rather than imposing a single easy-to-hard ordering.</p>
+
+      <div class="method-columns reverse">
+        <div>
+          <div class="remark-box">
+            <div class="remark-header"><span class="remark-label">Example dependencies</span></div>
+            <p class="remark-text">Count + Position + Topology → Layout</p>
+            <p class="remark-text">Topology + Depth → Occlusion</p>
+          </div>
+          <ol class="method-steps">
+            <li><span>1</span><div><h3>Advance</h3><p>Unlock dependent capabilities when their prerequisites meet the progression criterion.</p></div></li>
+            <li><span>2</span><div><h3>Review</h3><p>Reassess learned skills in individual and compositional tasks.</p></div></li>
+            <li><span>3</span><div><h3>Remediate</h3><p>Target the capabilities that fall below the mastery threshold.</p></div></li>
+          </ol>
+        </div>
+        <figure class="figure-container">
+          <div class="figure-wrapper">
+            <button type="button" class="figure-zoom" data-zoom="static/images/curriculum.webp" aria-label="Enlarge compositional capability graph">
+              <img src="static/images/curriculum.webp" width="2400" height="1732" loading="lazy" alt="Capability graph showing dependencies and the advance, review, and remediation cycle.">
+            </button>
+          </div>
+          <p class="figure-caption"><strong>Progress without forgetting.</strong> A bounded fallback avoids curriculum deadlock without labeling unmastered capabilities as mastered.</p>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experiments -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Experiments</h2>
+
+      <p class="abstract-text">We evaluate three distinct questions: whether the critic judges image pairs correctly, whether its rewards select better candidates, and whether those rewards improve generation through RL post-training.</p>
+
+      <div class="experiment-block">
+        <div class="experiment-heading">
+          <div>
+            <h3>Spatial Preference Verification</h3>
+            <p>SpaRW-Eval · category-size-weighted accuracy</p>
+          </div>
+        </div>
+
+        <div class="verification-results">
+          <div class="verification-chart" role="img" aria-label="SpaRW-Eval accuracy, zero to 100 percent: Qwen3-VL-8B 84.94, SpatialCritic without alignment 92.91, SpatialCritic with alignment 95.08.">
+            <div class="chart-row"><span>Qwen3-VL-8B</span><div class="bar-track"><i style="--score:84.94%"></i></div><strong>84.94</strong></div>
+            <div class="chart-row"><span>+ spatial harness</span><div class="bar-track"><i style="--score:92.91%"></i></div><strong>92.91</strong></div>
+            <div class="chart-row chart-ours"><span>+ agent–harness alignment</span><div class="bar-track"><i style="--score:95.08%"></i></div><strong>95.08</strong></div>
+            <div class="chart-axis"><span>0%</span><span>100%</span></div>
+          </div>
+          <p class="result-interpretation"><strong>Same backbone, better verification.</strong> An 8B agent reaches 95.08% with the harness and alignment. The 30B harness-equipped variant reaches 95.53%.</p>
+        </div>
+
+        <details class="table-details">
+          <summary>Selected reward-model comparisons <span aria-hidden="true">+</span></summary>
+          <div class="table-container" role="region" aria-label="Spatial preference verification results" tabindex="0">
+            <table class="research-table compact-table">
+              <caption>SpaRW-Eval · selected comparisons from the manuscript</caption>
+              <thead>
+                <tr><th scope="col">Model</th><th scope="col">Parameters</th><th scope="col">Overall accuracy ↑</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Qwen3-VL-8B</th><td>8B</td><td>84.94%</td></tr>
+                <tr><th scope="row">SpatialScore</th><td>7B</td><td>87.49%</td></tr>
+                <tr><th scope="row">GLM-5.3-Flash</th><td>320B</td><td>94.47%</td></tr>
+                <tr><th scope="row">SpatialCritic (without alignment)</th><td>8B</td><td>92.91%</td></tr>
+                <tr class="highlight-row"><th scope="row">SpatialCritic + agent–harness alignment</th><td>8B</td><td>95.08%</td></tr>
+                <tr class="highlight-row"><th scope="row">SpatialCritic</th><td>30B</td><td>95.53%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+
+      <div class="experiment-block">
+        <div class="experiment-heading">
+          <div>
+            <h3>Best-of-10 Image Selection</h3>
+            <p>SD3.5-Medium · reward-guided candidate selection</p>
+          </div>
+        </div>
+
+        <div class="selection-result">
+          <div class="selection-numbers">
+            <span>70.76<small>Selection-free baseline</small></span>
+            <b aria-hidden="true">→</b>
+            <span>74.44<small>SpatialCritic selection</small></span>
+          </div>
+          <p>Generate ten candidates and select with SpatialCritic. The reported overall accuracy improves by <strong>3.68 percentage points</strong>.</p>
+        </div>
+
+        <p class="selection-note">Qwen3-VL-235B judges selection accuracy; the overall score is macro-averaged across ten categories. This is a separate evaluation from SpaRW-Eval.</p>
+      </div>
+
+      <div class="experiment-block">
+        <div class="experiment-heading">
+          <div>
+            <h3>Reward-Guided RL Post-Training</h3>
+            <p>Generation quality across two backbones</p>
+          </div>
+        </div>
+
+        <div class="generation-summary">
+          <p><span>SD3.5-Medium</span><strong>78.4 → 83.9</strong><small>Average benchmark score</small></p>
+          <p><span>BAGEL</span><strong>83.2 → 86.5</strong><small>Average benchmark score</small></p>
+          <p class="summary-description">The full framework improves average scores and reaches <strong>69.5%</strong> and <strong>77.8%</strong> SpatialGenEval spatial accuracy, respectively.</p>
+        </div>
+
+        <div class="backbone-controls" role="group" aria-label="Generator backbone">
+          <button type="button" class="active" data-backbone="sd" aria-pressed="true">SD3.5-Medium</button>
+          <button type="button" data-backbone="bagel" aria-pressed="false">BAGEL</button>
+        </div>
+
+        <div class="table-container" role="region" aria-label="SD3.5-Medium results. Scroll horizontally to see all metrics." tabindex="0" id="table-sd">
+          <table class="research-table generation-table">
+            <caption>SD3.5-Medium · selected comparisons from the manuscript</caption>
+            <thead>
+              <tr>
+                <th scope="col">Method / reward</th>
+                <th scope="col">TIIF<br>BR</th><th scope="col">TIIF<br>AR</th><th scope="col">TIIF<br>RR</th>
+                <th scope="col">UniGen<br>2D</th><th scope="col">UniGen<br>3D</th>
+                <th scope="col">SGE<br>Basic</th><th scope="col">SGE<br>Spatial</th>
+                <th scope="col">Avg.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Base model</th><td>82.2</td><td>77.6</td><td>68.0</td><td>82.9</td><td>81.4</td><td>92.0</td><td>65.0</td><td>78.4</td></tr>
+              <tr><th scope="row">Flow-GRPO / SpatialScore</th><td>83.4</td><td>80.9</td><td>69.4</td><td>92.1</td><td>78.7</td><td>93.7</td><td>67.3</td><td>80.8</td></tr>
+              <tr><th scope="row">DiffusionNFT / GenEval-2</th><td>85.1</td><td>83.7</td><td>73.4</td><td>89.0</td><td>82.8</td><td>94.0</td><td>68.3</td><td>82.3</td></tr>
+              <tr><th scope="row">Flow-GRPO / SpatialCritic †</th><td>83.3</td><td>80.3</td><td>69.8</td><td>93.3</td><td>85.3</td><td>94.4</td><td>67.0</td><td>81.9</td></tr>
+              <tr class="highlight-row"><th scope="row">SpatialCritic + curriculum</th><td>86.2</td><td>83.9</td><td>74.1</td><td>93.3</td><td>85.3</td><td>95.0</td><td>69.5</td><td>83.9</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-container" role="region" aria-label="BAGEL results. Scroll horizontally to see all metrics." tabindex="0" id="table-bagel">
+          <table class="research-table generation-table">
+            <caption>BAGEL · selected comparisons from the manuscript</caption>
+            <thead>
+              <tr>
+                <th scope="col">Method / reward</th>
+                <th scope="col">TIIF<br>BR</th><th scope="col">TIIF<br>AR</th><th scope="col">TIIF<br>RR</th>
+                <th scope="col">UniGen<br>2D</th><th scope="col">UniGen<br>3D</th>
+                <th scope="col">SGE<br>Basic</th><th scope="col">SGE<br>Spatial</th>
+                <th scope="col">Avg.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Base model</th><td>86.4</td><td>82.5</td><td>73.8</td><td>91.8</td><td>82.8</td><td>94.2</td><td>70.9</td><td>83.2</td></tr>
+              <tr><th scope="row">DiffusionNFT / GenEval-2</th><td>87.6</td><td>80.7</td><td>77.3</td><td>90.6</td><td>87.3</td><td>92.2</td><td>70.0</td><td>83.7</td></tr>
+              <tr><th scope="row">Flow-GRPO / GenEval-2</th><td>86.9</td><td>80.9</td><td>74.9</td><td>90.8</td><td>84.0</td><td>80.5</td><td>65.6</td><td>80.5</td></tr>
+              <tr><th scope="row">Flow-GRPO / SpatialCritic</th><td>86.1</td><td>82.2</td><td>74.8</td><td>93.2</td><td>82.7</td><td>93.6</td><td>73.1</td><td>83.7</td></tr>
+              <tr class="highlight-row"><th scope="row">SpatialCritic + curriculum</th><td>88.3</td><td>83.9</td><td>77.1</td><td>94.6</td><td>89.3</td><td>94.7</td><td>77.8</td><td>86.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-notes">
+          <p><strong>Metric definitions.</strong> Avg. is the unweighted mean of the seven benchmark scores shown, excluding human-preference metrics. TIIF = TIIF-Bench (basic, advanced, and reasoning following); UniGen = UniGenBench++; SGE = SpatialGenEval.</p>
+          <p>† The SD3.5-Medium non-curriculum setting uses GenEval-2 prompts without its benchmark-specific questions. The main comparison also changes prompt pools. Same-pool, matched-budget controls are reported in the manuscript to examine the scheduling contribution.</p>
+        </div>
+        <p class="table-status sr-only" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper and resources -->
+<section class="section alt-bg paper-end" id="resources">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Paper &amp; Resources</h2>
+      <p class="abstract-text">The manuscript includes the spatial harness, dataset construction, optimization details, extended comparisons, and curriculum controls.</p>
+      <div class="publication-links">
+        <a class="button primary" href="static/paper.pdf" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h5"/></svg></span>
+          <span>Manuscript &amp; appendix</span>
+        </a>
+      </div>
+      <p class="release-note">Results reflect the supplied research draft. Author information, publication metadata, and public code / dataset links will be added when confirmed.</p>
+    </div>
+  </div>
+</section>
+
 </main>
-<footer class="footer container"><span>SpatialCritic · Getting Space Right</span><div><a href="../../">Xiaofeng Tan</a><a href="#top">Back to top ↑</a></div></footer>
-<dialog class="lightbox" aria-label="Enlarged research figure"><div class="lightbox-toolbar"><span>Research figure</span><a class="lightbox-original" target="_blank" rel="noopener">Open image ↗</a><button type="button" class="lightbox-close" aria-label="Close enlarged figure">Close ×</button></div><div class="lightbox-body"><img alt=""></div></dialog>
+
+<footer class="footer">
+  <div class="container">
+    <p><a href="../../">Xiaofeng Tan</a> · <a href="#top">Back to top</a></p>
+  </div>
+</footer>
+
+<dialog class="lightbox" aria-label="Enlarged research figure">
+  <div class="lightbox-toolbar">
+    <span>Research figure</span>
+    <a class="lightbox-original" target="_blank" rel="noopener">Open image ↗</a>
+    <button type="button" class="lightbox-close" aria-label="Close enlarged figure">Close ×</button>
+  </div>
+  <div class="lightbox-body"><img alt=""></div>
+</dialog>
+
 </body>
 </html>

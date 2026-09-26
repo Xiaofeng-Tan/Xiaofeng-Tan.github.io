@@ -59,25 +59,4 @@
     document.body.classList.remove("modal-open");
     if (trigger) trigger.focus({ preventScroll: true });
   });
-
-  const navLinks = [...document.querySelectorAll(".section-nav a")];
-  let navigationFramePending = false;
-  function updateNavigation() {
-    let current = null;
-    navLinks.forEach(link => {
-      if (document.querySelector(link.hash).getBoundingClientRect().top <= 150) current = link;
-    });
-    navLinks.forEach(link => {
-      if (link === current) link.setAttribute("aria-current", "location");
-      else link.removeAttribute("aria-current");
-    });
-    navigationFramePending = false;
-  }
-  window.addEventListener("scroll", () => {
-    if (!navigationFramePending) {
-      navigationFramePending = true;
-      requestAnimationFrame(updateNavigation);
-    }
-  }, {passive: true});
-  updateNavigation();
 })();
