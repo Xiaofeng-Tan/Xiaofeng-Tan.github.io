@@ -124,6 +124,20 @@
     }
   } catch (error) { /* Storage may be disabled; English remains the default. */ }
 </script>
+<script>
+  /* Set the initial theme before stylesheets paint, following the system unless
+   * the visitor has explicitly selected light or dark mode. */
+  try {
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme !== 'light' && savedTheme !== 'dark' && savedTheme !== 'system') {
+      savedTheme = 'system';
+    }
+    var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var initialTheme = savedTheme === 'dark' || (savedTheme === 'system' && systemDark) ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme-setting', savedTheme);
+    document.documentElement.setAttribute('data-theme', initialTheme);
+  } catch (error) { /* The theme.js fallback will initialize the page. */ }
+</script>
 <!-- Bootstrap & MDB -->
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
@@ -1835,15 +1849,14 @@ function revealAndCopyContact(button, text, label) {
       <span>📖 Selected Publications</span>
     </h2>
     <div class="publications-grouped">
-  <details class="pub-category" open>
+  <details class="pub-category pub-category--highlighted" open>
     <summary class="pub-category__summary">
-      <span class="pub-category__label">Publications</span>
+      <span class="pub-category__label">Highlighted Works</span>
       <span class="pub-category__chevron" aria-hidden="true"></span>
     </summary>
     <div class="pub-category__body">
-      <div class="publications">
-        <ol class="bibliography">
-<li>
+      <div class="publications highlighted-publications">
+        <ol class="bibliography"><li>
 <div class="row">
   
     <div class="col col-sm-2 abbr">
@@ -1981,7 +1994,147 @@ function revealAndCopyContact(button, text, label) {
     
   </div>
 </div>
-</li>
+</li></ol>
+        <ol class="bibliography"><li>
+<div class="row">
+  
+    <div class="col col-sm-2 abbr">
+      
+        
+          
+          
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/publication_preview/MotionRFT-480.webp 480w,/assets/img/publication_preview/MotionRFT-800.webp 800w,/assets/img/publication_preview/MotionRFT-1400.webp 1400w," type="image/webp" sizes="200px">
+    
+    <img src="/assets/img/publication_preview/MotionRFT.png" class="preview z-depth-1 rounded" width="100%" height="auto" alt="MotionRFT.png" data-zoomable loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </source></picture>
+
+  
+</figure>
+
+        
+      
+    </div>
+  
+
+  <!-- Entry bib key -->
+  <div id="tan2026motionrft" class="col-sm-8">
+    <!-- Title -->
+    <div class="title">MotionRFT: Unified Reinforcement Fine-Tuning for Text-to-Motion Generation</div>
+    <!-- Author -->
+    <div class="author">
+      
+
+      
+      <em>Xiaofeng
+            Tan</em>, Wanjiang
+            Weng, Hongsong
+            Wang, Fang
+            Zhao, Xin
+            Geng, and Liang
+            Wang
+      
+    </div>
+
+    <!-- Journal/Book title and date -->
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="periodical">
+      
+      
+          <span class="venue-abbr">⏱️ UR 2026</span><span class="venue-separator">|</span>
+        <em>Under Review (TPAMI)</em>
+      </div>
+    <div class="periodical">
+      
+    </div>
+
+    <!-- Links/Buttons -->
+    <div class="links">
+      
+      
+        <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-file-alt"></i> Abs</a>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <a href="https://github.com/Xiaofeng-Tan/MotionRFT" class="btn-code btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fab fa-github"></i> Code</a>
+      
+      
+      
+      
+        
+          <a href="/projects/MotionRFT/index.html" class="btn-website btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
+        
+      
+      
+      
+      
+    </div>
+    
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      
+    
+
+    
+
+    
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p>Text-to-motion generation has rapidly advanced with diffusion- and flow-based generative models, yet supervised pre-training remains insufficient to align models with high-level objectives such as semantic consistency, realism, and human preference. We present a reinforcement fine-tuning framework that comprises a heterogeneous-representation, multi-dimensional reward model MotionReward and an efficient, fine-grained fine-tuning strategy EasyTune. Extensive experiments demonstrate strong cross-model and cross-representation generalization, achieving FID 0.132 with 22.10 GB peak memory and saving up to 15.22 GB over DRaFT.</p>
+      </div>
+    
+
+    
+
+    
+  </div>
+</div>
+</li></ol>
+      </div>
+    </div>
+  </details>
+
+  <details class="pub-category" open>
+    <summary class="pub-category__summary">
+      <span class="pub-category__label">Publications</span>
+      <span class="pub-category__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="pub-category__body">
+      <div class="publications">
+        <ol class="bibliography">
 <li>
 <div class="row">
   
@@ -2762,136 +2915,7 @@ function revealAndCopyContact(button, text, label) {
     </summary>
     <div class="pub-category__body">
       <div class="publications">
-        <ol class="bibliography">
-<li>
-<div class="row">
-  
-    <div class="col col-sm-2 abbr">
-      
-        
-          
-          
-
-
-
-<figure>
-  <picture>
-    <!-- Auto scaling with imagemagick -->
-    <!--
-      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
-      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
-    -->
-    
-      <source class="responsive-img-srcset" srcset="/assets/img/publication_preview/MotionRFT-480.webp 480w,/assets/img/publication_preview/MotionRFT-800.webp 800w,/assets/img/publication_preview/MotionRFT-1400.webp 1400w," type="image/webp" sizes="200px">
-    
-    <img src="/assets/img/publication_preview/MotionRFT.png" class="preview z-depth-1 rounded" width="100%" height="auto" alt="MotionRFT.png" data-zoomable loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-  </source></picture>
-
-  
-</figure>
-
-        
-      
-    </div>
-  
-
-  <!-- Entry bib key -->
-  <div id="tan2026motionrft" class="col-sm-8">
-    <!-- Title -->
-    <div class="title">MotionRFT: Unified Reinforcement Fine-Tuning for Text-to-Motion Generation</div>
-    <!-- Author -->
-    <div class="author">
-      
-
-      
-      <em>Xiaofeng
-            Tan</em>, Wanjiang
-            Weng, Hongsong
-            Wang, Fang
-            Zhao, Xin
-            Geng, and Liang
-            Wang
-      
-    </div>
-
-    <!-- Journal/Book title and date -->
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="periodical">
-      
-      
-          <span class="venue-abbr">⏱️ UR 2026</span><span class="venue-separator">|</span>
-        <em>Under Review (TPAMI)</em>
-      </div>
-    <div class="periodical">
-      
-    </div>
-
-    <!-- Links/Buttons -->
-    <div class="links">
-      
-      
-        <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-file-alt"></i> Abs</a>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        <a href="https://github.com/Xiaofeng-Tan/MotionRFT" class="btn-code btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fab fa-github"></i> Code</a>
-      
-      
-      
-      
-        
-          <a href="/projects/MotionRFT/index.html" class="btn-website btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
-        
-      
-      
-      
-      
-    </div>
-    
-      
-      
-
-      
-      
-
-      
-      
-
-      
-      
-      
-    
-
-    
-
-    
-      <!-- Hidden abstract block -->
-      <div class="abstract hidden">
-        <p>Text-to-motion generation has rapidly advanced with diffusion- and flow-based generative models, yet supervised pre-training remains insufficient to align models with high-level objectives such as semantic consistency, realism, and human preference. We present a reinforcement fine-tuning framework that comprises a heterogeneous-representation, multi-dimensional reward model MotionReward and an efficient, fine-grained fine-tuning strategy EasyTune. Extensive experiments demonstrate strong cross-model and cross-representation generalization, achieving FID 0.132 with 22.10 GB peak memory and saving up to 15.22 GB over DRaFT.</p>
-      </div>
-    
-
-    
-
-    
-  </div>
-</div>
-</li>
-<li>
+        <ol class="bibliography"><li>
 <div class="row">
   
     <div class="col col-sm-2 abbr">
@@ -3028,8 +3052,7 @@ function revealAndCopyContact(button, text, label) {
     
   </div>
 </div>
-</li>
-</ol>
+</li></ol>
       </div>
     </div>
   </details>
@@ -3226,7 +3249,7 @@ function revealAndCopyContact(button, text, label) {
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <span>Last updated: <time datetime="2026-09-26T04:03:10+00:00">September 26, 2026</time></span>
+    <span>Last updated: <time datetime="2026-09-26T05:08:17+00:00">September 26, 2026</time></span>
   </div>
 </article>
 
