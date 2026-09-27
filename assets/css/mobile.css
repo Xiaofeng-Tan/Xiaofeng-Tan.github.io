@@ -203,7 +203,20 @@
     background: transparent;
     border: 0;
   }
-  .news table tr td { padding: 0 !important; font-size: 0.9375rem; line-height: 1.45; }
+  .news table tr td { padding: 0 !important; font-size: 0.82rem; line-height: 1.4; }
+  .news table tr td > span.news-content,
+  .news table tr td > span.news-content *,
+  .news table tr td > a,
+  .news table tr td > strong {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .news table tr td .news-content .presentation-distinction {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 700;
+  }
   html[data-theme="dark"] .news table tr th {
     background: transparent !important;
     box-shadow: none;
@@ -553,4 +566,55 @@
 
 .about-page .detail-title {
   font-weight: 600;
+}
+
+/* Match the desktop News rule exactly on mobile: links and inline labels must
+ * not inherit a different scale from the surrounding announcement. */
+.about-page .news .news-content,
+.about-page .news .news-content a,
+.about-page .news .news-content strong,
+.about-page .news .news-content em,
+.about-page .news .news-content span {
+  font-size: 0.82rem !important;
+  line-height: 1.4 !important;
+}
+
+.about-page .news .news-content a {
+  font-weight: 400 !important;
+}
+
+.about-page .news .news-content .presentation-distinction {
+  color: #a3293a !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme="dark"] .about-page .news .news-content .presentation-distinction {
+  color: #f0a0a9 !important;
+}
+
+.about-page .news .news-item-text,
+.about-page .news .news-item-text .news-content,
+.about-page .news .news-item-text .news-content * {
+  font-family: inherit !important;
+  font-size: 0.82rem !important;
+  line-height: 1.4 !important;
+}
+
+.about-page .news .news-item-text {
+  font-weight: 400 !important;
+}
+
+.about-page .news .news-item-text .news-content a,
+.about-page .news .news-item-text .news-content em,
+.about-page .news .news-item-text .news-content span:not(.presentation-distinction) {
+  font-weight: inherit !important;
+}
+
+.about-page .news .news-item-text .presentation-distinction {
+  color: #a3293a !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme="dark"] .about-page .news .news-item-text .presentation-distinction {
+  color: #f0a0a9 !important;
 }

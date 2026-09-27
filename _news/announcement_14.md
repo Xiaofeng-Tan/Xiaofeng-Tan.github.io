@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 Two papers accepted to NeurIPS 2026: a <a href="/projects/PEC/">flow-based RLHF theory paper</a> (first author, Spotlight) and BiMoGen (Poster)!
+🎉 Two papers accepted to NeurIPS 2026: a <a href="/projects/PEC/">flow-based RLHF theory paper</a> (first author, <span class="presentation-distinction">Spotlight</span>) and BiMoGen (Poster)!

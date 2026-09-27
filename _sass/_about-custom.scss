@@ -9,14 +9,17 @@
 
 /* Venue annotations, following Minimal Light and Jon Barron's academic pages.
  * Presentation distinctions are not venue-ranking badges or action buttons. */
-.publications .periodical .presentation-distinction {
+.presentation-distinction {
   color: #a3293a;
-  font-family: inherit;
-  font-size: inherit;
   font-weight: 700;
   font-style: normal;
-  letter-spacing: normal;
   white-space: nowrap;
+}
+
+.publications .periodical .presentation-distinction {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: normal;
 }
 
 .publications .periodical .presentation-statistics {
@@ -25,7 +28,7 @@
   font-style: normal;
 }
 
-html[data-theme="dark"] .publications .periodical .presentation-distinction {
+html[data-theme="dark"] .presentation-distinction {
   color: #f0a0a9;
 }
 
@@ -1165,6 +1168,16 @@ html[data-theme="dark"] .publications .periodical .presentation-distinction {
     vertical-align: middle;
   }
 
+  /* News content is rendered inside language spans. Keep the outer sentence,
+   * linked text, emphasis, and the Spotlight label on one compact scale. */
+  .news table tr td > span.news-content,
+  .news table tr td > span.news-content :is(a, strong, em, span),
+  .news table tr td > a,
+  .news table tr td > strong {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
   .news table tr td p {
     display: inline;
     margin: 0;
@@ -1173,7 +1186,7 @@ html[data-theme="dark"] .publications .periodical .presentation-distinction {
   .news table tr td a {
     color: #00A1E9;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
     transition: color 0.2s ease;
   }
 
@@ -1184,7 +1197,7 @@ html[data-theme="dark"] .publications .periodical .presentation-distinction {
   .news table tr td em {
     color: #5a6c7d;
     font-style: normal;
-    font-size: 0.72rem;
+    font-size: inherit;
     margin-left: 0.4rem;
   }
 
@@ -5109,4 +5122,83 @@ html[data-theme="dark"] .hobbies-intro {
 
 html[data-theme="dark"] .service-details {
   color: #8b949e;
+}
+
+/* Keep every part of an announcement on one compact scale. The language
+ * wrapper, links, and inline emphasis otherwise pick up separate inherited
+ * rules and can appear smaller than the surrounding sentence. */
+.about-page .news .news-content,
+.about-page .news .news-content *,
+.about-page .news .news-title {
+  font-size: 0.82rem !important;
+  line-height: 1.4 !important;
+}
+
+.about-page .news .news-content a,
+.about-page .news .news-title {
+  color: var(--primary);
+  font-weight: 400;
+}
+
+.about-page .news .news-content .presentation-distinction {
+  color: #a3293a;
+  font-weight: 700;
+}
+
+html[data-theme="dark"] .about-page .news .news-content .presentation-distinction {
+  color: #f0a0a9;
+}
+
+/* Final News scale: use the same font, size, and line-height for the complete
+ * sentence and its inline links. Weight is inherited so links do not appear
+ * visually smaller or heavier than the surrounding text. */
+.about-page .news .news-item-text,
+.about-page .news .news-item-text .news-content,
+.about-page .news .news-item-text .news-content * {
+  font-family: inherit !important;
+  font-size: 0.82rem !important;
+  line-height: 1.4 !important;
+}
+
+.about-page .news .news-item-text {
+  font-weight: 400 !important;
+}
+
+.about-page .news .news-item-text .news-content a,
+.about-page .news .news-item-text .news-content em,
+.about-page .news .news-item-text .news-content span:not(.presentation-distinction) {
+  font-weight: inherit !important;
+}
+
+.about-page .news .news-item-text .presentation-distinction {
+  color: #a3293a !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme="dark"] .about-page .news .news-item-text .presentation-distinction {
+  color: #f0a0a9 !important;
+}
+
+/* Final News typography override: the complete announcement, including
+ * linked phrases and inline emphasis, uses one compact reading scale. */
+.about-page .news .news-content,
+.about-page .news .news-content a,
+.about-page .news .news-content strong,
+.about-page .news .news-content em,
+.about-page .news .news-content span {
+  font-size: 0.82rem !important;
+  line-height: 1.4 !important;
+}
+
+.about-page .news .news-content a {
+  font-weight: 400 !important;
+}
+
+.about-page .news .news-content .presentation-distinction {
+  color: #a3293a !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme="dark"] .about-page .news .news-content .presentation-distinction {
+  color: #f0a0a9 !important;
 }
