@@ -1,31 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
 <style>
   /* ========================================
      学术论文项目页面 - 现代化风格 + 动画
      ======================================== */
   
   :root {
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --primary-light: #3b82f6;
-    --secondary: #1e40af;
-    --accent: #dc2626;
-    --text-primary: #111827;
-    --text-secondary: #4b5563;
-    --text-muted: #6b7280;
-    --bg-base: #fafbfc;
-    --bg-section: #f1f5f9;
+    --primary: #6f8fa4;
+    --primary-dark: #5b7b90;
+    --primary-light: #91a6b1;
+    --secondary: #6b8798;
+    --accent: #b98782;
+    --text-primary: #27333c;
+    --text-secondary: #66737d;
+    --text-muted: #8a949c;
+    --bg-base: #ffffff;
+    --bg-section: #f6f7f8;
     --bg-card: #ffffff;
-    --border-color: #e2e8f0;
+    --border-color: #e5e9ec;
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
-    --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.15);
+    --shadow-glow: 0 0 16px rgba(111, 135, 152, 0.06);
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
     --radius-xl: 24px;
-    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition: 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+    --button-primary: #5f8eaa;
+    --button-hover: #4f7e98;
+    --button-pressed: #466f88;
+    --button-shadow: 0 2px 7px rgba(63, 91, 106, 0.14);
+    --button-shadow-hover: 0 5px 13px rgba(63, 91, 106, 0.18);
   }
 
   * {
@@ -48,7 +55,7 @@
 
   /* Hero Section */
   .hero {
-    background: linear-gradient(180deg, #ffffff 0%, var(--bg-base) 100%);
+    background: #ffffff;
     padding: 4rem 1.5rem 3rem;
     border-bottom: none;
     position: relative;
@@ -62,8 +69,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(124, 58, 237, 0.03) 0%, transparent 50%);
+    background: none;
     pointer-events: none;
   }
 
@@ -158,57 +164,88 @@
     font-weight: 600;
     font-size: 0.88rem;
     padding: 0.6rem 1.2rem;
-    transition: var(--transition-bounce);
-    border-radius: var(--radius-lg);
+    transition:
+      transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 180ms ease,
+      background-color 180ms ease;
+    border-radius: 9px;
     border: none !important;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--button-shadow);
     position: relative;
     overflow: hidden;
+    will-change: transform;
   }
 
   .publication-links .button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: 0.5s;
-  }
-
-  .publication-links .button:hover::before {
-    left: 100%;
+    content: none;
   }
 
   .publication-links .button:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--shadow-md), var(--shadow-glow);
+    transform: translateY(-1px);
+    background: var(--button-hover-color, var(--button-hover)) !important;
+    box-shadow: var(--button-shadow-hover);
   }
 
   .publication-links .button:active {
-    transform: translateY(-1px) scale(1);
+    transform: translateY(0);
+    background: var(--button-pressed-color, var(--button-pressed)) !important;
+    box-shadow: var(--button-shadow);
+    transition-duration: 100ms;
+  }
+
+  .publication-links .button.is-pressed {
+    transform: scale(0.985);
+    background: var(--button-pressed-color, var(--button-pressed)) !important;
+    box-shadow: var(--button-shadow);
+  }
+
+  .publication-links .button:focus-visible {
+    outline: 2px solid rgba(95, 142, 170, 0.55);
+    outline-offset: 3px;
+  }
+
+  .publication-links .button,
+  .publication-links .button:hover,
+  .publication-links .button:active,
+  .publication-links .button:focus,
+  .publication-links .button:focus-visible {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   /* Button Colors */
-  .btn-paper { 
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important; 
-    color: #fff !important;
+  .btn-paper {
+    --button-color: #5f8eaa;
+    --button-hover-color: #4f7e98;
+    --button-pressed-color: #466f88;
   }
-  .btn-arxiv { 
-    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important; 
-    color: #fff !important;
+
+  .btn-arxiv {
+    --button-color: #a86762;
+    --button-hover-color: #985955;
+    --button-pressed-color: #884d49;
   }
-  .btn-neurips { 
-    background: linear-gradient(135deg, #4b5563 0%, #374151 100%) !important; 
-    color: #fff !important;
+
+  .btn-neurips {
+    --button-color: #758894;
+    --button-hover-color: #667b88;
+    --button-pressed-color: #596f7b;
   }
-  .btn-code { 
-    background: linear-gradient(135deg, #374151 0%, #1f2937 100%) !important; 
-    color: #fff !important;
+
+  .btn-code {
+    --button-color: #667780;
+    --button-hover-color: #586a74;
+    --button-pressed-color: #4d5e68;
   }
-  .btn-poster { 
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important; 
+
+  .btn-poster {
+    --button-color: #806f8f;
+    --button-hover-color: #715f80;
+    --button-pressed-color: #624f70;
+  }
+
+  .publication-links .button {
+    background: var(--button-color, var(--button-primary)) !important;
     color: #fff !important;
   }
 
@@ -232,7 +269,7 @@
 
   /* TL;DR Container */
   .tldr-container {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(124, 58, 237, 0.04) 100%);
+    background: #f5f7f8;
     padding: 1.2rem 1.5rem;
     border-left: 4px solid var(--primary);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
@@ -242,7 +279,7 @@
   }
 
   .tldr-container:hover {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, rgba(124, 58, 237, 0.06) 100%);
+    background: #eef2f4;
     transform: translateX(4px);
   }
 
@@ -275,7 +312,7 @@
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary), #8b5cf6);
+    background: var(--primary-light);
     border-radius: 2px;
   }
 
@@ -468,7 +505,7 @@
 
   /* Selection */
   ::selection {
-    background: rgba(37, 99, 235, 0.2);
+    background: rgba(111, 135, 152, 0.14);
     color: var(--primary-dark);
   }
 
@@ -476,6 +513,12 @@
   @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .publication-links .button {
+      transition: none !important;
     }
   }
 
@@ -490,10 +533,6 @@
   }
 </style>
 
-
-<!DOCTYPE html>
-<html>
-<head>
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
@@ -570,16 +609,16 @@
                   </div>
                   <br>
                 <div class="tldr-container" style="text-align: left;">
-                    <p style="margin: 0; font-size: 1rem; color: #111827;">
+                    <p style="margin: 0; font-size: 1rem; color: var(--text-primary);">
                         How effectively can 
-                        <span style="color: #dc2626; font-weight: 600;">discriminative</span>
+                        <span style="color: var(--accent); font-weight: 600;">discriminative</span>
                         model improve motion
-                        <span style="color: #dc2626; font-weight: 600;">generation</span> quality
-                        <span style="color: #dc2626; font-weight: 600;">without any additional inference cost</span>?
+                        <span style="color: var(--accent); font-weight: 600;">generation</span> quality
+                        <span style="color: var(--accent); font-weight: 600;">without any additional inference cost</span>?
                     </p>
                     <p style="font-size: 0.95rem; line-height: 1.75; margin-top: 0.8rem;">
-                        <span style="font-weight: 700; color: #2563eb;">TL;DR:</span>
-                        We propose <span style="font-weight: 700; color: #1d4ed8;">SoPo</span>, a semi-online preference optimization method, combining the strengths of online and offline direct preference optimization to overcome their individual shortcomings, delivering enhanced motion generation quality and preference alignment.
+                        <span style="font-weight: 700; color: var(--primary-dark);">TL;DR:</span>
+                        We propose <span style="font-weight: 700; color: var(--primary-dark);">SoPo</span>, a semi-online preference optimization method, combining the strengths of online and offline direct preference optimization to overcome their individual shortcomings, delivering enhanced motion generation quality and preference alignment.
                     </p>
                 </div>
               <!-- Paper authors -->            
@@ -686,7 +725,7 @@
         <a href="./static/pdfs/poster.pdf" target="_blank">
           <img class="poster-animated" style="width: 100%; max-width: 900px; height: auto; display: inline-block;" src="static/images/poster.png" alt="Poster"/>
         </a>
-        <p class="subtitle" style="max-width: 900px; margin: 1rem auto 0; text-align: center; font-style: italic; color: #6b7280; font-size: 0.88rem;">
+        <p class="subtitle" style="max-width: 900px; margin: 1rem auto 0; text-align: center; font-style: italic; color: var(--text-muted); font-size: 0.88rem;">
           Click the poster to view the PDF version
         </p>
       </div>
