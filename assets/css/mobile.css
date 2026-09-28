@@ -362,7 +362,7 @@
   .about-page .service-list { padding: 0; }
   .about-page .service-list li { display: block; padding: 6px 0; font-size: 0.9375rem; line-height: 1.45; }
   .about-page .service-role { display: block; font-size: 0.9375rem; margin-bottom: 2px; }
-  .about-page .service-details { display: block; font-size: 0.9375rem; line-height: 1.45; }
+  .about-page .service-details { display: block; font-size: 0.82rem; line-height: 1.45; }
   .about-page .hobbies-intro { margin-bottom: 10px; }
 
   .about-page .mobile-disclosure {
@@ -478,7 +478,7 @@
     border-bottom: 1px solid var(--border);
   }
   .about-page .service-role { font-size: 0.875rem; margin-bottom: 2px; }
-  .about-page .service-details { font-size: 0.875rem; line-height: 1.4; }
+  .about-page .service-details { font-size: 0.82rem; line-height: 1.4; }
   .about-page .hobbies-intro { font-size: 0.9375rem; line-height: 1.45; margin-bottom: 8px; }
 
   /* Chinese remains Songti, with a tighter rhythm than English. */

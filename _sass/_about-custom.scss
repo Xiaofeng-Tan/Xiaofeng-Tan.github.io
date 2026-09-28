@@ -215,6 +215,39 @@ html[data-theme="dark"] .presentation-distinction {
     color: #5c6773;
   }
 
+  .personal-motto {
+    display: flex;
+    align-items: center;
+    gap: 0.42rem;
+    margin: 0.05rem 0 0.15rem;
+    color: #8c9ca8;
+    font-family: "Songti SC", "STSong", "SimSun", "Noto Serif SC", serif;
+    font-size: 0.92rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    line-height: 1.45;
+  }
+
+  .personal-motto__text {
+    font-family: "Gu Xingshu", "Long Cang", cursive;
+    font-size: 1.12em;
+    letter-spacing: 0.04em;
+    color: inherit;
+  }
+
+  .personal-motto__dash {
+    color: inherit;
+    letter-spacing: -0.08em;
+  }
+
+  .personal-motto__music {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.02em;
+    line-height: 1;
+    letter-spacing: 0;
+    color: inherit;
+  }
+
   .desc {
     font-size: 1.05rem;
     color: #7f8c8d;
@@ -642,7 +675,7 @@ html[data-theme="dark"] .presentation-distinction {
     align-items: baseline;
     flex-wrap: wrap;
     gap: 0 0.38rem;
-    flex: 1 1 14rem;
+    flex: 1 1 12rem;
     min-width: 0;
   }
 
@@ -676,6 +709,7 @@ html[data-theme="dark"] .presentation-distinction {
     margin-left: auto;
     flex-wrap: wrap;
     justify-content: flex-end;
+    min-width: 0;
   }
 
   .detail-tag {
@@ -718,6 +752,10 @@ html[data-theme="dark"] .presentation-distinction {
     grid-column: span 6;
   }
 
+  .detail-fields--research .detail-field--wide {
+    grid-column: 1 / -1;
+  }
+
   .detail-fields--education .detail-field--wide {
     grid-column: span 12;
   }
@@ -738,6 +776,26 @@ html[data-theme="dark"] .presentation-distinction {
     min-width: 0;
     flex: 1 1 auto;
     overflow-wrap: anywhere;
+  }
+
+  .detail-field-value--coauthors {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.08rem 0.28rem;
+    overflow-wrap: normal;
+  }
+
+  .coauthor-name {
+    white-space: nowrap;
+  }
+
+  .coauthor-separator {
+    color: #94a3b8;
+  }
+
+  .detail-fields--research .detail-field-value {
+    overflow-wrap: break-word;
   }
 
   .detail-intro-text {
@@ -2271,6 +2329,13 @@ html[data-theme="dark"] .presentation-distinction {
       line-height: 1.3;
     }
 
+    .personal-motto {
+      max-width: calc(100% - 78px);
+      margin-top: 0.05rem;
+      font-size: 0.84rem;
+      letter-spacing: 0.01em;
+    }
+
     .desc {
       font-size: 0.9rem;
     }
@@ -2901,6 +2966,14 @@ html[data-theme="dark"] .presentation-distinction {
 
   html[data-theme="dark"] .post-title strong {
     color: #ffffff;
+  }
+
+  html[data-theme="dark"] .personal-motto {
+    color: #b9c3cb;
+  }
+
+  html[data-theme="dark"] .personal-motto__dash {
+    color: inherit;
   }
 
   html[data-theme="dark"] .post-title .name-separator {
@@ -5105,6 +5178,8 @@ details.pub-category.is-animating {
 
 .service-details {
   color: var(--text-muted);
+  font-size: 0.84rem;
+  font-weight: 400;
   line-height: inherit;
 }
 
