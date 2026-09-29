@@ -10,6 +10,7 @@
   role: "Remote Visiting Student"
   period: "2026.04 - Present"
   location: "Merced, CA (Remote)"
+  flag: "🇺🇸"
   topic: "Computer Vision"
   lab:
     name: "Vision and Learning Lab"
@@ -30,6 +31,7 @@
   role: "Research intern"
   period: "2026.03 - Present"
   location: "Shenzhen, China"
+  flag: "🇨🇳"
   topic: "RLHF, RLVR, AIGC"
   lab:
     name: "HY（混元）"
@@ -46,6 +48,7 @@
   role: "Research intern"
   period: "2025.07 - 2026.03"
   location: "Shenzhen, China"
+  flag: "🇨🇳"
   topic: "RLHF, RLVR, AIGC"
   lab:
     name: "YouTu Lab（优图实验室）"
@@ -68,6 +71,7 @@
   role: "Remote Visiting Student"
   period: "2024.07 - 2025.03"
   location: "Singapore (Remote)"
+  flag: "🇸🇬"
   topic: "RLHF, Motion Generation"
   lab:
     name: "Language and Vision Lab (LV Lab)"
@@ -89,6 +93,7 @@
   role: "Master's Student"
   period: "2024.04 - Present"
   location: "Nanjing, China"
+  flag: "🇨🇳"
   topic: "RLHF, Motion Generation, Action Recognition"
   lab:
     name: "PAttern Learning and Mining (PALM) Lab"
@@ -113,6 +118,7 @@
   role: "Undergraduate Research Intern"
   period: "2022.10 - 2023.10"
   location: "Shenzhen, China"
+  flag: "🇨🇳"
   topic: "Outlier Detection, Anomaly Detection"
   lab:
     name: "Computer Vision Institute"

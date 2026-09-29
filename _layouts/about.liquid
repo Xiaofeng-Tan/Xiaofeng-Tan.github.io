@@ -27,8 +27,8 @@ layout: default
       <span class="personal-motto__music" aria-hidden="true">♪</span>
       <span class="personal-motto__text">不要紧，山野都有雾灯</span>
       <span class="personal-motto__source">
-        <span aria-hidden="true">——</span>
-        <a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a>（《任我行》）
+        <span class="personal-motto__source-dash" aria-hidden="true">——</span>
+        <a class="personal-motto__song" href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a><span class="personal-motto__chinese">（任我行）</span>
       </span>
     </div>
 
@@ -146,9 +146,9 @@ layout: default
               <div class="detail-title-group">
                 <h3 class="detail-title">{{ education.school }}</h3>
                 {% if education.college or education.location %}
-                  <div class="detail-title-meta">
-                    {% if education.college %}<span>{{ education.college }}</span>{% endif %}
-                    {% if education.location %}<span class="education-location">📍 {{ education.location }}</span>{% endif %}
+                  <div class="detail-title-meta detail-title-meta--education">
+                    {% if education.college %}<span class="education-college" title="{{ education.college | escape }}">{{ education.college_short | default: education.college }}</span>{% endif %}
+                    {% if education.location %}<span class="education-location">{{ education.flag | default: "📍" }} {{ education.location }}</span>{% endif %}
                   </div>
                 {% endif %}
               </div>
@@ -222,7 +222,10 @@ layout: default
           <div class="logo-text-group">
             <span class="logo-lab-at">{{ research.lab_at | default: research.abbr | default: research.institution }}</span>
             <span class="logo-role">{{ research.role }}</span>
-            <span class="logo-year">{{ research.period }}</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">{{ research.period }}</span>
+              {% if research.location %}<span class="logo-location">{{ research.flag | default: "📍" }} {{ research.location }}</span>{% endif %}
+            </span>
           </div>
         </div>
       {% endfor %}
@@ -243,7 +246,7 @@ layout: default
                   <div class="detail-title-meta">
                     {% if research.lab_at %}<span>{{ research.lab_at }}</span>{% endif %}
                     {% if research.lab_at and research.location %}<span class="detail-title-sep">·</span>{% endif %}
-                    {% if research.location %}<span>📍 {{ research.location }}</span>{% endif %}
+                    {% if research.location %}<span>{{ research.flag | default: "📍" }} {{ research.location }}</span>{% endif %}
                   </div>
                 {% endif %}
               </div>

@@ -222,7 +222,7 @@ html[data-theme="dark"] .presentation-distinction {
     gap: 0.42rem;
     margin: 0.05rem 0 0.15rem;
     color: #8c9ca8;
-    font-family: "Songti SC", "STSong", "SimSun", "Noto Serif SC", serif;
+    font-family: "Gu Xingshu", "Long Cang", cursive;
     font-size: 0.92rem;
     font-weight: 400;
     letter-spacing: 0.03em;
@@ -230,16 +230,16 @@ html[data-theme="dark"] .presentation-distinction {
   }
 
   .personal-motto__text {
-    font-family: "Gu Xingshu", "Long Cang", cursive;
-    font-size: 1.12em;
+    font-family: inherit;
+    font-size: inherit;
     letter-spacing: 0.04em;
     color: inherit;
   }
 
   .personal-motto__music {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.02em;
-    line-height: 1;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
     letter-spacing: 0;
     color: inherit;
   }
@@ -249,15 +249,24 @@ html[data-theme="dark"] .presentation-distinction {
     align-items: baseline;
     gap: 0.36rem;
     color: #a6b2bb;
-    font-family: "Songti SC", "STSong", "SimSun", "Noto Serif SC", serif;
-    font-size: 0.72em;
+    font-family: inherit;
+    font-size: inherit;
     letter-spacing: 0.01em;
     white-space: nowrap;
   }
 
-  .personal-motto__source > span {
+  .personal-motto__source-dash {
     color: #b9c3ca;
+    font-size: inherit;
+    line-height: inherit;
     letter-spacing: -0.08em;
+  }
+
+  .personal-motto__chinese {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-style: normal;
   }
 
   .personal-motto__source a {
@@ -265,6 +274,14 @@ html[data-theme="dark"] .presentation-distinction {
     text-decoration: none;
     transition: color 180ms ease, border-color 180ms ease;
     border-bottom: 1px dotted transparent;
+  }
+
+  .personal-motto__song,
+  .personal-motto__song em {
+    font-family: "Times New Roman", Times, serif;
+    font-size: inherit;
+    line-height: inherit;
+    font-style: italic;
   }
 
   .personal-motto__source a:hover {
@@ -546,6 +563,7 @@ html[data-theme="dark"] .presentation-distinction {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    flex: 1 1 auto;
     min-width: 0;
   }
 
@@ -597,7 +615,40 @@ html[data-theme="dark"] .presentation-distinction {
     font-size: 0.72rem;
     color: #00A1E9;
     font-weight: 600;
+    margin-top: 0;
+    flex: 0 0 auto;
+    line-height: 1.25;
+    white-space: nowrap;
+  }
+
+  .logo-meta-row {
+    display: inline-flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    gap: 0.42rem;
+    width: 100%;
+    max-width: 220px;
+    min-width: 0;
     margin-top: 0.08rem;
+    white-space: nowrap;
+  }
+
+  .logo-location {
+    flex: 1 1 auto;
+    max-width: 100%;
+    min-width: 0;
+    margin-top: 0;
+    color: #8a98a5;
+    font-size: 0.68rem;
+    line-height: 1.25;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .logo-item.active .logo-year {
+    flex-shrink: 0;
   }
 
   /* Detail Card - Expandable (CSS grid trick for smooth height animation) */
@@ -708,6 +759,10 @@ html[data-theme="dark"] .presentation-distinction {
     color: #64748b;
     font-size: 0.73rem;
     line-height: 1.35;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.18rem 0.5rem;
   }
 
   .detail-title-meta::before {
@@ -724,6 +779,39 @@ html[data-theme="dark"] .presentation-distinction {
   .education-location {
     display: inline-block;
     white-space: nowrap;
+  }
+
+  .education-college {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .detail-title-meta--education {
+    flex-wrap: nowrap;
+    gap: 0.45rem;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .detail-title-meta--education .education-college {
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .detail-title-meta--education .education-location {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
   }
 
   .detail-tags {
@@ -2371,7 +2459,7 @@ html[data-theme="dark"] .presentation-distinction {
     }
 
     .personal-motto__source {
-      font-size: 0.74em;
+      font-size: inherit;
     }
 
     .desc {
@@ -2685,6 +2773,16 @@ html[data-theme="dark"] .presentation-distinction {
       font-size: 0.65rem;
     }
 
+    .logo-meta-row {
+      width: 100%;
+      max-width: 160px;
+      gap: 0.3rem;
+    }
+
+    .logo-location {
+      font-size: 0.65rem;
+    }
+
     .detail-header {
       flex-wrap: wrap;
       gap: 0.4rem;
@@ -2920,6 +3018,10 @@ html[data-theme="dark"] .presentation-distinction {
     color: #5ec8f2;
   }
 
+  html[data-theme="dark"] .logo-location {
+    color: #8b949e;
+  }
+
   html[data-theme="dark"] .detail-card.active {
     background: linear-gradient(180deg, rgba(22, 27, 34, 0.92), rgba(13, 17, 23, 0.92));
     border-color: rgba(94, 200, 242, 0.14);
@@ -3014,7 +3116,7 @@ html[data-theme="dark"] .presentation-distinction {
     color: #aeb9c2;
   }
 
-  html[data-theme="dark"] .personal-motto__source > span {
+  html[data-theme="dark"] .personal-motto__source-dash {
     color: #bcc6ce;
   }
 

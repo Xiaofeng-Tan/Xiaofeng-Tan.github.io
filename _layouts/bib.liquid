@@ -123,9 +123,17 @@
       {% endif %}
     </div>
 
+    {% assign has_publication_meta = false %}
+    {% if entry.journal or entry.booktitle or entry.school or entry.abbr or entry.year or entry.month or entry.location or entry.additional_info or entry.presentation or entry.ccf or entry.core or entry.sci or entry.note %}
+      {% assign has_publication_meta = true %}
+    {% endif %}
+    {% if has_publication_meta %}
     <!-- Journal/Book title and date -->
     {% assign proceedings = 'inproceedings,incollection' | split: ',' %}
     {% assign thesis = 'thesis,mastersthesis,phdthesis' | split: ',' %}
+    {% assign entrytype = '' %}
+    {% assign entrymonth = '' %}
+    {% assign entryyear = '' %}
     {% if entry.type == 'article' %}
       {% capture entrytype %}<em>{{ entry.journal }}</em>{% endcapture %}
     {% elsif proceedings contains entry.type %}
@@ -138,7 +146,7 @@
     {% if entry.month %}
       {% capture entrymonth %}{{ " " }}{{ entry.month | capitalize }}{% endcapture %}
     {% endif %}
-    {% if entry.year %}
+    {% if entry.year and entry.year != blank %}
       {% capture entryyear %}{{ " " }}{{ entry.year }}{% endcapture %}
     {% endif %}
     {% if entry.location %}
@@ -193,6 +201,7 @@
     <div class="periodical">
       {{ entry.note | strip }}
     </div>
+    {% endif %}
 
     <!-- Links/Buttons -->
     <div class="links">

@@ -11,6 +11,7 @@
   year: 2024 - 2027 (Expected)
   logo: ./assets/img/seu_logo.png
   location: Nanjing, China
+  flag: 🇨🇳
   intro: "Expected graduation: June 2027. Outstanding Camper (Ranked 2nd) in 2024 Graduate Admission Summer Camp."
   csrankings:
     - label: AI
@@ -29,6 +30,8 @@
   year: 2020 - 2024
   logo: /assets/img/szu_logo.png
   location: Shenzhen, China
+  flag: 🇨🇳
+  college_short: CS & Software Eng. / Math & Stats
   intro: Outstanding Graduate Representative (1/300+) who delivers a speech at the graduation ceremony.
   csrankings:
     - label: AI

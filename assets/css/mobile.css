@@ -259,7 +259,7 @@
   }
   .about-page .timeline-logo { width: 32px; height: 32px; flex-shrink: 0; margin: 0; box-shadow: none; }
   .about-page .logo-text-group { display: flex; flex-direction: row; flex-wrap: wrap; gap: 2px 8px; flex: 1; min-width: 0; text-align: left; align-items: baseline; }
-  .about-page :is(.logo-label, .logo-lab-at, .logo-role, .logo-year) {
+  .about-page :is(.logo-label, .logo-lab-at, .logo-role, .logo-year, .logo-meta-row, .logo-location) {
     max-width: none;
     white-space: normal;
     overflow: visible;
@@ -267,7 +267,10 @@
     line-height: 1.4;
   }
   .about-page :is(.logo-label, .logo-lab-at) { flex-basis: 100%; font-size: 0.9375rem; }
-  .about-page :is(.logo-role, .logo-year) { font-size: 0.8125rem; color: var(--text-muted); }
+  .about-page :is(.logo-role, .logo-meta-row, .logo-year, .logo-location) { font-size: 0.8125rem; color: var(--text-muted); }
+  .about-page .logo-meta-row { display: inline-flex; flex-wrap: nowrap; gap: 2px 8px; width: 100%; min-width: 0; white-space: nowrap; }
+  .about-page .logo-year { flex: 0 0 auto; white-space: nowrap; }
+  .about-page .logo-location { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .about-page .logo-item::after {
     content: "";
     position: static;
@@ -286,7 +289,8 @@
   .about-page .detail-card-content { min-width: 0; width: 100%; }
   .about-page .detail-header { display: block; }
   .about-page .detail-title { font-size: 0.9375rem; line-height: 1.4; }
-  .about-page .detail-title-meta { font-size: 0.875rem; line-height: 1.45; flex-wrap: wrap; }
+  .about-page .detail-title-meta { font-size: 0.8125rem; line-height: 1.35; flex-wrap: wrap; gap: 2px 8px; }
+  .about-page .detail-title-meta--education { flex-wrap: nowrap; gap: 6px; }
   .about-page .detail-tags { flex-wrap: wrap; justify-content: flex-start; margin-top: 8px; }
   .about-page .detail-tag { font-size: 0.8125rem; white-space: normal; }
   .about-page .detail-fields { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin-top: 10px; }
@@ -529,7 +533,7 @@
   }
 }
 
-.about-page :is(.logo-role, .logo-year, .detail-title-meta, .detail-tag,
+.about-page :is(.logo-role, .logo-meta-row, .logo-year, .logo-location, .detail-title-meta, .detail-tag,
   .detail-card-content, .detail-fields, .detail-field-value, .compact-card, .compact-title, .compact-card-body),
 .publications .author,
 .publications .bibliography li :is(.abstract.hidden, .award.hidden, .bibtex.hidden) {
