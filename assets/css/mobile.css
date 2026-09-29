@@ -1,6 +1,5 @@
 /* The hidden attribute must win over existing component display declarations. */
 .about-page [hidden] { display: none !important; }
-.mobile-disclosure { display: none; }
 
 /*
  * Reading-first small-screen layout. Loaded after main.css and language.css
@@ -377,33 +376,6 @@
   .about-page .service-details { display: block; font-size: 0.82rem; line-height: 1.45; }
   .about-page .hobbies-intro { margin-bottom: 10px; }
 
-  .about-page .mobile-disclosure {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 28px;
-    margin: 2px 0 6px;
-    padding: 4px 0;
-    border: 0;
-    background: transparent;
-    color: var(--primary);
-    font: inherit;
-    font-size: 0.8125rem;
-    line-height: 1.4;
-    cursor: pointer;
-  }
-  .about-page .mobile-disclosure:hover { text-decoration: underline; }
-  .about-page .mobile-disclosure span { color: inherit; font-weight: inherit; }
-  .about-page .section-title > .mobile-disclosure {
-    flex-shrink: 0;
-    margin: 0 0 0 auto;
-    padding: 2px 0;
-    min-height: 28px;
-    font-family: var(--site-songti), "Crimson Pro", Georgia, serif;
-    font-weight: 400;
-    white-space: nowrap;
-  }
-  .about-page .publications .mobile-disclosure { display: flex; margin-left: auto; }
   .about-page .social { margin-top: 18px; }
   .about-page .contact-icons { gap: 6px; }
   .about-page .page-last-updated { margin-top: 12px; padding-top: 8px; }
@@ -419,10 +391,6 @@
     background: transparent;
     font-size: 1.0625rem;
     line-height: 1.3;
-  }
-  .about-page :is(#sec-honors, #sec-life) > .mobile-disclosure {
-    padding-right: 6px;
-    min-height: 26px;
   }
   .about-page .publications-grouped { gap: 4px; }
   .about-page .publications-grouped .pub-category { border-bottom: 0; }
@@ -442,34 +410,6 @@
   .about-page .publications .periodical { margin-top: 3px; line-height: 1.35; }
   .about-page .publications .links { gap: 0 9px; margin-top: 3px; }
   .about-page .publications .links a { min-height: 28px; padding: 3px 0; }
-  .about-page .publications .mobile-disclosure {
-    min-height: 26px;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 2px 0;
-  }
-  /* Small Chinese hint alongside the publication disclosure chevron. */
-  .about-page .publications .mobile-disclosure--arrow {
-    width: auto;
-    height: 28px;
-    gap: 6px;
-    font-size: 0.75rem;
-    font-family: var(--site-songti), "Songti SC", "STSong", "SimSun", serif;
-  }
-  .mobile-disclosure--arrow > span {
-    white-space: nowrap;
-  }
-  .mobile-disclosure--arrow::after {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-right: 1px solid currentColor;
-    border-bottom: 1px solid currentColor;
-    transform: rotate(45deg);
-  }
-  .mobile-disclosure--arrow[aria-expanded="true"]::after {
-    transform: rotate(225deg);
-  }
   .about-page .compact-card summary {
     padding: 7px 0;
     min-height: 38px;
@@ -492,6 +432,55 @@
   .about-page .service-role { font-size: 0.875rem; margin-bottom: 2px; }
   .about-page .service-details { font-size: 0.82rem; line-height: 1.4; }
   .about-page .hobbies-intro { font-size: 0.9375rem; line-height: 1.45; margin-bottom: 8px; }
+
+  /* Long sections use native vertical scrolling instead of progressive
+   * "show more" controls. This keeps every item reachable with a swipe. */
+  .about-page .mobile-scroll-container {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-line) transparent;
+    touch-action: pan-y;
+  }
+
+  .about-page .mobile-scroll-container::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .about-page .mobile-scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .about-page .mobile-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--primary-line);
+    border-radius: 999px;
+  }
+
+  .about-page .news.mobile-scroll-container {
+    max-height: 280px;
+    padding-right: 6px;
+  }
+
+  .about-page .logo-row--research.mobile-scroll-container {
+    max-height: 300px;
+    padding-right: 6px;
+  }
+
+  .about-page .honors-section.mobile-scroll-container {
+    max-height: 260px;
+    padding-right: 6px;
+  }
+
+  .about-page .teaching-section.mobile-scroll-container {
+    max-height: 240px;
+    padding-right: 6px;
+  }
+
+  .about-page .publications-grouped.mobile-scroll-container {
+    max-height: 390px;
+    padding-right: 6px;
+  }
 
   /* Keep English/Chinese artist and song names together on mobile. */
   .about-page .song-bilingual {
