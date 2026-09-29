@@ -61,9 +61,16 @@
   --site-songti: "Xiaofeng Songti";
 }
 
-/* Chinese titles embedded in English prose retain Songti explicitly. */
+/* Chinese song titles and artist names use the same Gu Xingshu typeface as the motto. */
 .song-title-cjk {
-  font-family: var(--site-songti), "Songti SC", "STSong", "SimSun", serif;
+  font-family: "Gu Xingshu", "Long Cang", cursive;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+.song-artist-cjk {
+  font-family: "Gu Xingshu", "Long Cang", cursive;
+  font-style: normal;
   letter-spacing: 0;
 }
 

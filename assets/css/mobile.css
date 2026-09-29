@@ -485,6 +485,26 @@
   .about-page .service-details { font-size: 0.82rem; line-height: 1.4; }
   .about-page .hobbies-intro { font-size: 0.9375rem; line-height: 1.45; margin-bottom: 8px; }
 
+  /* Keep the lyric and its song credit on one line on small screens. */
+  .about-page .personal-motto {
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    white-space: nowrap;
+    font-size: clamp(0.68rem, 2.75vw, 0.84rem);
+    letter-spacing: 0;
+  }
+
+  .about-page .personal-motto > *,
+  .about-page .personal-motto__source {
+    flex-shrink: 0;
+  }
+
+  .about-page .personal-motto__source {
+    gap: 0.25rem;
+  }
+
   /* Chinese remains Songti, with a tighter rhythm than English. */
   html[lang="zh-CN"] .about-page article :is(p, li, td, .interest-card, .service-details, .compact-card-body) {
     line-height: 1.45 !important;
