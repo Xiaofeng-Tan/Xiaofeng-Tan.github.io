@@ -58,16 +58,18 @@
     min-width: 44px;
     padding: 6px 10px;
     margin: 0;
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
+    line-height: 1.2;
   }
   #navbar .section-nav-link {
     min-width: auto;
     padding-left: 9px;
     padding-right: 9px;
-    font-size: 0.8125rem;
+    font-size: inherit;
   }
   #navbar .language-toggle {
     margin-left: 0;
+    font-size: inherit;
   }
   #navbar #search-toggle .nav-link {
     /* The desktop keyboard shortcut is not useful on a touch screen. */

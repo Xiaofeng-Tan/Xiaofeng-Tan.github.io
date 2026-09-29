@@ -354,6 +354,13 @@ html[data-theme="dark"] .presentation-distinction {
 
   /* About-section links live in the primary navbar, so the site has one
    * navigation system rather than a second floating bar. */
+  #navbar .navbar-nav > .nav-item > .nav-link,
+  #navbar .navbar-nav > .nav-item > .language-toggle {
+    font-size: 0.82rem;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+
   #navbar .section-nav-item > .section-nav-link {
     color: var(--global-text-color, #6b7c8d);
     text-decoration: none;
@@ -370,6 +377,11 @@ html[data-theme="dark"] .presentation-distinction {
 
   #navbar .section-nav-item > .section-nav-link.active {
     font-weight: 600;
+  }
+
+  #navbar .toggle-container #light-toggle {
+    font-size: 1rem;
+    line-height: 1;
   }
 
   /* Scroll offset for anchors below the fixed primary navbar. */
