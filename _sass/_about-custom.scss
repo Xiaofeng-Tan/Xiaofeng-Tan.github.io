@@ -218,6 +218,7 @@ html[data-theme="dark"] .presentation-distinction {
   .personal-motto {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.42rem;
     margin: 0.05rem 0 0.15rem;
     color: #8c9ca8;
@@ -235,17 +236,40 @@ html[data-theme="dark"] .presentation-distinction {
     color: inherit;
   }
 
-  .personal-motto__dash {
-    color: inherit;
-    letter-spacing: -0.08em;
-  }
-
   .personal-motto__music {
     font-family: Georgia, "Times New Roman", serif;
     font-size: 1.02em;
     line-height: 1;
     letter-spacing: 0;
     color: inherit;
+  }
+
+  .personal-motto__source {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.36rem;
+    color: #a6b2bb;
+    font-family: "Songti SC", "STSong", "SimSun", "Noto Serif SC", serif;
+    font-size: 0.72em;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+
+  .personal-motto__source > span {
+    color: #b9c3ca;
+    letter-spacing: -0.08em;
+  }
+
+  .personal-motto__source a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 180ms ease, border-color 180ms ease;
+    border-bottom: 1px dotted transparent;
+  }
+
+  .personal-motto__source a:hover {
+    color: var(--primary);
+    border-bottom-color: currentColor;
   }
 
   .desc {
@@ -2346,6 +2370,10 @@ html[data-theme="dark"] .presentation-distinction {
       letter-spacing: 0.01em;
     }
 
+    .personal-motto__source {
+      font-size: 0.74em;
+    }
+
     .desc {
       font-size: 0.9rem;
     }
@@ -2982,8 +3010,12 @@ html[data-theme="dark"] .presentation-distinction {
     color: #b9c3cb;
   }
 
-  html[data-theme="dark"] .personal-motto__dash {
-    color: inherit;
+  html[data-theme="dark"] .personal-motto__source {
+    color: #aeb9c2;
+  }
+
+  html[data-theme="dark"] .personal-motto__source > span {
+    color: #bcc6ce;
   }
 
   html[data-theme="dark"] .post-title .name-separator {
