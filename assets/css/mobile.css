@@ -95,17 +95,25 @@
     margin-bottom: 14px;
   }
   .about-page .post-title {
-    font-size: 2rem;
+    display: block;
+    width: calc(100% - 72px);
+    max-width: calc(100% - 72px);
+    font-size: clamp(1.25rem, 7.2vw, 2rem);
     line-height: 1.2;
-    padding: 0 78px 0 0;
+    padding: 0;
     margin-bottom: 0;
+    white-space: nowrap;
   }
   .about-page .post-title::after { display: none; }
-  .about-page .post-title .name-separator { display: none; }
+  .about-page .post-title .name-separator {
+    display: inline;
+    margin: 0 0.16em;
+  }
   .about-page .post-title .chinese-name {
-    display: block;
-    margin: 4px 0 0;
-    font-size: 1.4rem;
+    display: inline;
+    margin: 0;
+    font-size: 0.78em;
+    vertical-align: baseline;
   }
   .about-page article > .profile {
     position: absolute;
@@ -537,7 +545,7 @@
 @media screen and (max-width: 359.98px) {
   body > .container[role="main"] { padding-left: 16px; padding-right: 16px; }
   .about-page .post-header { padding-right: 0; }
-  .about-page .post-title { font-size: 1.8rem; }
+  .about-page .post-title { font-size: clamp(1.2rem, 7.2vw, 1.65rem); }
   .about-page article > .profile { right: 16px; width: 60px; }
 }
 
