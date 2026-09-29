@@ -164,7 +164,7 @@
 
 <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
 <link rel="stylesheet" href="/assets/css/language.css?41568ea8da6fc9fbe68effc6c6a201b2">
-<link rel="stylesheet" href="/assets/css/mobile.css?2279fb131a312a86b62153c37a28b73e">
+<link rel="stylesheet" href="/assets/css/mobile.css?2bb734c2f92aa30ee4bfdebfb3623709">
 <link rel="canonical" href="https://xiaofeng-tan.github.io/">
 
 <!-- Dark Mode -->
@@ -337,8 +337,8 @@
       <span class="personal-motto__music" aria-hidden="true">♪</span>
       <span class="personal-motto__text">不要紧，山野都有雾灯</span>
       <span class="personal-motto__source">
-        <span aria-hidden="true">——</span>
-        <a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a>（《任我行》）
+        <span class="personal-motto__source-dash" aria-hidden="true">——</span>
+        <a class="personal-motto__song" href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a><span class="personal-motto__chinese">（任我行）</span>
       </span>
     </div>
 
@@ -1273,9 +1273,9 @@ function revealAndCopyContact(button, text, label) {
               <div class="detail-title-group">
                 <h3 class="detail-title">Southeast University</h3>
                 
-                  <div class="detail-title-meta">
-                    <span>School of Computer Science and Engineering</span>
-                    <span class="education-location">📍 Nanjing, China</span>
+                  <div class="detail-title-meta detail-title-meta--education">
+                    <span class="education-college" title="School of Computer Science and Engineering">School of Computer Science and Engineering</span>
+                    <span class="education-location">🇨🇳 Nanjing, China</span>
                   </div>
                 
               </div>
@@ -1334,9 +1334,9 @@ function revealAndCopyContact(button, text, label) {
               <div class="detail-title-group">
                 <h3 class="detail-title">Shenzhen University</h3>
                 
-                  <div class="detail-title-meta">
-                    <span>College of Computer Science &amp; Software Engineering / College of Mathematics and Statistics</span>
-                    <span class="education-location">📍 Shenzhen, China</span>
+                  <div class="detail-title-meta detail-title-meta--education">
+                    <span class="education-college" title="College of Computer Science &amp; Software Engineering / College of Mathematics and Statistics">CS &amp; Software Eng. / Math &amp; Stats</span>
+                    <span class="education-location">🇨🇳 Shenzhen, China</span>
                   </div>
                 
               </div>
@@ -1402,7 +1402,10 @@ function revealAndCopyContact(button, text, label) {
           <div class="logo-text-group">
             <span class="logo-lab-at">VLLab @ UCM</span>
             <span class="logo-role">Remote Visiting Student</span>
-            <span class="logo-year">2026.04 - Present</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">2026.04 - Present</span>
+              <span class="logo-location">🇺🇸 Merced, CA (Remote)</span>
+            </span>
           </div>
         </div>
       
@@ -1411,7 +1414,10 @@ function revealAndCopyContact(button, text, label) {
           <div class="logo-text-group">
             <span class="logo-lab-at">HY @ Tencent</span>
             <span class="logo-role">Research intern</span>
-            <span class="logo-year">2026.03 - Present</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">2026.03 - Present</span>
+              <span class="logo-location">🇨🇳 Shenzhen, China</span>
+            </span>
           </div>
         </div>
       
@@ -1420,7 +1426,10 @@ function revealAndCopyContact(button, text, label) {
           <div class="logo-text-group">
             <span class="logo-lab-at">YouTu Lab @ Tencent</span>
             <span class="logo-role">Research intern</span>
-            <span class="logo-year">2025.07 - 2026.03</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">2025.07 - 2026.03</span>
+              <span class="logo-location">🇨🇳 Shenzhen, China</span>
+            </span>
           </div>
         </div>
       
@@ -1429,7 +1438,10 @@ function revealAndCopyContact(button, text, label) {
           <div class="logo-text-group">
             <span class="logo-lab-at">LV Lab @ SMU</span>
             <span class="logo-role">Remote Visiting Student</span>
-            <span class="logo-year">2024.07 - 2025.03</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">2024.07 - 2025.03</span>
+              <span class="logo-location">🇸🇬 Singapore (Remote)</span>
+            </span>
           </div>
         </div>
       
@@ -1438,7 +1450,10 @@ function revealAndCopyContact(button, text, label) {
           <div class="logo-text-group">
             <span class="logo-lab-at">PALM Lab @ SEU</span>
             <span class="logo-role">Master's Student</span>
-            <span class="logo-year">2024.04 - Present</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">2024.04 - Present</span>
+              <span class="logo-location">🇨🇳 Nanjing, China</span>
+            </span>
           </div>
         </div>
       
@@ -1447,7 +1462,10 @@ function revealAndCopyContact(button, text, label) {
           <div class="logo-text-group">
             <span class="logo-lab-at">CV Institute @ SZU</span>
             <span class="logo-role">Undergraduate Research Intern</span>
-            <span class="logo-year">2022.10 - 2023.10</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">2022.10 - 2023.10</span>
+              <span class="logo-location">🇨🇳 Shenzhen, China</span>
+            </span>
           </div>
         </div>
       
@@ -1468,7 +1486,7 @@ function revealAndCopyContact(button, text, label) {
                   <div class="detail-title-meta">
                     <span>VLLab @ UCM</span>
                     <span class="detail-title-sep">·</span>
-                    <span>📍 Merced, CA (Remote)</span>
+                    <span>🇺🇸 Merced, CA (Remote)</span>
                   </div>
                 
               </div>
@@ -1529,7 +1547,7 @@ function revealAndCopyContact(button, text, label) {
                   <div class="detail-title-meta">
                     <span>HY @ Tencent</span>
                     <span class="detail-title-sep">·</span>
-                    <span>📍 Shenzhen, China</span>
+                    <span>🇨🇳 Shenzhen, China</span>
                   </div>
                 
               </div>
@@ -1588,7 +1606,7 @@ function revealAndCopyContact(button, text, label) {
                   <div class="detail-title-meta">
                     <span>YouTu Lab @ Tencent</span>
                     <span class="detail-title-sep">·</span>
-                    <span>📍 Shenzhen, China</span>
+                    <span>🇨🇳 Shenzhen, China</span>
                   </div>
                 
               </div>
@@ -1666,7 +1684,7 @@ function revealAndCopyContact(button, text, label) {
                   <div class="detail-title-meta">
                     <span>LV Lab @ SMU</span>
                     <span class="detail-title-sep">·</span>
-                    <span>📍 Singapore (Remote)</span>
+                    <span>🇸🇬 Singapore (Remote)</span>
                   </div>
                 
               </div>
@@ -1742,7 +1760,7 @@ function revealAndCopyContact(button, text, label) {
                   <div class="detail-title-meta">
                     <span>PALM Lab @ SEU</span>
                     <span class="detail-title-sep">·</span>
-                    <span>📍 Nanjing, China</span>
+                    <span>🇨🇳 Nanjing, China</span>
                   </div>
                 
               </div>
@@ -1824,7 +1842,7 @@ function revealAndCopyContact(button, text, label) {
                   <div class="detail-title-meta">
                     <span>CV Institute @ SZU</span>
                     <span class="detail-title-sep">·</span>
-                    <span>📍 Shenzhen, China</span>
+                    <span>🇨🇳 Shenzhen, China</span>
                   </div>
                 
               </div>
@@ -1952,7 +1970,13 @@ function revealAndCopyContact(button, text, label) {
       
     </div>
 
+    
+    
+    
     <!-- Journal/Book title and date -->
+    
+    
+    
     
     
     
@@ -1975,6 +1999,7 @@ function revealAndCopyContact(button, text, label) {
     <div class="periodical">
       
     </div>
+    
 
     <!-- Links/Buttons -->
     <div class="links">
@@ -2089,7 +2114,13 @@ function revealAndCopyContact(button, text, label) {
       
     </div>
 
+    
+    
+    
     <!-- Journal/Book title and date -->
+    
+    
+    
     
     
     
@@ -2107,6 +2138,7 @@ function revealAndCopyContact(button, text, label) {
     <div class="periodical">
       
     </div>
+    
 
     <!-- Links/Buttons -->
     <div class="links">
@@ -2227,7 +2259,13 @@ function revealAndCopyContact(button, text, label) {
       
     </div>
 
+    
+    
+    
     <!-- Journal/Book title and date -->
+    
+    
+    
     
     
     
@@ -2245,6 +2283,7 @@ function revealAndCopyContact(button, text, label) {
     <div class="periodical">
       
     </div>
+    
 
     <!-- Links/Buttons -->
     <div class="links">
@@ -2367,7 +2406,13 @@ function revealAndCopyContact(button, text, label) {
       
     </div>
 
+    
+    
+    
     <!-- Journal/Book title and date -->
+    
+    
+    
     
     
     
@@ -2385,6 +2430,7 @@ function revealAndCopyContact(button, text, label) {
     <div class="periodical">
       
     </div>
+    
 
     <!-- Links/Buttons -->
     <div class="links">
@@ -2501,7 +2547,13 @@ function revealAndCopyContact(button, text, label) {
       
     </div>
 
+    
+    
+    
     <!-- Journal/Book title and date -->
+    
+    
+    
     
     
     
@@ -2519,6 +2571,7 @@ function revealAndCopyContact(button, text, label) {
     <div class="periodical">
       
     </div>
+    
 
     <!-- Links/Buttons -->
     <div class="links">
@@ -2633,7 +2686,13 @@ function revealAndCopyContact(button, text, label) {
       
     </div>
 
+    
+    
+    
     <!-- Journal/Book title and date -->
+    
+    
+    
     
     
     
@@ -2651,6 +2710,7 @@ function revealAndCopyContact(button, text, label) {
     <div class="periodical">
       
     </div>
+    
 
     <!-- Links/Buttons -->
     <div class="links">
@@ -2768,7 +2828,13 @@ function revealAndCopyContact(button, text, label) {
       
     </div>
 
+    
+    
+    
     <!-- Journal/Book title and date -->
+    
+    
+    
     
     
     
@@ -2786,6 +2852,7 @@ function revealAndCopyContact(button, text, label) {
     <div class="periodical">
       
     </div>
+    
 
     <!-- Links/Buttons -->
     <div class="links">
@@ -2878,7 +2945,13 @@ function revealAndCopyContact(button, text, label) {
       
     </div>
 
+    
+    
+    
     <!-- Journal/Book title and date -->
+    
+    
+    
     
     
     
@@ -2900,6 +2973,85 @@ function revealAndCopyContact(button, text, label) {
     <div class="periodical">
       
     </div>
+    
+
+    <!-- Links/Buttons -->
+    <div class="links">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+    
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      
+    
+
+    
+
+    
+
+    
+
+    
+  </div>
+</div>
+</li>
+<li>
+<div class="row">
+  
+    <div class="col col-sm-2 abbr">
+      
+    </div>
+  
+
+  <!-- Entry bib key -->
+  <div id="tan2027spatial" class="col-sm-8">
+    <!-- Title -->
+    <div class="title">Getting Space Right: Agentic Rewards for Image Generation</div>
+    <!-- Author -->
+    <div class="author">
+      
+
+      
+      <em>Xiaofeng
+            Tan</em>, Jiaxin
+            Lin, Haobo
+            Yuan, Tiancheng
+            Shen, Zihan
+            Su, Rui
+            Chen, Hongsong
+            Wang, and Ming-Hsuan
+            Yang
+      
+    </div>
+
+    
+    
+    
 
     <!-- Links/Buttons -->
     <div class="links">
@@ -3013,7 +3165,13 @@ function revealAndCopyContact(button, text, label) {
       
     </div>
 
+    
+    
+    
     <!-- Journal/Book title and date -->
+    
+    
+    
     
     
     
@@ -3031,6 +3189,7 @@ function revealAndCopyContact(button, text, label) {
     <div class="periodical">
       
     </div>
+    
 
     <!-- Links/Buttons -->
     <div class="links">
@@ -3292,7 +3451,7 @@ function revealAndCopyContact(button, text, label) {
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <span>Last updated: <time datetime="2026-09-29T04:19:15+00:00">September 29, 2026</time></span>
+    <span>Last updated: <time datetime="2026-09-29T05:10:10+00:00">September 29, 2026</time></span>
   </div>
 </article>
 
