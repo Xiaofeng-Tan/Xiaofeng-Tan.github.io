@@ -216,12 +216,13 @@ html[data-theme="dark"] .presentation-distinction {
   }
 
   .personal-motto {
+    --motto-color: #8c9ca8;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.42rem;
     margin: 0.05rem 0 0.15rem;
-    color: #8c9ca8;
+    color: var(--motto-color);
     font-family: "Gu Xingshu", "Long Cang", cursive;
     font-size: 0.92rem;
     font-weight: 400;
@@ -229,11 +230,21 @@ html[data-theme="dark"] .presentation-distinction {
     line-height: 1.45;
   }
 
+  /* Keep the source line at exactly the same visual color as the motto.
+   * The source contains a link and a different Latin typeface, so relying on
+   * inheritance alone can allow the theme's global link rules to leak in. */
+  .personal-motto,
+  .personal-motto > *,
+  .personal-motto__source > * {
+    color: var(--motto-color) !important;
+    opacity: 1;
+  }
+
   .personal-motto__text {
     font-family: inherit;
     font-size: inherit;
     letter-spacing: 0.04em;
-    color: inherit;
+    color: var(--motto-color);
   }
 
   .personal-motto__music {
@@ -241,14 +252,14 @@ html[data-theme="dark"] .presentation-distinction {
     font-size: inherit;
     line-height: inherit;
     letter-spacing: 0;
-    color: inherit;
+    color: var(--motto-color);
   }
 
   .personal-motto__source {
     display: inline-flex;
     align-items: baseline;
     gap: 0.36rem;
-    color: #a6b2bb;
+    color: var(--motto-color);
     font-family: inherit;
     font-size: inherit;
     letter-spacing: 0.01em;
@@ -256,7 +267,7 @@ html[data-theme="dark"] .presentation-distinction {
   }
 
   .personal-motto__source-dash {
-    color: #b9c3ca;
+    color: var(--motto-color);
     font-size: inherit;
     line-height: inherit;
     letter-spacing: -0.08em;
@@ -267,10 +278,12 @@ html[data-theme="dark"] .presentation-distinction {
     font-size: inherit;
     line-height: inherit;
     font-style: normal;
+    color: var(--motto-color);
   }
 
-  .personal-motto__source a {
-    color: inherit;
+  .personal-motto__source a,
+  .personal-motto__source a:visited {
+    color: var(--motto-color);
     text-decoration: none;
     transition: color 180ms ease, border-color 180ms ease;
     border-bottom: 1px dotted transparent;
@@ -282,10 +295,11 @@ html[data-theme="dark"] .presentation-distinction {
     font-size: inherit;
     line-height: inherit;
     font-style: italic;
+    color: var(--motto-color);
   }
 
   .personal-motto__source a:hover {
-    color: var(--primary);
+    color: var(--primary) !important;
     border-bottom-color: currentColor;
   }
 
@@ -3109,15 +3123,16 @@ html[data-theme="dark"] .presentation-distinction {
   }
 
   html[data-theme="dark"] .personal-motto {
-    color: #b9c3cb;
+    --motto-color: #b9c3cb;
+    color: var(--motto-color);
   }
 
   html[data-theme="dark"] .personal-motto__source {
-    color: #aeb9c2;
+    color: var(--motto-color);
   }
 
   html[data-theme="dark"] .personal-motto__source-dash {
-    color: #bcc6ce;
+    color: var(--motto-color);
   }
 
   html[data-theme="dark"] .post-title .name-separator {
