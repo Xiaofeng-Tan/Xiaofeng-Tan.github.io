@@ -164,7 +164,7 @@
 
 <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
 <link rel="stylesheet" href="/assets/css/language.css?0b6696933f98a3e0a20d3de999b66060">
-<link rel="stylesheet" href="/assets/css/mobile.css?989c4d3fb44d7b4a01b0e642e764eb7f">
+<link rel="stylesheet" href="/assets/css/mobile.css?2421d46cce0589323811a6e7599e9447">
 <link rel="canonical" href="https://xiaofeng-tan.github.io/">
 
 <!-- Dark Mode -->
@@ -256,16 +256,11 @@
             
           
           <li class="nav-item">
+            <a class="nav-link" href="/#sec-life">Misc</a>
+          </li>
+          <li class="nav-item">
             <button type="button" id="language-toggle" class="nav-link language-toggle" aria-label="切换为中文" title="切换为中文">中文</button>
           </li>
-          
-            <!-- Search -->
-            <li class="nav-item">
-              <button id="search-toggle" title="Search" aria-label="Search" onclick="openSearchModal()">
-                <span class="nav-link">ctrl k <i class="ti ti-search"></i></span>
-              </button>
-            </li>
-          
           
             <!-- Toogle theme mode -->
             <li class="toggle-container">
@@ -534,7 +529,16 @@ function revealAndCopyContact(button, text, label) {
   -webkit-user-select: none;
 }
 .dora-pet.is-hidden { display: none; }
-@media (max-width: 768px) { .dora-pet, .dora-bell-btn { display: none; } }
+@media (max-width: 768px) {
+  .dora-pet {
+    display: block;
+    right: 8px;
+  }
+  .dora-bell-btn,
+  .dora-panel {
+    display: none;
+  }
+}
 
 .dora-sprite {
   --sprite-row: 0;
@@ -700,12 +704,24 @@ function revealAndCopyContact(button, text, label) {
 
   // === Position / movement ===
   var SCALE = 0.5;                 // keep in sync with --dora-scale
-  var SPRITE_W = 192 * SCALE;      // 96
-  var SPRITE_H = 208 * SCALE;      // 104
-  var GROUND_OFFSET = 64;          // sits above the 16px+42px bell button
+  var SPRITE_W = 192 * SCALE;
+  var SPRITE_H = 208 * SCALE;
+  var GROUND_OFFSET = 64;          // sits above the bell button on desktop
   var ROAM_PADDING = 16;           // viewport edge padding
   // Hug the right edge: a tiny roam window near the right
   var ROAM_HALF_RANGE = 60;
+
+  function syncViewportMetrics() {
+    var mobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+    SCALE = mobile ? 0.38 : 0.5;
+    SPRITE_W = 192 * SCALE;
+    SPRITE_H = 208 * SCALE;
+    GROUND_OFFSET = mobile ? 10 : 64;
+    ROAM_PADDING = mobile ? 8 : 16;
+    pet.style.setProperty('--dora-scale', SCALE);
+  }
+
+  syncViewportMetrics();
 
   function getRoamBounds() {
     var rightEdge = window.innerWidth - SPRITE_W - ROAM_PADDING;
@@ -1012,6 +1028,7 @@ function revealAndCopyContact(button, text, label) {
   });
 
   window.addEventListener('resize', function () {
+    syncViewportMetrics();
     posX = clampX(posX);
     posY = clampY(posY);
     applyTransform();
@@ -1027,6 +1044,7 @@ function revealAndCopyContact(button, text, label) {
 </script>
 
 <!-- ====================== End Doraemon Desk Pet ====================== -->
+
 </div>
 
   <!-- News -->
@@ -3373,8 +3391,8 @@ function revealAndCopyContact(button, text, label) {
     <p class="hobbies-intro" data-language="en" lang="en">Outside research, I enjoy exploring ideas across science, engineering, and the humanities. I'm a <a class="doraemon-text" href="https://en.wikipedia.org/wiki/Doraemon" target="_blank" rel="noopener">Doraemon</a> fan, as the little companions in the bottom corners suggest. I practice hard-pen calligraphy, often drawing inspiration from Zhong'an Gu, and enjoy visiting exhibitions. Over a decade ago, I was an avid Chinese chess (xiangqi) player, an individual bronze medalist and a member of a championship-winning team in city-level competitions, though I'm no longer as drawn to the game. I also play table tennis and badminton.</p>
     <p class="hobbies-intro" data-language="zh" lang="zh-CN">科研之外，我喜欢从科学、工程和人文中寻找新的视角。我很喜欢<a class="doraemon-text" href="https://zh.wikipedia.org/wiki/%E5%93%86%E5%95%A6A%E5%A4%A2" target="_blank" rel="noopener">哆啦 A 梦</a>，所以页面下方的角落里有它陪伴。我练习硬笔书法，尤其欣赏顾仲安的作品，也常看展览；平时也会打乒乓球和羽毛球。十多年前，我很喜欢下中国象棋，曾在市级比赛中获得个人赛季军、团体赛冠军等成绩，不过已经多年没有接触了。</p>
 
-    <p class="hobbies-intro" data-language="en" lang="en">Music is another way I unwind. <em>Gareth.T</em> (<span class="song-artist-cjk" lang="zh-CN">汤令山</span>)'s <a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a> (<span class="song-title-cjk" lang="zh-CN">国际孤独等级</span>) is a particular favorite, and I also enjoy <em>Eason Chan</em> (<span class="song-artist-cjk" lang="zh-CN">陈奕迅</span>)'s <a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a> (<span class="song-title-cjk" lang="zh-CN">任我行</span>) and <em>Crowd Lu</em> (<span class="song-artist-cjk" lang="zh-CN">卢广仲</span>)'s <a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a> (<span class="song-title-cjk" lang="zh-CN">几分之几</span>).</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">音乐也是我放松的一种方式。我尤其喜欢 Gareth.T（汤令山）的<span class="song-title-cjk" lang="zh-CN">《国际孤独等级》</span>（<a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a>），也常听 Eason Chan（陈奕迅）的<span class="song-title-cjk" lang="zh-CN">《任我行》</span>（<a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a>）和 Crowd Lu（卢广仲）的<span class="song-title-cjk" lang="zh-CN">《几分之几》</span>（<a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a>）。</p>
+    <p class="hobbies-intro" data-language="en" lang="en">Music is another way I unwind. <span class="song-bilingual"><em>Gareth.T</em> (<span class="song-artist-cjk" lang="zh-CN">汤令山</span>)</span>'s <span class="song-bilingual"><a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a> (<span class="song-title-cjk" lang="zh-CN">国际孤独等级</span>)</span> is a particular favorite, and I also enjoy <span class="song-bilingual"><em>Eason Chan</em> (<span class="song-artist-cjk" lang="zh-CN">陈奕迅</span>)</span>'s <span class="song-bilingual"><a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a> (<span class="song-title-cjk" lang="zh-CN">任我行</span>)</span> and <span class="song-bilingual"><em>Crowd Lu</em> (<span class="song-artist-cjk" lang="zh-CN">卢广仲</span>)</span>'s <span class="song-bilingual"><a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a> (<span class="song-title-cjk" lang="zh-CN">几分之几</span>)</span>.</p>
+    <p class="hobbies-intro" data-language="zh" lang="zh-CN">音乐也是我放松的一种方式。我尤其喜欢<span class="song-bilingual">Gareth.T（汤令山）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《国际孤独等级》</span>（<a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a>）</span>，也常听<span class="song-bilingual">Eason Chan（陈奕迅）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《任我行》</span>（<a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a>）</span>和<span class="song-bilingual">Crowd Lu（卢广仲）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《几分之几》</span>（<a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a>）</span>。</p>
 
     <p class="hobbies-intro" data-language="en" lang="en">Over the past couple of years, I have also grown to love traveling, especially hiking and coastal landscapes. The mountains and coast of <a href="https://en.wikipedia.org/wiki/California" target="_blank" rel="noopener">California</a>, along with the coastline of <a href="https://en.wikipedia.org/wiki/Okinawa_Prefecture" target="_blank" rel="noopener">Okinawa</a>, have been especially memorable. <a href="https://en.wikipedia.org/wiki/Shenzhen" target="_blank" rel="noopener">Shenzhen</a> and <a href="https://en.wikipedia.org/wiki/Hong_Kong" target="_blank" rel="noopener">Hong Kong</a>, two cities where I have lived for many years, are also wonderful places for hiking and spending time by the sea.</p>
     <p class="hobbies-intro" data-language="zh" lang="zh-CN">近一两年，我也逐渐喜欢上旅行，尤其是徒步和山海风光。<a href="https://zh.wikipedia.org/wiki/%E5%8A%A0%E5%88%A9%E7%A6%8F%E5%B0%BC%E4%BA%9A%E5%B7%9E" target="_blank" rel="noopener">加州</a>的山海和<a href="https://zh.wikipedia.org/wiki/%E5%86%B2%E7%BB%B3%E5%8E%BF" target="_blank" rel="noopener">冲绳</a>的海景尤其令我印象深刻。<a href="https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%9C%B3%E5%B8%82" target="_blank" rel="noopener">深圳</a>和<a href="https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF" target="_blank" rel="noopener">香港</a>这两座我居住了很久的城市，也很适合徒步和看海。</p>
@@ -3451,7 +3469,7 @@ function revealAndCopyContact(button, text, label) {
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <span>Last updated: <time datetime="2026-09-29T06:46:37+00:00">September 29, 2026</time></span>
+    <span>Last updated: <time datetime="2026-09-29T07:03:47+00:00">September 29, 2026</time></span>
   </div>
 </article>
 
@@ -3679,143 +3697,6 @@ function revealAndCopyContact(button, text, label) {
 
 
     
-  <script type="module" src="/assets/js/search/ninja-keys.min.js?a3446f084dcaecc5f75aa1757d087dcf"></script>
-  <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys>
-  <script>
-    let searchTheme = determineComputedTheme();
-    const ninjaKeys = document.querySelector('ninja-keys');
-
-    if (searchTheme === 'dark') {
-      ninjaKeys.classList.add('dark');
-    } else {
-      ninjaKeys.classList.remove('dark');
-    }
-
-    const openSearchModal = () => {
-      // collapse navbarNav if expanded on mobile
-      const $navbarNav = $('#navbarNav');
-      if ($navbarNav.hasClass('show')) {
-        $navbarNav.collapse('hide');
-      }
-      ninjaKeys.open();
-    };
-  </script>
-  <script>
-    // get the ninja-keys element
-    const ninja = document.querySelector('ninja-keys');
-
-    // add the home and posts menu items
-    ninja.data = [{
-        id: "nav-about",
-        title: "About",
-        section: "Navigation",
-        handler: () => {
-          window.location.href = "/";
-        },
-      },{id: "nav-cv",
-              title: "CV",
-              description: "",
-              section: "Navigation",
-              handler: () => {
-                window.location.href = "/cv/";
-              },
-            },{id: "news-i-am-honored-to-be-interviewed-by-szu-as-an-outstanding-student-and-it-was-published-in-the-2024-shenzhen-university-admissions-guide",
-              title: '🌈 I am honored to be interviewed by SZU as an outstanding student,...',
-              description: "",
-              section: "News",},{id: "news-️-i-am-honored-to-deliver-a-speech-at-the-graduation-ceremony-on-behalf-of-all-graduates",
-              title: '🎙️ I am honored to deliver a speech at the graduation ceremony on...',
-              description: "",
-              section: "News",},{id: "news-️-officially-started-my-m-sc-journey-at-seu",
-              title: '🏃🏻‍➡️ Officially started my M.Sc journey at SEU.',
-              description: "",
-              section: "News",},{id: "news-merry-xmas-one-paper-from-my-undergraduate-research-student-first-author-is-accepted-by-tkde",
-              title: '🎉 Merry Xmas! One paper from my undergraduate research (student first author) is...',
-              description: "",
-              section: "News",},{id: "news-i-become-a-research-intern-at-youtu-lab-优图实验室-tencent",
-              title: '👏 I become a research intern at Youtu Lab（优图实验室）@ Tencent.',
-              description: "",
-              section: "News",},{id: "news-sopo-first-author-has-been-accepted-to-neurips-2025",
-              title: '🎉 SoPo (first author) has been accepted to NeurIPS 2025!',
-              description: "",
-              section: "News",},{id: "news-i-am-honored-to-receive-the-tencent-seu-scholarship-and-southeast-university-first-class-academic-scholarship",
-              title: '🏆 I am honored to receive the Tencent-SEU Scholarship and Southeast University First-Class...',
-              description: "",
-              section: "News",},{id: "news-realign-co-first-author-has-been-accepted-to-aaai-2026",
-              title: '🎉 ReAlign (co-first author) has been accepted to AAAI 2026!',
-              description: "",
-              section: "News",},{id: "news-easytune-co-first-author-has-been-accepted-to-iclr-2026",
-              title: '🎉 EasyTune (co-first author) has been accepted to ICLR 2026!',
-              description: "",
-              section: "News",},{id: "news-i-have-joined-tencent-hunyuan-混元-as-a-research-intern-looking-forward-to-exploring-rlhf-and-aigc",
-              title: '👏 I have joined Tencent Hunyuan（混元） as a Research Intern! Looking forward to...',
-              description: "",
-              section: "News",},{id: "news-i-am-honored-to-be-selected-as-a-gold-reviewer-for-icml-2026",
-              title: '🏅 I am honored to be selected as a Gold Reviewer for ICML...',
-              description: "",
-              section: "News",},{id: "news-fg-diff-first-author-has-been-accepted-to-ieee-transactions-on-image-processing-tip",
-              title: '🎉 FG-Diff (first author) has been accepted to IEEE Transactions on Image Processing...',
-              description: "",
-              section: "News",},{id: "news-two-papers-accepted-to-neurips-2026-a-flow-based-rlhf-theory-paper-first-author-spotlight-and-bimogen-poster",
-              title: '🎉 Two papers accepted to NeurIPS 2026: a flow-based RLHF theory paper (first...',
-              description: "",
-              section: "News",},{
-            id: 'socials-email',
-            title: 'Send email',
-            section: 'Socials',
-            handler: () => {
-              window.open("mailto:%78%69%61%6F%66%65%6E%67%74%61%6E@%73%65%75.%65%64%75.%63%6E", "_blank");
-            },
-          },{
-            id: 'socials-google-scholar',
-            title: 'Google Scholar',
-            section: 'Socials',
-            handler: () => {
-              window.open("https://scholar.google.com/citations?user=C2F5mtgAAAAJ", "_blank");
-            },
-          },{
-            id: 'socials-semantic-scholar',
-            title: 'Semantic Scholar',
-            section: 'Socials',
-            handler: () => {
-              window.open("https://www.semanticscholar.org/author/2333979919", "_blank");
-            },
-          },{
-            id: 'socials-github',
-            title: 'GitHub',
-            section: 'Socials',
-            handler: () => {
-              window.open("https://github.com/Xiaofeng-Tan", "_blank");
-            },
-          },{
-          id: 'light-theme',
-          title: 'Change theme to light',
-          description: 'Change the theme of the site to Light',
-          section: 'Theme',
-          handler: () => {
-            setThemeSetting("light");
-          },
-        },
-        {
-          id: 'dark-theme',
-          title: 'Change theme to dark',
-          description: 'Change the theme of the site to Dark',
-          section: 'Theme',
-          handler: () => {
-            setThemeSetting("dark");
-          },
-        },
-        {
-          id: 'system-theme',
-          title: 'Use system default theme',
-          description: 'Change the theme of the site to System Default',
-          section: 'Theme',
-          handler: () => {
-            setThemeSetting("system");
-          },
-        },];
-  </script>
-  <script src="/assets/js/shortcut-key.js?6f508d74becd347268a7f822bca7309d"></script>
-
 
     <script src="/assets/js/language.js?ca079e09432deece61844d1c8c5cc859"></script>
     
