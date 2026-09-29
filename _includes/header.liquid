@@ -122,16 +122,11 @@
             {% endif %}
           {% endfor %}
           <li class="nav-item">
+            <a class="nav-link" href="{{ '/' | relative_url }}#sec-life">Misc</a>
+          </li>
+          <li class="nav-item">
             <button type="button" id="language-toggle" class="nav-link language-toggle" aria-label="切换为中文" title="切换为中文">中文</button>
           </li>
-          {% if site.search_enabled %}
-            <!-- Search -->
-            <li class="nav-item">
-              <button id="search-toggle" title="Search" aria-label="Search" onclick="openSearchModal()">
-                <span class="nav-link">ctrl k <i class="ti ti-search"></i></span>
-              </button>
-            </li>
-          {% endif %}
           {% if site.enable_darkmode %}
             <!-- Toogle theme mode -->
             <li class="toggle-container">

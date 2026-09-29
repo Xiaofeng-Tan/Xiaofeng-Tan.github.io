@@ -53,7 +53,16 @@
   -webkit-user-select: none;
 }
 .dora-pet.is-hidden { display: none; }
-@media (max-width: 768px) { .dora-pet, .dora-bell-btn { display: none; } }
+@media (max-width: 768px) {
+  .dora-pet {
+    display: block;
+    right: 8px;
+  }
+  .dora-bell-btn,
+  .dora-panel {
+    display: none;
+  }
+}
 
 .dora-sprite {
   --sprite-row: 0;
@@ -219,12 +228,24 @@
 
   // === Position / movement ===
   var SCALE = 0.5;                 // keep in sync with --dora-scale
-  var SPRITE_W = 192 * SCALE;      // 96
-  var SPRITE_H = 208 * SCALE;      // 104
-  var GROUND_OFFSET = 64;          // sits above the 16px+42px bell button
+  var SPRITE_W = 192 * SCALE;
+  var SPRITE_H = 208 * SCALE;
+  var GROUND_OFFSET = 64;          // sits above the bell button on desktop
   var ROAM_PADDING = 16;           // viewport edge padding
   // Hug the right edge: a tiny roam window near the right
   var ROAM_HALF_RANGE = 60;
+
+  function syncViewportMetrics() {
+    var mobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+    SCALE = mobile ? 0.38 : 0.5;
+    SPRITE_W = 192 * SCALE;
+    SPRITE_H = 208 * SCALE;
+    GROUND_OFFSET = mobile ? 10 : 64;
+    ROAM_PADDING = mobile ? 8 : 16;
+    pet.style.setProperty('--dora-scale', SCALE);
+  }
+
+  syncViewportMetrics();
 
   function getRoamBounds() {
     var rightEdge = window.innerWidth - SPRITE_W - ROAM_PADDING;
@@ -531,6 +552,7 @@
   });
 
   window.addEventListener('resize', function () {
+    syncViewportMetrics();
     posX = clampX(posX);
     posY = clampY(posY);
     applyTransform();

@@ -485,6 +485,13 @@
   .about-page .service-details { font-size: 0.82rem; line-height: 1.4; }
   .about-page .hobbies-intro { font-size: 0.9375rem; line-height: 1.45; margin-bottom: 8px; }
 
+  /* Keep English/Chinese artist and song names together on mobile. */
+  .about-page .song-bilingual {
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: baseline;
+  }
+
   /* Keep the lyric and its song credit on one line on small screens. */
   .about-page .personal-motto {
     width: 100%;

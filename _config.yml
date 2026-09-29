@@ -51,7 +51,8 @@ repo_trophies:
 
 navbar_fixed: true
 footer_fixed: true
-search_enabled: true
+# The command-palette search, including the Ctrl/⌘ K shortcut, is disabled.
+search_enabled: false
 socials_in_search: true
 bib_search: true
 
