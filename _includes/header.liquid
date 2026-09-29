@@ -121,9 +121,42 @@
               {% endif %}
             {% endif %}
           {% endfor %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ '/' | relative_url }}#sec-life">Misc</a>
-          </li>
+          {% if page.permalink == '/' %}
+            {% if site.announcements.enabled %}
+              <li class="nav-item section-nav-item">
+                <a href="#sec-news" class="nav-link section-nav-link" data-section="sec-news">News</a>
+              </li>
+            {% endif %}
+            <li class="nav-item section-nav-item">
+              <a href="#sec-education" class="nav-link section-nav-link" data-section="sec-education">Education</a>
+            </li>
+            <li class="nav-item section-nav-item">
+              <a href="#sec-research" class="nav-link section-nav-link" data-section="sec-research">Research</a>
+            </li>
+            {% if page.selected_papers %}
+              <li class="nav-item section-nav-item">
+                <a href="#sec-publications" class="nav-link section-nav-link" data-section="sec-publications">Publications</a>
+              </li>
+            {% endif %}
+            {% if site.latest_posts.enabled %}
+              <li class="nav-item section-nav-item">
+                <a href="#sec-honors" class="nav-link section-nav-link" data-section="sec-honors">Honors</a>
+              </li>
+            {% endif %}
+            <li class="nav-item section-nav-item">
+              <a href="#sec-teaching" class="nav-link section-nav-link" data-section="sec-teaching">Teaching</a>
+            </li>
+            <li class="nav-item section-nav-item">
+              <a href="#sec-service" class="nav-link section-nav-link" data-section="sec-service">Service</a>
+            </li>
+            <li class="nav-item section-nav-item">
+              <a href="#sec-life" class="nav-link section-nav-link" data-section="sec-life">Misc</a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ '/' | relative_url }}#sec-life">Misc</a>
+            </li>
+          {% endif %}
           <li class="nav-item">
             <button type="button" id="language-toggle" class="nav-link language-toggle" aria-label="切换为中文" title="切换为中文">中文</button>
           </li>
@@ -141,27 +174,6 @@
       </div>
     </div>
   </nav>
-  {% if page.permalink == '/' %}
-    <!-- Section Sub-Navigation (About page only) -->
-    <div class="section-subnav" id="sectionSubnav">
-      <div class="container">
-        <div class="section-subnav-inner">
-          {% if site.announcements.enabled %}
-            <a href="#sec-news" class="section-subnav-link" data-section="sec-news">News</a>
-          {% endif %}
-          <a href="#sec-education" class="section-subnav-link" data-section="sec-education">Education</a>
-          <a href="#sec-research" class="section-subnav-link" data-section="sec-research">Research</a>
-          {% if page.selected_papers %}
-            <a href="#sec-publications" class="section-subnav-link" data-section="sec-publications">Publications</a>
-          {% endif %}
-          {% if site.latest_posts.enabled %}
-            <a href="#sec-honors" class="section-subnav-link" data-section="sec-honors">Honors</a>
-          {% endif %}
-          <a href="#sec-service" class="section-subnav-link" data-section="sec-service">Service</a>
-        </div>
-      </div>
-    </div>
-  {% endif %}
   {% if site.enable_progressbar %}
     <!-- Scrolling Progress Bar -->
     <progress id="progress" value="0">

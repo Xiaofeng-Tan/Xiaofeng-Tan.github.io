@@ -78,7 +78,6 @@
 html[lang="zh-CN"] :is(
   body,
   #navbar,
-  .section-subnav,
   .post,
   .post-header,
   .section-title,

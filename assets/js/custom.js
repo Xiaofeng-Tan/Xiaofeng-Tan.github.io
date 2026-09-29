@@ -786,24 +786,14 @@
   init();
 })();
 
-// ========== Block 4: Section sub-navigation (scroll spy) ==========
+// ========== Block 4: Primary navbar section links (scroll spy) ==========
 (function() {
-  const sectionNav = document.getElementById('sectionSubnav');
-  if (!sectionNav) return;
-
   const navbar = document.getElementById('navbar');
-  const navLinks = sectionNav.querySelectorAll('.section-subnav-link');
+  const navLinks = document.querySelectorAll('#navbar .section-nav-link');
+  if (!navbar || !navLinks.length) return;
+
   const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
   const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-
-  // Dynamically position subnav below navbar
-  function positionSubnav() {
-    if (navbar) {
-      sectionNav.style.top = navbar.offsetHeight + 'px';
-    }
-  }
-  positionSubnav();
-  window.addEventListener('resize', positionSubnav);
 
   // Smooth scroll on click
   navLinks.forEach(link => {
@@ -817,20 +807,11 @@
     });
   });
 
-  // Show/hide nav and scroll spy
+  // Scroll spy for the single primary navbar.
   function updateNav() {
     const scrollY = window.scrollY;
-    const firstSection = sections[0];
     const navHeight = navbar ? navbar.offsetHeight : 56;
-    const subnavHeight = sectionNav.offsetHeight || 36;
-    const offset = navHeight + subnavHeight + 20;
-
-    // Show subnav when scrolled past the first section
-    if (firstSection && scrollY >= firstSection.offsetTop - offset - 50) {
-      sectionNav.classList.add('visible');
-    } else {
-      sectionNav.classList.remove('visible');
-    }
+    const offset = navHeight + 20;
 
     // Scroll spy: highlight active section
     let currentSection = '';
@@ -847,13 +828,15 @@
       if (active) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
       if (newlyActive) {
-        // Move only the horizontal strip. scrollIntoView also scrolls the
-        // document and used to fight the reader's vertical swipe.
-        const strip = link.parentElement;
-        strip.scrollTo({
-          left: link.offsetLeft - strip.offsetLeft - (strip.clientWidth - link.offsetWidth) / 2,
-          behavior: prefersReducedMotion() ? 'auto' : 'smooth'
-        });
+        // On narrow screens, keep the active link visible within the
+        // horizontally scrollable primary navbar.
+        if (window.matchMedia && window.matchMedia('(max-width: 767.98px)').matches) {
+          link.scrollIntoView({
+            block: 'nearest',
+            inline: 'center',
+            behavior: prefersReducedMotion() ? 'auto' : 'smooth'
+          });
+        }
       }
     });
   }

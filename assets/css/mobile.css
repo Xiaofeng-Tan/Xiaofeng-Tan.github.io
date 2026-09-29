@@ -22,13 +22,27 @@
     display: flex !important;
     flex-basis: 100%;
     height: auto !important;
+    min-width: 0;
+    overflow: hidden;
   }
   #navbar .navbar-nav {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    justify-content: flex-start;
+    width: max-content;
+    min-width: 100%;
+    max-width: none;
     gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+  #navbar .navbar-nav::-webkit-scrollbar {
+    display: none;
+  }
+  #navbar .navbar-nav > .nav-item {
+    flex: 0 0 auto;
   }
   #navbar .navbar-brand {
     display: none;
@@ -45,6 +59,15 @@
     padding: 6px 10px;
     margin: 0;
     font-size: 0.9375rem;
+  }
+  #navbar .section-nav-link {
+    min-width: auto;
+    padding-left: 9px;
+    padding-right: 9px;
+    font-size: 0.8125rem;
+  }
+  #navbar .language-toggle {
+    margin-left: 0;
   }
   #navbar #search-toggle .nav-link {
     /* The desktop keyboard shortcut is not useful on a touch screen. */
@@ -68,22 +91,6 @@
     margin-top: 18px !important;
   }
 
-  /* Horizontally scroll only the section index, never the article itself. */
-  .section-subnav .container { padding: 0 12px; }
-  .section-subnav-inner {
-    min-height: 36px;
-    padding: 0;
-    overscroll-behavior-x: contain;
-    scroll-padding-inline: 12px;
-    scrollbar-width: thin;
-  }
-  .section-subnav-link {
-    display: inline-flex;
-    align-items: center;
-    min-height: 36px;
-    padding: 6px 10px;
-    font-size: 0.8125rem;
-  }
   [id^="sec-"] { scroll-margin-top: 100px; }
 
   /* A compact identity block, then full-width prose, not text beside a photo. */
@@ -539,7 +546,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .section-subnav, .detail-card, .detail-card-inner { transition: none !important; }
+  .detail-card, .detail-card-inner { transition: none !important; }
 }
 
 /* Shared reading scale for summaries and revealed content, in either language.
