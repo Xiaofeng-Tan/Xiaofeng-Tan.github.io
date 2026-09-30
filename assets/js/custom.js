@@ -103,7 +103,7 @@
 
 // ========== Block 1b: Smooth native <details> expansion ==========
 (function () {
-  const selector = 'details.compact-card, details.pub-category';
+  const selector = 'details.compact-card, details.pub-category, details.misc-section';
   const easing = 'cubic-bezier(0.22, 1, 0.36, 1)';
 
   function reducedMotion() {
