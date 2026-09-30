@@ -409,6 +409,9 @@
     margin: 0;
     padding: 4px 0;
   }
+  .about-page .section-title-hint {
+    font-size: 0.66rem;
+  }
   .about-page .section-title-chevron {
     width: 0.45rem;
     height: 0.45rem;
