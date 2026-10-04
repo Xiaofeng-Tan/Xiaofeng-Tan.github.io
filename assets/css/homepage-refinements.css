@@ -7,7 +7,7 @@
 }
 /* Homepage-only palette and compact publication layout. */
 .about-page {
-  --homepage-font: var(--site-songti), "Outfit", "Helvetica Neue", Arial, sans-serif;
+  --homepage-font: "Outfit", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --primary: #1d4e78;
   --primary-hover: #123753;
   --primary-soft: rgba(29, 78, 120, 0.055);
@@ -17,8 +17,8 @@
   --global-theme-color: #1d4e78;
   --publication-venue-blue: #1d4e78;
 }
-/* Override the legacy serif families at their component roots, not icon glyphs.
- * The Songti face is CJK-only; Latin characters use Outfit in both languages. */
+/* English uses Outfit; ordinary Chinese uses a matching system sans-serif.
+ * Handwriting and the motto remain intentional exceptions below. */
 html .about-page,
 html .about-page :is(.post, .post-title, .section-title, .section-title-hint,
   #navbar, #navbar .nav-link, #navbar .language-toggle, .intro-language-toggle,
@@ -39,7 +39,23 @@ html .about-page :is(.chinese-name, .chinese-handwriting, .song-title-cjk, .song
 }
 html[lang="zh-CN"] .about-page .section-title,
 html[lang="zh-CN"] .about-page .section-title > span {
-  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--homepage-font);
+}
+/* Apply the same family to nested text in opened panels as in their summaries.
+ * Exclude icon fonts, math/code, and every descendant of an artistic element. */
+html .about-page :is(div, span, p, a, button, summary, label, li, td, th,
+  h1, h2, h3, h4, h5, h6, strong, em, small, time, input, select, textarea):not(
+  :where(.personal-motto, .chinese-name, .chinese-handwriting, .song-title-cjk,
+    .song-artist-cjk, .katex, .MathJax, mjx-container, pre, code, svg, math,
+    .fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands, .ai, .ti,
+    [class^="ti-"], [class*=" ti-"], [class^="icon-"]) *
+):not(
+  .personal-motto, .chinese-name, .chinese-handwriting, .song-title-cjk,
+  .song-artist-cjk, .katex, .MathJax, .fa, .fas, .far, .fab,
+  .fa-solid, .fa-regular, .fa-brands, .ai, .ti, [class^="ti-"],
+  [class*=" ti-"], [class^="icon-"]
+) {
+  font-family: var(--homepage-font) !important;
 }
 html[data-theme="dark"] .about-page {
   --primary: #81b1d8;
@@ -118,9 +134,16 @@ html .about-page .honors-section .compact-card[open] {
 .about-page .social-icons-header a:hover {
   color: var(--primary-hover) !important;
 }
-.about-page .section-title::before {
-  background: var(--primary);
-  box-shadow: none;
+html .about-page .section-title::before {
+  content: none;
+  display: none;
+}
+html .about-page .section-title {
+  padding-left: 0;
+  border-left: 0;
+}
+html .about-page .timeline-expand-hint {
+  padding-left: 0;
 }
 .about-page .section-title:hover,
 .about-page .timeline-expand-hint::before,
