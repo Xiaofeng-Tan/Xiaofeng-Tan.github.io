@@ -50,6 +50,15 @@
       role_en: First author
       role_zh: 一作
       url: /projects/FG-Diff/
+- id: tpami
+  en: TPAMI
+  zh: TPAMI
+  papers:
+    - name: MotionRFT
+      venue: TPAMI 2026
+      role_en: First author
+      role_zh: 一作
+      url: /projects/MotionRFT/
 - id: tkde
   en: TKDE
   zh: TKDE
@@ -63,11 +72,6 @@
   en: Under review
   zh: 在投工作
   papers:
-    - name: MotionRFT
-      venue: TPAMI
-      role_en: First author
-      role_zh: 一作
-      url: /projects/MotionRFT/
     - name: Consistent-RFT
       venue: ""
       role_en: First author
