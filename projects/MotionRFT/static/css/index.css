@@ -120,6 +120,18 @@ body {
   font-size: 0.7em;
 }
 
+.author-note {
+  margin-top: 0.18rem;
+  color: #777;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.author-note sup {
+  color: #8c1515;
+  font-weight: 700;
+}
+
 /* Affiliations */
 .publication-affiliations {
   display: flex;

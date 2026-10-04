@@ -56,8 +56,8 @@
   papers:
     - name: MotionRFT
       venue: TPAMI 2026
-      role_en: First author
-      role_zh: 一作
+      role_en: Co-first author
+      role_zh: 共同一作
       url: /projects/MotionRFT/
 - id: tkde
   en: TKDE

@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🎉 [MotionRFT](/projects/MotionRFT/) (first author) has been accepted by [TPAMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)!
+🎉 [MotionRFT](/projects/MotionRFT/) (co-first author) has been accepted by [TPAMI](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34)!

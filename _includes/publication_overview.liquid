@@ -1,5 +1,6 @@
 {% assign accepted_count = 0 %}
 {% assign review_count = 0 %}
+{% assign review_group = site.data.publication_overview | where: "id", "review" | first %}
 {% for group in site.data.publication_overview %}
   {% if group.id == 'review' %}
     {% assign review_count = group.papers | size %}
@@ -17,36 +18,61 @@
     <span class="publication-summary__legend" data-language="zh" lang="zh-CN">下划线：一作 / 共同一作 / 学生一作</span>
   </div>
 
-  <div class="publication-summary__grid">
+  <div class="publication-summary__accepted">
     {% for group in site.data.publication_overview %}
-      <div class="publication-summary__row{% if group.id == 'neurips' or group.id == 'review' %} publication-summary__row--wide{% endif %}{% if group.id == 'review' %} publication-summary__row--review{% endif %}">
-        <span class="publication-summary__venue">
-          <span data-language="en" lang="en">{{ group.en }}</span>
-          <span data-language="zh" lang="zh-CN">{{ group.zh }}</span>
-          <span class="publication-summary__venue-count">{{ group.papers | size }}</span>
-        </span>
-
-        <span class="publication-summary__papers">
-          {% for paper in group.papers %}
-            {% assign primary = false %}
-            {% if paper.role_en == 'First author' or paper.role_en == 'Co-first author' or paper.role_en == 'First student author' %}
-              {% assign primary = true %}
-            {% endif %}
-            <span class="publication-summary__paper">
-              {% if paper.url %}
-                <a {% if primary %}class="overview-primary"{% endif %} href="{% if paper.url contains '://' %}{{ paper.url }}{% else %}{{ paper.url | relative_url }}{% endif %}" title="{{ paper.venue }} · {{ paper.role_en }} / {{ paper.role_zh }}">{{ paper.name }}</a>
-              {% else %}
-                <span {% if primary %}class="overview-primary"{% endif %} title="{{ paper.venue }} · {{ paper.role_en }} / {{ paper.role_zh }}">{{ paper.name }}</span>
+      {% unless group.id == 'review' %}
+        <span class="publication-summary__group">
+          <span class="publication-summary__venue">
+            <span data-language="en" lang="en">{{ group.en }}</span>
+            <span data-language="zh" lang="zh-CN">{{ group.zh }}</span>
+            <span class="publication-summary__venue-count">{{ group.papers | size }}</span>
+          </span>
+          <span class="publication-summary__papers">
+            {% for paper in group.papers %}
+              {% assign primary = false %}
+              {% if paper.role_en == 'First author' or paper.role_en == 'Co-first author' or paper.role_en == 'First student author' %}
+                {% assign primary = true %}
               {% endif %}
-              {% if paper.distinction %}
-                <span class="publication-summary__note{% if paper.distinction == 'Spotlight' %} presentation-distinction{% endif %}">{{ paper.distinction }}</span>
-              {% elsif group.id == 'review' and paper.venue != "" %}
-                <span class="publication-summary__note">{{ paper.venue }}</span>
-              {% endif %}
-            </span>
-          {% endfor %}
+              <span class="publication-summary__paper">
+                {% if paper.url %}
+                  <a {% if primary %}class="overview-primary"{% endif %} href="{% if paper.url contains '://' %}{{ paper.url }}{% else %}{{ paper.url | relative_url }}{% endif %}" title="{{ paper.venue }} · {{ paper.role_en }} / {{ paper.role_zh }}">{{ paper.name }}</a>
+                {% else %}
+                  <span {% if primary %}class="overview-primary"{% endif %} title="{{ paper.venue }} · {{ paper.role_en }} / {{ paper.role_zh }}">{{ paper.name }}</span>
+                {% endif %}
+                {% if paper.distinction %}
+                  <span class="publication-summary__note{% if paper.distinction == 'Spotlight' %} presentation-distinction{% endif %}">{{ paper.distinction }}</span>
+                {% endif %}
+              </span>
+            {% endfor %}
+          </span>
         </span>
-      </div>
+      {% endunless %}
     {% endfor %}
+  </div>
+
+  <div class="publication-summary__review">
+    <span class="publication-summary__venue">
+      <span data-language="en" lang="en">{{ review_group.en }}</span>
+      <span data-language="zh" lang="zh-CN">{{ review_group.zh }}</span>
+      <span class="publication-summary__venue-count">{{ review_count }}</span>
+    </span>
+    <span class="publication-summary__papers">
+      {% for paper in review_group.papers %}
+        {% assign primary = false %}
+        {% if paper.role_en == 'First author' or paper.role_en == 'Co-first author' or paper.role_en == 'First student author' %}
+          {% assign primary = true %}
+        {% endif %}
+        <span class="publication-summary__paper">
+          {% if paper.url %}
+            <a {% if primary %}class="overview-primary"{% endif %} href="{% if paper.url contains '://' %}{{ paper.url }}{% else %}{{ paper.url | relative_url }}{% endif %}" title="{{ paper.venue }} · {{ paper.role_en }} / {{ paper.role_zh }}">{{ paper.name }}</a>
+          {% else %}
+            <span {% if primary %}class="overview-primary"{% endif %} title="{{ paper.venue }} · {{ paper.role_en }} / {{ paper.role_zh }}">{{ paper.name }}</span>
+          {% endif %}
+          {% if paper.venue != "" %}
+            <span class="publication-summary__note">{{ paper.venue }}</span>
+          {% endif %}
+        </span>
+      {% endfor %}
+    </span>
   </div>
 </div>
