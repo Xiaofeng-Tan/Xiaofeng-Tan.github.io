@@ -164,7 +164,7 @@
 
 <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
 <link rel="stylesheet" href="/assets/css/language.css?c7c516b1cac494948c70bc4a36815ffe">
-<link rel="stylesheet" href="/assets/css/mobile.css?bdc6dc2bf2236dff98645d72d0bf4fd0">
+<link rel="stylesheet" href="/assets/css/mobile.css?a65add52ff2a03cd4a1409d50da17e5d">
 <link rel="canonical" href="https://xiaofeng-tan.github.io/">
 
 <!-- Dark Mode -->
@@ -1935,10 +1935,32 @@ function revealAndCopyContact(button, text, label) {
     <h2 id="sec-publications" class="section-title">
       <span>📖 Selected Publications</span>
     </h2>
-    <p class="publication-summary" role="note">
-      <span data-language="en" lang="en">NeurIPS ×3, including Spotlight ×1 and Poster ×1 · ICLR ×1 · AAAI ×1 · TIP ×1 · TKDE ×1</span>
-      <span data-language="zh" lang="zh-CN">NeurIPS 3 篇，其中 Spotlight 1 篇、Poster 1 篇 · ICLR 1 篇 · AAAI 1 篇 · TIP 1 篇 · TKDE 1 篇</span>
-    </p>
+    <div class="publication-summary" role="note">
+      <div class="publication-summary__heading">
+        <span data-language="en" lang="en">Published / accepted · 7 papers · NeurIPS ×3</span>
+        <span data-language="zh" lang="zh-CN">已发表 / 录用 · 7 篇 · NeurIPS 3 篇</span>
+      </div>
+      <div class="publication-summary__grid">
+        <div class="publication-summary__group publication-summary__group--lead">
+          <div class="publication-summary__metric">
+            <strong>5</strong>
+            <span class="publication-summary__metric-label" data-language="en" lang="en">First / co-first-author papers</span>
+            <span class="publication-summary__metric-label" data-language="zh" lang="zh-CN">一作 / 共同一作论文</span>
+          </div>
+          <span class="publication-summary__value" data-language="en" lang="en">NeurIPS ×2 (<span class="presentation-distinction">Spotlight ×1</span>) · ICLR ×1 · AAAI ×1 · TIP ×1</span>
+          <span class="publication-summary__value" data-language="zh" lang="zh-CN">NeurIPS 2 篇（<span class="presentation-distinction">Spotlight 1 篇</span>）· ICLR 1 篇 · AAAI 1 篇 · TIP 1 篇</span>
+        </div>
+        <div class="publication-summary__group">
+          <div class="publication-summary__metric">
+            <strong>2</strong>
+            <span class="publication-summary__metric-label" data-language="en" lang="en">Non-first-author papers</span>
+            <span class="publication-summary__metric-label" data-language="zh" lang="zh-CN">非一作论文</span>
+          </div>
+          <span class="publication-summary__value" data-language="en" lang="en">NeurIPS ×1 (<span class="publication-summary__poster">Poster ×1</span>) · TKDE ×1</span>
+          <span class="publication-summary__value" data-language="zh" lang="zh-CN">NeurIPS 1 篇（<span class="publication-summary__poster">Poster 1 篇</span>）· TKDE 1 篇</span>
+        </div>
+      </div>
+    </div>
     <div class="publications-grouped">
   <details class="pub-category pub-category--highlighted" open>
     <summary class="pub-category__summary">
@@ -3488,7 +3510,7 @@ function revealAndCopyContact(button, text, label) {
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <span>Last updated: <time datetime="2026-10-04T06:17:30+00:00">October 04, 2026</time></span>
+    <span>Last updated: <time datetime="2026-10-04T06:25:27+00:00">October 04, 2026</time></span>
   </div>
 </article>
 
