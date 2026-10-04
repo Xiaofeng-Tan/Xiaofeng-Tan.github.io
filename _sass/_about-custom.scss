@@ -654,7 +654,7 @@ html[data-theme="dark"] .presentation-distinction {
     background: var(--surface);
     border: 1px solid var(--primary-line);
     border-radius: 3px;
-    box-shadow: inset 2px 0 0 var(--primary-hover);
+    box-shadow: none;
     font-family: inherit;
     font-size: 0.76rem;
     font-weight: 400;

@@ -91,6 +91,35 @@ html .about-page article > .clearfix a:hover {
 html[data-theme="dark"] .about-page article > .clearfix a {
   color: #a4bfd4 !important;
 }
+/* Intro-only refinement: slightly smaller and softer than the reading scale.
+ * Do not fade the container, which would also fade links, controls and emoji. */
+html .about-page article > .clearfix > [data-language] > p,
+html .about-page article > .clearfix .interest-card {
+  color: #767a7e;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+html[data-theme="dark"] .about-page article > .clearfix > [data-language] > p,
+html[data-theme="dark"] .about-page article > .clearfix .interest-card {
+  color: #b9c0c7;
+}
+html .about-page article > .clearfix .interest-card strong {
+  background: none;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: 600;
+}
+@media (max-width: 767.98px) {
+  html .about-page article > .clearfix > [data-language] > p,
+  html .about-page article > .clearfix .interest-card {
+    font-size: 0.9375rem;
+  }
+}
 html[data-theme="dark"] .about-page {
   --primary: #81b1d8;
   --primary-hover: #accce6;
