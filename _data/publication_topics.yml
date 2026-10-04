@@ -9,13 +9,9 @@ labels:
     en: AI-generated content
     zh: 人工智能生成内容
   human:
-    name: Human-centric
-    en: Human-centric perception, generation, and understanding
-    zh: 以人为中心的感知、生成与理解
-  cv:
-    name: CV
-    en: Computer vision
-    zh: 计算机视觉
+    name: Human-centric CV
+    en: "Human-centric computer vision: perception, generation, and understanding"
+    zh: 以人为中心的计算机视觉：感知、生成与理解
   ad:
     name: AD
     en: Anomaly and outlier detection
@@ -28,9 +24,9 @@ papers:
   tan2024sopo: [rl, aigc, human]
   Tan2026easytune: [aigc, human]
   weng2026realign: [aigc, human]
-  tan2024frequency: [cv, human, ad]
+  tan2024frequency: [human, ad]
   tanGB: [ad]
   TANTWD: [ad]
   tan4785986multiple: [ad]
   weng2026bimogen: [aigc, human]
-  tan2027spatial: [rl, aigc, cv]
+  tan2027spatial: [rl, aigc]
