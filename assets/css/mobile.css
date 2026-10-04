@@ -424,7 +424,7 @@
   .about-page .publications-grouped { gap: 4px; }
   .about-page .publication-summary {
     margin: -1px 0 6px;
-    padding: 3px 0;
+    padding: 7px 9px;
     font-size: 0.7rem;
     line-height: 1.35;
   }

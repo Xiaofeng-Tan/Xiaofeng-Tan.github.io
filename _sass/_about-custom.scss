@@ -485,12 +485,13 @@ html[data-theme="dark"] .presentation-distinction {
   /* Selected Publications — now uses unified .section-title styles */
   .publication-summary {
     margin: 0 0 0.4rem;
-    padding: 0.3rem 0;
+    padding: 0.5rem 0.65rem;
     color: var(--text-muted);
-    background: var(--surface);
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
+    background: var(--primary-soft);
+    border: 1px solid var(--primary-line);
+    border-left: 3px solid var(--primary);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px var(--primary-glow);
     font-size: 0.76rem;
     font-weight: 400;
     line-height: 1.45;
@@ -523,6 +524,20 @@ html[data-theme="dark"] .presentation-distinction {
     font-size: 0.7rem;
     font-weight: 400;
     line-height: 1.45;
+  }
+
+  .publication-summary__pending {
+    display: grid;
+    gap: 0.15rem;
+    border-top: 1px solid var(--primary-line);
+    margin-top: 0.15rem;
+    padding-top: 0.3rem;
+  }
+
+  .publication-summary__pending-label {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    font-weight: 500;
   }
 
   .publication-summary__metric {
