@@ -283,54 +283,35 @@ html .about-page .timeline-expand-hint {
   line-height: 1.4;
 }
 
-/* Make the collapsed Misc section clearly interactive without turning it into
- * a large call-to-action. The full header remains the click target. */
+/* Keep Misc visually consistent with the other section headings. Only the
+ * small disclosure control is emphasized. */
 html .about-page .misc-section {
   margin-top: 1.2rem;
-}
-html .about-page .misc-section > summary.section-title {
-  min-height: 42px;
-  margin: 0;
-  padding: 0.5rem 0.68rem;
-  border: 1px solid var(--primary-line);
-  border-radius: 7px;
-  background: var(--primary-soft);
-  transition:
-    color 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
-}
-html .about-page .misc-section > summary.section-title:hover,
-html .about-page .misc-section > summary.section-title:focus-visible {
-  color: var(--primary);
-  background: var(--primary-soft-strong);
-  border-color: color-mix(in srgb, var(--primary) 36%, transparent);
-  box-shadow: 0 3px 12px var(--primary-glow);
-}
-html .about-page .misc-section > summary.section-title:focus-visible {
-  outline: 2px solid var(--primary-line);
-  outline-offset: 2px;
-}
-html .about-page .misc-section[open] > summary.section-title {
-  background: transparent;
-  border-color: var(--global-divider-color);
-  box-shadow: none;
 }
 html .about-page .misc-section .section-title-hint {
   display: inline-flex;
   align-items: center;
-  min-height: 24px;
+  min-height: 18px;
   margin-left: auto;
-  padding: 0.14rem 0.45rem;
-  border: 1px solid var(--primary-line);
+  padding: 0.08rem 0.42rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 42%, transparent);
   border-radius: 999px;
-  background: var(--surface);
+  background: var(--primary-soft-strong);
   color: var(--primary);
   font-family: var(--homepage-font);
-  font-size: 0.65rem;
+  font-size: 0.63rem;
   font-weight: 500;
   line-height: 1;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+html .about-page .misc-section > summary:hover .section-title-hint,
+html .about-page .misc-section > summary:focus-visible .section-title-hint {
+  color: var(--primary-hover);
+  background: var(--primary-soft-strong);
+  border-color: color-mix(in srgb, var(--primary) 55%, transparent);
 }
 html .about-page .misc-section .misc-hint-open {
   display: none;
@@ -340,18 +321,6 @@ html .about-page .misc-section[open] .misc-hint-closed {
 }
 html .about-page .misc-section[open] .misc-hint-open {
   display: inline;
-}
-html .about-page .misc-section .section-title-chevron {
-  flex-basis: 0.48rem;
-  width: 0.48rem;
-  height: 0.48rem;
-  margin-left: 0.55rem;
-  margin-right: 0.12rem;
-  color: var(--primary);
-  opacity: 0.78;
-}
-html .about-page .misc-section > .hobbies-section {
-  margin-top: 0.5rem;
 }
 
 /* Compact publication index: retain the paper-to-venue mapping and distinctions
@@ -479,14 +448,10 @@ html[data-theme="dark"] .about-page .publication-summary__note.presentation-dist
     margin-bottom: 0.58rem;
     font-size: 0.72rem;
   }
-  html .about-page .misc-section > summary.section-title {
-    min-height: 40px;
-    padding: 0.45rem 0.58rem;
-  }
   html .about-page .misc-section .section-title-hint {
-    min-height: 22px;
-    padding: 0.12rem 0.38rem;
-    font-size: 0.62rem;
+    min-height: 18px;
+    padding: 0.07rem 0.36rem;
+    font-size: 0.6rem;
   }
   .about-page .publication-summary {
     padding: 0.06rem 0 0.38rem;
