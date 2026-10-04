@@ -268,8 +268,8 @@ html .about-page .timeline-expand-hint {
   margin-top: 0;
 }
 
-/* Fixed width + natural image ratio. Only tall images are clipped vertically.
- * The JS sets the frame to min(natural scaled height, collapsed text height). */
+/* Equal-width preview columns; contain the entire image with no cropping.
+ * A bounded frame permits whitespace rather than distorting or clipping figures. */
 @media (min-width: 768px) {
   .about-page #publication-results .bibliography > li > .row {
     margin: 0;
@@ -279,13 +279,13 @@ html .about-page .timeline-expand-hint {
     flex: 0 0 clamp(160px, 20vw, 220px);
     width: clamp(160px, 20vw, 220px);
     max-width: none;
-    height: var(--paper-preview-height, 120px);
+    height: auto;
     padding: 0;
     margin: 0;
-    aspect-ratio: auto;
+    aspect-ratio: 16 / 10;
     align-self: flex-start;
     align-items: center;
-    overflow: hidden;
+    overflow: visible;
     position: relative;
   }
   .about-page #publication-results .abbr:not(:has(img)) { display: none; }
@@ -303,11 +303,11 @@ html .about-page .timeline-expand-hint {
   }
   .about-page #publication-results .abbr img {
     width: 100% !important;
-    min-width: 100% !important;
+    min-width: 0 !important;
     max-width: 100% !important;
-    height: auto !important;
+    height: 100% !important;
     min-height: 0 !important;
-    max-height: none !important;
+    max-height: 100% !important;
     object-fit: contain;
     object-position: center;
     position: static;
