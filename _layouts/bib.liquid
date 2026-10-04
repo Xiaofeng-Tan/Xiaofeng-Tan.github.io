@@ -166,7 +166,7 @@
     {%- else -%}
       {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
     {%- endif -%}
-    <div class="periodical">
+    <div class="periodical{% if entry.abbr == 'UR' %} periodical--review{% endif %}">
       {% assign presentation_label = entry.presentation | split: ' (' | first %}
       {% capture presentation_highlight %}{% if presentation_label == 'Spotlight' or presentation_label == 'Oral' %} <strong class="presentation-distinction">({{ presentation_label }})</strong>{% endif %}{% endcapture %}
       {%- if entry.abbr -%}
@@ -180,7 +180,7 @@
           <span class="venue-abbr">{{ abbr_icon }} {{ entry.abbr }} {{ entry.year }}{{ presentation_highlight }}</span><span class="venue-separator">|</span>
         {% endif %}
       {%- endif -%}
-      {{ periodical | strip }}
+      <span class="publication-venue-text">{{ periodical | strip }}</span>
       {% if entry.presentation %}
         {% if presentation_label == 'Spotlight' or presentation_label == 'Oral' %}
           {% unless entry.abbr %}{{ presentation_highlight }}{% endunless %}

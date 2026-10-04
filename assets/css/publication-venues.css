@@ -1,0 +1,42 @@
+/* Scoped typography trial: venue names only, not titles, authors or badges.
+ * The CJK-only Songti face preserves Chinese glyphs within the Latin stack.
+ */
+.about-page {
+  --publication-venue-blue: #2c6089;
+  --publication-venue-font: var(--site-songti), "Outfit", "Helvetica Neue", Arial, sans-serif;
+}
+
+html[data-theme="dark"] .about-page {
+  --publication-venue-blue: #a0c2df;
+}
+
+.about-page #publication-results .periodical .publication-venue-text,
+.about-page #publication-results .periodical .publication-venue-text em,
+.about-page #publication-results .periodical .venue-abbr,
+.about-page .publication-summary .overview-venue-name {
+  font-family: var(--publication-venue-font);
+  color: var(--publication-venue-blue);
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+.about-page #publication-results .periodical .publication-venue-text,
+.about-page #publication-results .periodical .publication-venue-text em {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/* Legacy venue metadata injects inline per-venue colors; override only that
+ * property here so TIP/TKDE use the same blue as the conferences. */
+.about-page #publication-results .periodical .venue-abbr {
+  color: var(--publication-venue-blue) !important;
+  font-size: inherit;
+  font-weight: 500;
+}
+
+.about-page #publication-results .periodical--review .venue-abbr,
+.about-page #publication-results .periodical--review .publication-venue-text,
+.about-page #publication-results .periodical--review .publication-venue-text em,
+.about-page .overview-venue-row--review .overview-venue-name {
+  color: var(--text-muted) !important;
+}

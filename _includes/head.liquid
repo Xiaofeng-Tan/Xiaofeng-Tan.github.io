@@ -2,6 +2,7 @@
 {% include metadata.liquid %}
 {% if page.layout == 'about' %}
   <link rel="preload" href="{{ '/assets/fonts/gu-xingshu-subset.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&amp;display=swap">
 {% endif %}
 <script>
   try {
@@ -91,6 +92,9 @@
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | bust_css_cache }}">
 <link rel="stylesheet" href="{{ '/assets/css/language.css' | relative_url | bust_file_cache }}">
 <link rel="stylesheet" href="{{ '/assets/css/mobile.css' | relative_url | bust_file_cache }}">
+{% if page.layout == 'about' %}
+  <link rel="stylesheet" href="{{ '/assets/css/publication-venues.css' | relative_url | bust_file_cache }}">
+{% endif %}
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
 <!-- Dark Mode -->
