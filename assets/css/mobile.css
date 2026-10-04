@@ -440,6 +440,14 @@
     font-size: 0.7rem;
     line-height: 1.35;
   }
+  .about-page .publication-overview-groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 10px;
+  }
+  .about-page .publication-overview-group > summary {
+    font-size: 0.7rem;
+    min-height: 28px;
+  }
   .about-page .publication-summary__grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 3px;
