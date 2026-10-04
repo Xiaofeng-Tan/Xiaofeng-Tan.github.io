@@ -303,8 +303,9 @@ html .about-page .timeline-expand-hint {
   margin-top: 0;
 }
 
-/* Fixed-width preview column with intrinsic-ratio images. Images are never
- * stretched or cropped; whitespace is preferable to losing figure content. */
+/* Fixed-width preview column. The frame follows the collapsed text block;
+ * figures keep their intrinsic ratio and only excess vertical content is
+ * clipped. Horizontal content is never cropped. */
 @media (min-width: 768px) {
   .about-page #publication-results .bibliography > li > .row {
     margin: 0;
@@ -315,11 +316,15 @@ html .about-page .timeline-expand-hint {
     width: clamp(160px, 20vw, 220px);
     max-width: none;
     min-height: 0;
-    height: auto;
+    height: var(--paper-info-height, 104px);
     padding: 0;
     margin: 0;
     aspect-ratio: auto;
-    align-self: center;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     overflow: visible;
     position: relative;
   }
@@ -334,16 +339,16 @@ html .about-page .timeline-expand-hint {
     display: block;
   }
   .about-page #publication-results .abbr img {
-    width: auto !important;
-    min-width: 0 !important;
+    width: 100% !important;
+    min-width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
-    max-height: 116px !important;
+    max-height: none !important;
     object-fit: contain;
     object-position: center;
     position: static;
-    margin: 0 auto;
+    margin: 0;
     transform: none;
   }
   .about-page #publication-results [data-paper-key] > [id] {
@@ -352,10 +357,10 @@ html .about-page .timeline-expand-hint {
   }
   /* Slightly smaller PEC preview; preserve the shared text-column alignment. */
   .about-page #publication-results [data-paper-key="tan2026pec"] .abbr img {
-    width: auto !important;
+    width: 84% !important;
     height: auto !important;
     max-width: 84% !important;
-    max-height: 98px !important;
+    max-height: none !important;
     flex-basis: auto;
   }
 }
