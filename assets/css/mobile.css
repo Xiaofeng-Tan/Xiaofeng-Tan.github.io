@@ -424,7 +424,7 @@
   .about-page .publications-grouped { gap: 4px; }
   .about-page .publication-summary {
     margin: -1px 0 6px;
-    padding: 8px 9px 9px;
+    padding: 10px 11px;
     font-size: 0.7rem;
     line-height: 1.35;
   }
@@ -434,15 +434,21 @@
   }
   .about-page .publication-summary__grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 6px;
+    gap: 10px;
+  }
+  .about-page .publication-summary__group + .publication-summary__group {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid var(--border);
+    padding-top: 9px;
   }
   .about-page .publication-summary__metric strong {
-    font-size: 1rem;
+    font-size: 1.4rem;
   }
   .about-page .publication-summary__metric-label {
-    font-size: 0.62rem;
+    font-size: 0.7rem;
   }
-  .about-page .publication-summary__value {
+  .about-page .publication-summary__venue {
     font-size: 0.7rem;
   }
   .about-page .publications-grouped .pub-category { border-bottom: 0; }
