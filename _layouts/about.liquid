@@ -335,8 +335,22 @@ layout: default
     <h2 id="sec-honors" class="section-title">
       <span>🌟 Selected Honors</span>
     </h2>
-    <div class="honors-section">
-        {% for honor in site.data.honors %}
+    <div class="honors-section honors-section--grouped">
+      {% assign honor_stages = "masters,undergraduate" | split: "," %}
+      {% for stage in honor_stages %}
+        {% assign stage_honors = site.data.honors | where: "stage", stage %}
+        <section class="honors-stage" aria-labelledby="honors-{{ stage }}">
+          <h3 class="honors-stage-title" id="honors-{{ stage }}">
+            {% if stage == "masters" %}
+              <span data-language="en" lang="en">Master’s Studies</span>
+              <span data-language="zh" lang="zh-CN">硕士期间</span>
+            {% else %}
+              <span data-language="en" lang="en">Undergraduate Studies</span>
+              <span data-language="zh" lang="zh-CN">本科期间</span>
+            {% endif %}
+          </h3>
+          <div class="honors-stage-cards">
+        {% for honor in stage_honors %}
           <details class="compact-card">
             <summary><span class="compact-title">
               <span data-language="en" lang="en">{{ honor.title_en }}</span>
@@ -348,6 +362,9 @@ layout: default
             </div>
           </details>
         {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
     </div>
   {% endif %}
 

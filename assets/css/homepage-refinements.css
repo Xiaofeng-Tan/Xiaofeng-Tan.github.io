@@ -218,6 +218,26 @@ html .about-page .honors-section .compact-card[open] {
     gap: 4px;
   }
 }
+html .about-page .honors-section.honors-section--grouped {
+  display: block;
+}
+.about-page .honors-stage + .honors-stage { margin-top: 9px; }
+.about-page .honors-stage-title {
+  margin: 0 0 5px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+.about-page .honors-stage-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 4px;
+  align-items: start;
+}
+@media (max-width: 767.98px) {
+  .about-page .honors-stage-cards { grid-template-columns: minmax(0, 1fr); }
+}
 /* Legacy literal link colors should not compete with the shared palette.
  * Presentation distinctions and venue-ranking badges retain their own colors. */
 .about-page #navbar a,
