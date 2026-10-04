@@ -23,11 +23,11 @@ bimogen-fig2.webp:
   arxiv: "2609.35407"
   source: fig/fw.pdf
   figure: 2
-mgbod-detail.webp:
+mgbod-fig3.webp:
   arxiv: "2501.02975"
-  source: figure_1.png
-  crop: "6682x1688+0+2348"
-  description: Fuzzy-granule density scoring panel; cropped at the user's request.
+  source: figure_3_a.png through figure_3_f.png
+  figure: 3
+  description: Multi-scale view generation with granular-ball computing; six original subfigures composed in the paper's 3-by-2 layout.
 motionrft-framework.webp:
   arxiv: "2603.27185"
   source: Fig/fig_motionreward.pdf
