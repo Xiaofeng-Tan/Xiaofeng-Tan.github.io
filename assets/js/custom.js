@@ -181,6 +181,39 @@
 })();
 
 // ========== Topic filters ==========
+// Match larger desktop preview frames to the title/author/venue/resource block.
+(function () {
+  const rows = Array.from(document.querySelectorAll('#publication-results [data-paper-key]'));
+  const desktop = window.matchMedia('(min-width: 768px)');
+  let frame = 0;
+  function update() {
+    frame = 0;
+    if (!desktop.matches) return;
+    rows.forEach(row => {
+      const image = row.querySelector('.abbr img');
+      const content = row.querySelector(':scope > [id]');
+      const links = content && content.querySelector(':scope > .links');
+      if (!image || !links || !row.getClientRects().length) return;
+      const height = Math.ceil(links.getBoundingClientRect().bottom - content.getBoundingClientRect().top);
+      if (height > 0) row.style.setProperty('--paper-preview-height', `${height}px`);
+    });
+  }
+  function schedule() { if (!frame) frame = requestAnimationFrame(update); }
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(schedule);
+    rows.forEach(row => {
+      const content = row.querySelector(':scope > [id]');
+      if (content) observer.observe(content);
+    });
+  }
+  window.addEventListener('resize', schedule);
+  document.addEventListener('site-language-changed', schedule);
+  document.querySelectorAll('#publication-results details').forEach(d => d.addEventListener('toggle', schedule));
+  if (document.fonts) document.fonts.ready.then(schedule);
+  schedule();
+})();
+
+// ========== Topic filters ==========
 // Topic filtering changes only visibility, preserving paper order and handlers.
 (function () {
   const toolbar = document.getElementById('publication-filters');
