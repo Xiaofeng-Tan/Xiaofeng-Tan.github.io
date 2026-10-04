@@ -424,24 +424,28 @@
   .about-page .publications-grouped { gap: 4px; }
   .about-page .publication-summary {
     margin: -1px 0 6px;
-    padding: 10px 11px;
+    padding: 8px 9px;
     font-size: 0.7rem;
     line-height: 1.35;
   }
   .about-page .publication-summary__heading {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     font-size: 0.68rem;
   }
   .about-page .publication-summary__grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 10px;
+    gap: 5px;
+  }
+  .about-page .publication-summary__venues {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
   }
   .about-page .publication-summary__group--secondary {
     padding-top: 0;
     font-size: 0.68rem;
   }
   .about-page .publication-summary__metric strong {
-    font-size: 1.4rem;
+    font-size: 1.15rem;
   }
   .about-page .publication-summary__metric-label {
     font-size: 0.7rem;
@@ -451,8 +455,8 @@
     font-size: 0.7rem;
   }
   .about-page .publication-summary__row {
-    grid-template-columns: 4.6rem minmax(0, 1fr);
-    gap: 0.4rem;
+    grid-template-columns: 4.3rem minmax(0, 1fr);
+    gap: 0.3rem;
   }
   .about-page .publications-grouped .pub-category { border-bottom: 0; }
   .about-page .publications-grouped .pub-category__summary {
