@@ -8,6 +8,7 @@
   const selectors = [
     '.news',
     '.logo-row--research',
+    '.honors-section',
     '.teaching-section',
     '.publications-grouped',
   ];

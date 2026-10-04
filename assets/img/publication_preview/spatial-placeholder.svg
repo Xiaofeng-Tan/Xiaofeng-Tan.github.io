@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <title>Getting Space Right — illustrative placeholder, not a paper result</title>
+  <rect width="640" height="360" fill="#f2f5f6"/>
+  <g fill="none" stroke="#849eac" stroke-width="2">
+    <path d="m178 210 132-70 144 70-132 63zM178 210v-59m276 59v-59"/>
+    <path d="m218 230 132-70m-88 93 132-70m-177 6 144 70m-100-93 144 70" opacity=".5"/>
+  </g>
+  <path d="m255 172 34-19 34 19v38l-34 19-34-19z" fill="#c4d5df" stroke="#6e8ea3" stroke-width="2"/>
+  <path d="m255 172 34 19 34-19m-34 19v38" fill="none" stroke="#6e8ea3" stroke-width="2"/>
+  <circle cx="366" cy="194" r="23" fill="#aec8bf" stroke="#769a8d" stroke-width="2"/>
+  <text x="320" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" fill="#2c6089">Getting Space Right</text>
+  <text x="320" y="301" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#788996">Illustrative placeholder</text>
+</svg>

@@ -335,22 +335,19 @@ layout: default
     <h2 id="sec-honors" class="section-title">
       <span>🌟 Selected Honors</span>
     </h2>
-    <div class="honors-section honors-section--cv">
-      <ul class="honors-cv-list" aria-labelledby="sec-honors">
+    <div class="honors-section">
         {% for honor in site.data.honors %}
-          <li class="honors-cv-row">
-            <span class="honors-cv-title">
+          <details class="compact-card">
+            <summary><span class="compact-title">
               <span data-language="en" lang="en">{{ honor.title_en }}</span>
               <span data-language="zh" lang="zh-CN">{{ honor.title_zh }}</span>
-            </span>
-            <span class="honors-cv-institution">
+            </span><span class="year">{{ honor.year }}</span></summary>
+            <div class="compact-card-body">
               <span data-language="en" lang="en">{{ honor.institution_en }}{% if honor.note_en %} · {{ honor.note_en }}{% endif %}</span>
               <span data-language="zh" lang="zh-CN">{{ honor.institution_zh }}{% if honor.note_zh %} · {{ honor.note_zh }}{% endif %}</span>
-            </span>
-            <span class="honors-cv-year">{{ honor.year }}</span>
-          </li>
+            </div>
+          </details>
         {% endfor %}
-      </ul>
     </div>
   {% endif %}
 

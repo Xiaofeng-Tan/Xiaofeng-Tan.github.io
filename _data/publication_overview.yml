@@ -16,6 +16,7 @@
       url: /projects/SoPo/
       distinction: Poster
     - name: BiMoGen
+      url: https://arxiv.org/abs/2609.35407
       venue: NeurIPS 2026
       role_en: Third author
       role_zh: 第三作者
