@@ -338,31 +338,36 @@ layout: default
       <div class="publication-summary__grid">
         <div class="publication-summary__group publication-summary__group--lead">
           <div class="publication-summary__metric">
-            <strong>5</strong>
-            <span class="publication-summary__metric-label" data-language="en" lang="en">First / co-first-author papers</span>
-            <span class="publication-summary__metric-label" data-language="zh" lang="zh-CN">一作 / 共同一作论文</span>
+            <strong>6</strong>
+            <span class="publication-summary__metric-label" data-language="en" lang="en">First / co-first / first student author</span>
+            <span class="publication-summary__metric-label" data-language="zh" lang="zh-CN">一作 / 共同一作 / 学生一作</span>
           </div>
           <div class="publication-summary__venues">
-            <span class="publication-summary__venue">NeurIPS <b>2</b><span class="publication-summary__distinction presentation-distinction">1 Spotlight</span></span>
-            <span class="publication-summary__venue">ICLR <b>1</b></span>
-            <span class="publication-summary__venue">AAAI <b>1</b></span>
-            <span class="publication-summary__venue">TIP <b>1</b></span>
+            <div class="publication-summary__row">
+              <span class="publication-summary__venue">NeurIPS <b>×2</b></span>
+              <span class="publication-summary__works"><a href="{{ '/projects/PEC/' | relative_url }}">PEC</a> <span class="publication-summary__distinction presentation-distinction">Spotlight</span><span class="publication-summary__separator" aria-hidden="true">·</span><a href="{{ '/projects/SoPo/' | relative_url }}">SoPo</a></span>
+            </div>
+            <div class="publication-summary__row">
+              <span class="publication-summary__venue">ICLR <b>×1</b></span>
+              <span class="publication-summary__works"><a href="{{ '/projects/EasyTune/' | relative_url }}">EasyTune</a><span class="publication-summary__role" data-language="en" lang="en">co-first</span><span class="publication-summary__role" data-language="zh" lang="zh-CN">共同一作</span></span>
+            </div>
+            <div class="publication-summary__row">
+              <span class="publication-summary__venue">AAAI <b>×1</b></span>
+              <span class="publication-summary__works"><a href="https://wengwanjiang.github.io/ReAlign-page/" target="_blank" rel="noopener">ReAlign</a><span class="publication-summary__role" data-language="en" lang="en">co-first</span><span class="publication-summary__role" data-language="zh" lang="zh-CN">共同一作</span></span>
+            </div>
+            <div class="publication-summary__row">
+              <span class="publication-summary__venue">TIP <b>×1</b></span>
+              <span class="publication-summary__works"><a href="{{ '/projects/FG-Diff/' | relative_url }}">FG-Diff</a></span>
+            </div>
+            <div class="publication-summary__row">
+              <span class="publication-summary__venue">TKDE <b>×1</b></span>
+              <span class="publication-summary__works"><a href="https://ieeexplore.ieee.org/abstract/document/10821488" target="_blank" rel="noopener">MGBOD</a><span class="publication-summary__role" data-language="en" lang="en">first student author</span><span class="publication-summary__role" data-language="zh" lang="zh-CN">学生一作</span></span>
+            </div>
           </div>
-          <span class="publication-summary__note" data-language="en" lang="en">ICLR &amp; AAAI: co-first author.</span>
-          <span class="publication-summary__note" data-language="zh" lang="zh-CN">ICLR、AAAI 为共同一作。</span>
         </div>
-        <div class="publication-summary__group">
-          <div class="publication-summary__metric">
-            <strong>2</strong>
-            <span class="publication-summary__metric-label" data-language="en" lang="en">Other contributions</span>
-            <span class="publication-summary__metric-label" data-language="zh" lang="zh-CN">其他署名成果</span>
-          </div>
-          <div class="publication-summary__venues">
-            <span class="publication-summary__venue">NeurIPS <b>1</b><span class="publication-summary__distinction">Poster</span></span>
-            <span class="publication-summary__venue">TKDE <b>1</b></span>
-          </div>
-          <span class="publication-summary__note" data-language="en" lang="en">NeurIPS: third author. TKDE: second author, first student author.</span>
-          <span class="publication-summary__note" data-language="zh" lang="zh-CN">NeurIPS 为第三作者；TKDE 为第二作者、学生一作。</span>
+        <div class="publication-summary__group publication-summary__group--secondary">
+          <span data-language="en" lang="en">Also contributed to BiMoGen (NeurIPS 2026, Poster) as third author.</span>
+          <span data-language="zh" lang="zh-CN">另以第三作者参与 BiMoGen（NeurIPS 2026，Poster）。</span>
         </div>
       </div>
     </div>

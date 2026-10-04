@@ -436,11 +436,9 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 10px;
   }
-  .about-page .publication-summary__group + .publication-summary__group {
-    border-left: 0;
-    padding-left: 0;
-    border-top: 1px solid var(--border);
-    padding-top: 9px;
+  .about-page .publication-summary__group--secondary {
+    padding-top: 0;
+    font-size: 0.68rem;
   }
   .about-page .publication-summary__metric strong {
     font-size: 1.4rem;
@@ -448,8 +446,13 @@
   .about-page .publication-summary__metric-label {
     font-size: 0.7rem;
   }
-  .about-page .publication-summary__venue {
+  .about-page .publication-summary__venue,
+  .about-page .publication-summary__works {
     font-size: 0.7rem;
+  }
+  .about-page .publication-summary__row {
+    grid-template-columns: 4.6rem minmax(0, 1fr);
+    gap: 0.4rem;
   }
   .about-page .publications-grouped .pub-category { border-bottom: 0; }
   .about-page .publications-grouped .pub-category__summary {
