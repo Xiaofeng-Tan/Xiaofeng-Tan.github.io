@@ -181,7 +181,8 @@
 })();
 
 // ========== Topic filters ==========
-// Match larger desktop preview frames to the title/author/venue/resource block.
+// Preserve the full image width. Clip only excess height, with no blank frame
+// imposed on naturally wide images and no expansion when an abstract opens.
 (function () {
   const rows = Array.from(document.querySelectorAll('#publication-results [data-paper-key]'));
   const desktop = window.matchMedia('(min-width: 768px)');
@@ -194,7 +195,10 @@
       const content = row.querySelector(':scope > [id]');
       const links = content && content.querySelector(':scope > .links');
       if (!image || !links || !row.getClientRects().length) return;
-      const height = Math.ceil(links.getBoundingClientRect().bottom - content.getBoundingClientRect().top);
+      const textHeight = Math.ceil(links.getBoundingClientRect().bottom - content.getBoundingClientRect().top);
+      const width = image.closest('.abbr').clientWidth;
+      const naturalHeight = image.naturalWidth ? width * image.naturalHeight / image.naturalWidth : textHeight;
+      const height = Math.min(textHeight, naturalHeight);
       if (height > 0) row.style.setProperty('--paper-preview-height', `${height}px`);
     });
   }
@@ -207,6 +211,10 @@
     });
   }
   window.addEventListener('resize', schedule);
+  rows.forEach(row => {
+    const image = row.querySelector('.abbr img');
+    if (image) image.addEventListener('load', schedule);
+  });
   document.addEventListener('site-language-changed', schedule);
   document.querySelectorAll('#publication-results details').forEach(d => d.addEventListener('toggle', schedule));
   if (document.fonts) document.fonts.ready.then(schedule);

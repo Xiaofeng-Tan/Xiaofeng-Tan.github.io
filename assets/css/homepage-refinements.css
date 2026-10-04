@@ -64,21 +64,29 @@ html .about-page .post-title :is(.name-separator, strong, strong span) {
   font-family: "Dancing Script", cursive;
 }
 
-/* Soften only the introduction, without washing out controls or other sections. */
-html .about-page article > .clearfix > [data-language] > p,
-html .about-page article > .clearfix .interest-card {
-  color: #606d79;
+/* Shared reading color for prose, including revealed abstracts and details.
+ * Keep headings, badges, artwork and links independently styled. */
+.about-page { --reading-text: #707982; }
+html[data-theme="dark"] .about-page { --reading-text: #b4bec8; }
+html .about-page article p,
+html .about-page article .interest-card,
+html .about-page article .hobbies-intro,
+html .about-page article .detail-field-value,
+html .about-page article .compact-card-body,
+html .about-page article .service-details,
+html .about-page article .publications .abstract {
+  color: var(--reading-text);
   font-weight: 400;
+}
+html .about-page article :is(.abstract, .compact-card-body, .detail-field-value)
+  :is(p, li, span):not(.presentation-distinction) {
+  color: inherit;
 }
 html .about-page article > .clearfix a {
   color: #587c98 !important;
 }
 html .about-page article > .clearfix a:hover {
   color: var(--primary-hover) !important;
-}
-html[data-theme="dark"] .about-page article > .clearfix > [data-language] > p,
-html[data-theme="dark"] .about-page article > .clearfix .interest-card {
-  color: #b4bec8;
 }
 html[data-theme="dark"] .about-page article > .clearfix a {
   color: #a4bfd4 !important;
@@ -231,8 +239,8 @@ html .about-page .timeline-expand-hint {
   margin-top: 0;
 }
 
-/* The image frame matches the collapsed paper information, never its abstract.
- * Use equal-width cropped thumbnails so every text column starts together. */
+/* Fixed width + natural image ratio. Only tall images are clipped vertically.
+ * The JS sets the frame to min(natural scaled height, collapsed text height). */
 @media (min-width: 768px) {
   .about-page #publication-results .bibliography > li > .row {
     margin: 0;
@@ -247,6 +255,7 @@ html .about-page .timeline-expand-hint {
     margin: 0;
     aspect-ratio: auto;
     align-self: flex-start;
+    align-items: center;
     overflow: hidden;
     position: relative;
   }
@@ -256,19 +265,25 @@ html .about-page .timeline-expand-hint {
     height: 100%;
     aspect-ratio: auto;
     margin: 0;
-    position: relative;
-    overflow: hidden;
+    position: static;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
   .about-page #publication-results .abbr img {
     width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
+    min-height: 0 !important;
     max-height: none !important;
     object-fit: contain;
     object-position: center;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    position: static;
+    flex: 0 0 100%;
+    transform: none;
   }
   .about-page #publication-results [data-paper-key] > [id] {
     padding: 0;

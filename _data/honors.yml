@@ -1,18 +1,18 @@
-# Website honors are the source of truth; CVs mirror these entries.
+# Website display copy. CV source keeps its independently maintained details.
 - title_en: ICML Gold Reviewer
   title_zh: ICML 金牌审稿人
   institution_en: International Conference on Machine Learning
   institution_zh: 国际机器学习大会
   year: 2026
-- title_en: Tencent-SEU Scholarship (top 2.5%)
-  title_zh: 腾讯–东南大学奖学金（前 2.5%）
+- title_en: Tencent-SEU Scholarship
+  title_zh: 腾讯–东南大学奖学金
   institution_en: Southeast University
   institution_zh: 东南大学
   note_en: "¥9,000"
   note_zh: "9,000 元"
   year: 2025
-- title_en: First-Class Academic Scholarship (top 10%)
-  title_zh: 一等学业奖学金（前 10%）
+- title_en: First-Class Academic Scholarship
+  title_zh: 一等学业奖学金
   institution_en: Southeast University
   institution_zh: 东南大学
   note_en: "¥12,000"
@@ -28,18 +28,18 @@
   institution_en: Shenzhen University (as Outstanding Student)
   institution_zh: 深圳大学（优秀学生事迹）
   year: 2024
-- title_en: Honor Bachelor Degree (top 3%)
-  title_zh: 荣誉学士学位（前 3%）
+- title_en: Honor Bachelor Degree
+  title_zh: 荣誉学士学位
   institution_en: Shenzhen University
   institution_zh: 深圳大学
   year: 2024
-- title_en: Outstanding Graduate (top 5%)
-  title_zh: 优秀毕业生（前 5%）
+- title_en: Outstanding Graduate
+  title_zh: 优秀毕业生
   institution_en: Shenzhen University
   institution_zh: 深圳大学
   year: 2024
-- title_en: LiYuan Star (SZU Special Award, top 0.73%)
-  title_zh: 荔园之星（深圳大学特等奖，前 0.73%）
+- title_en: LiYuan Star (SZU Special Award)
+  title_zh: 荔园之星（深圳大学特等奖）
   institution_en: Shenzhen University
   institution_zh: 深圳大学
   note_en: "¥20,000"
@@ -47,8 +47,8 @@
   year: "2022, 2023"
 - title_en: Scholarship of Outstanding Innovative Talent
   title_zh: 拔尖创新人才奖学金
-  institution_en: Guangdong Science College Entrance Exam (top 2%)
-  institution_zh: 广东省高考理科前 2%
+  institution_en: Guangdong Science College Entrance Exam
+  institution_zh: 广东省高考（理科）
   note_en: "¥20,000"
   note_zh: "20,000 元"
   year: 2020
