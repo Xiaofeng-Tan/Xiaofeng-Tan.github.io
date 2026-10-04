@@ -354,6 +354,18 @@
   .publications pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.8125rem; }
 
   /* Honors / TA retain all details without miniature multi-column cards. */
+  .about-page .honors-cv-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2px 10px;
+    padding: 5px 0;
+  }
+  .about-page .honors-cv-title { grid-column: 1; grid-row: 1; }
+  .about-page .honors-cv-year { grid-column: 2; grid-row: 1; }
+  .about-page .honors-cv-institution {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    font-size: 0.95em;
+  }
   .about-page :is(.honors-section, .teaching-cards) { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
   .about-page .compact-card {
     font-size: 0.9375rem;

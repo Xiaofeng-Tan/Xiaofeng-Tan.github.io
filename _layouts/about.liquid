@@ -331,43 +331,26 @@ layout: default
   {% endif %}
 
   <!-- Selected Honors -->
-  {% if site.latest_posts.enabled %}
+  {% if site.data.honors %}
     <h2 id="sec-honors" class="section-title">
       <span>🌟 Selected Honors</span>
     </h2>
-    <div class="honors-section">
-      <details class="compact-card">
-        <summary><span class="compact-title">ICML Gold Reviewer</span><span class="year">2026</span></summary>
-        <div class="compact-card-body">Top Reviewer at International Conference on Machine Learning.</div>
-      </details>
-      <details class="compact-card">
-        <summary><span class="compact-title">Tencent-SEU Scholarship</span><span class="year">2025</span></summary>
-        <div class="compact-card-body">Top 2.5% at Southeast University (¥9,000).</div>
-      </details>
-      <details class="compact-card">
-        <summary><span class="compact-title">First-Class Academic Scholarship</span><span class="year">2025</span></summary>
-        <div class="compact-card-body">Top 10% at Southeast University (¥12,000).</div>
-      </details>
-      <details class="compact-card">
-        <summary><span class="compact-title">Outstanding Graduate Representative</span><span class="year">2024</span></summary>
-        <div class="compact-card-body">Speaker in graduation.</div>
-      </details>
-      <details class="compact-card">
-        <summary><span class="compact-title">Honor Bachelor Degree</span><span class="year">2024</span></summary>
-        <div class="compact-card-body">Top 3% at Shenzhen University.</div>
-      </details>
-      <details class="compact-card">
-        <summary><span class="compact-title">Outstanding Graduate</span><span class="year">2024</span></summary>
-        <div class="compact-card-body">Top 5% at Shenzhen University.</div>
-      </details>
-      <details class="compact-card">
-        <summary><span class="compact-title">LiYuan Star (SZU Special Award)</span><span class="year">2022, 2023</span></summary>
-        <div class="compact-card-body">Top 0.73% at Shenzhen University (¥20,000).</div>
-      </details>
-      <details class="compact-card">
-        <summary><span class="compact-title">Scholarship of Outstanding Innovative Talent</span><span class="year">2020</span></summary>
-        <div class="compact-card-body">Top 2% in Guangdong Province Science College Entrance Exam (¥20,000).</div>
-      </details>
+    <div class="honors-section honors-section--cv">
+      <ul class="honors-cv-list" aria-labelledby="sec-honors">
+        {% for honor in site.data.honors %}
+          <li class="honors-cv-row">
+            <span class="honors-cv-title">
+              <span data-language="en" lang="en">{{ honor.title_en }}</span>
+              <span data-language="zh" lang="zh-CN">{{ honor.title_zh }}</span>
+            </span>
+            <span class="honors-cv-institution">
+              <span data-language="en" lang="en">{{ honor.institution_en }}</span>
+              <span data-language="zh" lang="zh-CN">{{ honor.institution_zh }}</span>
+            </span>
+            <time class="honors-cv-year" datetime="{{ honor.year }}">{{ honor.year }}</time>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
   {% endif %}
 

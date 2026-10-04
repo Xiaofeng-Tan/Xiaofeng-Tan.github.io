@@ -2394,6 +2394,39 @@ html[data-theme="dark"] .presentation-distinction {
     }
   }
 
+  /* Honors follow the CV: title, institution, year; no disclosure cards. */
+  .about-page .honors-section.honors-section--cv {
+    display: block;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .honors-cv-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .honors-cv-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) 3rem;
+    align-items: baseline;
+    gap: 0.2rem 0.8rem;
+    padding: 0.24rem 0;
+    font-size: var(--entry-text-size, 0.76rem);
+    line-height: 1.4;
+  }
+
+  .honors-cv-title { color: var(--text); font-weight: 600; }
+  .honors-cv-institution { color: var(--text-muted); }
+  .honors-cv-year {
+    color: var(--text-soft);
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
   /* ========== 荣誉奖项 / 助教经历（紧凑学术信息块）========== */
   .honors-section, .teaching-section {
     display: grid;
