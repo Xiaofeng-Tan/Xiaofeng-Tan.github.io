@@ -8,14 +8,14 @@
 /* Homepage-only palette and compact publication layout. */
 .about-page {
   --homepage-font: "Outfit", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --primary: #416b8a;
-  --primary-hover: #2e526f;
-  --primary-soft: rgba(65, 107, 138, 0.04);
-  --primary-soft-strong: rgba(65, 107, 138, 0.09);
-  --primary-line: rgba(65, 107, 138, 0.20);
-  --primary-glow: rgba(65, 107, 138, 0.06);
-  --global-theme-color: #416b8a;
-  --publication-venue-blue: #416b8a;
+  --primary: #245b84;
+  --primary-hover: #174562;
+  --primary-soft: rgba(36, 91, 132, 0.04);
+  --primary-soft-strong: rgba(36, 91, 132, 0.09);
+  --primary-line: rgba(36, 91, 132, 0.22);
+  --primary-glow: rgba(36, 91, 132, 0.06);
+  --global-theme-color: #245b84;
+  --publication-venue-blue: #245b84;
   --honor-surface: #fbfcfd;
   --honor-border: #e2e8ed;
 }
@@ -84,7 +84,7 @@ html .about-page article :is(.abstract, .compact-card-body, .detail-field-value)
 }
 html .about-page article > .clearfix a,
 html .about-page article p a {
-  color: #305e82 !important;
+  color: var(--primary) !important;
 }
 html .about-page article > .clearfix a:hover {
   color: var(--primary-hover) !important;
@@ -317,7 +317,8 @@ html .about-page .timeline-expand-hint {
     max-width: none;
     min-height: 0;
     height: var(--paper-info-height, 104px);
-    padding: 0;
+    box-sizing: border-box;
+    padding: 5px 0;
     margin: 0;
     aspect-ratio: auto;
     align-self: flex-start;
@@ -325,30 +326,31 @@ html .about-page .timeline-expand-hint {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    overflow: visible;
     position: relative;
   }
   .about-page #publication-results .abbr:not(:has(img)) { display: none; }
   .about-page #publication-results .abbr :is(figure, picture) {
     width: 100%;
-    height: auto;
+    height: 100%;
     aspect-ratio: auto;
     margin: 0;
     position: static;
-    overflow: visible;
-    display: block;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .about-page #publication-results .abbr img {
-    width: 100% !important;
-    min-width: 100% !important;
+    width: auto !important;
+    min-width: 0 !important;
     max-width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
-    max-height: none !important;
+    max-height: 100% !important;
     object-fit: contain;
     object-position: center;
     position: static;
-    margin: 0;
+    margin: auto;
     transform: none;
   }
   .about-page #publication-results [data-paper-key] > [id] {
@@ -357,10 +359,10 @@ html .about-page .timeline-expand-hint {
   }
   /* Slightly smaller PEC preview; preserve the shared text-column alignment. */
   .about-page #publication-results [data-paper-key="tan2026pec"] .abbr img {
-    width: 84% !important;
+    width: auto !important;
     height: auto !important;
     max-width: 84% !important;
-    max-height: none !important;
+    max-height: 100% !important;
     flex-basis: auto;
   }
 }
