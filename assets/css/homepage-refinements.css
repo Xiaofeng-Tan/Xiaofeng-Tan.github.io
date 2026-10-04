@@ -7,7 +7,7 @@
 }
 /* Homepage-only palette and compact publication layout. */
 .about-page {
-  --homepage-font: "Outfit", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --homepage-font: "Outfit", "PingFang SC", "Microsoft YaHei", sans-serif;
   --primary: #416b8a;
   --primary-hover: #2e526f;
   --primary-soft: rgba(65, 107, 138, 0.04);
@@ -33,7 +33,7 @@ html .about-page :is(.post, .section-title, .section-title-hint,
 }
 html .about-page .personal-motto__song,
 html .about-page .personal-motto__song em {
-  font-family: "Outfit", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--homepage-font);
 }
 /* Intentional CJK exceptions stay intact. */
 html .about-page :is(.chinese-name, .chinese-handwriting, .song-title-cjk, .song-artist-cjk) {
@@ -113,6 +113,19 @@ html .about-page article > .clearfix .interest-card strong {
   color: inherit;
   font-size: inherit;
   font-weight: 600;
+}
+/* Artist names are prose, not links. Only linked song titles use blue. */
+html .about-page .hobbies-intro .song-bilingual,
+html .about-page .hobbies-intro .song-bilingual > em {
+  color: var(--reading-text);
+}
+html .about-page .hobbies-intro .song-bilingual a,
+html .about-page .hobbies-intro .song-bilingual a em {
+  color: var(--primary) !important;
+}
+html .about-page .hobbies-intro .song-bilingual a:hover,
+html .about-page .hobbies-intro .song-bilingual a:hover em {
+  color: var(--primary-hover) !important;
 }
 @media (max-width: 767.98px) {
   html .about-page article > .clearfix > [data-language] > p,
