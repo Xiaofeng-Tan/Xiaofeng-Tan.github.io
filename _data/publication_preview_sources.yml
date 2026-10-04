@@ -1,0 +1,33 @@
+# Preview provenance. Original PDFs/source archives are not published with the site.
+# All figures are exported intact from the PDF CropBox, with blank margins removed,
+# except the explicitly requested MGBOD detail crop.
+pec-preview.webp:
+  arxiv: "2605.12112"
+  source: figures/vis.pdf
+consistent-method.webp:
+  arxiv: "2602.03425"
+  source: figs/method_main.pdf
+easytune-framework.webp:
+  arxiv: "2602.07967"
+  source: Fig/fig_framework.pdf
+realign-method.webp:
+  arxiv: "2511.19217"
+  source: fig/sampling.pdf
+sopo-preview.webp:
+  arxiv: "2412.05095"
+  source: Figs/fig1.pdf
+fgdiff-framework.webp:
+  arxiv: "2412.03044"
+  source: Fig/framework_new.pdf
+bimogen-fig2.webp:
+  arxiv: "2609.35407"
+  source: fig/fw.pdf
+  figure: 2
+mgbod-detail.webp:
+  arxiv: "2501.02975"
+  source: figure_1.png
+  crop: "6682x1688+0+2348"
+  description: Fuzzy-granule density scoring panel; cropped at the user's request.
+motionrft-framework.webp:
+  arxiv: "2603.27185"
+  source: Fig/fig_motionreward.pdf

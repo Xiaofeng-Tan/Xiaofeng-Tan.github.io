@@ -96,7 +96,7 @@ html[data-theme="dark"] .about-page article > .clearfix a {
 html .about-page article > .clearfix > [data-language] > p,
 html .about-page article > .clearfix .interest-card {
   color: #767a7e;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -130,7 +130,7 @@ html .about-page .hobbies-intro .song-bilingual a:hover em {
 @media (max-width: 767.98px) {
   html .about-page article > .clearfix > [data-language] > p,
   html .about-page article > .clearfix .interest-card {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
   }
 }
 html[data-theme="dark"] .about-page {
