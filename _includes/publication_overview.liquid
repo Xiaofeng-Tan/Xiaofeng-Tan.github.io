@@ -1,41 +1,47 @@
+{% assign accepted_count = 0 %}
+{% assign review_count = 0 %}
+{% assign primary_count = 0 %}
+{% assign spotlight_count = 0 %}
+{% assign poster_count = 0 %}
+
+{% for group in site.data.publication_overview %}
+  {% if group.id == 'review' %}
+    {% assign review_count = group.papers | size %}
+  {% else %}
+    {% assign group_count = group.papers | size %}
+    {% assign accepted_count = accepted_count | plus: group_count %}
+    {% for paper in group.papers %}
+      {% if paper.role_en == 'First author' or paper.role_en == 'Co-first author' or paper.role_en == 'First student author' %}
+        {% assign primary_count = primary_count | plus: 1 %}
+      {% endif %}
+      {% if paper.distinction == 'Spotlight' %}
+        {% assign spotlight_count = spotlight_count | plus: 1 %}
+      {% elsif paper.distinction == 'Poster' %}
+        {% assign poster_count = poster_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
 <div class="publication-summary" aria-label="Publication overview / 成果概览">
-  <div class="publication-summary__metric">
-    <span class="publication-summary__metric-label" data-language="en" lang="en">7 accepted · 3 under review</span>
-    <span class="publication-summary__metric-label" data-language="zh" lang="zh-CN">7 篇已录用 · 3 篇在投</span>
-    <span class="publication-summary__total">
-      <span data-language="en" lang="en"><span class="overview-primary">Underlined</span>: first / co-first / first student author</span>
-      <span data-language="zh" lang="zh-CN"><span class="overview-primary">下划线</span>：一作 / 共同一作 / 学生一作</span>
-    </span>
+  <div class="publication-summary__headline">
+    <span class="publication-summary__count" data-language="en" lang="en">{{ accepted_count }} accepted · {{ review_count }} under review</span>
+    <span class="publication-summary__count" data-language="zh" lang="zh-CN">{{ accepted_count }} 篇已录用 · {{ review_count }} 篇在投</span>
+    <span class="publication-summary__meta" data-language="en" lang="en">{{ spotlight_count }} Spotlight · {{ poster_count }} Posters · {{ primary_count }} first / co-first / first student-author papers</span>
+    <span class="publication-summary__meta" data-language="zh" lang="zh-CN">Spotlight {{ spotlight_count }} 篇 · Poster {{ poster_count }} 篇 · {{ primary_count }} 篇为一作、共同一作或学生一作</span>
   </div>
-  <div class="overview-venue-grid">
+
+  <div class="publication-summary__venues" aria-label="Accepted papers by venue / 已录用论文按发表场所统计">
     {% for group in site.data.publication_overview %}
-      <div class="overview-venue-row{% if group.id == 'review' %} overview-venue-row--review{% endif %}">
-        <span class="overview-venue-name">
-          <span data-language="en" lang="en">{{ group.en }}</span>
-          <span data-language="zh" lang="zh-CN">{{ group.zh }}</span>
-          <span class="overview-venue-count">×{{ group.papers | size }}</span>
+      {% unless group.id == 'review' %}
+        <span class="publication-summary__venue-item">
+          <span class="publication-summary__venue-name">
+            <span data-language="en" lang="en">{{ group.en }}</span>
+            <span data-language="zh" lang="zh-CN">{{ group.zh }}</span>
+          </span>
+          <span class="publication-summary__venue-count">{{ group.papers | size }}</span>
         </span>
-        <span class="overview-venue-papers">
-          {% for paper in group.papers %}
-            {% assign primary = false %}
-            {% if paper.role_en == 'First author' or paper.role_en == 'Co-first author' or paper.role_en == 'First student author' %}
-              {% assign primary = true %}
-            {% endif %}
-            <span class="overview-paper">
-              {% if paper.url %}
-                <a {% if primary %}class="overview-primary"{% endif %} href="{% if paper.url contains '://' %}{{ paper.url }}{% else %}{{ paper.url | relative_url }}{% endif %}" title="{{ paper.venue }} · {{ paper.role_en }} / {{ paper.role_zh }}">{{ paper.name }}</a>
-              {% else %}
-                <span {% if primary %}class="overview-primary"{% endif %} title="{{ paper.venue }} · {{ paper.role_en }} / {{ paper.role_zh }}">{{ paper.name }}</span>
-              {% endif %}
-              {% if paper.distinction %}
-                <span class="overview-paper-note{% if paper.distinction == 'Spotlight' %} presentation-distinction{% endif %}">({{ paper.distinction }})</span>
-              {% elsif group.id == 'review' and paper.venue != "" %}
-                <span class="overview-paper-note">({{ paper.venue }})</span>
-              {% endif %}
-            </span>
-          {% endfor %}
-        </span>
-      </div>
+      {% endunless %}
     {% endfor %}
   </div>
 </div>

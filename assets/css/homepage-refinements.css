@@ -269,39 +269,75 @@ html .about-page .timeline-expand-hint {
   color: var(--primary);
 }
 
-/* Keep every venue label with its papers; no fixed label column that can
- * collide with the longer "Under review" text. */
-.about-page .publication-summary__metric {
+/* Minimal publication overview: aggregate information only. Individual paper
+ * names and links already appear immediately below in the publication list. */
+.about-page .publication-summary {
+  margin: 0 0 0.45rem;
+  padding: 0.1rem 0 0.42rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--global-divider-color);
+  border-radius: 0;
+}
+.about-page .publication-summary__headline {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 3px 14px;
-  line-height: 1.5;
+  gap: 1px 11px;
+  line-height: 1.4;
 }
-.about-page .publication-summary__metric > span { min-width: 0; }
-.about-page .publication-summary__metric-label { white-space: nowrap; }
-.about-page .publication-summary__metric .publication-summary__total {
-  margin-left: 0;
-  line-height: 1.5;
+.about-page .publication-summary__count {
+  color: var(--text);
+  font-size: 0.73rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
-.about-page .overview-venue-grid {
+.about-page .publication-summary__meta {
+  color: var(--text-soft);
+  font-size: 0.66rem;
+  font-weight: 400;
+}
+.about-page .publication-summary__venues {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 18px;
-}
-.about-page .overview-venue-row {
-  display: flex;
   align-items: baseline;
-  flex-wrap: wrap;
-  gap: 2px 8px;
-  max-width: 100%;
-  line-height: 1.5;
+  gap: 0;
+  margin-top: 0.16rem;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  line-height: 1.4;
 }
-.about-page .overview-venue-papers { gap: 2px 10px; }
-.about-page .overview-venue-row--review {
-  flex-basis: 100%;
-  padding-top: 4px;
-  margin-top: 0;
+.about-page .publication-summary__venue-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.22rem;
+  white-space: nowrap;
+}
+.about-page .publication-summary__venue-item + .publication-summary__venue-item::before {
+  content: "·";
+  margin: 0 0.48rem;
+  color: var(--text-soft);
+  font-weight: 400;
+}
+.about-page .publication-summary__venue-name {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.about-page .publication-summary__venue-count {
+  color: var(--text-soft);
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 767.98px) {
+  .about-page .publication-summary {
+    padding: 0.06rem 0 0.38rem;
+  }
+  .about-page .publication-summary__headline {
+    display: grid;
+    gap: 1px;
+  }
+  .about-page .publication-summary__venues {
+    margin-top: 0.2rem;
+  }
 }
 
 /* Publication thumbnails follow a conventional academic-list treatment:
