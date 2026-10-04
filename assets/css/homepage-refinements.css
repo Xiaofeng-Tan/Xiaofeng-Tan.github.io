@@ -8,14 +8,16 @@
 /* Homepage-only palette and compact publication layout. */
 .about-page {
   --homepage-font: "Outfit", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  --primary: #1d4e78;
-  --primary-hover: #123753;
-  --primary-soft: rgba(29, 78, 120, 0.055);
-  --primary-soft-strong: rgba(29, 78, 120, 0.11);
-  --primary-line: rgba(29, 78, 120, 0.3);
-  --primary-glow: rgba(29, 78, 120, 0.08);
-  --global-theme-color: #1d4e78;
-  --publication-venue-blue: #1d4e78;
+  --primary: #416b8a;
+  --primary-hover: #2e526f;
+  --primary-soft: rgba(65, 107, 138, 0.04);
+  --primary-soft-strong: rgba(65, 107, 138, 0.09);
+  --primary-line: rgba(65, 107, 138, 0.20);
+  --primary-glow: rgba(65, 107, 138, 0.06);
+  --global-theme-color: #416b8a;
+  --publication-venue-blue: #416b8a;
+  --honor-surface: #fbfcfd;
+  --honor-border: #e2e8ed;
 }
 /* English uses Outfit; ordinary Chinese uses a matching system sans-serif.
  * Handwriting and the motto remain intentional exceptions below. */
@@ -66,6 +68,8 @@ html[data-theme="dark"] .about-page {
   --primary-glow: rgba(129, 177, 216, 0.08);
   --global-theme-color: #81b1d8;
   --publication-venue-blue: #81b1d8;
+  --honor-surface: #182029;
+  --honor-border: #34424e;
 }
 .about-page #publication-results .periodical .venue-abbr { opacity: 1; }
 
@@ -73,40 +77,57 @@ html[data-theme="dark"] .about-page {
  * Scope to Honors so teaching and other disclosure layouts stay unchanged. */
 html .about-page .honors-section {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 0.3rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 8px;
   align-items: start;
 }
 html .about-page .honors-section .compact-card {
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  background: var(--surface);
+  border: 1px solid var(--honor-border);
+  border-radius: 6px;
+  background: var(--honor-surface);
   box-shadow: none;
   overflow: hidden;
 }
 html .about-page .honors-section .compact-card summary {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 12px;
+  grid-template-rows: minmax(2.6em, auto) auto;
+  align-items: start;
+  gap: 5px 8px;
   min-height: 0;
-  padding: 0.35rem 0.5rem;
+  padding: 9px 11px;
+  font-size: var(--entry-text-size);
+  line-height: 1.3;
 }
 html .about-page .honors-section .compact-card .compact-title {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  font-size: inherit;
+  font-weight: 500;
   white-space: normal;
   overflow: visible;
   text-overflow: clip;
   line-height: 1.3;
 }
 html .about-page .honors-section .compact-card .year {
-  color: var(--primary);
+  grid-column: 1;
+  grid-row: 2;
+  text-align: left;
+  color: var(--text-muted);
   font-size: 0.68rem;
-  font-weight: 600;
+  font-weight: 400;
   white-space: nowrap;
   max-width: none;
 }
+html .about-page .honors-section .compact-card summary::after {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  align-self: center;
+  color: var(--primary);
+}
 html .about-page .honors-section .compact-card-body {
-  padding: 0 0.5rem 0.4rem;
+  padding: 0 11px 9px;
   border-left: 0;
   line-height: 1.4;
 }
@@ -203,6 +224,7 @@ html .about-page .timeline-expand-hint {
     aspect-ratio: auto;
     align-self: flex-start;
     overflow: hidden;
+    position: relative;
   }
   .about-page #publication-results .abbr:not(:has(img)) { display: none; }
   .about-page #publication-results .abbr :is(figure, picture) {
@@ -210,12 +232,19 @@ html .about-page .timeline-expand-hint {
     height: 100%;
     aspect-ratio: auto;
     margin: 0;
+    position: relative;
+    overflow: hidden;
   }
   .about-page #publication-results .abbr img {
     width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain;
     object-position: center;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
   }
   .about-page #publication-results [data-paper-key] > [id] {
     padding: 0;
