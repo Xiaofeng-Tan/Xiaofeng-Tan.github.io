@@ -12,29 +12,68 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 3px 5px;
-  margin: 3px 0;
+  gap: 3px 4px;
+  margin: 2px 0 3px;
 }
 
 .publications .paper-topics .paper-topic {
-  padding: 0 5px;
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  background: var(--surface-muted);
-  color: var(--text-muted);
+  --topic-ink: #596573;
+  --topic-line: #c4ccd4;
+  --topic-fill: #f7f8fa;
+  padding: 0 4px;
+  border: 1px solid var(--topic-line);
+  border-radius: 2px;
+  background: var(--topic-fill);
+  color: var(--topic-ink);
+  font-family: inherit;
   font-size: 0.62rem;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   line-height: 1.5;
   letter-spacing: 0;
   white-space: nowrap;
 }
 
-.publications .paper-topics .paper-topic--rl,
-.publications .paper-topics .paper-topic--aigc {
-  color: var(--primary-hover);
-  border-color: var(--primary-line);
-  background: var(--primary-soft);
+.publications .paper-topics :is(.paper-topic--rl, .paper-topic--aigc) {
+  --topic-ink: #4d6c83;
+  --topic-line: #b6c7d3;
+  --topic-fill: #f6f9fb;
+}
+
+.publications .paper-topics .paper-topic--human {
+  --topic-ink: #72647e;
+  --topic-line: #c9c0d1;
+  --topic-fill: #f9f7fa;
+}
+
+.publications .paper-topics .paper-topic--ad {
+  --topic-ink: #567369;
+  --topic-line: #bdcec5;
+  --topic-fill: #f6f9f7;
+}
+
+html[data-theme="dark"] .publications .paper-topics .paper-topic {
+  --topic-ink: #bcc6d0;
+  --topic-line: #48525e;
+  --topic-fill: #20262d;
+}
+
+html[data-theme="dark"] .publications .paper-topics :is(.paper-topic--rl, .paper-topic--aigc) {
+  --topic-ink: #b0c7d7;
+  --topic-line: #485e6d;
+  --topic-fill: #222c34;
+}
+
+html[data-theme="dark"] .publications .paper-topics .paper-topic--human {
+  --topic-ink: #c9bfd2;
+  --topic-line: #60576b;
+  --topic-fill: #2b2730;
+}
+
+html[data-theme="dark"] .publications .paper-topics .paper-topic--ad {
+  --topic-ink: #b7cfc3;
+  --topic-line: #4c6258;
+  --topic-fill: #242d28;
 }
 
 /* Venue annotations, following Minimal Light and Jon Barron's academic pages.
@@ -517,11 +556,11 @@ html[data-theme="dark"] .presentation-distinction {
     margin: 0 0 0.4rem;
     padding: 0.5rem 0.65rem;
     color: var(--text-muted);
-    background: var(--primary-soft);
-    border: 1px solid var(--primary-line);
-    border-left: 3px solid var(--primary);
-    border-radius: 6px;
-    box-shadow: 0 2px 8px var(--primary-glow);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    box-shadow: none;
+    font-family: inherit;
     font-size: 0.76rem;
     font-weight: 400;
     line-height: 1.45;
@@ -559,7 +598,7 @@ html[data-theme="dark"] .presentation-distinction {
   .publication-summary__pending {
     display: grid;
     gap: 0.15rem;
-    border-top: 1px solid var(--primary-line);
+    border-top: 1px solid var(--border);
     margin-top: 0.15rem;
     padding-top: 0.3rem;
   }
@@ -591,7 +630,7 @@ html[data-theme="dark"] .presentation-distinction {
   }
 
   .publication-summary__group--lead .publication-summary__metric strong {
-    color: var(--primary-hover);
+    color: var(--text);
   }
 
   .publication-summary__metric-label {
@@ -673,14 +712,15 @@ html[data-theme="dark"] .presentation-distinction {
 
   .publication-summary__distinction.presentation-distinction {
     color: #a3293a;
-    background: rgba(163, 41, 58, 0.07);
-    border-radius: 3px;
-    padding: 0.05rem 0.3rem;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    font-weight: 600;
   }
 
   html[data-theme="dark"] .publication-summary__distinction.presentation-distinction {
     color: #f0a0a9;
-    background: rgba(240, 160, 169, 0.1);
+    background: transparent;
   }
 
   html[lang="zh-CN"] .publication-summary {
