@@ -31,3 +31,7 @@ mgbod-detail.webp:
 motionrft-framework.webp:
   arxiv: "2603.27185"
   source: Fig/fig_motionreward.pdf
+spatial-fig3.webp:
+  source: SpatialReward/figures/fig3_final.pdf
+  figure: 3
+  description: Spatial verification; exported intact from the user-authorized local figure.

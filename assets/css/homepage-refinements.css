@@ -82,14 +82,16 @@ html .about-page article :is(.abstract, .compact-card-body, .detail-field-value)
   :is(p, li, span):not(.presentation-distinction) {
   color: inherit;
 }
-html .about-page article > .clearfix a {
-  color: #587c98 !important;
+html .about-page article > .clearfix a,
+html .about-page article p a {
+  color: #305e82 !important;
 }
 html .about-page article > .clearfix a:hover {
   color: var(--primary-hover) !important;
 }
-html[data-theme="dark"] .about-page article > .clearfix a {
-  color: #a4bfd4 !important;
+html[data-theme="dark"] .about-page article > .clearfix a,
+html[data-theme="dark"] .about-page article p a {
+  color: #81b1d8 !important;
 }
 /* Intro-only refinement: slightly smaller and softer than the reading scale.
  * Do not fade the container, which would also fade links, controls and emoji. */
