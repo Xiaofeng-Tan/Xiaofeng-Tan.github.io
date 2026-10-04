@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <title>BiMoGen — illustrative placeholder, not a paper result</title>
+  <rect width="640" height="360" fill="#eff4f8"/>
+  <g fill="none" stroke="#7895ac" stroke-width="5" stroke-linecap="round">
+    <rect x="145" y="137" width="96" height="81" rx="8"/>
+    <path d="M161 157h62m-62 17h46m-46 17h54"/>
+    <path d="M282 160h70l-12-10m12 10-12 10M352 199h-70l12-10m-12 10 12 10"/>
+    <circle cx="437" cy="142" r="13"/>
+    <path d="M437 156v39l-24 25m24-25 26 25m-26-49-26 15m26-15 27 10"/>
+  </g>
+  <text x="320" y="111" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" fill="#2c6089">BiMoGen</text>
+  <text x="320" y="250" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="#546b7b">Motion ↔ Text</text>
+  <text x="320" y="278" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#788996">Illustrative placeholder</text>
+</svg>
