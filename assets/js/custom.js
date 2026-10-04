@@ -181,56 +181,6 @@
 })();
 
 // ========== Topic filters ==========
-// ========== Topic filters ==========
-// Match the preview frame to the collapsed metadata height. Because each image
-// fills the frame width at its natural aspect ratio, overflow can only be
-// clipped vertically. Expanded abstracts do not affect this measurement.
-(function () {
-  const rows = Array.from(document.querySelectorAll('#publication-results [data-paper-key]'));
-  const desktop = window.matchMedia('(min-width: 768px)');
-  let pending = false;
-
-  function measure() {
-    pending = false;
-    rows.forEach(row => {
-      if (!desktop.matches) {
-        row.style.removeProperty('--paper-info-height');
-        return;
-      }
-      const content = row.querySelector(':scope > [id]');
-      const links = content && content.querySelector(':scope > .links');
-      if (!links || !row.querySelector('.abbr img') || !row.getClientRects().length) return;
-      const height = Math.ceil(links.getBoundingClientRect().bottom - content.getBoundingClientRect().top);
-      if (height > 0) row.style.setProperty('--paper-info-height', `${height}px`);
-    });
-  }
-
-  function schedule() {
-    if (!pending) {
-      pending = true;
-      requestAnimationFrame(measure);
-    }
-  }
-
-  if ('ResizeObserver' in window) {
-    const observer = new ResizeObserver(schedule);
-    rows.forEach(row => {
-      const content = row.querySelector(':scope > [id]');
-      if (content) observer.observe(content);
-    });
-  }
-  rows.forEach(row => {
-    const image = row.querySelector('.abbr img');
-    if (image) image.addEventListener('load', schedule);
-  });
-  window.addEventListener('resize', schedule);
-  document.addEventListener('site-language-changed', schedule);
-  document.querySelectorAll('#publication-results details').forEach(group => group.addEventListener('toggle', schedule));
-  if (document.fonts) document.fonts.ready.then(schedule);
-  schedule();
-})();
-
-// ========== Topic filters ==========
 // Topic filtering changes only visibility, preserving paper order and handlers.
 (function () {
   const toolbar = document.getElementById('publication-filters');

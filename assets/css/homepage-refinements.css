@@ -303,51 +303,48 @@ html .about-page .timeline-expand-hint {
   margin-top: 0;
 }
 
-/* Fixed-width preview column. The frame follows the collapsed text block.
- * Images preserve their intrinsic proportions and are center-cropped only
- * where needed, so every preview has the same width and a text-matched height. */
+/* Publication thumbnails follow a conventional academic-list treatment:
+ * one shared width, intrinsic image ratios, and vertical centering beside the
+ * metadata. Different figures may have different natural heights. */
 @media (min-width: 768px) {
   .about-page #publication-results .bibliography > li > .row {
     margin: 0;
     gap: 14px;
+    align-items: center;
   }
   .about-page #publication-results .abbr {
-    flex: 0 0 clamp(160px, 20vw, 220px);
-    width: clamp(160px, 20vw, 220px);
+    flex: 0 0 clamp(136px, 15vw, 160px);
+    width: clamp(136px, 15vw, 160px);
     max-width: none;
     min-height: 0;
-    height: var(--paper-info-height, 104px);
+    height: auto;
     box-sizing: border-box;
-    padding: 5px 0;
+    padding: 0;
     margin: 0;
     aspect-ratio: auto;
-    align-self: flex-start;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    align-self: center;
+    display: block;
+    overflow: visible;
     position: relative;
   }
   .about-page #publication-results .abbr:not(:has(img)) { display: none; }
   .about-page #publication-results .abbr :is(figure, picture) {
     width: 100%;
-    height: 100%;
+    height: auto;
     aspect-ratio: auto;
     margin: 0;
     position: static;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: visible;
+    display: block;
   }
   .about-page #publication-results .abbr img {
     width: 100% !important;
-    min-width: 0 !important;
+    min-width: 100% !important;
     max-width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
     min-height: 0 !important;
-    max-height: 100% !important;
-    object-fit: cover;
+    max-height: none !important;
+    object-fit: contain;
     object-position: center;
     position: static;
     margin: 0;
