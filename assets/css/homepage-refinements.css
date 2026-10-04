@@ -7,7 +7,7 @@
 }
 /* Homepage-only palette and compact publication layout. */
 .about-page {
-  --homepage-font: "Outfit", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --homepage-font: "Outfit", "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
   --primary: #245b84;
   --primary-hover: #174562;
   --primary-soft: rgba(36, 91, 132, 0.04);
@@ -18,6 +18,9 @@
   --publication-venue-blue: #245b84;
   --honor-surface: #fbfcfd;
   --honor-border: #e2e8ed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 /* English uses Outfit; ordinary Chinese uses a matching system sans-serif.
  * Handwriting and the motto remain intentional exceptions below. */
@@ -283,20 +286,21 @@ html .about-page .timeline-expand-hint {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 1px 11px;
-  margin-bottom: 0.3rem;
-  line-height: 1.4;
+  gap: 0 6px;
+  margin-bottom: 0.14rem;
+  line-height: 1.2;
 }
 .about-page .publication-summary__count {
-  color: var(--text);
-  font-size: 0.73rem;
-  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 400;
   white-space: nowrap;
 }
 .about-page .publication-summary__legend {
   color: var(--text-soft);
-  font-size: 0.66rem;
+  font-size: 0.6rem;
   font-weight: 400;
+  line-height: 1.2;
 }
 .about-page .publication-summary__grid {
   display: grid;
@@ -382,8 +386,8 @@ html[data-theme="dark"] .about-page .publication-summary__note.presentation-dist
     padding: 0.06rem 0 0.38rem;
   }
   .about-page .publication-summary__header {
-    display: grid;
-    gap: 1px;
+    gap: 0 5px;
+    margin-bottom: 0.12rem;
   }
   .about-page .publication-summary__grid {
     grid-template-columns: minmax(0, 1fr);
