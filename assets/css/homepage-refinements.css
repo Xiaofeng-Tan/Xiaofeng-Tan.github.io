@@ -333,4 +333,10 @@ html .about-page .timeline-expand-hint {
     padding: 0;
     min-width: 0;
   }
+  /* Slightly smaller PEC preview; preserve the shared text-column alignment. */
+  .about-page #publication-results [data-paper-key="tan2026pec"] .abbr img {
+    width: 90% !important;
+    height: 90% !important;
+    flex-basis: 90%;
+  }
 }
