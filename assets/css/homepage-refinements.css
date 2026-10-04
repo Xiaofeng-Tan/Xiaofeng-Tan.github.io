@@ -8,14 +8,14 @@
 /* Homepage-only palette and compact publication layout. */
 .about-page {
   --homepage-font: var(--site-songti), "Outfit", "Helvetica Neue", Arial, sans-serif;
-  --primary: #2c6089;
-  --primary-hover: #204d70;
-  --primary-soft: rgba(44, 96, 137, 0.055);
-  --primary-soft-strong: rgba(44, 96, 137, 0.11);
-  --primary-line: rgba(44, 96, 137, 0.25);
-  --primary-glow: rgba(44, 96, 137, 0.08);
-  --global-theme-color: #2c6089;
-  --publication-venue-blue: #2c6089;
+  --primary: #1d4e78;
+  --primary-hover: #123753;
+  --primary-soft: rgba(29, 78, 120, 0.055);
+  --primary-soft-strong: rgba(29, 78, 120, 0.11);
+  --primary-line: rgba(29, 78, 120, 0.3);
+  --primary-glow: rgba(29, 78, 120, 0.08);
+  --global-theme-color: #1d4e78;
+  --publication-venue-blue: #1d4e78;
 }
 /* Override the legacy serif families at their component roots, not icon glyphs.
  * The Songti face is CJK-only; Latin characters use Outfit in both languages. */
@@ -42,14 +42,68 @@ html[lang="zh-CN"] .about-page .section-title > span {
   font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 html[data-theme="dark"] .about-page {
-  --primary: #a0c2df;
-  --primary-hover: #c0d8eb;
-  --primary-soft: rgba(160, 194, 223, 0.07);
-  --primary-soft-strong: rgba(160, 194, 223, 0.13);
-  --primary-line: rgba(160, 194, 223, 0.25);
-  --primary-glow: rgba(160, 194, 223, 0.08);
-  --global-theme-color: #a0c2df;
-  --publication-venue-blue: #a0c2df;
+  --primary: #81b1d8;
+  --primary-hover: #accce6;
+  --primary-soft: rgba(129, 177, 216, 0.07);
+  --primary-soft-strong: rgba(129, 177, 216, 0.13);
+  --primary-line: rgba(129, 177, 216, 0.3);
+  --primary-glow: rgba(129, 177, 216, 0.08);
+  --global-theme-color: #81b1d8;
+  --publication-venue-blue: #81b1d8;
+}
+.about-page #publication-results .periodical .venue-abbr { opacity: 1; }
+
+/* Restore the original independent honor cards after mobile's list overrides.
+ * Scope to Honors so teaching and other disclosure layouts stay unchanged. */
+html .about-page .honors-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 0.3rem;
+  align-items: start;
+}
+html .about-page .honors-section .compact-card {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  box-shadow: none;
+  overflow: hidden;
+}
+html .about-page .honors-section .compact-card summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 0;
+  padding: 0.35rem 0.5rem;
+}
+html .about-page .honors-section .compact-card .compact-title {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.3;
+}
+html .about-page .honors-section .compact-card .year {
+  color: var(--primary);
+  font-size: 0.68rem;
+  font-weight: 600;
+  white-space: nowrap;
+  max-width: none;
+}
+html .about-page .honors-section .compact-card-body {
+  padding: 0 0.5rem 0.4rem;
+  border-left: 0;
+  line-height: 1.4;
+}
+html .about-page .honors-section .compact-card:hover,
+html .about-page .honors-section .compact-card[open] {
+  border-color: var(--primary-line);
+  background: var(--primary-soft);
+}
+@media (max-width: 767.98px) {
+  html .about-page .honors-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
 }
 /* Legacy literal link colors should not compete with the shared palette.
  * Presentation distinctions and venue-ranking badges retain their own colors. */
