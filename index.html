@@ -164,7 +164,7 @@
 
 <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
 <link rel="stylesheet" href="/assets/css/language.css?c7c516b1cac494948c70bc4a36815ffe">
-<link rel="stylesheet" href="/assets/css/mobile.css?a65add52ff2a03cd4a1409d50da17e5d">
+<link rel="stylesheet" href="/assets/css/mobile.css?c622e5e4ea58005f95acda6528c69f94">
 <link rel="canonical" href="https://xiaofeng-tan.github.io/">
 
 <!-- Dark Mode -->
@@ -1937,8 +1937,12 @@ function revealAndCopyContact(button, text, label) {
     </h2>
     <div class="publication-summary" role="note">
       <div class="publication-summary__heading">
-        <span data-language="en" lang="en">Published / accepted · 7 papers · NeurIPS ×3</span>
-        <span data-language="zh" lang="zh-CN">已发表 / 录用 · 7 篇 · NeurIPS 3 篇</span>
+        <span data-language="en" lang="en">Publication overview</span>
+        <span data-language="zh" lang="zh-CN">成果概览</span>
+        <span class="publication-summary__total">
+          <span data-language="en" lang="en">7 selected publications · accepted / published</span>
+          <span data-language="zh" lang="zh-CN">7 篇代表作 · 已录用 / 发表</span>
+        </span>
       </div>
       <div class="publication-summary__grid">
         <div class="publication-summary__group publication-summary__group--lead">
@@ -1947,17 +1951,27 @@ function revealAndCopyContact(button, text, label) {
             <span class="publication-summary__metric-label" data-language="en" lang="en">First / co-first-author papers</span>
             <span class="publication-summary__metric-label" data-language="zh" lang="zh-CN">一作 / 共同一作论文</span>
           </div>
-          <span class="publication-summary__value" data-language="en" lang="en">NeurIPS ×2 (<span class="presentation-distinction">Spotlight ×1</span>) · ICLR ×1 · AAAI ×1 · TIP ×1</span>
-          <span class="publication-summary__value" data-language="zh" lang="zh-CN">NeurIPS 2 篇（<span class="presentation-distinction">Spotlight 1 篇</span>）· ICLR 1 篇 · AAAI 1 篇 · TIP 1 篇</span>
+          <div class="publication-summary__venues">
+            <span class="publication-summary__venue">NeurIPS <b>2</b><span class="publication-summary__distinction presentation-distinction">1 Spotlight</span></span>
+            <span class="publication-summary__venue">ICLR <b>1</b></span>
+            <span class="publication-summary__venue">AAAI <b>1</b></span>
+            <span class="publication-summary__venue">TIP <b>1</b></span>
+          </div>
+          <span class="publication-summary__note" data-language="en" lang="en">ICLR &amp; AAAI: co-first author.</span>
+          <span class="publication-summary__note" data-language="zh" lang="zh-CN">ICLR、AAAI 为共同一作。</span>
         </div>
         <div class="publication-summary__group">
           <div class="publication-summary__metric">
             <strong>2</strong>
-            <span class="publication-summary__metric-label" data-language="en" lang="en">Non-first-author papers</span>
-            <span class="publication-summary__metric-label" data-language="zh" lang="zh-CN">非一作论文</span>
+            <span class="publication-summary__metric-label" data-language="en" lang="en">Other contributions</span>
+            <span class="publication-summary__metric-label" data-language="zh" lang="zh-CN">其他署名成果</span>
           </div>
-          <span class="publication-summary__value" data-language="en" lang="en">NeurIPS ×1 (<span class="publication-summary__poster">Poster ×1</span>) · TKDE ×1</span>
-          <span class="publication-summary__value" data-language="zh" lang="zh-CN">NeurIPS 1 篇（<span class="publication-summary__poster">Poster 1 篇</span>）· TKDE 1 篇</span>
+          <div class="publication-summary__venues">
+            <span class="publication-summary__venue">NeurIPS <b>1</b><span class="publication-summary__distinction">Poster</span></span>
+            <span class="publication-summary__venue">TKDE <b>1</b></span>
+          </div>
+          <span class="publication-summary__note" data-language="en" lang="en">NeurIPS: third author. TKDE: second author, first student author.</span>
+          <span class="publication-summary__note" data-language="zh" lang="zh-CN">NeurIPS 为第三作者；TKDE 为第二作者、学生一作。</span>
         </div>
       </div>
     </div>
@@ -3510,7 +3524,7 @@ function revealAndCopyContact(button, text, label) {
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <span>Last updated: <time datetime="2026-10-04T06:25:27+00:00">October 04, 2026</time></span>
+    <span>Last updated: <time datetime="2026-10-04T06:28:17+00:00">October 04, 2026</time></span>
   </div>
 </article>
 
