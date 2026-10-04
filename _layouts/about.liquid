@@ -320,6 +320,15 @@ layout: default
     {% endfor %}
   </div>
 
+  <!-- Research Summary -->
+  <h2 id="sec-research-summary" class="section-title">
+    <span data-language="en" lang="en">🧭 Research Summary</span>
+    <span data-language="zh" lang="zh-CN">🧭 研究概述</span>
+  </h2>
+  <div class="research-summary-placeholder">
+    <span data-language="en" lang="en">Coming soon.</span>
+    <span data-language="zh" lang="zh-CN">敬请期待。</span>
+  </div>
 
   <!-- Selected papers -->
   {% if page.selected_papers %}
@@ -435,8 +444,14 @@ layout: default
         <span data-language="zh" lang="zh-CN">🏠 生活</span>
       </span>
       <span class="section-title-hint">
-        <span data-language="en" lang="en">Click to expand</span>
-        <span data-language="zh" lang="zh-CN">点击展开</span>
+        <span class="misc-hint-closed">
+          <span data-language="en" lang="en">Click to expand</span>
+          <span data-language="zh" lang="zh-CN">点击展开</span>
+        </span>
+        <span class="misc-hint-open">
+          <span data-language="en" lang="en">Click to collapse</span>
+          <span data-language="zh" lang="zh-CN">点击收起</span>
+        </span>
       </span>
       <span class="section-title-chevron" aria-hidden="true"></span>
     </summary>
