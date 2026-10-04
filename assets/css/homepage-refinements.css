@@ -303,9 +303,9 @@ html .about-page .timeline-expand-hint {
   margin-top: 0;
 }
 
-/* Fixed-width preview column. The frame follows the collapsed text block;
- * figures keep their intrinsic ratio and only excess vertical content is
- * clipped. Horizontal content is never cropped. */
+/* Fixed-width preview column. The frame follows the collapsed text block.
+ * Images preserve their intrinsic proportions and are center-cropped only
+ * where needed, so every preview has the same width and a text-matched height. */
 @media (min-width: 768px) {
   .about-page #publication-results .bibliography > li > .row {
     margin: 0;
@@ -341,28 +341,20 @@ html .about-page .timeline-expand-hint {
     justify-content: center;
   }
   .about-page #publication-results .abbr img {
-    width: auto !important;
+    width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
-    height: auto !important;
+    height: 100% !important;
     min-height: 0 !important;
     max-height: 100% !important;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     position: static;
-    margin: auto;
+    margin: 0;
     transform: none;
   }
   .about-page #publication-results [data-paper-key] > [id] {
     padding: 0;
     min-width: 0;
-  }
-  /* Slightly smaller PEC preview; preserve the shared text-column alignment. */
-  .about-page #publication-results [data-paper-key="tan2026pec"] .abbr img {
-    width: auto !important;
-    height: auto !important;
-    max-width: 84% !important;
-    max-height: 100% !important;
-    flex-basis: auto;
   }
 }
