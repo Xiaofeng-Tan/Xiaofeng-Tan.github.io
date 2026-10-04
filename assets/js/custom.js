@@ -103,7 +103,7 @@
 
 // ========== Block 1b: Smooth native <details> expansion ==========
 (function () {
-  const selector = 'details.compact-card, details.pub-category, details.misc-section';
+  const selector = 'details.compact-card, details.pub-category, details.misc-section, details.publication-overview-group';
   const easing = 'cubic-bezier(0.22, 1, 0.36, 1)';
 
   function reducedMotion() {
@@ -178,6 +178,69 @@
   }
 
   document.querySelectorAll(selector).forEach(enhance);
+})();
+
+// ========== Topic filters ==========
+// Topic filtering changes only visibility, preserving paper order and handlers.
+(function () {
+  const toolbar = document.getElementById('publication-filters');
+  const results = document.getElementById('publication-results');
+  const status = document.getElementById('publication-filter-status');
+  if (!toolbar || !results) return;
+
+  const buttons = Array.from(toolbar.querySelectorAll('[data-topic-filter]'));
+  const papers = Array.from(results.querySelectorAll('[data-paper-key]')).map(row => ({
+    key: row.dataset.paperKey,
+    topics: (row.dataset.paperTopics || '').split(/\s+/).filter(Boolean),
+    item: row.closest('li'),
+  })).filter(paper => paper.item);
+  const groups = Array.from(results.querySelectorAll('details.pub-category'));
+  let activeTopic = 'all';
+  let savedOpenStates = null;
+
+  const matches = (paper, topic) => topic === 'all' || paper.topics.includes(topic);
+  const count = topic => new Set(papers.filter(paper => matches(paper, topic)).map(paper => paper.key)).size;
+
+  function announce() {
+    if (!status) return;
+    const selected = buttons.find(button => button.dataset.topicFilter === activeTopic);
+    const chinese = document.documentElement.lang === 'zh-CN';
+    const label = activeTopic === 'all' ? (chinese ? '全部' : 'All') :
+      selected.querySelector('[data-language="en"]').textContent;
+    status.textContent = chinese ? `${label}：显示 ${count(activeTopic)} 篇论文` :
+      `${label}: showing ${count(activeTopic)} papers`;
+  }
+
+  function filter(topic) {
+    // Settle any in-progress disclosure animation before measuring new content.
+    groups.forEach(group => group.getAnimations().forEach(animation => animation.finish()));
+    if (activeTopic === 'all' && topic !== 'all') {
+      savedOpenStates = new Map(groups.map(group => [group, group.open]));
+    }
+    activeTopic = topic;
+    papers.forEach(paper => { paper.item.hidden = !matches(paper, topic); });
+    groups.forEach(group => {
+      const hasMatches = papers.some(paper => group.contains(paper.item) && !paper.item.hidden);
+      group.hidden = !hasMatches;
+      if (topic === 'all') {
+        if (savedOpenStates) group.open = savedOpenStates.get(group);
+      } else if (hasMatches) {
+        group.open = true;
+      }
+    });
+    if (topic === 'all') savedOpenStates = null;
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.topicFilter === topic)));
+    results.scrollTop = 0;
+    announce();
+  }
+
+  buttons.forEach(button => {
+    const topic = button.dataset.topicFilter;
+    button.querySelector('.publication-filter__count').textContent = count(topic);
+    button.addEventListener('click', () => filter(topic));
+  });
+  document.addEventListener('site-language-changed', announce);
+  toolbar.hidden = false;
 })();
 
 // ========== Block 2: Mascot (Doraemon / Tom & Jerry) ==========

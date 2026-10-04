@@ -1,0 +1,65 @@
+# Editorial overview of selected works. Presentation and review status are distinct.
+- id: spotlight
+  en: Spotlight
+  zh: Spotlight
+  papers:
+    - name: PEC
+      venue: NeurIPS 2026
+      role_en: First author
+      role_zh: 一作
+      url: /projects/PEC/
+- id: poster
+  en: Poster
+  zh: Poster
+  papers:
+    - name: SoPo
+      venue: NeurIPS 2025
+      role_en: First author
+      role_zh: 一作
+      url: /projects/SoPo/
+    - name: BiMoGen
+      venue: NeurIPS 2026
+      role_en: Third author
+      role_zh: 第三作者
+- id: accepted
+  en: Other accepted work
+  zh: 其他已录用成果
+  papers:
+    - name: EasyTune
+      venue: ICLR 2026
+      role_en: Co-first author
+      role_zh: 共同一作
+      url: /projects/EasyTune/
+    - name: ReAlign
+      venue: AAAI 2026
+      role_en: Co-first author
+      role_zh: 共同一作
+      url: https://wengwanjiang.github.io/ReAlign-page/
+    - name: FG-Diff
+      venue: TIP 2026
+      role_en: First author
+      role_zh: 一作
+      url: /projects/FG-Diff/
+    - name: MGBOD
+      venue: TKDE 2025
+      role_en: First student author
+      role_zh: 学生一作
+      url: https://ieeexplore.ieee.org/abstract/document/10821488
+- id: review
+  en: Under review
+  zh: 在投工作
+  papers:
+    - name: MotionRFT
+      venue: TPAMI
+      role_en: First author
+      role_zh: 一作
+      url: /projects/MotionRFT/
+    - name: Consistent-RFT
+      venue: ""
+      role_en: First author
+      role_zh: 一作
+      url: /projects/ConsistentRFT/
+    - name: Getting Space Right
+      venue: ""
+      role_en: First author
+      role_zh: 一作

@@ -1,4 +1,19 @@
-<div class="publications-grouped">
+<div class="publication-filters" id="publication-filters" role="group" aria-label="Filter publications by topic / 按主题筛选论文" hidden>
+  <button type="button" class="publication-filter" data-topic-filter="all" aria-pressed="true" aria-controls="publication-results">
+    <span data-language="en" lang="en">All</span><span data-language="zh" lang="zh-CN">全部</span>
+    <span class="publication-filter__count" aria-hidden="true"></span>
+  </button>
+  {% for item in site.data.publication_topics.labels %}
+    {% assign topic = item[1] %}
+    <button type="button" class="publication-filter" data-topic-filter="{{ item[0] }}" aria-pressed="false" aria-controls="publication-results">
+      <span data-language="en" lang="en" title="{{ topic.en | escape }}">{{ topic.name }}</span>
+      <span data-language="zh" lang="zh-CN" title="{{ topic.zh | escape }}">{{ topic.name }}</span>
+      <span class="publication-filter__count" aria-hidden="true"></span>
+    </button>
+  {% endfor %}
+</div>
+<span id="publication-filter-status" class="sr-only" role="status" aria-live="polite"></span>
+<div class="publications-grouped" id="publication-results">
   <details class="pub-category pub-category--highlighted" open>
     <summary class="pub-category__summary">
       <span class="pub-category__label">Highlighted Works</span>

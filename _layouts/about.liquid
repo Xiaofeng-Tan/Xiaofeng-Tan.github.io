@@ -326,54 +326,7 @@ layout: default
     <h2 id="sec-publications" class="section-title">
       <span>📖 Selected Publications</span>
     </h2>
-    <div class="publication-summary" role="note">
-      <div class="publication-summary__grid">
-        <div class="publication-summary__group publication-summary__group--lead">
-          <div class="publication-summary__metric">
-            <strong>6</strong>
-            <span class="publication-summary__metric-label" data-language="en" lang="en">First / co-first / first student author</span>
-            <span class="publication-summary__metric-label" data-language="zh" lang="zh-CN">一作 / 共同一作 / 学生一作</span>
-            <span class="publication-summary__total">
-              <span data-language="en" lang="en">7 accepted / published in total</span>
-              <span data-language="zh" lang="zh-CN">共 7 篇已录用 / 发表</span>
-            </span>
-          </div>
-          <div class="publication-summary__venues">
-            <div class="publication-summary__row">
-              <span class="publication-summary__venue">NeurIPS <b>×2</b></span>
-              <span class="publication-summary__works"><a href="{{ '/projects/PEC/' | relative_url }}">PEC</a> <span class="publication-summary__distinction presentation-distinction">Spotlight</span><span class="publication-summary__separator" aria-hidden="true">·</span><a href="{{ '/projects/SoPo/' | relative_url }}">SoPo</a></span>
-            </div>
-            <div class="publication-summary__row">
-              <span class="publication-summary__venue">ICLR <b>×1</b></span>
-              <span class="publication-summary__works"><a href="{{ '/projects/EasyTune/' | relative_url }}">EasyTune</a><span class="publication-summary__role" data-language="en" lang="en">co-first</span><span class="publication-summary__role" data-language="zh" lang="zh-CN">共同一作</span></span>
-            </div>
-            <div class="publication-summary__row">
-              <span class="publication-summary__venue">AAAI <b>×1</b></span>
-              <span class="publication-summary__works"><a href="https://wengwanjiang.github.io/ReAlign-page/" target="_blank" rel="noopener">ReAlign</a><span class="publication-summary__role" data-language="en" lang="en">co-first</span><span class="publication-summary__role" data-language="zh" lang="zh-CN">共同一作</span></span>
-            </div>
-            <div class="publication-summary__row">
-              <span class="publication-summary__venue">TIP <b>×1</b></span>
-              <span class="publication-summary__works"><a href="{{ '/projects/FG-Diff/' | relative_url }}">FG-Diff</a></span>
-            </div>
-            <div class="publication-summary__row">
-              <span class="publication-summary__venue">TKDE <b>×1</b></span>
-              <span class="publication-summary__works"><a href="https://ieeexplore.ieee.org/abstract/document/10821488" target="_blank" rel="noopener">MGBOD</a><span class="publication-summary__role" data-language="en" lang="en">first student author</span><span class="publication-summary__role" data-language="zh" lang="zh-CN">学生一作</span></span>
-            </div>
-          </div>
-        </div>
-        <div class="publication-summary__group publication-summary__group--secondary">
-          <span data-language="en" lang="en">Also contributed to BiMoGen (NeurIPS 2026, Poster) as third author.</span>
-          <span data-language="zh" lang="zh-CN">另以第三作者参与 BiMoGen（NeurIPS 2026，Poster）。</span>
-        </div>
-        <div class="publication-summary__pending">
-          <div class="publication-summary__row">
-            <span class="publication-summary__pending-label" data-language="en" lang="en">Under Review ×3 · first author</span>
-            <span class="publication-summary__pending-label" data-language="zh" lang="zh-CN">在投 3 篇 · 一作</span>
-            <span class="publication-summary__works"><a href="{{ '/projects/MotionRFT/' | relative_url }}">MotionRFT</a><span class="publication-summary__role">TPAMI</span><span class="publication-summary__separator" aria-hidden="true">·</span><a href="{{ '/projects/ConsistentRFT/' | relative_url }}">Consistent-RFT</a><span class="publication-summary__separator" aria-hidden="true">·</span><span>Getting Space Right</span></span>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% include publication_overview.liquid %}
     {% include selected_papers.liquid %}
   {% endif %}
 

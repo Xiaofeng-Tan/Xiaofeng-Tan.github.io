@@ -7,73 +7,118 @@
   margin-left: 0.35em;
 }
 
-/* Topic labels are non-interactive metadata, distinct from resource buttons. */
-.publications .paper-topics {
+/* Text filters, not badges on individual papers. */
+.publication-filters {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 3px 4px;
-  margin: 2px 0 3px;
+  gap: 3px 14px;
+  margin: 7px 0;
 }
 
-.publications .paper-topics .paper-topic {
-  --topic-ink: #596573;
-  --topic-line: #c4ccd4;
-  --topic-fill: #f7f8fa;
-  padding: 0 4px;
-  border: 1px solid var(--topic-line);
-  border-radius: 2px;
-  background: var(--topic-fill);
-  color: var(--topic-ink);
-  font-family: inherit;
-  font-size: 0.62rem;
-  font-weight: 500;
-  font-style: normal;
+.publication-filters[hidden],
+#publication-results [hidden] {
+  display: none !important;
+}
+
+.publication-filter {
+  appearance: none;
+  padding: 4px 0;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.74rem;
   line-height: 1.5;
-  letter-spacing: 0;
+  cursor: pointer;
   white-space: nowrap;
 }
 
-.publications .paper-topics :is(.paper-topic--rl, .paper-topic--aigc) {
-  --topic-ink: #4d6c83;
-  --topic-line: #b6c7d3;
-  --topic-fill: #f6f9fb;
+.publication-filter[aria-pressed="true"] {
+  color: var(--primary-hover);
+  border-bottom-color: currentColor;
+  font-weight: 600;
 }
 
-.publications .paper-topics .paper-topic--human {
-  --topic-ink: #72647e;
-  --topic-line: #c9c0d1;
-  --topic-fill: #f9f7fa;
+.publication-filter:hover {
+  color: var(--primary-hover);
 }
 
-.publications .paper-topics .paper-topic--ad {
-  --topic-ink: #567369;
-  --topic-line: #bdcec5;
-  --topic-fill: #f6f9f7;
+.publication-filter:focus-visible,
+.publication-overview-group > summary:focus-visible {
+  outline: 2px solid var(--primary-line);
+  outline-offset: 3px;
 }
 
-html[data-theme="dark"] .publications .paper-topics .paper-topic {
-  --topic-ink: #bcc6d0;
-  --topic-line: #48525e;
-  --topic-fill: #20262d;
+.publication-filter__count {
+  margin-left: 3px;
+  color: var(--text-soft);
+  font-size: 0.65rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
-html[data-theme="dark"] .publications .paper-topics :is(.paper-topic--rl, .paper-topic--aigc) {
-  --topic-ink: #b0c7d7;
-  --topic-line: #485e6d;
-  --topic-fill: #222c34;
+.publication-overview-groups {
+  margin-top: 0.25rem;
 }
 
-html[data-theme="dark"] .publications .paper-topics .paper-topic--human {
-  --topic-ink: #c9bfd2;
-  --topic-line: #60576b;
-  --topic-fill: #2b2730;
+.publication-overview-group {
+  border-top: 1px solid var(--border);
 }
 
-html[data-theme="dark"] .publications .paper-topics .paper-topic--ad {
-  --topic-ink: #b7cfc3;
-  --topic-line: #4c6258;
-  --topic-fill: #242d28;
+.publication-overview-group.is-animating { overflow: hidden; }
+.publication-overview-group > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.74rem;
+  color: var(--text);
+}
+.publication-overview-group > summary::-webkit-details-marker { display: none; }
+.publication-overview-group > summary::marker { content: ""; }
+.publication-overview-group--spotlight > summary > span:first-child {
+  color: #a3293a;
+  font-weight: 600;
+}
+html[data-theme="dark"] .publication-overview-group--spotlight > summary > span:first-child {
+  color: #f0a0a9;
+}
+.publication-overview-count {
+  color: var(--text-soft);
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+}
+.publication-overview-chevron {
+  margin-left: auto;
+  width: 5px;
+  height: 5px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(-45deg);
+  opacity: 0.6;
+}
+.publication-overview-group[open] .publication-overview-chevron { transform: rotate(45deg); }
+.publication-overview-body {
+  padding: 0.1rem 0 0.35rem;
+}
+.publication-overview-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.5rem;
+  padding: 0.15rem 0;
+  font-size: 0.72rem;
+}
+.publication-overview-entry a { color: var(--primary); }
+.publication-overview-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.12rem 0.6rem;
+  color: var(--text-soft);
+  font-size: 0.68rem;
 }
 
 /* Venue annotations, following Minimal Light and Jon Barron's academic pages.
@@ -557,9 +602,9 @@ html[data-theme="dark"] .presentation-distinction {
     padding: 0.5rem 0.65rem;
     color: var(--text-muted);
     background: var(--surface);
-    border: 1px solid var(--border);
+    border: 1px solid var(--primary-line);
     border-radius: 3px;
-    box-shadow: none;
+    box-shadow: inset 2px 0 0 var(--primary-hover);
     font-family: inherit;
     font-size: 0.76rem;
     font-weight: 400;
