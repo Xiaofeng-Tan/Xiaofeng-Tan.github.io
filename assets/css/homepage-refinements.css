@@ -269,21 +269,22 @@ html .about-page .timeline-expand-hint {
   color: var(--primary);
 }
 
-/* Minimal publication overview: aggregate information only. Individual paper
- * names and links already appear immediately below in the publication list. */
+/* Compact publication index: retain the paper-to-venue mapping and distinctions
+ * without turning each fact into a separate badge or visual component. */
 .about-page .publication-summary {
   margin: 0 0 0.45rem;
-  padding: 0.1rem 0 0.42rem;
+  padding: 0.1rem 0 0.4rem;
   background: transparent;
   border: 0;
   border-bottom: 1px solid var(--global-divider-color);
   border-radius: 0;
 }
-.about-page .publication-summary__headline {
+.about-page .publication-summary__header {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
   gap: 1px 11px;
+  margin-bottom: 0.3rem;
   line-height: 1.4;
 }
 .about-page .publication-summary__count {
@@ -292,51 +293,110 @@ html .about-page .timeline-expand-hint {
   font-weight: 600;
   white-space: nowrap;
 }
-.about-page .publication-summary__meta {
+.about-page .publication-summary__legend {
   color: var(--text-soft);
   font-size: 0.66rem;
   font-weight: 400;
 }
-.about-page .publication-summary__venues {
-  display: flex;
-  flex-wrap: wrap;
+.about-page .publication-summary__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.2rem 1.25rem;
+}
+.about-page .publication-summary__row {
+  display: grid;
+  grid-template-columns: 4.35rem minmax(0, 1fr);
   align-items: baseline;
-  gap: 0;
-  margin-top: 0.16rem;
-  color: var(--text-muted);
-  font-size: 0.68rem;
+  column-gap: 0.5rem;
+  min-width: 0;
   line-height: 1.4;
 }
-.about-page .publication-summary__venue-item {
+.about-page .publication-summary__row--wide {
+  grid-column: 1 / -1;
+}
+.about-page .publication-summary__row--review {
+  margin-top: 0.08rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--global-divider-color);
+}
+.about-page .publication-summary__venue {
   display: inline-flex;
   align-items: baseline;
-  gap: 0.22rem;
-  white-space: nowrap;
-}
-.about-page .publication-summary__venue-item + .publication-summary__venue-item::before {
-  content: "·";
-  margin: 0 0.48rem;
-  color: var(--text-soft);
-  font-weight: 400;
-}
-.about-page .publication-summary__venue-name {
+  gap: 0.25rem;
   color: var(--text-muted);
+  font-size: 0.69rem;
   font-weight: 500;
+  white-space: nowrap;
 }
 .about-page .publication-summary__venue-count {
   color: var(--text-soft);
+  font-size: 0.64rem;
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
+}
+.about-page .publication-summary__papers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.12rem 0.72rem;
+  min-width: 0;
+}
+.about-page .publication-summary__paper {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  color: var(--text);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+.about-page .publication-summary__paper a {
+  color: var(--text) !important;
+}
+.about-page .publication-summary__paper a:hover,
+.about-page .publication-summary__paper a:focus-visible {
+  color: var(--primary) !important;
+}
+.about-page .publication-summary .overview-primary {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.about-page .publication-summary__note {
+  color: var(--text-soft);
+  font-size: 0.62rem;
+  font-weight: 400;
+}
+.about-page .publication-summary__note::before {
+  content: "·";
+  margin-right: 0.2rem;
+  color: var(--text-soft);
+}
+.about-page .publication-summary__note.presentation-distinction {
+  color: #a3293a;
+  font-weight: 600;
+}
+html[data-theme="dark"] .about-page .publication-summary__note.presentation-distinction {
+  color: #f0a0a9;
 }
 @media (max-width: 767.98px) {
   .about-page .publication-summary {
     padding: 0.06rem 0 0.38rem;
   }
-  .about-page .publication-summary__headline {
+  .about-page .publication-summary__header {
     display: grid;
     gap: 1px;
   }
-  .about-page .publication-summary__venues {
-    margin-top: 0.2rem;
+  .about-page .publication-summary__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.18rem;
+  }
+  .about-page .publication-summary__row {
+    grid-template-columns: 4.45rem minmax(0, 1fr);
+  }
+  .about-page .publication-summary__row--wide {
+    grid-column: auto;
+  }
+  .about-page .publication-summary__papers {
+    gap: 0.1rem 0.55rem;
   }
 }
 
