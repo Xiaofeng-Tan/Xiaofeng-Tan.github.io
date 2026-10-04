@@ -7,6 +7,36 @@
   margin-left: 0.35em;
 }
 
+/* Topic labels are non-interactive metadata, distinct from resource buttons. */
+.publications .paper-topics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px 5px;
+  margin: 3px 0;
+}
+
+.publications .paper-topics .paper-topic {
+  padding: 0 5px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: var(--surface-muted);
+  color: var(--text-muted);
+  font-size: 0.62rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.publications .paper-topics .paper-topic--rl,
+.publications .paper-topics .paper-topic--aigc {
+  color: var(--primary-hover);
+  border-color: var(--primary-line);
+  background: var(--primary-soft);
+}
+
 /* Venue annotations, following Minimal Light and Jon Barron's academic pages.
  * Presentation distinctions are not venue-ranking badges or action buttons. */
 .presentation-distinction {

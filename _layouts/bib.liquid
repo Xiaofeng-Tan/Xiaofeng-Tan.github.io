@@ -26,6 +26,16 @@
   <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
+    {% assign paper_topics = site.data.publication_topics.papers[entry.key] %}
+    {% if paper_topics %}
+      <div class="paper-topics">
+        {% for topic_id in paper_topics %}
+          {% assign topic = site.data.publication_topics.labels[topic_id] %}
+          <span class="paper-topic paper-topic--{{ topic_id }}" data-language="en" lang="en" title="{{ topic.en | escape }}">{{ topic.name }}</span>
+          <span class="paper-topic paper-topic--{{ topic_id }}" data-language="zh" lang="zh-CN" title="{{ topic.zh | escape }}">{{ topic.name }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}

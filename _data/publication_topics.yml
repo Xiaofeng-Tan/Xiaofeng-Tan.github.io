@@ -1,0 +1,36 @@
+# Editorial topic labels based on the paper descriptions, not venue/status.
+labels:
+  rl:
+    name: RL
+    en: Reinforcement learning and preference optimization
+    zh: 强化学习与偏好优化
+  aigc:
+    name: AIGC
+    en: AI-generated content
+    zh: 人工智能生成内容
+  human:
+    name: Human-centric
+    en: Human-centric perception, generation, and understanding
+    zh: 以人为中心的感知、生成与理解
+  cv:
+    name: CV
+    en: Computer vision
+    zh: 计算机视觉
+  ad:
+    name: AD
+    en: Anomaly and outlier detection
+    zh: 异常检测与离群点检测
+
+papers:
+  tan2026motionrft: [rl, aigc, human]
+  tan2026pec: [rl, aigc]
+  tan2025consistentrft: [rl, aigc]
+  tan2024sopo: [rl, aigc, human]
+  Tan2026easytune: [aigc, human]
+  weng2026realign: [aigc, human]
+  tan2024frequency: [cv, human, ad]
+  tanGB: [ad]
+  TANTWD: [ad]
+  tan4785986multiple: [ad]
+  weng2026bimogen: [aigc, human]
+  tan2027spatial: [rl, aigc, cv]
