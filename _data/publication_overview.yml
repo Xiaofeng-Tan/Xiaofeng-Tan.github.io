@@ -1,45 +1,56 @@
-# Editorial overview of selected works. Presentation and review status are distinct.
-- id: spotlight
-  en: Spotlight
-  zh: Spotlight
+# Group by venue; presentation distinctions belong to individual papers.
+- id: neurips
+  en: NeurIPS
+  zh: NeurIPS
   papers:
     - name: PEC
       venue: NeurIPS 2026
       role_en: First author
       role_zh: 一作
       url: /projects/PEC/
-- id: poster
-  en: Poster
-  zh: Poster
-  papers:
+      distinction: Spotlight
     - name: SoPo
       venue: NeurIPS 2025
       role_en: First author
       role_zh: 一作
       url: /projects/SoPo/
+      distinction: Poster
     - name: BiMoGen
       venue: NeurIPS 2026
       role_en: Third author
       role_zh: 第三作者
-- id: accepted
-  en: Other accepted work
-  zh: 其他已录用成果
+      distinction: Poster
+- id: iclr
+  en: ICLR
+  zh: ICLR
   papers:
     - name: EasyTune
       venue: ICLR 2026
       role_en: Co-first author
       role_zh: 共同一作
       url: /projects/EasyTune/
+- id: aaai
+  en: AAAI
+  zh: AAAI
+  papers:
     - name: ReAlign
       venue: AAAI 2026
       role_en: Co-first author
       role_zh: 共同一作
       url: https://wengwanjiang.github.io/ReAlign-page/
+- id: tip
+  en: TIP
+  zh: TIP
+  papers:
     - name: FG-Diff
       venue: TIP 2026
       role_en: First author
       role_zh: 一作
       url: /projects/FG-Diff/
+- id: tkde
+  en: TKDE
+  zh: TKDE
+  papers:
     - name: MGBOD
       venue: TKDE 2025
       role_en: First student author

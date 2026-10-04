@@ -1,44 +1,41 @@
 <div class="publication-summary" aria-label="Publication overview / 成果概览">
   <div class="publication-summary__metric">
-    <span class="publication-summary__metric-label" data-language="en" lang="en"><strong>6</strong> first / co-first / first student-author papers</span>
-    <span class="publication-summary__metric-label" data-language="zh" lang="zh-CN"><strong>6</strong> 篇一作 / 共同一作 / 学生一作</span>
+    <span class="publication-summary__metric-label" data-language="en" lang="en">7 accepted · 3 under review</span>
+    <span class="publication-summary__metric-label" data-language="zh" lang="zh-CN">7 篇已录用 · 3 篇在投</span>
     <span class="publication-summary__total">
-      <span data-language="en" lang="en">7 accepted · 3 under review</span>
-      <span data-language="zh" lang="zh-CN">7 篇已录用 · 3 篇在投</span>
+      <span data-language="en" lang="en"><span class="overview-primary">Underlined</span>: first / co-first / first student author</span>
+      <span data-language="zh" lang="zh-CN"><span class="overview-primary">下划线</span>：一作 / 共同一作 / 学生一作</span>
     </span>
   </div>
-  <div class="publication-overview-groups">
+  <div class="overview-venue-grid">
     {% for group in site.data.publication_overview %}
-      <details class="publication-overview-group publication-overview-group--{{ group.id }}">
-        <summary>
-          <span>
-            <span data-language="en" lang="en">{{ group.en }}</span>
-            <span data-language="zh" lang="zh-CN">{{ group.zh }}</span>
-          </span>
-          <span class="publication-overview-count">{{ group.papers | size }}</span>
-          <span class="publication-overview-chevron" aria-hidden="true"></span>
-        </summary>
-        <div class="publication-overview-body">
+      <div class="overview-venue-row{% if group.id == 'review' %} overview-venue-row--review{% endif %}">
+        <span class="overview-venue-name">
+          <span data-language="en" lang="en">{{ group.en }}</span>
+          <span data-language="zh" lang="zh-CN">{{ group.zh }}</span>
+          <span class="overview-venue-count">×{{ group.papers | size }}</span>
+        </span>
+        <span class="overview-venue-papers">
           {% for paper in group.papers %}
-            <div class="publication-overview-entry">
+            {% assign primary = false %}
+            {% if paper.role_en == 'First author' or paper.role_en == 'Co-first author' or paper.role_en == 'First student author' %}
+              {% assign primary = true %}
+            {% endif %}
+            <span class="overview-paper">
               {% if paper.url %}
-                {% if paper.url contains '://' %}
-                  <a href="{{ paper.url }}" target="_blank" rel="noopener">{{ paper.name }}</a>
-                {% else %}
-                  <a href="{{ paper.url | relative_url }}">{{ paper.name }}</a>
-                {% endif %}
+                <a {% if primary %}class="overview-primary"{% endif %} href="{% if paper.url contains '://' %}{{ paper.url }}{% else %}{{ paper.url | relative_url }}{% endif %}" title="{{ paper.venue }} · {{ paper.role_en }} / {{ paper.role_zh }}">{{ paper.name }}</a>
               {% else %}
-                <span>{{ paper.name }}</span>
+                <span {% if primary %}class="overview-primary"{% endif %} title="{{ paper.venue }} · {{ paper.role_en }} / {{ paper.role_zh }}">{{ paper.name }}</span>
               {% endif %}
-              <span class="publication-overview-meta">
-                {% if paper.venue != "" %}<span>{{ paper.venue }}</span>{% endif %}
-                <span data-language="en" lang="en">{{ paper.role_en }}</span>
-                <span data-language="zh" lang="zh-CN">{{ paper.role_zh }}</span>
-              </span>
-            </div>
+              {% if paper.distinction %}
+                <span class="overview-paper-note{% if paper.distinction == 'Spotlight' %} presentation-distinction{% endif %}">({{ paper.distinction }})</span>
+              {% elsif group.id == 'review' and paper.venue != "" %}
+                <span class="overview-paper-note">({{ paper.venue }})</span>
+              {% endif %}
+            </span>
           {% endfor %}
-        </div>
-      </details>
+        </span>
+      </div>
     {% endfor %}
   </div>
 </div>
