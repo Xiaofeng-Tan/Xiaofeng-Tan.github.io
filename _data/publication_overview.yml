@@ -30,6 +30,7 @@
       role_en: Co-first author
       role_zh: 共同一作
       url: /projects/EasyTune/
+      distinction: Poster
 - id: aaai
   en: AAAI
   zh: AAAI
@@ -39,6 +40,7 @@
       role_en: Co-first author
       role_zh: 共同一作
       url: https://wengwanjiang.github.io/ReAlign-page/
+      distinction: Poster
 - id: tip
   en: TIP
   zh: TIP

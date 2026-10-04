@@ -35,3 +35,7 @@ spatial-fig3.webp:
   source: SpatialReward/figures/fig3_final.pdf
   figure: 3
   description: Spatial verification; exported intact from the user-authorized local figure.
+spatial-fig4.webp:
+  source: SpatialReward/figures/fig4_new.pdf
+  figure: 4
+  description: Spatial preference dataset construction; exported intact from the user-authorized local figure.
