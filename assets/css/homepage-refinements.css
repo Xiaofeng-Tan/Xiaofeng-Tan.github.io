@@ -310,17 +310,17 @@ html .about-page .timeline-expand-hint {
 @media (min-width: 768px) {
   .about-page #publication-results .bibliography > li > .row {
     margin: 0;
-    gap: 14px;
+    gap: 17px;
     align-items: center;
   }
   .about-page #publication-results .abbr {
-    flex: 0 0 clamp(136px, 15vw, 160px);
-    width: clamp(136px, 15vw, 160px);
+    flex: 0 0 clamp(142px, 15vw, 168px);
+    width: clamp(142px, 15vw, 168px);
     max-width: none;
     min-height: 0;
     height: auto;
     box-sizing: border-box;
-    padding: 0;
+    padding: 5px 0;
     margin: 0;
     aspect-ratio: auto;
     align-self: center;
@@ -329,14 +329,25 @@ html .about-page .timeline-expand-hint {
     position: relative;
   }
   .about-page #publication-results .abbr:not(:has(img)) { display: none; }
-  .about-page #publication-results .abbr :is(figure, picture) {
-    width: 100%;
+  .about-page #publication-results .abbr figure {
+    width: 80%;
     height: auto;
     aspect-ratio: auto;
-    margin: 0;
+    margin: 0 auto;
     position: static;
     overflow: visible;
     display: block;
+  }
+  .about-page #publication-results .abbr picture {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: block;
+  }
+  .about-page #publication-results .abbr > img.preview {
+    width: 80% !important;
+    min-width: 0 !important;
+    margin: 0 auto;
   }
   .about-page #publication-results .abbr img {
     width: 100% !important;
