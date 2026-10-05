@@ -23,32 +23,31 @@
 <body>
 
 <!-- Hero -->
-<section class="hero">
+<section class="hero motionrft-hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
 
-          <h1 class="title is-1 publication-title">
-            <span class="method-name">MotionRFT</span>: Unified Reinforcement Fine-Tuning<br>for Text-to-Motion Generation
+          <h1 class="publication-title">
+            <span class="publication-title-line"><span class="method-name">MotionRFT</span>: Unified Reinforcement Fine-Tuning</span>
+            <span class="publication-title-line">for Text-to-Motion Generation</span>
           </h1>
 
           <div class="venue-row">
             <span class="venue-badge">PAMI 2026</span>
-            <span class="venue-sep"></span>
+            <span class="venue-sep" aria-hidden="true"></span>
             <span class="venue-note">Extended from <a href="https://xiaofeng-tan.github.io/projects/EasyTune/" target="_blank">EasyTune</a> <span class="venue-conf">(ICLR 2026)</span></span>
           </div>
-          
-          <div class="publication-authors">
-            <span class="author-block">Xiaofeng Tan<sup>*</sup>,</span>
-            <span class="author-block">Wanjiang Weng<sup>*</sup>,</span>
-            <span class="author-block">Hongsong Wang,</span>
-            <span class="author-block">Fang Zhao,</span>
-            <span class="author-block">Xin Geng,</span>
-            <span class="author-block">Liang Wang</span>
-          </div>
-          <div class="author-note"><sup>*</sup> Equal contribution.</div>
 
+          <div class="publication-authors">
+            <span class="author-block"><a href="https://xiaofeng-tan.github.io/" target="_blank" rel="noopener">Xiaofeng Tan</a><sup>*</sup>,</span>
+            <span class="author-block"><a href="https://wengwanjiang.github.io/" target="_blank" rel="noopener">Wanjiang Weng</a><sup>*</sup>,</span>
+            <span class="author-block"><a href="https://cs.seu.edu.cn/hongsongwang/main.htm" target="_blank" rel="noopener">Hongsong Wang</a>,</span>
+            <span class="author-block">Fang Zhao,</span>
+            <span class="author-block"><a href="https://palm.seu.edu.cn/xgeng/" target="_blank" rel="noopener">Xin Geng</a>,</span>
+            <span class="author-block"><a href="http://www.cbsr.ia.ac.cn/users/lwang/lwang.html" target="_blank" rel="noopener">Liang Wang</a></span>
+          </div>
           <div class="publication-affiliations">
             <span>Southeast University</span>
             <span class="affil-sep">&middot;</span>
@@ -56,13 +55,20 @@
             <span class="affil-sep">&middot;</span>
             <span>Chinese Academy of Sciences</span>
           </div>
+          <div class="author-note"><sup>*</sup> Equal contribution.</div>
 
           <div class="tldr-container">
-            <p><strong>TL;DR:</strong> We present <strong>MotionRFT</strong>, a reinforcement fine-tuning framework with a unified multi-representation reward model <strong>MotionReward</strong> and a step-wise, memory-efficient fine-tuning strategy <strong>EasyTune</strong>.</p>
+            <span class="tldr-label">TL;DR</span>
+            <p>We present <strong>MotionRFT</strong>, a reinforcement fine-tuning framework with a unified multi-representation reward model <strong>MotionReward</strong> and a step-wise, memory-efficient fine-tuning strategy <strong>EasyTune</strong>.</p>
           </div>
           
           <div class="publication-links">
-            <span class="link-label">This Work</span>
+            <div class="resource-group" role="group" aria-labelledby="motionrft-resources">
+            <div class="resource-heading">
+              <span id="motionrft-resources" class="link-label">MotionRFT</span>
+              <span class="resource-context">This work · PAMI 2026</span>
+            </div>
+            <div class="resource-actions">
             <a href="https://arxiv.org/pdf/2603.27185" target="_blank" class="button btn-primary">
               <span class="icon"><i class="fas fa-file-alt"></i></span>
               <span>Paper</span>
@@ -75,7 +81,14 @@
               <span class="icon"><i class="fab fa-github"></i></span>
               <span>Code</span>
             </a>
-            <span class="link-label link-label-accent"><i class="fas fa-award"></i> EasyTune (ICLR '26)</span>
+            </div>
+            </div>
+            <div class="resource-group" role="group" aria-labelledby="easytune-resources">
+            <div class="resource-heading">
+              <span id="easytune-resources" class="link-label">EasyTune</span>
+              <span class="resource-context">Earlier work · ICLR 2026</span>
+            </div>
+            <div class="resource-actions">
             <a href="https://xiaofeng-tan.github.io/projects/EasyTune/" target="_blank" class="button btn-outline">
               <span class="icon"><i class="fas fa-globe"></i></span>
               <span>Project</span>
@@ -88,6 +101,8 @@
               <span class="icon"><i class="fab fa-github"></i></span>
               <span>Code</span>
             </a>
+            </div>
+            </div>
           </div>
 
         </div>
@@ -120,7 +135,7 @@
     <div class="content-block">
       <h2 class="section-title">Abstract</h2>
       <p class="abstract-text">
-        Text-to-motion generation has rapidly advanced with diffusion- and flow-based generative models, yet supervised pre-training remains insufficient to align models with high-level objectives such as semantic consistency, realism, and human preference. However, existing post-training methods have key limitations: they <strong>(1)</strong> are often designed for a specific motion representation, such as joint- or rotation-based motions, <strong>(2)</strong> typically optimize a particular aspect, such as text-motion alignment or human preference, and may compromise other quality factors; and <strong>(3)</strong> incur substantial computational overhead, data dependence, and coarse-grained optimization. We present a reinforcement fine-tuning framework that comprises a heterogeneous-representation, multi-dimensional reward model <strong>MotionReward</strong> and an efficient, fine-grained fine-tuning strategy <strong>EasyTune</strong>. To obtain a unified semantics representation, MotionReward maps heterogeneous motion representations into a shared semantic embedding space, where the text description serves as an anchor, paving the way for multi-dimensional reward learning. To enhance semantic without additional annotated data, we propose <strong>Self-refinement Preference Learning</strong> dynamically mining the preference and refinement itself. For efficient and effective fine-tuning, we identify a key limitation of differentiable-reward methods, the recursive dependence across denoising steps. Motivated by this insight, we propose EasyTune, which fine-tunes diffusion step-wise rather than over the full trajectory, decoupling this dependence and enabling dense, fine-grained, and memory-efficient optimization. Extensive experiments demonstrate strong cross-model and cross-representation generalization, achieving FID <strong>0.132</strong> with <strong>22.10 GB</strong> peak memory and saving up to <strong>15.22 GB</strong> over DRaFT. Beyond kinematic-based MLD and MDM, it reduces FID by <strong>22.9%</strong> on joint-based ACMDM, and achieves a <strong>12.6%</strong> R-Precision gain and <strong>23.3%</strong> FID improvement on rotation-based HY Motion.
+        Text-to-motion generation has rapidly advanced with diffusion- and flow-based generative models, yet supervised pre-training remains insufficient to align models with high-level objectives such as semantic consistency, realism, and human preference. However, existing post-training methods have key limitations: they <strong>(1)</strong> are often designed for a specific motion representation, such as joint- or rotation-based motions, <strong>(2)</strong> typically optimize a particular aspect, such as text-motion alignment or human preference, and may compromise other quality factors; and <strong>(3)</strong> incur substantial computational overhead, data dependence, and coarse-grained optimization. We present a reinforcement fine-tuning framework that comprises a heterogeneous-representation, multi-dimensional reward model <strong>MotionReward</strong> and an efficient, fine-grained fine-tuning strategy <strong>EasyTune</strong>. To obtain a unified semantics representation, MotionReward maps heterogeneous motion representations into a shared semantic embedding space, where the text description serves as an anchor, paving the way for multi-dimensional reward learning. To enhance semantic without additional annotated data, we propose <strong>Self-refinement Preference Learning</strong> dynamically mining the preference and refinement itself. For efficient and effective fine-tuning, we identify a key limitation of differentiable-reward methods, the recursive dependence across denoising steps. Motivated by this insight, we propose EasyTune, which fine-tunes diffusion step-wise rather than over the full trajectory, decoupling this dependence and enabling dense, fine-grained, and memory-efficient optimization. Extensive experiments demonstrate strong cross-model and cross-representation generalization, achieving FID <strong>0.132</strong> with <strong>22.10 GB</strong> peak memory and saving up to <strong>15.22 GB</strong> over DRaFT. Beyond kinematic-based MLD and MDM, it reduces FID by <strong>22.9%</strong> on joint-based ACMDM, and achieves a <strong>12.1%</strong> R-Precision gain and <strong>21.7%</strong> FID improvement on rotation-based HY-Motion.
       </p>
     </div>
   </div>
@@ -194,21 +209,25 @@
           <span class="remark-icon"><i class="fas fa-lightbulb"></i></span>
           <span class="remark-label">Key Insight</span>
         </div>
-        <p class="remark-text">We identify a key limitation of differentiable-reward methods: the <strong>recursive dependence across denoising steps</strong> leads to inefficient optimization and high memory consumption. EasyTune fine-tunes step-wise rather than over the full trajectory, decoupling this dependence and enabling:</p>
+        <p class="remark-text">Backpropagating through a full denoising trajectory couples gradients across steps and retains large computation graphs. <strong>EasyTune replaces trajectory-level backpropagation with step-wise reward optimization</strong>, enabling memory-efficient, fine-grained updates.</p>
         <div class="remark-features">
           <div class="remark-feature">
             <span class="feature-tag">Memory</span>
-            <span>Step-wise graph storage — <strong>O(1)</strong> instead of O(T)</span>
+            <strong class="feature-metric">22.10 <small>GB</small></strong>
+            <span>Peak memory; 15.22 GB less than DRaFT-50. Graph storage is O(1) in denoising steps, rather than O(T).</span>
           </div>
           <div class="remark-feature">
             <span class="feature-tag">Speed</span>
-            <span>Dense per-step optimization — Faster convergence</span>
+            <strong class="feature-metric">1.47 <small>s / update</small></strong>
+            <span>About 3–4× faster per optimization step than the compared baselines.</span>
           </div>
           <div class="remark-feature">
             <span class="feature-tag">Quality</span>
-            <span>Fine-grained alignment — Step-specific reward perception</span>
+            <strong class="feature-metric">0.132 <small>FID</small></strong>
+            <span>A 70.7% FID reduction from the MLD baseline, with step-specific reward supervision.</span>
           </div>
         </div>
+        <p class="remark-footnote">EasyTune on MLD / HumanML3D. Memory and FID: Table VI; optimization time: Fig. 9 in the revised manuscript.</p>
       </div>
 
       <div class="figure-grid-2col insight-figures">
@@ -253,7 +272,7 @@
       <h3 class="subsection-title">Fine-Tuning Comparison on HumanML3D</h3>
       <div class="figure-container">
         <div class="figure-wrapper">
-          <img src="static/images/tab_finetune.png" alt="Fine-tuning comparison"/>
+          <img src="static/images/tab_finetune_revision.png" alt="Fine-tuning comparison from the revised manuscript"/>
         </div>
         <p class="figure-caption">
           Comparison of fine-tuning methods on HumanML3D. EasyTune achieves FID 0.132 (70.7% improvement) with 22.10 GB peak memory, saving up to 15.22 GB over DRaFT.
@@ -263,20 +282,22 @@
       <h3 class="subsection-title">SoTA Comparison (Kinematic / Joint / Rotation)</h3>
       <div class="figure-container">
         <div class="figure-wrapper">
-          <img src="static/images/tab_sota_h3d.png" alt="SoTA HumanML3D"/>
+          <img src="static/images/tab_sota_h3d_revision.png" alt="SoTA HumanML3D results from the revised manuscript"/>
         </div>
         <p class="figure-caption">
-          Text-to-motion generation on HumanML3D across three representations. MotionRFT achieves best FID of 0.052 (MLD++) and 0.056 (HY Motion).
+          Text-to-motion generation on HumanML3D across three representations. MotionRFT achieves FID 0.052 on MLD++, 0.084 on ACMDM, and 0.985 on HY-Motion. HY-Motion improves by 12.1% in R-Precision Top 1 and 21.7% in FID.
         </p>
       </div>
       
       <h3 class="subsection-title">Generalization Across Models</h3>
-      <div class="figure-container">
+      <div class="figure-container generalization-figure">
         <div class="figure-wrapper">
-          <img src="static/images/tab_generalize.png" alt="Generalization results"/>
+          <a href="static/images/tab_generalize_revision.png" target="_blank" rel="noopener" aria-label="Open the full-size generalization table">
+            <img src="static/images/tab_generalize_revision.png" alt="Generalization results across six models from Table V"/>
+          </a>
         </div>
         <p class="figure-caption">
-          Performance enhancement across six diffusion-based motion generation models with both EasyTune and MotionRFT.
+          Table V: EasyTune and MotionRFT across six pre-trained models on HumanML3D. ODE-based models use one-step prediction; SDE-based models use noise-aware perception. Click the table for full resolution.
         </p>
       </div>
 
