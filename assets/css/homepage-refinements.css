@@ -370,7 +370,7 @@ html .about-page .misc-section[open] .misc-hint-open {
 }
 .about-page .publication-summary__row {
   display: grid;
-  grid-template-columns: 4.7rem minmax(0, 1fr);
+  grid-template-columns: 6.4rem minmax(0, 1fr);
   align-items: baseline;
   column-gap: 0.5rem;
   min-width: 0;
@@ -384,20 +384,14 @@ html .about-page .misc-section[open] .misc-hint-open {
   white-space: nowrap;
 }
 .about-page .publication-summary__row-content {
-  display: grid;
-  align-items: baseline;
-  gap: 0.18rem 0.9rem;
-  min-width: 0;
-}
-.about-page .publication-summary__row--conferences .publication-summary__row-content {
-  grid-template-columns: minmax(0, 2.15fr) minmax(0, 0.9fr) minmax(0, 0.9fr);
-}
-.about-page .publication-summary__row--journals .publication-summary__row-content {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.about-page .publication-summary__row--review .publication-summary__row-content {
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.18rem 0.85rem;
+  min-width: 0;
+}
+.about-page .publication-summary__row--review .publication-summary__row-content {
+  gap: 0;
 }
 .about-page .publication-summary__group {
   display: flex;
@@ -576,6 +570,7 @@ html[data-theme="dark"] .about-page .publication-summary__note.presentation-dist
     align-items: start;
   }
   .about-page .publication-summary__row-content {
+    display: grid;
     grid-template-columns: minmax(0, 1fr) !important;
     gap: 0.08rem;
   }
