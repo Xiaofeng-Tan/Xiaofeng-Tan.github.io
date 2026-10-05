@@ -714,13 +714,13 @@ html[data-theme="dark"] .about-page .publication-summary__note.presentation-dist
 }
 
 /* Publication thumbnails follow a conventional academic-list treatment:
- * one shared width, intrinsic image ratios, and vertical centering beside the
- * metadata. Different figures may have different natural heights. */
+ * one shared width, intrinsic image ratios, and top alignment beside the
+ * metadata. Keep thumbnails stationary when abstracts expand or collapse. */
 @media (min-width: 768px) {
   .about-page #publication-results .bibliography > li > .row {
     margin: 0;
     gap: 17px;
-    align-items: center;
+    align-items: flex-start;
   }
   .about-page #publication-results .abbr {
     flex: 0 0 clamp(142px, 15vw, 168px);
@@ -732,7 +732,7 @@ html[data-theme="dark"] .about-page .publication-summary__note.presentation-dist
     padding: 5px 0;
     margin: 0;
     aspect-ratio: auto;
-    align-self: center;
+    align-self: flex-start;
     display: block;
     overflow: visible;
     position: relative;
