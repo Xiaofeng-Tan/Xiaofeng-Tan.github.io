@@ -168,7 +168,7 @@
 <link rel="stylesheet" href="/assets/css/mobile.css?b80afe268c565678642c2dfcafc89221">
 
   <link rel="stylesheet" href="/assets/css/publication-venues.css?b3349b7c6712b0eee6b6e19615f842bc">
-  <link rel="stylesheet" href="/assets/css/homepage-refinements.css?95db6f1b90e9a593077651e0a14b5de5">
+  <link rel="stylesheet" href="/assets/css/homepage-refinements.css?9e2ef9899e2ad9df7f73bea586fadf88">
 
 <link rel="canonical" href="https://xiaofeng-tan.github.io/">
 
@@ -1968,246 +1968,267 @@ function revealAndCopyContact(button, text, label) {
 
 
 
+
+
 <div class="publication-summary" aria-label="Publication overview / 成果概览">
   <div class="publication-summary__header">
-    <span class="publication-summary__count" data-language="en" lang="en">8 accepted · 2 under review</span>
-    <span class="publication-summary__count" data-language="zh" lang="zh-CN">8 篇已录用 · 2 篇在投</span>
-    <span class="publication-summary__legend" data-language="en" lang="en">Underlined: first / co-first / first student author</span>
-    <span class="publication-summary__legend" data-language="zh" lang="zh-CN">下划线：一作 / 共同一作 / 学生一作</span>
+    <div class="publication-summary__header-copy">
+      <span class="publication-summary__count" data-language="en" lang="en">8 accepted · 2 under review</span>
+      <span class="publication-summary__count" data-language="zh" lang="zh-CN">8 篇已录用 · 2 篇在投</span>
+      <span class="publication-summary__legend" data-language="en" lang="en">Underlined = first / co-first / first student author</span>
+      <span class="publication-summary__legend" data-language="zh" lang="zh-CN">下划线 = 一作 / 共同一作 / 学生一作</span>
+    </div>
+    <div class="publication-filters" id="publication-filters" aria-label="Filter publications by topic / 按主题筛选论文" hidden>
+      <label class="sr-only" for="publication-topic-select">
+        <span data-language="en" lang="en">Filter publications by topic</span>
+        <span data-language="zh" lang="zh-CN">按主题筛选论文</span>
+      </label>
+      <span class="publication-filter-select">
+        <select id="publication-topic-select" aria-controls="publication-results">
+          <option value="all" data-label-en="All topics" data-label-zh="全部主题">All topics</option>
+          
+            
+            <option value="rl" data-label-en="RL" data-label-zh="RL">RL</option>
+          
+            
+            <option value="aigc" data-label-en="AIGC" data-label-zh="AIGC">AIGC</option>
+          
+            
+            <option value="human" data-label-en="Human-centric CV" data-label-zh="Human-centric CV">Human-centric CV</option>
+          
+            
+            <option value="ad" data-label-en="AD" data-label-zh="AD">AD</option>
+          
+        </select>
+      </span>
+    </div>
   </div>
 
-  <div class="publication-summary__accepted">
-    
-      
-        <span class="publication-summary__group">
-          <span class="publication-summary__venue">
-            <span data-language="en" lang="en">NeurIPS</span>
-            <span data-language="zh" lang="zh-CN">NeurIPS</span>
-            <span class="publication-summary__venue-count">3</span>
-          </span>
-          <span class="publication-summary__papers">
-            
-              
-              
-              <span class="publication-summary__paper">
+  <div class="publication-summary__rows">
+    <div class="publication-summary__row publication-summary__row--conferences">
+      <span class="publication-summary__row-label">
+        <span data-language="en" lang="en">Conferences</span>
+        <span data-language="zh" lang="zh-CN">会议</span>
+      </span>
+      <div class="publication-summary__row-content">
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">NeurIPS</span>
+                <span data-language="zh" lang="zh-CN">NeurIPS</span>
                 
-                  <a class="overview-primary" href="/projects/PEC/" title="NeurIPS 2026 · First author / 一作">PEC</a>
-                
-                
-                  <span class="publication-summary__note presentation-distinction">Spotlight</span>
+                  <span class="publication-summary__venue-count">×3</span>
                 
               </span>
-            
-              
-              
-              <span class="publication-summary__paper">
+              <span class="publication-summary__papers">
                 
-                  <a class="overview-primary" href="/projects/SoPo/" title="NeurIPS 2025 · First author / 一作">SoPo</a>
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="/projects/PEC/" title="NeurIPS 2026 · First author / 一作">PEC</a>
+                    
+                    
+                      <span class="publication-summary__note presentation-distinction">Spotlight</span>
+                    
+                  </span>
                 
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="/projects/SoPo/" title="NeurIPS 2025 · First author / 一作">SoPo</a>
+                    
+                    
+                      <span class="publication-summary__note">Poster</span>
+                    
+                  </span>
                 
-                  <span class="publication-summary__note">Poster</span>
-                
-              </span>
-            
-              
-              
-              <span class="publication-summary__paper">
-                
-                  <a href="https://arxiv.org/abs/2609.35407" title="NeurIPS 2026 · Third author / 第三作者" rel="external nofollow noopener" target="_blank">BiMoGen</a>
-                
-                
-                  <span class="publication-summary__note">Poster</span>
-                
-              </span>
-            
-          </span>
-        </span>
-      
-    
-      
-        <span class="publication-summary__group">
-          <span class="publication-summary__venue">
-            <span data-language="en" lang="en">ICLR</span>
-            <span data-language="zh" lang="zh-CN">ICLR</span>
-            <span class="publication-summary__venue-count">1</span>
-          </span>
-          <span class="publication-summary__papers">
-            
-              
-              
-              <span class="publication-summary__paper">
-                
-                  <a class="overview-primary" href="/projects/EasyTune/" title="ICLR 2026 · Co-first author / 共同一作">EasyTune</a>
-                
-                
-                  <span class="publication-summary__note">Poster</span>
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a href="https://arxiv.org/abs/2609.35407" title="NeurIPS 2026 · Third author / 第三作者" rel="external nofollow noopener" target="_blank">BiMoGen</a>
+                    
+                    
+                      <span class="publication-summary__note">Poster</span>
+                    
+                  </span>
                 
               </span>
-            
-          </span>
-        </span>
-      
-    
-      
-        <span class="publication-summary__group">
-          <span class="publication-summary__venue">
-            <span data-language="en" lang="en">AAAI</span>
-            <span data-language="zh" lang="zh-CN">AAAI</span>
-            <span class="publication-summary__venue-count">1</span>
-          </span>
-          <span class="publication-summary__papers">
-            
-              
-              
-              <span class="publication-summary__paper">
-                
-                  <a class="overview-primary" href="https://wengwanjiang.github.io/ReAlign-page/" title="AAAI 2026 · Co-first author / 共同一作" rel="external nofollow noopener" target="_blank">ReAlign</a>
-                
-                
-                  <span class="publication-summary__note">Poster</span>
+            </span>
+          
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">ICLR</span>
+                <span data-language="zh" lang="zh-CN">ICLR</span>
                 
               </span>
-            
-          </span>
-        </span>
-      
-    
-      
-        <span class="publication-summary__group">
-          <span class="publication-summary__venue">
-            <span data-language="en" lang="en">TIP</span>
-            <span data-language="zh" lang="zh-CN">TIP</span>
-            <span class="publication-summary__venue-count">1</span>
-          </span>
-          <span class="publication-summary__papers">
-            
-              
-              
-              <span class="publication-summary__paper">
+              <span class="publication-summary__papers">
                 
-                  <a class="overview-primary" href="/projects/FG-Diff/" title="TIP 2026 · First author / 一作">FG-Diff</a>
-                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="/projects/EasyTune/" title="ICLR 2026 · Co-first author / 共同一作">EasyTune</a>
+                    
+                    
+                      <span class="publication-summary__note">Poster</span>
+                    
+                  </span>
                 
               </span>
-            
-          </span>
-        </span>
-      
-    
-      
-        <span class="publication-summary__group">
-          <span class="publication-summary__venue">
-            <span data-language="en" lang="en">TPAMI</span>
-            <span data-language="zh" lang="zh-CN">TPAMI</span>
-            <span class="publication-summary__venue-count">1</span>
-          </span>
-          <span class="publication-summary__papers">
-            
-              
-              
-              <span class="publication-summary__paper">
-                
-                  <a class="overview-primary" href="/projects/MotionRFT/" title="TPAMI 2026 · Co-first author / 共同一作">MotionRFT</a>
-                
+            </span>
+          
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">AAAI</span>
+                <span data-language="zh" lang="zh-CN">AAAI</span>
                 
               </span>
-            
-          </span>
-        </span>
-      
-    
-      
-        <span class="publication-summary__group">
-          <span class="publication-summary__venue">
-            <span data-language="en" lang="en">TKDE</span>
-            <span data-language="zh" lang="zh-CN">TKDE</span>
-            <span class="publication-summary__venue-count">1</span>
-          </span>
-          <span class="publication-summary__papers">
-            
-              
-              
-              <span class="publication-summary__paper">
+              <span class="publication-summary__papers">
                 
-                  <a class="overview-primary" href="https://ieeexplore.ieee.org/abstract/document/10821488" title="TKDE 2025 · First student author / 学生一作" rel="external nofollow noopener" target="_blank">MGBOD</a>
-                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="https://wengwanjiang.github.io/ReAlign-page/" title="AAAI 2026 · Co-first author / 共同一作" rel="external nofollow noopener" target="_blank">ReAlign</a>
+                    
+                    
+                      <span class="publication-summary__note">Poster</span>
+                    
+                  </span>
                 
               </span>
-            
-          </span>
-        </span>
-      
-    
-      
-    
-  </div>
+            </span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </div>
 
-  <div class="publication-summary__review">
-    <span class="publication-summary__venue">
-      <span data-language="en" lang="en">Under review</span>
-      <span data-language="zh" lang="zh-CN">在投工作</span>
-      <span class="publication-summary__venue-count">2</span>
-    </span>
-    <span class="publication-summary__papers">
-      
+    <div class="publication-summary__row publication-summary__row--journals">
+      <span class="publication-summary__row-label">
+        <span data-language="en" lang="en">Journals</span>
+        <span data-language="zh" lang="zh-CN">期刊</span>
+      </span>
+      <div class="publication-summary__row-content">
         
+          
         
-        <span class="publication-summary__paper">
           
-            <a class="overview-primary" href="/projects/ConsistentRFT/" title=" · First author / 一作">Consistent-RFT</a>
+        
           
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">TIP</span>
+                <span data-language="zh" lang="zh-CN">TIP</span>
+              </span>
+              <span class="publication-summary__papers">
+                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="/projects/FG-Diff/" title="TIP 2026 · First author / 一作">FG-Diff</a>
+                    
+                  </span>
+                
+              </span>
+            </span>
+          
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">TPAMI</span>
+                <span data-language="zh" lang="zh-CN">TPAMI</span>
+              </span>
+              <span class="publication-summary__papers">
+                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="/projects/MotionRFT/" title="TPAMI 2026 · Co-first author / 共同一作">MotionRFT</a>
+                    
+                  </span>
+                
+              </span>
+            </span>
+          
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">TKDE</span>
+                <span data-language="zh" lang="zh-CN">TKDE</span>
+              </span>
+              <span class="publication-summary__papers">
+                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="https://ieeexplore.ieee.org/abstract/document/10821488" title="TKDE 2025 · First student author / 学生一作" rel="external nofollow noopener" target="_blank">MGBOD</a>
+                    
+                  </span>
+                
+              </span>
+            </span>
+          
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="publication-summary__row publication-summary__row--review">
+      <span class="publication-summary__row-label">
+        <span data-language="en" lang="en">Under review</span>
+        <span data-language="zh" lang="zh-CN">在投</span>
+        <span class="publication-summary__venue-count">×2</span>
+      </span>
+      <div class="publication-summary__row-content">
+        <span class="publication-summary__papers">
+          
+            
+            
+            <span class="publication-summary__paper">
+              
+                <a class="overview-primary" href="/projects/ConsistentRFT/" title=" · First author / 一作">Consistent-RFT</a>
+              
+            </span>
+          
+            
+            
+            <span class="publication-summary__paper">
+              
+                <span class="overview-primary" title=" · First author / 一作">Getting Space Right</span>
+              
+            </span>
           
         </span>
-      
-        
-        
-        <span class="publication-summary__paper">
-          
-            <span class="overview-primary" title=" · First author / 一作">Getting Space Right</span>
-          
-          
-        </span>
-      
-    </span>
+      </div>
+    </div>
   </div>
 </div>
 
-    <div class="publication-filters" id="publication-filters" role="group" aria-label="Filter publications by topic / 按主题筛选论文" hidden>
-  <button type="button" class="publication-filter" data-topic-filter="all" aria-pressed="true" aria-controls="publication-results">
-    <span data-language="en" lang="en">All</span><span data-language="zh" lang="zh-CN">全部</span>
-    <span class="publication-filter__count" aria-hidden="true"></span>
-  </button>
-  
-    
-    <button type="button" class="publication-filter" data-topic-filter="rl" aria-pressed="false" aria-controls="publication-results">
-      <span data-language="en" lang="en" title="Reinforcement learning and preference optimization">RL</span>
-      <span data-language="zh" lang="zh-CN" title="强化学习与偏好优化">RL</span>
-      <span class="publication-filter__count" aria-hidden="true"></span>
-    </button>
-  
-    
-    <button type="button" class="publication-filter" data-topic-filter="aigc" aria-pressed="false" aria-controls="publication-results">
-      <span data-language="en" lang="en" title="AI-generated content">AIGC</span>
-      <span data-language="zh" lang="zh-CN" title="人工智能生成内容">AIGC</span>
-      <span class="publication-filter__count" aria-hidden="true"></span>
-    </button>
-  
-    
-    <button type="button" class="publication-filter" data-topic-filter="human" aria-pressed="false" aria-controls="publication-results">
-      <span data-language="en" lang="en" title="Human-centric computer vision: perception, generation, and understanding">Human-centric CV</span>
-      <span data-language="zh" lang="zh-CN" title="以人为中心的计算机视觉：感知、生成与理解">Human-centric CV</span>
-      <span class="publication-filter__count" aria-hidden="true"></span>
-    </button>
-  
-    
-    <button type="button" class="publication-filter" data-topic-filter="ad" aria-pressed="false" aria-controls="publication-results">
-      <span data-language="en" lang="en" title="Anomaly and outlier detection">AD</span>
-      <span data-language="zh" lang="zh-CN" title="异常检测与离群点检测">AD</span>
-      <span class="publication-filter__count" aria-hidden="true"></span>
-    </button>
-  
-</div>
-<span id="publication-filter-status" class="sr-only" role="status" aria-live="polite"></span>
+    <span id="publication-filter-status" class="sr-only" role="status" aria-live="polite"></span>
 <div class="publications-grouped" id="publication-results">
   <details class="pub-category pub-category--highlighted" open>
     <summary class="pub-category__summary">
@@ -3955,7 +3976,7 @@ function revealAndCopyContact(button, text, label) {
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <span>Last updated: <time datetime="2026-10-04T15:34:09+00:00">October 04, 2026</time></span>
+    <span>Last updated: <time datetime="2026-10-05T02:40:50+00:00">October 05, 2026</time></span>
   </div>
 </article>
 
@@ -3999,7 +4020,7 @@ function revealAndCopyContact(button, text, label) {
       <span class="translation-disclaimer" data-language="zh" lang="zh-CN">注：中文内容由机器翻译生成，仅供参考，准确性不作保证。</span>
       
       
-        Last updated: October 04, 2026.
+        Last updated: October 05, 2026.
       
     </div>
   </footer>
