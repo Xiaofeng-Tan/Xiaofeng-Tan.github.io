@@ -170,7 +170,7 @@
 <link rel="stylesheet" href="/assets/css/mobile.css?b80afe268c565678642c2dfcafc89221">
 
   <link rel="stylesheet" href="/assets/css/publication-venues.css?b3349b7c6712b0eee6b6e19615f842bc">
-  <link rel="stylesheet" href="/assets/css/homepage-refinements.css?bc7d18a8e4ba9653024449a3f720ff92">
+  <link rel="stylesheet" href="/assets/css/homepage-refinements.css?c5dec80953d7e7f5de4413f76bd01c13">
 
 
 <link rel="canonical" href="https://xiaofeng-tan.github.io/">
@@ -1982,12 +1982,23 @@ function revealAndCopyContact(button, text, label) {
       <span class="publication-summary__legend" data-language="zh" lang="zh-CN">下划线 = 一作 / 共同一作 / 学生一作</span>
     </div>
     <div class="publication-filters" id="publication-filters" aria-label="Filter publications by topic / 按主题筛选论文" hidden>
-      <label class="sr-only" for="publication-topic-select">
-        <span data-language="en" lang="en">Filter publications by topic</span>
-        <span data-language="zh" lang="zh-CN">按主题筛选论文</span>
-      </label>
+      <span class="publication-filter-icon" aria-hidden="true">
+        <i class="ti ti-filter"></i>
+      </span>
+      <span class="publication-filter-copy">
+        <label class="publication-filter-label" for="publication-topic-select">
+          <span data-language="en" lang="en">Topic</span>
+          <span data-language="zh" lang="zh-CN">主题</span>
+        </label>
+        <span class="publication-filter-divider" aria-hidden="true"></span>
+        <span class="publication-filter-value" aria-hidden="true">
+          <span id="publication-filter-current">All topics</span>
+        </span>
+      </span>
+      <span id="publication-filter-count" class="publication-filter-count" aria-hidden="true">10</span>
+      <span class="publication-filter-chevron" aria-hidden="true"></span>
       <span class="publication-filter-select">
-        <select id="publication-topic-select" aria-controls="publication-results">
+        <select id="publication-topic-select" aria-controls="publication-results" aria-label="Filter publications by topic">
           <option value="all" data-label-en="All topics" data-label-zh="全部主题">All topics</option>
           
             
@@ -2138,26 +2149,6 @@ function revealAndCopyContact(button, text, label) {
           
             <span class="publication-summary__group">
               <span class="publication-summary__venue">
-                <span data-language="en" lang="en">TIP</span>
-                <span data-language="zh" lang="zh-CN">TIP</span>
-              </span>
-              <span class="publication-summary__papers">
-                
-                  
-                  
-                  <span class="publication-summary__paper">
-                    
-                      <a class="overview-primary" href="/projects/FG-Diff/" title="TIP 2026 · First author / 一作">FG-Diff</a>
-                    
-                  </span>
-                
-              </span>
-            </span>
-          
-        
-          
-            <span class="publication-summary__group">
-              <span class="publication-summary__venue">
                 <span data-language="en" lang="en">TPAMI</span>
                 <span data-language="zh" lang="zh-CN">TPAMI</span>
               </span>
@@ -2168,6 +2159,26 @@ function revealAndCopyContact(button, text, label) {
                   <span class="publication-summary__paper">
                     
                       <a class="overview-primary" href="/projects/MotionRFT/" title="TPAMI 2026 · Co-first author / 共同一作">MotionRFT</a>
+                    
+                  </span>
+                
+              </span>
+            </span>
+          
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">TIP</span>
+                <span data-language="zh" lang="zh-CN">TIP</span>
+              </span>
+              <span class="publication-summary__papers">
+                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="/projects/FG-Diff/" title="TIP 2026 · First author / 一作">FG-Diff</a>
                     
                   </span>
                 
@@ -3158,7 +3169,7 @@ function revealAndCopyContact(button, text, label) {
       
       Can
             Gao (Supervisor), <em>Xiaofeng
-            Tan*</em>, Jie
+            Tan</em>, Jie
             Zhou, Weiping
             Ding, and Witold
             Pedrycz
@@ -3979,7 +3990,7 @@ function revealAndCopyContact(button, text, label) {
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <span>Last updated: <time datetime="2026-10-05T04:24:26+00:00">October 05, 2026</time></span>
+    <span>Last updated: <time datetime="2026-10-05T05:28:04+00:00">October 05, 2026</time></span>
   </div>
 </article>
 
