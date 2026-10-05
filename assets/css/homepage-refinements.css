@@ -69,6 +69,14 @@ html .about-page .post-title :is(.name-separator, strong, strong span) {
 
 /* Shared reading color for prose, including revealed abstracts and details.
  * Keep headings, badges, artwork and links independently styled. */
+/* Chinese prose can end before the floated portrait. Start News below the
+ * entire portrait rather than beside it; avoid a fixed-height spacer. */
+@media (min-width: 768px) {
+  html[lang="zh-CN"] .about-page #sec-news {
+    clear: both;
+    padding-top: 0.65rem;
+  }
+}
 .about-page { --reading-text: #707982; }
 html[data-theme="dark"] .about-page { --reading-text: #b4bec8; }
 html .about-page article p,
