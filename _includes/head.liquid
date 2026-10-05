@@ -2,6 +2,8 @@
 {% include metadata.liquid %}
 {% if page.layout == 'about' %}
   <link rel="preload" href="{{ '/assets/fonts/gu-xingshu-subset.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{% endif %}
+{% if page.layout == 'about' or page.permalink == '/cv/' %}
   <link rel="preload" href="{{ '/assets/fonts/outfit-variable.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
 {% endif %}
 <script>
@@ -95,6 +97,9 @@
 {% if page.layout == 'about' %}
   <link rel="stylesheet" href="{{ '/assets/css/publication-venues.css' | relative_url | bust_file_cache }}">
   <link rel="stylesheet" href="{{ '/assets/css/homepage-refinements.css' | relative_url | bust_file_cache }}">
+{% endif %}
+{% if page.permalink == '/cv/' %}
+  <link rel="stylesheet" href="{{ '/assets/css/cv-page.css' | relative_url | bust_file_cache }}">
 {% endif %}
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
