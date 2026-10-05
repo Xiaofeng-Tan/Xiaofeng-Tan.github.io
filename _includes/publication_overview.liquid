@@ -21,12 +21,23 @@
       <span class="publication-summary__legend" data-language="zh" lang="zh-CN">下划线 = 一作 / 共同一作 / 学生一作</span>
     </div>
     <div class="publication-filters" id="publication-filters" aria-label="Filter publications by topic / 按主题筛选论文" hidden>
-      <label class="sr-only" for="publication-topic-select">
-        <span data-language="en" lang="en">Filter publications by topic</span>
-        <span data-language="zh" lang="zh-CN">按主题筛选论文</span>
-      </label>
+      <span class="publication-filter-icon" aria-hidden="true">
+        <i class="ti ti-filter"></i>
+      </span>
+      <span class="publication-filter-copy">
+        <label class="publication-filter-label" for="publication-topic-select">
+          <span data-language="en" lang="en">Topic</span>
+          <span data-language="zh" lang="zh-CN">主题</span>
+        </label>
+        <span class="publication-filter-divider" aria-hidden="true"></span>
+        <span class="publication-filter-value" aria-hidden="true">
+          <span id="publication-filter-current">All topics</span>
+        </span>
+      </span>
+      <span id="publication-filter-count" class="publication-filter-count" aria-hidden="true">{{ accepted_count | plus: review_count }}</span>
+      <span class="publication-filter-chevron" aria-hidden="true"></span>
       <span class="publication-filter-select">
-        <select id="publication-topic-select" aria-controls="publication-results">
+        <select id="publication-topic-select" aria-controls="publication-results" aria-label="Filter publications by topic">
           <option value="all" data-label-en="All topics" data-label-zh="全部主题">All topics</option>
           {% for item in site.data.publication_topics.labels %}
             {% assign topic = item[1] %}

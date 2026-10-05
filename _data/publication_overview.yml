@@ -41,15 +41,6 @@
       role_zh: 共同一作
       url: https://wengwanjiang.github.io/ReAlign-page/
       distinction: Poster
-- id: tip
-  en: TIP
-  zh: TIP
-  papers:
-    - name: FG-Diff
-      venue: TIP 2026
-      role_en: First author
-      role_zh: 一作
-      url: /projects/FG-Diff/
 - id: tpami
   en: TPAMI
   zh: TPAMI
@@ -59,6 +50,15 @@
       role_en: Co-first author
       role_zh: 共同一作
       url: /projects/MotionRFT/
+- id: tip
+  en: TIP
+  zh: TIP
+  papers:
+    - name: FG-Diff
+      venue: TIP 2026
+      role_en: First author
+      role_zh: 一作
+      url: /projects/FG-Diff/
 - id: tkde
   en: TKDE
   zh: TKDE

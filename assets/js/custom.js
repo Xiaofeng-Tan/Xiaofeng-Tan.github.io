@@ -190,6 +190,8 @@
 
   const select = toolbar.querySelector('#publication-topic-select');
   if (!select) return;
+  const currentLabel = toolbar.querySelector('#publication-filter-current');
+  const currentCount = toolbar.querySelector('#publication-filter-count');
   const options = Array.from(select.options);
   const papers = Array.from(results.querySelectorAll('[data-paper-key]')).map(row => ({
     key: row.dataset.paperKey,
@@ -202,6 +204,14 @@
 
   const matches = (paper, topic) => topic === 'all' || paper.topics.includes(topic);
   const count = topic => new Set(papers.filter(paper => matches(paper, topic)).map(paper => paper.key)).size;
+
+  function updateFilterDisplay() {
+    const selected = options.find(option => option.value === activeTopic);
+    const chinese = document.documentElement.lang === 'zh-CN';
+    const label = selected ? selected.dataset[chinese ? 'labelZh' : 'labelEn'] : activeTopic;
+    if (currentLabel) currentLabel.textContent = label;
+    if (currentCount) currentCount.textContent = count(activeTopic);
+  }
 
   function announce() {
     if (!status) return;
@@ -218,6 +228,8 @@
       const label = option.dataset[chinese ? 'labelZh' : 'labelEn'];
       option.textContent = `${label} (${count(option.value)})`;
     });
+    select.setAttribute('aria-label', chinese ? '按主题筛选论文' : 'Filter publications by topic');
+    updateFilterDisplay();
   }
 
   function filter(topic) {
@@ -239,6 +251,8 @@
     });
     if (topic === 'all') savedOpenStates = null;
     select.value = topic;
+    toolbar.classList.toggle('is-filtered', topic !== 'all');
+    updateFilterDisplay();
     results.scrollTop = 0;
     announce();
   }
