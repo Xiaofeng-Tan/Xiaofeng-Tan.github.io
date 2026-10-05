@@ -188,7 +188,9 @@
   const status = document.getElementById('publication-filter-status');
   if (!toolbar || !results) return;
 
-  const buttons = Array.from(toolbar.querySelectorAll('[data-topic-filter]'));
+  const select = toolbar.querySelector('#publication-topic-select');
+  if (!select) return;
+  const options = Array.from(select.options);
   const papers = Array.from(results.querySelectorAll('[data-paper-key]')).map(row => ({
     key: row.dataset.paperKey,
     topics: (row.dataset.paperTopics || '').split(/\s+/).filter(Boolean),
@@ -203,12 +205,19 @@
 
   function announce() {
     if (!status) return;
-    const selected = buttons.find(button => button.dataset.topicFilter === activeTopic);
+    const selected = options.find(option => option.value === activeTopic);
     const chinese = document.documentElement.lang === 'zh-CN';
-    const label = activeTopic === 'all' ? (chinese ? '全部' : 'All') :
-      selected.querySelector('[data-language="en"]').textContent;
+    const label = selected ? selected.dataset[chinese ? 'labelZh' : 'labelEn'] : activeTopic;
     status.textContent = chinese ? `${label}：显示 ${count(activeTopic)} 篇论文` :
       `${label}: showing ${count(activeTopic)} papers`;
+  }
+
+  function updateOptions() {
+    const chinese = document.documentElement.lang === 'zh-CN';
+    options.forEach(option => {
+      const label = option.dataset[chinese ? 'labelZh' : 'labelEn'];
+      option.textContent = `${label} (${count(option.value)})`;
+    });
   }
 
   function filter(topic) {
@@ -229,17 +238,17 @@
       }
     });
     if (topic === 'all') savedOpenStates = null;
-    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.topicFilter === topic)));
+    select.value = topic;
     results.scrollTop = 0;
     announce();
   }
 
-  buttons.forEach(button => {
-    const topic = button.dataset.topicFilter;
-    button.querySelector('.publication-filter__count').textContent = count(topic);
-    button.addEventListener('click', () => filter(topic));
+  select.addEventListener('change', () => filter(select.value));
+  document.addEventListener('site-language-changed', () => {
+    updateOptions();
+    announce();
   });
-  document.addEventListener('site-language-changed', announce);
+  updateOptions();
   toolbar.hidden = false;
 })();
 
