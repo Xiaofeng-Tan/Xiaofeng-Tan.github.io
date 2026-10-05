@@ -170,14 +170,14 @@
       {% assign presentation_label = entry.presentation | split: ' (' | first %}
       {% capture presentation_highlight %}{% if presentation_label == 'Spotlight' or presentation_label == 'Oral' %} <strong class="presentation-distinction">({{ presentation_label }})</strong>{% endif %}{% endcapture %}
       {%- if entry.abbr -%}
-        {%- assign abbr_icon = "🏆" -%}
-        {%- if entry.abbr contains "UR" -%}
-          {%- assign abbr_icon = "⏱️" -%}
+        {%- assign abbr_icon = "" -%}
+        {%- if presentation_label == "Spotlight" -%}
+          {%- assign abbr_icon = "🏆 " -%}
         {%- endif -%}
         {%- if site.data.venues[entry.abbr] -%}
-          <span class="venue-abbr" style="color: {{ site.data.venues[entry.abbr].color }};">{{ abbr_icon }} {{ entry.abbr }} {{ entry.year }}{{ presentation_highlight }}</span><span class="venue-separator">|</span>
+          <span class="venue-abbr" style="color: {{ site.data.venues[entry.abbr].color }};">{{ abbr_icon }}{{ entry.abbr }} {{ entry.year }}{{ presentation_highlight }}</span><span class="venue-separator">|</span>
         {% else %}
-          <span class="venue-abbr">{{ abbr_icon }} {{ entry.abbr }} {{ entry.year }}{{ presentation_highlight }}</span><span class="venue-separator">|</span>
+          <span class="venue-abbr">{{ abbr_icon }}{{ entry.abbr }} {{ entry.year }}{{ presentation_highlight }}</span><span class="venue-separator">|</span>
         {% endif %}
       {%- endif -%}
       <span class="publication-venue-text">{{ periodical | strip }}</span>
