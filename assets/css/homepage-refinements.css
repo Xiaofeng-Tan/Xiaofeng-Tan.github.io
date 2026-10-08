@@ -69,6 +69,32 @@ html .about-page .post-title :is(.name-separator, strong, strong span) {
 
 /* Shared reading color for prose, including revealed abstracts and details.
  * Keep headings, badges, artwork and links independently styled. */
+/* News category tags stay compact and are not overridden by the language
+ * switcher's generic inline display rule. */
+html .about-page .news .news-tag {
+  align-items: center;
+  margin: 0 0.4rem 0 0;
+  padding: 0.08rem 0.4rem;
+  border-radius: 999px;
+  background: rgba(36, 91, 132, 0.06);
+  color: #245b84;
+  font-size: 0.64rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+html[lang="en"] .about-page .news .news-tag[data-language="en"],
+html[lang="zh-CN"] .about-page .news .news-tag[data-language="zh"] {
+  display: inline-flex;
+}
+
+html[data-theme="dark"] .about-page .news .news-tag {
+  background: rgba(129, 177, 216, 0.08);
+  color: #81b1d8;
+}
+
 /* Chinese prose can end before the floated portrait. Start News below the
  * entire portrait rather than beside it; avoid a fixed-height spacer. */
 @media (min-width: 768px) {

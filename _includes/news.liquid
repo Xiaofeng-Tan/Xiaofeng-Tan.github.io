@@ -18,8 +18,13 @@
           <tr>
             <th scope="row" style="width: 20%; color: #666;">{{ item.date | date: '%b %d, %Y' }}</th>
             <td class="news-item-text">
+              {% assign news_key = item.path | split: '/' | last | remove: '.md' %}
+              {% assign news_tag = site.data.news_tags[news_key] %}
+              {% if news_tag %}
+                <span class="news-tag" data-language="en" lang="en">{{ news_tag.en }}</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">{{ news_tag.zh }}</span>
+              {% endif %}
               {% if item.inline %}
-                {% assign news_key = item.path | split: '/' | last | remove: '.md' %}
                 {% if site.data.news_zh[news_key] %}
                   <span class="news-content" data-language="en" lang="en">{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}</span>
                   <span class="news-content" data-language="zh" lang="zh-CN">{{ site.data.news_zh[news_key] }}</span>
