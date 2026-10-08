@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Getting Space Right: Agentic Rewards for Image Generation">
+  <meta property="og:title" content="Getting Space Right: Agentic Rewards for Image Generation">
+  <meta property="og:description" content="An agentic spatial reward model and a capability-guided curriculum for text-to-image generation.">
+  <meta property="og:image" content="images/reward-paradigms.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Getting Space Right: Agentic Rewards for Image Generation</title>
+  <link rel="icon" href="./favicon.svg">
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/academic-base.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span class="method-name">Getting Space Right</span>:<br>
+            Agentic Rewards for Image Generation
+          </h1>
+
+          <div class="publication-authors">
+            <span class="author-block">Xiaofeng Tan<sup>1,2,*</sup></span>
+            <span class="author-block">Jiaxin Lin<sup>2</sup></span>
+            <span class="author-block">Haobo Yuan<sup>3</sup></span>
+            <span class="author-block">Tiancheng Shen<sup>3</sup></span>
+            <span class="author-block">Zihan Su<sup>4</sup></span>
+            <span class="author-block">Rui Chen<sup>2</sup></span>
+            <span class="author-block">Hongsong Wang<sup>1,&dagger;</sup></span>
+            <span class="author-block">Ming-Hsuan Yang<sup>3,5</sup></span>
+          </div>
+          <div class="publication-affiliations">
+            <span><sup>1</sup>Southeast University</span>
+            <span><sup>2</sup>Tencent HY</span>
+            <span><sup>3</sup>University of California, Merced</span>
+            <span><sup>4</sup>Tsinghua University</span>
+            <span><sup>5</sup>Google</span>
+          </div>
+          <p class="author-notes"><sup>*</sup>Work done at Tencent HY. <sup>&dagger;</sup>Corresponding author.</p>
+
+          <div class="venue-row">
+            <span class="venue-badge">Research Manuscript</span>
+          </div>
+
+          <div class="tldr-container">
+            <p><strong>TL;DR:</strong> We propose a <strong>curriculum-guided RL paradigm</strong> for spatial T2I post-training, comprising <strong>SpatialCritic</strong>, an agentic reward model that leverages vision foundation models for robust supervision, and a progressive curriculum from basic spatial capabilities to complex compositions.</p>
+          </div>
+
+          <div class="publication-links hero-links" aria-label="Project resources">
+            <a href="./paper.pdf" target="_blank" rel="noopener" class="button btn-paper">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h5"/></svg>
+              </span>
+              <span>Paper</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Abstract</h2>
+      <p class="abstract-text">
+        Reinforcement learning (RL) is promising for spatial text-to-image generation, but existing work largely focuses on policy optimization, assuming accurate rewards and effective online rollouts. We observe in-domain gains with out-of-domain degradation, exposing two limitations: <strong>unreliable spatial rewards in open-world settings</strong> and <strong>rollouts lacking basic-to-complex progression</strong>. We propose a curriculum-guided RL framework. First, we introduce <strong>SpatialCritic</strong>, an agentic reward model equipped with a spatial perception harness that combines reusable verification guidance with specialized vision tools. We then construct spatial preference datasets through targeted counterfactual perturbations and perform agent–harness alignment to improve tool selection and evidence integration efficiently. Second, curriculum learning organizes shared foundational capabilities and their compositional dependencies in a capability graph for mastery-guided rollouts, periodic review, and targeted remediation. On SpaRW-Eval, SpatialCritic achieves <strong>95.1% verification accuracy</strong>, outperforming 320B GLM-5.3-Flash with a 40× smaller 8B backbone and raising average baseline scores from <strong>78.4 to 83.9 on SD3.5-Medium</strong> and <strong>83.2 to 86.5 on BAGEL</strong>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt-bg">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Motivation</h2>
+      <p class="abstract-text">
+        RL effectiveness depends on rollout organization, reward accuracy, and policy optimization. Existing work primarily advances policy optimization, often assuming that rewards provide reliable supervision and rollouts support effective learning. In spatial generation, these assumptions can fail: in-domain performance improves while out-of-domain performance deteriorates.
+      </p>
+
+      <div class="figure-container">
+        <div class="figure-wrapper generalization-figure">
+          <a href="./images/generalization-collapse.webp" target="_blank" rel="noopener">
+            <img src="./images/generalization-collapse.webp" width="2000" height="1314" alt="In-domain accuracy improves while out-of-domain performance falls.">
+          </a>
+        </div>
+        <p class="figure-caption"><strong>Generalization collapse.</strong> ID accuracy improves while OOD performance falls.</p>
+      </div>
+
+      <div class="research-questions">
+        <h3>Research Questions</h3>
+        <p><strong>Q1.</strong> Are reward models accurate and robust enough in open-world spatial scenarios?</p>
+        <p><strong>Q2.</strong> Can rollout organization support progressive learning from basic capabilities to complex spatial compositions?</p>
+      </div>
+
+      <div class="research-questions">
+        <h3>Contributions</h3>
+        <p><strong>SpatialCritic.</strong> An agentic reward model that uses vision foundation models for grounded spatial verification, with a spatial perception harness, counterfactual preference data, and agent–harness alignment via RLVR.</p>
+        <p><strong>Curriculum.</strong> Rollouts progress from basic spatial capabilities to complex compositions through a Compositional Capability Graph, with mastery-guided progression, review, and remediation.</p>
+        <p><strong>Results.</strong> SpatialCritic reaches 95.1% on SpaRW-Eval. Curriculum RL raises average scores to 83.9 on SD3.5-Medium and 86.5 on BAGEL.</p>
+      </div>
+
+      <div class="figure-container">
+        <div class="figure-wrapper large">
+          <a href="./images/reward-paradigms.webp" target="_blank" rel="noopener">
+            <img src="./images/reward-paradigms.webp" width="2000" height="575" alt="Comparison of regression, generative, and agentic reward models.">
+          </a>
+        </div>
+        <p class="figure-caption"><strong>Reward-modeling paradigms.</strong> SpatialCritic combines VLM reasoning with specialized vision tools for grounded verification.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">SpatialCritic</h2>
+      <p class="abstract-text compact-text">
+        SpatialCritic decomposes a prompt into atomic spatial claims, identifies uncertain claims, plans targeted tool calls, and integrates structured visual evidence into a final preference judgment. The spatial perception harness provides reusable verification guidance and tools for grounding, counting, segmentation, depth, geometry, orientation, and contextual checks.
+      </p>
+
+      <div class="figure-container">
+        <div class="figure-wrapper medium">
+          <a href="./images/spatial-verification.webp" target="_blank" rel="noopener">
+            <img src="./images/spatial-verification.webp" width="2000" height="1502" alt="Fixed and agent-planned spatial verification routes.">
+          </a>
+        </div>
+        <p class="figure-caption"><strong>Spatial verification.</strong> (a) Fixed mask–depth routine; (b) agent-planned tool use.</p>
+      </div>
+
+      <h3 class="subsection-title">Agent–Harness Alignment</h3>
+      <p class="abstract-text compact-text">
+        We optimize the agent through RL with verifiable outcome rewards and a token-budget penalty while keeping the perception harness fixed. Alignment improves tool selection, evidence integration, judgment accuracy, and response efficiency.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt-bg">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Spatial Preference Dataset</h2>
+      <p class="abstract-text compact-text">
+        We construct counterfactual prompt pairs that alter a targeted spatial constraint while preserving the remaining visual content. Text-level validation, image-level verification, and sampled human inspection retain pairs whose images exhibit the intended contrast.
+      </p>
+
+      <div class="figure-container">
+        <div class="figure-wrapper large">
+          <a href="./images/preference-dataset.webp" target="_blank" rel="noopener">
+            <img src="./images/preference-dataset.webp" width="2000" height="1116" alt="Spatial preference dataset construction pipeline.">
+          </a>
+        </div>
+        <p class="figure-caption"><strong>Spatial preference dataset construction.</strong> Prompt construction, image verification, human review, and hard-set selection.</p>
+      </div>
+
+      <div class="dataset-stats">
+        <div><strong>36</strong><span>Scene settings</span></div>
+        <div><strong>13</strong><span>Task categories</span></div>
+        <div><strong>4,389</strong><span>Training entries</span></div>
+        <div><strong>5,572</strong><span>SpaRW-Eval pairs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Curriculum Learning</h2>
+      <p class="abstract-text compact-text">
+        Higher-order spatial tasks combine shared foundational capabilities. A compositional capability graph captures these dependencies, while mastery-guided progression, periodic review, and targeted remediation organize policy rollouts.
+      </p>
+
+      <div class="figure-container">
+        <div class="figure-wrapper medium">
+          <a href="./images/capability-curriculum.webp" target="_blank" rel="noopener">
+            <img src="./images/capability-curriculum.webp" width="2000" height="1443" alt="Compositional capability graph and progressive learning cycle.">
+          </a>
+        </div>
+        <p class="figure-caption"><strong>CCG-guided progressive learning.</strong> Solid arrows show capability dependencies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt-bg" id="experiments">
+  <div class="container is-max-desktop">
+    <div class="content-block experiments-content">
+      <h2 class="section-title">Experiments</h2>
+
+      <h3 class="subsection-title">Spatial Preference Accuracy on SpaRW-Eval</h3>
+      <figure class="latex-table-figure latex-table-wide">
+        <a href="./tables/sparw-eval.pdf" target="_blank" rel="noopener">
+          <img src="./tables/sparw-eval.webp" width="2600" height="1589" alt="LaTeX-rendered table of spatial preference accuracy on SpaRW-Eval.">
+        </a>
+        <figcaption class="latex-table-caption">Spatial preference accuracy (%) on SpaRW-Eval.</figcaption>
+      </figure>
+
+      <h3 class="subsection-title">Reward-Guided Best-of-N Image Generation</h3>
+      <figure class="latex-table-figure latex-table-medium">
+        <a href="./tables/best-of-n.pdf" target="_blank" rel="noopener">
+          <img src="./tables/best-of-n.webp" width="2600" height="731" alt="LaTeX-rendered table of reward-guided Best-of-N image generation.">
+        </a>
+        <figcaption class="latex-table-caption">Reward-guided Best-of-N image generation.</figcaption>
+      </figure>
+
+      <h3 class="subsection-title">Reward-Guided RL Post-Training</h3>
+      <figure class="latex-table-figure latex-table-wide">
+        <a href="./tables/rl-post-training.pdf" target="_blank" rel="noopener">
+          <img src="./tables/rl-post-training.webp" width="2600" height="1225" alt="LaTeX-rendered table of reward-guided RL post-training on SD3.5-Medium and BAGEL.">
+        </a>
+        <figcaption class="latex-table-caption">Reward-guided RL post-training on SD3.5-Medium and BAGEL.</figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Visual Results</h2>
+      <div class="figure-container figure-narrow">
+        <div class="figure-wrapper">
+          <a href="./images/alignment-efficiency.webp" target="_blank" rel="noopener">
+            <img src="./images/alignment-efficiency.webp" width="2000" height="715" alt="Agent–harness alignment reduces response length and latency while correcting the judgment.">
+          </a>
+        </div>
+        <p class="figure-caption"><strong>Decision and efficiency.</strong> The aligned agent corrects the verdict while using fewer tokens and lower latency.</p>
+      </div>
+
+      <div class="figure-container figure-wide">
+        <div class="figure-wrapper">
+          <a href="./images/alignment-cases.webp" target="_blank" rel="noopener">
+            <img src="./images/alignment-cases.webp" width="2000" height="413" alt="Agent–harness alignment cases involving candle counting and sunflower layout.">
+          </a>
+        </div>
+        <p class="figure-caption">
+          <strong>Agent–harness alignment cases.</strong> Alignment improves evidence-consistent counting and identifies the decisive single-row layout constraint.
+        </p>
+      </div>
+
+      <div class="figure-container figure-wide">
+        <div class="figure-wrapper">
+          <a href="./images/planning-improvements.webp" target="_blank" rel="noopener">
+            <img src="./images/planning-improvements.webp" width="2000" height="415" alt="Planning improvements after agent–harness alignment.">
+          </a>
+        </div>
+        <p class="figure-caption"><strong>Planning improvements.</strong> The aligned agent skips an irrelevant tool and proactively verifies a missing object.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Training Efficiency</h2>
+      <div class="figure-container">
+        <div class="figure-wrapper large">
+          <a href="./images/training-efficiency.webp" target="_blank" rel="noopener">
+            <img src="./images/training-efficiency.webp" width="2000" height="628" alt="Accuracy, response length, and training-step time during agent optimization.">
+          </a>
+        </div>
+        <p class="figure-caption"><strong>Accuracy and efficiency during agent optimization.</strong> Validation accuracy increases while response length and training-step time decrease.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt-bg">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Paper</h2>
+      <p class="abstract-text compact-text">The manuscript contains the complete method, experimental setup, additional cases, ablations, and implementation details.</p>
+      <div class="pdf-preview">
+        <object data="./paper.pdf" type="application/pdf" aria-label="Manuscript and appendix preview">
+          <a href="./paper.pdf">Open the manuscript</a>
+        </object>
+      </div>
+      <div class="publication-links">
+        <a href="./paper.pdf" target="_blank" rel="noopener" class="button btn-primary">Manuscript &amp; Appendix</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>Getting Space Right: Agentic Rewards for Image Generation</p>
+  </div>
+</footer>
+
+</body>
+</html>
