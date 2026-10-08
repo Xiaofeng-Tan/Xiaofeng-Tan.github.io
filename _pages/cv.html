@@ -101,7 +101,9 @@ nav_order: 2
     }
   };
 
-  let active = document.documentElement.lang === 'zh-CN' ? 'zh' : 'en';
+  const initialLang = new URLSearchParams(window.location.search).get('lang');
+  let active = initialLang === 'zh' ? 'zh' : 'en';
+  let preferUrlLang = initialLang === 'zh' || initialLang === 'en';
 
   function render() {
     const version = versions[active];
@@ -117,12 +119,23 @@ nav_order: 2
   buttons.forEach(function (button) {
     button.addEventListener('click', function () {
       active = button.dataset.cvLanguage;
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', active);
+      window.history.replaceState(null, '', url);
       render();
     });
   });
 
   document.addEventListener('site-language-changed', function (event) {
-    active = event.detail && event.detail.language === 'zh' ? 'zh' : 'en';
+    if (preferUrlLang) {
+      preferUrlLang = false;
+      active = initialLang;
+    } else {
+      active = event.detail && event.detail.language === 'zh' ? 'zh' : 'en';
+    }
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', active);
+    window.history.replaceState(null, '', url);
     render();
   });
 

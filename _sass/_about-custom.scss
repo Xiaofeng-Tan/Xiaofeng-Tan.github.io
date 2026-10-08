@@ -2603,13 +2603,15 @@ html[data-theme="dark"] .presentation-distinction {
     line-height: 1.4;
   }
 
-  .gold-reviewer {
+  .gold-reviewer,
+  .top-reviewer {
     color: #8d8174;
     font-weight: 500;
     font-style: normal;
   }
 
-  html[data-theme="dark"] .gold-reviewer {
+  html[data-theme="dark"] .gold-reviewer,
+  html[data-theme="dark"] .top-reviewer {
     color: #c2b29f;
   }
 
