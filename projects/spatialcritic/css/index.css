@@ -110,6 +110,16 @@ a:hover {
   white-space: nowrap;
 }
 
+.publication-authors .author-block a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+.publication-authors .author-block a:hover {
+  color: var(--teal-650);
+}
+
 .publication-authors sup,
 .publication-affiliations sup,
 .author-notes sup {
