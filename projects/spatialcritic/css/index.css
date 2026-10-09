@@ -132,6 +132,23 @@ a:hover {
   font-weight: 700;
 }
 
+.publication-affiliations .aff-logo {
+  height: 1.35em;
+  width: auto;
+  margin: 0 0.28em 0 0.18em;
+  vertical-align: -0.35em;
+}
+
+.publication-affiliations .aff-logo.wordmark {
+  height: 0.95em;
+  vertical-align: -0.12em;
+}
+
+.publication-affiliations .aff-logo.tsinghua {
+  height: 0.82em;
+  vertical-align: -0.08em;
+}
+
 .author-notes {
   margin: 0.35rem 0 0;
   color: var(--muted);

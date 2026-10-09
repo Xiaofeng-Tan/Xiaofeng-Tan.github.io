@@ -339,44 +339,6 @@ layout: default
     {% include selected_papers.liquid %}
   {% endif %}
 
-  <!-- Selected Honors -->
-  {% if site.data.honors %}
-    <h2 id="sec-honors" class="section-title">
-      <span>🌟 Selected Honors</span>
-    </h2>
-    <div class="honors-section honors-section--grouped">
-      {% assign honor_stages = "masters,undergraduate" | split: "," %}
-      {% for stage in honor_stages %}
-        {% assign stage_honors = site.data.honors | where: "stage", stage %}
-        <section class="honors-stage" aria-labelledby="honors-{{ stage }}">
-          <h3 class="honors-stage-title" id="honors-{{ stage }}">
-            {% if stage == "masters" %}
-              <span data-language="en" lang="en">Master’s Studies</span>
-              <span data-language="zh" lang="zh-CN">硕士期间</span>
-            {% else %}
-              <span data-language="en" lang="en">Undergraduate Studies</span>
-              <span data-language="zh" lang="zh-CN">本科期间</span>
-            {% endif %}
-          </h3>
-          <div class="honors-stage-cards">
-        {% for honor in stage_honors %}
-          <details class="compact-card">
-            <summary><span class="compact-title">
-              <span data-language="en" lang="en">{{ honor.title_en }}</span>
-              <span data-language="zh" lang="zh-CN">{{ honor.title_zh }}</span>
-            </span><span class="year">{{ honor.year }}</span></summary>
-            <div class="compact-card-body">
-              <span data-language="en" lang="en">{{ honor.institution_en }}{% if honor.note_en %} · {{ honor.note_en }}{% endif %}</span>
-              <span data-language="zh" lang="zh-CN">{{ honor.institution_zh }}{% if honor.note_zh %} · {{ honor.note_zh }}{% endif %}</span>
-            </div>
-          </details>
-        {% endfor %}
-          </div>
-        </section>
-      {% endfor %}
-    </div>
-  {% endif %}
-
   <!-- Service -->
   <h2 id="sec-service" class="section-title">
     <span>📋 Service</span>
@@ -393,6 +355,49 @@ layout: default
       </li>
     </ul>
   </div>
+
+  <!-- Selected Honors -->
+  {% if site.data.honors %}
+    <h2 id="sec-honors" class="section-title">
+      <span>🌟 Selected Honors</span>
+    </h2>
+    <div class="honors-section honors-section--grouped">
+      {% assign honor_categories = "community,masters,undergraduate" | split: "," %}
+      {% for category in honor_categories %}
+        {% assign category_honors = site.data.honors | where: "category", category %}
+        {% if category_honors.size > 0 %}
+          <section class="honors-stage honors-stage--{{ category }}" aria-labelledby="honors-{{ category }}">
+            <h3 class="honors-stage-title" id="honors-{{ category }}">
+              {% if category == "community" %}
+                <span data-language="en" lang="en">Community Recognition</span>
+                <span data-language="zh" lang="zh-CN">社区认可</span>
+              {% elsif category == "masters" %}
+                <span data-language="en" lang="en">Master’s Studies</span>
+                <span data-language="zh" lang="zh-CN">硕士期间</span>
+              {% else %}
+                <span data-language="en" lang="en">Undergraduate Studies</span>
+                <span data-language="zh" lang="zh-CN">本科期间</span>
+              {% endif %}
+            </h3>
+            <div class="honors-stage-cards">
+              {% for honor in category_honors %}
+                <details class="compact-card">
+                  <summary><span class="compact-title">
+                    <span data-language="en" lang="en">{{ honor.title_en }}</span>
+                    <span data-language="zh" lang="zh-CN">{{ honor.title_zh }}</span>
+                  </span><span class="year">{{ honor.year }}</span></summary>
+                  <div class="compact-card-body">
+                    <span data-language="en" lang="en">{{ honor.institution_en }}{% if honor.note_en %} · {{ honor.note_en }}{% endif %}</span>
+                    <span data-language="zh" lang="zh-CN">{{ honor.institution_zh }}{% if honor.note_zh %} · {{ honor.note_zh }}{% endif %}</span>
+                  </div>
+                </details>
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
 
   <!-- Teaching Assistant -->
   <h2 id="sec-teaching" class="section-title">

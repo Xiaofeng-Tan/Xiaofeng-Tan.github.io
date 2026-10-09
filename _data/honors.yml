@@ -1,12 +1,24 @@
 # Website display copy. CV source keeps its independently maintained details.
 - title_en: ICML Gold Reviewer
   stage: masters
+  group: community
+  category: community
   title_zh: ICML 金牌审稿人
   institution_en: International Conference on Machine Learning
   institution_zh: 国际机器学习大会
   year: 2026
+- title_en: NeurIPS Top Reviewer
+  stage: masters
+  group: community
+  category: community
+  title_zh: NeurIPS Top Reviewer
+  institution_en: Conference on Neural Information Processing Systems
+  institution_zh: 神经信息处理系统大会
+  year: 2026
 - title_en: Tencent-SEU Scholarship
   stage: masters
+  group: scholarship
+  category: masters
   title_zh: 腾讯–东南大学奖学金
   institution_en: Southeast University
   institution_zh: 东南大学
@@ -15,38 +27,58 @@
   year: 2025
 - title_en: First-Class Academic Scholarship
   stage: masters
+  group: scholarship
+  category: masters
   title_zh: 一等学业奖学金
   institution_en: Southeast University
   institution_zh: 东南大学
   note_en: "¥12,000"
   note_zh: "12,000 元"
   year: 2025
+- title_en: Outstanding Camper (Admission Summer Camp)
+  stage: masters
+  group: academic
+  category: masters
+  title_zh: 优秀营员（招生夏令营）
+  institution_en: Southeast University (Rank 2)
+  institution_zh: 东南大学（第 2 名）
+  year: 2024
 - title_en: Outstanding Graduate Representative
   stage: undergraduate
+  group: community
+  category: community
   title_zh: 优秀毕业生代表
   institution_en: Shenzhen University (Graduation Speech)
   institution_zh: 深圳大学（毕业典礼发言）
   year: 2024
 - title_en: Featured in Admissions Guide
   stage: undergraduate
+  group: community
+  category: community
   title_zh: 入选招生指南
   institution_en: Shenzhen University (as Outstanding Student)
   institution_zh: 深圳大学（优秀学生事迹）
   year: 2024
 - title_en: Honor Bachelor Degree
   stage: undergraduate
+  group: academic
+  category: undergraduate
   title_zh: 荣誉学士学位
   institution_en: Shenzhen University
   institution_zh: 深圳大学
   year: 2024
 - title_en: Outstanding Graduate
   stage: undergraduate
+  group: academic
+  category: undergraduate
   title_zh: 优秀毕业生
   institution_en: Shenzhen University
   institution_zh: 深圳大学
   year: 2024
 - title_en: LiYuan Star (SZU Special Award)
   stage: undergraduate
+  group: scholarship
+  category: undergraduate
   title_zh: 荔园之星（深圳大学特等奖）
   institution_en: Shenzhen University
   institution_zh: 深圳大学
@@ -55,6 +87,8 @@
   year: "2022, 2023"
 - title_en: Scholarship of Outstanding Innovative Talent
   stage: undergraduate
+  group: scholarship
+  category: undergraduate
   title_zh: 拔尖创新人才奖学金
   institution_en: Guangdong Science College Entrance Exam
   institution_zh: 广东省高考（理科）
