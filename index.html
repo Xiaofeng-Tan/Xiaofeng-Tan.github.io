@@ -170,7 +170,7 @@
 <link rel="stylesheet" href="/assets/css/mobile.css?1b0ecb5b1d3d601e26625d4b4d04194d">
 
   <link rel="stylesheet" href="/assets/css/publication-venues.css?b3349b7c6712b0eee6b6e19615f842bc">
-  <link rel="stylesheet" href="/assets/css/homepage-refinements.css?69f9868376696454b6d698b80039b619">
+  <link rel="stylesheet" href="/assets/css/homepage-refinements.css?cc881fcc914c2ec0f3dfc9b8b41682e5">
 
 
 <link rel="canonical" href="https://xiaofeng-tan.github.io/">
@@ -2037,26 +2037,46 @@ function revealAndCopyContact(button, text, label) {
   </div>
 
   <!-- Research Summary -->
-  <h2 id="sec-research-summary" class="section-title">
-  <span data-language="en" lang="en">🧭 Research Summary</span>
-  <span data-language="zh" lang="zh-CN">🧭 研究总结</span>
-</h2>
+  <details id="sec-research-summary" class="research-summary-section">
+<summary class="section-title">
+  <span class="section-title-label">
+    <span data-language="en" lang="en">🧭 Research Summary</span>
+    <span data-language="zh" lang="zh-CN">🧭 研究总结</span>
+  </span>
+  <span class="section-title-hint">
+    <span class="pub-category__hint">
+  <span class="pub-category__hint-expand">
+    <span data-language="en" lang="en">Click to expand</span>
+    <span data-language="zh" lang="zh-CN">点击展开</span>
+  </span>
+  <span class="pub-category__hint-collapse">
+    <span data-language="en" lang="en">Click to collapse</span>
+    <span data-language="zh" lang="zh-CN">点击收起</span>
+  </span>
+</span>
+
+  </span>
+  <span class="section-title-chevron" aria-hidden="true"></span>
+</summary>
 <div class="clearfix research-summary">
   <div data-language="en" lang="en">
     <p>My research focuses on <strong>post-training and alignment for generative models</strong>, with two main goals: improving text-motion alignment and developing post-training methods for large-scale text-to-image models in industry.</p>
     <p>At <strong>PALM@SEU</strong>, advised by Prof. <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang</a> and collaborating with Prof. <a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">Pan Zhou</a> at <strong>SMU</strong>, I study text–motion alignment in motion generation: <a href="/projects/SoPo/index.html">SoPo</a> (NeurIPS 2025) addresses scarce preference pairs and sampling bias; <a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a> (AAAI 2026) aligns pretrained generators without fine-tuning; and <a href="/projects/EasyTune/index.html">EasyTune</a> (ICLR 2026) improves alignment with substantially less memory. Building on this, <a href="/projects/MotionRFT/index.html">MotionRFT</a> (IEEE TPAMI 2026) extends post-training across motion representations, improving HY Motion’s FID by 23.3%.</p>
-    <p>At <strong>Tencent YouTu</strong>, I worked with Jun Liu, Bin-Bin Gao, and Yuanting Fan at Tencent, and Prof. Feng Zheng at <strong>SUSTech</strong>, on image-generation post-training and underexplored barriers to deployment: <a href="/projects/ConsistentRFT/index.html">DPGO</a> (under review) reduces low- and high-level perceptual hallucinations by 49% and 38% on average, respectively; <a href="/projects/PEC/index.html">PEC</a> (NeurIPS 2026, <strong>Spotlight</strong>) mitigates diversity collapse, raising the evaluated quality–diversity score from 0.366 to 0.734.</p>
+    <p>At <strong>Tencent YouTu</strong>, I worked with <a href="https://scholar.google.com/citations?user=JIKuf4AAAAAJ" rel="external nofollow noopener" target="_blank">Jun Liu</a>, <a href="https://csgaobb.github.io/" rel="external nofollow noopener" target="_blank">Bin-Bin Gao</a>, and <a href="https://retofan233.github.io/" rel="external nofollow noopener" target="_blank">Yuanting Fan</a> at Tencent, and Prof. <a href="https://www.sustech.edu.cn/en/faculties/zhengfeng.html" rel="external nofollow noopener" target="_blank">Feng Zheng</a> and <a href="https://jam-cc.github.io/" rel="external nofollow noopener" target="_blank">Xi Jiang</a> at <strong>SUSTech</strong>, on image-generation post-training and underexplored barriers to deployment: <a href="/projects/ConsistentRFT/index.html">DPGO</a> (under review) reduces low- and high-level perceptual hallucinations by 49% and 38% on average, respectively; <a href="/projects/PEC/index.html">PEC</a> (NeurIPS 2026, <strong>Spotlight</strong>) mitigates diversity collapse, raising the evaluated quality–diversity score from 0.366 to 0.734.</p>
     <p>At <strong>Tencent HY</strong>, I study the reliability of reward supervision and learning progression, collaborating with Prof. <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a> as a remote visiting student at <strong>UC Merced</strong>. Our <a href="/projects/SpatialReward/index.html">SpatialCritic</a> (under review) addresses these challenges in spatial generation, achieving 95.08% spatial-preference verification accuracy on our SpaRW-Eval benchmark.</p>
-    <p>My earlier anomaly-detection research began at <strong>SZU</strong> with Prof. <a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">Can Gao</a> (<a href="/Publications/#tanGB">MGBOD</a>, IEEE TKDE 2025) and later extended to video (<a href="/projects/FG-Diff/index.html">FG-Diff</a>, IEEE TIP 2026). <strong>Looking ahead, I aim to develop post-training methods for video generation and world models, with an emphasis on physical consistency.</strong></p>
+    <p>My earlier anomaly-detection work includes <a href="/Publications/#tanGB">MGBOD</a> (IEEE TKDE 2025) with Prof. <a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">Can Gao</a> at <strong>SZU</strong>, and <a href="/projects/FG-Diff/index.html">FG-Diff</a> (IEEE TIP 2026) for video anomaly detection with Prof. <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang</a> at <strong>PALM@SEU</strong>.</p>
+    <p><strong>Looking ahead, I aim to develop post-training methods for video generation and world models, with an emphasis on physical consistency.</strong></p>
   </div>
   <div data-language="zh" lang="zh-CN">
     <p>我的研究围绕<strong>生成模型的后训练与对齐</strong>展开，主要关注提升文本与动作对齐，以及在工业界研发大规模文生图模型的后训练方法。</p>
     <p>在 <strong>PALM@SEU</strong>，我在 <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang（王洪松）</a>教授指导下，并与 <strong>SMU</strong> 的 <a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">Pan Zhou（周攀）</a>教授合作，研究动作生成中的文本与动作对齐：<a href="/projects/SoPo/index.html">SoPo</a>（NeurIPS 2025）应对偏好对稀缺与采样偏差；<a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a>（AAAI 2026）无需微调即可对齐预训练生成模型；<a href="/projects/EasyTune/index.html">EasyTune</a>（ICLR 2026）在提升对齐效果的同时大幅降低显存开销。在此基础上，<a href="/projects/MotionRFT/index.html">MotionRFT</a>（IEEE TPAMI 2026）将后训练拓展至不同动作表示，使 HY Motion 的 FID 改善 23.3%。</p>
-    <p>在 <strong>Tencent YouTu</strong>，我与腾讯的 Jun Liu、Bin-Bin Gao、Yuanting Fan，以及<strong>南方科技大学</strong>的 Feng Zheng 教授合作，研究图像生成后训练中较少受到关注的落地障碍：<a href="/projects/ConsistentRFT/index.html">DPGO</a>（在投）使低层、高层感知幻觉分别平均减少 49%、38%；<a href="/projects/PEC/index.html">PEC</a>（NeurIPS 2026，<strong>Spotlight</strong>）缓解多样性崩溃，将所评测的质量与多样性综合得分从 0.366 提升至 0.734。</p>
+    <p>在 <strong>Tencent YouTu</strong>，我与腾讯的 <a href="https://scholar.google.com/citations?user=JIKuf4AAAAAJ" rel="external nofollow noopener" target="_blank">Jun Liu</a>、<a href="https://csgaobb.github.io/" rel="external nofollow noopener" target="_blank">Bin-Bin Gao</a>、<a href="https://retofan233.github.io/" rel="external nofollow noopener" target="_blank">Yuanting Fan</a>，以及<strong>南方科技大学</strong>的 <a href="https://www.sustech.edu.cn/en/faculties/zhengfeng.html" rel="external nofollow noopener" target="_blank">Feng Zheng</a> 教授、<a href="https://jam-cc.github.io/" rel="external nofollow noopener" target="_blank">Xi Jiang</a> 合作，研究图像生成后训练中较少受到关注的落地障碍：<a href="/projects/ConsistentRFT/index.html">DPGO</a>（在投）使低层、高层感知幻觉分别平均减少 49%、38%；<a href="/projects/PEC/index.html">PEC</a>（NeurIPS 2026，<strong>Spotlight</strong>）缓解多样性崩溃，将所评测的质量与多样性综合得分从 0.366 提升至 0.734。</p>
     <p>在 <strong>Tencent HY</strong>，我进一步研究奖励监督的可靠性与学习进程，并以远程访问学生身份与 <strong>UC Merced</strong> 的 <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a> 教授合作。我们提出的 <a href="/projects/SpatialReward/index.html">SpatialCritic</a>（在投）针对空间生成中的这些问题，在我们构建的空间偏好评测基准 SpaRW-Eval 上实现 95.08% 的验证准确率。</p>
-    <p>我的早期异常检测研究始于 <strong>SZU</strong>，由 <a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">Can Gao</a> 教授指导（<a href="/Publications/#tanGB">MGBOD</a>，IEEE TKDE 2025），后来延伸至视频场景（<a href="/projects/FG-Diff/index.html">FG-Diff</a>，IEEE TIP 2026）。<strong>下一步，我希望面向视频生成与世界模型发展后训练方法，重点关注物理一致性。</strong></p>
+    <p>我的早期异常检测工作包括在 <strong>SZU</strong> 与 <a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">Can Gao</a> 教授开展的 <a href="/Publications/#tanGB">MGBOD</a>（IEEE TKDE 2025），以及在 <strong>PALM@SEU</strong> 与 <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang（王洪松）</a>教授开展的视频异常检测工作 <a href="/projects/FG-Diff/index.html">FG-Diff</a>（IEEE TIP 2026）。</p>
+    <p><strong>下一步，我希望面向视频生成与世界模型发展后训练方法，重点关注物理一致性。</strong></p>
   </div>
 </div>
+</details>
 
 
   <!-- Selected papers -->
@@ -4165,7 +4185,7 @@ function revealAndCopyContact(button, text, label) {
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <span>Last updated: <time datetime="2026-10-12T04:45:01+00:00">October 12, 2026</time></span>
+    <span>Last updated: <time datetime="2026-10-12T05:21:03+00:00">October 12, 2026</time></span>
   </div>
 </article>
 
