@@ -13,9 +13,10 @@ labels:
     en: "Human-centric computer vision: perception, generation, and understanding"
     zh: 以人为中心的计算机视觉：感知、生成与理解
   ad:
-    name: AD
-    en: Anomaly and outlier detection
-    zh: 异常检测与离群点检测
+    name: Earlier work
+    name_zh: 早期工作
+    en: "Earlier work: anomaly and outlier detection"
+    zh: 早期工作：异常检测与离群点检测
 
 papers:
   tan2026motionrft: [rl, aigc, human]
