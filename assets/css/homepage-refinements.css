@@ -133,6 +133,7 @@ html[data-theme="dark"] .about-page article p a {
 /* Intro-only refinement: slightly smaller and softer than the reading scale.
  * Do not fade the container, which would also fade links, controls and emoji. */
 html .about-page article > .clearfix > [data-language] > p,
+html .about-page .research-summary > [data-language] > p,
 html .about-page article > .clearfix .interest-card {
   color: #767a7e;
   font-size: 0.8125rem;
@@ -140,6 +141,7 @@ html .about-page article > .clearfix .interest-card {
   line-height: 1.5;
 }
 html[data-theme="dark"] .about-page article > .clearfix > [data-language] > p,
+html[data-theme="dark"] .about-page .research-summary > [data-language] > p,
 html[data-theme="dark"] .about-page article > .clearfix .interest-card {
   color: #b9c0c7;
 }
@@ -168,6 +170,7 @@ html .about-page .hobbies-intro .song-bilingual a:hover em {
 }
 @media (max-width: 767.98px) {
   html .about-page article > .clearfix > [data-language] > p,
+  html .about-page .research-summary > [data-language] > p,
   html .about-page article > .clearfix .interest-card {
     font-size: 0.875rem;
   }
@@ -197,7 +200,7 @@ html .about-page .honors-section {
 html .about-page .honors-section .compact-card {
   border: 1px solid var(--honor-border);
   border-radius: 6px;
-  background: var(--honor-surface);
+  background: transparent;
   box-shadow: none;
   overflow: hidden;
 }
@@ -246,8 +249,8 @@ html .about-page .honors-section .compact-card-body {
 }
 html .about-page .honors-section .compact-card:hover,
 html .about-page .honors-section .compact-card[open] {
-  border-color: var(--primary-line);
-  background: var(--primary-soft);
+  border-color: var(--honor-border);
+  background: transparent;
 }
 @media (max-width: 767.98px) {
   html .about-page .honors-section {
@@ -321,35 +324,28 @@ html .about-page .timeline-expand-hint {
   line-height: 1.4;
 }
 
-/* Keep Misc visually consistent with the other section headings. Only the
- * small disclosure control is emphasized. */
+/* Misc uses the same plain disclosure hint as the other section headings. */
 html .about-page .misc-section {
   margin-top: 1.2rem;
 }
 html .about-page .misc-section .section-title-hint {
-  display: inline-flex;
-  align-items: center;
-  min-height: 18px;
   margin-left: auto;
-  padding: 0.08rem 0.42rem;
-  border: 1px solid color-mix(in srgb, var(--primary) 42%, transparent);
-  border-radius: 999px;
-  background: var(--primary-soft-strong);
-  color: var(--primary);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #94a3b8;
   font-family: var(--homepage-font);
-  font-size: 0.63rem;
-  font-weight: 500;
-  line-height: 1;
-  transition:
-    color 160ms ease,
-    background-color 160ms ease,
-    border-color 160ms ease;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: inherit;
+  transition: color 160ms ease;
 }
 html .about-page .misc-section > summary:hover .section-title-hint,
 html .about-page .misc-section > summary:focus-visible .section-title-hint {
   color: var(--primary-hover);
-  background: var(--primary-soft-strong);
-  border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+  background: transparent;
+  border: 0;
 }
 html .about-page .misc-section .misc-hint-open {
   display: none;
@@ -359,6 +355,15 @@ html .about-page .misc-section[open] .misc-hint-closed {
 }
 html .about-page .misc-section[open] .misc-hint-open {
   display: inline;
+}
+html .about-page .misc-section.is-closing .misc-hint-closed {
+  display: inline;
+}
+html .about-page .misc-section.is-closing .misc-hint-open {
+  display: none;
+}
+html .about-page .misc-section.is-closing .section-title-chevron {
+  transform: rotate(-45deg);
 }
 
 /* Compact publication index: retain the paper-to-venue mapping and distinctions
@@ -684,11 +689,6 @@ html[data-theme="dark"] .about-page .publication-summary__note.presentation-dist
   .about-page .research-summary-placeholder {
     margin-bottom: 0.58rem;
     font-size: 0.72rem;
-  }
-  html .about-page .misc-section .section-title-hint {
-    min-height: 18px;
-    padding: 0.07rem 0.36rem;
-    font-size: 0.6rem;
   }
   .about-page .publication-summary {
     padding: 0.06rem 0 0.38rem;
