@@ -1817,6 +1817,26 @@ html[data-theme="dark"] .presentation-distinction {
     transition: transform 0.2s ease, opacity 0.15s ease;
   }
 
+  .pub-category__hint {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  .pub-category__hint-collapse {
+    display: none;
+  }
+
+  .pub-category[open] > .pub-category__summary .pub-category__hint-expand {
+    display: none;
+  }
+
+  .pub-category[open] > .pub-category__summary .pub-category__hint-collapse {
+    display: inline;
+  }
+
   .pub-category:not([open]) .pub-category__chevron {
     transform: rotate(-45deg);
     margin-top: 0.1rem;

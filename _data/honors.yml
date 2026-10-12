@@ -4,24 +4,24 @@
   group: community
   category: community
   title_zh: ICML 金牌审稿人
-  institution_en: International Conference on Machine Learning
-  institution_zh: 国际机器学习大会
+  institution_en: ICML Organizing Committee
+  institution_zh: ICML 组委会
   year: 2026
 - title_en: NeurIPS Top Reviewer
   stage: masters
   group: community
   category: community
   title_zh: NeurIPS Top Reviewer
-  institution_en: Conference on Neural Information Processing Systems
-  institution_zh: 神经信息处理系统大会
+  institution_en: NeurIPS Organizing Committee
+  institution_zh: NeurIPS 组委会
   year: 2026
 - title_en: Tencent-SEU Scholarship
   stage: masters
   group: scholarship
   category: masters
   title_zh: 腾讯–东南大学奖学金
-  institution_en: Southeast University
-  institution_zh: 东南大学
+  institution_en: Tencent & SEU
+  institution_zh: 腾讯与东南大学
   note_en: "¥9,000"
   note_zh: "9,000 元"
   year: 2025
