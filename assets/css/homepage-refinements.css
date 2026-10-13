@@ -134,6 +134,7 @@ html[data-theme="dark"] .about-page article p a {
  * Do not fade the container, which would also fade links, controls and emoji. */
 html .about-page article > .clearfix > [data-language] > p,
 html .about-page .research-summary > [data-language] > p,
+html .about-page .misc-section .hobbies-intro,
 html .about-page article > .clearfix .interest-card {
   color: #767a7e;
   font-size: 0.8125rem;
@@ -142,6 +143,7 @@ html .about-page article > .clearfix .interest-card {
 }
 html[data-theme="dark"] .about-page article > .clearfix > [data-language] > p,
 html[data-theme="dark"] .about-page .research-summary > [data-language] > p,
+html[data-theme="dark"] .about-page .misc-section .hobbies-intro,
 html[data-theme="dark"] .about-page article > .clearfix .interest-card {
   color: #b9c0c7;
 }
@@ -171,6 +173,7 @@ html .about-page .hobbies-intro .song-bilingual a:hover em {
 @media (max-width: 767.98px) {
   html .about-page article > .clearfix > [data-language] > p,
   html .about-page .research-summary > [data-language] > p,
+  html .about-page .misc-section .hobbies-intro,
   html .about-page article > .clearfix .interest-card {
     font-size: 0.875rem;
   }
@@ -373,8 +376,59 @@ html .about-page .misc-section.is-closing .section-title-chevron {
   padding: 0.1rem 0 0.4rem;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid var(--global-divider-color);
   border-radius: 0;
+}
+
+/* Let whitespace, rather than repeated rules, separate publication groups. */
+html .about-page #publication-results > .pub-category {
+  border: 0;
+}
+
+html .about-page #publication-results .pub-category__summary {
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+/* All publication metrics share a compact, baseline-aligned badge scale. */
+html .about-page .publications :is(.ccf-badge, .core-badge, .sci-badge) {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: baseline;
+  font-size: 0.54rem;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.3;
+  letter-spacing: 0.015em;
+  padding: 0.02rem 0.25rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+html .about-page .publications .impact-factor-badge {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--global-divider-color) !important;
+}
+
+/* Misc is ordinary prose, including song names and linked phrases. */
+html .about-page .misc-section .hobbies-intro {
+  text-align: left;
+}
+
+html .about-page .misc-section .hobbies-intro :is(a, em, span, strong) {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+html .about-page .misc-section .hobbies-intro em {
+  font-style: normal;
+  font-weight: inherit;
+  color: inherit;
+}
+
+html .about-page .misc-section .hobbies-intro a {
+  border-bottom: 0;
+  font-weight: inherit;
 }
 .about-page .publication-summary__header {
   display: flex;

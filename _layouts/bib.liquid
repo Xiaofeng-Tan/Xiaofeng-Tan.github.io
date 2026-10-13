@@ -199,7 +199,7 @@
         <span class="sci-badge sci-badge-{{ entry.sci | downcase | replace: '-', '' }}">{{ entry.sci }}</span>
       {%- endif -%}
       {%- if entry.impact_factor -%}
-        <span class="sci-badge" title="Journal Impact Factor ({{ entry.impact_factor_year }}), IEEE Title List, August 2026">IF {{ entry.impact_factor }} ({{ entry.impact_factor_year }})</span>
+        <span class="sci-badge impact-factor-badge" title="Journal Impact Factor ({{ entry.impact_factor_year }}), IEEE Title List, August 2026">IF {{ entry.impact_factor }} ({{ entry.impact_factor_year }})</span>
       {%- endif -%}
     </div>
     <div class="periodical">
