@@ -4,7 +4,7 @@
 // ============================================================================
 
 // ========== Block 1: Education / Research detail toggles ==========
-    const TIMELINE_TRANSITION_MS = 460;
+    const TIMELINE_TRANSITION_MS = 420;
 
     function prefersReducedMotion() {
       return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -101,83 +101,58 @@
       });
     });
 
+// Keep a collapse action beside the expanded content, not just at its top.
+(function () {
+  function makeCollapseButton(onClick) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'content-collapse-button';
+    [['en', 'en', 'Click to collapse'], ['zh', 'zh-CN', '点击收起']].forEach(([language, lang, text]) => {
+      const label = document.createElement('span');
+      label.dataset.language = language;
+      label.lang = lang;
+      label.textContent = text;
+      button.appendChild(label);
+    });
+    button.addEventListener('click', onClick);
+    return button;
+  }
+
+  document.querySelectorAll('details.compact-card, details.pub-category, details.misc-section, details.publication-overview-group, details.research-summary-section').forEach(details => {
+    if (details.classList.contains('pub-category')) return;
+    const summary = details.querySelector(':scope > summary');
+    const body = Array.from(details.children).find(child => child !== summary);
+    if (!summary || !body) return;
+    const actions = document.createElement('div');
+    actions.className = 'content-disclosure-actions';
+    actions.appendChild(makeCollapseButton(() => {
+      if (details.open) summary.click();
+      summary.focus({ preventScroll: true });
+    }));
+    body.appendChild(actions);
+  });
+
+  document.querySelectorAll('.timeline-section .detail-card').forEach(card => {
+    const match = card.id.match(/^(education|research)-detail-(\d+)$/);
+    const body = card.querySelector('.detail-card-content');
+    if (!match || !body) return;
+    const actions = document.createElement('div');
+    actions.className = 'content-disclosure-actions';
+    actions.appendChild(makeCollapseButton(() => {
+      if (!card.classList.contains('active')) return;
+      const section = card.closest('.timeline-section');
+      const logo = section.querySelector('.logo-item[data-index="' + match[2] + '"]');
+      toggleTimelineDetail(match[1], match[2]);
+      if (logo) logo.focus({ preventScroll: true });
+    }));
+    body.appendChild(actions);
+  });
+})();
+
 // ========== Block 1b: Smooth native <details> expansion ==========
 (function () {
   const selector = 'details.compact-card, details.pub-category, details.misc-section, details.publication-overview-group, details.research-summary-section';
-  const easing = 'cubic-bezier(0.22, 1, 0.36, 1)';
-
-  function reducedMotion() {
-    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  }
-
-  function duration(startHeight, endHeight) {
-    return Math.min(460, Math.max(240, 210 + Math.abs(endHeight - startHeight) * 0.42));
-  }
-
-  function enhance(details) {
-    const summary = details.querySelector(':scope > summary');
-    if (!summary) return;
-
-    let animation = null;
-
-    summary.addEventListener('click', (event) => {
-      event.preventDefault();
-
-      if (reducedMotion()) {
-        details.open = !details.open;
-        return;
-      }
-
-      const opening = !details.open || details.classList.contains('is-closing');
-      const startHeight = details.getBoundingClientRect().height;
-
-      if (animation) animation.cancel();
-
-      details.classList.add('is-animating');
-
-      if (opening) {
-        details.open = true;
-        details.classList.remove('is-closing');
-        details.style.height = 'auto';
-        const endHeight = details.offsetHeight;
-        details.style.height = `${startHeight}px`;
-
-        animation = details.animate(
-          [{ height: `${startHeight}px` }, { height: `${endHeight}px` }],
-          { duration: duration(startHeight, endHeight), easing, fill: 'both' }
-        );
-
-        animation.onfinish = () => {
-          // Remove the fill-forwards height once layout can size naturally.
-          // Keeping it freezes the section when nested content is collapsed,
-          // translated or reflowed, leaving a blank area below the content.
-          animation.cancel();
-          details.style.height = '';
-          details.classList.remove('is-animating');
-          animation = null;
-        };
-      } else {
-        const endHeight = summary.getBoundingClientRect().height;
-        details.style.height = `${startHeight}px`;
-        details.classList.add('is-closing');
-
-        animation = details.animate(
-          [{ height: `${startHeight}px` }, { height: `${endHeight}px` }],
-          { duration: duration(startHeight, endHeight), easing, fill: 'both' }
-        );
-
-        animation.onfinish = () => {
-          details.open = false;
-          animation.cancel();
-          details.style.height = '';
-          details.classList.remove('is-animating', 'is-closing');
-          animation = null;
-        };
-      }
-    });
-  }
-
-  document.querySelectorAll(selector).forEach(enhance);
+  document.querySelectorAll(selector).forEach(details => window.SiteDisclosure.enhanceDetails(details));
 })();
 
 // ========== Topic filters ==========
@@ -234,7 +209,7 @@
 
   function filter(topic) {
     // Settle any in-progress disclosure animation before measuring new content.
-    groups.forEach(group => group.getAnimations().forEach(animation => animation.finish()));
+    window.SiteDisclosure.settle();
     if (activeTopic === 'all' && topic !== 'all') {
       savedOpenStates = new Map(groups.map(group => [group, group.open]));
     }

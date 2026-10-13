@@ -864,3 +864,263 @@ html[data-theme="dark"] .about-page .publication-summary__note.presentation-dist
     min-width: 0;
   }
 }
+
+/* Section headings are labels; disclosure controls live below them. */
+html .about-page :is(.research-summary-section, .misc-section) {
+  margin: 0 0 0.6rem;
+}
+
+html .about-page .section-disclosure-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+html .about-page .section-disclosure-control::-webkit-details-marker {
+  display: none;
+}
+
+html .about-page .section-disclosure-control::marker {
+  content: "";
+}
+
+html .about-page .section-disclosure-control:hover {
+  color: var(--primary);
+}
+
+html .about-page .timeline-item-hint {
+  margin-top: 0.2rem;
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+html .about-page .content-disclosure-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.35rem;
+}
+
+html .about-page .content-collapse-button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0.2rem 0;
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+html .about-page .content-collapse-button:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+html .about-page :is(.content-collapse-button, .section-disclosure-control):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Disclosure actions echo the unobtrusive introduction language link. */
+html .about-page :is(.section-disclosure-control, .content-collapse-button,
+  .timeline-item-hint, .pub-category__hint) {
+  color: var(--text-soft, #7f8c8d);
+  font-size: 0.76rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+html .about-page .section-disclosure-control {
+  display: inline-flex;
+  width: auto;
+  gap: 0.35rem;
+  margin: 0.18rem 0 0.7rem;
+  padding: 0;
+  border-bottom: 1px solid transparent;
+}
+
+html .about-page .section-disclosure-control .section-disclosure-label,
+html .about-page .section-disclosure-control .section-title-chevron,
+html .about-page #publication-results .pub-category__chevron {
+  display: none;
+}
+
+html .about-page .section-disclosure-control .section-title-hint {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+html .about-page :is(.pub-category__hint-expand, .pub-category__hint-collapse,
+  .content-collapse-button, .timeline-item-hint)::after {
+  content: " ↗";
+  margin-left: 0.18rem;
+  opacity: 0.6;
+}
+
+html .about-page .content-disclosure-actions {
+  justify-content: flex-start;
+  margin: 0.18rem 0 0.7rem;
+}
+
+html .about-page .content-collapse-button {
+  padding: 0;
+  border-bottom: 1px solid transparent;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+html .about-page :is(.content-collapse-button, .section-disclosure-control):hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary-line);
+  text-decoration: none;
+}
+
+/* Measured-height disclosures replace competing max-height/slide effects. */
+html .about-page .smooth-disclosure.is-animating {
+  overflow: hidden;
+  overflow-anchor: none;
+}
+
+html .about-page .smooth-disclosure > .smooth-disclosure-body {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+html .about-page .publications .smooth-paper-panel.hidden {
+  height: 0;
+  max-height: none;
+  overflow: hidden;
+  border: 0 !important;
+  padding: 0;
+  margin: 0;
+  transition: none;
+}
+
+html .about-page .publications .smooth-paper-panel.hidden.open {
+  height: auto;
+  max-height: none;
+}
+
+html .about-page .smooth-paper-panel > .smooth-disclosure-body {
+  padding: 0.45rem 0 0.15rem;
+  opacity: 1;
+  color: var(--reading-text);
+  font-size: inherit;
+  line-height: inherit;
+}
+
+html .about-page .smooth-paper-panel .smooth-disclosure-body > p {
+  color: inherit;
+  text-align: left;
+}
+
+html .about-page .smooth-paper-panel .content-disclosure-actions {
+  padding: 0 0.1rem;
+}
+
+html .about-page .smooth-disclosure.is-closing > summary .pub-category__hint-expand {
+  display: inline;
+}
+
+html .about-page .smooth-disclosure.is-closing > summary .pub-category__hint-collapse {
+  display: none;
+}
+
+html .about-page #publication-results .pub-category__summary {
+  justify-content: flex-start;
+  gap: 0.65rem;
+}
+
+html .about-page #publication-results .pub-category__label {
+  flex: 0 1 auto;
+}
+
+/* Group labels stay above the lightweight action, not beside it. */
+html .about-page :is(#publication-results, .teaching-section) .disclosure-control-below {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  justify-content: start;
+  gap: 0.25rem 0.5rem;
+}
+
+html .about-page .disclosure-control-below > .pub-category__label {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+html .about-page .disclosure-control-below > .teaching-summary-meta {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+html .about-page .disclosure-control-below > .pub-category__hint {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  justify-self: start;
+}
+
+html .about-page .disclosure-control-below > .pub-category__chevron {
+  display: none;
+}
+
+html .about-page .misc-section[open] .pub-category__hint-expand {
+  display: none;
+}
+
+html .about-page .misc-section[open] .pub-category__hint-collapse {
+  display: inline;
+}
+
+html .about-page .misc-section.is-closing .pub-category__hint-expand {
+  display: inline;
+}
+
+html .about-page .misc-section.is-closing .pub-category__hint-collapse {
+  display: none;
+}
+
+html .about-page .content-collapse-button,
+html .about-page .pub-category__hint,
+html .about-page .timeline-item-hint {
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html .about-page .smooth-disclosure,
+  html .about-page .smooth-disclosure-body,
+  html .about-page .smooth-paper-panel {
+    transition: none !important;
+  }
+}
+
+html .about-page .detail-card {
+  transition:
+    grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms ease,
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html .about-page .detail-card .detail-card-inner {
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html .about-page .detail-card,
+  html .about-page .detail-card .detail-card-inner {
+    transition: none !important;
+  }
+}

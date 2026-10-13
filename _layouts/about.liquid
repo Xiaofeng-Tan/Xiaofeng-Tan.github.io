@@ -226,6 +226,10 @@ layout: default
               <span class="logo-year">{{ research.period }}</span>
               {% if research.location %}<span class="logo-location">{{ research.flag | default: "📍" }} {{ research.location }}</span>{% endif %}
             </span>
+            <span class="timeline-item-hint">
+              <span data-language="en" lang="en">View details</span>
+              <span data-language="zh" lang="zh-CN">查看详情</span>
+            </span>
           </div>
         </div>
       {% endfor %}
@@ -398,10 +402,8 @@ layout: default
   </h2>
   <div class="teaching-section teaching-section--collapsible">
     <details class="pub-category">
-      <summary class="pub-category__summary">
-        <span class="pub-category__label">Courses</span>
-        <span class="teaching-summary-meta">2022–2024 · 6 courses</span>
-        <span class="pub-category__chevron" aria-hidden="true"></span>
+      <summary class="section-disclosure-control">
+        {% include publication-toggle-hint.liquid %}
       </summary>
       <div class="pub-category__body">
         <div class="teaching-cards">
@@ -435,21 +437,18 @@ layout: default
   </div>
 
   <!-- Misc -->
-  <details id="sec-life" class="misc-section">
-    <summary class="section-title">
-      <span class="section-title-label">
-        <span data-language="en" lang="en">🏠 Misc</span>
-        <span data-language="zh" lang="zh-CN">🏠 生活</span>
+  <h2 id="sec-life" class="section-title">
+    <span data-language="en" lang="en">🏠 Misc</span>
+    <span data-language="zh" lang="zh-CN">🏠 生活</span>
+  </h2>
+  <details class="misc-section">
+    <summary class="section-disclosure-control">
+      <span class="section-disclosure-label">
+        <span data-language="en" lang="en">Outside research</span>
+        <span data-language="zh" lang="zh-CN">科研之外</span>
       </span>
       <span class="section-title-hint">
-        <span class="misc-hint-closed">
-          <span data-language="en" lang="en">Click to expand</span>
-          <span data-language="zh" lang="zh-CN">点击展开</span>
-        </span>
-        <span class="misc-hint-open">
-          <span data-language="en" lang="en">Click to collapse</span>
-          <span data-language="zh" lang="zh-CN">点击收起</span>
-        </span>
+        {% include publication-toggle-hint.liquid %}
       </span>
       <span class="section-title-chevron" aria-hidden="true"></span>
     </summary>
@@ -519,6 +518,7 @@ layout: default
 
 
 <!-- About-page custom scripts: mascot, scroll-spy subnav, education/research toggles, oneko (disabled) -->
-<script src="{{ '/assets/js/custom.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/disclosure.js' | relative_url | bust_file_cache }}" defer></script>
+<script src="{{ '/assets/js/custom.js' | relative_url | bust_file_cache }}" defer></script>
 
 <!-- Build: 2025-12-12 -->
