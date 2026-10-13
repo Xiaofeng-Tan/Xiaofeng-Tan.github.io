@@ -123,6 +123,8 @@
     const summary = details.querySelector(':scope > summary');
     const body = Array.from(details.children).find(child => child !== summary);
     if (!summary || !body) return;
+    // A text-link disclosure already provides its own collapse action.
+    if (summary.querySelector('.pub-category__hint-collapse')) return;
     const actions = document.createElement('div');
     actions.className = 'content-disclosure-actions';
     actions.appendChild(makeCollapseButton(() => {

@@ -133,7 +133,7 @@ html[data-theme="dark"] .about-page article p a {
 /* Intro-only refinement: slightly smaller and softer than the reading scale.
  * Do not fade the container, which would also fade links, controls and emoji. */
 html .about-page article > .clearfix > [data-language] > p,
-html .about-page .research-summary > [data-language] > p,
+html .about-page .research-summary [data-language] p,
 html .about-page .misc-section .hobbies-intro,
 html .about-page article > .clearfix .interest-card {
   color: #767a7e;
@@ -142,7 +142,7 @@ html .about-page article > .clearfix .interest-card {
   line-height: 1.5;
 }
 html[data-theme="dark"] .about-page article > .clearfix > [data-language] > p,
-html[data-theme="dark"] .about-page .research-summary > [data-language] > p,
+html[data-theme="dark"] .about-page .research-summary [data-language] p,
 html[data-theme="dark"] .about-page .misc-section .hobbies-intro,
 html[data-theme="dark"] .about-page article > .clearfix .interest-card {
   color: #b9c0c7;
@@ -172,7 +172,7 @@ html .about-page .hobbies-intro .song-bilingual a:hover em {
 }
 @media (max-width: 767.98px) {
   html .about-page article > .clearfix > [data-language] > p,
-  html .about-page .research-summary > [data-language] > p,
+  html .about-page .research-summary [data-language] p,
   html .about-page .misc-section .hobbies-intro,
   html .about-page article > .clearfix .interest-card {
     font-size: 0.875rem;
@@ -1116,6 +1116,87 @@ html .about-page .detail-card {
 
 html .about-page .detail-card .detail-card-inner {
   transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Chronology for the main line only; AD remains a separate research strand. */
+html .about-page .research-trajectory {
+  list-style: none;
+  margin: 0.8rem 0 0.35rem;
+  padding: 0;
+}
+
+html .about-page .research-trajectory__item {
+  position: relative;
+  padding: 0 0 0.9rem 1.45rem;
+  margin: 0;
+}
+
+html .about-page .research-trajectory__item::before {
+  content: "";
+  position: absolute;
+  left: 0.22rem;
+  top: 0.37rem;
+  bottom: -0.37rem;
+  width: 1px;
+  background: var(--primary-line);
+}
+
+html .about-page .research-trajectory__item:last-child::before {
+  display: none;
+}
+
+html .about-page .research-trajectory__item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.16rem;
+  width: 0.48rem;
+  height: 0.48rem;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  background: var(--global-bg-color, #fff);
+}
+
+html .about-page .research-trajectory__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.65rem;
+  margin-bottom: 0.2rem;
+  color: var(--text-soft);
+  font-size: 0.65rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+html .about-page .research-trajectory__meta > span:last-child {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+html .about-page .research-trajectory__item p {
+  margin: 0;
+}
+
+html .about-page .research-foundations {
+  margin: 0.2rem 0 0.9rem;
+  padding-left: 1.45rem;
+}
+
+html .about-page .research-foundations__label {
+  margin-bottom: 0.25rem;
+  color: var(--text-soft);
+  font-size: 0.65rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+html .about-page .research-foundations p {
+  margin: 0;
+}
+
+html .about-page .research-outlook {
+  margin: 0.65rem 0 0.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

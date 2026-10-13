@@ -5745,7 +5745,7 @@ html[data-theme="dark"] .publications .links a + a::before {
 
   .compact-card .compact-card-body,
   .pub-category__body,
-  .research-summary-section > .research-summary,
+  details.research-summary-section > .research-summary,
   .misc-section > .hobbies-section {
   opacity: 0;
   transform: translateY(-4px);
@@ -5756,7 +5756,7 @@ html[data-theme="dark"] .publications .links a + a::before {
 
   .compact-card[open] .compact-card-body,
   .pub-category[open] .pub-category__body,
-  .research-summary-section[open] > .research-summary,
+  details.research-summary-section[open] > .research-summary,
   .misc-section[open] > .hobbies-section {
   opacity: 1;
   transform: translateY(0);
@@ -5764,7 +5764,7 @@ html[data-theme="dark"] .publications .links a + a::before {
 
   .compact-card.is-closing .compact-card-body,
   .pub-category.is-closing .pub-category__body,
-  .research-summary-section.is-closing > .research-summary,
+  details.research-summary-section.is-closing > .research-summary,
   .misc-section.is-closing > .hobbies-section {
   opacity: 0;
   transform: translateY(-4px);
