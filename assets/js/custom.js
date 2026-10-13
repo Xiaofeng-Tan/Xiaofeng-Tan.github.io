@@ -120,6 +120,7 @@
 
   document.querySelectorAll('details.compact-card, details.pub-category, details.misc-section, details.publication-overview-group, details.research-summary-section').forEach(details => {
     if (details.classList.contains('pub-category')) return;
+    if (details.closest('.honors-section')) return;
     const summary = details.querySelector(':scope > summary');
     const body = Array.from(details.children).find(child => child !== summary);
     if (!summary || !body) return;
