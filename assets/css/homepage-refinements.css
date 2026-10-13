@@ -98,6 +98,11 @@ html[data-theme="dark"] .about-page .news .news-tag {
 /* Chinese prose can end before the floated portrait. Start News below the
  * entire portrait rather than beside it; avoid a fixed-height spacer. */
 @media (min-width: 768px) {
+  html[lang="zh-CN"] .about-page article > .profile {
+    width: 22%;
+    max-width: 200px;
+  }
+
   html[lang="zh-CN"] .about-page #sec-news {
     clear: both;
     padding-top: 0.65rem;
@@ -1197,6 +1202,117 @@ html .about-page .research-foundations p {
 
 html .about-page .research-outlook {
   margin: 0.65rem 0 0.5rem;
+}
+
+/* Homepage type hierarchy. Keep the identity/motto/icon typography separate.
+ * All ordinary copy inherits its level, including links inside disclosures. */
+html .about-page {
+  --type-section: 1.2rem;
+  --type-heading: 0.9375rem;
+  --type-body: 0.8125rem;
+  --type-meta: 0.75rem;
+  --type-caption: 0.6875rem;
+  --type-badge: 0.5625rem;
+  --entry-title-size: var(--type-heading);
+  --entry-text-size: var(--type-body);
+  --entry-label-size: var(--type-meta);
+}
+
+html .about-page .section-title {
+  font-size: var(--type-section);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+html .about-page .section-title > span {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+html .about-page :is(.logo-label, .logo-lab-at, .detail-title, .publications .title) {
+  font-size: var(--type-heading);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+html .about-page :is(article > .clearfix > [data-language] > p,
+  .interest-card, .research-summary p, .hobbies-intro, .service-list li,
+  .service-role, .service-details, .compact-card, .compact-title, .compact-card-body,
+  .detail-card-content, .detail-field-value,
+  .publications .smooth-paper-panel, .publications .smooth-paper-panel p) {
+  font-size: var(--type-body);
+  line-height: 1.5;
+}
+
+html .about-page :is(.service-list li, .service-details) {
+  font-weight: 400;
+}
+
+html .about-page .service-role {
+  font-weight: 600;
+}
+
+html .about-page :is(.service-details, .service-role, .research-summary p,
+  .hobbies-intro, .interest-card, .compact-title, .compact-card-body, .detail-field-value)
+  :is(a, span, em, strong, button) {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+html .about-page :is(.publications .author, .publications .periodical,
+  .logo-role, .logo-meta-row, .logo-year, .logo-location, .detail-title-meta,
+  .detail-field-label, .pub-category__summary, .section-title-hint,
+  .section-disclosure-control, .content-collapse-button, .pub-category__hint,
+  .timeline-expand-hint, .timeline-item-hint, .intro-language-toggle,
+  .page-last-updated) {
+  font-size: var(--type-meta);
+  line-height: 1.45;
+}
+
+html .about-page :is(.publications .author, .publications .periodical,
+  .logo-meta-row, .detail-title-meta, .pub-category__summary)
+  :is(a, span, em):not(.ccf-badge, .core-badge, .sci-badge,
+    .presentation-statistics, .pub-category__hint) {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+html .about-page :is(.honors-stage-title, .research-trajectory__meta,
+  .research-foundations__label, .compact-card .year, .publication-summary__count) {
+  font-size: var(--type-meta);
+  line-height: 1.4;
+}
+
+html .about-page :is(.publication-summary__legend, .presentation-statistics) {
+  font-size: var(--type-caption);
+}
+
+html .about-page .publications :is(.ccf-badge, .core-badge, .sci-badge) {
+  font-size: var(--type-badge);
+}
+
+html .about-page .news .news-item-text,
+html .about-page .news .news-item-text .news-content,
+html .about-page .news .news-item-text .news-content *,
+html .about-page .news .news-title {
+  font-size: var(--type-body) !important;
+  line-height: 1.5 !important;
+}
+
+html .about-page .news th {
+  font-size: var(--type-meta);
+  line-height: 1.45;
+}
+
+@media (max-width: 767.98px) {
+  html .about-page {
+    --type-section: 1.125rem;
+    --type-heading: 0.9375rem;
+    --type-body: 0.875rem;
+    --type-meta: 0.8125rem;
+    --type-caption: 0.75rem;
+    --type-badge: 0.625rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
