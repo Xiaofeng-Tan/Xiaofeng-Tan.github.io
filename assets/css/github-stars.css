@@ -1,16 +1,16 @@
 .github-stars-link {
   --stars-border: #dde5eb;
-  --stars-background: #f8fafb;
+  --stars-background: #fff;
   --stars-text: #526575;
   --stars-accent: #b48732;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  min-height: 1.35rem;
-  padding: 0.08rem 0.38rem;
-  border: 1px solid var(--stars-border);
-  border-radius: 4px;
-  background: var(--stars-background);
+  gap: 0.28rem;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--stars-text);
   font: inherit;
   font-size: 0.6875rem;
@@ -19,13 +19,18 @@
   text-decoration: none !important;
   white-space: nowrap;
   vertical-align: middle;
-  transition: border-color 160ms ease, background-color 160ms ease;
+  transition: color 160ms ease;
 }
 
 .github-stars-icon {
+  width: 0.82rem;
+  height: 0.82rem;
+  flex: 0 0 0.82rem;
+  fill: #f9edcf;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
   color: var(--stars-accent);
-  font-size: 0.75rem;
-  line-height: 1;
 }
 
 .github-stars-label {
@@ -34,8 +39,11 @@
 }
 
 .github-stars-count {
-  padding-left: 0.3rem;
-  border-left: 1px solid var(--stars-border);
+  padding: 0;
+  margin-left: 0.05rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--primary, #245b84);
   font-size: inherit;
   font-weight: 600;
@@ -52,8 +60,7 @@
 }
 
 .github-stars-link:hover {
-  border-color: #b4c7d5;
-  background: #f0f5f8;
+  color: var(--primary, #245b84);
 }
 
 .github-stars-link:focus-visible {
@@ -69,17 +76,26 @@ html[data-theme="dark"] .github-stars-link {
 }
 
 html[data-theme="dark"] .github-stars-link:hover {
-  border-color: #59778e;
-  background: #243441;
+  color: #b5d1e5;
 }
 
-/* Keep the compact badge aligned with the homepage's resource links. */
+html[data-theme="dark"] .github-stars-count {
+  background: transparent;
+  color: #b5d1e5;
+}
+
+html[data-theme="dark"] .github-stars-icon {
+  fill: #51442c;
+}
+
+/* Stars are inline metadata, not another resource button. */
 html .about-page .publications .links .github-stars-link {
   display: inline-flex;
-  padding: 0.08rem 0.38rem !important;
-  border: 1px solid var(--stars-border) !important;
-  border-radius: 4px !important;
-  background: var(--stars-background) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
   margin: 0 0 0 0.15rem;
   font-size: 0.6875rem;
   line-height: 1.4;

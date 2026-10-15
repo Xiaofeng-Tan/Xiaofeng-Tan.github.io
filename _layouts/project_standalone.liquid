@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | escape }} | {{ page.description | escape }}</title>
+    <meta name="description" content="{{ page.description | escape }}">
+    <meta property="og:title" content="{{ page.title | escape }}">
+    <meta property="og:description" content="{{ page.description | escape }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    {% for font in page.project_fonts %}
+      <link rel="stylesheet" href="{{ font }}">
+    {% endfor %}
+    {% for css in page.project_css %}
+      {% if css contains '://' %}
+        <link rel="stylesheet" href="{{ css }}">
+      {% else %}
+        <link rel="stylesheet" href="{{ css | relative_url }}?v={{ site.time | date: '%s' }}">
+      {% endif %}
+    {% endfor %}
+  </head>
+  <body>
+    <main class="project-page-content">
+      {{ content }}
+    </main>
+  </body>
+</html>

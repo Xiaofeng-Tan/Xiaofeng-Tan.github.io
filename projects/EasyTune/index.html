@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: project_standalone
 title: "EasyTune"
 description: "Efficient Step-Aware Fine-Tuning for Diffusion-Based Motion Generation"
 project_css:
@@ -45,7 +45,7 @@ project_fonts:
           </div>
           
           <!-- Links -->
-          <div class="publication-links">
+          <div class="publication-links" role="group" aria-label="EasyTune paper resources">
             <a href="https://openreview.net/forum?id=Fy1EoIaAzQ" target="_blank" class="button btn-openreview">
               <span class="icon"><img src="https://openreview.net/favicon.ico" alt="OpenReview" class="btn-icon"></span>
               <span>OpenReview</span>
@@ -67,9 +67,9 @@ project_fonts:
           <!-- Release Banner -->
           <div class="release-banner">
             <span class="release-icon"><i class="fas fa-rocket"></i></span>
-            <span>🔥 We have released <strong><a href="https://xiaofeng-tan.github.io/projects/MotionRFT/" target="_blank">MotionRFT</a></strong>, an extended version of EasyTune, with comprehensive code and documentation.</span>
+            <span><strong><a href="https://xiaofeng-tan.github.io/projects/MotionRFT/" target="_blank">MotionRFT</a></strong> extends EasyTune with a unified reward model, code, and documentation.</span>
           </div>
-          <div class="release-links">
+          <div class="release-links" role="group" aria-label="MotionRFT extended-work resources">
             <a href="https://xiaofeng-tan.github.io/projects/MotionRFT/" target="_blank" class="button btn-motionrft">
               <span class="icon"><i class="fas fa-globe"></i></span>
               <span>MotionRFT Project</span>
@@ -151,8 +151,8 @@ project_fonts:
       
       <h3 class="subsection-title">🏆 Main Results on HumanML3D</h3>
       <div class="figure-container">
-        <div class="figure-wrapper">
-          <img src="static/images/t1.png" alt="Main results"/>
+        <div class="figure-wrapper results-table results-table--main">
+          <a href="static/images/t1.png" target="_blank" rel="noopener" aria-label="View Table 1 at full resolution"><img src="static/images/t1.png" alt="Main results"/></a>
         </div>
         <p class="figure-caption">
           <strong>Table 1.</strong> Comparison of SoTA fine-tuning methods on HumanML3D dataset. ↑/↓/→ indicate higher/lower/closer-to-real values are better. <strong>Bold</strong> and <u>underline</u> highlight best and second-best results.
@@ -161,8 +161,8 @@ project_fonts:
       
       <h3 class="subsection-title">📈 Text-to-Motion Generation</h3>
       <div class="figure-container">
-        <div class="figure-wrapper">
-          <img src="static/images/t2.png" alt="Text-to-motion results"/>
+        <div class="figure-wrapper results-table results-table--generation">
+          <a href="static/images/t2.png" target="_blank" rel="noopener" aria-label="View Table 2 at full resolution"><img src="static/images/t2.png" alt="Text-to-motion results"/></a>
         </div>
         <p class="figure-caption">
           <strong>Table 2.</strong> Comparison of text-to-motion generation performance on the HumanML3D dataset.
@@ -171,8 +171,8 @@ project_fonts:
       
       <h3 class="subsection-title">🔬 Text-Motion Retrieval</h3>
       <div class="figure-container">
-        <div class="figure-wrapper">
-          <img src="static/images/t3.png" alt="Retrieval benchmark"/>
+        <div class="figure-wrapper results-table results-table--retrieval">
+          <a href="static/images/t3.png" target="_blank" rel="noopener" aria-label="View Table 3 at full resolution"><img src="static/images/t3.png" alt="Retrieval benchmark"/></a>
         </div>
         <p class="figure-caption">
           <strong>Table 3.</strong> Evaluation on Text-Motion Retrieval Benchmark. "Noise" indicates whether the method can handle noisy motion from the denoising process.
@@ -181,8 +181,8 @@ project_fonts:
       
       <h3 class="subsection-title">🔄 Generalization</h3>
       <div class="figure-container">
-        <div class="figure-wrapper">
-          <img src="static/images/t4.png" alt="Enhancement results"/>
+        <div class="figure-wrapper results-table results-table--generalization">
+          <a href="static/images/t4.png" target="_blank" rel="noopener" aria-label="View Table 4 at full resolution"><img src="static/images/t4.png" alt="Enhancement results"/></a>
         </div>
         <p class="figure-caption">
           <strong>Table 4.</strong> Performance enhancement of diffusion-based motion generation methods with EasyTune.
@@ -191,8 +191,8 @@ project_fonts:
 
       <h3 class="subsection-title">⚡ Computational Overhead</h3>
       <div class="figure-container">
-        <div class="figure-wrapper">
-          <img src="static/images/t6.png" alt="Computational overhead"/>
+        <div class="figure-wrapper results-table results-table--compute">
+          <a href="static/images/t6.png" target="_blank" rel="noopener" aria-label="View Table 5 at full resolution"><img src="static/images/t6.png" alt="Computational overhead"/></a>
         </div>
         <p class="figure-caption">
           <strong>Table 5.</strong> Computational overhead comparison. We report the training time and TFLOPs required to reach different reward scores. Total time is measured in seconds on a single NVIDIA RTX A6000 GPU. "-" indicates the method could not reach that reward level within a reasonable training budget.
@@ -363,5 +363,3 @@ function copyBibtex() {
   });
 }
 </script>
-
-
