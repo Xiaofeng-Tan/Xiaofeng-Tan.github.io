@@ -257,6 +257,9 @@
       {% endif %}
       {% if entry.code %}
         <a href="{{ entry.code }}" class="btn-code btn btn-sm z-depth-0" role="button" target="_blank"><i class="fab fa-github"></i> Code</a>
+        {% if entry.github_stars %}
+          <a href="{{ entry.code }}" class="github-stars-link" data-github-stars="{{ entry.github_stars | escape }}" target="_blank" rel="noopener" aria-label="View GitHub Stars"><img class="github-stars-fallback" src="https://img.shields.io/github/stars/{{ entry.github_stars }}?style=flat&amp;label=Stars&amp;color=245b84&amp;cacheSeconds=300" alt="GitHub Stars"></a>
+        {% endif %}
       {% endif %}
       {% if entry.poster %}
         {% if entry.poster contains '://' %}
