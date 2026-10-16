@@ -7,12 +7,14 @@
       venue: NeurIPS 2026
       role_en: First author
       role_zh: 一作
+      listed_first: true
       url: /projects/PEC/
       distinction: Spotlight
     - name: SoPo
       venue: NeurIPS 2025
       role_en: First author
       role_zh: 一作
+      listed_first: true
       url: /projects/SoPo/
       distinction: Poster
     - name: BiMoGen
@@ -29,6 +31,7 @@
       venue: ICLR 2026
       role_en: Co-first author
       role_zh: 共同一作
+      listed_first: true
       url: /projects/EasyTune/
       distinction: Poster
 - id: aaai
@@ -49,6 +52,7 @@
       venue: TPAMI 2026
       role_en: Co-first author
       role_zh: 共同一作
+      listed_first: true
       url: /projects/MotionRFT/
 - id: tip
   en: TIP
@@ -58,6 +62,7 @@
       venue: TIP 2026
       role_en: First author
       role_zh: 一作
+      listed_first: true
       url: /projects/FG-Diff/
 - id: tkde
   en: TKDE

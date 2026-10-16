@@ -3,6 +3,7 @@
 {% assign review_group = site.data.publication_overview | where: "id", "review" | first %}
 {% assign conference_ids = "neurips,iclr,aaai" | split: "," %}
 {% assign journal_ids = "tpami,tip,tkde" | split: "," %}
+{% assign listed_first_count = 0 %}
 {% for group in site.data.publication_overview %}
   {% if group.id == 'review' %}
     {% assign review_count = group.papers | size %}
@@ -10,6 +11,13 @@
     {% assign group_count = group.papers | size %}
     {% assign accepted_count = accepted_count | plus: group_count %}
   {% endif %}
+  {% unless group.id == 'review' %}
+    {% for paper in group.papers %}
+      {% if paper.listed_first %}
+        {% assign listed_first_count = listed_first_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endunless %}
 {% endfor %}
 
 <div class="publication-summary" aria-label="Publication overview / 成果概览">
@@ -17,6 +25,8 @@
     <div class="publication-summary__header-copy">
       <span class="publication-summary__count" data-language="en" lang="en">{{ accepted_count }} accepted · {{ review_count }} under review</span>
       <span class="publication-summary__count" data-language="zh" lang="zh-CN">{{ accepted_count }} 篇已录用 · {{ review_count }} 篇在投</span>
+      <span class="publication-summary__count" data-language="en" lang="en">{{ listed_first_count }} accepted papers listed first in the author list (including co-first authorship)</span>
+      <span class="publication-summary__count" data-language="zh" lang="zh-CN">{{ listed_first_count }} 篇已录用论文在作者列表中排名第一（含共同一作）</span>
       <span class="publication-summary__legend" data-language="en" lang="en">Underlined = first / co-first / first student author</span>
       <span class="publication-summary__legend" data-language="zh" lang="zh-CN">下划线 = 一作 / 共同一作 / 学生一作</span>
     </div>
