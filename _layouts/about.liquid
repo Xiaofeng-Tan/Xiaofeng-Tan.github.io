@@ -354,6 +354,10 @@ layout: default
     <h2 id="sec-honors" class="section-title">
       <span>🌟 Selected Honors</span>
     </h2>
+    <details class="honors-disclosure">
+      <summary class="section-disclosure-control">
+        {% include publication-toggle-hint.liquid %}
+      </summary>
     <div class="honors-section honors-section--grouped">
       {% assign honor_categories = "community,masters,undergraduate" | split: "," %}
       {% for category in honor_categories %}
@@ -390,9 +394,11 @@ layout: default
         {% endif %}
       {% endfor %}
     </div>
+    </details>
   {% endif %}
 
-  <!-- Teaching Assistant -->
+  {% comment %}
+  Teaching Assistant remains available on its dedicated page but is hidden from the homepage.
   <h2 id="sec-teaching" class="section-title">
     <span>💡 Teaching Assistant</span>
   </h2>
@@ -431,6 +437,7 @@ layout: default
       </div>
     </details>
   </div>
+  {% endcomment %}
 
   <!-- Misc -->
   <h2 id="sec-life" class="section-title">

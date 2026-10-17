@@ -871,7 +871,7 @@ html[data-theme="dark"] .about-page .publication-summary__note.presentation-dist
 }
 
 /* Section headings are labels; disclosure controls live below them. */
-html .about-page :is(.research-summary-section, .misc-section) {
+html .about-page :is(.research-summary-section, .misc-section, .honors-disclosure) {
   margin: 0 0 0.6rem;
 }
 
@@ -1094,6 +1094,22 @@ html .about-page .misc-section.is-closing .pub-category__hint-expand {
 }
 
 html .about-page .misc-section.is-closing .pub-category__hint-collapse {
+  display: none;
+}
+
+html .about-page .honors-disclosure[open] .pub-category__hint-expand {
+  display: none;
+}
+
+html .about-page .honors-disclosure[open] .pub-category__hint-collapse {
+  display: inline;
+}
+
+html .about-page .honors-disclosure.is-closing .pub-category__hint-expand {
+  display: inline;
+}
+
+html .about-page .honors-disclosure.is-closing .pub-category__hint-collapse {
   display: none;
 }
 

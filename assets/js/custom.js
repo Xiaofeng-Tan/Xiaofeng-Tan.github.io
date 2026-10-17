@@ -118,7 +118,7 @@
     return button;
   }
 
-  document.querySelectorAll('details.compact-card, details.pub-category, details.misc-section, details.publication-overview-group, details.research-summary-section').forEach(details => {
+  document.querySelectorAll('details.compact-card, details.pub-category, details.misc-section, details.honors-disclosure, details.publication-overview-group, details.research-summary-section').forEach(details => {
     if (details.classList.contains('pub-category')) return;
     if (details.closest('.honors-section')) return;
     const summary = details.querySelector(':scope > summary');
@@ -154,7 +154,7 @@
 
 // ========== Block 1b: Smooth native <details> expansion ==========
 (function () {
-  const selector = 'details.compact-card, details.pub-category, details.misc-section, details.publication-overview-group, details.research-summary-section';
+  const selector = 'details.compact-card, details.pub-category, details.misc-section, details.honors-disclosure, details.publication-overview-group, details.research-summary-section';
   document.querySelectorAll(selector).forEach(details => window.SiteDisclosure.enhanceDetails(details));
 })();
 
