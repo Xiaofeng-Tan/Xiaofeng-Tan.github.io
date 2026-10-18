@@ -1,0 +1,83 @@
+# Group by venue; presentation distinctions belong to individual papers.
+- id: neurips
+  en: NeurIPS
+  zh: NeurIPS
+  papers:
+    - name: PEC
+      venue: NeurIPS 2026
+      role_en: First author
+      role_zh: 一作
+      listed_first: true
+      url: /projects/PEC/
+      distinction: Spotlight
+    - name: SoPo
+      venue: NeurIPS 2025
+      role_en: First author
+      role_zh: 一作
+      listed_first: true
+      url: /projects/SoPo/
+      distinction: Poster
+- id: iclr
+  en: ICLR
+  zh: ICLR
+  papers:
+    - name: EasyTune
+      venue: ICLR 2026
+      role_en: Co-first author
+      role_zh: 共同一作
+      listed_first: true
+      url: /projects/EasyTune/
+      distinction: Poster
+- id: aaai
+  en: AAAI
+  zh: AAAI
+  papers:
+    - name: ReAlign
+      venue: AAAI 2026
+      role_en: Co-first author
+      role_zh: 共同一作
+      url: https://wengwanjiang.github.io/ReAlign-page/
+      distinction: Poster
+- id: tpami
+  en: TPAMI
+  zh: TPAMI
+  papers:
+    - name: MotionRFT
+      venue: TPAMI 2026
+      role_en: Co-first author
+      role_zh: 共同一作
+      listed_first: true
+      url: /projects/MotionRFT/
+- id: tip
+  en: TIP
+  zh: TIP
+  papers:
+    - name: FG-Diff
+      venue: TIP 2026
+      role_en: First author
+      role_zh: 一作
+      listed_first: true
+      url: /projects/FG-Diff/
+- id: tkde
+  en: TKDE
+  zh: TKDE
+  papers:
+    - name: MGBOD
+      venue: TKDE 2024
+      role_en: First student author
+      role_zh: 学生一作
+      url: https://ieeexplore.ieee.org/abstract/document/10821488
+- id: review
+  en: Under review
+  zh: 在投工作
+  papers:
+    - name: Consistent-RFT
+      venue: ""
+      role_en: First author
+      role_zh: 一作
+      url: /projects/ConsistentRFT/
+    - name: Getting Space Right
+      url: /projects/spatialcritic/
+      venue: ""
+      role_en: First author
+      role_zh: 一作

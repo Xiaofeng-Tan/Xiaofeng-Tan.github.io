@@ -1,0 +1,40 @@
+<span id="publication-filter-status" class="sr-only" role="status" aria-live="polite"></span>
+<div class="publications-grouped" id="publication-results">
+  <details class="pub-category pub-category--highlighted" open>
+    <summary class="pub-category__summary">
+      <span class="pub-category__label">Highlighted Works</span>
+      <span class="pub-category__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="pub-category__body">
+      <div class="publications highlighted-publications">
+        {% bibliography --group_by none --query @*[key=tan2026pec] %}
+        {% bibliography --group_by none --query @*[key=tan2026motionrft] %}
+      </div>
+    </div>
+  </details>
+
+  <details class="pub-category" open>
+    <summary class="pub-category__summary">
+      <span class="pub-category__label">Publications</span>
+      <span class="pub-category__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="pub-category__body">
+      <div class="publications">
+        {% bibliography --group_by none --query @*[selected=true && preprint!=true && abbr!=UR && highlighted!=true]* %}
+      </div>
+    </div>
+  </details>
+
+  <details class="pub-category" open>
+    <summary class="pub-category__summary">
+      <span class="pub-category__label">Preprints</span>
+      <span class="pub-category__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="pub-category__body">
+      <div class="publications">
+        {% bibliography --group_by none --query @*[selected=true && abbr=UR && highlighted!=true]* %}
+        {% bibliography --group_by none --query @*[selected=true && preprint=true && highlighted!=true]* %}
+      </div>
+    </div>
+  </details>
+</div>

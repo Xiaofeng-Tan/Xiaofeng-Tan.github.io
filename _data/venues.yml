@@ -1,0 +1,37 @@
+"AJP":
+  url: https://aapt.scitation.org/journal/ajp
+  color: "#00369f"
+
+"PhysRev":
+  url: https://journals.aps.org/
+
+"Vision":
+  color: "#009f36"
+
+"NeurIPS":
+  url: https://neurips.cc/
+  color: "#00A1E9"
+
+"AAAI":
+  url: https://aaai.org/
+  color: "#00A1E9"
+
+"ICLR":
+  url: https://iclr.cc/
+  color: "#00A1E9"
+
+"TIP":
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7
+  color: "#2E7D32"
+
+"TPAMI":
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34
+  color: "#2E7D32"
+
+"TKDE":
+  url: https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69
+  color: "#2E7D32"
+
+"IJAR":
+  url: https://www.sciencedirect.com/journal/international-journal-of-approximate-reasoning
+  color: "#5C6BC0"

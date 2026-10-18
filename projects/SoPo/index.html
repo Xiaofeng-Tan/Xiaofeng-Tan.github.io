@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* ========================================
+     学术论文项目页面 - 现代化风格 + 动画
+     ======================================== */
+  
+  :root {
+    --primary: #6f8fa4;
+    --primary-dark: #5b7b90;
+    --primary-light: #91a6b1;
+    --secondary: #6b8798;
+    --accent: #b98782;
+    --text-primary: #27333c;
+    --text-secondary: #66737d;
+    --text-muted: #8a949c;
+    --bg-base: #ffffff;
+    --bg-section: #f6f7f8;
+    --bg-card: #ffffff;
+    --border-color: #e5e9ec;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+    --shadow-glow: 0 0 16px rgba(111, 135, 152, 0.06);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --transition: 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+    --button-primary: #5f8eaa;
+    --button-hover: #4f7e98;
+    --button-pressed: #466f88;
+    --button-shadow: 0 2px 7px rgba(63, 91, 106, 0.14);
+    --button-shadow-hover: 0 5px 13px rgba(63, 91, 106, 0.18);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg-base);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text-primary);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: #ffffff;
+    padding: 4rem 1.5rem 3rem;
+    border-bottom: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: none;
+    pointer-events: none;
+  }
+
+  .publication-title {
+    color: var(--text-primary);
+    font-weight: 800;
+    font-size: 2.4rem;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 1.2rem !important;
+    animation: slideUp 0.6s ease-out;
+  }
+
+  /* Authors */
+  .publication-authors {
+    color: var(--text-secondary) !important;
+    margin-top: 0.8rem;
+    font-size: 1.05rem;
+    animation: slideUp 0.6s ease-out 0.1s both;
+  }
+
+  .publication-authors .author-block {
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: var(--transition);
+  }
+
+  .publication-authors sup {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.75em;
+  }
+
+  .publication-authors a {
+    color: var(--primary) !important;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+  }
+
+  .publication-authors a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition);
+  }
+
+  .publication-authors a:hover::after {
+    width: 100%;
+  }
+
+  .publication-authors a:hover {
+    color: var(--primary-dark) !important;
+  }
+
+  /* Affiliations */
+  .publication-affiliations {
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+    animation: slideUp 0.6s ease-out 0.15s both;
+  }
+
+  .affiliation-block {
+    color: var(--text-secondary);
+    font-weight: 400;
+    font-style: italic;
+    margin: 0 0.6rem;
+  }
+
+  .affiliation-block sup {
+    color: var(--primary);
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  /* Links/Buttons */
+  .publication-links {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    animation: slideUp 0.6s ease-out 0.25s both;
+  }
+
+  .publication-links .button {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.6rem 1.2rem;
+    transition:
+      transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 180ms ease,
+      background-color 180ms ease;
+    border-radius: 9px;
+    border: none !important;
+    box-shadow: var(--button-shadow);
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+  }
+
+  .publication-links .button::before {
+    content: none;
+  }
+
+  .publication-links .button:hover {
+    transform: translateY(-1px);
+    background: var(--button-hover-color, var(--button-hover)) !important;
+    box-shadow: var(--button-shadow-hover);
+  }
+
+  .publication-links .button:active {
+    transform: translateY(0);
+    background: var(--button-pressed-color, var(--button-pressed)) !important;
+    box-shadow: var(--button-shadow);
+    transition-duration: 100ms;
+  }
+
+  .publication-links .button.is-pressed {
+    transform: scale(0.985);
+    background: var(--button-pressed-color, var(--button-pressed)) !important;
+    box-shadow: var(--button-shadow);
+  }
+
+  .publication-links .button:focus-visible {
+    outline: 2px solid rgba(95, 142, 170, 0.55);
+    outline-offset: 3px;
+  }
+
+  .publication-links .button,
+  .publication-links .button:hover,
+  .publication-links .button:active,
+  .publication-links .button:focus,
+  .publication-links .button:focus-visible {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* Button Colors */
+  .btn-paper {
+    --button-color: #5f8eaa;
+    --button-hover-color: #4f7e98;
+    --button-pressed-color: #466f88;
+  }
+
+  .btn-arxiv {
+    --button-color: #a86762;
+    --button-hover-color: #985955;
+    --button-pressed-color: #884d49;
+  }
+
+  .btn-neurips {
+    --button-color: #758894;
+    --button-hover-color: #667b88;
+    --button-pressed-color: #596f7b;
+  }
+
+  .btn-code {
+    --button-color: #667780;
+    --button-hover-color: #586a74;
+    --button-pressed-color: #4d5e68;
+  }
+
+  .btn-poster {
+    --button-color: #806f8f;
+    --button-hover-color: #715f80;
+    --button-pressed-color: #624f70;
+  }
+
+  .publication-links .button {
+    background: var(--button-color, var(--button-primary)) !important;
+    color: #fff !important;
+  }
+
+  /* Contact Info */
+  .contact-info {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    animation: slideUp 0.6s ease-out 0.2s both;
+  }
+
+  .contact-info a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .contact-info a:hover {
+    color: var(--primary-dark);
+  }
+
+  /* TL;DR Container */
+  .tldr-container {
+    background: #f5f7f8;
+    padding: 1.2rem 1.5rem;
+    border-left: 4px solid var(--primary);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin: 1.5rem 0 1rem;
+    animation: slideUp 0.6s ease-out 0.3s both;
+    transition: var(--transition);
+  }
+
+  .tldr-container:hover {
+    background: #eef2f4;
+    transform: translateX(4px);
+  }
+
+  .tldr-container p { 
+    margin: 0.5rem 0; 
+    line-height: 1.7;
+  }
+
+  /* Section Styles */
+  .section.hero.is-light { 
+    background: var(--bg-section); 
+  }
+
+  .title.is-3 { 
+    color: var(--text-primary);
+    text-align: center; 
+    font-weight: 700; 
+    margin-bottom: 2rem; 
+    font-size: 1.7rem;
+    letter-spacing: -0.02em;
+    position: relative;
+    padding-bottom: 0.8rem;
+  }
+
+  .title.is-3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--primary-light);
+    border-radius: 2px;
+  }
+
+  /* Images */
+  img { 
+    border-radius: var(--radius-md); 
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+
+  .subtitle { 
+    margin-top: 1rem !important; 
+    font-size: 0.95rem; 
+    line-height: 1.75; 
+    color: var(--text-secondary); 
+  }
+
+  /* Video Grid */
+  .video-list { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem; 
+    margin-top: 1.5rem; 
+  }
+
+  .video-list .item {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  .video-list .item:nth-child(1) { animation-delay: 0.1s; }
+  .video-list .item:nth-child(2) { animation-delay: 0.15s; }
+  .video-list .item:nth-child(3) { animation-delay: 0.2s; }
+  .video-list .item:nth-child(4) { animation-delay: 0.25s; }
+  .video-list .item:nth-child(5) { animation-delay: 0.3s; }
+  .video-list .item:nth-child(6) { animation-delay: 0.35s; }
+  .video-list .item:nth-child(7) { animation-delay: 0.4s; }
+  .video-list .item:nth-child(8) { animation-delay: 0.45s; }
+  .video-list .item:nth-child(9) { animation-delay: 0.5s; }
+  .video-list .item:nth-child(10) { animation-delay: 0.55s; }
+  .video-list .item:nth-child(11) { animation-delay: 0.6s; }
+  .video-list .item:nth-child(12) { animation-delay: 0.65s; }
+
+  .video-list .item:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px) scale(1.01);
+  }
+
+  .video-list video { 
+    width: 100%; 
+    display: block;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Sections */
+  .card-section {
+    background: transparent;
+    padding: 2rem 0;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+  }
+
+  /* Section Spacing */
+  .abstract-section,
+  .poster-section,
+  .toy-section,
+  .video-section {
+    margin-top: 0 !important;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  /* Abstract Content */
+  .abstract-content {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    font-size: 1rem;
+    line-height: 1.85;
+    text-align: justify;
+    color: var(--text-secondary);
+    border: none;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Poster Hover Effect */
+  .poster-section img {
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .poster-section img:hover {
+    box-shadow: var(--shadow-lg);
+    transform: scale(1.01);
+  }
+
+  .toy-section img {
+    transition: var(--transition);
+  }
+
+  .toy-section img:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Animations */
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes fadeInUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .poster-animated {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  /* Scroll Reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .publication-title {
+      font-size: 1.7rem;
+    }
+    .hero {
+      padding: 2.5rem 1rem 2rem;
+    }
+    .publication-links {
+      gap: 0.5rem;
+    }
+    .publication-links .button { 
+      font-size: 0.82rem;
+      padding: 0.5rem 1rem;
+    }
+    .subtitle { 
+      font-size: 0.9rem; 
+    }
+    .card-section {
+      padding: 1.5rem 1.2rem;
+    }
+    .abstract-content {
+      padding: 1.2rem 1rem;
+    }
+    .video-list {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .tldr-container {
+      padding: 1rem 1.2rem;
+    }
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(111, 135, 152, 0.14);
+    color: var(--primary-dark);
+  }
+
+  /* Smooth scroll indicator */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .publication-links .button {
+      transition: none !important;
+    }
+  }
+
+  /* Print Styles */
+  @media print {
+    .publication-links {
+      display: none;
+    }
+    * {
+      animation: none !important;
+    }
+  }
+</style>
+
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <title>SoPo: Text-to-Motion Generation Using Semi-Online Preference Optimization</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏃</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">SoPo: Text-to-Motion Generation Using Semi-Online Preference Optimization</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->            
+              <span class="author-block">
+                <a href="https://xiaofeng-tan.github.io/" target="_blank">Xiaofeng Tan</a><sup>1,2</sup>,</span>
+                <span class="author-block">
+                  <a >Hongsong Wang</a><sup>1,2</sup>,</span>
+                  <span class="author-block">
+                    <a >Xin Geng</a><sup>1,2</sup>,</span>
+                  
+                  <span class="author-block">
+                    <a >Pan Zhou</a><sup>3</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-affiliations">
+                    <span class="affiliation-block"><sup>1</sup>Southeast University</span>
+                    <span class="affiliation-block"><sup>2</sup>PALM Lab</span>
+                    <span class="affiliation-block"><sup>3</sup>Singapore Management University</span>
+                  </div>
+                  <div class="contact-info">
+                    <span>For any questions, please contact <a href="mailto:xiaofengtan@seu.edu.cn">xiaofengtan@seu.edu.cn</a> or visit <a href="https://xiaofeng-tan.github.io/" target="_blank">my homepage</a>.</span>
+                  </div>
+                  <br>
+                <div class="tldr-container" style="text-align: left;">
+                    <p style="margin: 0; font-size: 1rem; color: var(--text-primary);">
+                        How effectively can 
+                        <span style="color: var(--accent); font-weight: 600;">discriminative</span>
+                        model improve motion
+                        <span style="color: var(--accent); font-weight: 600;">generation</span> quality
+                        <span style="color: var(--accent); font-weight: 600;">without any additional inference cost</span>?
+                    </p>
+                    <p style="font-size: 0.95rem; line-height: 1.75; margin-top: 0.8rem;">
+                        <span style="font-weight: 700; color: var(--primary-dark);">TL;DR:</span>
+                        We propose <span style="font-weight: 700; color: var(--primary-dark);">SoPo</span>, a semi-online preference optimization method, combining the strengths of online and offline direct preference optimization to overcome their individual shortcomings, delivering enhanced motion generation quality and preference alignment.
+                    </p>
+                </div>
+              <!-- Paper authors -->            
+               <!-- 
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                <span class="author-block">
+                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Institution Name<br>Conferance name and year</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                  </div>
+                -->
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Paper PDF -->
+                      <span class="link-block">
+                        <a href="./static/pdfs/SoPo__Text_to_Motion_Generation_Using_Semi_Online_Preference_Optimization.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded btn-paper">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- arXiv -->
+                    <span class="link-block">
+                      <a href="https://arxiv.org/abs/2412.05095" target="_blank"
+                      class="external-link button is-normal is-rounded btn-arxiv">
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+
+                    <!-- NeurIPS 2025 -->
+                    <span class="link-block">
+                      <a href="https://neurips.cc/virtual/2025/poster/118773" target="_blank"
+                      class="external-link button is-normal is-rounded btn-neurips">
+                      <span class="icon">
+                        <i class="fas fa-trophy"></i>
+                      </span>
+                      <span>NeurIPS 2025</span>
+                    </a>
+                  </span>
+
+                    <!-- Code -->
+                    <span class="link-block">
+                        <a href="https://github.com/Xiaofeng-Tan/SoPo" target="_blank"
+                        class="external-link button is-normal is-rounded btn-code">
+                        <span class="icon">
+                          <i class="fab fa-github"></i>
+                        </span>
+                        <span>Code</span>
+                      </a>
+                    </span>
+
+                    <!-- Poster -->
+                    <span class="link-block">
+                        <a href="./static/pdfs/poster.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded btn-poster">
+                        <span class="icon">
+                          <i class="fas fa-chalkboard"></i>
+                        </span>
+                        <span>Poster</span>
+                      </a>
+                    </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="hero-body card-section abstract-section">
+      <h2 class="title is-3">Abstract</h2>
+      <div class="abstract-content" style="max-width: 900px; margin: 0 auto; text-align: justify;">
+          <p>
+            Text-to-motion generation is essential for advancing the creative industry but often presents challenges in producing consistent, realistic motions. To address this, we focus on fine-tuning text-to-motion models to consistently favor high-quality, human-preferred motions—a critical yet largely unexplored problem. In this work, we theoretically investigate the DPO under both online and offline settings, and reveal their respective limitation: overfitting in offline DPO, and biased sampling in online DPO. Building on our theoretical insights, we introduce Semi-online Preference Optimization (SoPo), a DPO-based method for training text-to-motion models using "semi-online" data pair, consisting of unpreferred motion from online distribution and preferred motion in offline datasets. This method leverages both online and offline DPO, allowing each to compensate for the other’s limitations. Extensive experiments demonstrate that SoPo outperforms other preference alignment methods, with an MM-Dist of 3.25% (vs e.g. 0.76% of MoDiPO) on the MLD model, 2.91% (vs e.g. 0.66% of MoDiPO) on MDM model, respectively. Additionally, the MLD model fine-tuned by our SoPo surpasses the SoTA model in terms of R-precision and MM Dist. Visualization results also show the efficacy of our SoPo in preference alignment.
+          </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Poster Section -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body card-section poster-section">
+      <h2 class="title is-3">Poster</h2>
+      <div style="text-align: center;">
+        <a href="./static/pdfs/poster.pdf" target="_blank">
+          <img class="poster-animated" style="width: 100%; max-width: 900px; height: auto; display: inline-block;" src="static/images/poster.png" alt="Poster"/>
+        </a>
+        <p class="subtitle" style="max-width: 900px; margin: 1rem auto 0; text-align: center; font-style: italic; color: var(--text-muted); font-size: 0.88rem;">
+          Click the poster to view the PDF version
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body card-section toy-section">
+      <h2 class="title is-3">Toy Example</h2>
+      <div style="text-align: center;">
+        <img style="width: 100%; max-width: 900px; height: auto; display: inline-block;" src="static/images/toy.png" alt="Toy Example"/>
+        <p class="subtitle" style="max-width: 900px; margin: 1.2rem auto 0; text-align: left;">
+          <strong>Comparison of offline, online DPO, and our SoPo on synthetic data.</strong> Offline DPO suffers from mining unpreferred motions with high probability, and online DPO is limited by biased sampling. Our SoPo utilizes the dynamic unpreferred motions and preferred motions from unbiased offline dataset, overcoming their advantage. Here, the blue region is the distribution of generative model.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body card-section video-section">
+      <h2 class="title is-3">Visualization Results</h2>
+      <div class="video-list">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop>
+            <source src="static/videos/video_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop>
+            <source src="static/videos/video_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop>
+            <source src="static/videos/video_3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video4">
+          <video poster="" id="video4" autoplay controls muted loop>
+            <source src="static/videos/video_4.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video5">
+          <video poster="" id="video5" autoplay controls muted loop>
+            <source src="static/videos/video_5.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video6">
+          <video poster="" id="video6" autoplay controls muted loop>
+            <source src="static/videos/video_6.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video7">
+          <video poster="" id="video7" autoplay controls muted loop>
+            <source src="static/videos/video_7.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video8">
+          <video poster="" id="video8" autoplay controls muted loop>
+            <source src="static/videos/video_8.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video9">
+          <video poster="" id="video9" autoplay controls muted loop>
+            <source src="static/videos/video_9.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video10">
+          <video poster="" id="video10" autoplay controls muted loop>
+            <source src="static/videos/video_10.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video11">
+          <video poster="" id="video11" autoplay controls muted loop>
+            <source src="static/videos/video_11.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video12">
+          <video poster="" id="video12" autoplay controls muted loop>
+            <source src="static/videos/video_12.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>

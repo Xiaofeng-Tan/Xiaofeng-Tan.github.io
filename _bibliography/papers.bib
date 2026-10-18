@@ -1,0 +1,222 @@
+---
+---
+
+@article{tan2026motionrft,
+  title={MotionRFT: Unified Reinforcement Fine-Tuning for Text-to-Motion Generation},
+  author={Tan*, Xiaofeng and Weng*, Wanjiang and Wang, Hongsong and Zhao, Fang and Geng, Xin and Wang, Liang},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  abbr={TPAMI},
+  impact_factor={20.4},
+  impact_factor_year={2025},
+  ccf={CCF-A},
+  sci={SCI-Q1},
+  note={Extended from EasyTune (ICLR 2026).},
+  highlighted={true},
+  selected={true},
+  preview={motionrft-framework.webp},
+  website={/projects/MotionRFT/index.html},
+  arxiv={2603.27185},
+  pdf={https://arxiv.org/pdf/2603.27185},
+  code={https://github.com/Xiaofeng-Tan/MotionRFT},
+  github_stars={Xiaofeng-Tan/MotionRFT},
+  abstract={Text-to-motion generation has rapidly advanced with diffusion- and flow-based generative models, yet supervised pre-training remains insufficient to align models with high-level objectives such as semantic consistency, realism, and human preference. However, existing post-training methods have key limitations: (1) they are often designed for a specific motion representation, such as joint- or rotation-based motions, (2) they typically optimize a particular aspect, such as text-motion alignment or human preference, and may compromise other quality factors, and (3) they incur substantial computational overhead, data dependence, and coarse-grained optimization. We present a reinforcement fine-tuning framework that comprises a heterogeneous-representation, multi-dimensional reward model MotionReward and an efficient, fine-grained fine-tuning strategy EasyTune. To obtain a unified semantics representation, MotionReward maps heterogeneous motion representations into a shared semantic embedding space, where the text description serves as an anchor, paving the way for multi-dimensional reward learning. To enhance semantic alignment without additional annotated data, we propose Self-refinement Preference Learning, dynamically mining the preference and refinement itself. For efficient and effective fine-tuning, we identify a key limitation of differentiable-reward methods, the recursive dependence across denoising steps. Motivated by this insight, we propose EasyTune, which fine-tunes diffusion step-wise rather than over the full trajectory, decoupling this dependence and enabling dense, fine-grained, and memory-efficient optimization. Extensive experiments demonstrate strong cross-model and cross-representation generalization, achieving FID 0.132 with 22.10 GB peak memory and saving up to 15.22 GB over DRaFT. Beyond kinematic-based MLD and MDM, it reduces FID by 22.9% on joint-based ACMDM, and achieves a 12.6% R-Precision gain and 23.3% FID improvement on rotation-based HY Motion.},
+  year={2026}
+}
+
+@article{tan2026pec,
+  title={When Policy Entropy Constraint Fails: Preserving Diversity in Flow-based RLHF via Perceptual Entropy},
+  author={Tan, Xiaofeng and Liu, Jun and Gao, Bin-Bin and Fan, Yuanting and Jiang, Xi and Wang, Chengjie and Wang, Hongsong and Zheng, Feng},
+  journal={Advances in Neural Information Processing Systems},
+  abbr={NeurIPS},
+  presentation={Spotlight (292/30,709 submissions, 0.95%)},
+  ccf={CCF-A},
+  core={CORE-A*},
+  highlighted={true},
+  selected={true},
+  preview={pec-preview.webp},
+  website={/projects/PEC/index.html},
+  arxiv={2605.12112},
+  pdf={https://arxiv.org/abs/2605.12112},
+  abstract={RLHF is widely used to align flow-matching text-to-image models with human preferences, but often leads to severe diversity collapse after fine-tuning. In RL, diversity is often assumed to correlate with policy entropy, motivating entropy regularization. However, we show this intuition breaks in flow models: policy entropy remains constant, even while perceptual diversity collapses. We explain this mismatch both theoretically and empirically: the constant entropy arises from the fixed, pre-defined noise schedule, while the diversity collapse is driven by the mode-seeking nature of policy gradients. As a result, policy entropy fails to prevent the model from converging to a narrow high-reward region in the perceptual space. To this end, we introduce perceptual entropy that captures diversity in a perceptual space and maintains the property of standard entropy. Building upon this insight, we propose two entropy-regularized strategies, Perceptual Entropy Constraint (PEC) and Perceptual Constraints on Generation Space (PCVAE), to preserve perceptual diversity and improve the quality. Experiments across two base models (FLUX.dev, SD3.5-M), neural and rule-based rewards, and three perceptual spaces (PickScore, DINO, CLIP) demonstrate consistent gains in the quality-diversity trade-off; PEC achieves the best overall score of 0.734 (vs. baseline's 0.366); a complementary setting of PEC further reaches a diversity average of 0.989 (vs. baseline's 0.047).},
+  year={2026}
+}
+
+@article{tan2025consistentrft,
+  title={Dual-Grained Policy Optimization for Hallucination Reduction in Flow-based RL},
+  author={Tan, Xiaofeng and Liu, Jun and Fan, Yuanting and Gao, Bin-Bin and Jiang, Xi and Chen, Xiaochen and Peng, Jinlong and Wang, Chengjie and Wang, Hongsong and Zheng, Feng},
+  journal={Under Review},
+  abbr={UR},
+  selected={true},
+  preview={consistent-method.webp},
+  abstract={},
+  website={/projects/ConsistentRFT/index.html},
+  arxiv={2602.03425},
+  pdf={https://arxiv.org/abs/2602.03425},
+  code={https://github.com/Xiaofeng-Tan/ConsistentRFT},
+  github_stars={Xiaofeng-Tan/ConsistentRFT},
+  year={2026}
+}
+
+@article{tan2024sopo,
+  title={SoPo: Text-to-Motion Generation Using Semi-Online Preference Optimization},
+  author={Tan, Xiaofeng and Wang, Hongsong and Geng, Xin and Zhou, Pan},
+  journal={Advances in Neural Information Processing Systems},
+  abbr={NeurIPS},
+  ccf={CCF-A},
+  core={CORE-A*},
+  website={/projects/SoPo/index.html},
+  pdf={https://arxiv.org/abs/2412.05095},
+  supp={https://arxiv.org/abs/2412.05095},
+  arxiv={2412.05095},
+  code={https://github.com/Xiaofeng-Tan/SoPO},
+  poster={/projects/SoPo/static/pdfs/poster.pdf},
+  selected={true},
+  preview={sopo-preview.webp},
+  abstract = {Text-to-motion generation is essential for advancing the creative industry but often presents challenges in producing consistent, realistic motions. To address this, we focus on fine-tuning text-to-motion models to consistently favor high-quality, human-preferred motions—a critical yet largely unexplored problem. In this work, we theoretically investigate the DPO under both online and offline settings, and reveal their respective limitation: overfitting in offline DPO, and biased sampling in online DPO. Building on our theoretical insights, we introduce Semi-online Preference Optimization (SoPo), a DPO-based method for training text-to-motion models using ``semi-online" data pair, consisting of unpreferred motion from online distribution and preferred motion in offline datasets. This method leverages both online and offline DPO, allowing each to compensate for the other's limitations. Extensive experiments demonstrate that SoPo outperforms other preference alignment methods, with an MM-Dist of 3.25\% (vs e.g. 0.76\% of MoDiPO) on the MLD model, 2.91\% (vs e.g. 0.66\% of MoDiPO) on MDM model, respectively. Additionally, the MLD model fine-tuned by our SoPo surpasses the SoTA model in terms of R-precision and MM Dist. Visualization results also show the efficacy of our SoPo in preference alignment.},
+
+  year={2025}
+}
+
+@article{Tan2026easytune,
+  title={EasyTune: Efficient Step-Aware Fine-Tuning for Diffusion-Based Motion Generation},
+  author={Tan*, Xiaofeng and Weng*, Wanjiang and Lei, Haodong and Wang, Hongsong},
+  journal={International Conference on Learning Representations},
+  abbr={ICLR},
+  presentation={Poster},
+  ccf={CCF-A},
+  core={CORE-A*},
+  abstract={In recent years, motion generative models have advanced significantly, but aligning them with downstream objectives remains challenging. Recent work shows that differentiable rewards can directly align diffusion models with preferences, but existing approaches are inefficient, coarse-grained, and memory-intensive. We identify the fundamental cause of these limitations as the recursive dependence among steps in the denoising trajectory. Inspired by this insight, we propose EasyTune, which fine-tunes diffusion at each denoising step rather than across the entire trajectory. This decouples the recursive dependence and enables dense, effective, memory-efficient, and fine-grained optimization. To address the scarcity of preference motion pairs for training reward models, we further introduce Self-refinement Preference Learning (SPL), which dynamically identifies preference pairs for preference learning. Extensive experiments show that EasyTune improves MM-Dist over ReFL by 62.1% while requiring only 34.5% of its additional memory overhead.},
+  selected={true},
+  preview={easytune-framework.webp},
+  website={/projects/EasyTune/index.html},
+  openreview={https://openreview.net/forum?id=Fy1EoIaAzQ},
+  arxiv={2602.07967},
+  pdf={https://arxiv.org/abs/2602.07967},
+
+  year={2026}
+}
+
+@article{weng2026realign,
+  title={ReAlign: Text-to-Motion Generation via Step-Aware Reward-Guided Alignment},
+  author={Weng*, Wanjiang and Tan*, Xiaofeng and Wang, Junbo and Xie, Guo-Sen and Zhou, Pan and Wang, Hongsong},
+  journal={AAAI Conference on Artificial Intelligence},
+  abbr={AAAI},
+  presentation={Poster},
+  ccf={CCF-A},
+  core={CORE-A*},
+  selected={true},
+  website={https://wengwanjiang.github.io/ReAlign-page/},
+  arxiv={2511.19217},
+  pdf={https://arxiv.org/pdf/2511.19217.pdf},
+  code={https://github.com/wengwanjiang/ReAlign?tab=readme-ov-file},
+  preview={realign-method.webp},
+  abstract = {Text-to-motion generation, which synthesizes 3D human motions from text inputs, holds immense potential for applications in gaming, film, and robotics. Recently, diffusion-based methods have been shown to generate more diversity and realistic motion. However, there exists a misalignment between text and motion distributions in diffusion models, which leads to semantically inconsistent or low-quality motions. To address this limitation, we propose Reward-guided sampling Alignment (ReAlign), comprising a step-aware reward model to assess alignment quality during the denoising sampling and a reward-guided strategy that directs the diffusion process toward an optimally aligned distribution. This reward model integrates step-aware tokens and combines a text-aligned module for semantic consistency and a motion-aligned module for realism, refining noisy motions at each timestep to balance probability density and alignment. Extensive experiments of both motion generation and retrieval tasks demonstrate that our approach significantly improves text-motion alignment and motion quality compared to existing state-of-the-art methods.},
+
+  year={2026}
+}
+
+
+
+@article{tan2024frequency,
+  title={Frequency-Guided Diffusion Model with Perturbation Training for Skeleton-Based Video Anomaly Detection},
+  author={Tan, Xiaofeng and Wang, Hongsong and Geng, Xin and Wang, Liang},
+  journal={IEEE Transactions on Image Processing},
+  abbr={TIP},
+  impact_factor={15.3},
+  impact_factor_year={2025},
+  ccf={CCF-A},
+  sci={SCI-Q1},
+  website={/projects/FG-Diff/index.html},
+  doi={10.1109/TIP.2026.3730816},
+  url={https://ieeexplore.ieee.org/document/11689693},
+  pdf={https://ieeexplore.ieee.org/document/11689693},
+  arxiv={2412.03044},
+  code={https://github.com/Xiaofeng-Tan/FG-Diff},
+  selected={true},
+  preview={fgdiff-framework.webp},
+  abstract = {Video anomaly detection (VAD) is a vital yet complex open-set task in computer vision, commonly tackled through reconstruction-based methods. However, these methods struggle with two key limitations: (1) insufficient robustness in open-set scenarios, where unseen normal motions are frequently misclassified as anomalies, and (2) an overemphasis on, but restricted capacity for, local motion reconstruction, which are inherently difficult to capture accurately due to their diversity. To overcome these challenges, we introduce a novel frequency-guided diffusion model with perturbation training. First, we enhance robustness by training a generator to produce perturbed samples, which are similar to normal samples and target the weakness of the reconstruction model. This training paradigm expands the reconstruction domain of the model, improving its generalization to unseen normal motions. Second, to address the overemphasis on motion details, we employ the 2D Discrete Cosine Transform (DCT) to separate high-frequency (local) and low-frequency (global) motion components. By guiding the diffusion model with observed high-frequency information, we prioritize the reconstruction of low-frequency components, enabling more accurate and robust anomaly detection. Extensive experiments on five widely used VAD datasets demonstrate that our approach surpasses state-of-the-art methods, underscoring its effectiveness in open-set scenarios and diverse motion contexts.},
+
+  year={2026}
+}
+
+@article{tanGB,
+  title={Fuzzy Granule Density-Based Outlier Detection with Multi-Scale Granular Balls},
+  author={Gao (Supervisor), Can and Tan, Xiaofeng and Zhou, Jie and Ding, Weiping and Pedrycz, Witold},
+  abstract = {Outlier detection refers to the identification of anomalous samples that deviate significantly from the distribution of normal data and has been extensively studied and used in a variety of practical tasks. However, most unsupervised outlier detection methods are carefully designed to detect specified outliers, while real-world data may be entangled with different types of outliers. In this study, we propose a fuzzy rough sets-based multi-scale outlier detection method to identify various types of outliers. Specifically, a novel fuzzy rough sets-based method that integrates relative fuzzy granule density is first introduced to improve the capability of detecting local outliers. Then, a multi-scale view generation method based on granular-ball computing is proposed to collaboratively identify group outliers at different levels of granularity. Moreover, reliable outliers and inliers determined by the three-way decision are used to train a weighted support vector machine to further improve the performance of outlier detection. The proposed method innovatively transforms unsupervised outlier detection into a semi-supervised classification problem and for the first time explores the fuzzy rough sets-based outlier detection from the perspective of multi-scale granular balls, allowing for high adaptability to different types of outliers. Extensive experiments carried out on both artificial and UCI datasets demonstrate that the proposed outlier detection method significantly outperforms the state-of-the-art methods, improving the results by at least 8.48% in terms of the Area Under the ROC Curve (AUROC) index.},
+  journal={IEEE Transactions on Knowledge and Data Engineering},
+  abbr={TKDE},
+  impact_factor={11.6},
+  impact_factor_year={2025},
+  ccf={CCF-A},
+  sci={SCI-Q1},
+  selected={true},
+  preview={mgbod-fig3.webp},
+  doi = {10.1109/TKDE.2024.3525003},
+  url = {https://ieeexplore.ieee.org/abstract/document/10821488},
+  pdf={https://ieeexplore.ieee.org/abstract/document/10821488},
+  code={https://github.com/Xiaofeng-Tan/MGBOD},
+  supp={https://github.com/Xiaofeng-Tan/MGBOD},
+
+  year={2024}
+}
+
+@article{TANTWD,
+title = {Three-way decision-based co-detection for outliers},
+journal = {International Journal of Approximate Reasoning},
+abbr={IJAR},
+ccf={CCF-B},
+sci={SCI-Q2},
+volume = {160},
+pages = {108971},
+year = {2023},
+issn = {0888-613X},
+doi = {10.1016/j.ijar.2023.108971},
+url = {https://www.sciencedirect.com/science/article/pii/S0888613X23001020},
+pdf={https://www.sciencedirect.com/science/article/pii/S0888613X23001020?via%3Dihub},
+selected={False},
+author = {Xiaofeng Tan and Can Gao and Jie Zhou and Jiajun Wen},
+preview={TWD.jpg},
+keywords = {Outlier detection, Fuzzy rough sets, Attribute reduction, Three-way decision, Co-detection},
+abstract = {Outlier detection is an important research topic in data mining and machine learning. However, existing unsupervised outlier detection methods suffer from irrelevant and redundant attributes in high-dimensional data, and their performance is also limited by their outlier detection models that rely on only one view. In this study, we propose a three-way decision-based co-detection model for unsupervised outlier detection. Specifically, we first improve the local outlier factor (LOF) method by introducing the Gaussian kernel function to make the measure of local reachability density more accurate. Then, we introduce fuzzy rough sets to perform attribute reduction, which further reduces the negative effect of irrelevant and redundant attributes on the measure of sample similarity. Finally, we develop a co-detection model that is trained on the original view and the transformed view generated by principal component analysis and uses the strategy of the three-way decision to collaboratively detect outliers. The results of comparative experiments on the selected UCI datasets show that the proposed model outperforms state-of-the-art methods in terms of AUC-ROC index.}
+}
+
+
+
+@article{tan4785986multiple,
+  title={Multi-Scale Fuzzy Rough Sets based Anomaly Detection with Multiple Autoencoders},
+  author={Tan, Xiaofeng and Gao, Can and Zhou, Jie and Ding, Weiping},
+  journal={Under Review},
+  abstract = {Anomaly detection is a practical and essential research topic with a wide range of applications. However, existing anomaly detection methods may face challenges when handling high-dimensional data with complex distributions. In this study, we propose a multiple autoencoder-based anomaly detection method with the aid of fuzzy rough sets. Specifically, the autoencoder is first improved by introducing the kernel fuzzy relation to enhance its representation capability in low-dimensional space. Then, the theory of fuzzy rough sets is employed to perform anomaly detection in the learned low-dimensional representation by fusing multi-view proximity-based information. Finally, to handle complex data, multiple autoencoders are utilized to collaboratively detect anomalies by integrating local anomaly information from different perspectives. Comparative experiments conducted on the selected datasets reveal that the proposed method is superior to state-of-the-art methods, improving over classical autoencoder by 5.58% in terms of the AUC-ROC index.},
+  preview={AEAD.png},
+  selected={False},
+  year={2024}
+}
+
+@article{weng2026bimogen,
+  title={BiMoGen: Bidirectional Motion-Text Generation via Unified Masked Discrete Diffusion},
+  author={Weng, Wanjiang and Wu, Yongliang and Tan, Xiaofeng and Zhu, Xingyu and Zhu, Wenbo and Wang, Hongsong},
+  journal={Advances in Neural Information Processing Systems},
+  abbr={NeurIPS},
+  presentation={Poster},
+  preview={bimogen-fig2.webp},
+  arxiv={2609.35407},
+  pdf={https://arxiv.org/pdf/2609.35407},
+  website={https://wengwanjiang.github.io/BiMoGen-Page},
+  ccf={CCF-A},
+  core={CORE-A*},
+  selected={false},
+  year={2026}
+}
+
+@article{tan2027spatial,
+  title={Getting Space Right: Agentic Rewards for Image Generation},
+  author={Tan, Xiaofeng and Lin, Jiaxin and Yuan, Haobo and Shen, Tiancheng and Su, Zihan and Chen, Rui and Wang, Hongsong and Yang, Ming-Hsuan},
+  journal={Under Review},
+  arxiv={2610.14852},
+  pdf={https://arxiv.org/pdf/2610.14852},
+  website={/projects/spatialcritic/},
+  year={2026},
+  preview={spatial-fig4.webp},
+  abbr={UR},
+  selected={true}
+}

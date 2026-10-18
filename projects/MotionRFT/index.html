@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="MotionRFT: Unified Reinforcement Fine-Tuning for Text-to-Motion Generation, accepted by IEEE PAMI.">
+  <meta property="og:title" content="MotionRFT | IEEE PAMI"/>
+  <meta property="og:description" content="An IEEE PAMI paper on reinforcement fine-tuning with MotionReward and EasyTune for text-to-motion generation."/>
+  <meta property="og:url" content="https://xiaofeng-tan.github.io/projects/MotionRFT/"/>
+  <meta property="og:image" content="static/images/motionreward_framework.png" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="Motion Generation, Diffusion Model, Fine-Tuning, Preference Learning, Reinforcement Fine-Tuning, PAMI">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MotionRFT | IEEE PAMI</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏃</text></svg>">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="../../assets/css/github-stars.css">
+  <script src="../../assets/js/github-stars.js" defer></script>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero motionrft-hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="publication-title">
+            <span class="publication-title-line"><span class="method-name">MotionRFT</span>: Unified Reinforcement Fine-Tuning</span>
+            <span class="publication-title-line">for Text-to-Motion Generation</span>
+          </h1>
+
+          <div class="venue-row">
+            <span class="venue-badge">PAMI 2026</span>
+            <span class="venue-sep" aria-hidden="true"></span>
+            <span class="venue-note">Extended from <a href="https://xiaofeng-tan.github.io/projects/EasyTune/" target="_blank">EasyTune</a> <span class="venue-conf">(ICLR 2026)</span></span>
+          </div>
+
+          <div class="publication-authors">
+            <span class="author-block"><a href="https://xiaofeng-tan.github.io/" target="_blank" rel="noopener">Xiaofeng Tan</a><sup>*</sup>,</span>
+            <span class="author-block"><a href="https://wengwanjiang.github.io/" target="_blank" rel="noopener">Wanjiang Weng</a><sup>*</sup>,</span>
+            <span class="author-block"><a href="https://cs.seu.edu.cn/hongsongwang/main.htm" target="_blank" rel="noopener">Hongsong Wang</a>,</span>
+            <span class="author-block">Fang Zhao,</span>
+            <span class="author-block"><a href="https://palm.seu.edu.cn/xgeng/" target="_blank" rel="noopener">Xin Geng</a>,</span>
+            <span class="author-block"><a href="http://www.cbsr.ia.ac.cn/users/lwang/lwang.html" target="_blank" rel="noopener">Liang Wang</a></span>
+          </div>
+          <div class="publication-affiliations">
+            <span>Southeast University</span>
+            <span class="affil-sep">&middot;</span>
+            <span>Nanjing University</span>
+            <span class="affil-sep">&middot;</span>
+            <span>Chinese Academy of Sciences</span>
+          </div>
+          <div class="author-note"><sup>*</sup> Equal contribution.</div>
+
+          <div class="tldr-container">
+            <span class="tldr-label">TL;DR</span>
+            <p>We present <strong>MotionRFT</strong>, a reinforcement fine-tuning framework with a unified multi-representation reward model <strong>MotionReward</strong> and a step-wise, memory-efficient fine-tuning strategy <strong>EasyTune</strong>.</p>
+          </div>
+          
+          <div class="publication-links">
+            <div class="resource-group" role="group" aria-labelledby="motionrft-resources">
+            <div class="resource-heading">
+              <span id="motionrft-resources" class="link-label">MotionRFT</span>
+              <span class="resource-context">This work · PAMI 2026</span>
+              <a href="https://github.com/Xiaofeng-Tan/MotionRFT/stargazers" class="github-stars-link" data-github-stars="Xiaofeng-Tan/MotionRFT" target="_blank" rel="noopener" aria-label="View GitHub Stars">☆ Stars</a>
+            </div>
+            <div class="resource-actions">
+            <a href="https://arxiv.org/pdf/2603.27185" target="_blank" class="button btn-primary">
+              <span class="icon"><i class="fas fa-file-alt"></i></span>
+              <span>Paper</span>
+            </a>
+            <a href="https://arxiv.org/abs/2603.27185" target="_blank" class="button btn-arxiv">
+              <span class="icon"><i class="ai ai-arxiv"></i></span>
+              <span>arXiv</span>
+            </a>
+            <a href="https://github.com/Xiaofeng-Tan/MotionRFT" target="_blank" class="button btn-code">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+            </a>
+            </div>
+            </div>
+            <div class="resource-group" role="group" aria-labelledby="easytune-resources">
+            <div class="resource-heading">
+              <span id="easytune-resources" class="link-label">EasyTune</span>
+              <span class="resource-context">Earlier work · ICLR 2026</span>
+            </div>
+            <div class="resource-actions">
+            <a href="https://xiaofeng-tan.github.io/projects/EasyTune/" target="_blank" class="button btn-outline">
+              <span class="icon"><i class="fas fa-globe"></i></span>
+              <span>Project</span>
+            </a>
+            <a href="https://arxiv.org/abs/2405.14702" target="_blank" class="button btn-arxiv">
+              <span class="icon"><i class="ai ai-arxiv"></i></span>
+              <span>arXiv</span>
+            </a>
+            <a href="https://github.com/wengwanjiang/EasyTune" target="_blank" class="button btn-code">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+            </a>
+            </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Visual Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Visual Results</h2>
+      
+      <div class="figure-container">
+        <div class="figure-wrapper large">
+          <img src="static/images/vis_new.png" alt="Visual results"/>
+        </div>
+        <p class="figure-caption">
+          Visual results on HumanML3D. "w/o" = original base model; "w/" = after fine-tuning with EasyTune.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Abstract</h2>
+      <p class="abstract-text">
+        Text-to-motion generation has rapidly advanced with diffusion- and flow-based generative models, yet supervised pre-training remains insufficient to align models with high-level objectives such as semantic consistency, realism, and human preference. However, existing post-training methods have key limitations: they <strong>(1)</strong> are often designed for a specific motion representation, such as joint- or rotation-based motions, <strong>(2)</strong> typically optimize a particular aspect, such as text-motion alignment or human preference, and may compromise other quality factors; and <strong>(3)</strong> incur substantial computational overhead, data dependence, and coarse-grained optimization. We present a reinforcement fine-tuning framework that comprises a heterogeneous-representation, multi-dimensional reward model <strong>MotionReward</strong> and an efficient, fine-grained fine-tuning strategy <strong>EasyTune</strong>. To obtain a unified semantics representation, MotionReward maps heterogeneous motion representations into a shared semantic embedding space, where the text description serves as an anchor, paving the way for multi-dimensional reward learning. To enhance semantic without additional annotated data, we propose <strong>Self-refinement Preference Learning</strong> dynamically mining the preference and refinement itself. For efficient and effective fine-tuning, we identify a key limitation of differentiable-reward methods, the recursive dependence across denoising steps. Motivated by this insight, we propose EasyTune, which fine-tunes diffusion step-wise rather than over the full trajectory, decoupling this dependence and enabling dense, fine-grained, and memory-efficient optimization. Extensive experiments demonstrate strong cross-model and cross-representation generalization, achieving FID <strong>0.132</strong> with <strong>22.10 GB</strong> peak memory and saving up to <strong>15.22 GB</strong> over DRaFT. Beyond kinematic-based MLD and MDM, it reduces FID by <strong>22.9%</strong> on joint-based ACMDM, and achieves a <strong>12.1%</strong> R-Precision gain and <strong>21.7%</strong> FID improvement on rotation-based HY-Motion.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== Module I: MotionReward ==================== -->
+<section class="section alt-bg">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">MotionReward</h2>
+      
+      <div class="figure-container">
+        <div class="figure-wrapper">
+          <img src="static/images/motionreward_framework.png" alt="MotionReward Framework"/>
+        </div>
+        <p class="figure-caption">
+          Overview of MotionReward. It maps heterogeneous motion representations into a shared semantic embedding space, where text serves as an anchor for multi-dimensional reward learning.
+        </p>
+      </div>
+
+      <h3 class="subsection-title">Text-Motion Retrieval (Semantic Alignment)</h3>
+      <div class="figure-container">
+        <div class="figure-wrapper">
+          <img src="static/images/tab_retrieval.png" alt="Text-Motion Retrieval Results"/>
+        </div>
+        <p class="figure-caption">
+          Evaluation on text-motion retrieval across kinematic, joint, and rotation representations.
+        </p>
+      </div>
+
+      <h3 class="subsection-title">Human Preference & Authenticity</h3>
+      <div class="figure-grid-2col pref-auth-grid">
+        <div class="figure-container">
+          <div class="figure-wrapper">
+            <img src="static/images/tab_pref.png" alt="Human Preference Prediction"/>
+          </div>
+          <p class="figure-caption">
+            Evaluation on human preference prediction.
+          </p>
+        </div>
+        <div class="figure-container">
+          <div class="figure-wrapper">
+            <img src="static/images/fig_faithful.png" alt="Motion Authenticity"/>
+          </div>
+          <p class="figure-caption">
+            Evaluation on motion authenticity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== Module II: EasyTune ==================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">EasyTune</h2>
+
+      <div class="figure-container">
+        <div class="figure-wrapper">
+          <img src="static/images/fig_framework.png" alt="EasyTune Framework"/>
+        </div>
+        <p class="figure-caption">
+          Existing methods (left) backpropagate through the entire denoising trajectory. EasyTune (right) fine-tunes step-wise, decoupling the recursive dependence.
+        </p>
+      </div>
+
+      <div class="remark-box">
+        <div class="remark-header">
+          <span class="remark-icon"><i class="fas fa-lightbulb"></i></span>
+          <span class="remark-label">Key Insight</span>
+        </div>
+        <p class="remark-text">Backpropagating through a full denoising trajectory couples gradients across steps and retains large computation graphs. <strong>EasyTune replaces trajectory-level backpropagation with step-wise reward optimization</strong>, enabling memory-efficient, fine-grained updates.</p>
+        <div class="remark-features">
+          <div class="remark-feature">
+            <span class="feature-tag">Memory</span>
+            <strong class="feature-metric">22.10 <small>GB</small></strong>
+            <span>Peak memory; 15.22 GB less than DRaFT-50. Graph storage is O(1) in denoising steps, rather than O(T).</span>
+          </div>
+          <div class="remark-feature">
+            <span class="feature-tag">Speed</span>
+            <strong class="feature-metric">1.47 <small>s / update</small></strong>
+            <span>About 3–4× faster per optimization step than the compared baselines.</span>
+          </div>
+          <div class="remark-feature">
+            <span class="feature-tag">Quality</span>
+            <strong class="feature-metric">0.132 <small>FID</small></strong>
+            <span>A 70.7% FID reduction from the MLD baseline, with step-specific reward supervision.</span>
+          </div>
+        </div>
+        <p class="remark-footnote">EasyTune on MLD / HumanML3D. Memory and FID: Table VI; optimization time: Fig. 9 in the revised manuscript.</p>
+      </div>
+
+      <div class="figure-grid-2col insight-figures">
+        <div class="figure-container">
+          <img src="static/images/insight_new.png" alt="Core Insight" class="bare-img"/>
+          <p class="figure-caption">
+            Core insight: decoupling the recursive dependence of the computation graph.
+          </p>
+        </div>
+        <div class="figure-container">
+          <img src="static/images/memory.png" alt="Memory Analysis" class="bare-img"/>
+          <p class="figure-caption">
+            Memory complexity: O(T) vs. O(1).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== Experiments ==================== -->
+<section class="section alt-bg">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Experiments</h2>
+      
+      <div class="figure-grid-2col">
+        <div class="figure-container">
+          <div class="figure-wrapper">
+            <img src="static/images/intro_memory.png" alt="Training cost"/>
+          </div>
+          <p class="figure-caption">Training cost comparison of different fine-tuning methods.</p>
+        </div>
+        <div class="figure-container">
+          <div class="figure-wrapper">
+            <img src="static/images/intro_performance.png" alt="Performance"/>
+          </div>
+          <p class="figure-caption">Generalization across six pre-trained diffusion-based models.</p>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Fine-Tuning Comparison on HumanML3D</h3>
+      <div class="figure-container">
+        <div class="figure-wrapper">
+          <img src="static/images/tab_finetune_revision.png" alt="Fine-tuning comparison from the revised manuscript"/>
+        </div>
+        <p class="figure-caption">
+          Comparison of fine-tuning methods on HumanML3D. EasyTune achieves FID 0.132 (70.7% improvement) with 22.10 GB peak memory, saving up to 15.22 GB over DRaFT.
+        </p>
+      </div>
+      
+      <h3 class="subsection-title">SoTA Comparison (Kinematic / Joint / Rotation)</h3>
+      <div class="figure-container">
+        <div class="figure-wrapper">
+          <img src="static/images/tab_sota_h3d_revision.png" alt="SoTA HumanML3D results from the revised manuscript"/>
+        </div>
+        <p class="figure-caption">
+          Text-to-motion generation on HumanML3D across three representations. MotionRFT achieves FID 0.052 on MLD++, 0.084 on ACMDM, and 0.985 on HY-Motion. HY-Motion improves by 12.1% in R-Precision Top 1 and 21.7% in FID.
+        </p>
+      </div>
+      
+      <h3 class="subsection-title">Generalization Across Models</h3>
+      <div class="figure-container generalization-figure">
+        <div class="figure-wrapper">
+          <a href="static/images/tab_generalize_revision.png" target="_blank" rel="noopener" aria-label="Open the full-size generalization table">
+            <img src="static/images/tab_generalize_revision.png" alt="Generalization results across six models from Table V"/>
+          </a>
+        </div>
+        <p class="figure-caption">
+          Table V: EasyTune and MotionRFT across six pre-trained models on HumanML3D. ODE-based models use one-step prediction; SDE-based models use noise-aware perception. Click the table for full resolution.
+        </p>
+      </div>
+
+      <h3 class="subsection-title">Training Analysis</h3>
+      <div class="figure-grid-2col">
+        <div class="figure-container">
+          <div class="figure-wrapper">
+            <img src="static/images/training_curve.png" alt="Training curves"/>
+          </div>
+        <p class="figure-caption">
+          Authenticity and preference reward curves during MotionRFT training.
+        </p>
+        </div>
+        <div class="figure-container">
+          <div class="figure-wrapper">
+            <img src="static/images/user_study_mld.png" alt="User study"/>
+          </div>
+          <p class="figure-caption">User study results on MLD.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reward Hacking -->
+<section class="section alt-bg">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Reward Hacking Analysis</h2>
+      
+      <div class="insight-box">
+        <p>Reward hacking occurs when models over-fit to semantic alignment while neglecting realistic motion dynamics. <strong>This can be effectively mitigated</strong> with KL-divergence regularization.</p>
+      </div>
+      
+      <div class="hack-video-grid">
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/hack1_title.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/hack2_title.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Demo Videos -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">Motion Demos</h2>
+      <p class="demo-description">Generated motion sequences comparing original vs. fine-tuned models.</p>
+      
+      <div class="video-grid">
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/192.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/247.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/307.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/444.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/1125.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/1253.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/1423.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/1535.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/2279.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/2943.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/4626.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-item">
+          <video autoplay controls muted loop playsinline>
+            <source src="static/videos/4646.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section alt-bg">
+  <div class="container is-max-desktop">
+    <div class="content-block">
+      <h2 class="section-title">BibTeX</h2>
+      <div class="bibtex-container">
+        <button class="copy-btn" onclick="copyBibtex()">
+          <i class="far fa-copy"></i> Copy
+        </button>
+        <pre class="bibtex"><code>@article{tan2026motionrft,
+  title={MotionRFT: Unified Reinforcement Fine-Tuning for Text-to-Motion Generation},
+  author={Tan*, Xiaofeng and Weng*, Wanjiang and Wang, Hongsong and Zhao, Fang and Geng, Xin and Wang, Liang},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2026}
+}
+
+@inproceedings{tan2026easytune,
+  title={EasyTune: Efficient Step-Aware Fine-Tuning for Diffusion-Based Motion Generation},
+  author={Tan, Xiaofeng and Weng, Wanjiang and Lei, Haodong and Wang, Hongsong},
+  booktitle={International Conference on Learning Representations (ICLR)},
+  year={2026}
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>
+      Template adapted from <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+      Licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+
+<script>
+function copyBibtex() {
+  const bibtex = document.querySelector('.bibtex code').textContent;
+  navigator.clipboard.writeText(bibtex).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.innerHTML = '<i class="fas fa-check"></i> Copied';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="far fa-copy"></i> Copy';
+    }, 2000);
+  });
+}
+
+function showTooltip(el, msg) {
+  if (el.querySelector('.tooltip-msg')) return;
+  const tip = document.createElement('span');
+  tip.className = 'tooltip-msg';
+  tip.textContent = msg;
+  el.style.position = 'relative';
+  el.appendChild(tip);
+  setTimeout(() => { tip.remove(); }, 1800);
+}
+</script>
+
+</body>
+</html>
