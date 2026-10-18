@@ -1,0 +1,4262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head -->
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- Metadata, OpenGraph and Schema.org -->
+
+
+
+
+<!-- Standard metadata -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>
+  
+  
+    Xiaofeng Tan · 谭晓锋
+  
+</title>
+<meta name="author" content="Xiaofeng Tan">
+<meta name="description" content="Xiaofeng Tan is an AI researcher working on reinforcement learning, generative AI, world models, and human-centric perception, generation, and understanding.
+">
+
+  <meta name="keywords" content="Xiaofeng Tan, reinforcement learning, RLHF, RLVR, generative AI, AIGC, world models, human-centric perception, human-centric generation, human-centric understanding, diffusion models">
+
+
+
+
+
+
+  <!-- OpenGraph -->
+  <meta property="og:site_name" content="Xiaofeng Tan · 谭晓锋">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Xiaofeng Tan · 谭晓锋 | About">
+  <meta property="og:url" content="https://xiaofeng-tan.github.io/">
+  <meta property="og:description" content="Xiaofeng Tan is an AI researcher working on reinforcement learning, generative AI, world models, and human-centric perception, generation, and understanding.
+">
+  
+    <meta property="og:image" content="https://xiaofeng-tan.github.io/assets/img/prof_pic_color.png">
+  
+  <meta property="og:locale" content="en">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="About">
+  <meta name="twitter:description" content="Xiaofeng Tan is an AI researcher working on reinforcement learning, generative AI, world models, and human-centric perception, generation, and understanding.
+">
+  
+    <meta name="twitter:image" content="https://xiaofeng-tan.github.io/assets/img/prof_pic_color.png">
+  
+  
+
+
+
+  <!-- Schema.org -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <script type="application/ld+json">
+    {
+        "author":
+        {
+            "@type": "Person",
+            "name": "Xiaofeng Tan"
+        },
+        "url": "https://xiaofeng-tan.github.io/",
+        "@type": "WebSite",
+        "description": "Xiaofeng Tan is an AI researcher working on reinforcement learning, generative AI, world models, and human-centric perception, generation, and understanding.
+",
+        "headline": "About",
+        
+        "sameAs": ["https://scholar.google.com/citations?user=C2F5mtgAAAAJ", "https://www.semanticscholar.org/author/2333979919", "https://github.com/Xiaofeng-Tan"],
+        
+        "name": "Xiaofeng Tan",
+        "@context": "https://schema.org"
+    }
+  </script>
+
+
+
+  <link rel="preload" href="/assets/fonts/gu-xingshu-subset.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  <link rel="preload" href="/assets/fonts/outfit-variable.ttf" as="font" type="font/ttf" crossorigin>
+
+<script>
+  try {
+    if (localStorage.getItem('site-language') === 'zh') {
+      document.documentElement.lang = 'zh-CN';
+    }
+  } catch (error) { /* Storage may be disabled; English remains the default. */ }
+</script>
+<script>
+  /* Set the initial theme before stylesheets paint, following the system unless
+   * the visitor has explicitly selected light or dark mode. */
+  try {
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme !== 'light' && savedTheme !== 'dark' && savedTheme !== 'system') {
+      savedTheme = 'system';
+    }
+    var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var initialTheme = savedTheme === 'dark' || (savedTheme === 'system' && systemDark) ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme-setting', savedTheme);
+    document.documentElement.setAttribute('data-theme', initialTheme);
+  } catch (error) { /* The theme.js fallback will initialize the page. */ }
+</script>
+<!-- Bootstrap & MDB -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
+
+<!-- Bootstrap Table -->
+
+
+<!-- Fonts & Icons -->
+<link defer rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5">
+<link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap">
+
+<!-- Code Syntax Highlighting -->
+<link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light">
+
+
+
+<!-- Styles -->
+
+<!-- pseudocode -->
+
+
+
+  <link rel="shortcut icon" href="/assets/img/0.png?0eff46118615bb79636421eaf5120e16">
+
+<link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
+<link rel="stylesheet" href="/assets/css/language.css?c7c516b1cac494948c70bc4a36815ffe">
+<link rel="stylesheet" href="/assets/css/mobile.css?1b0ecb5b1d3d601e26625d4b4d04194d">
+<link rel="stylesheet" href="/assets/css/github-stars.css?4f5049c9008022c52cc6cefe9b4fb618">
+
+  <link rel="stylesheet" href="/assets/css/publication-venues.css?b3349b7c6712b0eee6b6e19615f842bc">
+  <link rel="stylesheet" href="/assets/css/homepage-refinements.css?84e86ced53ab552f2952f3eaed90fe03">
+
+
+<link rel="canonical" href="https://xiaofeng-tan.github.io/">
+
+<!-- Dark Mode -->
+<script src="/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script>
+
+  <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark">
+  <script>
+    initTheme();
+  </script>
+
+
+<!-- GeoJSON support via Leaflet -->
+
+
+<!-- diff2html -->
+
+
+
+
+
+
+  </head>
+
+  <!-- Body -->
+  <body class="about-page fixed-top-nav ">
+    <!-- Header -->
+    <header>
+  <!-- Nav Bar -->
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation">
+    <div class="container">
+      
+      <!-- Navbar Toggle -->
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          
+
+          <!-- About -->
+          <li class="nav-item active">
+            <a class="nav-link" href="/">About
+              
+                <span class="sr-only">(current)</span>
+              
+            </a>
+          </li>
+
+          <!-- Other pages -->
+          
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+              
+                
+                <li class="nav-item ">
+                  <a class="nav-link" href="/cv/">CV
+                    
+                  </a>
+                </li>
+              
+            
+          
+            
+          
+          
+            
+              <li class="nav-item section-nav-item">
+                <a href="#sec-news" class="nav-link section-nav-link" data-section="sec-news">News</a>
+              </li>
+            
+            <li class="nav-item section-nav-item">
+              <a href="#sec-education" class="nav-link section-nav-link" data-section="sec-education">Education</a>
+            </li>
+            <li class="nav-item section-nav-item">
+              <a href="#sec-research" class="nav-link section-nav-link" data-section="sec-research">Research</a>
+            </li>
+            
+              <li class="nav-item section-nav-item">
+                <a href="#sec-publications" class="nav-link section-nav-link" data-section="sec-publications">Publications</a>
+              </li>
+            
+            
+              <li class="nav-item section-nav-item">
+                <a href="#sec-honors" class="nav-link section-nav-link" data-section="sec-honors">Honors</a>
+              </li>
+            
+            <li class="nav-item section-nav-item">
+              <a href="#sec-service" class="nav-link section-nav-link" data-section="sec-service">Service</a>
+            </li>
+            <li class="nav-item section-nav-item">
+              <a href="#sec-life" class="nav-link section-nav-link" data-section="sec-life">Misc</a>
+            </li>
+          
+          <li class="nav-item">
+            <button type="button" id="language-toggle" class="nav-link language-toggle" aria-label="切换为中文" title="切换为中文">中文</button>
+          </li>
+          
+            <!-- Toogle theme mode -->
+            <li class="toggle-container">
+              <button id="light-toggle" title="Change theme">
+                <i class="ti ti-sun-moon" id="light-toggle-system"></i>
+                <i class="ti ti-moon-filled" id="light-toggle-dark"></i>
+                <i class="ti ti-sun-filled" id="light-toggle-light"></i>
+              </button>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    <!-- Scrolling Progress Bar -->
+    <progress id="progress" value="0">
+      <div class="progress-container">
+        <span class="progress-bar"></span>
+      </div>
+    </progress>
+  
+</header>
+
+
+    <!-- Content -->
+    <div class="container mt-5" role="main">
+      
+        <!-- 引入学术风格衬线字体 + 手写字体 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&amp;family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Long+Cang&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&amp;display=swap" rel="stylesheet">
+
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+        Xiaofeng Tan
+      
+      
+        <span class="name-separator">·</span>
+        <span class="chinese-name">谭晓锋</span>
+      
+    </h1>
+
+    <div class="personal-motto" lang="zh-CN">
+      <span class="personal-motto__music" aria-hidden="true">♪</span>
+      <span class="personal-motto__text">不要紧，山野都有雾灯</span>
+      <span class="personal-motto__source">
+        <span class="personal-motto__source-dash" aria-hidden="true">——</span>
+        <a class="personal-motto__song" href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a><span class="personal-motto__chinese">（任我行）</span>
+      </span>
+    </div>
+
+    
+    <!-- 社交图标 -->
+    <div class="social-icons-header">
+      
+        <a href="mailto:xiaofengtan@seu.edu.cn" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      
+      
+        <a href="https://github.com/Xiaofeng-Tan" title="GitHub" target="_blank" rel="external nofollow noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      
+      
+        <a href="https://www.alphaxiv.org/@xiaofeng-tan" title="AlphaXiv" target="_blank" rel="external nofollow noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 718.41 504.47" width="1em" height="1em" fill="currentColor" aria-hidden="true"><polygon fill="currentColor" points="591.15 258.54 718.41 385.73 663.72 440.28 536.57 313.62 591.15 258.54"></polygon><path fill="currentColor" d="M273.86.3c34.56-2.41,67.66,9.73,92.51,33.54l94.64,94.63-55.11,54.55-96.76-96.55c-16.02-12.7-37.67-12.1-53.19,1.11L54.62,288.82,0,234.23,204.76,29.57C223.12,13.31,249.27,2.02,273.86.3Z"></path><path fill="currentColor" d="M663.79,1.29l54.62,54.58-418.11,417.9c-114.43,95.94-263.57-53.49-167.05-167.52l160.46-160.33,54.62,54.58-157.88,157.77c-33.17,40.32,18.93,91.41,58.66,57.48L663.79,1.29Z"></path></svg>
+        </a>
+      
+      
+        <a href="https://scholar.google.com/citations?user=C2F5mtgAAAAJ" title="Google Scholar" target="_blank" rel="external nofollow noopener">
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      
+      
+        <a href="https://www.semanticscholar.org/author/2333979919" title="Semantic Scholar" target="_blank" rel="external nofollow noopener">
+          <i class="ai ai-semantic-scholar"></i>
+        </a>
+      
+      
+        <a href="/assets/pdf/CV_Xiaofeng_Tan.pdf" title="CV" target="_blank">
+          <i class="ai ai-cv"></i>
+        </a>
+      
+      
+      
+      
+    </div>
+  </header>
+</div>
+
+<article>
+  
+    <div class="profile float-right">
+      
+        
+        
+        
+        
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/prof_pic-480.webp 480w,/assets/img/prof_pic-800.webp 800w,/assets/img/prof_pic-1400.webp 1400w," type="image/webp" sizes="(min-width: 930px) 270.0px, (min-width: 576px) 30vw, 95vw">
+    
+    <img src="/assets/img/prof_pic.jpg?fb9201aa3256c20eaf462fa760aa4c40" class="img-fluid z-depth-1 rounded-circle" width="100%" height="auto" alt="prof_pic.jpg" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </source></picture>
+
+  
+</figure>
+
+      
+      
+    </div>
+  
+
+  <div class="clearfix">
+<div data-language="en" lang="en">
+
+  <p>I am a final-year M.Sc. student in the <a href="https://palm.seu.edu.cn/" rel="external nofollow noopener" target="_blank">PALM Lab</a> at <a href="https://www.seu.edu.cn/english/" rel="external nofollow noopener" target="_blank">Southeast University (SEU)</a>, advised by Prof. <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang</a>, and expect to graduate in June 2027. I am currently a research intern at <a href="https://hunyuan.tencent.com/" rel="external nofollow noopener" target="_blank">Tencent HY</a> and also collaborate remotely with Prof. <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a> at <a href="https://www.ucmerced.edu/" rel="external nofollow noopener" target="_blank">UC Merced</a>. Previously, I interned at <a href="https://open.youtu.qq.com/#/open" rel="external nofollow noopener" target="_blank">Tencent’s Youtu Lab</a> and, before that, was a remote visiting student in the <a href="https://www.lv-lab.org/SMU/index.html" rel="external nofollow noopener" target="_blank">LV LAB</a> at Singapore Management University (SMU), working closely with Prof. <a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">Pan Zhou</a>. I received dual bachelor’s degrees in Computer Science (B.E.) and Mathematics (B.Sc.) from <a href="https://en.szu.edu.cn/" rel="external nofollow noopener" target="_blank">Shenzhen University (SZU)</a> in 2024.</p>
+
+  <div class="interest-card">
+My research focuses on RL, AIGC, and world models, especially human-centric perception, generation, and understanding. I also serve as a reviewer for ICML (Gold Reviewer), NeurIPS (Top Reviewer), AAAI, ICLR, TMLR, and IJDSA.
+</div>
+
+  <p class="opportunities-intro">I am looking for <strong>Ph.D.</strong> opportunities starting in Fall 2027. If you are interested in collaborating on RL or AIGC, please feel free to reach out via 📧 <button type="button" class="contact-reveal" onclick="revealAndCopyContact(this, 'xiaofengtan@seu.edu.cn', 'Email')">Show email</button> or 💬 <button type="button" class="contact-reveal" onclick="revealAndCopyContact(this, 'txf_06_20', 'WeChat ID')">Show WeChat ID</button> 😊. You can find more about my background in my <a href="/cv/?lang=en">CV</a> / <a href="/cv/?lang=zh"><span style="font-family: 'Songti SC', 'STSong', 'SimSun', serif; color: inherit;">中文简历</span></a>.</p>
+
+  <div class="intro-language-switch">
+  <button type="button" class="intro-language-toggle" data-language-target="zh" aria-label="点击跳转简体中文版">点击跳转简体中文版</button>
+</div>
+
+</div>
+
+<div data-language="zh" lang="zh-CN">
+<p>我是<a href="https://www.seu.edu.cn/" rel="external nofollow noopener" target="_blank">东南大学</a> <a href="https://palm.seu.edu.cn/" rel="external nofollow noopener" target="_blank">PALM 实验室</a>的硕士三年级学生，师从<a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">王洪松</a>教授，预计于 2027 年 6 月毕业。目前在<a href="https://hunyuan.tencent.com/" rel="external nofollow noopener" target="_blank">腾讯混元</a>担任研究实习生，同时与<a href="https://www.ucmerced.edu/" rel="external nofollow noopener" target="_blank">加州大学默塞德分校</a>的 <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a> 教授开展远程科研合作。此前，我曾在<a href="https://open.youtu.qq.com/#/open" rel="external nofollow noopener" target="_blank">腾讯优图实验室</a>实习，也曾作为远程访问学生，在新加坡管理大学 <a href="https://www.lv-lab.org/SMU/index.html" rel="external nofollow noopener" target="_blank">LV 实验室</a>与<a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">周攀</a>教授合作。2024 年，我获得了<a href="https://www.szu.edu.cn/" rel="external nofollow noopener" target="_blank">深圳大学</a>计算机科学与数学双学位，分别为工学学士和理学学士。</p>
+<div class="interest-card">
+我的研究兴趣包括强化学习（RL）、生成式人工智能（AIGC）、世界模型，以及以人为中心的感知、生成与理解。我也担任 ICML（金牌审稿人）、NeurIPS（Top Reviewer）、AAAI、ICLR、TMLR 和 IJDSA 的审稿人。
+</div>
+<p class="opportunities-intro">我计划申请 2027 年秋季入学的<strong>博士</strong>项目。如有意在 RL 或 AIGC 方向合作，欢迎通过 📧 <button type="button" class="contact-reveal" title="点击显示并复制邮箱" onclick="revealAndCopyContact(this, 'xiaofengtan@seu.edu.cn', 'Email')">邮箱</button> 或 💬 <button type="button" class="contact-reveal" title="点击显示并复制微信号" onclick="revealAndCopyContact(this, 'txf_06_20', 'WeChat ID')">微信</button> 与我交流 😊。更多信息请见<a href="/cv/?lang=en">英文简历</a> / <a href="/cv/?lang=zh">中文简历</a>。</p>
+<div class="intro-language-switch">
+  <button type="button" class="intro-language-toggle" data-language-target="en" aria-label="View English introduction">English introduction</button>
+</div>
+</div>
+
+<div id="copy-toast" class="copy-toast" role="status" aria-live="polite"></div>
+
+<script>
+function copyToClipboard(text, label) {
+  var chinese = document.documentElement.lang === 'zh-CN';
+  var displayLabel = chinese ? (label === 'Email' ? '邮箱' : '微信号') : label;
+  function showToast(message) {
+    var toast = document.getElementById('copy-toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(function() {
+      toast.classList.remove('show');
+    }, 2000);
+  }
+  if (!navigator.clipboard) {
+    showToast(chinese ? '请手动复制已显示的联系方式' : 'Please copy the displayed contact manually.');
+    return;
+  }
+  navigator.clipboard.writeText(text).then(function() {
+    showToast(chinese ? '✓ ' + displayLabel + '已复制' : '✓ ' + label + ' copied!');
+  }).catch(function() {
+    showToast(chinese ? '复制失败，请手动复制' : 'Unable to copy. Please copy manually.');
+  });
+}
+
+function revealAndCopyContact(button, text, label) {
+  button.textContent = text + ' ';
+  var icon = document.createElement('i');
+  icon.className = 'fas fa-copy';
+  icon.setAttribute('aria-hidden', 'true');
+  button.appendChild(icon);
+  button.classList.add('copyable');
+  copyToClipboard(text, label);
+}
+</script>
+
+<!-- ======================== Doraemon Desk Pet ========================
+     Sprite assets are stored locally under /assets/pet/doraemon/, used here
+     purely for personal & non-commercial educational fun.
+
+     This file is included via {% include doraemon-pet.html %}
+     so that kramdown does NOT touch the inline <style>/<script> blocks
+     (which would otherwise be wrapped in <p> and break the animation).
+================================================================ -->
+<div id="dora-pet" class="dora-pet" aria-label="Doraemon desk pet">
+  <div class="dora-sprite" title="Drag me / double-click to switch state"></div>
+</div>
+
+<p><button id="dora-bell" class="dora-bell-btn" type="button" aria-label="Open Doraemon panel" title="Doraemon">🔔</button></p>
+
+<div id="dora-panel" class="dora-panel" role="dialog" aria-label="Doraemon states">
+  <div class="dora-panel-header">
+    <span>🔔 Doraemon</span>
+    <button type="button" class="dora-close" aria-label="Close panel">×</button>
+  </div>
+  <div class="dora-panel-body">
+    <button type="button" class="dora-state-btn" data-state="idle">Idle</button>
+    <button type="button" class="dora-state-btn" data-state="waving">Waving</button>
+    <button type="button" class="dora-state-btn" data-state="jumping">Jumping</button>
+    <button type="button" class="dora-state-btn" data-state="failed">Failed</button>
+    <button type="button" class="dora-state-btn" data-state="waiting">Waiting</button>
+    <button type="button" class="dora-state-btn" data-state="running">Running</button>
+    <button type="button" class="dora-state-btn is-active" data-state="review">Review</button>
+  </div>
+  <div class="dora-panel-footer">
+    <button type="button" class="dora-ring">🔔 Ring the bell</button>
+    <button type="button" class="dora-resume" title="Resume autonomous roaming">▶ Auto-roam</button>
+  </div>
+</div>
+
+<audio id="dora-sound" src="/assets/pet/doraemon/sound.mp3" preload="none"></audio>
+
+<style>
+/* ---- Doraemon desk pet (autonomous walk + draggable) ---- */
+.dora-pet {
+  position: fixed;
+  /* Pinned to the right edge by default; JS may override left/bottom. */
+  left: auto;
+  right: 16px;
+  bottom: 64px;            /* sits above the bell button (16 + 42 + gap) */
+  z-index: 9990;
+  width: calc(192px * var(--dora-scale));
+  height: calc(208px * var(--dora-scale));
+  pointer-events: none;    /* sprite child re-enables this */
+  --dora-scale: 0.5;       /* 50% of the original sprite */
+  --dora-sprite-url: url("/assets/pet/doraemon/sprite.webp");
+  --dora-facing: 1;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.dora-pet.is-hidden { display: none; }
+@media (max-width: 768px) {
+  .dora-pet {
+    display: block;
+    right: 8px;
+  }
+  .dora-bell-btn,
+  .dora-panel {
+    display: none;
+  }
+}
+
+.dora-sprite {
+  --sprite-row: 0;
+  --sprite-frames: 6;
+  --sprite-duration: 1.7s;
+  --sprite-y: calc(var(--sprite-row) * -208px);
+  --sprite-end-x: calc(var(--sprite-frames) * -192px);
+  width: 192px;
+  height: 208px;
+  background-image: var(--dora-sprite-url);
+  background-repeat: no-repeat;
+  background-size: 1536px 1872px;
+  background-position: 0 var(--sprite-y);
+  image-rendering: pixelated;
+  transform: scale(calc(var(--dora-scale) * var(--dora-facing)), var(--dora-scale));
+  transform-origin: 0 0;
+  animation: dora-play var(--sprite-duration) steps(var(--sprite-frames)) infinite;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.18));
+  pointer-events: auto;
+  cursor: grab;
+}
+.dora-pet[data-facing="-1"] .dora-sprite {
+  transform: translateX(calc(192px * var(--dora-scale))) scale(calc(-1 * var(--dora-scale)), var(--dora-scale));
+}
+.dora-pet.is-dragging .dora-sprite { cursor: grabbing; }
+
+@keyframes dora-play {
+  0%   { background-position: 0 var(--sprite-y); }
+  100% { background-position: var(--sprite-end-x) var(--sprite-y); }
+}
+
+/* Bell button (opens panel) */
+.dora-bell-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #fffbe8;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 9991;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.dora-bell-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,0.16); }
+[data-theme="dark"] .dora-bell-btn { background:#4a3f1f; border-color: rgba(255,255,255,0.08); color:#fff; }
+@media (max-width: 768px) { .dora-bell-btn { display: none; } }
+
+/* Control panel */
+.dora-panel {
+  position: fixed;
+  right: 16px;
+  bottom: 68px;
+  width: 240px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  overflow: hidden;
+  z-index: 9991;
+  display: none;
+  font-size: 13px;
+  color: #333;
+}
+.dora-panel.is-open { display: block; }
+[data-theme="dark"] .dora-panel { background:#2a2a2e; border-color:rgba(255,255,255,0.08); color:#eee; }
+@media (max-width: 768px) { .dora-panel { display: none !important; } }
+
+.dora-panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 12px; font-weight: 600; font-size: 13px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  cursor: move;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+.dora-panel.is-dragging { box-shadow: 0 14px 40px rgba(0,0,0,0.25); }
+[data-theme="dark"] .dora-panel-header { border-bottom-color: rgba(255,255,255,0.08); }
+.dora-close {
+  border: none; background: transparent; cursor: pointer;
+  font-size: 18px; line-height: 1; color: inherit; padding: 2px 6px;
+  -webkit-user-select: auto; user-select: auto;
+}
+.dora-panel-body {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 6px; padding: 10px;
+}
+.dora-state-btn {
+  font-size: 11.5px; padding: 6px 4px; border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.08); background: #f8f8f9;
+  cursor: pointer; color: inherit;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.dora-state-btn:hover { background: #eef0f4; }
+.dora-state-btn.is-active { background: #e8f1ff; border-color: #a8c7fa; }
+[data-theme="dark"] .dora-state-btn { background:#3a3a40; border-color: rgba(255,255,255,0.08); }
+[data-theme="dark"] .dora-state-btn:hover { background:#45454c; }
+[data-theme="dark"] .dora-state-btn.is-active { background:#3a4a66; border-color:#5d7ab0; }
+
+.dora-panel-footer {
+  display: flex; gap: 6px;
+  padding: 8px 10px 10px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+[data-theme="dark"] .dora-panel-footer { border-top-color: rgba(255,255,255,0.08); }
+.dora-ring, .dora-resume {
+  flex: 1;
+  font-size: 12px; padding: 6px 8px; border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.08);
+  cursor: pointer; color: inherit;
+}
+.dora-ring { background: #fffbe8; }
+.dora-ring:hover { background: #fff3c8; }
+.dora-resume { background: #eef5ff; }
+.dora-resume:hover { background: #dbe9ff; }
+[data-theme="dark"] .dora-ring { background:#4a3f1f; border-color: rgba(255,255,255,0.08); }
+[data-theme="dark"] .dora-ring:hover { background:#5a4d28; }
+[data-theme="dark"] .dora-resume { background:#2c3a55; border-color: rgba(255,255,255,0.08); }
+[data-theme="dark"] .dora-resume:hover { background:#37466a; }
+</style>
+
+<script>
+(function () {
+  var pet = document.getElementById('dora-pet');
+  if (!pet) return;
+  var sprite = pet.querySelector('.dora-sprite');
+  var bellBtn = document.getElementById('dora-bell');
+  var sound = document.getElementById('dora-sound');
+  var panel = document.getElementById('dora-panel');
+  var panelClose = panel.querySelector('.dora-close');
+  var stateBtns = panel.querySelectorAll('.dora-state-btn');
+  var ringBtn = panel.querySelector('.dora-ring');
+  var resumeBtn = panel.querySelector('.dora-resume');
+
+  // === States: row, frames, duration (ms) ===
+  var STATES = {
+    idle:     { row: 0, frames: 6, dur: 3800 },
+    runRight: { row: 1, frames: 8, dur: 2700 },
+    runLeft:  { row: 2, frames: 8, dur: 2700 },
+    waving:   { row: 3, frames: 4, dur: 3300 },
+    jumping:  { row: 4, frames: 5, dur: 3100 },
+    failed:   { row: 5, frames: 8, dur: 3800 },
+    waiting:  { row: 6, frames: 6, dur: 4200 },
+    running:  { row: 7, frames: 6, dur: 2900 },
+    review:   { row: 8, frames: 6, dur: 3500 }
+  };
+
+  var STATE_ORDER = ['idle', 'waving', 'jumping', 'failed', 'waiting', 'running', 'review'];
+
+  function setSpriteState(s) {
+    sprite.style.setProperty('--sprite-row', s.row);
+    sprite.style.setProperty('--sprite-frames', s.frames);
+    sprite.style.setProperty('--sprite-duration', (s.dur / 1000) + 's');
+    sprite.style.animation = 'none';
+    void sprite.offsetHeight;
+    sprite.style.animation = '';
+  }
+
+  // === Position / movement ===
+  var SCALE = 0.5;                 // keep in sync with --dora-scale
+  var SPRITE_W = 192 * SCALE;
+  var SPRITE_H = 208 * SCALE;
+  var GROUND_OFFSET = 64;          // sits above the bell button on desktop
+  var ROAM_PADDING = 16;           // viewport edge padding
+  // Hug the right edge: a tiny roam window near the right
+  var ROAM_HALF_RANGE = 60;
+
+  function syncViewportMetrics() {
+    var mobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+    SCALE = mobile ? 0.38 : 0.5;
+    SPRITE_W = 192 * SCALE;
+    SPRITE_H = 208 * SCALE;
+    GROUND_OFFSET = mobile ? 10 : 64;
+    ROAM_PADDING = mobile ? 8 : 16;
+    pet.style.setProperty('--dora-scale', SCALE);
+  }
+
+  syncViewportMetrics();
+
+  function getRoamBounds() {
+    var rightEdge = window.innerWidth - SPRITE_W - ROAM_PADDING;
+    var minX = Math.max(ROAM_PADDING, rightEdge - 2 * ROAM_HALF_RANGE);
+    var maxX = rightEdge;
+    if (maxX < minX) maxX = minX;
+    return { minX: minX, maxX: maxX };
+  }
+
+  // Initial logical position (right edge)
+  var posX = Math.max(0, window.innerWidth - SPRITE_W - ROAM_PADDING);
+  var posY = GROUND_OFFSET;
+  var facing = 1;
+  var velX = 0;
+  var current = 'idle';
+  var nextStateAt = 0;
+  var lastTs = 0;
+  var dragging = false;
+  var dragOffsetX = 0, dragOffsetY = 0;
+  var hidden = false;
+  var manualUntil = 0;
+  var MANUAL_HOLD = 6000;
+
+  function clampX(x) {
+    var minX = ROAM_PADDING;
+    var maxX = Math.max(minX, window.innerWidth - SPRITE_W - ROAM_PADDING);
+    return Math.max(minX, Math.min(maxX, x));
+  }
+  function clampY(y) {
+    var maxY = Math.max(0, window.innerHeight - SPRITE_H - 4);
+    return Math.max(0, Math.min(maxY, y));
+  }
+
+  function applyTransform() {
+    pet.style.left = posX + 'px';
+    pet.style.right = 'auto';                    // override the CSS default once JS takes control
+    pet.style.bottom = posY + 'px';
+    pet.dataset.facing = facing < 0 ? '-1' : '1';
+  }
+
+  function pickNextState() {
+    var r = Math.random();
+    if (r < 0.40) {
+      current = 'idle'; velX = 0; facing = 1;
+      setSpriteState(STATES.idle); applyTransform();
+      nextStateAt = performance.now() + 3500 + Math.random() * 3500;
+    } else if (r < 0.62) {
+      current = 'waiting'; velX = 0; facing = 1;
+      setSpriteState(STATES.waiting); applyTransform();
+      nextStateAt = performance.now() + 3500 + Math.random() * 3500;
+    } else if (r < 0.80) {
+      current = 'waving'; velX = 0; facing = 1;
+      setSpriteState(STATES.waving); applyTransform();
+      nextStateAt = performance.now() + 3000 + Math.random() * 2000;
+    } else if (r < 0.90) {
+      current = 'jumping'; velX = 0; facing = 1;
+      setSpriteState(STATES.jumping); applyTransform();
+      nextStateAt = performance.now() + 2500 + Math.random() * 1500;
+    } else if (r < 0.97) {
+      current = 'review'; velX = 0; facing = 1;
+      setSpriteState(STATES.review); applyTransform();
+      nextStateAt = performance.now() + 4000 + Math.random() * 2000;
+    } else {
+      current = 'failed'; velX = 0; facing = 1;
+      setSpriteState(STATES.failed); applyTransform();
+      nextStateAt = performance.now() + 3000 + Math.random() * 1500;
+    }
+  }
+
+  function tick(ts) {
+    if (!lastTs) lastTs = ts;
+    var dt = Math.min(64, ts - lastTs);
+    lastTs = ts;
+
+    if (!dragging && !hidden) {
+      if (velX !== 0) {
+        posX += velX * dt / 1000;
+        var b = getRoamBounds();
+        if (posX <= b.minX) {
+          posX = b.minX; velX = 0; facing = 1;
+          current = 'idle'; setSpriteState(STATES.idle);
+          nextStateAt = performance.now() + 1500 + Math.random() * 1500;
+        } else if (posX >= b.maxX) {
+          posX = b.maxX; velX = 0; facing = 1;
+          current = 'idle'; setSpriteState(STATES.idle);
+          nextStateAt = performance.now() + 1500 + Math.random() * 1500;
+        }
+      }
+      if (ts >= nextStateAt && ts >= manualUntil) pickNextState();
+      applyTransform();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function setActiveBtn(stateKey) {
+    stateBtns.forEach(function (b) {
+      b.classList.toggle('is-active', b.dataset.state === stateKey);
+    });
+  }
+  function applyManualState(stateKey) {
+    var s = STATES[stateKey];
+    if (!s) return;
+    setSpriteState(s);
+    current = stateKey;
+    setActiveBtn(stateKey);
+    if (stateKey === 'runRight')      { facing = 1;  velX = 0; }
+    else if (stateKey === 'runLeft')  { facing = -1; velX = 0; }
+    else                              { velX = 0;  facing = 1; }
+    applyTransform();
+    manualUntil = performance.now() + MANUAL_HOLD;
+    nextStateAt = manualUntil;
+  }
+
+  // === Drag interaction (with click-to-cycle detection) ===
+  // We treat a press-release as a "click" when the pointer hasn't moved
+  // beyond CLICK_MOVE_THRESHOLD pixels and the press lasted less than
+  // CLICK_TIME_THRESHOLD ms. A click cycles to the next state.
+  var CLICK_MOVE_THRESHOLD = 5;
+  var CLICK_TIME_THRESHOLD = 350;
+  var pressX = 0, pressY = 0, pressTs = 0, petMoved = false;
+
+  function cycleState() {
+    var idx = STATE_ORDER.indexOf(current);
+    var next = STATE_ORDER[(idx + 1) % STATE_ORDER.length];
+    applyManualState(next);
+  }
+
+  function onPointerDown(e) {
+    if (hidden) return;
+    dragging = true;
+    petMoved = false;
+    pet.classList.add('is-dragging');
+    var rect = pet.getBoundingClientRect();
+    var cx = e.clientX || (e.touches && e.touches[0].clientX);
+    var cy = e.clientY || (e.touches && e.touches[0].clientY);
+    dragOffsetX = cx - rect.left;
+    dragOffsetY = cy - rect.top;
+    pressX = cx; pressY = cy; pressTs = performance.now();
+    setSpriteState(STATES.jumping);
+    current = 'jumping';
+    velX = 0;
+    facing = 1;
+    applyTransform();
+    e.preventDefault();
+  }
+  function onPointerMove(e) {
+    if (!dragging) return;
+    var cx = e.clientX || (e.touches && e.touches[0].clientX);
+    var cy = e.clientY || (e.touches && e.touches[0].clientY);
+    if (cx == null) return;
+    if (!petMoved && (Math.abs(cx - pressX) > CLICK_MOVE_THRESHOLD ||
+                      Math.abs(cy - pressY) > CLICK_MOVE_THRESHOLD)) {
+      petMoved = true;
+    }
+    posX = clampX(cx - dragOffsetX);
+    var top = cy - dragOffsetY;
+    posY = clampY(window.innerHeight - top - SPRITE_H);
+    applyTransform();
+  }
+  function onPointerUp() {
+    if (!dragging) return;
+    dragging = false;
+    pet.classList.remove('is-dragging');
+    var heldFor = performance.now() - pressTs;
+    var wasClick = !petMoved && heldFor < CLICK_TIME_THRESHOLD;
+    if (wasClick) {
+      // Click -> cycle to the next state, no drop-back animation needed.
+      cycleState();
+      return;
+    }
+    // Real drag: gradually fall back to the ground line.
+    var dropAnim = function () {
+      if (posY > GROUND_OFFSET + 1) {
+        posY = Math.max(GROUND_OFFSET, posY - 8);
+        applyTransform();
+        requestAnimationFrame(dropAnim);
+      } else {
+        posY = GROUND_OFFSET;
+        applyTransform();
+        nextStateAt = performance.now() + 600;
+      }
+    };
+    dropAnim();
+  }
+
+  sprite.addEventListener('mousedown', onPointerDown);
+  window.addEventListener('mousemove', onPointerMove);
+  window.addEventListener('mouseup', onPointerUp);
+  sprite.addEventListener('touchstart', onPointerDown, { passive: false });
+  window.addEventListener('touchmove', onPointerMove, { passive: false });
+  window.addEventListener('touchend', onPointerUp);
+
+  // Single-click on sprite (without drag) -> cycle through states.
+  // Detection lives inside onPointerUp so it works for touch too;
+  // we just suppress the synthesized 'click' default here.
+  sprite.addEventListener('click', function (e) { e.preventDefault(); });
+
+  // Bell button: toggle panel; shift-click hides the pet
+  bellBtn.addEventListener('click', function (e) {
+    if (e.shiftKey) {
+      hidden = !hidden;
+      pet.classList.toggle('is-hidden', hidden);
+      bellBtn.textContent = hidden ? '🔕' : '🔔';
+      return;
+    }
+    panel.classList.toggle('is-open');
+  });
+  panelClose.addEventListener('click', function () {
+    panel.classList.remove('is-open');
+  });
+
+  // ---- Make the panel draggable by its header ---------------------------
+  var panelHeader = panel.querySelector('.dora-panel-header');
+  var panelDragging = false;
+  var panelDragDX = 0, panelDragDY = 0;
+  var PANEL_POS_KEY = 'doraPanelPos';
+
+  function clampPanelPos(left, top) {
+    var rect = panel.getBoundingClientRect();
+    var maxLeft = Math.max(0, window.innerWidth  - rect.width  - 4);
+    var maxTop  = Math.max(0, window.innerHeight - rect.height - 4);
+    if (left < 4) left = 4;
+    if (top  < 4) top  = 4;
+    if (left > maxLeft) left = maxLeft;
+    if (top  > maxTop)  top  = maxTop;
+    return { left: left, top: top };
+  }
+
+  function setPanelPos(left, top, persist) {
+    var p = clampPanelPos(left, top);
+    panel.style.left  = p.left + 'px';
+    panel.style.top   = p.top  + 'px';
+    panel.style.right = 'auto';
+    panel.style.bottom = 'auto';
+    if (persist) {
+      try { localStorage.setItem(PANEL_POS_KEY, JSON.stringify(p)); } catch (err) {}
+    }
+  }
+
+  try {
+    var saved = localStorage.getItem(PANEL_POS_KEY);
+    if (saved) {
+      var s = JSON.parse(saved);
+      if (s && typeof s.left === 'number' && typeof s.top === 'number') {
+        requestAnimationFrame(function () { setPanelPos(s.left, s.top, false); });
+      }
+    }
+  } catch (err) {}
+
+  function onPanelDragStart(e) {
+    if (e.target.closest('.dora-close')) return;
+    var p = e.touches ? e.touches[0] : e;
+    var rect = panel.getBoundingClientRect();
+    panelDragging = true;
+    panelDragDX = p.clientX - rect.left;
+    panelDragDY = p.clientY - rect.top;
+    setPanelPos(rect.left, rect.top, false);
+    panel.classList.add('is-dragging');
+    e.preventDefault();
+  }
+  function onPanelDragMove(e) {
+    if (!panelDragging) return;
+    var p = e.touches ? e.touches[0] : e;
+    setPanelPos(p.clientX - panelDragDX, p.clientY - panelDragDY, false);
+    e.preventDefault();
+  }
+  function onPanelDragEnd() {
+    if (!panelDragging) return;
+    panelDragging = false;
+    panel.classList.remove('is-dragging');
+    var rect = panel.getBoundingClientRect();
+    setPanelPos(rect.left, rect.top, true);
+  }
+  panelHeader.addEventListener('mousedown',  onPanelDragStart);
+  panelHeader.addEventListener('touchstart', onPanelDragStart, { passive: false });
+  document.addEventListener('mousemove',  onPanelDragMove);
+  document.addEventListener('touchmove',  onPanelDragMove, { passive: false });
+  document.addEventListener('mouseup',    onPanelDragEnd);
+  document.addEventListener('touchend',   onPanelDragEnd);
+
+  window.addEventListener('resize', function () {
+    if (panel.style.left) {
+      var left = parseFloat(panel.style.left) || 0;
+      var top  = parseFloat(panel.style.top)  || 0;
+      setPanelPos(left, top, true);
+    }
+  });
+
+  stateBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      applyManualState(btn.dataset.state);
+    });
+  });
+
+  ringBtn.addEventListener('click', function () {
+    if (sound) { try { sound.currentTime = 0; sound.play(); } catch (err) {} }
+    applyManualState('waving');
+  });
+
+  resumeBtn.addEventListener('click', function () {
+    manualUntil = 0;
+    nextStateAt = performance.now();
+    setActiveBtn('');
+  });
+
+  window.addEventListener('resize', function () {
+    syncViewportMetrics();
+    posX = clampX(posX);
+    posY = clampY(posY);
+    applyTransform();
+  });
+
+  // Init: start with Review for a few seconds, then roam
+  applyTransform();
+  setSpriteState(STATES.review);
+  current = 'review';
+  nextStateAt = performance.now() + 3500;
+  requestAnimationFrame(tick);
+})();
+</script>
+
+<!-- ====================== End Doraemon Desk Pet ====================== -->
+
+</div>
+
+  <!-- News -->
+  
+    <h2 id="sec-news" class="section-title">
+      <span>👀 News</span>
+    </h2>
+    <div class="news">
+  
+    
+    <div class="table-responsive">
+      <table class="table table-sm table-borderless">
+        
+        
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Oct 08, 2026</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Service</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">学术服务</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🏅 I am honored to be selected as a <strong>Top Reviewer</strong> for <a href="https://neurips.cc/" rel="external nofollow noopener" target="_blank">NeurIPS 2026</a>!
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🏅 很荣幸获评 <a href="https://neurips.cc/" rel="external nofollow noopener" target="_blank">NeurIPS 2026</a> <strong>Top Reviewer</strong>！</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Oct 04, 2026</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Research</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">研究</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🎉 <a href="/projects/MotionRFT/">MotionRFT</a> (co-first author) has been accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34" rel="external nofollow noopener" target="_blank">TPAMI</a>!
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🎉 <a href="/projects/MotionRFT/">MotionRFT</a>（共同一作）被 <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34" rel="external nofollow noopener" target="_blank">TPAMI</a> 录用！</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Sep 25, 2026</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Research</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">研究</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🎉 Our <a href="/projects/PEC/">flow-based RLHF theory paper</a> (first author) was accepted to NeurIPS 2026 as a <span class="presentation-distinction">Spotlight</span>!
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🎉 我的<a href="/projects/PEC/">Flow-based RLHF 理论论文</a>（一作）被 NeurIPS 2026 录用为 <span class="presentation-distinction">Spotlight</span>！</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Aug 28, 2026</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Research</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">研究</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🎉 <a href="https://xiaofeng-tan.github.io/projects/FG-Diff/index.html">FG-Diff</a> (first author) has been accepted to <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7" rel="external nofollow noopener" target="_blank">IEEE Transactions on Image Processing (TIP)</a>!
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🎉 <a href="/projects/FG-Diff/">FG-Diff</a>（一作）被 <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7" rel="external nofollow noopener" target="_blank">IEEE Transactions on Image Processing（TIP）</a> 录用！</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">May 13, 2026</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Service</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">学术服务</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🏅 I am honored to be selected as a <strong>Gold Reviewer</strong> for <a href="https://icml.cc/" target="_blank" rel="external nofollow noopener">ICML 2026</a>!
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🏅 很荣幸获评 <a href="https://icml.cc/" rel="external nofollow noopener" target="_blank">ICML 2026</a> <strong>金牌审稿人</strong>！</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Mar 31, 2026</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Internship</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">科研实习</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">👏 I have joined <a href="https://hunyuan.tencent.com/" target="_blank" rel="external nofollow noopener">Tencent HY<span class="chinese-handwriting">（混元）</span></a> as a Research Intern! Looking forward to exploring RLHF, and AIGC.
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">👏 我已加入<a href="https://hunyuan.tencent.com/" rel="external nofollow noopener" target="_blank">腾讯混元</a>担任研究实习生，期待探索 RLHF 和 AIGC。</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Jan 26, 2026</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Research</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">研究</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🎉 <a href="https://xiaofeng-tan.github.io/projects/EasyTune/">EasyTune</a> (co-first author) has been accepted to <a href="https://iclr.cc/" rel="external nofollow noopener" target="_blank">ICLR 2026</a>!
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🎉 <a href="/projects/EasyTune/">EasyTune</a>（共同一作）被 <a href="https://iclr.cc/" rel="external nofollow noopener" target="_blank">ICLR 2026</a> 录用！</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Nov 08, 2025</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Research</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">研究</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🎉 <a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a> (co-first author) has been accepted to <a href="https://aaai.org/conference/aaai/aaai-26/" rel="external nofollow noopener" target="_blank">AAAI 2026</a>!
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🎉 <a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a>（共同一作）被 <a href="https://aaai.org/conference/aaai/aaai-26/" rel="external nofollow noopener" target="_blank">AAAI 2026</a> 录用！</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Oct 26, 2025</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Scholarship</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">奖学金</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🏆 I am honored to receive the <strong>Tencent-SEU Scholarship</strong> and <strong>Southeast University First-Class Academic Scholarship</strong>.
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🏆 很荣幸获得<strong>腾讯–东南大学奖学金</strong>和<strong>东南大学一等学业奖学金</strong>。</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Sep 19, 2025</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Research</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">研究</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🎉 <a href="https://xiaofeng-tan.github.io/projects/SoPo/index.html">SoPo</a> (first author) has been accepted to <a href="https://neurips.cc/virtual/2025/poster/118773" rel="external nofollow noopener" target="_blank">NeurIPS 2025</a>!
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🎉 <a href="/projects/SoPo/">SoPo</a>（一作）被 <a href="https://neurips.cc/virtual/2025/poster/118773" rel="external nofollow noopener" target="_blank">NeurIPS 2025</a> 录用！</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Jul 01, 2025</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Internship</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">科研实习</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">👏 I become a research intern at <a href="https://open.youtu.qq.com/#/open" rel="external nofollow noopener" target="_blank">Youtu Lab<span class="chinese-handwriting">（优图实验室）</span>@ Tencent</a>.
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">👏 我开始在<a href="https://open.youtu.qq.com/#/open" rel="external nofollow noopener" target="_blank">腾讯优图实验室</a>担任研究实习生。</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Dec 24, 2024</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Research</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">研究</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🎉 Merry Xmas! <a href="https://ieeexplore.ieee.org/abstract/document/10821488" rel="external nofollow noopener" target="_blank">One paper</a> from my undergraduate research (student first author) is accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69" rel="external nofollow noopener" target="_blank">TKDE</a>!
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🎉 圣诞快乐！我的一篇本科研究论文（学生一作）被 <a href="https://ieeexplore.ieee.org/abstract/document/10821488" rel="external nofollow noopener" target="_blank">TKDE</a> 录用！</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Sep 13, 2024</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Education</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">教育经历</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🏃🏻‍➡️ Officially started my M.Sc journey at SEU.
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🏃🏻‍➡️ 正式开启在东南大学的硕士学习。</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Jun 29, 2024</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Recognition</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">荣誉认可</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🎙️ I am honored to deliver a speech at the graduation ceremony on behalf of all graduates.
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🎙️ 很荣幸作为毕业生代表在毕业典礼上发言。</span>
+                
+              
+            </td>
+          </tr>
+        
+          <tr>
+            <th scope="row" style="width: 20%; color: #666;">Jun 12, 2024</th>
+            <td class="news-item-text">
+              
+              
+              
+                <span class="news-tag" data-language="en" lang="en">Recognition</span>
+                <span class="news-tag" data-language="zh" lang="zh-CN">荣誉认可</span>
+              
+              
+                
+                  <span class="news-content" data-language="en" lang="en">🌈 I am honored to be interviewed by SZU as an outstanding student, and it was published in the <em>2024 Shenzhen University Admissions Guide</em>.
+</span>
+                  <span class="news-content" data-language="zh" lang="zh-CN">🌈 很荣幸作为优秀学生接受深圳大学采访，相关报道收录于《深圳大学 2024 年招生指南》。</span>
+                
+              
+            </td>
+          </tr>
+        
+      </table>
+    </div>
+  
+</div>
+
+  
+
+  <!-- Education Experience - Logo Timeline Style -->
+  <div class="timeline-section education-section">
+    <h2 id="sec-education" class="section-title">
+      <span>👨🏻‍🎓 Education Experience</span>
+    </h2>
+    <p class="timeline-expand-hint">Click a school below to expand details.</p>
+
+    <!-- Logo Row -->
+    <div class="logo-row">
+      
+        <div class="logo-item" role="button" tabindex="0" aria-expanded="false" aria-controls="education-detail-1" onclick="toggleEducationDetail('1')" data-index="1">
+          <img src="./assets/img/seu_logo.png" alt="Southeast University" class="timeline-logo">
+          <div class="logo-text-group">
+            <span class="logo-label">Southeast University</span>
+            <span class="logo-role">Master</span>
+            <span class="logo-year">2024 - 2027 (Expected)</span>
+          </div>
+        </div>
+      
+        <div class="logo-item" role="button" tabindex="0" aria-expanded="false" aria-controls="education-detail-2" onclick="toggleEducationDetail('2')" data-index="2">
+          <img src="/assets/img/szu_logo.png" alt="Shenzhen University" class="timeline-logo">
+          <div class="logo-text-group">
+            <span class="logo-label">Shenzhen University</span>
+            <span class="logo-role">Dual Bachelor</span>
+            <span class="logo-year">2020 - 2024</span>
+          </div>
+        </div>
+      
+    </div>
+
+    <!-- Detail Cards -->
+    
+      <div class="detail-card" id="education-detail-1">
+        <div class="detail-card-inner">
+          <div class="detail-mark">
+            <img src="./assets/img/seu_logo.png" alt="Southeast University" class="detail-logo">
+          </div>
+          <div class="detail-card-content">
+            <div class="detail-header">
+              <div class="detail-title-group">
+                <h3 class="detail-title">Southeast University</h3>
+                
+                  <div class="detail-title-meta detail-title-meta--education">
+                    <span class="education-college" title="School of Computer Science and Engineering">School of Computer Science and Engineering</span>
+                    <span class="education-location">🇨🇳 Nanjing, China</span>
+                  </div>
+                
+              </div>
+              <div class="detail-tags">
+                <span class="detail-tag">Master Student (Final Year)</span>
+                <span class="detail-tag">2024 - 2027 (Expected)</span>
+              </div>
+            </div>
+            <div class="detail-fields detail-fields--education">
+              
+                <div class="detail-field detail-field--wide education-ranking-field">
+                  <span class="detail-field-label">Rankings</span>
+                  <span class="detail-field-value">
+                    <span class="education-ranking-list">
+                      
+                        <span class="education-ranking-entry">
+                          <span class="education-ranking-name">CSRankings (China, 2016–2026)</span>
+                          <span class="education-ranking-value">
+                            
+                              AI #16 · 
+                              CV #25
+                          </span>
+                        </span>
+                      
+                      
+                        
+                          <span class="education-ranking-entry">
+                            <span class="education-ranking-name">ARWU 2026</span>
+                            <span class="education-ranking-value">#89</span>
+                          </span>
+                        
+                      
+                      
+                    </span>
+                  </span>
+                </div>
+              
+              
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Note</span>
+                  <span class="detail-field-value detail-intro-text"><em>Expected graduation: June 2027. Outstanding Camper (Ranked 2nd) in 2024 Graduate Admission Summer Camp.</em></span>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="detail-card" id="education-detail-2">
+        <div class="detail-card-inner">
+          <div class="detail-mark">
+            <img src="/assets/img/szu_logo.png" alt="Shenzhen University" class="detail-logo">
+          </div>
+          <div class="detail-card-content">
+            <div class="detail-header">
+              <div class="detail-title-group">
+                <h3 class="detail-title">Shenzhen University</h3>
+                
+                  <div class="detail-title-meta detail-title-meta--education">
+                    <span class="education-college" title="College of Computer Science &amp; Software Engineering / College of Mathematics and Statistics">CS &amp; Software Eng. / Math &amp; Stats</span>
+                    <span class="education-location">🇨🇳 Shenzhen, China</span>
+                  </div>
+                
+              </div>
+              <div class="detail-tags">
+                <span class="detail-tag">Dual Degree (B.Eng. &amp; B.Sc.)</span>
+                <span class="detail-tag">2020 - 2024</span>
+              </div>
+            </div>
+            <div class="detail-fields detail-fields--education">
+              
+                <div class="detail-field detail-field--wide education-ranking-field">
+                  <span class="detail-field-label">Rankings</span>
+                  <span class="detail-field-value">
+                    <span class="education-ranking-list">
+                      
+                        <span class="education-ranking-entry">
+                          <span class="education-ranking-name">CSRankings (China, 2016–2026)</span>
+                          <span class="education-ranking-value">
+                            
+                              AI #21 · 
+                              CV #20
+                          </span>
+                        </span>
+                      
+                      
+                        
+                          <span class="education-ranking-entry">
+                            <span class="education-ranking-name">ARWU 2026</span>
+                            <span class="education-ranking-value">151–200</span>
+                          </span>
+                        
+                      
+                      
+                    </span>
+                  </span>
+                </div>
+              
+              
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Note</span>
+                  <span class="detail-field-value detail-intro-text"><em>Outstanding Graduate Representative (1/300+) who delivers a speech at the graduation ceremony.</em></span>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </div>
+
+  <!-- Research Experience - Logo Timeline Style -->
+  <div class="timeline-section">
+    <h2 id="sec-research" class="section-title">
+      <span>🔬 Research Experience</span>
+    </h2>
+    <p class="timeline-expand-hint">Click an institution below to expand details.</p>
+
+    <!-- Logo Row -->
+    <div class="logo-row logo-row--research">
+      
+        <div class="logo-item" role="button" tabindex="0" aria-expanded="false" aria-controls="research-detail-1" onclick="toggleResearchDetail('1')" data-index="1">
+          <img src="/assets/img/ucm_logo.png" alt="UC Merced" class="timeline-logo">
+          <div class="logo-text-group">
+            <span class="logo-lab-at">VLLab @ UCM</span>
+            <span class="logo-role">Remote Visiting Student</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">2026.04 - Present</span>
+              <span class="logo-location">🇺🇸 Merced, USA (Remote)</span>
+            </span>
+          </div>
+        </div>
+      
+        <div class="logo-item" role="button" tabindex="0" aria-expanded="false" aria-controls="research-detail-2" onclick="toggleResearchDetail('2')" data-index="2">
+          <img src="/assets/img/hy-logo.png" alt="Tencent Inc." class="timeline-logo">
+          <div class="logo-text-group">
+            <span class="logo-lab-at">HY @ Tencent</span>
+            <span class="logo-role">Research intern</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">2026.03 - Present</span>
+              <span class="logo-location">🇨🇳 Shenzhen, China</span>
+            </span>
+          </div>
+        </div>
+      
+        <div class="logo-item" role="button" tabindex="0" aria-expanded="false" aria-controls="research-detail-3" onclick="toggleResearchDetail('3')" data-index="3">
+          <img src="/assets/img/tencent-youtu-logo.png" alt="Tencent Inc." class="timeline-logo">
+          <div class="logo-text-group">
+            <span class="logo-lab-at">YouTu Lab @ Tencent</span>
+            <span class="logo-role">Research intern</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">2025.07 - 2026.03</span>
+              <span class="logo-location">🇨🇳 Shenzhen, China</span>
+            </span>
+          </div>
+        </div>
+      
+        <div class="logo-item" role="button" tabindex="0" aria-expanded="false" aria-controls="research-detail-4" onclick="toggleResearchDetail('4')" data-index="4">
+          <img src="/assets/img/smu-logo-s.png" alt="Singapore Management University" class="timeline-logo">
+          <div class="logo-text-group">
+            <span class="logo-lab-at">LV Lab @ SMU</span>
+            <span class="logo-role">Remote Visiting Student</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">2024.07 - 2025.03</span>
+              <span class="logo-location">🇸🇬 Singapore (Remote)</span>
+            </span>
+          </div>
+        </div>
+      
+        <div class="logo-item" role="button" tabindex="0" aria-expanded="false" aria-controls="research-detail-5" onclick="toggleResearchDetail('5')" data-index="5">
+          <img src="/assets/img/palm-logo.png" alt="Southeast University" class="timeline-logo">
+          <div class="logo-text-group">
+            <span class="logo-lab-at">PALM Lab @ SEU</span>
+            <span class="logo-role">Master's Student</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">2024.04 - Present</span>
+              <span class="logo-location">🇨🇳 Nanjing, China</span>
+            </span>
+          </div>
+        </div>
+      
+        <div class="logo-item" role="button" tabindex="0" aria-expanded="false" aria-controls="research-detail-6" onclick="toggleResearchDetail('6')" data-index="6">
+          <img src="/assets/img/szu_logo.png" alt="Shenzhen University" class="timeline-logo">
+          <div class="logo-text-group">
+            <span class="logo-lab-at">CV Institute @ SZU</span>
+            <span class="logo-role">Undergraduate Research Intern</span>
+            <span class="logo-meta-row">
+              <span class="logo-year">2022.10 - 2023.10</span>
+              <span class="logo-location">🇨🇳 Shenzhen, China</span>
+            </span>
+          </div>
+        </div>
+      
+    </div>
+
+    <!-- Detail Cards -->
+    
+      <div class="detail-card" id="research-detail-1">
+        <div class="detail-card-inner">
+          <div class="detail-mark">
+            <img src="/assets/img/ucm_logo.png" alt="UC Merced" class="detail-logo">
+          </div>
+          <div class="detail-card-content">
+            <div class="detail-header">
+              <div class="detail-title-group">
+                <h3 class="detail-title">UC Merced</h3>
+                
+                  <div class="detail-title-meta">
+                    <span>VLLab @ UCM</span>
+                    <span class="detail-title-sep">·</span>
+                    <span>🇺🇸 Merced, USA (Remote)</span>
+                  </div>
+                
+              </div>
+              <div class="detail-tags">
+                <span class="detail-tag">Remote Visiting Student</span>
+                <span class="detail-tag">2026.04 - Present</span>
+              </div>
+            </div>
+            <div class="detail-fields detail-fields--research">
+              
+                <div class="detail-field detail-field--medium">
+                  <span class="detail-field-label">Lab</span>
+                  <span class="detail-field-value">
+                    
+                    
+                      
+                      
+                        <a href="https://faculty.ucmerced.edu/mhyang/" target="_blank" rel="external nofollow noopener">Vision and Learning Lab</a>
+                      
+                    
+                  </span>
+                </div>
+              
+
+              
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Co-authors</span>
+                  <span class="detail-field-value detail-field-value--coauthors">
+                    
+                      
+                        <span class="coauthor-name"><a href="https://faculty.ucmerced.edu/mhyang/" target="_blank" rel="external nofollow noopener">Ming-Hsuan Yang (Mentor)</a></span><span class="coauthor-separator" aria-hidden="true">,</span>
+                      
+                        <span class="coauthor-name">Haobo Yuan</span><span class="coauthor-separator" aria-hidden="true">,</span>
+                      
+                        <span class="coauthor-name">Tiancheng Shen</span>
+                      
+                    
+                  </span>
+                </div>
+              
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="detail-card" id="research-detail-2">
+        <div class="detail-card-inner">
+          <div class="detail-mark">
+            <img src="/assets/img/hy-logo.png" alt="Tencent Inc." class="detail-logo">
+          </div>
+          <div class="detail-card-content">
+            <div class="detail-header">
+              <div class="detail-title-group">
+                <h3 class="detail-title">Tencent Inc.</h3>
+                
+                  <div class="detail-title-meta">
+                    <span>HY @ Tencent</span>
+                    <span class="detail-title-sep">·</span>
+                    <span>🇨🇳 Shenzhen, China</span>
+                  </div>
+                
+              </div>
+              <div class="detail-tags">
+                <span class="detail-tag">Research intern</span>
+                <span class="detail-tag">2026.03 - Present</span>
+              </div>
+            </div>
+            <div class="detail-fields detail-fields--research">
+              
+                <div class="detail-field detail-field--medium">
+                  <span class="detail-field-label">Lab</span>
+                  <span class="detail-field-value">
+                    
+                    
+                      
+                      
+                        <a href="https://hunyuan.tencent.com/" target="_blank" rel="external nofollow noopener">HY<span class="chinese-handwriting">（混元）</span></a>
+                      
+                    
+                  </span>
+                </div>
+              
+
+              
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Co-authors</span>
+                  <span class="detail-field-value detail-field-value--coauthors">
+                    
+                      
+                        <span class="coauthor-name">Jiaxin Lin (Mentor)</span><span class="coauthor-separator" aria-hidden="true">,</span>
+                      
+                        <span class="coauthor-name">Rui Chen</span>
+                      
+                    
+                  </span>
+                </div>
+              
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="detail-card" id="research-detail-3">
+        <div class="detail-card-inner">
+          <div class="detail-mark">
+            <img src="/assets/img/tencent-youtu-logo.png" alt="Tencent Inc." class="detail-logo">
+          </div>
+          <div class="detail-card-content">
+            <div class="detail-header">
+              <div class="detail-title-group">
+                <h3 class="detail-title">Tencent Inc.</h3>
+                
+                  <div class="detail-title-meta">
+                    <span>YouTu Lab @ Tencent</span>
+                    <span class="detail-title-sep">·</span>
+                    <span>🇨🇳 Shenzhen, China</span>
+                  </div>
+                
+              </div>
+              <div class="detail-tags">
+                <span class="detail-tag">Research intern</span>
+                <span class="detail-tag">2025.07 - 2026.03</span>
+              </div>
+            </div>
+            <div class="detail-fields detail-fields--research">
+              
+                <div class="detail-field detail-field--medium">
+                  <span class="detail-field-label">Lab</span>
+                  <span class="detail-field-value">
+                    
+                    
+                      
+                      
+                        <a href="https://open.youtu.qq.com/#/open" target="_blank" rel="external nofollow noopener">YouTu Lab<span class="chinese-handwriting">（优图实验室）</span></a>
+                      
+                    
+                  </span>
+                </div>
+              
+
+              
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Co-authors</span>
+                  <span class="detail-field-value detail-field-value--coauthors">
+                    
+                      
+                        <span class="coauthor-name">Jun Liu (Mentor)</span><span class="coauthor-separator" aria-hidden="true">,</span>
+                      
+                        <span class="coauthor-name">Yuanting Fan</span><span class="coauthor-separator" aria-hidden="true">,</span>
+                      
+                        <span class="coauthor-name">Bin-Bin Gao</span><span class="coauthor-separator" aria-hidden="true">,</span>
+                      
+                        <span class="coauthor-name">Chengjie Wang</span>
+                      
+                    
+                  </span>
+                </div>
+              
+
+              
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Works</span>
+                  <span class="detail-field-value">
+                    
+                      
+                        <a href="https://xiaofeng-tan.github.io/projects/ConsistentRFT/index.html" target="_blank" class="output-link">Consistent-RFT (Under Review)</a>, 
+                      
+                    
+                      
+                        <a href="https://xiaofeng-tan.github.io/projects/PEC/index.html" target="_blank" class="output-link">PEC (NeurIPS'26 Spotlight)</a>
+                      
+                    
+                  </span>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="detail-card" id="research-detail-4">
+        <div class="detail-card-inner">
+          <div class="detail-mark">
+            <img src="/assets/img/smu-logo-s.png" alt="Singapore Management University" class="detail-logo">
+          </div>
+          <div class="detail-card-content">
+            <div class="detail-header">
+              <div class="detail-title-group">
+                <h3 class="detail-title">Singapore Management University</h3>
+                
+                  <div class="detail-title-meta">
+                    <span>LV Lab @ SMU</span>
+                    <span class="detail-title-sep">·</span>
+                    <span>🇸🇬 Singapore (Remote)</span>
+                  </div>
+                
+              </div>
+              <div class="detail-tags">
+                <span class="detail-tag">Remote Visiting Student</span>
+                <span class="detail-tag">2024.07 - 2025.03</span>
+              </div>
+            </div>
+            <div class="detail-fields detail-fields--research">
+              
+                <div class="detail-field detail-field--medium">
+                  <span class="detail-field-label">Lab</span>
+                  <span class="detail-field-value">
+                    
+                    
+                      
+                      
+                        <a href="https://www.lv-lab.org/SMU/index.html" target="_blank" rel="external nofollow noopener">Language and Vision Lab (LV Lab)</a>
+                      
+                    
+                  </span>
+                </div>
+              
+
+              
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Co-authors</span>
+                  <span class="detail-field-value detail-field-value--coauthors">
+                    
+                      
+                        <span class="coauthor-name">Pan Zhou (Mentor)</span><span class="coauthor-separator" aria-hidden="true">,</span>
+                      
+                        <span class="coauthor-name">Hongsong Wang</span><span class="coauthor-separator" aria-hidden="true">,</span>
+                      
+                        <span class="coauthor-name">Wanjiang Weng</span>
+                      
+                    
+                  </span>
+                </div>
+              
+
+              
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Works</span>
+                  <span class="detail-field-value">
+                    
+                      
+                        <a href="https://xiaofeng-tan.github.io/projects/SoPo/index.html" target="_blank" class="output-link">SoPo (NeurIPS'25)</a>, 
+                      
+                    
+                      
+                        <a href="https://wengwanjiang.github.io/ReAlign-page/" target="_blank" class="output-link" rel="external nofollow noopener">ReAlign (AAAI'26)</a>
+                      
+                    
+                  </span>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="detail-card" id="research-detail-5">
+        <div class="detail-card-inner">
+          <div class="detail-mark">
+            <img src="/assets/img/palm-logo.png" alt="Southeast University" class="detail-logo">
+          </div>
+          <div class="detail-card-content">
+            <div class="detail-header">
+              <div class="detail-title-group">
+                <h3 class="detail-title">Southeast University</h3>
+                
+                  <div class="detail-title-meta">
+                    <span>PALM Lab @ SEU</span>
+                    <span class="detail-title-sep">·</span>
+                    <span>🇨🇳 Nanjing, China</span>
+                  </div>
+                
+              </div>
+              <div class="detail-tags">
+                <span class="detail-tag">Master's Student</span>
+                <span class="detail-tag">2024.04 - Present</span>
+              </div>
+            </div>
+            <div class="detail-fields detail-fields--research">
+              
+                <div class="detail-field detail-field--medium">
+                  <span class="detail-field-label">Lab</span>
+                  <span class="detail-field-value">
+                    
+                    
+                      
+                      
+                        <a href="https://palm.seu.edu.cn/" target="_blank" rel="external nofollow noopener">PAttern Learning and Mining (PALM) Lab</a>
+                      
+                    
+                  </span>
+                </div>
+              
+
+              
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Co-authors</span>
+                  <span class="detail-field-value detail-field-value--coauthors">
+                    
+                      
+                        <span class="coauthor-name">Hongsong Wang (Mentor)</span><span class="coauthor-separator" aria-hidden="true">,</span>
+                      
+                        <span class="coauthor-name">Xin Geng</span><span class="coauthor-separator" aria-hidden="true">,</span>
+                      
+                        <span class="coauthor-name">Wanjiang Weng</span><span class="coauthor-separator" aria-hidden="true">,</span>
+                      
+                        <span class="coauthor-name">Haodong Lei</span>
+                      
+                    
+                  </span>
+                </div>
+              
+
+              
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Works</span>
+                  <span class="detail-field-value">
+                    
+                      
+                        <a href="https://xiaofeng-tan.github.io/projects/FG-Diff/index.html" target="_blank" class="output-link">FG-Diff (TIP'26)</a>, 
+                      
+                    
+                      
+                        <a href="https://xiaofeng-tan.github.io/projects/EasyTune/index.html" target="_blank" class="output-link">EasyTune (ICLR'26)</a>, 
+                      
+                    
+                      
+                        <a href="https://xiaofeng-tan.github.io/projects/MotionRFT/index.html" target="_blank" class="output-link">MotionRFT (TPAMI'26)</a>
+                      
+                    
+                  </span>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="detail-card" id="research-detail-6">
+        <div class="detail-card-inner">
+          <div class="detail-mark">
+            <img src="/assets/img/szu_logo.png" alt="Shenzhen University" class="detail-logo">
+          </div>
+          <div class="detail-card-content">
+            <div class="detail-header">
+              <div class="detail-title-group">
+                <h3 class="detail-title">Shenzhen University</h3>
+                
+                  <div class="detail-title-meta">
+                    <span>CV Institute @ SZU</span>
+                    <span class="detail-title-sep">·</span>
+                    <span>🇨🇳 Shenzhen, China</span>
+                  </div>
+                
+              </div>
+              <div class="detail-tags">
+                <span class="detail-tag">Undergraduate Research Intern</span>
+                <span class="detail-tag">2022.10 - 2023.10</span>
+              </div>
+            </div>
+            <div class="detail-fields detail-fields--research">
+              
+                <div class="detail-field detail-field--medium">
+                  <span class="detail-field-label">Lab</span>
+                  <span class="detail-field-value">
+                    
+                    
+                      
+                      
+                        <a href="https://csse.szu.edu.cn/" target="_blank" rel="external nofollow noopener">Computer Vision Institute</a>
+                      
+                    
+                  </span>
+                </div>
+              
+
+              
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Co-authors</span>
+                  <span class="detail-field-value detail-field-value--coauthors">
+                    
+                      
+                        <span class="coauthor-name">Can Gao (Mentor)</span>
+                      
+                    
+                  </span>
+                </div>
+              
+
+              
+                <div class="detail-field detail-field--wide">
+                  <span class="detail-field-label">Works</span>
+                  <span class="detail-field-value">
+                    
+                      
+                        <a href="https://ieeexplore.ieee.org/abstract/document/10821488" target="_blank" class="output-link" rel="external nofollow noopener">MGBOD (TKDE'25)</a>, 
+                      
+                    
+                      
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0888613X23001020" target="_blank" class="output-link" rel="external nofollow noopener">TWCOD (IJAR'23)</a>
+                      
+                    
+                  </span>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </div>
+
+  <!-- Research Summary -->
+  <h2 id="sec-research-summary" class="section-title">
+  <span data-language="en" lang="en">🧭 Research Summary</span>
+  <span data-language="zh" lang="zh-CN">🧭 研究总结</span>
+</h2>
+<div class="research-summary-section">
+<div class="clearfix research-summary">
+  <div data-language="en" lang="en">
+    <p>I study the <strong>fundamental principles of post-training and alignment for generative models</strong>, with text-motion alignment and large-scale text-to-image post-training in industry as application settings.</p>
+    <ol class="research-trajectory" aria-label="Main research trajectory">
+    <li class="research-trajectory__item">
+      <div class="research-trajectory__meta"><span>2024～2026</span></div>
+    <p>At <strong>PALM@SEU</strong>, advised by Prof. <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang</a> and collaborating with Prof. <a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">Pan Zhou</a> at <strong>SMU</strong>, I study text–motion alignment in motion generation: <a href="/projects/SoPo/index.html">SoPo</a> (NeurIPS 2025) addresses scarce preference pairs and sampling bias; <a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a> (AAAI 2026) aligns pretrained generators without fine-tuning; and <a href="/projects/EasyTune/index.html">EasyTune</a> (ICLR 2026) improves alignment with substantially less memory. Building on this, <a href="/projects/MotionRFT/index.html">MotionRFT</a> (IEEE TPAMI 2026) extends post-training across motion representations, improving HY Motion’s FID by 23.3%.</p>
+    </li>
+    <li class="research-trajectory__item">
+      <div class="research-trajectory__meta"><span>2025～2026</span></div>
+    <p>At <strong>Tencent YouTu</strong>, I worked with <a href="https://scholar.google.com/citations?user=JIKuf4AAAAAJ" rel="external nofollow noopener" target="_blank">Jun Liu</a>, <a href="https://csgaobb.github.io/" rel="external nofollow noopener" target="_blank">Bin-Bin Gao</a>, and <a href="https://retofan233.github.io/" rel="external nofollow noopener" target="_blank">Yuanting Fan</a> at Tencent, and Prof. <a href="https://www.sustech.edu.cn/en/faculties/zhengfeng.html" rel="external nofollow noopener" target="_blank">Feng Zheng</a> and <a href="https://jam-cc.github.io/" rel="external nofollow noopener" target="_blank">Xi Jiang</a> at <strong>SUSTech</strong>, on the key barriers in image-generation post-training: <a href="/projects/ConsistentRFT/index.html">DPGO</a> (under review) reduces low- and high-level perceptual hallucinations by 49% and 38% on average, respectively; <a href="/projects/PEC/index.html">PEC</a> (NeurIPS 2026, <strong>Spotlight</strong>) mitigates diversity collapse, raising the evaluated quality–diversity score from 0.366 to 0.734.</p>
+    </li>
+    <li class="research-trajectory__item">
+      <div class="research-trajectory__meta"><span>2026～Present</span></div>
+    <p>At <strong>Tencent HY</strong>, I study the reliability of reward supervision and learning progression, collaborating with Prof. <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a> as a remote visiting student at <strong>UC Merced</strong>. Our <a href="/projects/spatialcritic/">SpatialCritic</a> (under review) addresses these challenges in spatial generation, achieving 95.08% spatial-preference verification accuracy on our SpaRW-Eval benchmark.</p>
+    </li>
+    </ol>
+    <div class="research-foundations">
+      <div class="research-foundations__label">2022～2024</div>
+    <p>My earlier anomaly-detection work includes <a href="/Publications/#tanGB">MGBOD</a> (IEEE TKDE 2025) with Prof. <a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">Can Gao</a> at <strong>SZU</strong>, and <a href="/projects/FG-Diff/index.html">FG-Diff</a> (IEEE TIP 2026) for video anomaly detection with Prof. <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang</a> at <strong>PALM@SEU</strong>.</p>
+    </div>
+    <p class="research-outlook"><strong>Looking ahead, I hope to explore video generation, world models, and embodied intelligence, with an emphasis on physical consistency, while further investigating the fundamental principles of generative models.</strong></p>
+  </div>
+  <div data-language="zh" lang="zh-CN">
+    <p>我研究<strong>生成模型后训练与对齐的基础原理</strong>，以文本与动作对齐，以及工业界大规模文生图模型的后训练为应用场景。</p>
+    <ol class="research-trajectory" aria-label="主要研究脉络">
+    <li class="research-trajectory__item">
+      <div class="research-trajectory__meta"><span>2024～2026</span></div>
+    <p>在 <strong>PALM@SEU</strong>，我在 <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang（王洪松）</a>教授指导下，并与 <strong>SMU</strong> 的 <a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">Pan Zhou（周攀）</a>教授合作，研究动作生成中的文本与动作对齐：<a href="/projects/SoPo/index.html">SoPo</a>（NeurIPS 2025）应对偏好对稀缺与采样偏差；<a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a>（AAAI 2026）无需微调即可对齐预训练生成模型；<a href="/projects/EasyTune/index.html">EasyTune</a>（ICLR 2026）在提升对齐效果的同时大幅降低显存开销。在此基础上，<a href="/projects/MotionRFT/index.html">MotionRFT</a>（IEEE TPAMI 2026）将后训练拓展至不同动作表示，使 HY Motion 的 FID 改善 23.3%。</p>
+    </li>
+    <li class="research-trajectory__item">
+      <div class="research-trajectory__meta"><span>2025～2026</span></div>
+    <p>在 <strong>Tencent YouTu</strong>，我与腾讯的 <a href="https://scholar.google.com/citations?user=JIKuf4AAAAAJ" rel="external nofollow noopener" target="_blank">Jun Liu</a>、<a href="https://csgaobb.github.io/" rel="external nofollow noopener" target="_blank">Bin-Bin Gao</a>、<a href="https://retofan233.github.io/" rel="external nofollow noopener" target="_blank">Yuanting Fan</a>，以及<strong>南方科技大学</strong>的 <a href="https://www.sustech.edu.cn/en/faculties/zhengfeng.html" rel="external nofollow noopener" target="_blank">Feng Zheng</a> 教授、<a href="https://jam-cc.github.io/" rel="external nofollow noopener" target="_blank">Xi Jiang</a> 合作，研究图像生成后训练中的关键障碍：<a href="/projects/ConsistentRFT/index.html">DPGO</a>（在投）使低层、高层感知幻觉分别平均减少 49%、38%；<a href="/projects/PEC/index.html">PEC</a>（NeurIPS 2026，<strong>Spotlight</strong>）缓解多样性崩溃，将所评测的质量与多样性综合得分从 0.366 提升至 0.734。</p>
+    </li>
+    <li class="research-trajectory__item">
+      <div class="research-trajectory__meta"><span>2026～现在</span></div>
+    <p>在 <strong>Tencent HY</strong>，我进一步研究奖励监督的可靠性与学习进程，并以远程访问学生身份与 <strong>UC Merced</strong> 的 <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a> 教授合作。我们提出的 <a href="/projects/spatialcritic/">SpatialCritic</a>（在投）针对空间生成中的这些问题，在我们构建的空间偏好评测基准 SpaRW-Eval 上实现 95.08% 的验证准确率。</p>
+    </li>
+    </ol>
+    <div class="research-foundations">
+      <div class="research-foundations__label">2022～2024</div>
+    <p>我的早期异常检测工作包括在 <strong>SZU</strong> 与 <a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">Can Gao</a> 教授开展的 <a href="/Publications/#tanGB">MGBOD</a>（IEEE TKDE 2025），以及在 <strong>PALM@SEU</strong> 与 <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang（王洪松）</a>教授开展的视频异常检测工作 <a href="/projects/FG-Diff/index.html">FG-Diff</a>（IEEE TIP 2026）。</p>
+    </div>
+    <p class="research-outlook"><strong>下一步，我希望探索视频生成、世界模型与具身智能，重点关注物理一致性，同时进一步探究生成模型的基础原理。</strong></p>
+  </div>
+</div>
+</div>
+
+
+  <!-- Selected papers -->
+  
+    <h2 id="sec-publications" class="section-title">
+      <span>📖 Selected Publications</span>
+    </h2>
+    
+
+
+
+
+
+
+
+<div class="publication-summary" aria-label="Publication overview / 成果概览">
+  <div class="publication-summary__header">
+    <div class="publication-summary__header-copy">
+      <span class="publication-summary__count" data-language="en" lang="en">7 accepted · 2 under review</span>
+      <span class="publication-summary__count" data-language="zh" lang="zh-CN">7 篇已录用 · 2 篇在投</span>
+      <span class="publication-summary__count" data-language="en" lang="en">5 accepted papers listed first in the author list (including co-first authorship)</span>
+      <span class="publication-summary__count" data-language="zh" lang="zh-CN">5 篇已录用论文在作者列表中排名第一（含共同一作）</span>
+      <span class="publication-summary__legend" data-language="en" lang="en">Underlined = first / co-first / first student author</span>
+      <span class="publication-summary__legend" data-language="zh" lang="zh-CN">下划线 = 一作 / 共同一作 / 学生一作</span>
+    </div>
+    <div class="publication-filters" id="publication-filters" aria-label="Filter publications by topic / 按主题筛选论文" hidden>
+      <span class="publication-filter-icon" aria-hidden="true">
+        <i class="ti ti-filter"></i>
+      </span>
+      <span class="publication-filter-copy">
+        <label class="publication-filter-label" for="publication-topic-select">
+          <span data-language="en" lang="en">Topic</span>
+          <span data-language="zh" lang="zh-CN">主题</span>
+        </label>
+        <span class="publication-filter-divider" aria-hidden="true"></span>
+        <span class="publication-filter-value" aria-hidden="true">
+          <span id="publication-filter-current">All topics</span>
+        </span>
+      </span>
+      <span id="publication-filter-count" class="publication-filter-count" aria-hidden="true">9</span>
+      <span class="publication-filter-chevron" aria-hidden="true"></span>
+      <span class="publication-filter-select">
+        <select id="publication-topic-select" aria-controls="publication-results" aria-label="Filter publications by topic">
+          <option value="all" data-label-en="All topics" data-label-zh="全部主题">All topics</option>
+          
+            
+            <option value="rl" data-label-en="RL" data-label-zh="RL">RL</option>
+          
+            
+            <option value="aigc" data-label-en="AIGC" data-label-zh="AIGC">AIGC</option>
+          
+            
+            <option value="human" data-label-en="Human-centric CV" data-label-zh="Human-centric CV">Human-centric CV</option>
+          
+            
+            <option value="ad" data-label-en="Earlier work" data-label-zh="早期工作">Earlier work</option>
+          
+        </select>
+      </span>
+    </div>
+  </div>
+
+  <div class="publication-summary__rows">
+    <div class="publication-summary__row publication-summary__row--conferences">
+      <span class="publication-summary__row-label">
+        <span data-language="en" lang="en">Top Conferences</span>
+        <span data-language="zh" lang="zh-CN">顶级会议</span>
+      </span>
+      <div class="publication-summary__row-content">
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">NeurIPS</span>
+                <span data-language="zh" lang="zh-CN">NeurIPS</span>
+                
+                  <span class="publication-summary__venue-count">×2</span>
+                
+              </span>
+              <span class="publication-summary__papers">
+                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="/projects/PEC/" title="NeurIPS 2026 · First author / 一作">PEC</a>
+                    
+                    
+                      <span class="publication-summary__note presentation-distinction">Spotlight</span>
+                    
+                  </span>
+                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="/projects/SoPo/" title="NeurIPS 2025 · First author / 一作">SoPo</a>
+                    
+                    
+                      <span class="publication-summary__note">Poster</span>
+                    
+                  </span>
+                
+              </span>
+            </span>
+          
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">ICLR</span>
+                <span data-language="zh" lang="zh-CN">ICLR</span>
+                
+              </span>
+              <span class="publication-summary__papers">
+                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="/projects/EasyTune/" title="ICLR 2026 · Co-first author / 共同一作">EasyTune</a>
+                    
+                    
+                      <span class="publication-summary__note">Poster</span>
+                    
+                  </span>
+                
+              </span>
+            </span>
+          
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">AAAI</span>
+                <span data-language="zh" lang="zh-CN">AAAI</span>
+                
+              </span>
+              <span class="publication-summary__papers">
+                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="https://wengwanjiang.github.io/ReAlign-page/" title="AAAI 2026 · Co-first author / 共同一作" rel="external nofollow noopener" target="_blank">ReAlign</a>
+                    
+                    
+                      <span class="publication-summary__note">Poster</span>
+                    
+                  </span>
+                
+              </span>
+            </span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="publication-summary__row publication-summary__row--journals">
+      <span class="publication-summary__row-label">
+        <span data-language="en" lang="en">Top Journals</span>
+        <span data-language="zh" lang="zh-CN">顶级期刊</span>
+      </span>
+      <div class="publication-summary__row-content">
+        
+          
+        
+          
+        
+          
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">TPAMI</span>
+                <span data-language="zh" lang="zh-CN">TPAMI</span>
+              </span>
+              <span class="publication-summary__papers">
+                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="/projects/MotionRFT/" title="TPAMI 2026 · Co-first author / 共同一作">MotionRFT</a>
+                    
+                  </span>
+                
+              </span>
+            </span>
+          
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">TIP</span>
+                <span data-language="zh" lang="zh-CN">TIP</span>
+              </span>
+              <span class="publication-summary__papers">
+                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="/projects/FG-Diff/" title="TIP 2026 · First author / 一作">FG-Diff</a>
+                    
+                  </span>
+                
+              </span>
+            </span>
+          
+        
+          
+            <span class="publication-summary__group">
+              <span class="publication-summary__venue">
+                <span data-language="en" lang="en">TKDE</span>
+                <span data-language="zh" lang="zh-CN">TKDE</span>
+              </span>
+              <span class="publication-summary__papers">
+                
+                  
+                  
+                  <span class="publication-summary__paper">
+                    
+                      <a class="overview-primary" href="https://ieeexplore.ieee.org/abstract/document/10821488" title="TKDE 2025 · First student author / 学生一作" rel="external nofollow noopener" target="_blank">MGBOD</a>
+                    
+                  </span>
+                
+              </span>
+            </span>
+          
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="publication-summary__row publication-summary__row--review">
+      <span class="publication-summary__row-label">
+        <span data-language="en" lang="en">Under review</span>
+        <span data-language="zh" lang="zh-CN">在投</span>
+        <span class="publication-summary__venue-count">×2</span>
+      </span>
+      <div class="publication-summary__row-content">
+        <span class="publication-summary__papers">
+          
+            
+            
+            <span class="publication-summary__paper">
+              
+                <a class="overview-primary" href="/projects/ConsistentRFT/" title=" · First author / 一作">Consistent-RFT</a>
+              
+            </span>
+          
+            
+            
+            <span class="publication-summary__paper">
+              
+                <a class="overview-primary" href="/projects/spatialcritic/" title=" · First author / 一作">Getting Space Right</a>
+              
+            </span>
+          
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <span id="publication-filter-status" class="sr-only" role="status" aria-live="polite"></span>
+<div class="publications-grouped" id="publication-results">
+  <details class="pub-category pub-category--highlighted" open>
+    <summary class="pub-category__summary">
+      <span class="pub-category__label">Highlighted Works</span>
+      <span class="pub-category__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="pub-category__body">
+      <div class="publications highlighted-publications">
+        <ol class="bibliography"><li>
+<div class="row" data-paper-key="tan2026pec" data-paper-topics="rl aigc">
+  
+    <div class="col col-sm-2 abbr">
+      
+        
+          
+          
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/publication_preview/pec-preview.webp" sizes="200px">
+    
+    <img src="/assets/img/publication_preview/pec-preview.webp" class="preview z-depth-1 rounded" width="100%" height="auto" alt="pec-preview.webp" data-zoomable loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </source></picture>
+
+  
+</figure>
+
+        
+      
+    </div>
+  
+
+  <!-- Entry bib key -->
+  <div id="tan2026pec" class="col-sm-8">
+    <!-- Title -->
+    <div class="title">When Policy Entropy Constraint Fails: Preserving Diversity in Flow-based RLHF via Perceptual Entropy</div>
+    <!-- Author -->
+    <div class="author">
+      
+
+      
+      <em>Xiaofeng
+            Tan</em>, Jun
+            Liu, Bin-Bin
+            Gao, Yuanting
+            Fan, Xi
+            Jiang, Chengjie
+            Wang, Hongsong
+            Wang, and Feng
+            Zheng
+      
+    </div>
+
+    
+    
+    
+    <!-- Journal/Book title and date -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="periodical">
+      
+      <span class="venue-abbr" style="color: #00A1E9;">🏆 NeurIPS 2026 <strong class="presentation-distinction">(Spotlight)</strong></span><span class="venue-separator">|</span>
+        <span class="publication-venue-text"><em>Advances in Neural Information Processing Systems</em></span>
+      
+        
+          
+          <span class="presentation-type presentation-statistics"> (292/30,709 submissions, 0.95%)</span>
+        
+      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="core-badge core-badge-coreastar">CORE-A*</span>
+</div>
+    <div class="periodical">
+      
+    </div>
+    
+
+    <!-- Links/Buttons -->
+    <div class="links">
+      
+      
+        <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-file-alt"></i> Abs</a>
+      
+      
+      
+        <a href="http://arxiv.org/abs/2605.12112" class="btn-arxiv btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="ai ai-arxiv"></i> arXiv</a>
+      
+      
+      
+      
+        
+          <a href="https://arxiv.org/abs/2605.12112" class="btn-pdf btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          <a href="/projects/PEC/index.html" class="btn-website btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
+        
+      
+      
+      
+      
+    </div>
+    
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      
+    
+
+    
+
+    
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p>RLHF is widely used to align flow-matching text-to-image models with human preferences, but often leads to severe diversity collapse after fine-tuning. In RL, diversity is often assumed to correlate with policy entropy, motivating entropy regularization. However, we show this intuition breaks in flow models: policy entropy remains constant, even while perceptual diversity collapses. We explain this mismatch both theoretically and empirically: the constant entropy arises from the fixed, pre-defined noise schedule, while the diversity collapse is driven by the mode-seeking nature of policy gradients. As a result, policy entropy fails to prevent the model from converging to a narrow high-reward region in the perceptual space. To this end, we introduce perceptual entropy that captures diversity in a perceptual space and maintains the property of standard entropy. Building upon this insight, we propose two entropy-regularized strategies, Perceptual Entropy Constraint (PEC) and Perceptual Constraints on Generation Space (PCVAE), to preserve perceptual diversity and improve the quality. Experiments across two base models (FLUX.dev, SD3.5-M), neural and rule-based rewards, and three perceptual spaces (PickScore, DINO, CLIP) demonstrate consistent gains in the quality-diversity trade-off; PEC achieves the best overall score of 0.734 (vs. baseline’s 0.366); a complementary setting of PEC further reaches a diversity average of 0.989 (vs. baseline’s 0.047).</p>
+      </div>
+    
+
+    
+
+    
+  </div>
+</div>
+</li></ol>
+        <ol class="bibliography"><li>
+<div class="row" data-paper-key="tan2026motionrft" data-paper-topics="rl aigc human">
+  
+    <div class="col col-sm-2 abbr">
+      
+        
+          
+          
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/publication_preview/motionrft-framework.webp" sizes="200px">
+    
+    <img src="/assets/img/publication_preview/motionrft-framework.webp" class="preview z-depth-1 rounded" width="100%" height="auto" alt="motionrft-framework.webp" data-zoomable loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </source></picture>
+
+  
+</figure>
+
+        
+      
+    </div>
+  
+
+  <!-- Entry bib key -->
+  <div id="tan2026motionrft" class="col-sm-8">
+    <!-- Title -->
+    <div class="title">MotionRFT: Unified Reinforcement Fine-Tuning for Text-to-Motion Generation</div>
+    <!-- Author -->
+    <div class="author">
+      
+
+      
+      <em>Xiaofeng
+            Tan*</em>, Wanjiang
+            Weng*, Hongsong
+            Wang, Fang
+            Zhao, Xin
+            Geng, and Liang
+            Wang
+      
+    </div>
+
+    
+    
+    
+    <!-- Journal/Book title and date -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="periodical">
+      
+      <span class="venue-abbr" style="color: #2E7D32;">TPAMI 2026</span><span class="venue-separator">|</span>
+        <span class="publication-venue-text"><em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em></span>
+      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="sci-badge sci-badge-sciq1">SCI-Q1</span><span class="sci-badge impact-factor-badge" title="Journal Impact Factor (2025), IEEE Title List, August 2026">IF 20.4 (2025)</span>
+</div>
+    <div class="periodical">
+      Extended from EasyTune (ICLR 2026).
+    </div>
+    
+
+    <!-- Links/Buttons -->
+    <div class="links">
+      
+      
+        <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-file-alt"></i> Abs</a>
+      
+      
+      
+        <a href="http://arxiv.org/abs/2603.27185" class="btn-arxiv btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="ai ai-arxiv"></i> arXiv</a>
+      
+      
+      
+      
+        
+          <a href="https://arxiv.org/pdf/2603.27185" class="btn-pdf btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+        
+      
+      
+      
+      
+      
+        <a href="https://github.com/Xiaofeng-Tan/MotionRFT" class="btn-code btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fab fa-github"></i> Code</a>
+        
+          <a href="https://github.com/Xiaofeng-Tan/MotionRFT" class="github-stars-link" data-github-stars="Xiaofeng-Tan/MotionRFT" target="_blank" rel="noopener" aria-label="View GitHub Stars">☆ Stars</a>
+        
+      
+      
+      
+      
+        
+          <a href="/projects/MotionRFT/index.html" class="btn-website btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
+        
+      
+      
+      
+      
+    </div>
+    
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      
+    
+
+    
+
+    
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p>Text-to-motion generation has rapidly advanced with diffusion- and flow-based generative models, yet supervised pre-training remains insufficient to align models with high-level objectives such as semantic consistency, realism, and human preference. However, existing post-training methods have key limitations: (1) they are often designed for a specific motion representation, such as joint- or rotation-based motions, (2) they typically optimize a particular aspect, such as text-motion alignment or human preference, and may compromise other quality factors, and (3) they incur substantial computational overhead, data dependence, and coarse-grained optimization. We present a reinforcement fine-tuning framework that comprises a heterogeneous-representation, multi-dimensional reward model MotionReward and an efficient, fine-grained fine-tuning strategy EasyTune. To obtain a unified semantics representation, MotionReward maps heterogeneous motion representations into a shared semantic embedding space, where the text description serves as an anchor, paving the way for multi-dimensional reward learning. To enhance semantic alignment without additional annotated data, we propose Self-refinement Preference Learning, dynamically mining the preference and refinement itself. For efficient and effective fine-tuning, we identify a key limitation of differentiable-reward methods, the recursive dependence across denoising steps. Motivated by this insight, we propose EasyTune, which fine-tunes diffusion step-wise rather than over the full trajectory, decoupling this dependence and enabling dense, fine-grained, and memory-efficient optimization. Extensive experiments demonstrate strong cross-model and cross-representation generalization, achieving FID 0.132 with 22.10 GB peak memory and saving up to 15.22 GB over DRaFT. Beyond kinematic-based MLD and MDM, it reduces FID by 22.9% on joint-based ACMDM, and achieves a 12.6% R-Precision gain and 23.3% FID improvement on rotation-based HY Motion.</p>
+      </div>
+    
+
+    
+
+    
+  </div>
+</div>
+</li></ol>
+      </div>
+    </div>
+  </details>
+
+  <details class="pub-category" open>
+    <summary class="pub-category__summary">
+      <span class="pub-category__label">Publications</span>
+      <span class="pub-category__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="pub-category__body">
+      <div class="publications">
+        <ol class="bibliography">
+<li>
+<div class="row" data-paper-key="tan2024sopo" data-paper-topics="rl aigc human">
+  
+    <div class="col col-sm-2 abbr">
+      
+        
+          
+          
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/publication_preview/sopo-preview.webp" sizes="200px">
+    
+    <img src="/assets/img/publication_preview/sopo-preview.webp" class="preview z-depth-1 rounded" width="100%" height="auto" alt="sopo-preview.webp" data-zoomable loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </source></picture>
+
+  
+</figure>
+
+        
+      
+    </div>
+  
+
+  <!-- Entry bib key -->
+  <div id="tan2024sopo" class="col-sm-8">
+    <!-- Title -->
+    <div class="title">SoPo: Text-to-Motion Generation Using Semi-Online Preference Optimization</div>
+    <!-- Author -->
+    <div class="author">
+      
+
+      
+      <em>Xiaofeng
+            Tan</em>, Hongsong
+            Wang, Xin
+            Geng, and Pan
+            Zhou
+      
+    </div>
+
+    
+    
+    
+    <!-- Journal/Book title and date -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="periodical">
+      
+      <span class="venue-abbr" style="color: #00A1E9;">NeurIPS 2025</span><span class="venue-separator">|</span>
+        <span class="publication-venue-text"><em>Advances in Neural Information Processing Systems</em></span>
+      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="core-badge core-badge-coreastar">CORE-A*</span>
+</div>
+    <div class="periodical">
+      
+    </div>
+    
+
+    <!-- Links/Buttons -->
+    <div class="links">
+      
+      
+        <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-file-alt"></i> Abs</a>
+      
+      
+      
+        <a href="http://arxiv.org/abs/2412.05095" class="btn-arxiv btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="ai ai-arxiv"></i> arXiv</a>
+      
+      
+      
+      
+        
+          <a href="https://arxiv.org/abs/2412.05095" class="btn-pdf btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+        
+      
+      
+        
+          <a href="https://arxiv.org/abs/2412.05095" class="btn-supp btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-paperclip"></i> Supp</a>
+        
+      
+      
+      
+      
+        <a href="https://github.com/Xiaofeng-Tan/SoPO" class="btn-code btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fab fa-github"></i> Code</a>
+        
+      
+      
+        
+          <a href="/assets/pdf//projects/SoPo/static/pdfs/poster.pdf" class="btn-poster btn btn-sm z-depth-0" role="button"><i class="fas fa-image"></i> Poster</a>
+        
+      
+      
+      
+        
+          <a href="/projects/SoPo/index.html" class="btn-website btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
+        
+      
+      
+      
+      
+    </div>
+    
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      
+    
+
+    
+
+    
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p>Text-to-motion generation is essential for advancing the creative industry but often presents challenges in producing consistent, realistic motions. To address this, we focus on fine-tuning text-to-motion models to consistently favor high-quality, human-preferred motions—a critical yet largely unexplored problem. In this work, we theoretically investigate the DPO under both online and offline settings, and reveal their respective limitation: overfitting in offline DPO, and biased sampling in online DPO. Building on our theoretical insights, we introduce Semi-online Preference Optimization (SoPo), a DPO-based method for training text-to-motion models using “semi-online" data pair, consisting of unpreferred motion from online distribution and preferred motion in offline datasets. This method leverages both online and offline DPO, allowing each to compensate for the other’s limitations. Extensive experiments demonstrate that SoPo outperforms other preference alignment methods, with an MM-Dist of 3.25% (vs e.g. 0.76% of MoDiPO) on the MLD model, 2.91% (vs e.g. 0.66% of MoDiPO) on MDM model, respectively. Additionally, the MLD model fine-tuned by our SoPo surpasses the SoTA model in terms of R-precision and MM Dist. Visualization results also show the efficacy of our SoPo in preference alignment.</p>
+      </div>
+    
+
+    
+
+    
+  </div>
+</div>
+</li>
+<li>
+<div class="row" data-paper-key="Tan2026easytune" data-paper-topics="aigc human">
+  
+    <div class="col col-sm-2 abbr">
+      
+        
+          
+          
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/publication_preview/easytune-framework.webp" sizes="200px">
+    
+    <img src="/assets/img/publication_preview/easytune-framework.webp" class="preview z-depth-1 rounded" width="100%" height="auto" alt="easytune-framework.webp" data-zoomable loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </source></picture>
+
+  
+</figure>
+
+        
+      
+    </div>
+  
+
+  <!-- Entry bib key -->
+  <div id="Tan2026easytune" class="col-sm-8">
+    <!-- Title -->
+    <div class="title">EasyTune: Efficient Step-Aware Fine-Tuning for Diffusion-Based Motion Generation</div>
+    <!-- Author -->
+    <div class="author">
+      
+
+      
+      <em>Xiaofeng
+            Tan*</em>, Wanjiang
+            Weng*, Haodong
+            Lei, and Hongsong
+            Wang
+      
+    </div>
+
+    
+    
+    
+    <!-- Journal/Book title and date -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="periodical">
+      
+      <span class="venue-abbr" style="color: #00A1E9;">ICLR 2026</span><span class="venue-separator">|</span>
+        <span class="publication-venue-text"><em>International Conference on Learning Representations</em></span>
+      
+        
+          <span class="presentation-type">Poster</span>
+        
+      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="core-badge core-badge-coreastar">CORE-A*</span>
+</div>
+    <div class="periodical">
+      
+    </div>
+    
+
+    <!-- Links/Buttons -->
+    <div class="links">
+      
+      
+        <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-file-alt"></i> Abs</a>
+      
+      
+      
+        <a href="http://arxiv.org/abs/2602.07967" class="btn-arxiv btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="ai ai-arxiv"></i> arXiv</a>
+      
+      
+      
+      
+        
+          <a href="https://arxiv.org/abs/2602.07967" class="btn-pdf btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          <a href="/projects/EasyTune/index.html" class="btn-website btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
+        
+      
+      
+        <a href="https://openreview.net/forum?id=Fy1EoIaAzQ" class="btn-openreview btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-comments"></i> OpenReview</a>
+      
+      
+      
+    </div>
+    
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      
+    
+
+    
+
+    
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p>In recent years, motion generative models have advanced significantly, but aligning them with downstream objectives remains challenging. Recent work shows that differentiable rewards can directly align diffusion models with preferences, but existing approaches are inefficient, coarse-grained, and memory-intensive. We identify the fundamental cause of these limitations as the recursive dependence among steps in the denoising trajectory. Inspired by this insight, we propose EasyTune, which fine-tunes diffusion at each denoising step rather than across the entire trajectory. This decouples the recursive dependence and enables dense, effective, memory-efficient, and fine-grained optimization. To address the scarcity of preference motion pairs for training reward models, we further introduce Self-refinement Preference Learning (SPL), which dynamically identifies preference pairs for preference learning. Extensive experiments show that EasyTune improves MM-Dist over ReFL by 62.1% while requiring only 34.5% of its additional memory overhead.</p>
+      </div>
+    
+
+    
+
+    
+  </div>
+</div>
+</li>
+<li>
+<div class="row" data-paper-key="weng2026realign" data-paper-topics="aigc human">
+  
+    <div class="col col-sm-2 abbr">
+      
+        
+          
+          
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/publication_preview/realign-method.webp" sizes="200px">
+    
+    <img src="/assets/img/publication_preview/realign-method.webp" class="preview z-depth-1 rounded" width="100%" height="auto" alt="realign-method.webp" data-zoomable loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </source></picture>
+
+  
+</figure>
+
+        
+      
+    </div>
+  
+
+  <!-- Entry bib key -->
+  <div id="weng2026realign" class="col-sm-8">
+    <!-- Title -->
+    <div class="title">ReAlign: Text-to-Motion Generation via Step-Aware Reward-Guided Alignment</div>
+    <!-- Author -->
+    <div class="author">
+      
+
+      
+      Wanjiang
+            Weng*, <em>Xiaofeng
+            Tan*</em>, Junbo
+            Wang, Guo-Sen
+            Xie, Pan
+            Zhou, and Hongsong
+            Wang
+      
+    </div>
+
+    
+    
+    
+    <!-- Journal/Book title and date -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="periodical">
+      
+      <span class="venue-abbr" style="color: #00A1E9;">AAAI 2026</span><span class="venue-separator">|</span>
+        <span class="publication-venue-text"><em>AAAI Conference on Artificial Intelligence</em></span>
+      
+        
+          <span class="presentation-type">Poster</span>
+        
+      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="core-badge core-badge-coreastar">CORE-A*</span>
+</div>
+    <div class="periodical">
+      
+    </div>
+    
+
+    <!-- Links/Buttons -->
+    <div class="links">
+      
+      
+        <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-file-alt"></i> Abs</a>
+      
+      
+      
+        <a href="http://arxiv.org/abs/2511.19217" class="btn-arxiv btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="ai ai-arxiv"></i> arXiv</a>
+      
+      
+      
+      
+        
+          <a href="https://arxiv.org/pdf/2511.19217.pdf" class="btn-pdf btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+        
+      
+      
+      
+      
+      
+        <a href="https://github.com/wengwanjiang/ReAlign?tab=readme-ov-file" class="btn-code btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fab fa-github"></i> Code</a>
+        
+      
+      
+      
+      
+        
+          <a href="https://wengwanjiang.github.io/ReAlign-page/" class="btn-website btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-globe"></i> Website</a>
+        
+      
+      
+      
+      
+    </div>
+    
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      
+    
+
+    
+
+    
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p>Text-to-motion generation, which synthesizes 3D human motions from text inputs, holds immense potential for applications in gaming, film, and robotics. Recently, diffusion-based methods have been shown to generate more diversity and realistic motion. However, there exists a misalignment between text and motion distributions in diffusion models, which leads to semantically inconsistent or low-quality motions. To address this limitation, we propose Reward-guided sampling Alignment (ReAlign), comprising a step-aware reward model to assess alignment quality during the denoising sampling and a reward-guided strategy that directs the diffusion process toward an optimally aligned distribution. This reward model integrates step-aware tokens and combines a text-aligned module for semantic consistency and a motion-aligned module for realism, refining noisy motions at each timestep to balance probability density and alignment. Extensive experiments of both motion generation and retrieval tasks demonstrate that our approach significantly improves text-motion alignment and motion quality compared to existing state-of-the-art methods.</p>
+      </div>
+    
+
+    
+
+    
+  </div>
+</div>
+</li>
+<li>
+<div class="row" data-paper-key="tan2024frequency" data-paper-topics="human ad">
+  
+    <div class="col col-sm-2 abbr">
+      
+        
+          
+          
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/publication_preview/fgdiff-framework.webp" sizes="200px">
+    
+    <img src="/assets/img/publication_preview/fgdiff-framework.webp" class="preview z-depth-1 rounded" width="100%" height="auto" alt="fgdiff-framework.webp" data-zoomable loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </source></picture>
+
+  
+</figure>
+
+        
+      
+    </div>
+  
+
+  <!-- Entry bib key -->
+  <div id="tan2024frequency" class="col-sm-8">
+    <!-- Title -->
+    <div class="title">Frequency-Guided Diffusion Model with Perturbation Training for Skeleton-Based Video Anomaly Detection</div>
+    <!-- Author -->
+    <div class="author">
+      
+
+      
+      <em>Xiaofeng
+            Tan</em>, Hongsong
+            Wang, Xin
+            Geng, and Liang
+            Wang
+      
+    </div>
+
+    
+    
+    
+    <!-- Journal/Book title and date -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="periodical">
+      
+      <span class="venue-abbr" style="color: #2E7D32;">TIP 2026</span><span class="venue-separator">|</span>
+        <span class="publication-venue-text"><em>IEEE Transactions on Image Processing</em></span>
+      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="sci-badge sci-badge-sciq1">SCI-Q1</span><span class="sci-badge impact-factor-badge" title="Journal Impact Factor (2025), IEEE Title List, August 2026">IF 15.3 (2025)</span>
+</div>
+    <div class="periodical">
+      
+    </div>
+    
+
+    <!-- Links/Buttons -->
+    <div class="links">
+      
+      
+        <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-file-alt"></i> Abs</a>
+      
+      
+        <a href="https://doi.org/10.1109/TIP.2026.3730816" class="btn-doi btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="ai ai-doi"></i> DOI</a>
+      
+      
+        <a href="http://arxiv.org/abs/2412.03044" class="btn-arxiv btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="ai ai-arxiv"></i> arXiv</a>
+      
+      
+      
+      
+        
+          <a href="https://ieeexplore.ieee.org/document/11689693" class="btn-pdf btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+        
+      
+      
+      
+      
+      
+        <a href="https://github.com/Xiaofeng-Tan/FG-Diff" class="btn-code btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fab fa-github"></i> Code</a>
+        
+      
+      
+      
+      
+        
+          <a href="/projects/FG-Diff/index.html" class="btn-website btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
+        
+      
+      
+      
+      
+    </div>
+    
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      
+    
+
+    
+
+    
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p>Video anomaly detection (VAD) is a vital yet complex open-set task in computer vision, commonly tackled through reconstruction-based methods. However, these methods struggle with two key limitations: (1) insufficient robustness in open-set scenarios, where unseen normal motions are frequently misclassified as anomalies, and (2) an overemphasis on, but restricted capacity for, local motion reconstruction, which are inherently difficult to capture accurately due to their diversity. To overcome these challenges, we introduce a novel frequency-guided diffusion model with perturbation training. First, we enhance robustness by training a generator to produce perturbed samples, which are similar to normal samples and target the weakness of the reconstruction model. This training paradigm expands the reconstruction domain of the model, improving its generalization to unseen normal motions. Second, to address the overemphasis on motion details, we employ the 2D Discrete Cosine Transform (DCT) to separate high-frequency (local) and low-frequency (global) motion components. By guiding the diffusion model with observed high-frequency information, we prioritize the reconstruction of low-frequency components, enabling more accurate and robust anomaly detection. Extensive experiments on five widely used VAD datasets demonstrate that our approach surpasses state-of-the-art methods, underscoring its effectiveness in open-set scenarios and diverse motion contexts.</p>
+      </div>
+    
+
+    
+
+    
+  </div>
+</div>
+</li>
+<li>
+<div class="row" data-paper-key="tanGB" data-paper-topics="ad">
+  
+    <div class="col col-sm-2 abbr">
+      
+        
+          
+          
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/publication_preview/mgbod-fig3.webp" sizes="200px">
+    
+    <img src="/assets/img/publication_preview/mgbod-fig3.webp" class="preview z-depth-1 rounded" width="100%" height="auto" alt="mgbod-fig3.webp" data-zoomable loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </source></picture>
+
+  
+</figure>
+
+        
+      
+    </div>
+  
+
+  <!-- Entry bib key -->
+  <div id="tanGB" class="col-sm-8">
+    <!-- Title -->
+    <div class="title">Fuzzy Granule Density-Based Outlier Detection with Multi-Scale Granular Balls</div>
+    <!-- Author -->
+    <div class="author">
+      
+
+      
+      Can
+            Gao (Supervisor), <em>Xiaofeng
+            Tan</em>, Jie
+            Zhou, Weiping
+            Ding, and Witold
+            Pedrycz
+      
+    </div>
+
+    
+    
+    
+    <!-- Journal/Book title and date -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="periodical">
+      
+      <span class="venue-abbr" style="color: #2E7D32;">TKDE 2025</span><span class="venue-separator">|</span>
+        <span class="publication-venue-text"><em>IEEE Transactions on Knowledge and Data Engineering</em></span>
+      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="sci-badge sci-badge-sciq1">SCI-Q1</span><span class="sci-badge impact-factor-badge" title="Journal Impact Factor (2025), IEEE Title List, August 2026">IF 11.6 (2025)</span>
+</div>
+    <div class="periodical">
+      
+    </div>
+    
+
+    <!-- Links/Buttons -->
+    <div class="links">
+      
+      
+        <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-file-alt"></i> Abs</a>
+      
+      
+        <a href="https://doi.org/10.1109/TKDE.2024.3525003" class="btn-doi btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="ai ai-doi"></i> DOI</a>
+      
+      
+      
+      
+      
+        
+          <a href="https://ieeexplore.ieee.org/abstract/document/10821488" class="btn-pdf btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+        
+      
+      
+        
+          <a href="https://github.com/Xiaofeng-Tan/MGBOD" class="btn-supp btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-paperclip"></i> Supp</a>
+        
+      
+      
+      
+      
+        <a href="https://github.com/Xiaofeng-Tan/MGBOD" class="btn-code btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fab fa-github"></i> Code</a>
+        
+      
+      
+      
+      
+      
+      
+      
+    </div>
+    
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      
+    
+
+    
+
+    
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p>Outlier detection refers to the identification of anomalous samples that deviate significantly from the distribution of normal data and has been extensively studied and used in a variety of practical tasks. However, most unsupervised outlier detection methods are carefully designed to detect specified outliers, while real-world data may be entangled with different types of outliers. In this study, we propose a fuzzy rough sets-based multi-scale outlier detection method to identify various types of outliers. Specifically, a novel fuzzy rough sets-based method that integrates relative fuzzy granule density is first introduced to improve the capability of detecting local outliers. Then, a multi-scale view generation method based on granular-ball computing is proposed to collaboratively identify group outliers at different levels of granularity. Moreover, reliable outliers and inliers determined by the three-way decision are used to train a weighted support vector machine to further improve the performance of outlier detection. The proposed method innovatively transforms unsupervised outlier detection into a semi-supervised classification problem and for the first time explores the fuzzy rough sets-based outlier detection from the perspective of multi-scale granular balls, allowing for high adaptability to different types of outliers. Extensive experiments carried out on both artificial and UCI datasets demonstrate that the proposed outlier detection method significantly outperforms the state-of-the-art methods, improving the results by at least 8.48% in terms of the Area Under the ROC Curve (AUROC) index.</p>
+      </div>
+    
+
+    
+
+    
+  </div>
+</div>
+</li>
+</ol>
+      </div>
+    </div>
+  </details>
+
+  <details class="pub-category" open>
+    <summary class="pub-category__summary">
+      <span class="pub-category__label">Preprints</span>
+      <span class="pub-category__chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="pub-category__body">
+      <div class="publications">
+        <ol class="bibliography">
+<li>
+<div class="row" data-paper-key="tan2025consistentrft" data-paper-topics="rl aigc">
+  
+    <div class="col col-sm-2 abbr">
+      
+        
+          
+          
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/publication_preview/consistent-method.webp" sizes="200px">
+    
+    <img src="/assets/img/publication_preview/consistent-method.webp" class="preview z-depth-1 rounded" width="100%" height="auto" alt="consistent-method.webp" data-zoomable loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </source></picture>
+
+  
+</figure>
+
+        
+      
+    </div>
+  
+
+  <!-- Entry bib key -->
+  <div id="tan2025consistentrft" class="col-sm-8">
+    <!-- Title -->
+    <div class="title">Dual-Grained Policy Optimization for Hallucination Reduction in Flow-based RL</div>
+    <!-- Author -->
+    <div class="author">
+      
+
+      
+      <em>Xiaofeng
+            Tan</em>, Jun
+            Liu, Yuanting
+            Fan, Bin-Bin
+            Gao, Xi
+            Jiang, Xiaochen
+            Chen, Jinlong
+            Peng, Chengjie
+            Wang, Hongsong
+            Wang, and Feng
+            Zheng
+      
+    </div>
+
+    
+    
+    
+    <!-- Journal/Book title and date -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="periodical periodical--review">
+      
+      
+          <span class="venue-abbr">UR 2026</span><span class="venue-separator">|</span>
+        <span class="publication-venue-text"><em>Under Review</em></span>
+      </div>
+    <div class="periodical">
+      
+    </div>
+    
+
+    <!-- Links/Buttons -->
+    <div class="links">
+      
+      
+        <a class="abstract btn btn-sm z-depth-0" role="button"><i class="fas fa-file-alt"></i> Abs</a>
+      
+      
+      
+        <a href="http://arxiv.org/abs/2602.03425" class="btn-arxiv btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="ai ai-arxiv"></i> arXiv</a>
+      
+      
+      
+      
+        
+          <a href="https://arxiv.org/abs/2602.03425" class="btn-pdf btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+        
+      
+      
+      
+      
+      
+        <a href="https://github.com/Xiaofeng-Tan/ConsistentRFT" class="btn-code btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fab fa-github"></i> Code</a>
+        
+          <a href="https://github.com/Xiaofeng-Tan/ConsistentRFT" class="github-stars-link" data-github-stars="Xiaofeng-Tan/ConsistentRFT" target="_blank" rel="noopener" aria-label="View GitHub Stars">☆ Stars</a>
+        
+      
+      
+      
+      
+        
+          <a href="/projects/ConsistentRFT/index.html" class="btn-website btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
+        
+      
+      
+      
+      
+    </div>
+    
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      
+    
+
+    
+
+    
+      <!-- Hidden abstract block -->
+      <div class="abstract hidden">
+        <p></p>
+      </div>
+    
+
+    
+
+    
+  </div>
+</div>
+</li>
+<li>
+<div class="row" data-paper-key="tan2027spatial" data-paper-topics="rl aigc">
+  
+    <div class="col col-sm-2 abbr">
+      
+        
+          
+          
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/assets/img/publication_preview/spatial-fig4.webp" sizes="200px">
+    
+    <img src="/assets/img/publication_preview/spatial-fig4.webp" class="preview z-depth-1 rounded" width="100%" height="auto" alt="spatial-fig4.webp" data-zoomable loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </source></picture>
+
+  
+</figure>
+
+        
+      
+    </div>
+  
+
+  <!-- Entry bib key -->
+  <div id="tan2027spatial" class="col-sm-8">
+    <!-- Title -->
+    <div class="title">Getting Space Right: Agentic Rewards for Image Generation</div>
+    <!-- Author -->
+    <div class="author">
+      
+
+      
+      <em>Xiaofeng
+            Tan</em>, Jiaxin
+            Lin, Haobo
+            Yuan, Tiancheng
+            Shen, Zihan
+            Su, Rui
+            Chen, Hongsong
+            Wang, and Ming-Hsuan
+            Yang
+      
+    </div>
+
+    
+    
+    
+    <!-- Journal/Book title and date -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="periodical periodical--review">
+      
+      
+          <span class="venue-abbr">UR 2026</span><span class="venue-separator">|</span>
+        <span class="publication-venue-text"><em>Under Review</em></span>
+      </div>
+    <div class="periodical">
+      
+    </div>
+    
+
+    <!-- Links/Buttons -->
+    <div class="links">
+      
+      
+      
+      
+        <a href="http://arxiv.org/abs/2610.14852" class="btn-arxiv btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="ai ai-arxiv"></i> arXiv</a>
+      
+      
+      
+      
+        
+          <a href="https://arxiv.org/pdf/2610.14852" class="btn-pdf btn btn-sm z-depth-0" role="button" target="_blank" rel="external nofollow noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          <a href="/projects/spatialcritic/" class="btn-website btn btn-sm z-depth-0" role="button" target="_blank"><i class="fas fa-globe"></i> Website</a>
+        
+      
+      
+      
+      
+    </div>
+    
+      
+      
+
+      
+      
+
+      
+      
+
+      
+      
+      
+    
+
+    
+
+    
+
+    
+
+    
+  </div>
+</div>
+</li>
+</ol>
+        <ol class="bibliography"></ol>
+      </div>
+    </div>
+  </details>
+</div>
+
+  
+
+  <!-- Service -->
+  <h2 id="sec-service" class="section-title">
+    <span>📋 Service</span>
+  </h2>
+  <div class="service-section">
+    <ul class="service-list">
+      <li>
+        <span class="service-role">Conference Reviewer</span>
+        <span class="service-details">ICML 2026 <span class="gold-reviewer">(Gold Reviewer)</span>, NeurIPS 2026 <span class="top-reviewer">(Top Reviewer)</span>, AAAI 2027, ICLR 2027.</span>
+      </li>
+      <li>
+        <span class="service-role">Journal Reviewer</span>
+        <span class="service-details">TMLR, IJDSA.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Selected Honors -->
+  
+    <h2 id="sec-honors" class="section-title">
+      <span>🌟 Selected Honors</span>
+    </h2>
+    <details class="honors-disclosure">
+      <summary class="section-disclosure-control">
+        <span class="pub-category__hint">
+  <span class="pub-category__hint-expand">
+    <span data-language="en" lang="en">Click to expand</span>
+    <span data-language="zh" lang="zh-CN">点击展开</span>
+  </span>
+  <span class="pub-category__hint-collapse">
+    <span data-language="en" lang="en">Click to collapse</span>
+    <span data-language="zh" lang="zh-CN">点击收起</span>
+  </span>
+</span>
+
+      </summary>
+    <div class="honors-section honors-section--grouped">
+      
+      
+        
+        
+          <section class="honors-stage honors-stage--community" aria-labelledby="honors-community">
+            <h3 class="honors-stage-title" id="honors-community">
+              
+                <span data-language="en" lang="en">Community Recognition</span>
+                <span data-language="zh" lang="zh-CN">社区认可</span>
+              
+            </h3>
+            <div class="honors-stage-cards">
+              
+                <details class="compact-card">
+                  <summary><span class="compact-title">
+                    <span data-language="en" lang="en">ICML Gold Reviewer</span>
+                    <span data-language="zh" lang="zh-CN">ICML 金牌审稿人</span>
+                  </span><span class="year">2026</span></summary>
+                  <div class="compact-card-body">
+                    <span data-language="en" lang="en">ICML Organizing Committee</span>
+                    <span data-language="zh" lang="zh-CN">ICML 组委会</span>
+                  </div>
+                </details>
+              
+                <details class="compact-card">
+                  <summary><span class="compact-title">
+                    <span data-language="en" lang="en">NeurIPS Top Reviewer</span>
+                    <span data-language="zh" lang="zh-CN">NeurIPS Top Reviewer</span>
+                  </span><span class="year">2026</span></summary>
+                  <div class="compact-card-body">
+                    <span data-language="en" lang="en">NeurIPS Organizing Committee</span>
+                    <span data-language="zh" lang="zh-CN">NeurIPS 组委会</span>
+                  </div>
+                </details>
+              
+            </div>
+          </section>
+        
+      
+        
+        
+          <section class="honors-stage honors-stage--masters" aria-labelledby="honors-masters">
+            <h3 class="honors-stage-title" id="honors-masters">
+              
+                <span data-language="en" lang="en">Master’s Studies</span>
+                <span data-language="zh" lang="zh-CN">硕士期间</span>
+              
+            </h3>
+            <div class="honors-stage-cards">
+              
+                <details class="compact-card">
+                  <summary><span class="compact-title">
+                    <span data-language="en" lang="en">Tencent-SEU Scholarship</span>
+                    <span data-language="zh" lang="zh-CN">腾讯–东南大学奖学金</span>
+                  </span><span class="year">2025</span></summary>
+                  <div class="compact-card-body">
+                    <span data-language="en" lang="en">Tencent &amp; SEU · ¥9,000</span>
+                    <span data-language="zh" lang="zh-CN">腾讯与东南大学 · 9,000 元</span>
+                  </div>
+                </details>
+              
+                <details class="compact-card">
+                  <summary><span class="compact-title">
+                    <span data-language="en" lang="en">First-Class Academic Scholarship</span>
+                    <span data-language="zh" lang="zh-CN">一等学业奖学金</span>
+                  </span><span class="year">2025</span></summary>
+                  <div class="compact-card-body">
+                    <span data-language="en" lang="en">Southeast University · ¥12,000</span>
+                    <span data-language="zh" lang="zh-CN">东南大学 · 12,000 元</span>
+                  </div>
+                </details>
+              
+                <details class="compact-card">
+                  <summary><span class="compact-title">
+                    <span data-language="en" lang="en">Outstanding Camper (Admission Summer Camp)</span>
+                    <span data-language="zh" lang="zh-CN">优秀营员（招生夏令营）</span>
+                  </span><span class="year">2024</span></summary>
+                  <div class="compact-card-body">
+                    <span data-language="en" lang="en">Southeast University (Rank 2)</span>
+                    <span data-language="zh" lang="zh-CN">东南大学（第 2 名）</span>
+                  </div>
+                </details>
+              
+            </div>
+          </section>
+        
+      
+        
+        
+          <section class="honors-stage honors-stage--undergraduate" aria-labelledby="honors-undergraduate">
+            <h3 class="honors-stage-title" id="honors-undergraduate">
+              
+                <span data-language="en" lang="en">Undergraduate Studies</span>
+                <span data-language="zh" lang="zh-CN">本科期间</span>
+              
+            </h3>
+            <div class="honors-stage-cards">
+              
+                <details class="compact-card">
+                  <summary><span class="compact-title">
+                    <span data-language="en" lang="en">Outstanding Graduate Representative</span>
+                    <span data-language="zh" lang="zh-CN">优秀毕业生代表</span>
+                  </span><span class="year">2024</span></summary>
+                  <div class="compact-card-body">
+                    <span data-language="en" lang="en">Shenzhen University (Graduation Speech)</span>
+                    <span data-language="zh" lang="zh-CN">深圳大学（毕业典礼发言）</span>
+                  </div>
+                </details>
+              
+                <details class="compact-card">
+                  <summary><span class="compact-title">
+                    <span data-language="en" lang="en">Featured in Admissions Guide</span>
+                    <span data-language="zh" lang="zh-CN">入选招生指南</span>
+                  </span><span class="year">2024</span></summary>
+                  <div class="compact-card-body">
+                    <span data-language="en" lang="en">Shenzhen University (as Outstanding Student)</span>
+                    <span data-language="zh" lang="zh-CN">深圳大学（优秀学生事迹）</span>
+                  </div>
+                </details>
+              
+                <details class="compact-card">
+                  <summary><span class="compact-title">
+                    <span data-language="en" lang="en">Honor Bachelor Degree</span>
+                    <span data-language="zh" lang="zh-CN">荣誉学士学位</span>
+                  </span><span class="year">2024</span></summary>
+                  <div class="compact-card-body">
+                    <span data-language="en" lang="en">Shenzhen University</span>
+                    <span data-language="zh" lang="zh-CN">深圳大学</span>
+                  </div>
+                </details>
+              
+                <details class="compact-card">
+                  <summary><span class="compact-title">
+                    <span data-language="en" lang="en">Outstanding Graduate</span>
+                    <span data-language="zh" lang="zh-CN">优秀毕业生</span>
+                  </span><span class="year">2024</span></summary>
+                  <div class="compact-card-body">
+                    <span data-language="en" lang="en">Shenzhen University</span>
+                    <span data-language="zh" lang="zh-CN">深圳大学</span>
+                  </div>
+                </details>
+              
+                <details class="compact-card">
+                  <summary><span class="compact-title">
+                    <span data-language="en" lang="en">LiYuan Star (SZU Special Award)</span>
+                    <span data-language="zh" lang="zh-CN">荔园之星（深圳大学特等奖）</span>
+                  </span><span class="year">2022, 2023</span></summary>
+                  <div class="compact-card-body">
+                    <span data-language="en" lang="en">Shenzhen University · ¥20,000</span>
+                    <span data-language="zh" lang="zh-CN">深圳大学 · 20,000 元</span>
+                  </div>
+                </details>
+              
+                <details class="compact-card">
+                  <summary><span class="compact-title">
+                    <span data-language="en" lang="en">Scholarship of Outstanding Innovative Talent</span>
+                    <span data-language="zh" lang="zh-CN">拔尖创新人才奖学金</span>
+                  </span><span class="year">2020</span></summary>
+                  <div class="compact-card-body">
+                    <span data-language="en" lang="en">Guangdong Science College Entrance Exam · ¥20,000</span>
+                    <span data-language="zh" lang="zh-CN">广东省高考（理科） · 20,000 元</span>
+                  </div>
+                </details>
+              
+            </div>
+          </section>
+        
+      
+    </div>
+    </details>
+  
+
+  
+
+  <!-- Misc -->
+  <h2 id="sec-life" class="section-title">
+    <span data-language="en" lang="en">🏠 Misc</span>
+    <span data-language="zh" lang="zh-CN">🏠 生活</span>
+  </h2>
+  <details class="misc-section">
+    <summary class="section-disclosure-control">
+      <span class="section-disclosure-label">
+        <span data-language="en" lang="en">Outside research</span>
+        <span data-language="zh" lang="zh-CN">科研之外</span>
+      </span>
+      <span class="section-title-hint">
+        <span class="pub-category__hint">
+  <span class="pub-category__hint-expand">
+    <span data-language="en" lang="en">Click to expand</span>
+    <span data-language="zh" lang="zh-CN">点击展开</span>
+  </span>
+  <span class="pub-category__hint-collapse">
+    <span data-language="en" lang="en">Click to collapse</span>
+    <span data-language="zh" lang="zh-CN">点击收起</span>
+  </span>
+</span>
+
+      </span>
+      <span class="section-title-chevron" aria-hidden="true"></span>
+    </summary>
+  <div class="hobbies-section">
+    <p class="hobbies-intro" data-language="en" lang="en">Outside research, I enjoy exploring ideas across science, engineering, and the humanities. I'm a <a class="doraemon-text" href="https://en.wikipedia.org/wiki/Doraemon" target="_blank" rel="noopener">Doraemon</a> fan, as the little companions in the bottom corners suggest. I practice hard-pen calligraphy, often drawing inspiration from Zhong'an Gu, and enjoy visiting exhibitions. Over a decade ago, I was an avid Chinese chess (xiangqi) player, an individual bronze medalist and a member of a championship-winning team in city-level competitions, though I'm no longer as drawn to the game. I also play table tennis and badminton.</p>
+    <p class="hobbies-intro" data-language="zh" lang="zh-CN">科研之外，我喜欢从科学、工程和人文中寻找新的视角。我很喜欢<a class="doraemon-text" href="https://zh.wikipedia.org/wiki/%E5%93%86%E5%95%A6A%E5%A4%A2" target="_blank" rel="noopener">哆啦 A 梦</a>，所以页面下方的角落里有它陪伴。我练习硬笔书法，尤其欣赏顾仲安的作品，也常看展览；平时也会打乒乓球和羽毛球。十多年前，我很喜欢下中国象棋，曾在市级比赛中获得个人赛季军、团体赛冠军等成绩，不过已经多年没有接触了。</p>
+
+    <p class="hobbies-intro" data-language="en" lang="en">Music is another way I unwind. <span class="song-bilingual"><em>Gareth.T</em> (<span class="song-artist-cjk" lang="zh-CN">汤令山</span>)</span>'s <span class="song-bilingual"><a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a> (<span class="song-title-cjk" lang="zh-CN">国际孤独等级</span>)</span> is a particular favorite, and I also enjoy <span class="song-bilingual"><em>Eason Chan</em> (<span class="song-artist-cjk" lang="zh-CN">陈奕迅</span>)</span>'s <span class="song-bilingual"><a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a> (<span class="song-title-cjk" lang="zh-CN">任我行</span>)</span> and <span class="song-bilingual"><em>Crowd Lu</em> (<span class="song-artist-cjk" lang="zh-CN">卢广仲</span>)</span>'s <span class="song-bilingual"><a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a> (<span class="song-title-cjk" lang="zh-CN">几分之几</span>)</span>.</p>
+    <p class="hobbies-intro" data-language="zh" lang="zh-CN">音乐也是我放松的一种方式。我尤其喜欢<span class="song-bilingual">Gareth.T（汤令山）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《国际孤独等级》</span>（<a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a>）</span>，也常听<span class="song-bilingual">Eason Chan（陈奕迅）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《任我行》</span>（<a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a>）</span>和<span class="song-bilingual">Crowd Lu（卢广仲）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《几分之几》</span>（<a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a>）</span>。</p>
+
+    <p class="hobbies-intro" data-language="en" lang="en">Over the past couple of years, I have also grown to love traveling, especially hiking and coastal landscapes. The mountains and coast of <a href="https://en.wikipedia.org/wiki/California" target="_blank" rel="noopener">California</a>, along with the coastline of <a href="https://en.wikipedia.org/wiki/Okinawa_Prefecture" target="_blank" rel="noopener">Okinawa</a>, have been especially memorable. <a href="https://en.wikipedia.org/wiki/Shenzhen" target="_blank" rel="noopener">Shenzhen</a> and <a href="https://en.wikipedia.org/wiki/Hong_Kong" target="_blank" rel="noopener">Hong Kong</a>, two cities where I have lived for many years, are also wonderful places for hiking and spending time by the sea.</p>
+    <p class="hobbies-intro" data-language="zh" lang="zh-CN">近一两年，我也逐渐喜欢上旅行，尤其是徒步和山海风光。<a href="https://zh.wikipedia.org/wiki/%E5%8A%A0%E5%88%A9%E7%A6%8F%E5%B0%BC%E4%BA%9A%E5%B7%9E" target="_blank" rel="noopener">加州</a>的山海和<a href="https://zh.wikipedia.org/wiki/%E5%86%B2%E7%BB%B3%E5%8E%BF" target="_blank" rel="noopener">冲绳</a>的海景尤其令我印象深刻。<a href="https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%9C%B3%E5%B8%82" target="_blank" rel="noopener">深圳</a>和<a href="https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF" target="_blank" rel="noopener">香港</a>这两座我居住了很久的城市，也很适合徒步和看海。</p>
+
+    <p class="hobbies-intro" data-language="en" lang="en">Based on our long history of conversations, GPT, Gemini, and Doubao all characterize me as an <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>, although these conversations have primarily been work-related and may introduce some bias. I share it as a reference for potential collaborators.</p>
+    <p class="hobbies-intro" data-language="zh" lang="zh-CN">基于长期聊天记录，GPT、Gemini 和豆包均判断我是 <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>，但这些对话主要围绕工作，可能带来一定偏差。分享于此，供未来的合作者参考。</p>
+  </div>
+  </details>
+
+  <!-- Blog -->
+  
+
+  <!-- Social -->
+  
+    <div class="social">
+      <div class="contact-icons">
+  <a href="mailto:%78%69%61%6F%66%65%6E%67%74%61%6E@%73%65%75.%65%64%75.%63%6E" title="email"><i class="fa-solid fa-envelope"></i></a>
+
+
+
+
+
+  <a href="https://scholar.google.com/citations?user=C2F5mtgAAAAJ" title="Google Scholar" rel="external nofollow noopener" target="_blank"><i class="ai ai-google-scholar"></i></a>
+
+
+
+  <a href="https://www.semanticscholar.org/author/2333979919" title="Semantic Scholar" rel="external nofollow noopener" target="_blank"><i class="ai ai-semantic-scholar"></i></a>
+
+
+
+
+
+
+
+
+
+  <a href="https://github.com/Xiaofeng-Tan" title="GitHub" rel="external nofollow noopener" target="_blank"><i class="fa-brands fa-github"></i></a>
+
+
+  <a href="https://www.alphaxiv.org/@xiaofeng-tan" title="AlphaXiv" rel="external nofollow noopener" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 718.41 504.47" width="1em" height="1em" fill="currentColor" aria-hidden="true"><polygon fill="currentColor" points="591.15 258.54 718.41 385.73 663.72 440.28 536.57 313.62 591.15 258.54"></polygon><path fill="currentColor" d="M273.86.3c34.56-2.41,67.66,9.73,92.51,33.54l94.64,94.63-55.11,54.55-96.76-96.55c-16.02-12.7-37.67-12.1-53.19,1.11L54.62,288.82,0,234.23,204.76,29.57C223.12,13.31,249.27,2.02,273.86.3Z"></path><path fill="currentColor" d="M663.79,1.29l54.62,54.58-418.11,417.9c-114.43,95.94-263.57-53.49-167.05-167.52l160.46-160.33,54.62,54.58-157.88,157.77c-33.17,40.32,18.93,91.41,58.66,57.48L663.79,1.29Z"></path></svg></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+      <div class="contact-note">If you have questions, feel free to reach out through email (xiaofengtan@seu.edu.cn)!
+</div>
+    </div>
+  
+
+  
+
+  <!-- Page-level Last Updated -->
+  <div class="page-last-updated">
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <span>Last updated: <time datetime="2026-10-18T03:31:39+00:00">October 18, 2026</time></span>
+  </div>
+</article>
+
+<!-- 交互式卡通人物（可切换：哆啦A梦、Tom & Jerry、Hello Kitty、皮卡丘） -->
+<!-- 双击切换角色，单击显示对话 -->
+<div id="mascot-container">
+  <!-- 哆啦A梦（精灵图走路动画版） -->
+  <div id="doraemon" class="mascot active"></div>
+  
+  <!-- Tom & Jerry -->
+  <div id="tomjerry" class="mascot">
+    <img src="https://4.bp.blogspot.com/-HjOu-dGh2P4/UAv31SSQYQI/AAAAAAAAA3g/a9flM74pDqQ/s1600/Tom-and-jerry-psd57584.png" alt="Tom &amp; Jerry">
+  </div>
+  
+  <!-- 对话气泡 -->
+  <div id="mascot-bubble" class="mascot-bubble"></div>
+  <!-- 操作提示 -->
+  <div class="mascot-hint">Click: talk · Double-click: switch</div>
+</div>
+
+
+
+
+<!-- About-page custom scripts: mascot, scroll-spy subnav, education/research toggles, oneko (disabled) -->
+<script src="/assets/js/disclosure.js?f5d669b9a68fdf13c42f7c94a731abd4" defer></script>
+<script src="/assets/js/custom.js?4a9d226f92efe760ccedd627d4f34a4c" defer></script>
+
+<!-- Build: 2025-12-12 -->
+
+      
+    </div>
+
+    <!-- Footer -->
+    
+  <footer class="fixed-bottom" role="contentinfo">
+    <div class="container mt-0">
+      © Copyright 2026
+      Xiaofeng
+      
+      Tan. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>.
+
+      <span class="translation-disclaimer" data-language="zh" lang="zh-CN">注：中文内容由机器翻译生成，仅供参考，准确性不作保证。</span>
+      
+      
+        Last updated: October 18, 2026.
+      
+    </div>
+  </footer>
+
+
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="/assets/js/mdb.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    
+  <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/masonry.js" type="text/javascript"></script>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  <!-- Medium Zoom JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/zoom.js?85ddb88934d28b74e78031fd54cf8308"></script>
+
+
+
+<!-- Bootstrap Table -->
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script>
+<script defer src="/assets/js/common.js?2960aabd3d131b7a1ca60578bda5a4c0"></script>
+<script defer src="/assets/js/github-stars.js?4ee6ed60e01c003737dbb18240642313"></script>
+<script defer src="/assets/js/copy_code.js?12775fdf7f95e901d7119054556e495f" type="text/javascript"></script>
+
+<!-- Jupyter Open External Links New Tab -->
+<script defer src="/assets/js/jupyter_new_tab.js?d9f17b6adc2311cbabd747f4538bb15f"></script>
+
+
+
+    
+  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+
+
+  <script async src="https://badge.dimensions.ai/badge.js"></script>
+
+
+    
+  
+    <!-- MathJax -->
+    <script type="text/javascript">
+      window.MathJax = {
+        tex: {
+          tags: 'ams',
+        },
+      };
+    </script>
+    <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>
+  
+
+
+    
+
+    
+
+
+  <script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="LBiW87sQngPMSeAlDOA29JiXsynof27j"></script>
+
+
+
+    
+  <!-- Scrolling Progress Bar -->
+  <script type="text/javascript">
+    /*
+     * This JavaScript code has been adapted from the article
+     * https://css-tricks.com/reading-position-indicator/ authored by Pankaj Parashar,
+     * published on the website https://css-tricks.com on the 7th of May, 2014.
+     * Couple of changes were made to the original code to make it compatible
+     * with the `al-foio` theme.
+     */
+    const progressBar = $('#progress');
+    /*
+     * We set up the bar after all elements are done loading.
+     * In some cases, if the images in the page are larger than the intended
+     * size they'll have on the page, they'll be resized via CSS to accomodate
+     * the desired size. This mistake, however, breaks the computations as the
+     * scroll size is computed as soon as the elements finish loading.
+     * To account for this, a minimal delay was introduced before computing the
+     * values.
+     */
+    window.onload = function () {
+      setTimeout(progressBarSetup, 50);
+    };
+    /*
+     * We set up the bar according to the browser.
+     * If the browser supports the progress element we use that.
+     * Otherwise, we resize the bar thru CSS styling
+     */
+    function progressBarSetup() {
+      if ('max' in document.createElement('progress')) {
+        initializeProgressElement();
+        $(document).on('scroll', function () {
+          progressBar.attr({ value: getCurrentScrollPosition() });
+        });
+        $(window).on('resize', initializeProgressElement);
+      } else {
+        resizeProgressBar();
+        $(document).on('scroll', resizeProgressBar);
+        $(window).on('resize', resizeProgressBar);
+      }
+    }
+    /*
+     * The vertical scroll position is the same as the number of pixels that
+     * are hidden from view above the scrollable area. Thus, a value > 0 is
+     * how much the user has scrolled from the top
+     */
+    function getCurrentScrollPosition() {
+      return $(window).scrollTop();
+    }
+
+    function initializeProgressElement() {
+      let navbarHeight = $('#navbar').outerHeight(true);
+      $('body').css({ 'padding-top': navbarHeight });
+      $('progress-container').css({ 'padding-top': navbarHeight });
+      progressBar.css({ top: navbarHeight });
+      progressBar.attr({
+        max: getDistanceToScroll(),
+        value: getCurrentScrollPosition(),
+      });
+    }
+    /*
+     * The offset between the html document height and the browser viewport
+     * height will be greater than zero if vertical scroll is possible.
+     * This is the distance the user can scroll
+     */
+    function getDistanceToScroll() {
+      return $(document).height() - $(window).height();
+    }
+
+    function resizeProgressBar() {
+      progressBar.css({ width: getWidthPercentage() + '%' });
+    }
+    // The scroll ratio equals the percentage to resize the bar
+    function getWidthPercentage() {
+      return (getCurrentScrollPosition() / getDistanceToScroll()) * 100;
+    }
+  </script>
+
+
+    
+
+    
+
+    
+
+    
+  <script src="/assets/js/vanilla-back-to-top.min.js?f40d453793ff4f64e238e420181a1d17"></script>
+  <script>
+    addBackToTop();
+  </script>
+
+
+    
+
+    <script src="/assets/js/language.js?ca079e09432deece61844d1c8c5cc859"></script>
+    
+      <script src="/assets/js/mobile-disclosure.js?0ae175d8dd71a0d0b82f5eb71983dc41"></script>
+    
+  </body>
+</html>

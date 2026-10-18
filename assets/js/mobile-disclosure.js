@@ -1,0 +1,1 @@
+!function(){"use strict";if(!document.body.classList.contains("about-page"))return;const o=[".news",".logo-row--research",".honors-section",".teaching-section",".publications-grouped"];document.querySelectorAll(o.join(",")).forEach(o=>{o.classList.add("mobile-scroll-container")}),document.querySelectorAll(".mobile-disclosure").forEach(o=>o.remove())}();
