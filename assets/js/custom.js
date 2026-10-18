@@ -119,6 +119,7 @@
   }
 
   document.querySelectorAll('details.compact-card, details.pub-category, details.misc-section, details.honors-disclosure, details.publication-overview-group, details.research-summary-section').forEach(details => {
+    if (details.classList.contains('compact-card')) return;
     if (details.classList.contains('pub-category')) return;
     if (details.closest('.honors-section')) return;
     const summary = details.querySelector(':scope > summary');
@@ -135,21 +136,6 @@
     body.appendChild(actions);
   });
 
-  document.querySelectorAll('.timeline-section .detail-card').forEach(card => {
-    const match = card.id.match(/^(education|research)-detail-(\d+)$/);
-    const body = card.querySelector('.detail-card-content');
-    if (!match || !body) return;
-    const actions = document.createElement('div');
-    actions.className = 'content-disclosure-actions';
-    actions.appendChild(makeCollapseButton(() => {
-      if (!card.classList.contains('active')) return;
-      const section = card.closest('.timeline-section');
-      const logo = section.querySelector('.logo-item[data-index="' + match[2] + '"]');
-      toggleTimelineDetail(match[1], match[2]);
-      if (logo) logo.focus({ preventScroll: true });
-    }));
-    body.appendChild(actions);
-  });
 })();
 
 // ========== Block 1b: Smooth native <details> expansion ==========
