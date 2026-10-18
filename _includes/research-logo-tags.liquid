@@ -1,0 +1,7 @@
+<span class="research-logo-tags">
+  {% for institution in site.data.research_logos[include.group] %}
+    <a class="research-logo-tag" href="{{ institution.url }}" target="_blank" rel="noopener" title="{{ institution.name | escape }}" aria-label="{{ institution.name | escape }}">
+      <img src="{{ institution.logo | relative_url }}" width="20" height="20" alt="{{ institution.name | escape }}" loading="lazy" decoding="async">
+    </a>
+  {% endfor %}
+</span>

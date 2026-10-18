@@ -1,0 +1,46 @@
+motion:
+  - name: Southeast University
+    logo: /assets/img/seu_logo.png
+    url: https://www.seu.edu.cn/english/
+  - name: PALM Lab
+    logo: /assets/img/palm-logo.png
+    url: https://palm.seu.edu.cn/
+  - name: Singapore Management University
+    logo: /assets/img/smu-logo-s.png
+    url: https://www.smu.edu.sg/
+image:
+  - name: Tencent YouTu Lab
+    logo: /assets/img/tencent-youtu-logo.png
+    url: https://open.youtu.qq.com/#/open
+  - name: Southern University of Science and Technology
+    logo: /assets/img/sustech-emblem.png
+    url: https://www.sustech.edu.cn/
+  - name: Southeast University
+    logo: /assets/img/seu_logo.png
+    url: https://www.seu.edu.cn/english/
+  - name: PALM Lab
+    logo: /assets/img/palm-logo.png
+    url: https://palm.seu.edu.cn/
+spatial:
+  - name: Tencent HY
+    logo: /assets/img/hy-logo.png
+    url: https://hunyuan.tencent.com/
+  - name: UC Merced
+    logo: /assets/img/ucm_logo.png
+    url: https://www.ucmerced.edu/
+  - name: Southeast University
+    logo: /assets/img/seu_logo.png
+    url: https://www.seu.edu.cn/english/
+  - name: PALM Lab
+    logo: /assets/img/palm-logo.png
+    url: https://palm.seu.edu.cn/
+earlier:
+  - name: Shenzhen University
+    logo: /assets/img/szu_logo.png
+    url: https://en.szu.edu.cn/
+  - name: Southeast University
+    logo: /assets/img/seu_logo.png
+    url: https://www.seu.edu.cn/english/
+  - name: PALM Lab
+    logo: /assets/img/palm-logo.png
+    url: https://palm.seu.edu.cn/

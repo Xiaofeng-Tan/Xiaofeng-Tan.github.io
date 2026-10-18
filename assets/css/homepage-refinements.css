@@ -1190,7 +1190,7 @@ html .about-page .research-trajectory__meta {
   line-height: 1.4;
 }
 
-html .about-page .research-trajectory__meta > span:last-child {
+html .about-page .research-trajectory__meta > span:first-child {
   color: var(--primary);
   font-weight: 500;
 }
@@ -1214,6 +1214,56 @@ html .about-page .research-foundations__label {
 
 html .about-page .research-foundations p {
   margin: 0;
+}
+
+html .about-page :is(.research-trajectory__meta, .research-foundations__label) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.55rem;
+}
+
+html .about-page .research-logo-tags {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  line-height: 1;
+}
+
+html .about-page .research-logo-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  padding: 2px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  text-decoration: none;
+  transition: opacity 160ms ease;
+}
+
+html .about-page .research-logo-tag img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  margin: 0;
+}
+
+html .about-page .research-logo-tag:hover {
+  opacity: 0.8;
+}
+
+html .about-page .research-logo-tag:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html .about-page .research-logo-tag { transition: none; }
 }
 
 html .about-page .research-outlook {
