@@ -1141,6 +1141,8 @@ html .about-page .detail-card .detail-card-inner {
 
 /* Chronology for the main line only; AD remains a separate research strand. */
 html .about-page .research-trajectory {
+  --trajectory-meta-height: 26px;
+  --trajectory-dot-size: 0.48rem;
   list-style: none;
   margin: 0.8rem 0 0.35rem;
   padding: 0;
@@ -1155,9 +1157,9 @@ html .about-page .research-trajectory__item {
 html .about-page .research-trajectory__item::before {
   content: "";
   position: absolute;
-  left: 0.22rem;
-  top: 0.37rem;
-  bottom: -0.37rem;
+  left: calc(var(--trajectory-dot-size) / 2 - 0.5px);
+  top: calc(var(--trajectory-meta-height) / 2);
+  bottom: calc(var(--trajectory-meta-height) / -2);
   width: 1px;
   background: var(--primary-line);
 }
@@ -1166,19 +1168,22 @@ html .about-page .research-trajectory__item:last-child::before {
   display: none;
 }
 
-html .about-page .research-trajectory__item::after {
+html .about-page .research-trajectory__meta::after {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.16rem;
-  width: 0.48rem;
-  height: 0.48rem;
+  left: -1.45rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--trajectory-dot-size);
+  height: var(--trajectory-dot-size);
   border: 1px solid var(--primary);
   border-radius: 50%;
   background: var(--global-bg-color, #fff);
 }
 
 html .about-page .research-trajectory__meta {
+  position: relative;
+  min-height: var(--trajectory-meta-height);
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -1221,6 +1226,14 @@ html .about-page :is(.research-trajectory__meta, .research-foundations__label) {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.3rem 0.55rem;
+}
+
+html .about-page .research-trajectory__meta {
+  flex-wrap: nowrap;
+}
+
+html .about-page .research-trajectory__meta > span:first-child {
+  flex-shrink: 0;
 }
 
 html .about-page .research-logo-tags {

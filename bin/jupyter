@@ -1,0 +1,10 @@
+#!/bin/sh
+# Local shim used by jekyll-jupyter-notebook. Do not depend on stale pip
+# console-script shebangs after Xcode or Python installations change.
+set -eu
+python=${JUPYTER_PYTHON:-python3}
+if [ "${1:-}" = nbconvert ]; then
+  shift
+  exec "$python" -m nbconvert "$@"
+fi
+exec "$python" -m jupyter "$@"
