@@ -1157,9 +1157,11 @@ html .about-page .research-trajectory__item {
 html .about-page .research-trajectory__item::before {
   content: "";
   position: absolute;
-  left: calc(var(--trajectory-dot-size) / 2 - 0.5px);
-  top: calc(var(--trajectory-meta-height) / 2);
-  bottom: calc(var(--trajectory-meta-height) / -2);
+  /* Avoid calc(var(...)): the production CSS minifier corrupts its tokens.
+   * The date/logo row is 26px high, placing its center at 13px. */
+  left: 3.34px;
+  top: 13px;
+  bottom: -13px;
   width: 1px;
   background: var(--primary-line);
 }
