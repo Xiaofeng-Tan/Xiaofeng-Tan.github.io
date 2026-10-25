@@ -15,11 +15,11 @@
   institution_en: NeurIPS Organizing Committee
   institution_zh: NeurIPS 组委会
   year: 2026
-- title_en: President’s Scholarship (SEU Special Award)
+- title_en: President’s Scholarship<br>(SEU Special Award)
   stage: masters
   group: scholarship
   category: masters
-  title_zh: 校长奖学金（东南大学特奖）
+  title_zh: 校长奖学金<br>（东南大学特奖）
   institution_en: Southeast University
   institution_zh: 东南大学
   note_en: "Representing SEU CSE; 10 of approximately 19,500 master's students (~0.051%)"
@@ -45,14 +45,6 @@
   note_en: "¥12,000"
   note_zh: "12,000 元"
   year: 2025
-- title_en: Outstanding Camper (Admission Summer Camp)
-  stage: masters
-  group: academic
-  category: masters
-  title_zh: 优秀营员（招生夏令营）
-  institution_en: Southeast University (Rank 2)
-  institution_zh: 东南大学（第 2 名）
-  year: 2024
 - title_en: Outstanding Graduate Representative
   stage: undergraduate
   group: community
@@ -85,11 +77,11 @@
   institution_en: Shenzhen University
   institution_zh: 深圳大学
   year: 2024
-- title_en: LiYuan Star (SZU Special Award)
+- title_en: LiYuan Star<br>(SZU Special Award)
   stage: undergraduate
   group: scholarship
   category: undergraduate
-  title_zh: 荔园之星（深圳大学特等奖）
+  title_zh: 荔园之星<br>（深圳大学特等奖）
   institution_en: Shenzhen University
   institution_zh: 深圳大学
   note_en: "¥20,000"
