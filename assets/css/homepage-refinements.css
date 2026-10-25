@@ -1433,6 +1433,28 @@ html .about-page .timeline-section :is(.logo-role, .logo-meta-row, .logo-year, .
   line-height: 1.4;
 }
 
+/* Expanded details keep the same compact scale as their institution cards. */
+html .about-page .timeline-section :is(.detail-card-content, .detail-title,
+  .detail-fields, .detail-field-value) {
+  font-size: var(--type-meta);
+  line-height: 1.4;
+}
+
+html .about-page .timeline-section :is(.detail-title-meta, .detail-tag, .detail-field-label) {
+  font-size: var(--type-caption);
+  line-height: 1.4;
+}
+
+html .about-page .timeline-section .detail-card-content :is(span, a, p, li, em, strong) {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+html .about-page .timeline-section .detail-card-content :is(.detail-field-label,
+  .detail-title-meta, .detail-tag) {
+  font-size: var(--type-caption);
+}
+
 @media (max-width: 767.98px) {
   html .about-page {
     --type-section: 1.125rem;

@@ -9,7 +9,7 @@
   logo: "/assets/img/ucm_logo.png"
   role: "Remote Visiting Student"
   period: "2026.04 - Present"
-  location: "Merced, USA (Remote)"
+  location: "Merced, US (Remote)"
   flag: "🇺🇸"
   topic: "Computer Vision"
   lab:
@@ -30,7 +30,7 @@
   logo: "/assets/img/hy-logo.png"
   role: "Research intern"
   period: "2026.03 - Present"
-  location: "Shenzhen, China"
+  location: "Shenzhen, CN"
   flag: "🇨🇳"
   topic: "RLHF, RLVR, AIGC"
   lab:
@@ -47,7 +47,7 @@
   logo: "/assets/img/tencent-youtu-logo.png"
   role: "Research intern"
   period: "2025.07 - 2026.03"
-  location: "Shenzhen, China"
+  location: "Shenzhen, CN"
   flag: "🇨🇳"
   topic: "RLHF, RLVR, AIGC"
   lab:
@@ -70,7 +70,7 @@
   logo: "/assets/img/smu-logo-s.png"
   role: "Remote Visiting Student"
   period: "2024.07 - 2025.03"
-  location: "Singapore (Remote)"
+  location: "SG (Remote)"
   flag: "🇸🇬"
   topic: "RLHF, Motion Generation"
   lab:
@@ -92,7 +92,7 @@
   logo: "/assets/img/palm-logo.png"
   role: "Master's Student"
   period: "2024.04 - Present"
-  location: "Nanjing, China"
+  location: "Nanjing, CN"
   flag: "🇨🇳"
   topic: "RLHF, Motion Generation, Action Recognition"
   lab:
@@ -117,7 +117,7 @@
   logo: "/assets/img/szu_logo.png"
   role: "Undergraduate Research Intern"
   period: "2022.10 - 2023.10"
-  location: "Shenzhen, China"
+  location: "Shenzhen, CN"
   flag: "🇨🇳"
   topic: "Outlier Detection, Anomaly Detection"
   lab:
