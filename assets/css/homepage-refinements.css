@@ -1285,6 +1285,26 @@ html .about-page .research-outlook {
   margin: 0.65rem 0 0.5rem;
 }
 
+/* The lab label and name belong on one row, including on mobile. */
+html .about-page .detail-fields--research .detail-field--lab {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+html .about-page .detail-field--lab > .detail-field-label {
+  display: inline;
+  flex: 0 0 auto;
+  margin-bottom: 0;
+}
+
+html .about-page .detail-field--lab > .detail-field-value {
+  display: inline;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
 /* Homepage type hierarchy. Keep the identity/motto/icon typography separate.
  * All ordinary copy inherits its level, including links inside disclosures. */
 html .about-page {
@@ -1383,6 +1403,34 @@ html .about-page .news .news-title {
 html .about-page .news th {
   font-size: var(--type-meta);
   line-height: 1.45;
+}
+
+/* Education and research cards use the existing prose scale, not a separate
+ * large card-title size. Institution names are distinguished by weight. */
+html .about-page .timeline-section :is(.logo-label, .logo-lab-at, .logo-role,
+  .logo-meta-row, .logo-year, .logo-location, .detail-title, .detail-title-meta,
+  .detail-tag, .detail-card-content, .detail-fields, .detail-field-value) {
+  font-size: var(--type-body);
+  line-height: 1.5;
+}
+
+html .about-page .timeline-section :is(.logo-text-group, .detail-title-meta,
+  .detail-tag, .detail-field-value) :is(span, a, em, strong) {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Collapsed institution cards are compact metadata, not reading paragraphs. */
+html .about-page .timeline-section .logo-text-group,
+html .about-page .timeline-section :is(.logo-label, .logo-lab-at) {
+  font-size: var(--type-meta);
+  line-height: 1.35;
+}
+
+html .about-page .timeline-section :is(.logo-role, .logo-meta-row, .logo-year, .logo-location) {
+  font-size: var(--type-caption);
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 @media (max-width: 767.98px) {
