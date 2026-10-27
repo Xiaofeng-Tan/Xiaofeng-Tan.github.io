@@ -125,7 +125,9 @@
     if (localStorage.getItem('site-language') === 'zh') {
       document.documentElement.lang = 'zh-CN';
     }
-  } catch (error) { /* Storage may be disabled; English remains the default. */ }
+  } catch (error) {
+    /* Storage may be disabled; English remains the default. */
+  }
 </script>
 <script>
   /* Set the initial theme before stylesheets paint, following the system unless
@@ -139,7 +141,9 @@
     var initialTheme = savedTheme === 'dark' || (savedTheme === 'system' && systemDark) ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme-setting', savedTheme);
     document.documentElement.setAttribute('data-theme', initialTheme);
-  } catch (error) { /* The theme.js fallback will initialize the page. */ }
+  } catch (error) {
+    /* The theme.js fallback will initialize the page. */
+  }
 </script>
 <!-- Bootstrap & MDB -->
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04">
@@ -166,12 +170,12 @@
   <link rel="shortcut icon" href="/assets/img/0.png?0eff46118615bb79636421eaf5120e16">
 
 <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="stylesheet" href="/assets/css/language.css?c7c516b1cac494948c70bc4a36815ffe">
-<link rel="stylesheet" href="/assets/css/mobile.css?1b0ecb5b1d3d601e26625d4b4d04194d">
+<link rel="stylesheet" href="/assets/css/language.css?cb88c99a4fc29b532436d1cd94eb9e95">
+<link rel="stylesheet" href="/assets/css/mobile.css?0e6dc918314f2fe0c0f7c12f1de992c3">
 <link rel="stylesheet" href="/assets/css/github-stars.css?4f5049c9008022c52cc6cefe9b4fb618">
 
   <link rel="stylesheet" href="/assets/css/publication-venues.css?b3349b7c6712b0eee6b6e19615f842bc">
-  <link rel="stylesheet" href="/assets/css/homepage-refinements.css?b5640210ba1370972db780e8b1ba93db">
+  <link rel="stylesheet" href="/assets/css/homepage-refinements.css?3b6db8fb05397c70eca053f12b96f962">
 
 
 <link rel="canonical" href="https://xiaofeng-tan.github.io/">
@@ -329,12 +333,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&amp;family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Long+Cang&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&amp;display=swap" rel="stylesheet">
 
-
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">
       
-        Xiaofeng Tan
+        Xiaofeng
+        Tan
       
       
         <span class="name-separator">·</span>
@@ -351,7 +355,6 @@
       </span>
     </div>
 
-    
     <!-- 社交图标 -->
     <div class="social-icons-header">
       
@@ -366,7 +369,9 @@
       
       
         <a href="https://www.alphaxiv.org/@xiaofeng-tan" title="AlphaXiv" target="_blank" rel="external nofollow noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 718.41 504.47" width="1em" height="1em" fill="currentColor" aria-hidden="true"><polygon fill="currentColor" points="591.15 258.54 718.41 385.73 663.72 440.28 536.57 313.62 591.15 258.54"></polygon><path fill="currentColor" d="M273.86.3c34.56-2.41,67.66,9.73,92.51,33.54l94.64,94.63-55.11,54.55-96.76-96.55c-16.02-12.7-37.67-12.1-53.19,1.11L54.62,288.82,0,234.23,204.76,29.57C223.12,13.31,249.27,2.02,273.86.3Z"></path><path fill="currentColor" d="M663.79,1.29l54.62,54.58-418.11,417.9c-114.43,95.94-263.57-53.49-167.05-167.52l160.46-160.33,54.62,54.58-157.88,157.77c-33.17,40.32,18.93,91.41,58.66,57.48L663.79,1.29Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 718.41 504.47" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+            <polygon fill="currentColor" points="591.15 258.54 718.41 385.73 663.72 440.28 536.57 313.62 591.15 258.54"></polygon><path fill="currentColor" d="M273.86.3c34.56-2.41,67.66,9.73,92.51,33.54l94.64,94.63-55.11,54.55-96.76-96.55c-16.02-12.7-37.67-12.1-53.19,1.11L54.62,288.82,0,234.23,204.76,29.57C223.12,13.31,249.27,2.02,273.86.3Z"></path><path fill="currentColor" d="M663.79,1.29l54.62,54.58-418.11,417.9c-114.43,95.94-263.57-53.49-167.05-167.52l160.46-160.33,54.62,54.58-157.88,157.77c-33.17,40.32,18.93,91.41,58.66,57.48L663.79,1.29Z"></path>
+          </svg>
         </a>
       
       
@@ -524,536 +529,675 @@ function revealAndCopyContact(button, text, label) {
 <audio id="dora-sound" src="/assets/pet/doraemon/sound.mp3" preload="none"></audio>
 
 <style>
-/* ---- Doraemon desk pet (autonomous walk + draggable) ---- */
-.dora-pet {
-  position: fixed;
-  /* Pinned to the right edge by default; JS may override left/bottom. */
-  left: auto;
-  right: 16px;
-  bottom: 64px;            /* sits above the bell button (16 + 42 + gap) */
-  z-index: 9990;
-  width: calc(192px * var(--dora-scale));
-  height: calc(208px * var(--dora-scale));
-  pointer-events: none;    /* sprite child re-enables this */
-  --dora-scale: 0.5;       /* 50% of the original sprite */
-  --dora-sprite-url: url("/assets/pet/doraemon/sprite.webp");
-  --dora-facing: 1;
-  user-select: none;
-  -webkit-user-select: none;
-}
-.dora-pet.is-hidden { display: none; }
-@media (max-width: 768px) {
+  /* ---- Doraemon desk pet (autonomous walk + draggable) ---- */
   .dora-pet {
-    display: block;
-    right: 8px;
+    position: fixed;
+    /* Pinned to the right edge by default; JS may override left/bottom. */
+    left: auto;
+    right: 16px;
+    bottom: 64px; /* sits above the bell button (16 + 42 + gap) */
+    z-index: 9990;
+    width: calc(192px * var(--dora-scale));
+    height: calc(208px * var(--dora-scale));
+    pointer-events: none; /* sprite child re-enables this */
+    --dora-scale: 0.5; /* 50% of the original sprite */
+    --dora-sprite-url: url("/assets/pet/doraemon/sprite.webp");
+    --dora-facing: 1;
+    user-select: none;
+    -webkit-user-select: none;
   }
-  .dora-bell-btn,
-  .dora-panel {
+  .dora-pet.is-hidden {
     display: none;
   }
-}
+  @media (max-width: 768px) {
+    .dora-pet {
+      display: block;
+      right: 8px;
+    }
+    .dora-bell-btn,
+    .dora-panel {
+      display: none;
+    }
+  }
 
-.dora-sprite {
-  --sprite-row: 0;
-  --sprite-frames: 6;
-  --sprite-duration: 1.7s;
-  --sprite-y: calc(var(--sprite-row) * -208px);
-  --sprite-end-x: calc(var(--sprite-frames) * -192px);
-  width: 192px;
-  height: 208px;
-  background-image: var(--dora-sprite-url);
-  background-repeat: no-repeat;
-  background-size: 1536px 1872px;
-  background-position: 0 var(--sprite-y);
-  image-rendering: pixelated;
-  transform: scale(calc(var(--dora-scale) * var(--dora-facing)), var(--dora-scale));
-  transform-origin: 0 0;
-  animation: dora-play var(--sprite-duration) steps(var(--sprite-frames)) infinite;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.18));
-  pointer-events: auto;
-  cursor: grab;
-}
-.dora-pet[data-facing="-1"] .dora-sprite {
-  transform: translateX(calc(192px * var(--dora-scale))) scale(calc(-1 * var(--dora-scale)), var(--dora-scale));
-}
-.dora-pet.is-dragging .dora-sprite { cursor: grabbing; }
+  .dora-sprite {
+    --sprite-row: 0;
+    --sprite-frames: 6;
+    --sprite-duration: 1.7s;
+    --sprite-y: calc(var(--sprite-row) * -208px);
+    --sprite-end-x: calc(var(--sprite-frames) * -192px);
+    width: 192px;
+    height: 208px;
+    background-image: var(--dora-sprite-url);
+    background-repeat: no-repeat;
+    background-size: 1536px 1872px;
+    background-position: 0 var(--sprite-y);
+    image-rendering: pixelated;
+    transform: scale(calc(var(--dora-scale) * var(--dora-facing)), var(--dora-scale));
+    transform-origin: 0 0;
+    animation: dora-play var(--sprite-duration) steps(var(--sprite-frames)) infinite;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.18));
+    pointer-events: auto;
+    cursor: grab;
+  }
+  .dora-pet[data-facing="-1"] .dora-sprite {
+    transform: translateX(calc(192px * var(--dora-scale))) scale(calc(-1 * var(--dora-scale)), var(--dora-scale));
+  }
+  .dora-pet.is-dragging .dora-sprite {
+    cursor: grabbing;
+  }
 
-@keyframes dora-play {
-  0%   { background-position: 0 var(--sprite-y); }
-  100% { background-position: var(--sprite-end-x) var(--sprite-y); }
-}
+  @keyframes dora-play {
+    0% {
+      background-position: 0 var(--sprite-y);
+    }
+    100% {
+      background-position: var(--sprite-end-x) var(--sprite-y);
+    }
+  }
 
-/* Bell button (opens panel) */
-.dora-bell-btn {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: #fffbe8;
-  font-size: 20px;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 9991;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.dora-bell-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,0.16); }
-[data-theme="dark"] .dora-bell-btn { background:#4a3f1f; border-color: rgba(255,255,255,0.08); color:#fff; }
-@media (max-width: 768px) { .dora-bell-btn { display: none; } }
+  /* Bell button (opens panel) */
+  .dora-bell-btn {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fffbe8;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 9991;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .dora-bell-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+  }
+  [data-theme="dark"] .dora-bell-btn {
+    background: #4a3f1f;
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+  @media (max-width: 768px) {
+    .dora-bell-btn {
+      display: none;
+    }
+  }
 
-/* Control panel */
-.dora-panel {
-  position: fixed;
-  right: 16px;
-  bottom: 68px;
-  width: 240px;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-  overflow: hidden;
-  z-index: 9991;
-  display: none;
-  font-size: 13px;
-  color: #333;
-}
-.dora-panel.is-open { display: block; }
-[data-theme="dark"] .dora-panel { background:#2a2a2e; border-color:rgba(255,255,255,0.08); color:#eee; }
-@media (max-width: 768px) { .dora-panel { display: none !important; } }
+  /* Control panel */
+  .dora-panel {
+    position: fixed;
+    right: 16px;
+    bottom: 68px;
+    width: 240px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    z-index: 9991;
+    display: none;
+    font-size: 13px;
+    color: #333;
+  }
+  .dora-panel.is-open {
+    display: block;
+  }
+  [data-theme="dark"] .dora-panel {
+    background: #2a2a2e;
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #eee;
+  }
+  @media (max-width: 768px) {
+    .dora-panel {
+      display: none !important;
+    }
+  }
 
-.dora-panel-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 8px 12px; font-weight: 600; font-size: 13px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  cursor: move;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: none;
-}
-.dora-panel.is-dragging { box-shadow: 0 14px 40px rgba(0,0,0,0.25); }
-[data-theme="dark"] .dora-panel-header { border-bottom-color: rgba(255,255,255,0.08); }
-.dora-close {
-  border: none; background: transparent; cursor: pointer;
-  font-size: 18px; line-height: 1; color: inherit; padding: 2px 6px;
-  -webkit-user-select: auto; user-select: auto;
-}
-.dora-panel-body {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 6px; padding: 10px;
-}
-.dora-state-btn {
-  font-size: 11.5px; padding: 6px 4px; border-radius: 6px;
-  border: 1px solid rgba(0,0,0,0.08); background: #f8f8f9;
-  cursor: pointer; color: inherit;
-  transition: background 0.15s ease, border-color 0.15s ease;
-}
-.dora-state-btn:hover { background: #eef0f4; }
-.dora-state-btn.is-active { background: #e8f1ff; border-color: #a8c7fa; }
-[data-theme="dark"] .dora-state-btn { background:#3a3a40; border-color: rgba(255,255,255,0.08); }
-[data-theme="dark"] .dora-state-btn:hover { background:#45454c; }
-[data-theme="dark"] .dora-state-btn.is-active { background:#3a4a66; border-color:#5d7ab0; }
+  .dora-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    font-weight: 600;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    cursor: move;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+  }
+  .dora-panel.is-dragging {
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+  }
+  [data-theme="dark"] .dora-panel-header {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+  .dora-close {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    color: inherit;
+    padding: 2px 6px;
+    -webkit-user-select: auto;
+    user-select: auto;
+  }
+  .dora-panel-body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 10px;
+  }
+  .dora-state-btn {
+    font-size: 11.5px;
+    padding: 6px 4px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #f8f8f9;
+    cursor: pointer;
+    color: inherit;
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease;
+  }
+  .dora-state-btn:hover {
+    background: #eef0f4;
+  }
+  .dora-state-btn.is-active {
+    background: #e8f1ff;
+    border-color: #a8c7fa;
+  }
+  [data-theme="dark"] .dora-state-btn {
+    background: #3a3a40;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  [data-theme="dark"] .dora-state-btn:hover {
+    background: #45454c;
+  }
+  [data-theme="dark"] .dora-state-btn.is-active {
+    background: #3a4a66;
+    border-color: #5d7ab0;
+  }
 
-.dora-panel-footer {
-  display: flex; gap: 6px;
-  padding: 8px 10px 10px;
-  border-top: 1px solid rgba(0,0,0,0.06);
-}
-[data-theme="dark"] .dora-panel-footer { border-top-color: rgba(255,255,255,0.08); }
-.dora-ring, .dora-resume {
-  flex: 1;
-  font-size: 12px; padding: 6px 8px; border-radius: 6px;
-  border: 1px solid rgba(0,0,0,0.08);
-  cursor: pointer; color: inherit;
-}
-.dora-ring { background: #fffbe8; }
-.dora-ring:hover { background: #fff3c8; }
-.dora-resume { background: #eef5ff; }
-.dora-resume:hover { background: #dbe9ff; }
-[data-theme="dark"] .dora-ring { background:#4a3f1f; border-color: rgba(255,255,255,0.08); }
-[data-theme="dark"] .dora-ring:hover { background:#5a4d28; }
-[data-theme="dark"] .dora-resume { background:#2c3a55; border-color: rgba(255,255,255,0.08); }
-[data-theme="dark"] .dora-resume:hover { background:#37466a; }
+  .dora-panel-footer {
+    display: flex;
+    gap: 6px;
+    padding: 8px 10px 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  [data-theme="dark"] .dora-panel-footer {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+  .dora-ring,
+  .dora-resume {
+    flex: 1;
+    font-size: 12px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    color: inherit;
+  }
+  .dora-ring {
+    background: #fffbe8;
+  }
+  .dora-ring:hover {
+    background: #fff3c8;
+  }
+  .dora-resume {
+    background: #eef5ff;
+  }
+  .dora-resume:hover {
+    background: #dbe9ff;
+  }
+  [data-theme="dark"] .dora-ring {
+    background: #4a3f1f;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  [data-theme="dark"] .dora-ring:hover {
+    background: #5a4d28;
+  }
+  [data-theme="dark"] .dora-resume {
+    background: #2c3a55;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  [data-theme="dark"] .dora-resume:hover {
+    background: #37466a;
+  }
 </style>
 
 <script>
-(function () {
-  var pet = document.getElementById('dora-pet');
-  if (!pet) return;
-  var sprite = pet.querySelector('.dora-sprite');
-  var bellBtn = document.getElementById('dora-bell');
-  var sound = document.getElementById('dora-sound');
-  var panel = document.getElementById('dora-panel');
-  var panelClose = panel.querySelector('.dora-close');
-  var stateBtns = panel.querySelectorAll('.dora-state-btn');
-  var ringBtn = panel.querySelector('.dora-ring');
-  var resumeBtn = panel.querySelector('.dora-resume');
+  (function () {
+    var pet = document.getElementById("dora-pet");
+    if (!pet) return;
+    var sprite = pet.querySelector(".dora-sprite");
+    var bellBtn = document.getElementById("dora-bell");
+    var sound = document.getElementById("dora-sound");
+    var panel = document.getElementById("dora-panel");
+    var panelClose = panel.querySelector(".dora-close");
+    var stateBtns = panel.querySelectorAll(".dora-state-btn");
+    var ringBtn = panel.querySelector(".dora-ring");
+    var resumeBtn = panel.querySelector(".dora-resume");
 
-  // === States: row, frames, duration (ms) ===
-  var STATES = {
-    idle:     { row: 0, frames: 6, dur: 3800 },
-    runRight: { row: 1, frames: 8, dur: 2700 },
-    runLeft:  { row: 2, frames: 8, dur: 2700 },
-    waving:   { row: 3, frames: 4, dur: 3300 },
-    jumping:  { row: 4, frames: 5, dur: 3100 },
-    failed:   { row: 5, frames: 8, dur: 3800 },
-    waiting:  { row: 6, frames: 6, dur: 4200 },
-    running:  { row: 7, frames: 6, dur: 2900 },
-    review:   { row: 8, frames: 6, dur: 3500 }
-  };
+    // === States: row, frames, duration (ms) ===
+    var STATES = {
+      idle: { row: 0, frames: 6, dur: 3800 },
+      runRight: { row: 1, frames: 8, dur: 2700 },
+      runLeft: { row: 2, frames: 8, dur: 2700 },
+      waving: { row: 3, frames: 4, dur: 3300 },
+      jumping: { row: 4, frames: 5, dur: 3100 },
+      failed: { row: 5, frames: 8, dur: 3800 },
+      waiting: { row: 6, frames: 6, dur: 4200 },
+      running: { row: 7, frames: 6, dur: 2900 },
+      review: { row: 8, frames: 6, dur: 3500 },
+    };
 
-  var STATE_ORDER = ['idle', 'waving', 'jumping', 'failed', 'waiting', 'running', 'review'];
+    var STATE_ORDER = ["idle", "waving", "jumping", "failed", "waiting", "running", "review"];
 
-  function setSpriteState(s) {
-    sprite.style.setProperty('--sprite-row', s.row);
-    sprite.style.setProperty('--sprite-frames', s.frames);
-    sprite.style.setProperty('--sprite-duration', (s.dur / 1000) + 's');
-    sprite.style.animation = 'none';
-    void sprite.offsetHeight;
-    sprite.style.animation = '';
-  }
-
-  // === Position / movement ===
-  var SCALE = 0.5;                 // keep in sync with --dora-scale
-  var SPRITE_W = 192 * SCALE;
-  var SPRITE_H = 208 * SCALE;
-  var GROUND_OFFSET = 64;          // sits above the bell button on desktop
-  var ROAM_PADDING = 16;           // viewport edge padding
-  // Hug the right edge: a tiny roam window near the right
-  var ROAM_HALF_RANGE = 60;
-
-  function syncViewportMetrics() {
-    var mobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
-    SCALE = mobile ? 0.38 : 0.5;
-    SPRITE_W = 192 * SCALE;
-    SPRITE_H = 208 * SCALE;
-    GROUND_OFFSET = mobile ? 10 : 64;
-    ROAM_PADDING = mobile ? 8 : 16;
-    pet.style.setProperty('--dora-scale', SCALE);
-  }
-
-  syncViewportMetrics();
-
-  function getRoamBounds() {
-    var rightEdge = window.innerWidth - SPRITE_W - ROAM_PADDING;
-    var minX = Math.max(ROAM_PADDING, rightEdge - 2 * ROAM_HALF_RANGE);
-    var maxX = rightEdge;
-    if (maxX < minX) maxX = minX;
-    return { minX: minX, maxX: maxX };
-  }
-
-  // Initial logical position (right edge)
-  var posX = Math.max(0, window.innerWidth - SPRITE_W - ROAM_PADDING);
-  var posY = GROUND_OFFSET;
-  var facing = 1;
-  var velX = 0;
-  var current = 'idle';
-  var nextStateAt = 0;
-  var lastTs = 0;
-  var dragging = false;
-  var dragOffsetX = 0, dragOffsetY = 0;
-  var hidden = false;
-  var manualUntil = 0;
-  var MANUAL_HOLD = 6000;
-
-  function clampX(x) {
-    var minX = ROAM_PADDING;
-    var maxX = Math.max(minX, window.innerWidth - SPRITE_W - ROAM_PADDING);
-    return Math.max(minX, Math.min(maxX, x));
-  }
-  function clampY(y) {
-    var maxY = Math.max(0, window.innerHeight - SPRITE_H - 4);
-    return Math.max(0, Math.min(maxY, y));
-  }
-
-  function applyTransform() {
-    pet.style.left = posX + 'px';
-    pet.style.right = 'auto';                    // override the CSS default once JS takes control
-    pet.style.bottom = posY + 'px';
-    pet.dataset.facing = facing < 0 ? '-1' : '1';
-  }
-
-  function pickNextState() {
-    var r = Math.random();
-    if (r < 0.40) {
-      current = 'idle'; velX = 0; facing = 1;
-      setSpriteState(STATES.idle); applyTransform();
-      nextStateAt = performance.now() + 3500 + Math.random() * 3500;
-    } else if (r < 0.62) {
-      current = 'waiting'; velX = 0; facing = 1;
-      setSpriteState(STATES.waiting); applyTransform();
-      nextStateAt = performance.now() + 3500 + Math.random() * 3500;
-    } else if (r < 0.80) {
-      current = 'waving'; velX = 0; facing = 1;
-      setSpriteState(STATES.waving); applyTransform();
-      nextStateAt = performance.now() + 3000 + Math.random() * 2000;
-    } else if (r < 0.90) {
-      current = 'jumping'; velX = 0; facing = 1;
-      setSpriteState(STATES.jumping); applyTransform();
-      nextStateAt = performance.now() + 2500 + Math.random() * 1500;
-    } else if (r < 0.97) {
-      current = 'review'; velX = 0; facing = 1;
-      setSpriteState(STATES.review); applyTransform();
-      nextStateAt = performance.now() + 4000 + Math.random() * 2000;
-    } else {
-      current = 'failed'; velX = 0; facing = 1;
-      setSpriteState(STATES.failed); applyTransform();
-      nextStateAt = performance.now() + 3000 + Math.random() * 1500;
+    function setSpriteState(s) {
+      sprite.style.setProperty("--sprite-row", s.row);
+      sprite.style.setProperty("--sprite-frames", s.frames);
+      sprite.style.setProperty("--sprite-duration", s.dur / 1000 + "s");
+      sprite.style.animation = "none";
+      void sprite.offsetHeight;
+      sprite.style.animation = "";
     }
-  }
 
-  function tick(ts) {
-    if (!lastTs) lastTs = ts;
-    var dt = Math.min(64, ts - lastTs);
-    lastTs = ts;
+    // === Position / movement ===
+    var SCALE = 0.5; // keep in sync with --dora-scale
+    var SPRITE_W = 192 * SCALE;
+    var SPRITE_H = 208 * SCALE;
+    var GROUND_OFFSET = 64; // sits above the bell button on desktop
+    var ROAM_PADDING = 16; // viewport edge padding
+    // Hug the right edge: a tiny roam window near the right
+    var ROAM_HALF_RANGE = 60;
 
-    if (!dragging && !hidden) {
-      if (velX !== 0) {
-        posX += velX * dt / 1000;
-        var b = getRoamBounds();
-        if (posX <= b.minX) {
-          posX = b.minX; velX = 0; facing = 1;
-          current = 'idle'; setSpriteState(STATES.idle);
-          nextStateAt = performance.now() + 1500 + Math.random() * 1500;
-        } else if (posX >= b.maxX) {
-          posX = b.maxX; velX = 0; facing = 1;
-          current = 'idle'; setSpriteState(STATES.idle);
-          nextStateAt = performance.now() + 1500 + Math.random() * 1500;
-        }
+    function syncViewportMetrics() {
+      var mobile = window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+      SCALE = mobile ? 0.38 : 0.5;
+      SPRITE_W = 192 * SCALE;
+      SPRITE_H = 208 * SCALE;
+      GROUND_OFFSET = mobile ? 10 : 64;
+      ROAM_PADDING = mobile ? 8 : 16;
+      pet.style.setProperty("--dora-scale", SCALE);
+    }
+
+    syncViewportMetrics();
+
+    function getRoamBounds() {
+      var rightEdge = window.innerWidth - SPRITE_W - ROAM_PADDING;
+      var minX = Math.max(ROAM_PADDING, rightEdge - 2 * ROAM_HALF_RANGE);
+      var maxX = rightEdge;
+      if (maxX < minX) maxX = minX;
+      return { minX: minX, maxX: maxX };
+    }
+
+    // Initial logical position (right edge)
+    var posX = Math.max(0, window.innerWidth - SPRITE_W - ROAM_PADDING);
+    var posY = GROUND_OFFSET;
+    var facing = 1;
+    var velX = 0;
+    var current = "idle";
+    var nextStateAt = 0;
+    var lastTs = 0;
+    var dragging = false;
+    var dragOffsetX = 0,
+      dragOffsetY = 0;
+    var hidden = false;
+    var manualUntil = 0;
+    var MANUAL_HOLD = 6000;
+
+    function clampX(x) {
+      var minX = ROAM_PADDING;
+      var maxX = Math.max(minX, window.innerWidth - SPRITE_W - ROAM_PADDING);
+      return Math.max(minX, Math.min(maxX, x));
+    }
+    function clampY(y) {
+      var maxY = Math.max(0, window.innerHeight - SPRITE_H - 4);
+      return Math.max(0, Math.min(maxY, y));
+    }
+
+    function applyTransform() {
+      pet.style.left = posX + "px";
+      pet.style.right = "auto"; // override the CSS default once JS takes control
+      pet.style.bottom = posY + "px";
+      pet.dataset.facing = facing < 0 ? "-1" : "1";
+    }
+
+    function pickNextState() {
+      var r = Math.random();
+      if (r < 0.4) {
+        current = "idle";
+        velX = 0;
+        facing = 1;
+        setSpriteState(STATES.idle);
+        applyTransform();
+        nextStateAt = performance.now() + 3500 + Math.random() * 3500;
+      } else if (r < 0.62) {
+        current = "waiting";
+        velX = 0;
+        facing = 1;
+        setSpriteState(STATES.waiting);
+        applyTransform();
+        nextStateAt = performance.now() + 3500 + Math.random() * 3500;
+      } else if (r < 0.8) {
+        current = "waving";
+        velX = 0;
+        facing = 1;
+        setSpriteState(STATES.waving);
+        applyTransform();
+        nextStateAt = performance.now() + 3000 + Math.random() * 2000;
+      } else if (r < 0.9) {
+        current = "jumping";
+        velX = 0;
+        facing = 1;
+        setSpriteState(STATES.jumping);
+        applyTransform();
+        nextStateAt = performance.now() + 2500 + Math.random() * 1500;
+      } else if (r < 0.97) {
+        current = "review";
+        velX = 0;
+        facing = 1;
+        setSpriteState(STATES.review);
+        applyTransform();
+        nextStateAt = performance.now() + 4000 + Math.random() * 2000;
+      } else {
+        current = "failed";
+        velX = 0;
+        facing = 1;
+        setSpriteState(STATES.failed);
+        applyTransform();
+        nextStateAt = performance.now() + 3000 + Math.random() * 1500;
       }
-      if (ts >= nextStateAt && ts >= manualUntil) pickNextState();
+    }
+
+    function tick(ts) {
+      if (!lastTs) lastTs = ts;
+      var dt = Math.min(64, ts - lastTs);
+      lastTs = ts;
+
+      if (!dragging && !hidden) {
+        if (velX !== 0) {
+          posX += (velX * dt) / 1000;
+          var b = getRoamBounds();
+          if (posX <= b.minX) {
+            posX = b.minX;
+            velX = 0;
+            facing = 1;
+            current = "idle";
+            setSpriteState(STATES.idle);
+            nextStateAt = performance.now() + 1500 + Math.random() * 1500;
+          } else if (posX >= b.maxX) {
+            posX = b.maxX;
+            velX = 0;
+            facing = 1;
+            current = "idle";
+            setSpriteState(STATES.idle);
+            nextStateAt = performance.now() + 1500 + Math.random() * 1500;
+          }
+        }
+        if (ts >= nextStateAt && ts >= manualUntil) pickNextState();
+        applyTransform();
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function setActiveBtn(stateKey) {
+      stateBtns.forEach(function (b) {
+        b.classList.toggle("is-active", b.dataset.state === stateKey);
+      });
+    }
+    function applyManualState(stateKey) {
+      var s = STATES[stateKey];
+      if (!s) return;
+      setSpriteState(s);
+      current = stateKey;
+      setActiveBtn(stateKey);
+      if (stateKey === "runRight") {
+        facing = 1;
+        velX = 0;
+      } else if (stateKey === "runLeft") {
+        facing = -1;
+        velX = 0;
+      } else {
+        velX = 0;
+        facing = 1;
+      }
+      applyTransform();
+      manualUntil = performance.now() + MANUAL_HOLD;
+      nextStateAt = manualUntil;
+    }
+
+    // === Drag interaction (with click-to-cycle detection) ===
+    // We treat a press-release as a "click" when the pointer hasn't moved
+    // beyond CLICK_MOVE_THRESHOLD pixels and the press lasted less than
+    // CLICK_TIME_THRESHOLD ms. A click cycles to the next state.
+    var CLICK_MOVE_THRESHOLD = 5;
+    var CLICK_TIME_THRESHOLD = 350;
+    var pressX = 0,
+      pressY = 0,
+      pressTs = 0,
+      petMoved = false;
+
+    function cycleState() {
+      var idx = STATE_ORDER.indexOf(current);
+      var next = STATE_ORDER[(idx + 1) % STATE_ORDER.length];
+      applyManualState(next);
+    }
+
+    function onPointerDown(e) {
+      if (hidden) return;
+      dragging = true;
+      petMoved = false;
+      pet.classList.add("is-dragging");
+      var rect = pet.getBoundingClientRect();
+      var cx = e.clientX || (e.touches && e.touches[0].clientX);
+      var cy = e.clientY || (e.touches && e.touches[0].clientY);
+      dragOffsetX = cx - rect.left;
+      dragOffsetY = cy - rect.top;
+      pressX = cx;
+      pressY = cy;
+      pressTs = performance.now();
+      setSpriteState(STATES.jumping);
+      current = "jumping";
+      velX = 0;
+      facing = 1;
+      applyTransform();
+      e.preventDefault();
+    }
+    function onPointerMove(e) {
+      if (!dragging) return;
+      var cx = e.clientX || (e.touches && e.touches[0].clientX);
+      var cy = e.clientY || (e.touches && e.touches[0].clientY);
+      if (cx == null) return;
+      if (!petMoved && (Math.abs(cx - pressX) > CLICK_MOVE_THRESHOLD || Math.abs(cy - pressY) > CLICK_MOVE_THRESHOLD)) {
+        petMoved = true;
+      }
+      posX = clampX(cx - dragOffsetX);
+      var top = cy - dragOffsetY;
+      posY = clampY(window.innerHeight - top - SPRITE_H);
       applyTransform();
     }
+    function onPointerUp() {
+      if (!dragging) return;
+      dragging = false;
+      pet.classList.remove("is-dragging");
+      var heldFor = performance.now() - pressTs;
+      var wasClick = !petMoved && heldFor < CLICK_TIME_THRESHOLD;
+      if (wasClick) {
+        // Click -> cycle to the next state, no drop-back animation needed.
+        cycleState();
+        return;
+      }
+      // Real drag: gradually fall back to the ground line.
+      var dropAnim = function () {
+        if (posY > GROUND_OFFSET + 1) {
+          posY = Math.max(GROUND_OFFSET, posY - 8);
+          applyTransform();
+          requestAnimationFrame(dropAnim);
+        } else {
+          posY = GROUND_OFFSET;
+          applyTransform();
+          nextStateAt = performance.now() + 600;
+        }
+      };
+      dropAnim();
+    }
+
+    sprite.addEventListener("mousedown", onPointerDown);
+    window.addEventListener("mousemove", onPointerMove);
+    window.addEventListener("mouseup", onPointerUp);
+    sprite.addEventListener("touchstart", onPointerDown, { passive: false });
+    window.addEventListener("touchmove", onPointerMove, { passive: false });
+    window.addEventListener("touchend", onPointerUp);
+
+    // Single-click on sprite (without drag) -> cycle through states.
+    // Detection lives inside onPointerUp so it works for touch too;
+    // we just suppress the synthesized 'click' default here.
+    sprite.addEventListener("click", function (e) {
+      e.preventDefault();
+    });
+
+    // Bell button: toggle panel; shift-click hides the pet
+    bellBtn.addEventListener("click", function (e) {
+      if (e.shiftKey) {
+        hidden = !hidden;
+        pet.classList.toggle("is-hidden", hidden);
+        bellBtn.textContent = hidden ? "🔕" : "🔔";
+        return;
+      }
+      panel.classList.toggle("is-open");
+    });
+    panelClose.addEventListener("click", function () {
+      panel.classList.remove("is-open");
+    });
+
+    // ---- Make the panel draggable by its header ---------------------------
+    var panelHeader = panel.querySelector(".dora-panel-header");
+    var panelDragging = false;
+    var panelDragDX = 0,
+      panelDragDY = 0;
+    var PANEL_POS_KEY = "doraPanelPos";
+
+    function clampPanelPos(left, top) {
+      var rect = panel.getBoundingClientRect();
+      var maxLeft = Math.max(0, window.innerWidth - rect.width - 4);
+      var maxTop = Math.max(0, window.innerHeight - rect.height - 4);
+      if (left < 4) left = 4;
+      if (top < 4) top = 4;
+      if (left > maxLeft) left = maxLeft;
+      if (top > maxTop) top = maxTop;
+      return { left: left, top: top };
+    }
+
+    function setPanelPos(left, top, persist) {
+      var p = clampPanelPos(left, top);
+      panel.style.left = p.left + "px";
+      panel.style.top = p.top + "px";
+      panel.style.right = "auto";
+      panel.style.bottom = "auto";
+      if (persist) {
+        try {
+          localStorage.setItem(PANEL_POS_KEY, JSON.stringify(p));
+        } catch (err) {}
+      }
+    }
+
+    try {
+      var saved = localStorage.getItem(PANEL_POS_KEY);
+      if (saved) {
+        var s = JSON.parse(saved);
+        if (s && typeof s.left === "number" && typeof s.top === "number") {
+          requestAnimationFrame(function () {
+            setPanelPos(s.left, s.top, false);
+          });
+        }
+      }
+    } catch (err) {}
+
+    function onPanelDragStart(e) {
+      if (e.target.closest(".dora-close")) return;
+      var p = e.touches ? e.touches[0] : e;
+      var rect = panel.getBoundingClientRect();
+      panelDragging = true;
+      panelDragDX = p.clientX - rect.left;
+      panelDragDY = p.clientY - rect.top;
+      setPanelPos(rect.left, rect.top, false);
+      panel.classList.add("is-dragging");
+      e.preventDefault();
+    }
+    function onPanelDragMove(e) {
+      if (!panelDragging) return;
+      var p = e.touches ? e.touches[0] : e;
+      setPanelPos(p.clientX - panelDragDX, p.clientY - panelDragDY, false);
+      e.preventDefault();
+    }
+    function onPanelDragEnd() {
+      if (!panelDragging) return;
+      panelDragging = false;
+      panel.classList.remove("is-dragging");
+      var rect = panel.getBoundingClientRect();
+      setPanelPos(rect.left, rect.top, true);
+    }
+    panelHeader.addEventListener("mousedown", onPanelDragStart);
+    panelHeader.addEventListener("touchstart", onPanelDragStart, { passive: false });
+    document.addEventListener("mousemove", onPanelDragMove);
+    document.addEventListener("touchmove", onPanelDragMove, { passive: false });
+    document.addEventListener("mouseup", onPanelDragEnd);
+    document.addEventListener("touchend", onPanelDragEnd);
+
+    window.addEventListener("resize", function () {
+      if (panel.style.left) {
+        var left = parseFloat(panel.style.left) || 0;
+        var top = parseFloat(panel.style.top) || 0;
+        setPanelPos(left, top, true);
+      }
+    });
+
+    stateBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        applyManualState(btn.dataset.state);
+      });
+    });
+
+    ringBtn.addEventListener("click", function () {
+      if (sound) {
+        try {
+          sound.currentTime = 0;
+          sound.play();
+        } catch (err) {}
+      }
+      applyManualState("waving");
+    });
+
+    resumeBtn.addEventListener("click", function () {
+      manualUntil = 0;
+      nextStateAt = performance.now();
+      setActiveBtn("");
+    });
+
+    window.addEventListener("resize", function () {
+      syncViewportMetrics();
+      posX = clampX(posX);
+      posY = clampY(posY);
+      applyTransform();
+    });
+
+    // Init: start with Review for a few seconds, then roam
+    applyTransform();
+    setSpriteState(STATES.review);
+    current = "review";
+    nextStateAt = performance.now() + 3500;
     requestAnimationFrame(tick);
-  }
-
-  function setActiveBtn(stateKey) {
-    stateBtns.forEach(function (b) {
-      b.classList.toggle('is-active', b.dataset.state === stateKey);
-    });
-  }
-  function applyManualState(stateKey) {
-    var s = STATES[stateKey];
-    if (!s) return;
-    setSpriteState(s);
-    current = stateKey;
-    setActiveBtn(stateKey);
-    if (stateKey === 'runRight')      { facing = 1;  velX = 0; }
-    else if (stateKey === 'runLeft')  { facing = -1; velX = 0; }
-    else                              { velX = 0;  facing = 1; }
-    applyTransform();
-    manualUntil = performance.now() + MANUAL_HOLD;
-    nextStateAt = manualUntil;
-  }
-
-  // === Drag interaction (with click-to-cycle detection) ===
-  // We treat a press-release as a "click" when the pointer hasn't moved
-  // beyond CLICK_MOVE_THRESHOLD pixels and the press lasted less than
-  // CLICK_TIME_THRESHOLD ms. A click cycles to the next state.
-  var CLICK_MOVE_THRESHOLD = 5;
-  var CLICK_TIME_THRESHOLD = 350;
-  var pressX = 0, pressY = 0, pressTs = 0, petMoved = false;
-
-  function cycleState() {
-    var idx = STATE_ORDER.indexOf(current);
-    var next = STATE_ORDER[(idx + 1) % STATE_ORDER.length];
-    applyManualState(next);
-  }
-
-  function onPointerDown(e) {
-    if (hidden) return;
-    dragging = true;
-    petMoved = false;
-    pet.classList.add('is-dragging');
-    var rect = pet.getBoundingClientRect();
-    var cx = e.clientX || (e.touches && e.touches[0].clientX);
-    var cy = e.clientY || (e.touches && e.touches[0].clientY);
-    dragOffsetX = cx - rect.left;
-    dragOffsetY = cy - rect.top;
-    pressX = cx; pressY = cy; pressTs = performance.now();
-    setSpriteState(STATES.jumping);
-    current = 'jumping';
-    velX = 0;
-    facing = 1;
-    applyTransform();
-    e.preventDefault();
-  }
-  function onPointerMove(e) {
-    if (!dragging) return;
-    var cx = e.clientX || (e.touches && e.touches[0].clientX);
-    var cy = e.clientY || (e.touches && e.touches[0].clientY);
-    if (cx == null) return;
-    if (!petMoved && (Math.abs(cx - pressX) > CLICK_MOVE_THRESHOLD ||
-                      Math.abs(cy - pressY) > CLICK_MOVE_THRESHOLD)) {
-      petMoved = true;
-    }
-    posX = clampX(cx - dragOffsetX);
-    var top = cy - dragOffsetY;
-    posY = clampY(window.innerHeight - top - SPRITE_H);
-    applyTransform();
-  }
-  function onPointerUp() {
-    if (!dragging) return;
-    dragging = false;
-    pet.classList.remove('is-dragging');
-    var heldFor = performance.now() - pressTs;
-    var wasClick = !petMoved && heldFor < CLICK_TIME_THRESHOLD;
-    if (wasClick) {
-      // Click -> cycle to the next state, no drop-back animation needed.
-      cycleState();
-      return;
-    }
-    // Real drag: gradually fall back to the ground line.
-    var dropAnim = function () {
-      if (posY > GROUND_OFFSET + 1) {
-        posY = Math.max(GROUND_OFFSET, posY - 8);
-        applyTransform();
-        requestAnimationFrame(dropAnim);
-      } else {
-        posY = GROUND_OFFSET;
-        applyTransform();
-        nextStateAt = performance.now() + 600;
-      }
-    };
-    dropAnim();
-  }
-
-  sprite.addEventListener('mousedown', onPointerDown);
-  window.addEventListener('mousemove', onPointerMove);
-  window.addEventListener('mouseup', onPointerUp);
-  sprite.addEventListener('touchstart', onPointerDown, { passive: false });
-  window.addEventListener('touchmove', onPointerMove, { passive: false });
-  window.addEventListener('touchend', onPointerUp);
-
-  // Single-click on sprite (without drag) -> cycle through states.
-  // Detection lives inside onPointerUp so it works for touch too;
-  // we just suppress the synthesized 'click' default here.
-  sprite.addEventListener('click', function (e) { e.preventDefault(); });
-
-  // Bell button: toggle panel; shift-click hides the pet
-  bellBtn.addEventListener('click', function (e) {
-    if (e.shiftKey) {
-      hidden = !hidden;
-      pet.classList.toggle('is-hidden', hidden);
-      bellBtn.textContent = hidden ? '🔕' : '🔔';
-      return;
-    }
-    panel.classList.toggle('is-open');
-  });
-  panelClose.addEventListener('click', function () {
-    panel.classList.remove('is-open');
-  });
-
-  // ---- Make the panel draggable by its header ---------------------------
-  var panelHeader = panel.querySelector('.dora-panel-header');
-  var panelDragging = false;
-  var panelDragDX = 0, panelDragDY = 0;
-  var PANEL_POS_KEY = 'doraPanelPos';
-
-  function clampPanelPos(left, top) {
-    var rect = panel.getBoundingClientRect();
-    var maxLeft = Math.max(0, window.innerWidth  - rect.width  - 4);
-    var maxTop  = Math.max(0, window.innerHeight - rect.height - 4);
-    if (left < 4) left = 4;
-    if (top  < 4) top  = 4;
-    if (left > maxLeft) left = maxLeft;
-    if (top  > maxTop)  top  = maxTop;
-    return { left: left, top: top };
-  }
-
-  function setPanelPos(left, top, persist) {
-    var p = clampPanelPos(left, top);
-    panel.style.left  = p.left + 'px';
-    panel.style.top   = p.top  + 'px';
-    panel.style.right = 'auto';
-    panel.style.bottom = 'auto';
-    if (persist) {
-      try { localStorage.setItem(PANEL_POS_KEY, JSON.stringify(p)); } catch (err) {}
-    }
-  }
-
-  try {
-    var saved = localStorage.getItem(PANEL_POS_KEY);
-    if (saved) {
-      var s = JSON.parse(saved);
-      if (s && typeof s.left === 'number' && typeof s.top === 'number') {
-        requestAnimationFrame(function () { setPanelPos(s.left, s.top, false); });
-      }
-    }
-  } catch (err) {}
-
-  function onPanelDragStart(e) {
-    if (e.target.closest('.dora-close')) return;
-    var p = e.touches ? e.touches[0] : e;
-    var rect = panel.getBoundingClientRect();
-    panelDragging = true;
-    panelDragDX = p.clientX - rect.left;
-    panelDragDY = p.clientY - rect.top;
-    setPanelPos(rect.left, rect.top, false);
-    panel.classList.add('is-dragging');
-    e.preventDefault();
-  }
-  function onPanelDragMove(e) {
-    if (!panelDragging) return;
-    var p = e.touches ? e.touches[0] : e;
-    setPanelPos(p.clientX - panelDragDX, p.clientY - panelDragDY, false);
-    e.preventDefault();
-  }
-  function onPanelDragEnd() {
-    if (!panelDragging) return;
-    panelDragging = false;
-    panel.classList.remove('is-dragging');
-    var rect = panel.getBoundingClientRect();
-    setPanelPos(rect.left, rect.top, true);
-  }
-  panelHeader.addEventListener('mousedown',  onPanelDragStart);
-  panelHeader.addEventListener('touchstart', onPanelDragStart, { passive: false });
-  document.addEventListener('mousemove',  onPanelDragMove);
-  document.addEventListener('touchmove',  onPanelDragMove, { passive: false });
-  document.addEventListener('mouseup',    onPanelDragEnd);
-  document.addEventListener('touchend',   onPanelDragEnd);
-
-  window.addEventListener('resize', function () {
-    if (panel.style.left) {
-      var left = parseFloat(panel.style.left) || 0;
-      var top  = parseFloat(panel.style.top)  || 0;
-      setPanelPos(left, top, true);
-    }
-  });
-
-  stateBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      applyManualState(btn.dataset.state);
-    });
-  });
-
-  ringBtn.addEventListener('click', function () {
-    if (sound) { try { sound.currentTime = 0; sound.play(); } catch (err) {} }
-    applyManualState('waving');
-  });
-
-  resumeBtn.addEventListener('click', function () {
-    manualUntil = 0;
-    nextStateAt = performance.now();
-    setActiveBtn('');
-  });
-
-  window.addEventListener('resize', function () {
-    syncViewportMetrics();
-    posX = clampX(posX);
-    posY = clampY(posY);
-    applyTransform();
-  });
-
-  // Init: start with Review for a few seconds, then roam
-  applyTransform();
-  setSpriteState(STATES.review);
-  current = 'review';
-  nextStateAt = performance.now() + 3500;
-  requestAnimationFrame(tick);
-})();
+  })();
 </script>
 
 <!-- ====================== End Doraemon Desk Pet ====================== -->
@@ -1428,7 +1572,8 @@ function revealAndCopyContact(button, text, label) {
                 
                   <div class="detail-title-meta detail-title-meta--education">
                     <span class="education-college" title="School of Computer Science and Engineering">School of Computer Science and Engineering</span>
-                    <span class="education-location">🇨🇳 Nanjing, China</span>
+                    <span class="education-location">🇨🇳
+                        Nanjing, China</span>
                   </div>
                 
               </div>
@@ -1448,8 +1593,10 @@ function revealAndCopyContact(button, text, label) {
                           <span class="education-ranking-name">CSRankings (China, 2016–2026)</span>
                           <span class="education-ranking-value">
                             
-                              AI #16 · 
-                              CV #25
+                              AI
+                              #16 · 
+                              CV
+                              #25
                           </span>
                         </span>
                       
@@ -1489,7 +1636,8 @@ function revealAndCopyContact(button, text, label) {
                 
                   <div class="detail-title-meta detail-title-meta--education">
                     <span class="education-college" title="College of Computer Science &amp; Software Engineering / College of Mathematics and Statistics">CS &amp; Software Eng. / Math &amp; Stats</span>
-                    <span class="education-location">🇨🇳 Shenzhen, China</span>
+                    <span class="education-location">🇨🇳
+                        Shenzhen, China</span>
                   </div>
                 
               </div>
@@ -1509,8 +1657,10 @@ function revealAndCopyContact(button, text, label) {
                           <span class="education-ranking-name">CSRankings (China, 2016–2026)</span>
                           <span class="education-ranking-value">
                             
-                              AI #21 · 
-                              CV #20
+                              AI
+                              #21 · 
+                              CV
+                              #20
                           </span>
                         </span>
                       
@@ -1557,7 +1707,8 @@ function revealAndCopyContact(button, text, label) {
             <span class="logo-role">Remote Visiting Student</span>
             <span class="logo-meta-row">
               <span class="logo-year">2026.04 - Present</span>
-              <span class="logo-location">🇺🇸 Merced, US (Remote)</span>
+              <span class="logo-location">🇺🇸
+                  Merced, US (Remote)</span>
             </span>
           </div>
         </div>
@@ -1569,7 +1720,8 @@ function revealAndCopyContact(button, text, label) {
             <span class="logo-role">Research intern</span>
             <span class="logo-meta-row">
               <span class="logo-year">2026.03 - Present</span>
-              <span class="logo-location">🇨🇳 Shenzhen, CN</span>
+              <span class="logo-location">🇨🇳
+                  Shenzhen, CN</span>
             </span>
           </div>
         </div>
@@ -1581,7 +1733,8 @@ function revealAndCopyContact(button, text, label) {
             <span class="logo-role">Research intern</span>
             <span class="logo-meta-row">
               <span class="logo-year">2025.07 - 2026.03</span>
-              <span class="logo-location">🇨🇳 Shenzhen, CN</span>
+              <span class="logo-location">🇨🇳
+                  Shenzhen, CN</span>
             </span>
           </div>
         </div>
@@ -1593,7 +1746,8 @@ function revealAndCopyContact(button, text, label) {
             <span class="logo-role">Remote Visiting Student</span>
             <span class="logo-meta-row">
               <span class="logo-year">2024.07 - 2025.03</span>
-              <span class="logo-location">🇸🇬 SG (Remote)</span>
+              <span class="logo-location">🇸🇬
+                  SG (Remote)</span>
             </span>
           </div>
         </div>
@@ -1605,7 +1759,8 @@ function revealAndCopyContact(button, text, label) {
             <span class="logo-role">Master's Student</span>
             <span class="logo-meta-row">
               <span class="logo-year">2024.04 - Present</span>
-              <span class="logo-location">🇨🇳 Nanjing, CN</span>
+              <span class="logo-location">🇨🇳
+                  Nanjing, CN</span>
             </span>
           </div>
         </div>
@@ -1617,7 +1772,8 @@ function revealAndCopyContact(button, text, label) {
             <span class="logo-role">Undergraduate Research Intern</span>
             <span class="logo-meta-row">
               <span class="logo-year">2022.10 - 2023.10</span>
-              <span class="logo-location">🇨🇳 Shenzhen, CN</span>
+              <span class="logo-location">🇨🇳
+                  Shenzhen, CN</span>
             </span>
           </div>
         </div>
@@ -1639,7 +1795,8 @@ function revealAndCopyContact(button, text, label) {
                   <div class="detail-title-meta">
                     <span>VLLab @ UCM</span>
                     <span class="detail-title-sep">·</span>
-                    <span>🇺🇸 Merced, US (Remote)</span>
+                    <span>🇺🇸
+                        Merced, US (Remote)</span>
                   </div>
                 
               </div>
@@ -1700,7 +1857,8 @@ function revealAndCopyContact(button, text, label) {
                   <div class="detail-title-meta">
                     <span>HY @ Tencent</span>
                     <span class="detail-title-sep">·</span>
-                    <span>🇨🇳 Shenzhen, CN</span>
+                    <span>🇨🇳
+                        Shenzhen, CN</span>
                   </div>
                 
               </div>
@@ -1759,7 +1917,8 @@ function revealAndCopyContact(button, text, label) {
                   <div class="detail-title-meta">
                     <span>YouTu Lab @ Tencent</span>
                     <span class="detail-title-sep">·</span>
-                    <span>🇨🇳 Shenzhen, CN</span>
+                    <span>🇨🇳
+                        Shenzhen, CN</span>
                   </div>
                 
               </div>
@@ -1837,7 +1996,8 @@ function revealAndCopyContact(button, text, label) {
                   <div class="detail-title-meta">
                     <span>LV Lab @ SMU</span>
                     <span class="detail-title-sep">·</span>
-                    <span>🇸🇬 SG (Remote)</span>
+                    <span>🇸🇬
+                        SG (Remote)</span>
                   </div>
                 
               </div>
@@ -1913,7 +2073,8 @@ function revealAndCopyContact(button, text, label) {
                   <div class="detail-title-meta">
                     <span>PALM Lab @ SEU</span>
                     <span class="detail-title-sep">·</span>
-                    <span>🇨🇳 Nanjing, CN</span>
+                    <span>🇨🇳
+                        Nanjing, CN</span>
                   </div>
                 
               </div>
@@ -1995,7 +2156,8 @@ function revealAndCopyContact(button, text, label) {
                   <div class="detail-title-meta">
                     <span>CV Institute @ SZU</span>
                     <span class="detail-title-sep">·</span>
-                    <span>🇨🇳 Shenzhen, CN</span>
+                    <span>🇨🇳
+                        Shenzhen, CN</span>
                   </div>
                 
               </div>
@@ -2062,12 +2224,15 @@ function revealAndCopyContact(button, text, label) {
   <span data-language="zh" lang="zh-CN">🧭 研究总结</span>
 </h2>
 <div class="research-summary-section">
-<div class="clearfix research-summary">
-  <div data-language="en" lang="en">
-    <p>I study the <strong>fundamental principles of post-training and alignment for generative models</strong>, with text-motion alignment and large-scale text-to-image post-training in industry as application settings.</p>
-    <ol class="research-trajectory" aria-label="Main research trajectory">
-    <li class="research-trajectory__item">
-      <div class="research-trajectory__meta">
+  <div class="clearfix research-summary">
+    <div data-language="en" lang="en">
+      <p>
+        I study the <strong>fundamental principles of post-training and alignment for generative models</strong>, with text-motion alignment and
+        large-scale text-to-image post-training in industry as application settings.
+      </p>
+      <ol class="research-trajectory" aria-label="Main research trajectory">
+        <li class="research-trajectory__item">
+          <div class="research-trajectory__meta">
 <span>2024～2026</span><span class="research-logo-tags">
   
     <a class="research-logo-tag" href="https://www.seu.edu.cn/english/" target="_blank" rel="noopener" title="Southeast University" aria-label="Southeast University">
@@ -2084,10 +2249,19 @@ function revealAndCopyContact(button, text, label) {
   
 </span>
 </div>
-    <p>At <strong>PALM@SEU</strong>, advised by Prof. <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang</a>, I work with <a href="https://wengwanjiang.github.io/" rel="external nofollow noopener" target="_blank">Wanjiang Weng</a> and <a href="https://haodong-lei-ray.github.io/" rel="external nofollow noopener" target="_blank">Haodong Lei</a>, and collaborate with Prof. <a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">Pan Zhou</a> at <strong>SMU</strong>, on text–motion alignment in motion generation: <a href="/projects/SoPo/index.html">SoPo</a> (NeurIPS 2025) addresses scarce preference pairs and sampling bias; <a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a> (AAAI 2026) aligns pretrained generators without fine-tuning; and <a href="/projects/EasyTune/index.html">EasyTune</a> (ICLR 2026) improves alignment with substantially less memory. Building on this, <a href="/projects/MotionRFT/index.html">MotionRFT</a> (IEEE TPAMI 2026) extends post-training across motion representations, improving HY Motion’s FID by 23.3%.</p>
-    </li>
-    <li class="research-trajectory__item">
-      <div class="research-trajectory__meta">
+          <p>
+            At <strong>PALM@SEU</strong>, advised by Prof. <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang</a>, I work with
+            <a href="https://github.com/wengwanjiang" rel="external nofollow noopener" target="_blank">Wanjiang Weng</a> and <a href="https://haodong-lei-ray.github.io/" rel="external nofollow noopener" target="_blank">Haodong Lei</a>, and
+            collaborate with Prof. <a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">Pan Zhou</a> at <strong>SMU</strong>, on text–motion alignment in motion
+            generation: <a href="/projects/SoPo/index.html">SoPo</a> (NeurIPS 2025) addresses scarce preference pairs and
+            sampling bias; <a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a> (AAAI 2026) aligns pretrained generators without
+            fine-tuning; and <a href="/projects/EasyTune/index.html">EasyTune</a> (ICLR 2026) improves alignment with
+            substantially less memory. Building on this, <a href="/projects/MotionRFT/index.html">MotionRFT</a> (IEEE TPAMI
+            2026) extends post-training across motion representations, improving HY Motion’s FID by 23.3%.
+          </p>
+        </li>
+        <li class="research-trajectory__item">
+          <div class="research-trajectory__meta">
 <span>2025～2026</span><span class="research-logo-tags">
   
     <a class="research-logo-tag" href="https://open.youtu.qq.com/#/open" target="_blank" rel="noopener" title="Tencent YouTu Lab" aria-label="Tencent YouTu Lab">
@@ -2108,10 +2282,18 @@ function revealAndCopyContact(button, text, label) {
   
 </span>
 </div>
-    <p>At <strong>Tencent YouTu</strong>, I worked with <a href="https://scholar.google.com/citations?user=JIKuf4AAAAAJ" rel="external nofollow noopener" target="_blank">Jun Liu</a>, <a href="https://csgaobb.github.io/" rel="external nofollow noopener" target="_blank">Bin-Bin Gao</a>, and <a href="https://retofan233.github.io/" rel="external nofollow noopener" target="_blank">Yuanting Fan</a> at Tencent, and Prof. <a href="https://www.sustech.edu.cn/en/faculties/zhengfeng.html" rel="external nofollow noopener" target="_blank">Feng Zheng</a> and <a href="https://jam-cc.github.io/" rel="external nofollow noopener" target="_blank">Xi Jiang</a> at <strong>SUSTech</strong>, on the key barriers in image-generation post-training: <a href="/projects/ConsistentRFT/index.html">DPGO</a> (under review) reduces low- and high-level perceptual hallucinations by 49% and 38% on average, respectively; <a href="/projects/PEC/index.html">PEC</a> (NeurIPS 2026, <strong>Spotlight</strong>) mitigates diversity collapse, raising the evaluated quality–diversity score from 0.366 to 0.734.</p>
-    </li>
-    <li class="research-trajectory__item">
-      <div class="research-trajectory__meta">
+          <p>
+            At <strong>Tencent YouTu</strong>, I worked with <a href="https://scholar.google.com/citations?user=JIKuf4AAAAAJ" rel="external nofollow noopener" target="_blank">Jun Liu</a>,
+            <a href="https://csgaobb.github.io/" rel="external nofollow noopener" target="_blank">Bin-Bin Gao</a>, and <a href="https://retofan233.github.io/" rel="external nofollow noopener" target="_blank">Yuanting Fan</a> at Tencent, and Prof.
+            <a href="https://www.sustech.edu.cn/en/faculties/zhengfeng.html" rel="external nofollow noopener" target="_blank">Feng Zheng</a> and <a href="https://jam-cc.github.io/" rel="external nofollow noopener" target="_blank">Xi Jiang</a> at
+            <strong>SUSTech</strong>, on the key barriers in image-generation post-training:
+            <a href="/projects/ConsistentRFT/index.html">DPGO</a> (under review) reduces low- and high-level perceptual
+            hallucinations by 49% and 38% on average, respectively; <a href="/projects/PEC/index.html">PEC</a> (NeurIPS 2026,
+            <strong>Spotlight</strong>) mitigates diversity collapse, raising the evaluated quality–diversity score from 0.366 to 0.734.
+          </p>
+        </li>
+        <li class="research-trajectory__item">
+          <div class="research-trajectory__meta">
 <span>2026～Present</span><span class="research-logo-tags">
   
     <a class="research-logo-tag" href="https://hunyuan.tencent.com/" target="_blank" rel="noopener" title="Tencent HY" aria-label="Tencent HY">
@@ -2132,11 +2314,17 @@ function revealAndCopyContact(button, text, label) {
   
 </span>
 </div>
-    <p>At <strong>Tencent HY</strong>, I study the reliability of reward supervision and learning progression, collaborating with Prof. <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a>, <a href="https://yuanhaobo.me/" rel="external nofollow noopener" target="_blank">Haobo Yuan</a>, and <a href="https://vllab.ucmerced.edu/people/" rel="external nofollow noopener" target="_blank">Tiancheng Shen</a> as a remote visiting student at <strong>UC Merced</strong>. Our <a href="/projects/spatialcritic/">SpatialCritic</a> (under review) addresses these challenges in spatial generation, achieving 95.08% spatial-preference verification accuracy on our SpaRW-Eval benchmark.</p>
-    </li>
-    </ol>
-    <div class="research-foundations">
-      <div class="research-foundations__label">
+          <p>
+            At <strong>Tencent HY</strong>, I study the reliability of reward supervision and learning progression, collaborating with Prof.
+            <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a>, <a href="https://yuanhaobo.me/" rel="external nofollow noopener" target="_blank">Haobo Yuan</a>, and
+            <a href="https://vllab.ucmerced.edu/people/" rel="external nofollow noopener" target="_blank">Tiancheng Shen</a> as a remote visiting student at <strong>UC Merced</strong>. Our
+            <a href="/projects/spatialcritic/">SpatialCritic</a> (under review) addresses these challenges in spatial
+            generation, achieving 95.08% spatial-preference verification accuracy on our SpaRW-Eval benchmark.
+          </p>
+        </li>
+      </ol>
+      <div class="research-foundations">
+        <div class="research-foundations__label">
 <span>2022～2024</span><span class="research-logo-tags">
   
     <a class="research-logo-tag" href="https://en.szu.edu.cn/" target="_blank" rel="noopener" title="Shenzhen University" aria-label="Shenzhen University">
@@ -2153,15 +2341,23 @@ function revealAndCopyContact(button, text, label) {
   
 </span>
 </div>
-    <p>My earlier anomaly-detection work includes <a href="/Publications/#tanGB">MGBOD</a> (IEEE TKDE 2024) with Prof. <a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">Can Gao</a> at <strong>SZU</strong>, and <a href="/projects/FG-Diff/index.html">FG-Diff</a> (IEEE TIP 2026) for video anomaly detection with Prof. <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang</a> at <strong>PALM@SEU</strong>.</p>
+        <p>
+          My earlier anomaly-detection work includes <a href="/Publications/#tanGB">MGBOD</a> (IEEE TKDE 2024) with Prof.
+          <a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">Can Gao</a> at <strong>SZU</strong>, and
+          <a href="/projects/FG-Diff/index.html">FG-Diff</a> (IEEE TIP 2026) for video anomaly detection with Prof.
+          <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang</a> at <strong>PALM@SEU</strong>.
+        </p>
+      </div>
+      <p class="research-outlook">
+        <strong>Looking ahead, I hope to explore video generation, world models, and embodied intelligence, with an emphasis on physical consistency, while
+          further investigating the fundamental principles of generative models.</strong>
+      </p>
     </div>
-    <p class="research-outlook"><strong>Looking ahead, I hope to explore video generation, world models, and embodied intelligence, with an emphasis on physical consistency, while further investigating the fundamental principles of generative models.</strong></p>
-  </div>
-  <div data-language="zh" lang="zh-CN">
-    <p>我研究<strong>生成模型后训练与对齐的基础原理</strong>，以文本与动作对齐，以及工业界大规模文生图模型的后训练为应用场景。</p>
-    <ol class="research-trajectory" aria-label="主要研究脉络">
-    <li class="research-trajectory__item">
-      <div class="research-trajectory__meta">
+    <div data-language="zh" lang="zh-CN">
+      <p>我研究<strong>生成模型后训练与对齐的基础原理</strong>，以文本与动作对齐，以及工业界大规模文生图模型的后训练为应用场景。</p>
+      <ol class="research-trajectory" aria-label="主要研究脉络">
+        <li class="research-trajectory__item">
+          <div class="research-trajectory__meta">
 <span>2024～2026</span><span class="research-logo-tags">
   
     <a class="research-logo-tag" href="https://www.seu.edu.cn/english/" target="_blank" rel="noopener" title="Southeast University" aria-label="Southeast University">
@@ -2178,10 +2374,18 @@ function revealAndCopyContact(button, text, label) {
   
 </span>
 </div>
-    <p>在 <strong>PALM@SEU</strong>，我在 <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang（王洪松）</a>教授指导下，与 <a href="https://wengwanjiang.github.io/" rel="external nofollow noopener" target="_blank">Wanjiang Weng</a>、<a href="https://haodong-lei-ray.github.io/" rel="external nofollow noopener" target="_blank">Haodong Lei</a>，以及 <strong>SMU</strong> 的 <a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">Pan Zhou（周攀）</a>教授合作，研究动作生成中的文本与动作对齐：<a href="/projects/SoPo/index.html">SoPo</a>（NeurIPS 2025）应对偏好对稀缺与采样偏差；<a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a>（AAAI 2026）无需微调即可对齐预训练生成模型；<a href="/projects/EasyTune/index.html">EasyTune</a>（ICLR 2026）在提升对齐效果的同时大幅降低显存开销。在此基础上，<a href="/projects/MotionRFT/index.html">MotionRFT</a>（IEEE TPAMI 2026）将后训练拓展至不同动作表示，使 HY Motion 的 FID 改善 23.3%。</p>
-    </li>
-    <li class="research-trajectory__item">
-      <div class="research-trajectory__meta">
+          <p>
+            在 <strong>PALM@SEU</strong>，我在 <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang（王洪松）</a>教授指导下，与
+            <a href="https://github.com/wengwanjiang" rel="external nofollow noopener" target="_blank">Wanjiang Weng</a>、<a href="https://haodong-lei-ray.github.io/" rel="external nofollow noopener" target="_blank">Haodong Lei</a>，以及
+            <strong>SMU</strong> 的
+            <a href="https://panzhous.github.io/" rel="external nofollow noopener" target="_blank">Pan Zhou（周攀）</a>教授合作，研究动作生成中的文本与动作对齐：<a href="/projects/SoPo/index.html">SoPo</a>（NeurIPS
+            2025）应对偏好对稀缺与采样偏差；<a href="https://wengwanjiang.github.io/ReAlign-page/" rel="external nofollow noopener" target="_blank">ReAlign</a>（AAAI
+            2026）无需微调即可对齐预训练生成模型；<a href="/projects/EasyTune/index.html">EasyTune</a>（ICLR
+            2026）在提升对齐效果的同时大幅降低显存开销。在此基础上，<a href="/projects/MotionRFT/index.html">MotionRFT</a>（IEEE TPAMI 2026）将后训练拓展至不同动作表示，使 HY Motion 的 FID 改善 23.3%。
+          </p>
+        </li>
+        <li class="research-trajectory__item">
+          <div class="research-trajectory__meta">
 <span>2025～2026</span><span class="research-logo-tags">
   
     <a class="research-logo-tag" href="https://open.youtu.qq.com/#/open" target="_blank" rel="noopener" title="Tencent YouTu Lab" aria-label="Tencent YouTu Lab">
@@ -2202,10 +2406,15 @@ function revealAndCopyContact(button, text, label) {
   
 </span>
 </div>
-    <p>在 <strong>Tencent YouTu</strong>，我与腾讯的 <a href="https://scholar.google.com/citations?user=JIKuf4AAAAAJ" rel="external nofollow noopener" target="_blank">Jun Liu</a>、<a href="https://csgaobb.github.io/" rel="external nofollow noopener" target="_blank">Bin-Bin Gao</a>、<a href="https://retofan233.github.io/" rel="external nofollow noopener" target="_blank">Yuanting Fan</a>，以及<strong>南方科技大学</strong>的 <a href="https://www.sustech.edu.cn/en/faculties/zhengfeng.html" rel="external nofollow noopener" target="_blank">Feng Zheng</a> 教授、<a href="https://jam-cc.github.io/" rel="external nofollow noopener" target="_blank">Xi Jiang</a> 合作，研究图像生成后训练中的关键障碍：<a href="/projects/ConsistentRFT/index.html">DPGO</a>（在投）使低层、高层感知幻觉分别平均减少 49%、38%；<a href="/projects/PEC/index.html">PEC</a>（NeurIPS 2026，<strong>Spotlight</strong>）缓解多样性崩溃，将所评测的质量与多样性综合得分从 0.366 提升至 0.734。</p>
-    </li>
-    <li class="research-trajectory__item">
-      <div class="research-trajectory__meta">
+          <p>
+            在 <strong>Tencent YouTu</strong>，我与腾讯的
+            <a href="https://scholar.google.com/citations?user=JIKuf4AAAAAJ" rel="external nofollow noopener" target="_blank">Jun Liu</a>、<a href="https://csgaobb.github.io/" rel="external nofollow noopener" target="_blank">Bin-Bin Gao</a>、<a href="https://retofan233.github.io/" rel="external nofollow noopener" target="_blank">Yuanting Fan</a>，以及<strong>南方科技大学</strong>的
+            <a href="https://www.sustech.edu.cn/en/faculties/zhengfeng.html" rel="external nofollow noopener" target="_blank">Feng Zheng</a> 教授、<a href="https://jam-cc.github.io/" rel="external nofollow noopener" target="_blank">Xi Jiang</a>
+            合作，研究图像生成后训练中的关键障碍：<a href="/projects/ConsistentRFT/index.html">DPGO</a>（在投）使低层、高层感知幻觉分别平均减少 49%、38%；<a href="/projects/PEC/index.html">PEC</a>（NeurIPS 2026，<strong>Spotlight</strong>）缓解多样性崩溃，将所评测的质量与多样性综合得分从 0.366 提升至 0.734。
+          </p>
+        </li>
+        <li class="research-trajectory__item">
+          <div class="research-trajectory__meta">
 <span>2026～现在</span><span class="research-logo-tags">
   
     <a class="research-logo-tag" href="https://hunyuan.tencent.com/" target="_blank" rel="noopener" title="Tencent HY" aria-label="Tencent HY">
@@ -2226,11 +2435,16 @@ function revealAndCopyContact(button, text, label) {
   
 </span>
 </div>
-    <p>在 <strong>Tencent HY</strong>，我进一步研究奖励监督的可靠性与学习进程，并以远程访问学生身份与 <strong>UC Merced</strong> 的 <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a> 教授、<a href="https://yuanhaobo.me/" rel="external nofollow noopener" target="_blank">Haobo Yuan</a>、<a href="https://vllab.ucmerced.edu/people/" rel="external nofollow noopener" target="_blank">Tiancheng Shen</a> 合作。我们提出的 <a href="/projects/spatialcritic/">SpatialCritic</a>（在投）针对空间生成中的这些问题，在我们构建的空间偏好评测基准 SpaRW-Eval 上实现 95.08% 的验证准确率。</p>
-    </li>
-    </ol>
-    <div class="research-foundations">
-      <div class="research-foundations__label">
+          <p>
+            在 <strong>Tencent HY</strong>，我进一步研究奖励监督的可靠性与学习进程，并以远程访问学生身份与 <strong>UC Merced</strong> 的
+            <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a> 教授、<a href="https://yuanhaobo.me/" rel="external nofollow noopener" target="_blank">Haobo Yuan</a>、<a href="https://vllab.ucmerced.edu/people/" rel="external nofollow noopener" target="_blank">Tiancheng Shen</a> 合作。我们提出的
+            <a href="/projects/spatialcritic/">SpatialCritic</a>（在投）针对空间生成中的这些问题，在我们构建的空间偏好评测基准
+            SpaRW-Eval 上实现 95.08% 的验证准确率。
+          </p>
+        </li>
+      </ol>
+      <div class="research-foundations">
+        <div class="research-foundations__label">
 <span>2022～2024</span><span class="research-logo-tags">
   
     <a class="research-logo-tag" href="https://en.szu.edu.cn/" target="_blank" rel="noopener" title="Shenzhen University" aria-label="Shenzhen University">
@@ -2247,11 +2461,18 @@ function revealAndCopyContact(button, text, label) {
   
 </span>
 </div>
-    <p>我的早期异常检测工作包括在 <strong>SZU</strong> 与 <a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">Can Gao</a> 教授开展的 <a href="/Publications/#tanGB">MGBOD</a>（IEEE TKDE 2024），以及在 <strong>PALM@SEU</strong> 与 <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang（王洪松）</a>教授开展的视频异常检测工作 <a href="/projects/FG-Diff/index.html">FG-Diff</a>（IEEE TIP 2026）。</p>
+        <p>
+          我的早期异常检测工作包括在 <strong>SZU</strong> 与 <a href="https://csse.szu.edu.cn/pages/user/index?id=953" rel="external nofollow noopener" target="_blank">Can Gao</a> 教授开展的
+          <a href="/Publications/#tanGB">MGBOD</a>（IEEE TKDE 2024），以及在 <strong>PALM@SEU</strong> 与
+          <a href="https://cs.seu.edu.cn/hongsongwang/main.htm" rel="external nofollow noopener" target="_blank">Hongsong Wang（王洪松）</a>教授开展的视频异常检测工作
+          <a href="/projects/FG-Diff/index.html">FG-Diff</a>（IEEE TIP 2026）。
+        </p>
+      </div>
+      <p class="research-outlook">
+        <strong>下一步，我希望探索视频生成、世界模型与具身智能，重点关注物理一致性，同时进一步探究生成模型的基础原理。</strong>
+      </p>
     </div>
-    <p class="research-outlook"><strong>下一步，我希望探索视频生成、世界模型与具身智能，重点关注物理一致性，同时进一步探究生成模型的基础原理。</strong></p>
   </div>
-</div>
 </div>
 
 
@@ -2299,16 +2520,24 @@ function revealAndCopyContact(button, text, label) {
           <option value="all" data-label-en="All topics" data-label-zh="全部主题">All topics</option>
           
             
-            <option value="rl" data-label-en="RL" data-label-zh="RL">RL</option>
+            <option value="rl" data-label-en="RL" data-label-zh="RL">
+              RL
+            </option>
           
             
-            <option value="aigc" data-label-en="AIGC" data-label-zh="AIGC">AIGC</option>
+            <option value="aigc" data-label-en="AIGC" data-label-zh="AIGC">
+              AIGC
+            </option>
           
             
-            <option value="human" data-label-en="Human-centric CV" data-label-zh="Human-centric CV">Human-centric CV</option>
+            <option value="human" data-label-en="Human-centric CV" data-label-zh="Human-centric CV">
+              Human-centric CV
+            </option>
           
             
-            <option value="ad" data-label-en="Earlier work" data-label-zh="早期工作">Earlier work</option>
+            <option value="ad" data-label-en="Earlier work" data-label-zh="早期工作">
+              Earlier work
+            </option>
           
         </select>
       </span>
@@ -2593,32 +2822,33 @@ function revealAndCopyContact(button, text, label) {
     
     
     
-    <!-- Journal/Book title and date -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="periodical">
+      <!-- Journal/Book title and date -->
       
-      <span class="venue-abbr" style="color: #00A1E9;">🏆 NeurIPS 2026 <strong class="presentation-distinction">(Spotlight)</strong></span><span class="venue-separator">|</span>
-        <span class="publication-venue-text"><em>Advances in Neural Information Processing Systems</em></span>
       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="periodical">
+        
+        <span class="venue-abbr" style="color: #00A1E9;">🏆 NeurIPS
+              2026 <strong class="presentation-distinction">(Spotlight)</strong></span><span class="venue-separator">|</span>
+          <span class="publication-venue-text"><em>Advances in Neural Information Processing Systems</em></span>
         
           
-          <span class="presentation-type presentation-statistics"> (292/30,709 submissions, 0.95%)</span>
-        
-      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="core-badge core-badge-coreastar">CORE-A*</span>
+            
+            <span class="presentation-type presentation-statistics"> (292/30,709 submissions, 0.95%)</span>
+          
+        <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="core-badge core-badge-coreastar">CORE-A*</span>
 </div>
-    <div class="periodical">
-      
-    </div>
+      <div class="periodical">
+        
+      </div>
     
 
     <!-- Links/Buttons -->
@@ -2737,27 +2967,28 @@ function revealAndCopyContact(button, text, label) {
     
     
     
-    <!-- Journal/Book title and date -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="periodical">
+      <!-- Journal/Book title and date -->
       
-      <span class="venue-abbr" style="color: #2E7D32;">TPAMI 2026</span><span class="venue-separator">|</span>
-        <span class="publication-venue-text"><em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em></span>
-      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="sci-badge sci-badge-sciq1">SCI-Q1</span><span class="sci-badge impact-factor-badge" title="Journal Impact Factor (2025), IEEE Title List, August 2026">IF 20.4 (2025)</span>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="periodical">
+        
+        <span class="venue-abbr" style="color: #2E7D32;">TPAMI
+              2026</span><span class="venue-separator">|</span>
+          <span class="publication-venue-text"><em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em></span>
+        <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="sci-badge sci-badge-sciq1">SCI-Q1</span><span class="sci-badge impact-factor-badge" title="Journal Impact Factor (2025), IEEE Title List, August 2026">IF 20.4 (2025)</span>
 </div>
-    <div class="periodical">
-      Extended from EasyTune (ICLR 2026).
-    </div>
+      <div class="periodical">
+        Extended from EasyTune (ICLR 2026).
+      </div>
     
 
     <!-- Links/Buttons -->
@@ -2891,27 +3122,28 @@ function revealAndCopyContact(button, text, label) {
     
     
     
-    <!-- Journal/Book title and date -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="periodical">
+      <!-- Journal/Book title and date -->
       
-      <span class="venue-abbr" style="color: #00A1E9;">NeurIPS 2025</span><span class="venue-separator">|</span>
-        <span class="publication-venue-text"><em>Advances in Neural Information Processing Systems</em></span>
-      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="core-badge core-badge-coreastar">CORE-A*</span>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="periodical">
+        
+        <span class="venue-abbr" style="color: #00A1E9;">NeurIPS
+              2025</span><span class="venue-separator">|</span>
+          <span class="publication-venue-text"><em>Advances in Neural Information Processing Systems</em></span>
+        <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="core-badge core-badge-coreastar">CORE-A*</span>
 </div>
-    <div class="periodical">
-      
-    </div>
+      <div class="periodical">
+        
+      </div>
     
 
     <!-- Links/Buttons -->
@@ -3039,31 +3271,32 @@ function revealAndCopyContact(button, text, label) {
     
     
     
-    <!-- Journal/Book title and date -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="periodical">
+      <!-- Journal/Book title and date -->
       
-      <span class="venue-abbr" style="color: #00A1E9;">ICLR 2026</span><span class="venue-separator">|</span>
-        <span class="publication-venue-text"><em>International Conference on Learning Representations</em></span>
       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="periodical">
         
-          <span class="presentation-type">Poster</span>
+        <span class="venue-abbr" style="color: #00A1E9;">ICLR
+              2026</span><span class="venue-separator">|</span>
+          <span class="publication-venue-text"><em>International Conference on Learning Representations</em></span>
         
-      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="core-badge core-badge-coreastar">CORE-A*</span>
+          
+            <span class="presentation-type">Poster</span>
+          
+        <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="core-badge core-badge-coreastar">CORE-A*</span>
 </div>
-    <div class="periodical">
-      
-    </div>
+      <div class="periodical">
+        
+      </div>
     
 
     <!-- Links/Buttons -->
@@ -3184,31 +3417,32 @@ function revealAndCopyContact(button, text, label) {
     
     
     
-    <!-- Journal/Book title and date -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="periodical">
+      <!-- Journal/Book title and date -->
       
-      <span class="venue-abbr" style="color: #00A1E9;">AAAI 2026</span><span class="venue-separator">|</span>
-        <span class="publication-venue-text"><em>AAAI Conference on Artificial Intelligence</em></span>
       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="periodical">
         
-          <span class="presentation-type">Poster</span>
+        <span class="venue-abbr" style="color: #00A1E9;">AAAI
+              2026</span><span class="venue-separator">|</span>
+          <span class="publication-venue-text"><em>AAAI Conference on Artificial Intelligence</em></span>
         
-      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="core-badge core-badge-coreastar">CORE-A*</span>
+          
+            <span class="presentation-type">Poster</span>
+          
+        <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="core-badge core-badge-coreastar">CORE-A*</span>
 </div>
-    <div class="periodical">
-      
-    </div>
+      <div class="periodical">
+        
+      </div>
     
 
     <!-- Links/Buttons -->
@@ -3328,27 +3562,28 @@ function revealAndCopyContact(button, text, label) {
     
     
     
-    <!-- Journal/Book title and date -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="periodical">
+      <!-- Journal/Book title and date -->
       
-      <span class="venue-abbr" style="color: #2E7D32;">TIP 2026</span><span class="venue-separator">|</span>
-        <span class="publication-venue-text"><em>IEEE Transactions on Image Processing</em></span>
-      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="sci-badge sci-badge-sciq1">SCI-Q1</span><span class="sci-badge impact-factor-badge" title="Journal Impact Factor (2025), IEEE Title List, August 2026">IF 15.3 (2025)</span>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="periodical">
+        
+        <span class="venue-abbr" style="color: #2E7D32;">TIP
+              2026</span><span class="venue-separator">|</span>
+          <span class="publication-venue-text"><em>IEEE Transactions on Image Processing</em></span>
+        <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="sci-badge sci-badge-sciq1">SCI-Q1</span><span class="sci-badge impact-factor-badge" title="Journal Impact Factor (2025), IEEE Title List, August 2026">IF 15.3 (2025)</span>
 </div>
-    <div class="periodical">
-      
-    </div>
+      <div class="periodical">
+        
+      </div>
     
 
     <!-- Links/Buttons -->
@@ -3471,27 +3706,28 @@ function revealAndCopyContact(button, text, label) {
     
     
     
-    <!-- Journal/Book title and date -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="periodical">
+      <!-- Journal/Book title and date -->
       
-      <span class="venue-abbr" style="color: #2E7D32;">TKDE 2024</span><span class="venue-separator">|</span>
-        <span class="publication-venue-text"><em>IEEE Transactions on Knowledge and Data Engineering</em></span>
-      <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="sci-badge sci-badge-sciq1">SCI-Q1</span><span class="sci-badge impact-factor-badge" title="Journal Impact Factor (2025), IEEE Title List, August 2026">IF 11.6 (2025)</span>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="periodical">
+        
+        <span class="venue-abbr" style="color: #2E7D32;">TKDE
+              2024</span><span class="venue-separator">|</span>
+          <span class="publication-venue-text"><em>IEEE Transactions on Knowledge and Data Engineering</em></span>
+        <span class="ccf-badge ccf-badge-ccfa">CCF-A</span><span class="sci-badge sci-badge-sciq1">SCI-Q1</span><span class="sci-badge impact-factor-badge" title="Journal Impact Factor (2025), IEEE Title List, August 2026">IF 11.6 (2025)</span>
 </div>
-    <div class="periodical">
-      
-    </div>
+      <div class="periodical">
+        
+      </div>
     
 
     <!-- Links/Buttons -->
@@ -3630,27 +3866,28 @@ function revealAndCopyContact(button, text, label) {
     
     
     
-    <!-- Journal/Book title and date -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="periodical periodical--review">
+      <!-- Journal/Book title and date -->
       
       
-          <span class="venue-abbr">UR 2026</span><span class="venue-separator">|</span>
-        <span class="publication-venue-text"><em>Under Review</em></span>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="periodical periodical--review">
+        
+        
+            <span class="venue-abbr">UR
+              2026</span><span class="venue-separator">|</span>
+          <span class="publication-venue-text"><em>Under Review</em></span>
+        </div>
+      <div class="periodical">
+        
       </div>
-    <div class="periodical">
-      
-    </div>
     
 
     <!-- Links/Buttons -->
@@ -3776,27 +4013,28 @@ function revealAndCopyContact(button, text, label) {
     
     
     
-    <!-- Journal/Book title and date -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="periodical periodical--review">
+      <!-- Journal/Book title and date -->
       
       
-          <span class="venue-abbr">UR 2026</span><span class="venue-separator">|</span>
-        <span class="publication-venue-text"><em>Under Review</em></span>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="periodical periodical--review">
+        
+        
+            <span class="venue-abbr">UR
+              2026</span><span class="venue-separator">|</span>
+          <span class="publication-venue-text"><em>Under Review</em></span>
+        </div>
+      <div class="periodical">
+        
       </div>
-    <div class="periodical">
-      
-    </div>
     
 
     <!-- Links/Buttons -->
@@ -3871,7 +4109,8 @@ function revealAndCopyContact(button, text, label) {
     <ul class="service-list">
       <li>
         <span class="service-role">Conference Reviewer</span>
-        <span class="service-details">ICML 2026 <span class="gold-reviewer">(Gold Reviewer)</span>, NeurIPS 2026 <span class="top-reviewer">(Top Reviewer)</span>, AAAI 2027, ICLR 2027.</span>
+        <span class="service-details">ICML 2026 <span class="gold-reviewer">(Gold Reviewer)</span>, NeurIPS 2026 <span class="top-reviewer">(Top Reviewer)</span>, AAAI 2027,
+          ICLR 2027.</span>
       </li>
       <li>
         <span class="service-role">Journal Reviewer</span>
@@ -3899,176 +4138,187 @@ function revealAndCopyContact(button, text, label) {
 </span>
 
       </summary>
-    <div class="honors-section honors-section--grouped">
-      
-      
+      <div class="honors-section honors-section--grouped">
         
         
-          <section class="honors-stage honors-stage--community" aria-labelledby="honors-community">
-            <h3 class="honors-stage-title" id="honors-community">
-              
-                <span data-language="en" lang="en">Community Recognition</span>
-                <span data-language="zh" lang="zh-CN">社区认可</span>
-              
-            </h3>
-            <div class="honors-stage-cards">
-              
-                <details class="compact-card">
-                  <summary><span class="compact-title">
-                    <span data-language="en" lang="en">ICML Gold Reviewer</span>
-                    <span data-language="zh" lang="zh-CN">ICML 金牌审稿人</span>
-                  </span><span class="year">2026</span></summary>
-                  <div class="compact-card-body">
-                    <span data-language="en" lang="en">ICML Organizing Committee</span>
-                    <span data-language="zh" lang="zh-CN">ICML 组委会</span>
-                  </div>
-                </details>
-              
-                <details class="compact-card">
-                  <summary><span class="compact-title">
-                    <span data-language="en" lang="en">NeurIPS Top Reviewer</span>
-                    <span data-language="zh" lang="zh-CN">NeurIPS Top Reviewer</span>
-                  </span><span class="year">2026</span></summary>
-                  <div class="compact-card-body">
-                    <span data-language="en" lang="en">NeurIPS Organizing Committee</span>
-                    <span data-language="zh" lang="zh-CN">NeurIPS 组委会</span>
-                  </div>
-                </details>
-              
-            </div>
-          </section>
+          
+          
+            <section class="honors-stage honors-stage--community" aria-labelledby="honors-community">
+              <h3 class="honors-stage-title" id="honors-community">
+                
+                  <span data-language="en" lang="en">Community Recognition</span>
+                  <span data-language="zh" lang="zh-CN">社区认可</span>
+                
+              </h3>
+              <div class="honors-stage-cards">
+                
+                  <details class="compact-card">
+                    <summary>
+                      <span class="compact-title">
+                        <span data-language="en" lang="en">ICML Gold Reviewer</span>
+                        <span data-language="zh" lang="zh-CN">ICML 金牌审稿人</span> </span><span class="year">2026</span>
+                    </summary>
+                    <div class="compact-card-body">
+                      <span data-language="en" lang="en">ICML Organizing Committee</span>
+                      <span data-language="zh" lang="zh-CN">ICML 组委会</span>
+                    </div>
+                  </details>
+                
+                  <details class="compact-card">
+                    <summary>
+                      <span class="compact-title">
+                        <span data-language="en" lang="en">NeurIPS Top Reviewer</span>
+                        <span data-language="zh" lang="zh-CN">NeurIPS Top Reviewer</span> </span><span class="year">2026</span>
+                    </summary>
+                    <div class="compact-card-body">
+                      <span data-language="en" lang="en">NeurIPS Organizing Committee</span>
+                      <span data-language="zh" lang="zh-CN">NeurIPS 组委会</span>
+                    </div>
+                  </details>
+                
+              </div>
+            </section>
+          
         
-      
+          
+          
+            <section class="honors-stage honors-stage--masters" aria-labelledby="honors-masters">
+              <h3 class="honors-stage-title" id="honors-masters">
+                
+                  <span data-language="en" lang="en">Master’s Studies</span>
+                  <span data-language="zh" lang="zh-CN">硕士期间</span>
+                
+              </h3>
+              <div class="honors-stage-cards">
+                
+                  <details class="compact-card">
+                    <summary>
+                      <span class="compact-title">
+                        <span data-language="en" lang="en">President’s Scholarship<br>(SEU Special Award)</span>
+                        <span data-language="zh" lang="zh-CN">校长奖学金<br>（东南大学特奖）</span> </span><span class="year">2026</span>
+                    </summary>
+                    <div class="compact-card-body">
+                      <span data-language="en" lang="en">Southeast University · 10 of ~19,500 master's students (~0.051%)</span>
+                      <span data-language="zh" lang="zh-CN">东南大学 · 计算机学院唯一硕士代表；全校约 19,500 名硕士生中仅 10 人获奖（约 0.051%）</span>
+                    </div>
+                  </details>
+                
+                  <details class="compact-card">
+                    <summary>
+                      <span class="compact-title">
+                        <span data-language="en" lang="en">Tencent-SEU Scholarship</span>
+                        <span data-language="zh" lang="zh-CN">腾讯–东南大学奖学金</span> </span><span class="year">2025</span>
+                    </summary>
+                    <div class="compact-card-body">
+                      <span data-language="en" lang="en">Tencent &amp; SEU · ¥9,000</span>
+                      <span data-language="zh" lang="zh-CN">腾讯与东南大学 · 9,000 元</span>
+                    </div>
+                  </details>
+                
+                  <details class="compact-card">
+                    <summary>
+                      <span class="compact-title">
+                        <span data-language="en" lang="en">First-Class Academic Scholarship</span>
+                        <span data-language="zh" lang="zh-CN">一等学业奖学金</span> </span><span class="year">2025</span>
+                    </summary>
+                    <div class="compact-card-body">
+                      <span data-language="en" lang="en">Southeast University · ¥12,000</span>
+                      <span data-language="zh" lang="zh-CN">东南大学 · 12,000 元</span>
+                    </div>
+                  </details>
+                
+              </div>
+            </section>
+          
         
+          
+          
+            <section class="honors-stage honors-stage--undergraduate" aria-labelledby="honors-undergraduate">
+              <h3 class="honors-stage-title" id="honors-undergraduate">
+                
+                  <span data-language="en" lang="en">Undergraduate Studies</span>
+                  <span data-language="zh" lang="zh-CN">本科期间</span>
+                
+              </h3>
+              <div class="honors-stage-cards">
+                
+                  <details class="compact-card">
+                    <summary>
+                      <span class="compact-title">
+                        <span data-language="en" lang="en">Outstanding Graduate Representative</span>
+                        <span data-language="zh" lang="zh-CN">优秀毕业生代表</span> </span><span class="year">2024</span>
+                    </summary>
+                    <div class="compact-card-body">
+                      <span data-language="en" lang="en">Shenzhen University (Graduation Speech)</span>
+                      <span data-language="zh" lang="zh-CN">深圳大学（毕业典礼发言）</span>
+                    </div>
+                  </details>
+                
+                  <details class="compact-card">
+                    <summary>
+                      <span class="compact-title">
+                        <span data-language="en" lang="en">Featured in Admissions Guide</span>
+                        <span data-language="zh" lang="zh-CN">入选招生指南</span> </span><span class="year">2024</span>
+                    </summary>
+                    <div class="compact-card-body">
+                      <span data-language="en" lang="en">Shenzhen University (as Outstanding Student)</span>
+                      <span data-language="zh" lang="zh-CN">深圳大学（优秀学生事迹）</span>
+                    </div>
+                  </details>
+                
+                  <details class="compact-card">
+                    <summary>
+                      <span class="compact-title">
+                        <span data-language="en" lang="en">Honor Bachelor Degree</span>
+                        <span data-language="zh" lang="zh-CN">荣誉学士学位</span> </span><span class="year">2024</span>
+                    </summary>
+                    <div class="compact-card-body">
+                      <span data-language="en" lang="en">Shenzhen University</span>
+                      <span data-language="zh" lang="zh-CN">深圳大学</span>
+                    </div>
+                  </details>
+                
+                  <details class="compact-card">
+                    <summary>
+                      <span class="compact-title">
+                        <span data-language="en" lang="en">Outstanding Graduate</span>
+                        <span data-language="zh" lang="zh-CN">优秀毕业生</span> </span><span class="year">2024</span>
+                    </summary>
+                    <div class="compact-card-body">
+                      <span data-language="en" lang="en">Shenzhen University</span>
+                      <span data-language="zh" lang="zh-CN">深圳大学</span>
+                    </div>
+                  </details>
+                
+                  <details class="compact-card">
+                    <summary>
+                      <span class="compact-title">
+                        <span data-language="en" lang="en">LiYuan Star<br>(SZU Special Award)</span>
+                        <span data-language="zh" lang="zh-CN">荔园之星<br>（深圳大学特等奖）</span> </span><span class="year">2022, 2023</span>
+                    </summary>
+                    <div class="compact-card-body">
+                      <span data-language="en" lang="en">Shenzhen University · ¥20,000</span>
+                      <span data-language="zh" lang="zh-CN">深圳大学 · 20,000 元</span>
+                    </div>
+                  </details>
+                
+                  <details class="compact-card">
+                    <summary>
+                      <span class="compact-title">
+                        <span data-language="en" lang="en">Scholarship of Outstanding Innovative Talent</span>
+                        <span data-language="zh" lang="zh-CN">拔尖创新人才奖学金</span> </span><span class="year">2020</span>
+                    </summary>
+                    <div class="compact-card-body">
+                      <span data-language="en" lang="en">Guangdong Science College Entrance Exam · ¥20,000</span>
+                      <span data-language="zh" lang="zh-CN">广东省高考（理科） · 20,000 元</span>
+                    </div>
+                  </details>
+                
+              </div>
+            </section>
+          
         
-          <section class="honors-stage honors-stage--masters" aria-labelledby="honors-masters">
-            <h3 class="honors-stage-title" id="honors-masters">
-              
-                <span data-language="en" lang="en">Master’s Studies</span>
-                <span data-language="zh" lang="zh-CN">硕士期间</span>
-              
-            </h3>
-            <div class="honors-stage-cards">
-              
-                <details class="compact-card">
-                  <summary><span class="compact-title">
-                    <span data-language="en" lang="en">President’s Scholarship<br>(SEU Special Award)</span>
-                    <span data-language="zh" lang="zh-CN">校长奖学金<br>（东南大学特奖）</span>
-                  </span><span class="year">2026</span></summary>
-                  <div class="compact-card-body">
-                    <span data-language="en" lang="en">Southeast University · 10 of ~19,500 master's students (~0.051%)</span>
-                    <span data-language="zh" lang="zh-CN">东南大学 · 计算机学院唯一硕士代表；全校约 19,500 名硕士生中仅 10 人获奖（约 0.051%）</span>
-                  </div>
-                </details>
-              
-                <details class="compact-card">
-                  <summary><span class="compact-title">
-                    <span data-language="en" lang="en">Tencent-SEU Scholarship</span>
-                    <span data-language="zh" lang="zh-CN">腾讯–东南大学奖学金</span>
-                  </span><span class="year">2025</span></summary>
-                  <div class="compact-card-body">
-                    <span data-language="en" lang="en">Tencent &amp; SEU · ¥9,000</span>
-                    <span data-language="zh" lang="zh-CN">腾讯与东南大学 · 9,000 元</span>
-                  </div>
-                </details>
-              
-                <details class="compact-card">
-                  <summary><span class="compact-title">
-                    <span data-language="en" lang="en">First-Class Academic Scholarship</span>
-                    <span data-language="zh" lang="zh-CN">一等学业奖学金</span>
-                  </span><span class="year">2025</span></summary>
-                  <div class="compact-card-body">
-                    <span data-language="en" lang="en">Southeast University · ¥12,000</span>
-                    <span data-language="zh" lang="zh-CN">东南大学 · 12,000 元</span>
-                  </div>
-                </details>
-              
-            </div>
-          </section>
-        
-      
-        
-        
-          <section class="honors-stage honors-stage--undergraduate" aria-labelledby="honors-undergraduate">
-            <h3 class="honors-stage-title" id="honors-undergraduate">
-              
-                <span data-language="en" lang="en">Undergraduate Studies</span>
-                <span data-language="zh" lang="zh-CN">本科期间</span>
-              
-            </h3>
-            <div class="honors-stage-cards">
-              
-                <details class="compact-card">
-                  <summary><span class="compact-title">
-                    <span data-language="en" lang="en">Outstanding Graduate Representative</span>
-                    <span data-language="zh" lang="zh-CN">优秀毕业生代表</span>
-                  </span><span class="year">2024</span></summary>
-                  <div class="compact-card-body">
-                    <span data-language="en" lang="en">Shenzhen University (Graduation Speech)</span>
-                    <span data-language="zh" lang="zh-CN">深圳大学（毕业典礼发言）</span>
-                  </div>
-                </details>
-              
-                <details class="compact-card">
-                  <summary><span class="compact-title">
-                    <span data-language="en" lang="en">Featured in Admissions Guide</span>
-                    <span data-language="zh" lang="zh-CN">入选招生指南</span>
-                  </span><span class="year">2024</span></summary>
-                  <div class="compact-card-body">
-                    <span data-language="en" lang="en">Shenzhen University (as Outstanding Student)</span>
-                    <span data-language="zh" lang="zh-CN">深圳大学（优秀学生事迹）</span>
-                  </div>
-                </details>
-              
-                <details class="compact-card">
-                  <summary><span class="compact-title">
-                    <span data-language="en" lang="en">Honor Bachelor Degree</span>
-                    <span data-language="zh" lang="zh-CN">荣誉学士学位</span>
-                  </span><span class="year">2024</span></summary>
-                  <div class="compact-card-body">
-                    <span data-language="en" lang="en">Shenzhen University</span>
-                    <span data-language="zh" lang="zh-CN">深圳大学</span>
-                  </div>
-                </details>
-              
-                <details class="compact-card">
-                  <summary><span class="compact-title">
-                    <span data-language="en" lang="en">Outstanding Graduate</span>
-                    <span data-language="zh" lang="zh-CN">优秀毕业生</span>
-                  </span><span class="year">2024</span></summary>
-                  <div class="compact-card-body">
-                    <span data-language="en" lang="en">Shenzhen University</span>
-                    <span data-language="zh" lang="zh-CN">深圳大学</span>
-                  </div>
-                </details>
-              
-                <details class="compact-card">
-                  <summary><span class="compact-title">
-                    <span data-language="en" lang="en">LiYuan Star<br>(SZU Special Award)</span>
-                    <span data-language="zh" lang="zh-CN">荔园之星<br>（深圳大学特等奖）</span>
-                  </span><span class="year">2022, 2023</span></summary>
-                  <div class="compact-card-body">
-                    <span data-language="en" lang="en">Shenzhen University · ¥20,000</span>
-                    <span data-language="zh" lang="zh-CN">深圳大学 · 20,000 元</span>
-                  </div>
-                </details>
-              
-                <details class="compact-card">
-                  <summary><span class="compact-title">
-                    <span data-language="en" lang="en">Scholarship of Outstanding Innovative Talent</span>
-                    <span data-language="zh" lang="zh-CN">拔尖创新人才奖学金</span>
-                  </span><span class="year">2020</span></summary>
-                  <div class="compact-card-body">
-                    <span data-language="en" lang="en">Guangdong Science College Entrance Exam · ¥20,000</span>
-                    <span data-language="zh" lang="zh-CN">广东省高考（理科） · 20,000 元</span>
-                  </div>
-                </details>
-              
-            </div>
-          </section>
-        
-      
-    </div>
+      </div>
     </details>
   
 
@@ -4100,27 +4350,67 @@ function revealAndCopyContact(button, text, label) {
       </span>
       <span class="section-title-chevron" aria-hidden="true"></span>
     </summary>
-  <div class="hobbies-section">
-    <p class="hobbies-intro" data-language="en" lang="en">Outside research, I enjoy exploring ideas across science, engineering, and the humanities.</p>
-    <p class="hobbies-intro" data-language="en" lang="en">I'm a <a class="doraemon-text" href="https://en.wikipedia.org/wiki/Doraemon" target="_blank" rel="noopener">Doraemon</a> fan, as the little companions in the bottom corners suggest.</p>
-    <p class="hobbies-intro" data-language="en" lang="en">I practice hard-pen calligraphy, often drawing inspiration from Zhong'an Gu.</p>
-    <p class="hobbies-intro" data-language="en" lang="en">I also enjoy visiting exhibitions.</p>
-    <p class="hobbies-intro" data-language="en" lang="en">Over a decade ago, I was an avid Chinese chess (xiangqi) player, an individual bronze medalist and a member of a championship-winning team in city-level competitions, though I'm no longer as drawn to the game. I also play table tennis and badminton.</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">科研之外，我喜欢从科学、工程和人文中寻找新的视角。</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">我很喜欢<a class="doraemon-text" href="https://zh.wikipedia.org/wiki/%E5%93%86%E5%95%A6A%E5%A4%A2" target="_blank" rel="noopener">哆啦 A 梦</a>，所以页面下方的角落里有它陪伴。</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">我练习硬笔书法，尤其欣赏顾仲安的作品。</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">我也常看展览。</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">十多年前，我很喜欢下中国象棋，曾在市级比赛中获得个人赛季军、团体赛冠军等成绩，不过已经多年没有接触了。平时我也会打乒乓球和羽毛球。</p>
+    <div class="hobbies-section">
+      <p class="hobbies-intro" data-language="en" lang="en">
+        Outside research, I enjoy exploring ideas across science, engineering, and the humanities.
+      </p>
+      <p class="hobbies-intro" data-language="en" lang="en">
+        I'm a <a class="doraemon-text" href="https://en.wikipedia.org/wiki/Doraemon" target="_blank" rel="noopener">Doraemon</a> fan, as the little
+        companions in the bottom corners suggest.
+      </p>
+      <p class="hobbies-intro" data-language="en" lang="en">I practice hard-pen calligraphy, often drawing inspiration from Zhong'an Gu.</p>
+      <p class="hobbies-intro" data-language="en" lang="en">I also enjoy visiting exhibitions.</p>
+      <p class="hobbies-intro" data-language="en" lang="en">
+        Over a decade ago, I was an avid Chinese chess (xiangqi) player, an individual bronze medalist and a member of a championship-winning team in
+        city-level competitions, though I'm no longer as drawn to the game. I also play table tennis and badminton.
+      </p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">科研之外，我喜欢从科学、工程和人文中寻找新的视角。</p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">
+        我很喜欢<a class="doraemon-text" href="https://zh.wikipedia.org/wiki/%E5%93%86%E5%95%A6A%E5%A4%A2" target="_blank" rel="noopener">哆啦 A 梦</a>，所以页面下方的角落里有它陪伴。
+      </p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">我练习硬笔书法，尤其欣赏顾仲安的作品。</p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">我也常看展览。</p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">
+        十多年前，我很喜欢下中国象棋，曾在市级比赛中获得个人赛季军、团体赛冠军等成绩，不过已经多年没有接触了。平时我也会打乒乓球和羽毛球。
+      </p>
 
-    <p class="hobbies-intro" data-language="en" lang="en">Music is another way I unwind. <span class="song-bilingual"><em>Gareth.T</em> (<span class="song-artist-cjk" lang="zh-CN">汤令山</span>)</span>'s <span class="song-bilingual"><a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a> (<span class="song-title-cjk" lang="zh-CN">国际孤独等级</span>)</span> is a particular favorite, and I also enjoy <span class="song-bilingual"><em>Eason Chan</em> (<span class="song-artist-cjk" lang="zh-CN">陈奕迅</span>)</span>'s <span class="song-bilingual"><a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a> (<span class="song-title-cjk" lang="zh-CN">任我行</span>)</span> and <span class="song-bilingual"><em>Crowd Lu</em> (<span class="song-artist-cjk" lang="zh-CN">卢广仲</span>)</span>'s <span class="song-bilingual"><a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a> (<span class="song-title-cjk" lang="zh-CN">几分之几</span>)</span>.</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">音乐也是我放松的一种方式。我尤其喜欢<span class="song-bilingual">Gareth.T（汤令山）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《国际孤独等级》</span>（<a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a>）</span>，也常听<span class="song-bilingual">Eason Chan（陈奕迅）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《任我行》</span>（<a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a>）</span>和<span class="song-bilingual">Crowd Lu（卢广仲）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《几分之几》</span>（<a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a>）</span>。</p>
+      <p class="hobbies-intro" data-language="en" lang="en">
+        Music is another way I unwind.
+        <span class="song-bilingual"><em>Gareth.T</em> (<span class="song-artist-cjk" lang="zh-CN">汤令山</span>)</span>'s
+        <span class="song-bilingual"><a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a>
+          (<span class="song-title-cjk" lang="zh-CN">国际孤独等级</span>)</span>
+        is a particular favorite, and I also enjoy
+        <span class="song-bilingual"><em>Eason Chan</em> (<span class="song-artist-cjk" lang="zh-CN">陈奕迅</span>)</span>'s
+        <span class="song-bilingual"><a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a> (<span class="song-title-cjk" lang="zh-CN">任我行</span>)</span>
+        and <span class="song-bilingual"><em>Crowd Lu</em> (<span class="song-artist-cjk" lang="zh-CN">卢广仲</span>)</span>'s
+        <span class="song-bilingual"><a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a> (<span class="song-title-cjk" lang="zh-CN">几分之几</span>)</span>.
+      </p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">
+        音乐也是我放松的一种方式。我尤其喜欢<span class="song-bilingual">Gareth.T（汤令山）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《国际孤独等级》</span>（<a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a>）</span>，也常听<span class="song-bilingual">Eason Chan（陈奕迅）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《任我行》</span>（<a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a>）</span>和<span class="song-bilingual">Crowd Lu（卢广仲）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《几分之几》</span>（<a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a>）</span>。
+      </p>
 
-    <p class="hobbies-intro" data-language="en" lang="en">Over the past couple of years, I have also grown to love traveling, especially hiking and coastal landscapes. The mountains and coast of <a href="https://en.wikipedia.org/wiki/California" target="_blank" rel="noopener">California</a>, along with the coastline of <a href="https://en.wikipedia.org/wiki/Okinawa_Prefecture" target="_blank" rel="noopener">Okinawa</a>, have been especially memorable. <a href="https://en.wikipedia.org/wiki/Shenzhen" target="_blank" rel="noopener">Shenzhen</a> and <a href="https://en.wikipedia.org/wiki/Hong_Kong" target="_blank" rel="noopener">Hong Kong</a>, two cities where I have lived for many years, are also wonderful places for hiking and spending time by the sea.</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">近一两年，我也逐渐喜欢上旅行，尤其是徒步和山海风光。<a href="https://zh.wikipedia.org/wiki/%E5%8A%A0%E5%88%A9%E7%A6%8F%E5%B0%BC%E4%BA%9A%E5%B7%9E" target="_blank" rel="noopener">加州</a>的山海和<a href="https://zh.wikipedia.org/wiki/%E5%86%B2%E7%BB%B3%E5%8E%BF" target="_blank" rel="noopener">冲绳</a>的海景尤其令我印象深刻。<a href="https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%9C%B3%E5%B8%82" target="_blank" rel="noopener">深圳</a>和<a href="https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF" target="_blank" rel="noopener">香港</a>这两座我居住了很久的城市，也很适合徒步和看海。</p>
+      <p class="hobbies-intro" data-language="en" lang="en">
+        Over the past couple of years, I have also grown to love traveling, especially hiking and coastal landscapes. The mountains and coast of
+        <a href="https://en.wikipedia.org/wiki/California" target="_blank" rel="noopener">California</a>, along with the coastline of
+        <a href="https://en.wikipedia.org/wiki/Okinawa_Prefecture" target="_blank" rel="noopener">Okinawa</a>, have been especially memorable.
+        <a href="https://en.wikipedia.org/wiki/Shenzhen" target="_blank" rel="noopener">Shenzhen</a> and
+        <a href="https://en.wikipedia.org/wiki/Hong_Kong" target="_blank" rel="noopener">Hong Kong</a>, two cities where I have lived for many years,
+        are also wonderful places for hiking and spending time by the sea.
+      </p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">
+        近一两年，我也逐渐喜欢上旅行，尤其是徒步和山海风光。<a href="https://zh.wikipedia.org/wiki/%E5%8A%A0%E5%88%A9%E7%A6%8F%E5%B0%BC%E4%BA%9A%E5%B7%9E" target="_blank" rel="noopener">加州</a>的山海和<a href="https://zh.wikipedia.org/wiki/%E5%86%B2%E7%BB%B3%E5%8E%BF" target="_blank" rel="noopener">冲绳</a>的海景尤其令我印象深刻。<a href="https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%9C%B3%E5%B8%82" target="_blank" rel="noopener">深圳</a>和<a href="https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF" target="_blank" rel="noopener">香港</a>这两座我居住了很久的城市，也很适合徒步和看海。
+      </p>
 
-    <p class="hobbies-intro" data-language="en" lang="en">Based on our long history of conversations, GPT, Gemini, and Doubao all characterize me as an <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>, although these conversations have primarily been work-related and may introduce some bias. I share it as a reference for potential collaborators.</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">基于长期聊天记录，GPT、Gemini 和豆包均判断我是 <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>，但这些对话主要围绕工作，可能带来一定偏差。分享于此，供未来的合作者参考。</p>
-  </div>
+      <p class="hobbies-intro" data-language="en" lang="en">
+        Based on our long history of conversations, GPT, Gemini, and Doubao all characterize me as an
+        <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>, although these conversations have
+        primarily been work-related and may introduce some bias. I share it as a reference for potential collaborators.
+      </p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">
+        基于长期聊天记录，GPT、Gemini 和豆包均判断我是
+        <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>，但这些对话主要围绕工作，可能带来一定偏差。分享于此，供未来的合作者参考。
+      </p>
+    </div>
   </details>
 
   <!-- Blog -->
@@ -4153,7 +4443,11 @@ function revealAndCopyContact(button, text, label) {
   <a href="https://github.com/Xiaofeng-Tan" title="GitHub" rel="external nofollow noopener" target="_blank"><i class="fa-brands fa-github"></i></a>
 
 
-  <a href="https://www.alphaxiv.org/@xiaofeng-tan" title="AlphaXiv" rel="external nofollow noopener" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 718.41 504.47" width="1em" height="1em" fill="currentColor" aria-hidden="true"><polygon fill="currentColor" points="591.15 258.54 718.41 385.73 663.72 440.28 536.57 313.62 591.15 258.54"></polygon><path fill="currentColor" d="M273.86.3c34.56-2.41,67.66,9.73,92.51,33.54l94.64,94.63-55.11,54.55-96.76-96.55c-16.02-12.7-37.67-12.1-53.19,1.11L54.62,288.82,0,234.23,204.76,29.57C223.12,13.31,249.27,2.02,273.86.3Z"></path><path fill="currentColor" d="M663.79,1.29l54.62,54.58-418.11,417.9c-114.43,95.94-263.57-53.49-167.05-167.52l160.46-160.33,54.62,54.58-157.88,157.77c-33.17,40.32,18.93,91.41,58.66,57.48L663.79,1.29Z"></path></svg></a>
+  <a href="https://www.alphaxiv.org/@xiaofeng-tan" title="AlphaXiv" rel="external nofollow noopener" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 718.41 504.47" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+      <polygon fill="currentColor" points="591.15 258.54 718.41 385.73 663.72 440.28 536.57 313.62 591.15 258.54"></polygon><path fill="currentColor" d="M273.86.3c34.56-2.41,67.66,9.73,92.51,33.54l94.64,94.63-55.11,54.55-96.76-96.55c-16.02-12.7-37.67-12.1-53.19,1.11L54.62,288.82,0,234.23,204.76,29.57C223.12,13.31,249.27,2.02,273.86.3Z"></path><path fill="currentColor" d="M663.79,1.29l54.62,54.58-418.11,417.9c-114.43,95.94-263.57-53.49-167.05-167.52l160.46-160.33,54.62,54.58-157.88,157.77c-33.17,40.32,18.93,91.41,58.66,57.48L663.79,1.29Z"></path>
+    </svg>
+  </a>
 
 
 
@@ -4194,7 +4488,7 @@ function revealAndCopyContact(button, text, label) {
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <span>Last updated: <time datetime="2026-10-26T04:23:34+00:00">October 26, 2026</time></span>
+    <span>Last updated: <time datetime="2026-10-27T13:14:23+00:00">October 27, 2026</time></span>
   </div>
 </article>
 
@@ -4203,24 +4497,21 @@ function revealAndCopyContact(button, text, label) {
 <div id="mascot-container">
   <!-- 哆啦A梦（精灵图走路动画版） -->
   <div id="doraemon" class="mascot active"></div>
-  
+
   <!-- Tom & Jerry -->
   <div id="tomjerry" class="mascot">
     <img src="https://4.bp.blogspot.com/-HjOu-dGh2P4/UAv31SSQYQI/AAAAAAAAA3g/a9flM74pDqQ/s1600/Tom-and-jerry-psd57584.png" alt="Tom &amp; Jerry">
   </div>
-  
+
   <!-- 对话气泡 -->
   <div id="mascot-bubble" class="mascot-bubble"></div>
   <!-- 操作提示 -->
   <div class="mascot-hint">Click: talk · Double-click: switch</div>
 </div>
 
-
-
-
 <!-- About-page custom scripts: mascot, scroll-spy subnav, education/research toggles, oneko (disabled) -->
-<script src="/assets/js/disclosure.js?f5d669b9a68fdf13c42f7c94a731abd4" defer></script>
-<script src="/assets/js/custom.js?64840f106768d8faa19bae0126c1b950" defer></script>
+<script src="/assets/js/disclosure.js?4520eca9c9cc5dd82c94c5fff351cd78" defer></script>
+<script src="/assets/js/custom.js?338a7dcb31b5e91434eee7cc40eb170b" defer></script>
 
 <!-- Build: 2025-12-12 -->
 
@@ -4239,7 +4530,7 @@ function revealAndCopyContact(button, text, label) {
       <span class="translation-disclaimer" data-language="zh" lang="zh-CN">注：中文内容由机器翻译生成，仅供参考，准确性不作保证。</span>
       
       
-        Last updated: October 26, 2026.
+        Last updated: October 27, 2026.
       
     </div>
   </footer>
@@ -4291,8 +4582,8 @@ function revealAndCopyContact(button, text, label) {
 
 <!-- Load Common JS -->
 <script src="/assets/js/no_defer.js?2781658a0a2b13ed609542042a859126"></script>
-<script defer src="/assets/js/common.js?2960aabd3d131b7a1ca60578bda5a4c0"></script>
-<script defer src="/assets/js/github-stars.js?4ee6ed60e01c003737dbb18240642313"></script>
+<script defer src="/assets/js/common.js?cbcffbb108da4cff51639a95dd7670ae"></script>
+<script defer src="/assets/js/github-stars.js?412b293ee4d4df8c8898d43b0e27c8cc"></script>
 <script defer src="/assets/js/copy_code.js?12775fdf7f95e901d7119054556e495f" type="text/javascript"></script>
 
 <!-- Jupyter Open External Links New Tab -->
@@ -4427,7 +4718,7 @@ function revealAndCopyContact(button, text, label) {
 
     <script src="/assets/js/language.js?ca079e09432deece61844d1c8c5cc859"></script>
     
-      <script src="/assets/js/mobile-disclosure.js?0ae175d8dd71a0d0b82f5eb71983dc41"></script>
+      <script src="/assets/js/mobile-disclosure.js?6fa95a2464e08f956962c35a0b10b51d"></script>
     
   </body>
 </html>
