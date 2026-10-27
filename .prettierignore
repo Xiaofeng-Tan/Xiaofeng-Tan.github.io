@@ -9,3 +9,9 @@ assets/plotly/demo.html
 _posts/2015-10-20-math.md
 _sass/font-awesome/*.scss
 _sass/tabler-icons/*.scss
+# Liquid front matter inside JavaScript, which Prettier cannot parse
+assets/js/language.js
+# Hand-written project page with mismatched tags that Prettier cannot parse
+projects/ConsistentRFT/index.html
+# Starts with a blank line before its front matter, so Jekyll does not render it
+_news/announcement_3.md

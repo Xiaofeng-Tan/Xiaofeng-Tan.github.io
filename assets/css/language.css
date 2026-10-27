@@ -75,34 +75,35 @@
 }
 
 /* Chinese mode uses Songti site-wide, with a slightly tighter CJK rhythm. */
-html[lang="zh-CN"] :is(
-  body,
-  #navbar,
-  .post,
-  .post-header,
-  .section-title,
-  .timeline-section,
-  .logo-text-group,
-  .detail-card,
-  .detail-title,
-  .detail-title-meta,
-  .detail-tag,
-  .publications,
-  .publications .title,
-  .publications .author,
-  .publications .periodical,
-  .pub-category__summary,
-  .compact-card,
-  .honors-section,
-  .teaching-section,
-  .service-section,
-  .hobbies-section,
-  .social,
-  .page-last-updated,
-  footer,
-  .cv-container,
-  .intro-language-toggle
-) {
+html[lang="zh-CN"]
+  :is(
+    body,
+    #navbar,
+    .post,
+    .post-header,
+    .section-title,
+    .timeline-section,
+    .logo-text-group,
+    .detail-card,
+    .detail-title,
+    .detail-title-meta,
+    .detail-tag,
+    .publications,
+    .publications .title,
+    .publications .author,
+    .publications .periodical,
+    .pub-category__summary,
+    .compact-card,
+    .honors-section,
+    .teaching-section,
+    .service-section,
+    .hobbies-section,
+    .social,
+    .page-last-updated,
+    footer,
+    .cv-container,
+    .intro-language-toggle
+  ) {
   font-family: var(--site-songti), "Crimson Pro", "Source Serif 4", Georgia, "Times New Roman", serif;
   letter-spacing: 0;
 }
@@ -113,19 +114,20 @@ html[lang="zh-CN"] footer :is(p, li, span) {
   letter-spacing: 0;
 }
 
-html[lang="zh-CN"] :is(
-  .publications .title,
-  .publications .author,
-  .publications .periodical,
-  .detail-title,
-  .detail-title-meta,
-  .detail-tag,
-  .timeline-expand-hint,
-  .logo-role,
-  .logo-year,
-  .logo-label,
-  .logo-lab-at
-) {
+html[lang="zh-CN"]
+  :is(
+    .publications .title,
+    .publications .author,
+    .publications .periodical,
+    .detail-title,
+    .detail-title-meta,
+    .detail-tag,
+    .timeline-expand-hint,
+    .logo-role,
+    .logo-year,
+    .logo-label,
+    .logo-lab-at
+  ) {
   line-height: 1.38;
   letter-spacing: 0;
 }
@@ -135,10 +137,18 @@ html[lang="zh-CN"] :is(.post-title .chinese-name, .chinese-handwriting) {
   font-family: "Gu Xingshu", "Long Cang", cursive;
 }
 
-[data-language="zh"] { display: none; }
-html[lang="zh-CN"] [data-language="en"] { display: none; }
-html[lang="zh-CN"] [data-language="zh"] { display: block; }
-html[lang="zh-CN"] span[data-language="zh"] { display: inline; }
+[data-language="zh"] {
+  display: none;
+}
+html[lang="zh-CN"] [data-language="en"] {
+  display: none;
+}
+html[lang="zh-CN"] [data-language="zh"] {
+  display: block;
+}
+html[lang="zh-CN"] span[data-language="zh"] {
+  display: inline;
+}
 
 #navbar .language-toggle {
   flex-shrink: 0;
@@ -176,8 +186,12 @@ html[lang="zh-CN"] span[data-language="zh"] { display: inline; }
   font-style: normal;
 }
 
-article > .clearfix > [data-language] > p { margin-bottom: 0.5rem; }
-article > .clearfix > [data-language] > .interest-card { margin: 0.5rem 0; }
+article > .clearfix > [data-language] > p {
+  margin-bottom: 0.5rem;
+}
+article > .clearfix > [data-language] > .interest-card {
+  margin: 0.5rem 0;
+}
 
 .intro-language-switch {
   margin: 0.18rem 0 0.7rem;
@@ -190,14 +204,21 @@ article > .clearfix > [data-language] > .interest-card { margin: 0.5rem 0; }
   padding: 0;
   background: transparent;
   color: var(--text-soft, #7f8c8d);
-  font: 500 0.76rem/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font:
+    500 0.76rem/1.4 -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   letter-spacing: 0;
   cursor: pointer;
-  transition: color 160ms ease, border-color 160ms ease;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease;
 }
 
 .intro-language-toggle::after {
-  content: ' ↗';
+  content: " ↗";
   margin-left: 0.18rem;
   opacity: 0.6;
 }

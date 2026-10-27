@@ -11,7 +11,9 @@
     if (localStorage.getItem('site-language') === 'zh') {
       document.documentElement.lang = 'zh-CN';
     }
-  } catch (error) { /* Storage may be disabled; English remains the default. */ }
+  } catch (error) {
+    /* Storage may be disabled; English remains the default. */
+  }
 </script>
 <script>
   /* Set the initial theme before stylesheets paint, following the system unless
@@ -25,7 +27,9 @@
     var initialTheme = savedTheme === 'dark' || (savedTheme === 'system' && systemDark) ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme-setting', savedTheme);
     document.documentElement.setAttribute('data-theme', initialTheme);
-  } catch (error) { /* The theme.js fallback will initialize the page. */ }
+  } catch (error) {
+    /* The theme.js fallback will initialize the page. */
+  }
 </script>
 <!-- Bootstrap & MDB -->
 <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url | bust_file_cache }}">

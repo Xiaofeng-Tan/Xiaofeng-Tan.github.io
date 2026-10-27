@@ -18,7 +18,7 @@
             </div>
             <span class="research-period">{{ research.period }}</span>
           </div>
-          
+
           {% if research.lab or research.coauthors or research.coauthor_links %}
             <div class="research-info">
               {% if research.lab %}
@@ -37,7 +37,14 @@
                 <span class="research-coauthors">
                   <strong>Co-Authors:</strong>
                   {% if research.coauthor_links %}
-                    {% for person in research.coauthor_links %}{% if person.url %}<a href="{{ person.url }}" target="_blank">{{ person.name }}</a>{% else %}{{ person.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
+                    {% for person in research.coauthor_links -%}
+                      {%- if person.url -%}
+                        <a href="{{ person.url }}" target="_blank">{{ person.name }}</a>
+                      {%- else -%}
+                        {{- person.name -}}
+                      {%- endif -%}
+                      {%- unless forloop.last %}, {% endunless -%}
+                    {%- endfor %}
                   {% else %}
                     {{ research.coauthors }}
                   {% endif %}

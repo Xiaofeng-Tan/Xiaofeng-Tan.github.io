@@ -13,19 +13,21 @@ body {
 }
 
 @keyframes backgroundShiftLight {
-  0%, 100% { 
+  0%,
+  100% {
     background: linear-gradient(135deg, #ffffff 0%, #fefefe 50%, #ffffff 100%);
   }
-  50% { 
+  50% {
     background: linear-gradient(135deg, #fefefe 0%, #ffffff 50%, #fefefe 100%);
   }
 }
 
 @keyframes backgroundShiftDark {
-  0%, 100% { 
+  0%,
+  100% {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
   }
-  50% { 
+  50% {
     background: linear-gradient(135deg, #16213e 0%, #1a1a2e 50%, #16213e 100%);
   }
 }
@@ -33,7 +35,7 @@ body {
 // Floating decoration elements
 body::before,
 body::after {
-  content: '';
+  content: "";
   position: fixed;
   border-radius: 50%;
   opacity: 0.25;
@@ -60,13 +62,23 @@ body::after {
 }
 
 @keyframes floatBubble1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-50px, 50px) scale(1.1); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-50px, 50px) scale(1.1);
+  }
 }
 
 @keyframes floatBubble2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(50px, -50px) scale(1.15); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(50px, -50px) scale(1.15);
+  }
 }
 
 .post {
@@ -87,7 +99,7 @@ article > .clearfix .interest-card {
 }
 
 article > .clearfix a {
-  color: #00A1E9;
+  color: #00a1e9;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
@@ -116,8 +128,13 @@ article > .clearfix a {
 }
 
 @keyframes float {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(-30px, -30px) rotate(180deg); }
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-30px, -30px) rotate(180deg);
+  }
 }
 
 .post-title {
@@ -142,7 +159,7 @@ article > .clearfix a {
   line-height: 1.5;
 
   a {
-    color: #00A1E9;
+    color: #00a1e9;
     text-decoration: none;
     transition: color 0.3s ease;
 
@@ -176,7 +193,7 @@ article > .clearfix a {
 
     &:hover {
       transform: translateY(-1px);
-      color: #00A1E9;
+      color: #00a1e9;
       border-color: rgba(0, 161, 233, 0.3);
       background: rgba(0, 161, 233, 0.05);
     }
@@ -201,14 +218,14 @@ article > .clearfix a {
   letter-spacing: 0.02em;
 
   &:hover {
-    color: #00A1E9;
+    color: #00a1e9;
   }
 
   &::before {
-    content: '';
+    content: "";
     width: 3px;
     height: 1.1rem;
-    background: linear-gradient(135deg, #00A1E9 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #00a1e9 0%, #764ba2 100%);
     margin-right: 0.6rem;
     border-radius: 2px;
     position: absolute;
@@ -243,7 +260,7 @@ article > .clearfix a {
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -302,7 +319,7 @@ article > .clearfix a {
   transition: color 0.3s ease;
 
   .education-item:hover & {
-    color: #00A1E9;
+    color: #00a1e9;
   }
 }
 
@@ -318,7 +335,7 @@ article > .clearfix a {
 
 .education-year {
   font-size: 0.72rem;
-  color: #00A1E9;
+  color: #00a1e9;
   font-weight: 600;
   background: rgba(0, 161, 233, 0.1);
   padding: 0.15rem 0.5rem;
@@ -342,13 +359,13 @@ article > .clearfix a {
 }
 
 // ========== Import other partial files ==========
-@import 'about-research';
-@import 'about-news';
-@import 'about-publications';
-@import 'about-honors';
-@import 'about-teaching';
-@import 'about-hobbies';
-@import 'about-contact';
-@import 'about-responsive';
-@import 'about-dark-mode';
-@import 'about-characters';
+@import "about-research";
+@import "about-news";
+@import "about-publications";
+@import "about-honors";
+@import "about-teaching";
+@import "about-hobbies";
+@import "about-contact";
+@import "about-responsive";
+@import "about-dark-mode";
+@import "about-characters";

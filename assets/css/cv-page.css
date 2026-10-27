@@ -46,44 +46,47 @@ html[data-theme="dark"] body.cv-page {
 }
 
 body.cv-page,
-body.cv-page :is(
-  #navbar,
-  #navbar .nav-link,
-  #navbar .language-toggle,
-  .post,
-  .post-header,
-  .post-title,
-  .cv-container,
-  .cv-container p,
-  .cv-container a,
-  .cv-container button,
-  .cv-container h2,
-  .cv-container strong,
-  .cv-container small,
-  footer,
-  footer .container
-) {
+body.cv-page
+  :is(
+    #navbar,
+    #navbar .nav-link,
+    #navbar .language-toggle,
+    .post,
+    .post-header,
+    .post-title,
+    .cv-container,
+    .cv-container p,
+    .cv-container a,
+    .cv-container button,
+    .cv-container h2,
+    .cv-container strong,
+    .cv-container small,
+    footer,
+    footer .container
+  ) {
   font-family: var(--cv-font);
 }
 
 html[lang="zh-CN"] body.cv-page,
-html[lang="zh-CN"] body.cv-page :is(
-  #navbar,
-  #navbar .nav-link,
-  #navbar .language-toggle,
-  .post,
-  .post-header,
-  .post-title,
-  .cv-container,
-  .cv-container p,
-  .cv-container a,
-  .cv-container button,
-  .cv-container h2,
-  .cv-container strong,
-  .cv-container small,
-  footer,
-  footer .container
-) {
+html[lang="zh-CN"]
+  body.cv-page
+  :is(
+    #navbar,
+    #navbar .nav-link,
+    #navbar .language-toggle,
+    .post,
+    .post-header,
+    .post-title,
+    .cv-container,
+    .cv-container p,
+    .cv-container a,
+    .cv-container button,
+    .cv-container h2,
+    .cv-container strong,
+    .cv-container small,
+    footer,
+    footer .container
+  ) {
   font-family: var(--cv-font) !important;
 }
 
@@ -120,12 +123,7 @@ body.cv-page .post-title {
 
 body.cv-page .post-title::after {
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    var(--cv-primary) 0%,
-    color-mix(in srgb, var(--cv-primary) 32%, transparent) 72%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg, var(--cv-primary) 0%, color-mix(in srgb, var(--cv-primary) 32%, transparent) 72%, transparent 100%);
 }
 
 body.cv-page .cv-container {

@@ -4,225 +4,237 @@
 // ============================================================================
 
 // ========== Block 1: Education / Research detail toggles ==========
-    const TIMELINE_TRANSITION_MS = 420;
+const TIMELINE_TRANSITION_MS = 420;
 
-    function prefersReducedMotion() {
-      return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    }
+function prefersReducedMotion() {
+  return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
 
-    // Move the detail card under the visual row that contains the clicked logo.
-    // This avoids a first-row click expanding below later wrapped rows.
-    function placeDetailAfterLogoRow(detail, clickedItem, logoItems) {
-      const logoRow = clickedItem.closest('.logo-row');
-      if (!logoRow) return;
+// Move the detail card under the visual row that contains the clicked logo.
+// This avoids a first-row click expanding below later wrapped rows.
+function placeDetailAfterLogoRow(detail, clickedItem, logoItems) {
+  const logoRow = clickedItem.closest(".logo-row");
+  if (!logoRow) return;
 
-      const clickedTop = clickedItem.offsetTop;
-      const sameRowItems = Array.from(logoItems).filter((item) => Math.abs(item.offsetTop - clickedTop) < 3);
-      const lastItemInRow = sameRowItems[sameRowItems.length - 1] || clickedItem;
+  const clickedTop = clickedItem.offsetTop;
+  const sameRowItems = Array.from(logoItems).filter((item) => Math.abs(item.offsetTop - clickedTop) < 3);
+  const lastItemInRow = sameRowItems[sameRowItems.length - 1] || clickedItem;
 
-      lastItemInRow.insertAdjacentElement('afterend', detail);
-    }
+  lastItemInRow.insertAdjacentElement("afterend", detail);
+}
 
-    function restoreDetailAfterCollapse(detail, section) {
-      if (prefersReducedMotion()) {
-        if (!detail.classList.contains('active') && detail.parentElement !== section) section.appendChild(detail);
-        return;
-      }
+function restoreDetailAfterCollapse(detail, section) {
+  if (prefersReducedMotion()) {
+    if (!detail.classList.contains("active") && detail.parentElement !== section) section.appendChild(detail);
+    return;
+  }
 
-      let settled = false;
-      const restore = () => {
-        if (settled) return;
-        settled = true;
-        detail.removeEventListener('transitionend', onTransitionEnd);
-        if (!detail.classList.contains('active') && detail.parentElement !== section) section.appendChild(detail);
-      };
-      const onTransitionEnd = (event) => {
-        if (event.target === detail && event.propertyName === 'grid-template-rows') restore();
-      };
+  let settled = false;
+  const restore = () => {
+    if (settled) return;
+    settled = true;
+    detail.removeEventListener("transitionend", onTransitionEnd);
+    if (!detail.classList.contains("active") && detail.parentElement !== section) section.appendChild(detail);
+  };
+  const onTransitionEnd = (event) => {
+    if (event.target === detail && event.propertyName === "grid-template-rows") restore();
+  };
 
-      detail.addEventListener('transitionend', onTransitionEnd);
-      window.setTimeout(restore, TIMELINE_TRANSITION_MS + 80);
-    }
+  detail.addEventListener("transitionend", onTransitionEnd);
+  window.setTimeout(restore, TIMELINE_TRANSITION_MS + 80);
+}
 
-    function toggleTimelineDetail(kind, index) {
-      const detail = document.getElementById(kind + '-detail-' + index);
-      if (!detail) return;
+function toggleTimelineDetail(kind, index) {
+  const detail = document.getElementById(kind + "-detail-" + index);
+  if (!detail) return;
 
-      const section = detail.closest('.timeline-section');
-      if (!section) return;
+  const section = detail.closest(".timeline-section");
+  if (!section) return;
 
-      const logoItems = section.querySelectorAll('.logo-item');
-      const clickedItem = section.querySelector('.logo-item[data-index="' + index + '"]');
-      if (!clickedItem) return;
+  const logoItems = section.querySelectorAll(".logo-item");
+  const clickedItem = section.querySelector('.logo-item[data-index="' + index + '"]');
+  if (!clickedItem) return;
 
-      const wasActive = detail.classList.contains('active');
-      const activeDetails = Array.from(section.querySelectorAll('.detail-card.active'));
+  const wasActive = detail.classList.contains("active");
+  const activeDetails = Array.from(section.querySelectorAll(".detail-card.active"));
 
-      activeDetails.forEach((card) => {
-        card.classList.remove('active');
-        restoreDetailAfterCollapse(card, section);
-      });
-      logoItems.forEach((item) => {
-        item.classList.remove('active');
-        item.setAttribute('aria-expanded', 'false');
-      });
+  activeDetails.forEach((card) => {
+    card.classList.remove("active");
+    restoreDetailAfterCollapse(card, section);
+  });
+  logoItems.forEach((item) => {
+    item.classList.remove("active");
+    item.setAttribute("aria-expanded", "false");
+  });
 
-      if (wasActive) return;
+  if (wasActive) return;
 
-      placeDetailAfterLogoRow(detail, clickedItem, logoItems);
-      clickedItem.classList.add('active');
-      clickedItem.setAttribute('aria-expanded', 'true');
+  placeDetailAfterLogoRow(detail, clickedItem, logoItems);
+  clickedItem.classList.add("active");
+  clickedItem.setAttribute("aria-expanded", "true");
 
-      // Two frames ensure the collapsed state is committed before expansion,
-      // avoiding the occasional one-frame "pop" on Safari and Chromium.
-      window.requestAnimationFrame(() => {
-        window.requestAnimationFrame(() => {
-          if (clickedItem.getAttribute('aria-expanded') === 'true') detail.classList.add('active');
-        });
-      });
-    }
-
-    // Toggle education detail
-    function toggleEducationDetail(index) {
-      toggleTimelineDetail('education', index);
-    }
-
-    // Toggle research detail
-    function toggleResearchDetail(index) {
-      toggleTimelineDetail('research', index);
-    }
-
-    document.querySelectorAll('.logo-item[role="button"]').forEach((item) => {
-      item.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          item.click();
-        }
-      });
+  // Two frames ensure the collapsed state is committed before expansion,
+  // avoiding the occasional one-frame "pop" on Safari and Chromium.
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      if (clickedItem.getAttribute("aria-expanded") === "true") detail.classList.add("active");
     });
+  });
+}
+
+// Toggle education detail
+function toggleEducationDetail(index) {
+  toggleTimelineDetail("education", index);
+}
+
+// Toggle research detail
+function toggleResearchDetail(index) {
+  toggleTimelineDetail("research", index);
+}
+
+document.querySelectorAll('.logo-item[role="button"]').forEach((item) => {
+  item.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      item.click();
+    }
+  });
+});
 
 // Keep a collapse action beside the expanded content, not just at its top.
 (function () {
   function makeCollapseButton(onClick) {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'content-collapse-button';
-    [['en', 'en', 'Click to collapse'], ['zh', 'zh-CN', '点击收起']].forEach(([language, lang, text]) => {
-      const label = document.createElement('span');
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "content-collapse-button";
+    [
+      ["en", "en", "Click to collapse"],
+      ["zh", "zh-CN", "点击收起"],
+    ].forEach(([language, lang, text]) => {
+      const label = document.createElement("span");
       label.dataset.language = language;
       label.lang = lang;
       label.textContent = text;
       button.appendChild(label);
     });
-    button.addEventListener('click', onClick);
+    button.addEventListener("click", onClick);
     return button;
   }
 
-  document.querySelectorAll('details.compact-card, details.pub-category, details.misc-section, details.honors-disclosure, details.publication-overview-group, details.research-summary-section').forEach(details => {
-    if (details.classList.contains('compact-card')) return;
-    if (details.classList.contains('pub-category')) return;
-    if (details.closest('.honors-section')) return;
-    const summary = details.querySelector(':scope > summary');
-    const body = Array.from(details.children).find(child => child !== summary);
-    if (!summary || !body) return;
-    // A text-link disclosure already provides its own collapse action.
-    if (summary.querySelector('.pub-category__hint-collapse')) return;
-    const actions = document.createElement('div');
-    actions.className = 'content-disclosure-actions';
-    actions.appendChild(makeCollapseButton(() => {
-      if (details.open) summary.click();
-      summary.focus({ preventScroll: true });
-    }));
-    body.appendChild(actions);
-  });
-
+  document
+    .querySelectorAll(
+      "details.compact-card, details.pub-category, details.misc-section, details.honors-disclosure, details.publication-overview-group, details.research-summary-section"
+    )
+    .forEach((details) => {
+      if (details.classList.contains("compact-card")) return;
+      if (details.classList.contains("pub-category")) return;
+      if (details.closest(".honors-section")) return;
+      const summary = details.querySelector(":scope > summary");
+      const body = Array.from(details.children).find((child) => child !== summary);
+      if (!summary || !body) return;
+      // A text-link disclosure already provides its own collapse action.
+      if (summary.querySelector(".pub-category__hint-collapse")) return;
+      const actions = document.createElement("div");
+      actions.className = "content-disclosure-actions";
+      actions.appendChild(
+        makeCollapseButton(() => {
+          if (details.open) summary.click();
+          summary.focus({ preventScroll: true });
+        })
+      );
+      body.appendChild(actions);
+    });
 })();
 
 // ========== Block 1b: Smooth native <details> expansion ==========
 (function () {
-  const selector = 'details.compact-card, details.pub-category, details.misc-section, details.honors-disclosure, details.publication-overview-group, details.research-summary-section';
-  document.querySelectorAll(selector).forEach(details => window.SiteDisclosure.enhanceDetails(details));
+  const selector =
+    "details.compact-card, details.pub-category, details.misc-section, details.honors-disclosure, details.publication-overview-group, details.research-summary-section";
+  document.querySelectorAll(selector).forEach((details) => window.SiteDisclosure.enhanceDetails(details));
 })();
 
 // ========== Topic filters ==========
 // Topic filtering changes only visibility, preserving paper order and handlers.
 (function () {
-  const toolbar = document.getElementById('publication-filters');
-  const results = document.getElementById('publication-results');
-  const status = document.getElementById('publication-filter-status');
+  const toolbar = document.getElementById("publication-filters");
+  const results = document.getElementById("publication-results");
+  const status = document.getElementById("publication-filter-status");
   if (!toolbar || !results) return;
 
-  const select = toolbar.querySelector('#publication-topic-select');
+  const select = toolbar.querySelector("#publication-topic-select");
   if (!select) return;
-  const currentLabel = toolbar.querySelector('#publication-filter-current');
-  const currentCount = toolbar.querySelector('#publication-filter-count');
+  const currentLabel = toolbar.querySelector("#publication-filter-current");
+  const currentCount = toolbar.querySelector("#publication-filter-count");
   const options = Array.from(select.options);
-  const papers = Array.from(results.querySelectorAll('[data-paper-key]')).map(row => ({
-    key: row.dataset.paperKey,
-    topics: (row.dataset.paperTopics || '').split(/\s+/).filter(Boolean),
-    item: row.closest('li'),
-  })).filter(paper => paper.item);
-  const groups = Array.from(results.querySelectorAll('details.pub-category'));
-  let activeTopic = 'all';
+  const papers = Array.from(results.querySelectorAll("[data-paper-key]"))
+    .map((row) => ({
+      key: row.dataset.paperKey,
+      topics: (row.dataset.paperTopics || "").split(/\s+/).filter(Boolean),
+      item: row.closest("li"),
+    }))
+    .filter((paper) => paper.item);
+  const groups = Array.from(results.querySelectorAll("details.pub-category"));
+  let activeTopic = "all";
   let savedOpenStates = null;
 
-  const matches = (paper, topic) => topic === 'all' || paper.topics.includes(topic);
-  const count = topic => new Set(papers.filter(paper => matches(paper, topic)).map(paper => paper.key)).size;
+  const matches = (paper, topic) => topic === "all" || paper.topics.includes(topic);
+  const count = (topic) => new Set(papers.filter((paper) => matches(paper, topic)).map((paper) => paper.key)).size;
 
   function updateFilterDisplay() {
-    const selected = options.find(option => option.value === activeTopic);
-    const chinese = document.documentElement.lang === 'zh-CN';
-    const label = selected ? selected.dataset[chinese ? 'labelZh' : 'labelEn'] : activeTopic;
+    const selected = options.find((option) => option.value === activeTopic);
+    const chinese = document.documentElement.lang === "zh-CN";
+    const label = selected ? selected.dataset[chinese ? "labelZh" : "labelEn"] : activeTopic;
     if (currentLabel) currentLabel.textContent = label;
     if (currentCount) currentCount.textContent = count(activeTopic);
   }
 
   function announce() {
     if (!status) return;
-    const selected = options.find(option => option.value === activeTopic);
-    const chinese = document.documentElement.lang === 'zh-CN';
-    const label = selected ? selected.dataset[chinese ? 'labelZh' : 'labelEn'] : activeTopic;
-    status.textContent = chinese ? `${label}：显示 ${count(activeTopic)} 篇论文` :
-      `${label}: showing ${count(activeTopic)} papers`;
+    const selected = options.find((option) => option.value === activeTopic);
+    const chinese = document.documentElement.lang === "zh-CN";
+    const label = selected ? selected.dataset[chinese ? "labelZh" : "labelEn"] : activeTopic;
+    status.textContent = chinese ? `${label}：显示 ${count(activeTopic)} 篇论文` : `${label}: showing ${count(activeTopic)} papers`;
   }
 
   function updateOptions() {
-    const chinese = document.documentElement.lang === 'zh-CN';
-    options.forEach(option => {
-      const label = option.dataset[chinese ? 'labelZh' : 'labelEn'];
+    const chinese = document.documentElement.lang === "zh-CN";
+    options.forEach((option) => {
+      const label = option.dataset[chinese ? "labelZh" : "labelEn"];
       option.textContent = `${label} (${count(option.value)})`;
     });
-    select.setAttribute('aria-label', chinese ? '按主题筛选论文' : 'Filter publications by topic');
+    select.setAttribute("aria-label", chinese ? "按主题筛选论文" : "Filter publications by topic");
     updateFilterDisplay();
   }
 
   function filter(topic) {
     // Settle any in-progress disclosure animation before measuring new content.
     window.SiteDisclosure.settle();
-    if (activeTopic === 'all' && topic !== 'all') {
-      savedOpenStates = new Map(groups.map(group => [group, group.open]));
+    if (activeTopic === "all" && topic !== "all") {
+      savedOpenStates = new Map(groups.map((group) => [group, group.open]));
     }
     activeTopic = topic;
-    papers.forEach(paper => { paper.item.hidden = !matches(paper, topic); });
-    groups.forEach(group => {
-      const hasMatches = papers.some(paper => group.contains(paper.item) && !paper.item.hidden);
+    papers.forEach((paper) => {
+      paper.item.hidden = !matches(paper, topic);
+    });
+    groups.forEach((group) => {
+      const hasMatches = papers.some((paper) => group.contains(paper.item) && !paper.item.hidden);
       group.hidden = !hasMatches;
-      if (topic === 'all') {
+      if (topic === "all") {
         if (savedOpenStates) group.open = savedOpenStates.get(group);
       } else if (hasMatches) {
         group.open = true;
       }
     });
-    if (topic === 'all') savedOpenStates = null;
+    if (topic === "all") savedOpenStates = null;
     select.value = topic;
-    toolbar.classList.toggle('is-filtered', topic !== 'all');
+    toolbar.classList.toggle("is-filtered", topic !== "all");
     updateFilterDisplay();
     results.scrollTop = 0;
     announce();
   }
 
-  select.addEventListener('change', () => filter(select.value));
-  document.addEventListener('site-language-changed', () => {
+  select.addEventListener("change", () => filter(select.value));
+  document.addEventListener("site-language-changed", () => {
     updateOptions();
     announce();
   });
@@ -231,140 +243,162 @@
 })();
 
 // ========== Block 2: Mascot (Doraemon / Tom & Jerry) ==========
-(function() {
-  const container = document.getElementById('mascot-container');
-  const bubble = document.getElementById('mascot-bubble');
-  const mascots = document.querySelectorAll('.mascot');
-  const mascotOrder = ['doraemon', 'tomjerry'];
-  
+(function () {
+  const container = document.getElementById("mascot-container");
+  const bubble = document.getElementById("mascot-bubble");
+  const mascots = document.querySelectorAll(".mascot");
+  const mascotOrder = ["doraemon", "tomjerry"];
+
   // ========== 状态管理 ==========
-  let currentMascot = 'doraemon';
+  let currentMascot = "doraemon";
   let currentMascotIndex = 0;
-  let isSwitching = false;  // 防止切换过程中重复触发
-  let bubbleTimer = null;   // 气泡隐藏定时器
-  
+  let isSwitching = false; // 防止切换过程中重复触发
+  let bubbleTimer = null; // 气泡隐藏定时器
+
   // ========== 各角色对话内容 ==========
   const messages = {
     doraemon: [
-      '铜锣烧真好吃！🥞', 'Dorayaki is the best! 🥞',
-      '大雄！快起床！⏰', 'Nobita! Wake up! ⏰',
-      '让我从口袋里找找...🎒', 'Let me check my pocket... 🎒',
-      '任意门！🚪', 'Anywhere Door! 🚪',
-      '竹蜻蜓启动！🚁', 'Take-copter, go! 🚁',
-      '时光机出发！⏳', 'Time Machine, depart! ⏳',
-      '缩小灯！🔦', 'Small Light! 🔦',
-      '记忆面包来了！🍞', 'Memory Bread here! 🍞',
-      '翻译魔芋～', 'Translation Konjac~',
-      '别提老鼠！我耳朵都没了😱', 'Don\'t mention mice! 😱',
-      'I\'m a robot cat from the future! 🤖', '22世纪的机器猫来了！🤖'
+      "铜锣烧真好吃！🥞",
+      "Dorayaki is the best! 🥞",
+      "大雄！快起床！⏰",
+      "Nobita! Wake up! ⏰",
+      "让我从口袋里找找...🎒",
+      "Let me check my pocket... 🎒",
+      "任意门！🚪",
+      "Anywhere Door! 🚪",
+      "竹蜻蜓启动！🚁",
+      "Take-copter, go! 🚁",
+      "时光机出发！⏳",
+      "Time Machine, depart! ⏳",
+      "缩小灯！🔦",
+      "Small Light! 🔦",
+      "记忆面包来了！🍞",
+      "Memory Bread here! 🍞",
+      "翻译魔芋～",
+      "Translation Konjac~",
+      "别提老鼠！我耳朵都没了😱",
+      "Don't mention mice! 😱",
+      "I'm a robot cat from the future! 🤖",
+      "22世纪的机器猫来了！🤖",
     ],
     tomjerry: [
-      '等等我Jerry！🏃', 'Wait for me, Jerry! 🏃',
-      '你追不到我～🐭', 'You can\'t catch me~ 🐭',
-      '奶酪在哪里？🧀', 'Where\'s the cheese? 🧀',
-      '又被平底锅打了！🍳', 'Got hit by the pan again! 🍳',
-      '这次一定抓住你！', 'I\'ll catch you this time!',
-      '陷阱准备好了！', 'The trap is ready!',
-      '今天休战吧～', 'Let\'s call a truce today~',
-      '我们是最好的冤家！💫', 'We\'re the best frenemies! 💫',
-      '小心后面！⚠️', 'Watch your back! ⚠️',
-      '又是追逐的一天！', 'Another day of chase!',
-      'Classic never gets old! 🎬', '经典永不过时！🎬'
-    ]
+      "等等我Jerry！🏃",
+      "Wait for me, Jerry! 🏃",
+      "你追不到我～🐭",
+      "You can't catch me~ 🐭",
+      "奶酪在哪里？🧀",
+      "Where's the cheese? 🧀",
+      "又被平底锅打了！🍳",
+      "Got hit by the pan again! 🍳",
+      "这次一定抓住你！",
+      "I'll catch you this time!",
+      "陷阱准备好了！",
+      "The trap is ready!",
+      "今天休战吧～",
+      "Let's call a truce today~",
+      "我们是最好的冤家！💫",
+      "We're the best frenemies! 💫",
+      "小心后面！⚠️",
+      "Watch your back! ⚠️",
+      "又是追逐的一天！",
+      "Another day of chase!",
+      "Classic never gets old! 🎬",
+      "经典永不过时！🎬",
+    ],
   };
-  
+
   // ========== 气泡颜色配置 ==========
   const bubbleColors = {
-    doraemon: { border: '#0DACD6', lightBg: '#f0fafb', darkBg: '#1a2529' },
-    tomjerry: { border: '#FF8C00', lightBg: '#fff5e6', darkBg: '#2a2415' }
+    doraemon: { border: "#0DACD6", lightBg: "#f0fafb", darkBg: "#1a2529" },
+    tomjerry: { border: "#FF8C00", lightBg: "#fff5e6", darkBg: "#2a2415" },
   };
-  
+
   // 更新气泡颜色
   function updateBubbleColor(mascotName) {
-    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    const isDarkMode = document.documentElement.getAttribute("data-theme") === "dark";
     const colors = bubbleColors[mascotName] || bubbleColors.doraemon;
     bubble.style.borderColor = colors.border;
-    bubble.style.setProperty('--bubble-border-color', colors.border);
-    bubble.style.setProperty('--bubble-bg-color', isDarkMode ? colors.darkBg : colors.lightBg);
+    bubble.style.setProperty("--bubble-border-color", colors.border);
+    bubble.style.setProperty("--bubble-bg-color", isDarkMode ? colors.darkBg : colors.lightBg);
   }
-  
+
   // ========== 核心切换逻辑 ==========
   function switchMascot(targetName) {
     // 防止重复切换或切换到当前角色
     if (isSwitching || currentMascot === targetName) return;
     isSwitching = true;
-    
+
     const oldMascot = document.getElementById(currentMascot);
     const newMascot = document.getElementById(targetName);
     const oldName = currentMascot;
-    
+
     // 立即更新状态（防止自动切换定时器干扰）
     currentMascot = targetName;
     currentMascotIndex = mascotOrder.indexOf(targetName);
-    
+
     // 隐藏当前气泡
     hideBubble();
-    
+
     // 哆啦A梦特殊离场动画
-    if (oldName === 'doraemon' && oldMascot) {
+    if (oldName === "doraemon" && oldMascot) {
       // 显示离场对话
-      bubble.textContent = '铜锣烧！😍 どら焼き！😍 Dorayaki! 😍';
-      bubble.classList.add('show', 'exit-animation');
-      
+      bubble.textContent = "铜锣烧！😍 どら焼き！😍 Dorayaki! 😍";
+      bubble.classList.add("show", "exit-animation");
+
       // 启动离场动画
-      oldMascot.classList.remove('active');
-      oldMascot.style.display = 'block';
-      oldMascot.style.opacity = '1';
-      oldMascot.classList.add('exit-animation');
-      
+      oldMascot.classList.remove("active");
+      oldMascot.style.display = "block";
+      oldMascot.style.opacity = "1";
+      oldMascot.classList.add("exit-animation");
+
       // 使用 requestAnimationFrame 让对话框跟随哆啦A梦
       let exitAnimationId = null;
       const startTime = performance.now();
       const duration = 6000; // 6秒动画（与 CSS 动画时间一致）
-      
+
       function updateBubblePosition(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
+
         // 获取哆啦A梦当前的 transform 位置
         const doraemonRect = oldMascot.getBoundingClientRect();
         const containerRect = container.getBoundingClientRect();
-        
+
         // 计算哆啦A梦相对于容器的中心位置
         const doraemonCenterX = doraemonRect.left + doraemonRect.width / 2 - containerRect.left;
-        
+
         // 更新气泡位置，使其跟随哆啦A梦
-        bubble.style.left = doraemonCenterX + 'px';
-        
+        bubble.style.left = doraemonCenterX + "px";
+
         // 保持透明度不变
-        
+
         if (progress < 1) {
           exitAnimationId = requestAnimationFrame(updateBubblePosition);
         }
       }
-      
+
       exitAnimationId = requestAnimationFrame(updateBubblePosition);
-      
+
       // 6秒后清理并显示新角色（与动画时间一致）
       setTimeout(() => {
         // 停止动画
         if (exitAnimationId) {
           cancelAnimationFrame(exitAnimationId);
         }
-        
+
         // 清理旧角色
-        oldMascot.classList.remove('exit-animation');
-        oldMascot.style.display = '';
-        oldMascot.style.opacity = '';
-        
+        oldMascot.classList.remove("exit-animation");
+        oldMascot.style.display = "";
+        oldMascot.style.opacity = "";
+
         // 清理气泡
-        bubble.classList.remove('show', 'exit-animation');
-        bubble.style.left = '';
-        bubble.style.opacity = '';
-        
+        bubble.classList.remove("show", "exit-animation");
+        bubble.style.left = "";
+        bubble.style.opacity = "";
+
         // 显示新角色
         if (newMascot) {
-          newMascot.classList.add('active');
+          newMascot.classList.add("active");
         }
         updateBubbleColor(targetName);
         isSwitching = false;
@@ -372,159 +406,159 @@
     } else {
       // 其他角色：快速淡出淡入
       if (oldMascot) {
-        oldMascot.classList.add('fade-out');
-        oldMascot.classList.remove('active');
+        oldMascot.classList.add("fade-out");
+        oldMascot.classList.remove("active");
       }
-      
+
       // 450ms 后显示新角色
       setTimeout(() => {
         if (oldMascot) {
-          oldMascot.classList.remove('fade-out');
+          oldMascot.classList.remove("fade-out");
         }
         if (newMascot) {
-          newMascot.classList.add('active');
+          newMascot.classList.add("active");
         }
         updateBubbleColor(targetName);
         isSwitching = false;
       }, 450);
     }
   }
-  
+
   // 切换到下一个角色
   function switchToNextMascot() {
     if (isSwitching) return;
     const nextIndex = (currentMascotIndex + 1) % mascotOrder.length;
     switchMascot(mascotOrder[nextIndex]);
   }
-  
+
   // ========== 角色动画 ==========
   function playAnimation() {
     const mascot = document.getElementById(currentMascot);
     if (!mascot) return;
-    
+
     switch (currentMascot) {
-      case 'doraemon':
-        mascot.classList.add('jumping');
-        setTimeout(() => mascot.classList.remove('jumping'), 400);
+      case "doraemon":
+        mascot.classList.add("jumping");
+        setTimeout(() => mascot.classList.remove("jumping"), 400);
         break;
-      case 'tomjerry':
-        mascot.classList.add('chasing');
-        setTimeout(() => mascot.classList.remove('chasing'), 500);
+      case "tomjerry":
+        mascot.classList.add("chasing");
+        setTimeout(() => mascot.classList.remove("chasing"), 500);
         break;
     }
   }
-  
+
   // ========== 气泡控制 ==========
   function getRandomMessage() {
     const msgs = messages[currentMascot];
     return msgs[Math.floor(Math.random() * msgs.length)];
   }
-  
+
   function showBubble(customMessage) {
     if (bubbleTimer) clearTimeout(bubbleTimer);
     bubble.textContent = customMessage || getRandomMessage();
-    bubble.classList.add('show');
+    bubble.classList.add("show");
     bubbleTimer = setTimeout(hideBubble, 2500);
   }
-  
+
   function hideBubble() {
     if (bubbleTimer) {
       clearTimeout(bubbleTimer);
       bubbleTimer = null;
     }
-    bubble.classList.remove('show');
+    bubble.classList.remove("show");
   }
-  
+
   // ========== 拖拽功能 ==========
   let isDragging = false;
   let dragStartX, dragStartY;
   let containerStartX, containerStartY;
   let hasMoved = false;
-  
+
   function getContainerPosition() {
     const rect = container.getBoundingClientRect();
     return { x: rect.left, y: rect.top };
   }
-  
+
   function onDragStart(e) {
     isDragging = true;
     hasMoved = false;
-    container.classList.add('dragging');
-    
-    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-    const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
-    
+    container.classList.add("dragging");
+
+    const clientX = e.type.includes("touch") ? e.touches[0].clientX : e.clientX;
+    const clientY = e.type.includes("touch") ? e.touches[0].clientY : e.clientY;
+
     dragStartX = clientX;
     dragStartY = clientY;
-    
+
     const pos = getContainerPosition();
     containerStartX = pos.x;
     containerStartY = pos.y;
-    
+
     e.preventDefault();
   }
-  
+
   function onDragMove(e) {
     if (!isDragging) return;
-    
-    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-    const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
-    
+
+    const clientX = e.type.includes("touch") ? e.touches[0].clientX : e.clientX;
+    const clientY = e.type.includes("touch") ? e.touches[0].clientY : e.clientY;
+
     const deltaX = clientX - dragStartX;
     const deltaY = clientY - dragStartY;
-    
+
     if (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5) {
       hasMoved = true;
     }
-    
+
     const newX = containerStartX + deltaX;
     const newY = containerStartY + deltaY;
     const maxX = window.innerWidth - container.offsetWidth;
     const maxY = window.innerHeight - container.offsetHeight;
-    
-    container.style.left = Math.max(0, Math.min(newX, maxX)) + 'px';
-    container.style.top = Math.max(0, Math.min(newY, maxY)) + 'px';
-    container.style.right = 'auto';
-    container.style.bottom = 'auto';
+
+    container.style.left = Math.max(0, Math.min(newX, maxX)) + "px";
+    container.style.top = Math.max(0, Math.min(newY, maxY)) + "px";
+    container.style.right = "auto";
+    container.style.bottom = "auto";
   }
-  
+
   function onDragEnd() {
     if (!isDragging) return;
     isDragging = false;
-    container.classList.remove('dragging');
+    container.classList.remove("dragging");
   }
-  
-  container.addEventListener('mousedown', onDragStart);
-  document.addEventListener('mousemove', onDragMove);
-  document.addEventListener('mouseup', onDragEnd);
-  container.addEventListener('touchstart', onDragStart, { passive: false });
-  document.addEventListener('touchmove', onDragMove, { passive: false });
-  document.addEventListener('touchend', onDragEnd);
-  
+
+  container.addEventListener("mousedown", onDragStart);
+  document.addEventListener("mousemove", onDragMove);
+  document.addEventListener("mouseup", onDragEnd);
+  container.addEventListener("touchstart", onDragStart, { passive: false });
+  document.addEventListener("touchmove", onDragMove, { passive: false });
+  document.addEventListener("touchend", onDragEnd);
+
   // ========== 统一的点击/双击检测 ==========
   let clickCount = 0;
   let clickTimer = null;
   const DOUBLE_CLICK_DELAY = 300;
-  
+
   function handleSingleClick() {
     if (isSwitching) return;
     playAnimation();
     showBubble();
   }
-  
+
   function handleDoubleClick() {
     if (isSwitching) return;
     switchToNextMascot();
   }
-  
+
   function handleClick(e) {
     if (hasMoved) {
       hasMoved = false;
       return;
     }
-    
+
     clickCount++;
-    
+
     if (clickCount === 1) {
       clickTimer = setTimeout(() => {
         clickCount = 0;
@@ -536,44 +570,46 @@
       handleDoubleClick();
     }
   }
-  
+
   // 桌面端使用 click，移动端使用 touchend
-  const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  
+  const isMobile = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
   if (isMobile) {
-    container.addEventListener('touchend', function(e) {
-      if (!isDragging) {
-        e.preventDefault();
-        handleClick(e);
-      }
-    }, { passive: false });
+    container.addEventListener(
+      "touchend",
+      function (e) {
+        if (!isDragging) {
+          e.preventDefault();
+          handleClick(e);
+        }
+      },
+      { passive: false }
+    );
   } else {
-    container.addEventListener('click', handleClick);
+    container.addEventListener("click", handleClick);
   }
-  
+
   // ========== 自动行为 ==========
   // 随机自动对话
   setInterval(() => {
-    if (Math.random() > 0.85 && !bubble.classList.contains('show') && !isSwitching) {
+    if (Math.random() > 0.85 && !bubble.classList.contains("show") && !isSwitching) {
       showBubble();
     }
   }, 15000);
-  
+
   // 自动切换角色已禁用（只保留双击手动切换）
-  
+
   // 初始化气泡颜色
   updateBubbleColor(currentMascot);
-  
 })();
 
 // ========== Block 3: oneko.js (currently disabled) ==========
 (function oneko() {
   // 已禁用 - 如需启用请删除下面的 return 语句
   return;
-  
+
   const isReducedMotion =
-    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
   if (isReducedMotion) return;
 
   const nekoEl = document.createElement("div");
@@ -653,7 +689,7 @@
   function init() {
     // 使用 GitHub raw 链接加载精灵图
     let nekoFile = "https://raw.githubusercontent.com/adryd325/oneko.js/main/oneko.gif";
-    
+
     // 从 localStorage 恢复位置状态
     if (persistPosition) {
       let storedNeko = JSON.parse(window.localStorage.getItem("oneko"));
@@ -669,7 +705,7 @@
         nekoEl.style.backgroundPosition = storedNeko.bgPos;
       }
     }
-    
+
     nekoEl.id = "oneko";
     nekoEl.ariaHidden = true;
     nekoEl.style.width = "32px";
@@ -742,11 +778,7 @@
     idleTime += 1;
 
     // every ~ 20 seconds
-    if (
-      idleTime > 10 &&
-      Math.floor(Math.random() * 200) == 0 &&
-      idleAnimation == null
-    ) {
+    if (idleTime > 10 && Math.floor(Math.random() * 200) == 0 && idleAnimation == null) {
       let avalibleIdleAnimations = ["sleeping", "scratchSelf"];
       if (nekoPosX < 32) {
         avalibleIdleAnimations.push("scratchWallW");
@@ -760,10 +792,7 @@
       if (nekoPosY > window.innerHeight - 32) {
         avalibleIdleAnimations.push("scratchWallS");
       }
-      idleAnimation =
-        avalibleIdleAnimations[
-          Math.floor(Math.random() * avalibleIdleAnimations.length)
-        ];
+      idleAnimation = avalibleIdleAnimations[Math.floor(Math.random() * avalibleIdleAnimations.length)];
     }
 
     switch (idleAnimation) {
@@ -837,22 +866,22 @@
 })();
 
 // ========== Block 4: Primary navbar section links (scroll spy) ==========
-(function() {
-  const navbar = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('#navbar .section-nav-link');
+(function () {
+  const navbar = document.getElementById("navbar");
+  const navLinks = document.querySelectorAll("#navbar .section-nav-link");
   if (!navbar || !navLinks.length) return;
 
-  const sectionIds = Array.from(navLinks).map(link => link.getAttribute('data-section'));
-  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+  const sectionIds = Array.from(navLinks).map((link) => link.getAttribute("data-section"));
+  const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
 
   // Smooth scroll on click
-  navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
       e.preventDefault();
-      const targetId = this.getAttribute('data-section');
+      const targetId = this.getAttribute("data-section");
       const target = document.getElementById(targetId);
       if (target) {
-        target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+        target.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth", block: "start" });
       }
     });
   });
@@ -864,33 +893,33 @@
     const offset = navHeight + 20;
 
     // Scroll spy: highlight active section
-    let currentSection = '';
-    sections.forEach(section => {
+    let currentSection = "";
+    sections.forEach((section) => {
       if (section.offsetTop - offset <= scrollY) {
         currentSection = section.id;
       }
     });
 
-    navLinks.forEach(link => {
-      const active = link.getAttribute('data-section') === currentSection;
-      const newlyActive = active && !link.classList.contains('active');
-      link.classList.toggle('active', active);
-      if (active) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
+    navLinks.forEach((link) => {
+      const active = link.getAttribute("data-section") === currentSection;
+      const newlyActive = active && !link.classList.contains("active");
+      link.classList.toggle("active", active);
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
       if (newlyActive) {
         // On narrow screens, keep the active link visible within the
         // horizontally scrollable primary navbar.
-        if (window.matchMedia && window.matchMedia('(max-width: 767.98px)').matches) {
+        if (window.matchMedia && window.matchMedia("(max-width: 767.98px)").matches) {
           link.scrollIntoView({
-            block: 'nearest',
-            inline: 'center',
-            behavior: prefersReducedMotion() ? 'auto' : 'smooth'
+            block: "nearest",
+            inline: "center",
+            behavior: prefersReducedMotion() ? "auto" : "smooth",
           });
         }
       }
     });
   }
 
-  window.addEventListener('scroll', updateNav, { passive: true });
+  window.addEventListener("scroll", updateNav, { passive: true });
   updateNav();
 })();

@@ -1,21 +1,25 @@
 ---
 layout: default
 ---
-
 <!-- 引入学术风格衬线字体 + 手写字体 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Long+Cang&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
-
+<link
+  href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Long+Cang&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&display=swap"
+  rel="stylesheet"
+>
 
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">
       {% if site.title == 'blank' %}
-        <strong><span>{{ site.first_name }}</span></strong>
+        <strong
+          ><span>{{ site.first_name }}</span></strong
+        >
         <span>TAN</span>
       {% else %}
-        {{ site.first_name }} {{ site.last_name }}
+        {{ site.first_name }}
+        {{ site.last_name }}
       {% endif %}
       {% if site.Chinese_name %}
         <span class="name-separator">·</span>
@@ -28,11 +32,11 @@ layout: default
       <span class="personal-motto__text">不要紧，山野都有雾灯</span>
       <span class="personal-motto__source">
         <span class="personal-motto__source-dash" aria-hidden="true">——</span>
-        <a class="personal-motto__song" href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a><span class="personal-motto__chinese">（任我行）</span>
+        <a class="personal-motto__song" href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a
+        ><span class="personal-motto__chinese">（任我行）</span>
       </span>
     </div>
 
-    
     <!-- 社交图标 -->
     <div class="social-icons-header">
       {% if site.email %}
@@ -47,7 +51,9 @@ layout: default
       {% endif %}
       {% if site.alphaxiv_username %}
         <a href="https://www.alphaxiv.org/@{{ site.alphaxiv_username }}" title="AlphaXiv" target="_blank">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.41 504.47" width="1em" height="1em" fill="currentColor" aria-hidden="true"><polygon fill="currentColor" points="591.15 258.54 718.41 385.73 663.72 440.28 536.57 313.62 591.15 258.54"></polygon><path fill="currentColor" d="M273.86.3c34.56-2.41,67.66,9.73,92.51,33.54l94.64,94.63-55.11,54.55-96.76-96.55c-16.02-12.7-37.67-12.1-53.19,1.11L54.62,288.82,0,234.23,204.76,29.57C223.12,13.31,249.27,2.02,273.86.3Z"></path><path fill="currentColor" d="M663.79,1.29l54.62,54.58-418.11,417.9c-114.43,95.94-263.57-53.49-167.05-167.52l160.46-160.33,54.62,54.58-157.88,157.77c-33.17,40.32,18.93,91.41,58.66,57.48L663.79,1.29Z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.41 504.47" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+            <polygon fill="currentColor" points="591.15 258.54 718.41 385.73 663.72 440.28 536.57 313.62 591.15 258.54"></polygon><path fill="currentColor" d="M273.86.3c34.56-2.41,67.66,9.73,92.51,33.54l94.64,94.63-55.11,54.55-96.76-96.55c-16.02-12.7-37.67-12.1-53.19,1.11L54.62,288.82,0,234.23,204.76,29.57C223.12,13.31,249.27,2.02,273.86.3Z"></path><path fill="currentColor" d="M663.79,1.29l54.62,54.58-418.11,417.9c-114.43,95.94-263.57-53.49-167.05-167.52l160.46-160.33,54.62,54.58-157.88,157.77c-33.17,40.32,18.93,91.41,58.66,57.48L663.79,1.29Z"></path>
+          </svg>
         </a>
       {% endif %}
       {% if site.scholar_userid %}
@@ -123,7 +129,15 @@ layout: default
     <!-- Logo Row -->
     <div class="logo-row">
       {% for education in site.data.education %}
-        <div class="logo-item" role="button" tabindex="0" aria-expanded="false" aria-controls="education-detail-{{ forloop.index }}" onclick="toggleEducationDetail('{{ forloop.index }}')" data-index="{{ forloop.index }}">
+        <div
+          class="logo-item"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="education-detail-{{ forloop.index }}"
+          onclick="toggleEducationDetail('{{ forloop.index }}')"
+          data-index="{{ forloop.index }}"
+        >
           <img src="{{ education.logo }}" alt="{{ education.school }}" class="timeline-logo">
           <div class="logo-text-group">
             <span class="logo-label">{{ education.school }}</span>
@@ -147,8 +161,17 @@ layout: default
                 <h3 class="detail-title">{{ education.school }}</h3>
                 {% if education.college or education.location %}
                   <div class="detail-title-meta detail-title-meta--education">
-                    {% if education.college %}<span class="education-college" title="{{ education.college | escape }}">{{ education.college_short | default: education.college }}</span>{% endif %}
-                    {% if education.location %}<span class="education-location">{{ education.flag | default: "📍" }} {{ education.location }}</span>{% endif %}
+                    {% if education.college -%}
+                      <span class="education-college" title="{{ education.college | escape }}">
+                        {{- education.college_short | default: education.college -}}
+                      </span>
+                    {%- endif %}
+                    {% if education.location -%}
+                      <span class="education-location">
+                        {{- education.flag | default: '📍' }}
+                        {{ education.location -}}
+                      </span>
+                    {%- endif %}
                   </div>
                 {% endif %}
               </div>
@@ -168,7 +191,9 @@ layout: default
                           <span class="education-ranking-name">CSRankings (China, 2016–2026)</span>
                           <span class="education-ranking-value">
                             {% for ranking in education.csrankings %}
-                              {{ ranking.label }} {{ ranking.rank }}{% unless forloop.last %} · {% endunless -%}
+                              {{ ranking.label }}
+                              {{ ranking.rank -}}
+                              {%- unless forloop.last %} · {% endunless -%}
                             {% endfor %}
                           </span>
                         </span>
@@ -184,7 +209,10 @@ layout: default
                       {% if education.classification %}
                         <span class="education-ranking-entry education-ranking-classification">
                           {% if education.classification.first.url %}
-                            {% for c in education.classification %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.label }}</a>{% unless forloop.last %} &middot; {% endunless %}{% endfor %}
+                            {% for c in education.classification -%}
+                              <a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.label }}</a>
+                              {%- unless forloop.last %} &middot; {% endunless -%}
+                            {%- endfor %}
                           {% else %}
                             {{ education.classification }}
                           {% endif %}
@@ -197,7 +225,9 @@ layout: default
               {% if education.intro %}
                 <div class="detail-field detail-field--wide">
                   <span class="detail-field-label">Note</span>
-                  <span class="detail-field-value detail-intro-text"><em>{{ education.intro }}</em></span>
+                  <span class="detail-field-value detail-intro-text"
+                    ><em>{{ education.intro }}</em></span
+                  >
                 </div>
               {% endif %}
             </div>
@@ -217,14 +247,27 @@ layout: default
     <!-- Logo Row -->
     <div class="logo-row logo-row--research">
       {% for research in site.data.research %}
-        <div class="logo-item" role="button" tabindex="0" aria-expanded="false" aria-controls="research-detail-{{ forloop.index }}" onclick="toggleResearchDetail('{{ forloop.index }}')" data-index="{{ forloop.index }}">
+        <div
+          class="logo-item"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="research-detail-{{ forloop.index }}"
+          onclick="toggleResearchDetail('{{ forloop.index }}')"
+          data-index="{{ forloop.index }}"
+        >
           <img src="{{ research.logo }}" alt="{{ research.institution }}" class="timeline-logo">
           <div class="logo-text-group">
             <span class="logo-lab-at">{{ research.lab_at | default: research.abbr | default: research.institution }}</span>
             <span class="logo-role">{{ research.role }}</span>
             <span class="logo-meta-row">
               <span class="logo-year">{{ research.period }}</span>
-              {% if research.location %}<span class="logo-location">{{ research.flag | default: "📍" }} {{ research.location }}</span>{% endif %}
+              {% if research.location -%}
+                <span class="logo-location">
+                  {{- research.flag | default: '📍' }}
+                  {{ research.location -}}
+                </span>
+              {%- endif %}
             </span>
           </div>
         </div>
@@ -244,9 +287,18 @@ layout: default
                 <h3 class="detail-title">{{ research.institution }}</h3>
                 {% if research.lab_at or research.location %}
                   <div class="detail-title-meta">
-                    {% if research.lab_at %}<span>{{ research.lab_at }}</span>{% endif %}
-                    {% if research.lab_at and research.location %}<span class="detail-title-sep">·</span>{% endif %}
-                    {% if research.location %}<span>{{ research.flag | default: "📍" }} {{ research.location }}</span>{% endif %}
+                    {% if research.lab_at -%}
+                      <span>{{ research.lab_at }}</span>
+                    {%- endif %}
+                    {% if research.lab_at and research.location -%}
+                      <span class="detail-title-sep">·</span>
+                    {%- endif %}
+                    {% if research.location -%}
+                      <span>
+                        {{- research.flag | default: '📍' }}
+                        {{ research.location -}}
+                      </span>
+                    {%- endif %}
                   </div>
                 {% endif %}
               </div>
@@ -261,17 +313,21 @@ layout: default
                   <span class="detail-field-label">Lab</span>
                   <span class="detail-field-value">
                     {% assign lab = research.lab %}
-                    {% if lab.url and lab.url != "" %}
-                      {% assign lab_parts = lab.name | split: "（" %}
+                    {% if lab.url and lab.url != '' %}
+                      {% assign lab_parts = lab.name | split: '（' %}
                       {% if lab_parts.size > 1 %}
-                        <a href="{{ lab.url }}" target="_blank">{{ lab_parts[0] }}<span class="chinese-handwriting">（{{ lab_parts[1] }}</span></a>
+                        <a href="{{ lab.url }}" target="_blank">
+                          {{- lab_parts[0] -}}
+                          <span class="chinese-handwriting">（{{ lab_parts[1] }}</span></a
+                        >
                       {% else %}
                         <a href="{{ lab.url }}" target="_blank">{{ lab.name }}</a>
                       {% endif %}
                     {% elsif lab.name %}
-                      {% assign lab_parts = lab.name | split: "（" %}
+                      {% assign lab_parts = lab.name | split: '（' %}
                       {% if lab_parts.size > 1 %}
-                        {{ lab_parts[0] }}<span class="chinese-handwriting">（{{ lab_parts[1] }}</span>
+                        {{ lab_parts[0] -}}
+                        <span class="chinese-handwriting">（{{ lab_parts[1] }}</span>
                       {% else %}
                         {{ lab.name }}
                       {% endif %}
@@ -282,17 +338,29 @@ layout: default
                 </div>
               {% endif %}
 
-              {% if research.coauthor_links or research.co-authors %}
+              {% if research.coauthor_links or research['co-authors'] %}
                 <div class="detail-field detail-field--wide">
                   <span class="detail-field-label">Co-authors</span>
                   <span class="detail-field-value detail-field-value--coauthors">
                     {% if research.coauthor_links %}
                       {% for person in research.coauthor_links %}
-                        <span class="coauthor-name">{% if person.url and person.url != "" %}<a href="{{ person.url }}" target="_blank">{{ person.name }}</a>{% else %}{{ person.name }}{% endif %}</span>{% unless forloop.last %}<span class="coauthor-separator" aria-hidden="true">,</span>{% endunless %}
+                        <span class="coauthor-name">
+                          {%- if person.url and person.url != '' -%}
+                            <a href="{{ person.url }}" target="_blank">{{ person.name }}</a>
+                          {%- else -%}
+                            {{- person.name -}}
+                          {%- endif -%}
+                        </span>
+                        {%- unless forloop.last -%}
+                          <span class="coauthor-separator" aria-hidden="true">,</span>
+                        {%- endunless %}
                       {% endfor %}
-                    {% elsif research.co-authors %}
-                      {% for person in research.co-authors %}
-                        <span class="coauthor-name">{{ person }}</span>{% unless forloop.last %}<span class="coauthor-separator" aria-hidden="true">,</span>{% endunless %}
+                    {% elsif research['co-authors'] %}
+                      {% for person in research['co-authors'] %}
+                        <span class="coauthor-name">{{ person }}</span>
+                        {%- unless forloop.last -%}
+                          <span class="coauthor-separator" aria-hidden="true">,</span>
+                        {%- endunless %}
                       {% endfor %}
                     {% endif %}
                   </span>
@@ -304,10 +372,12 @@ layout: default
                   <span class="detail-field-label">Works</span>
                   <span class="detail-field-value">
                     {% for output in research.outputs %}
-                      {% if output.url and output.url != "" %}
-                        <a href="{{ output.url }}" target="_blank" class="output-link">{{ output.name }}</a>{% unless forloop.last %}, {% endunless %}
+                      {% if output.url and output.url != '' %}
+                        <a href="{{ output.url }}" target="_blank" class="output-link">{{ output.name }}</a>
+                        {%- unless forloop.last %}, {% endunless %}
                       {% else %}
-                        <span class="output-text">{{ output.name }}</span>{% unless forloop.last %}, {% endunless %}
+                        <span class="output-text">{{ output.name }}</span>
+                        {%- unless forloop.last %}, {% endunless %}
                       {% endif %}
                     {% endfor %}
                   </span>
@@ -340,7 +410,10 @@ layout: default
     <ul class="service-list">
       <li>
         <span class="service-role">Conference Reviewer</span>
-        <span class="service-details">ICML 2026 <span class="gold-reviewer">(Gold Reviewer)</span>, NeurIPS 2026 <span class="top-reviewer">(Top Reviewer)</span>, AAAI 2027, ICLR 2027.</span>
+        <span class="service-details"
+          >ICML 2026 <span class="gold-reviewer">(Gold Reviewer)</span>, NeurIPS 2026 <span class="top-reviewer">(Top Reviewer)</span>, AAAI 2027,
+          ICLR 2027.</span
+        >
       </li>
       <li>
         <span class="service-role">Journal Reviewer</span>
@@ -358,85 +431,93 @@ layout: default
       <summary class="section-disclosure-control">
         {% include publication-toggle-hint.liquid %}
       </summary>
-    <div class="honors-section honors-section--grouped">
-      {% assign honor_categories = "community,masters,undergraduate" | split: "," %}
-      {% for category in honor_categories %}
-        {% assign category_honors = site.data.honors | where: "category", category %}
-        {% if category_honors.size > 0 %}
-          <section class="honors-stage honors-stage--{{ category }}" aria-labelledby="honors-{{ category }}">
-            <h3 class="honors-stage-title" id="honors-{{ category }}">
-              {% if category == "community" %}
-                <span data-language="en" lang="en">Community Recognition</span>
-                <span data-language="zh" lang="zh-CN">社区认可</span>
-              {% elsif category == "masters" %}
-                <span data-language="en" lang="en">Master’s Studies</span>
-                <span data-language="zh" lang="zh-CN">硕士期间</span>
-              {% else %}
-                <span data-language="en" lang="en">Undergraduate Studies</span>
-                <span data-language="zh" lang="zh-CN">本科期间</span>
-              {% endif %}
-            </h3>
-            <div class="honors-stage-cards">
-              {% for honor in category_honors %}
-                <details class="compact-card">
-                  <summary><span class="compact-title">
-                    <span data-language="en" lang="en">{{ honor.title_en }}</span>
-                    <span data-language="zh" lang="zh-CN">{{ honor.title_zh }}</span>
-                  </span><span class="year">{{ honor.year }}</span></summary>
-                  <div class="compact-card-body">
-                    <span data-language="en" lang="en">{{ honor.institution_en }}{% if honor.note_en %} · {{ honor.note_en }}{% endif %}</span>
-                    <span data-language="zh" lang="zh-CN">{{ honor.institution_zh }}{% if honor.note_zh %} · {{ honor.note_zh }}{% endif %}</span>
-                  </div>
-                </details>
-              {% endfor %}
-            </div>
-          </section>
-        {% endif %}
-      {% endfor %}
-    </div>
+      <div class="honors-section honors-section--grouped">
+        {% assign honor_categories = 'community,masters,undergraduate' | split: ',' %}
+        {% for category in honor_categories %}
+          {% assign category_honors = site.data.honors | where: 'category', category %}
+          {% if category_honors.size > 0 %}
+            <section class="honors-stage honors-stage--{{ category }}" aria-labelledby="honors-{{ category }}">
+              <h3 class="honors-stage-title" id="honors-{{ category }}">
+                {% if category == 'community' %}
+                  <span data-language="en" lang="en">Community Recognition</span>
+                  <span data-language="zh" lang="zh-CN">社区认可</span>
+                {% elsif category == 'masters' %}
+                  <span data-language="en" lang="en">Master’s Studies</span>
+                  <span data-language="zh" lang="zh-CN">硕士期间</span>
+                {% else %}
+                  <span data-language="en" lang="en">Undergraduate Studies</span>
+                  <span data-language="zh" lang="zh-CN">本科期间</span>
+                {% endif %}
+              </h3>
+              <div class="honors-stage-cards">
+                {% for honor in category_honors %}
+                  <details class="compact-card">
+                    <summary>
+                      <span class="compact-title">
+                        <span data-language="en" lang="en">{{ honor.title_en }}</span>
+                        <span data-language="zh" lang="zh-CN">{{ honor.title_zh }}</span> </span
+                      ><span class="year">{{ honor.year }}</span>
+                    </summary>
+                    <div class="compact-card-body">
+                      <span data-language="en" lang="en">
+                        {{- honor.institution_en -}}
+                        {%- if honor.note_en %} · {{ honor.note_en }}{% endif -%}
+                      </span>
+                      <span data-language="zh" lang="zh-CN">
+                        {{- honor.institution_zh -}}
+                        {%- if honor.note_zh %} · {{ honor.note_zh }}{% endif -%}
+                      </span>
+                    </div>
+                  </details>
+                {% endfor %}
+              </div>
+            </section>
+          {% endif %}
+        {% endfor %}
+      </div>
     </details>
   {% endif %}
 
   {% comment %}
-  Teaching Assistant remains available on its dedicated page but is hidden from the homepage.
-  <h2 id="sec-teaching" class="section-title">
-    <span>💡 Teaching Assistant</span>
-  </h2>
-  <div class="teaching-section teaching-section--collapsible">
-    <details class="pub-category">
-      <summary class="section-disclosure-control">
-        {% include publication-toggle-hint.liquid %}
-      </summary>
-      <div class="pub-category__body">
-        <div class="teaching-cards">
-          <details class="compact-card">
-            <summary><span class="compact-title">Fundamentals of Programming</span><span class="year">2022 Fall</span></summary>
-            <div class="compact-card-body">2022 Mathematics and Computer Science Special Class, WeBank Fintech Class.</div>
-          </details>
-          <details class="compact-card">
-            <summary><span class="compact-title">Data Structure</span><span class="year">2022 Fall, 2023 Fall</span></summary>
-            <div class="compact-card-body">2021 and 2022 Computer Science Classes.</div>
-          </details>
-          <details class="compact-card">
-            <summary><span class="compact-title">Object-Oriented Programming</span><span class="year">2023 Spring, 2024 Spring</span></summary>
-            <div class="compact-card-body">2022 Mathematics and Computer Science Special Class, WeBank Fintech Class, 2023 Computer Science Class.</div>
-          </details>
-          <details class="compact-card">
-            <summary><span class="compact-title">Computer System</span><span class="year">2023 Spring</span></summary>
-            <div class="compact-card-body">2022 Mathematics and Computer Science Special Class.</div>
-          </details>
-          <details class="compact-card">
-            <summary><span class="compact-title">Introduction to Computer Science</span><span class="year">2023 Fall</span></summary>
-            <div class="compact-card-body">Common Optional Course.</div>
-          </details>
-          <details class="compact-card">
-            <summary><span class="compact-title">Operating System</span><span class="year">2024 Spring</span></summary>
-            <div class="compact-card-body">2021 Computer Science Class.</div>
-          </details>
+    Teaching Assistant remains available on its dedicated page but is hidden from the homepage.
+    <h2 id="sec-teaching" class="section-title">
+      <span>💡 Teaching Assistant</span>
+    </h2>
+    <div class="teaching-section teaching-section--collapsible">
+      <details class="pub-category">
+        <summary class="section-disclosure-control">
+          {% include publication-toggle-hint.liquid %}
+        </summary>
+        <div class="pub-category__body">
+          <div class="teaching-cards">
+            <details class="compact-card">
+              <summary><span class="compact-title">Fundamentals of Programming</span><span class="year">2022 Fall</span></summary>
+              <div class="compact-card-body">2022 Mathematics and Computer Science Special Class, WeBank Fintech Class.</div>
+            </details>
+            <details class="compact-card">
+              <summary><span class="compact-title">Data Structure</span><span class="year">2022 Fall, 2023 Fall</span></summary>
+              <div class="compact-card-body">2021 and 2022 Computer Science Classes.</div>
+            </details>
+            <details class="compact-card">
+              <summary><span class="compact-title">Object-Oriented Programming</span><span class="year">2023 Spring, 2024 Spring</span></summary>
+              <div class="compact-card-body">2022 Mathematics and Computer Science Special Class, WeBank Fintech Class, 2023 Computer Science Class.</div>
+            </details>
+            <details class="compact-card">
+              <summary><span class="compact-title">Computer System</span><span class="year">2023 Spring</span></summary>
+              <div class="compact-card-body">2022 Mathematics and Computer Science Special Class.</div>
+            </details>
+            <details class="compact-card">
+              <summary><span class="compact-title">Introduction to Computer Science</span><span class="year">2023 Fall</span></summary>
+              <div class="compact-card-body">Common Optional Course.</div>
+            </details>
+            <details class="compact-card">
+              <summary><span class="compact-title">Operating System</span><span class="year">2024 Spring</span></summary>
+              <div class="compact-card-body">2021 Computer Science Class.</div>
+            </details>
+          </div>
         </div>
-      </div>
-    </details>
-  </div>
+      </details>
+    </div>
   {% endcomment %}
 
   <!-- Misc -->
@@ -455,38 +536,122 @@ layout: default
       </span>
       <span class="section-title-chevron" aria-hidden="true"></span>
     </summary>
-  <div class="hobbies-section">
-    <p class="hobbies-intro" data-language="en" lang="en">Outside research, I enjoy exploring ideas across science, engineering, and the humanities.</p>
-    <p class="hobbies-intro" data-language="en" lang="en">I'm a <a class="doraemon-text" href="https://en.wikipedia.org/wiki/Doraemon" target="_blank" rel="noopener">Doraemon</a> fan, as the little companions in the bottom corners suggest.</p>
-    <p class="hobbies-intro" data-language="en" lang="en">I practice hard-pen calligraphy, often drawing inspiration from Zhong'an Gu.</p>
-    <p class="hobbies-intro" data-language="en" lang="en">I also enjoy visiting exhibitions.</p>
-    <p class="hobbies-intro" data-language="en" lang="en">Over a decade ago, I was an avid Chinese chess (xiangqi) player, an individual bronze medalist and a member of a championship-winning team in city-level competitions, though I'm no longer as drawn to the game. I also play table tennis and badminton.</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">科研之外，我喜欢从科学、工程和人文中寻找新的视角。</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">我很喜欢<a class="doraemon-text" href="https://zh.wikipedia.org/wiki/哆啦A夢" target="_blank" rel="noopener">哆啦 A 梦</a>，所以页面下方的角落里有它陪伴。</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">我练习硬笔书法，尤其欣赏顾仲安的作品。</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">我也常看展览。</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">十多年前，我很喜欢下中国象棋，曾在市级比赛中获得个人赛季军、团体赛冠军等成绩，不过已经多年没有接触了。平时我也会打乒乓球和羽毛球。</p>
+    <div class="hobbies-section">
+      <p class="hobbies-intro" data-language="en" lang="en">
+        Outside research, I enjoy exploring ideas across science, engineering, and the humanities.
+      </p>
+      <p class="hobbies-intro" data-language="en" lang="en">
+        I'm a <a class="doraemon-text" href="https://en.wikipedia.org/wiki/Doraemon" target="_blank" rel="noopener">Doraemon</a> fan, as the little
+        companions in the bottom corners suggest.
+      </p>
+      <p class="hobbies-intro" data-language="en" lang="en">I practice hard-pen calligraphy, often drawing inspiration from Zhong'an Gu.</p>
+      <p class="hobbies-intro" data-language="en" lang="en">I also enjoy visiting exhibitions.</p>
+      <p class="hobbies-intro" data-language="en" lang="en">
+        Over a decade ago, I was an avid Chinese chess (xiangqi) player, an individual bronze medalist and a member of a championship-winning team in
+        city-level competitions, though I'm no longer as drawn to the game. I also play table tennis and badminton.
+      </p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">科研之外，我喜欢从科学、工程和人文中寻找新的视角。</p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">
+        我很喜欢<a class="doraemon-text" href="https://zh.wikipedia.org/wiki/哆啦A夢" target="_blank" rel="noopener">哆啦 A 梦</a
+        >，所以页面下方的角落里有它陪伴。
+      </p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">我练习硬笔书法，尤其欣赏顾仲安的作品。</p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">我也常看展览。</p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">
+        十多年前，我很喜欢下中国象棋，曾在市级比赛中获得个人赛季军、团体赛冠军等成绩，不过已经多年没有接触了。平时我也会打乒乓球和羽毛球。
+      </p>
 
-    <p class="hobbies-intro" data-language="en" lang="en">Music is another way I unwind. <span class="song-bilingual"><em>Gareth.T</em> (<span class="song-artist-cjk" lang="zh-CN">汤令山</span>)</span>'s <span class="song-bilingual"><a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a> (<span class="song-title-cjk" lang="zh-CN">国际孤独等级</span>)</span> is a particular favorite, and I also enjoy <span class="song-bilingual"><em>Eason Chan</em> (<span class="song-artist-cjk" lang="zh-CN">陈奕迅</span>)</span>'s <span class="song-bilingual"><a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a> (<span class="song-title-cjk" lang="zh-CN">任我行</span>)</span> and <span class="song-bilingual"><em>Crowd Lu</em> (<span class="song-artist-cjk" lang="zh-CN">卢广仲</span>)</span>'s <span class="song-bilingual"><a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a> (<span class="song-title-cjk" lang="zh-CN">几分之几</span>)</span>.</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">音乐也是我放松的一种方式。我尤其喜欢<span class="song-bilingual">Gareth.T（汤令山）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《国际孤独等级》</span>（<a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a>）</span>，也常听<span class="song-bilingual">Eason Chan（陈奕迅）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《任我行》</span>（<a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a>）</span>和<span class="song-bilingual">Crowd Lu（卢广仲）</span>的<span class="song-bilingual"><span class="song-title-cjk" lang="zh-CN">《几分之几》</span>（<a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a>）</span>。</p>
+      <p class="hobbies-intro" data-language="en" lang="en">
+        Music is another way I unwind.
+        <span class="song-bilingual"><em>Gareth.T</em> (<span class="song-artist-cjk" lang="zh-CN">汤令山</span>)</span>'s
+        <span class="song-bilingual"
+          ><a href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi" target="_blank" rel="noopener"><em>Loner Anthem</em></a>
+          (<span class="song-title-cjk" lang="zh-CN">国际孤独等级</span>)</span
+        >
+        is a particular favorite, and I also enjoy
+        <span class="song-bilingual"><em>Eason Chan</em> (<span class="song-artist-cjk" lang="zh-CN">陈奕迅</span>)</span>'s
+        <span class="song-bilingual"
+          ><a href="https://www.youtube.com/watch?v=oYw4uH80gcw" target="_blank" rel="noopener"><em>The Wanderer</em></a> (<span
+            class="song-title-cjk"
+            lang="zh-CN"
+            >任我行</span
+          >)</span
+        >
+        and <span class="song-bilingual"><em>Crowd Lu</em> (<span class="song-artist-cjk" lang="zh-CN">卢广仲</span>)</span>'s
+        <span class="song-bilingual"
+          ><a href="https://music.youtube.com/watch?v=8R6ssUJdqdQ" target="_blank" rel="noopener"><em>A Few Percent</em></a> (<span
+            class="song-title-cjk"
+            lang="zh-CN"
+            >几分之几</span
+          >)</span
+        >.
+      </p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">
+        音乐也是我放松的一种方式。我尤其喜欢<span class="song-bilingual">Gareth.T（汤令山）</span>的<span class="song-bilingual"
+          ><span class="song-title-cjk" lang="zh-CN">《国际孤独等级》</span>（<a
+            href="https://music.youtube.com/watch?v=MbD7TAlBFDc&amp;si=JVkmPiQFlU0ALiLi"
+            target="_blank"
+            rel="noopener"
+            ><em>Loner Anthem</em></a
+          >）</span
+        >，也常听<span class="song-bilingual">Eason Chan（陈奕迅）</span>的<span class="song-bilingual"
+          ><span class="song-title-cjk" lang="zh-CN">《任我行》</span>（<a
+            href="https://www.youtube.com/watch?v=oYw4uH80gcw"
+            target="_blank"
+            rel="noopener"
+            ><em>The Wanderer</em></a
+          >）</span
+        >和<span class="song-bilingual">Crowd Lu（卢广仲）</span>的<span class="song-bilingual"
+          ><span class="song-title-cjk" lang="zh-CN">《几分之几》</span>（<a
+            href="https://music.youtube.com/watch?v=8R6ssUJdqdQ"
+            target="_blank"
+            rel="noopener"
+            ><em>A Few Percent</em></a
+          >）</span
+        >。
+      </p>
 
-    <p class="hobbies-intro" data-language="en" lang="en">Over the past couple of years, I have also grown to love traveling, especially hiking and coastal landscapes. The mountains and coast of <a href="https://en.wikipedia.org/wiki/California" target="_blank" rel="noopener">California</a>, along with the coastline of <a href="https://en.wikipedia.org/wiki/Okinawa_Prefecture" target="_blank" rel="noopener">Okinawa</a>, have been especially memorable. <a href="https://en.wikipedia.org/wiki/Shenzhen" target="_blank" rel="noopener">Shenzhen</a> and <a href="https://en.wikipedia.org/wiki/Hong_Kong" target="_blank" rel="noopener">Hong Kong</a>, two cities where I have lived for many years, are also wonderful places for hiking and spending time by the sea.</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">近一两年，我也逐渐喜欢上旅行，尤其是徒步和山海风光。<a href="https://zh.wikipedia.org/wiki/加利福尼亚州" target="_blank" rel="noopener">加州</a>的山海和<a href="https://zh.wikipedia.org/wiki/冲绳县" target="_blank" rel="noopener">冲绳</a>的海景尤其令我印象深刻。<a href="https://zh.wikipedia.org/wiki/深圳市" target="_blank" rel="noopener">深圳</a>和<a href="https://zh.wikipedia.org/wiki/香港" target="_blank" rel="noopener">香港</a>这两座我居住了很久的城市，也很适合徒步和看海。</p>
+      <p class="hobbies-intro" data-language="en" lang="en">
+        Over the past couple of years, I have also grown to love traveling, especially hiking and coastal landscapes. The mountains and coast of
+        <a href="https://en.wikipedia.org/wiki/California" target="_blank" rel="noopener">California</a>, along with the coastline of
+        <a href="https://en.wikipedia.org/wiki/Okinawa_Prefecture" target="_blank" rel="noopener">Okinawa</a>, have been especially memorable.
+        <a href="https://en.wikipedia.org/wiki/Shenzhen" target="_blank" rel="noopener">Shenzhen</a> and
+        <a href="https://en.wikipedia.org/wiki/Hong_Kong" target="_blank" rel="noopener">Hong Kong</a>, two cities where I have lived for many years,
+        are also wonderful places for hiking and spending time by the sea.
+      </p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">
+        近一两年，我也逐渐喜欢上旅行，尤其是徒步和山海风光。<a href="https://zh.wikipedia.org/wiki/加利福尼亚州" target="_blank" rel="noopener"
+          >加州</a
+        >的山海和<a href="https://zh.wikipedia.org/wiki/冲绳县" target="_blank" rel="noopener">冲绳</a>的海景尤其令我印象深刻。<a
+          href="https://zh.wikipedia.org/wiki/深圳市"
+          target="_blank"
+          rel="noopener"
+          >深圳</a
+        >和<a href="https://zh.wikipedia.org/wiki/香港" target="_blank" rel="noopener">香港</a>这两座我居住了很久的城市，也很适合徒步和看海。
+      </p>
 
-    <p class="hobbies-intro" data-language="en" lang="en">Based on our long history of conversations, GPT, Gemini, and Doubao all characterize me as an <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>, although these conversations have primarily been work-related and may introduce some bias. I share it as a reference for potential collaborators.</p>
-    <p class="hobbies-intro" data-language="zh" lang="zh-CN">基于长期聊天记录，GPT、Gemini 和豆包均判断我是 <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>，但这些对话主要围绕工作，可能带来一定偏差。分享于此，供未来的合作者参考。</p>
-  </div>
+      <p class="hobbies-intro" data-language="en" lang="en">
+        Based on our long history of conversations, GPT, Gemini, and Doubao all characterize me as an
+        <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a>, although these conversations have
+        primarily been work-related and may introduce some bias. I share it as a reference for potential collaborators.
+      </p>
+      <p class="hobbies-intro" data-language="zh" lang="zh-CN">
+        基于长期聊天记录，GPT、Gemini 和豆包均判断我是
+        <a href="https://www.16personalities.com/intj-personality" target="_blank" rel="noopener">INTJ</a
+        >，但这些对话主要围绕工作，可能带来一定偏差。分享于此，供未来的合作者参考。
+      </p>
+    </div>
   </details>
 
   <!-- Blog -->
   {% comment %}
-  <h2 id="sec-blog" class="section-title">
-    <span>📝 Blog</span>
-    <span style="margin-left: 0.5rem; font-size: 0.75rem; color: #c09c6b; background: rgba(192, 156, 107, 0.15); padding: 0.2rem 0.5rem; border-radius: 12px; font-weight: 600;">coming soon</span>
-  </h2>
-  <div style="padding: 0.5rem 0; color: #8b949e; font-size: 0.9rem;">
-    Share thoughts on research, technology, and life insights.
-  </div>
+    <h2 id="sec-blog" class="section-title">
+      <span>📝 Blog</span>
+      <span style="margin-left: 0.5rem; font-size: 0.75rem; color: #c09c6b; background: rgba(192, 156, 107, 0.15); padding: 0.2rem 0.5rem; border-radius: 12px; font-weight: 600;">coming soon</span>
+    </h2>
+    <div style="padding: 0.5rem 0; color: #8b949e; font-size: 0.9rem;">
+      Share thoughts on research, technology, and life insights.
+    </div>
   {% endcomment %}
 
   <!-- Social -->
@@ -504,7 +669,9 @@ layout: default
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <span>Last updated: <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%B %d, %Y' }}</time></span>
+    <span
+      >Last updated: <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%B %d, %Y' }}</time></span
+    >
   </div>
 </article>
 
@@ -513,20 +680,17 @@ layout: default
 <div id="mascot-container">
   <!-- 哆啦A梦（精灵图走路动画版） -->
   <div id="doraemon" class="mascot active"></div>
-  
+
   <!-- Tom & Jerry -->
   <div id="tomjerry" class="mascot">
     <img src="https://4.bp.blogspot.com/-HjOu-dGh2P4/UAv31SSQYQI/AAAAAAAAA3g/a9flM74pDqQ/s1600/Tom-and-jerry-psd57584.png" alt="Tom & Jerry">
   </div>
-  
+
   <!-- 对话气泡 -->
   <div id="mascot-bubble" class="mascot-bubble"></div>
   <!-- 操作提示 -->
   <div class="mascot-hint">Click: talk · Double-click: switch</div>
 </div>
-
-
-
 
 <!-- About-page custom scripts: mascot, scroll-spy subnav, education/research toggles, oneko (disabled) -->
 <script src="{{ '/assets/js/disclosure.js' | relative_url | bust_file_cache }}" defer></script>

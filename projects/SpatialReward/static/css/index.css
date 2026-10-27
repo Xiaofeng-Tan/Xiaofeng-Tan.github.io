@@ -1,10 +1,17 @@
 /* ========== MotionRFT — Polished Academic Project Page ========== */
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   background: #fff;
-  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family:
+    "Noto Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   color: #333;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -23,7 +30,7 @@ body {
 
 /* Title */
 .publication-title {
-  font-family: 'Noto Serif', Georgia, serif;
+  font-family: "Noto Serif", Georgia, serif;
   font-size: 2.15rem;
   font-weight: 700;
   color: #1a1a1a;
@@ -94,7 +101,7 @@ body {
   flex-wrap: wrap;
   gap: 0.1rem 0.35rem;
   margin-top: 0.7rem;
-  font-family: 'Noto Serif', Georgia, serif;
+  font-family: "Noto Serif", Georgia, serif;
   font-size: 1.02rem;
   color: #333;
 }
@@ -129,7 +136,7 @@ body {
   margin-top: 0.3rem;
   font-size: 0.88rem;
   color: #777;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 
 .affil-sep {
@@ -175,7 +182,7 @@ body {
   color: #333;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   margin-right: 0.15rem;
 }
 
@@ -212,7 +219,7 @@ body {
   transition: all 0.18s ease;
   border: 1px solid #ddd;
   cursor: pointer;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   background: #fff;
   color: #333;
   box-shadow: none;
@@ -221,7 +228,7 @@ body {
 
 .publication-links .button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .publication-links .button .icon {
@@ -240,21 +247,30 @@ body {
   color: #fff !important;
   border-color: #8c1515 !important;
 }
-.btn-primary:hover { filter: brightness(1.1); color: #fff !important; }
+.btn-primary:hover {
+  filter: brightness(1.1);
+  color: #fff !important;
+}
 
 .btn-arxiv {
   background: #b31b1b !important;
   color: #fff !important;
   border-color: #b31b1b !important;
 }
-.btn-arxiv:hover { color: #fff !important; filter: brightness(1.1); }
+.btn-arxiv:hover {
+  color: #fff !important;
+  filter: brightness(1.1);
+}
 
 .btn-code {
   background: #24292e !important;
   color: #fff !important;
   border-color: #24292e !important;
 }
-.btn-code:hover { color: #fff !important; filter: brightness(1.15); }
+.btn-code:hover {
+  color: #fff !important;
+  filter: brightness(1.15);
+}
 
 .btn-outline {
   background: #fff !important;
@@ -289,7 +305,7 @@ body {
 }
 
 .tooltip-msg::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   left: 50%;
@@ -299,10 +315,20 @@ body {
 }
 
 @keyframes tooltipFade {
-  0% { opacity: 0; transform: translateX(-50%) translateY(4px); }
-  15% { opacity: 1; transform: translateX(-50%) translateY(0); }
-  75% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* ========== Section ========== */
@@ -321,7 +347,7 @@ body {
 
 /* ========== Section Title ========== */
 .section-title {
-  font-family: 'Noto Serif', Georgia, serif;
+  font-family: "Noto Serif", Georgia, serif;
   font-size: 1.4rem;
   font-weight: 700;
   color: #111;
@@ -332,7 +358,7 @@ body {
 }
 
 .subsection-title {
-  font-family: 'Noto Serif', Georgia, serif;
+  font-family: "Noto Serif", Georgia, serif;
   font-size: 1.08rem;
   font-weight: 600;
   color: #222;
@@ -343,7 +369,7 @@ body {
 
 /* ========== Abstract ========== */
 .abstract-text {
-  font-family: 'Noto Serif', Georgia, serif;
+  font-family: "Noto Serif", Georgia, serif;
   font-size: 1rem;
   line-height: 1.85;
   color: #333;
@@ -378,7 +404,7 @@ body {
 }
 
 .remark-label {
-  font-family: 'Noto Serif', Georgia, serif;
+  font-family: "Noto Serif", Georgia, serif;
   font-size: 0.95rem;
   font-weight: 700;
   color: #222;
@@ -465,7 +491,9 @@ body {
   margin-bottom: 0.7rem;
 }
 
-.insight-box p:last-child { margin-bottom: 0; }
+.insight-box p:last-child {
+  margin-bottom: 0;
+}
 
 .insight-list {
   list-style: none;
@@ -480,8 +508,12 @@ body {
   border-bottom: 1px solid #eee;
 }
 
-.insight-list li:last-child { border-bottom: none; }
-.insight-list li strong { color: #111; }
+.insight-list li:last-child {
+  border-bottom: none;
+}
+.insight-list li strong {
+  color: #111;
+}
 
 /* ========== Figures ========== */
 .figure-container {
@@ -502,9 +534,17 @@ body {
   display: block;
 }
 
-.figure-wrapper.small { max-width: 550px; margin: 0 auto; }
-.figure-wrapper.medium { max-width: 700px; margin: 0 auto; }
-.figure-wrapper.large { max-width: 100%; }
+.figure-wrapper.small {
+  max-width: 550px;
+  margin: 0 auto;
+}
+.figure-wrapper.medium {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.figure-wrapper.large {
+  max-width: 100%;
+}
 
 .figure-caption {
   font-size: 0.86rem;
@@ -527,7 +567,9 @@ body {
   margin: 1.5rem 0;
 }
 
-.figure-grid-2col .figure-container { margin: 0; }
+.figure-grid-2col .figure-container {
+  margin: 0;
+}
 
 /* ========== Videos ========== */
 .demo-description {
@@ -552,7 +594,7 @@ body {
 }
 
 .video-item:hover {
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .video-item video {
@@ -595,7 +637,7 @@ body {
   font-size: 0.75rem;
   cursor: pointer;
   transition: all 0.2s;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 
 .copy-btn:hover {
@@ -609,7 +651,7 @@ body {
   padding: 1.2rem 1.3rem;
   padding-top: 2.2rem;
   overflow-x: auto;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.82rem;
   line-height: 1.7;
   color: #333 !important;
@@ -631,34 +673,81 @@ body {
   border-top: 1px solid #e8e8e8;
 }
 
-.footer p { font-size: 0.8rem; color: #999; }
-.footer a { color: #666; text-decoration: none; }
-.footer a:hover { color: #333; }
+.footer p {
+  font-size: 0.8rem;
+  color: #999;
+}
+.footer a {
+  color: #666;
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #333;
+}
 
 /* ========== Responsive ========== */
 @media (max-width: 768px) {
-  .publication-title { font-size: 1.45rem; }
-  .hero .hero-body { padding: 2rem 1rem; }
-  .section { padding: 2rem 1rem; }
-  .section-title { font-size: 1.2rem; }
-  .figure-grid-2col { grid-template-columns: 1fr; }
-  .video-grid { grid-template-columns: 1fr; }
-  .abstract-text { font-size: 0.95rem; text-align: left; }
+  .publication-title {
+    font-size: 1.45rem;
+  }
+  .hero .hero-body {
+    padding: 2rem 1rem;
+  }
+  .section {
+    padding: 2rem 1rem;
+  }
+  .section-title {
+    font-size: 1.2rem;
+  }
+  .figure-grid-2col {
+    grid-template-columns: 1fr;
+  }
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+  .abstract-text {
+    font-size: 0.95rem;
+    text-align: left;
+  }
   .publication-links {
     gap: 0.35rem;
   }
-  .publication-links .button { padding: 0.35rem 0.55rem; font-size: 0.73rem; }
-  .link-divider { height: 0; width: 100%; background: none; margin: 0.1rem 0; }
+  .publication-links .button {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.73rem;
+  }
+  .link-divider {
+    height: 0;
+    width: 100%;
+    background: none;
+    margin: 0.1rem 0;
+  }
 }
 
 @media (max-width: 480px) {
-  .publication-title { font-size: 1.2rem; }
-  .section-title { font-size: 1.1rem; }
-  .subsection-title { font-size: 0.95rem; }
-  .publication-links .button { padding: 0.32rem 0.45rem; font-size: 0.7rem; }
-  .venue-row { flex-direction: column; gap: 0.15rem; }
-  .venue-sep { display: none; }
-  .publication-authors { font-size: 0.92rem; }
+  .publication-title {
+    font-size: 1.2rem;
+  }
+  .section-title {
+    font-size: 1.1rem;
+  }
+  .subsection-title {
+    font-size: 0.95rem;
+  }
+  .publication-links .button {
+    padding: 0.32rem 0.45rem;
+    font-size: 0.7rem;
+  }
+  .venue-row {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .venue-sep {
+    display: none;
+  }
+  .publication-authors {
+    font-size: 0.92rem;
+  }
 }
 
 /* ==========================================================================

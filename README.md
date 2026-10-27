@@ -73,17 +73,17 @@ The generated website is written to `_site/`.
 
 ## Project structure
 
-| Path | Purpose |
-| --- | --- |
-| `_pages/about.md` | Homepage content and bilingual introduction |
-| `_layouts/about.liquid` | Homepage structure and section layout |
-| `_data/education.yml` | Education timeline data |
-| `_data/research.yml` | Research experience data |
-| `_bibliography/papers.bib` | Publication metadata and resource links |
-| `projects/` | Individual project pages |
-| `assets/css/` | Site-wide, language, and mobile styles |
-| `assets/js/` | Navigation, language switching, interactions, and mobile behavior |
-| `assets/pdf/` | Published CV files |
+| Path                       | Purpose                                                           |
+| -------------------------- | ----------------------------------------------------------------- |
+| `_pages/about.md`          | Homepage content and bilingual introduction                       |
+| `_layouts/about.liquid`    | Homepage structure and section layout                             |
+| `_data/education.yml`      | Education timeline data                                           |
+| `_data/research.yml`       | Research experience data                                          |
+| `_bibliography/papers.bib` | Publication metadata and resource links                           |
+| `projects/`                | Individual project pages                                          |
+| `assets/css/`              | Site-wide, language, and mobile styles                            |
+| `assets/js/`               | Navigation, language switching, interactions, and mobile behavior |
+| `assets/pdf/`              | Published CV files                                                |
 
 ## Updating content
 

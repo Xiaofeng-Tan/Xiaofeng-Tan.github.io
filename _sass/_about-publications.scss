@@ -15,7 +15,9 @@
       border: none;
       border-left: 2px solid transparent;
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      transition: border-color 0.2s ease, background 0.2s ease;
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
       position: relative;
       overflow: visible;
       backdrop-filter: none;
@@ -44,7 +46,7 @@
       &:hover {
         transform: none;
         box-shadow: none;
-        border-left-color: #00A1E9;
+        border-left-color: #00a1e9;
         background: rgba(0, 161, 233, 0.015);
       }
 
@@ -80,8 +82,8 @@
     em {
       font-weight: 700;
       font-style: normal;
-      color: #00A1E9;
-      background: linear-gradient(135deg, #00A1E9 0%, #764ba2 100%);
+      color: #00a1e9;
+      background: linear-gradient(135deg, #00a1e9 0%, #764ba2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -89,8 +91,8 @@
 
     em sup,
     sup {
-      -webkit-text-fill-color: #00A1E9;
-      color: #00A1E9;
+      -webkit-text-fill-color: #00a1e9;
+      color: #00a1e9;
       font-size: 0.7em;
       vertical-align: super;
     }
@@ -240,13 +242,15 @@
       padding: 0 !important;
       margin: 0;
       background: transparent !important;
-      color: #00A1E9;
+      color: #00a1e9;
       border-radius: 0 !important;
       text-decoration: underline;
       text-decoration-color: rgba(0, 161, 233, 0.3);
       text-underline-offset: 2px;
       text-decoration-thickness: 1px;
-      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+      transition:
+        color 0.2s ease,
+        text-decoration-color 0.2s ease;
       font-weight: 500;
       border: none !important;
       box-shadow: none !important;

@@ -25,13 +25,37 @@
 /* English uses Outfit; ordinary Chinese uses a matching system sans-serif.
  * Handwriting and the motto remain intentional exceptions below. */
 html .about-page,
-html .about-page :is(.post, .section-title, .section-title-hint,
-  #navbar, #navbar .nav-link, #navbar .language-toggle, .intro-language-toggle,
-  article, article p, .interest-card, .timeline-expand-hint, .logo-text-group,
-  .detail-card, .detail-title, .compact-card, .pub-category__summary,
-  .publication-summary, .publication-filter, .publications, .publications .title,
-  .publications .author, .publications .periodical, .service-section, .hobbies-section,
-  .hobbies-intro, .page-last-updated, footer) {
+html
+  .about-page
+  :is(
+    .post,
+    .section-title,
+    .section-title-hint,
+    #navbar,
+    #navbar .nav-link,
+    #navbar .language-toggle,
+    .intro-language-toggle,
+    article,
+    article p,
+    .interest-card,
+    .timeline-expand-hint,
+    .logo-text-group,
+    .detail-card,
+    .detail-title,
+    .compact-card,
+    .pub-category__summary,
+    .publication-summary,
+    .publication-filter,
+    .publications,
+    .publications .title,
+    .publications .author,
+    .publications .periodical,
+    .service-section,
+    .hobbies-section,
+    .hobbies-intro,
+    .page-last-updated,
+    footer
+  ) {
   font-family: var(--homepage-font);
 }
 html .about-page .personal-motto__song,
@@ -48,18 +72,59 @@ html[lang="zh-CN"] .about-page .section-title > span {
 }
 /* Apply the same family to nested text in opened panels as in their summaries.
  * Exclude icon fonts, math/code, and every descendant of an artistic element. */
-html .about-page :is(div, span, p, a, button, summary, label, li, td, th,
-  h1, h2, h3, h4, h5, h6, strong, em, small, time, input, select, textarea):not(
-  :where(.post-title, .personal-motto, .chinese-name, .chinese-handwriting, .song-title-cjk,
-    .song-artist-cjk, .katex, .MathJax, mjx-container, pre, code, svg, math,
-    .fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands, .ai, .ti,
-    [class^="ti-"], [class*=" ti-"], [class^="icon-"]) *
-):not(
-  .post-title, .personal-motto, .chinese-name, .chinese-handwriting, .song-title-cjk,
-  .song-artist-cjk, .katex, .MathJax, .fa, .fas, .far, .fab,
-  .fa-solid, .fa-regular, .fa-brands, .ai, .ti, [class^="ti-"],
-  [class*=" ti-"], [class^="icon-"]
-) {
+html
+  .about-page
+  :is(div, span, p, a, button, summary, label, li, td, th, h1, h2, h3, h4, h5, h6, strong, em, small, time, input, select, textarea):not(
+    :where(
+        .post-title,
+        .personal-motto,
+        .chinese-name,
+        .chinese-handwriting,
+        .song-title-cjk,
+        .song-artist-cjk,
+        .katex,
+        .MathJax,
+        mjx-container,
+        pre,
+        code,
+        svg,
+        math,
+        .fa,
+        .fas,
+        .far,
+        .fab,
+        .fa-solid,
+        .fa-regular,
+        .fa-brands,
+        .ai,
+        .ti,
+        [class^="ti-"],
+        [class*=" ti-"],
+        [class^="icon-"]
+      )
+      *
+  ):not(
+    .post-title,
+    .personal-motto,
+    .chinese-name,
+    .chinese-handwriting,
+    .song-title-cjk,
+    .song-artist-cjk,
+    .katex,
+    .MathJax,
+    .fa,
+    .fas,
+    .far,
+    .fab,
+    .fa-solid,
+    .fa-regular,
+    .fa-brands,
+    .ai,
+    .ti,
+    [class^="ti-"],
+    [class*=" ti-"],
+    [class^="icon-"]
+  ) {
   font-family: var(--homepage-font) !important;
 }
 html .about-page .post-title,
@@ -108,8 +173,12 @@ html[data-theme="dark"] .about-page .news .news-tag {
     padding-top: 0.65rem;
   }
 }
-.about-page { --reading-text: #707982; }
-html[data-theme="dark"] .about-page { --reading-text: #b4bec8; }
+.about-page {
+  --reading-text: #707982;
+}
+html[data-theme="dark"] .about-page {
+  --reading-text: #b4bec8;
+}
 html .about-page article p,
 html .about-page article .interest-card,
 html .about-page article .hobbies-intro,
@@ -120,8 +189,7 @@ html .about-page article .publications .abstract {
   color: var(--reading-text);
   font-weight: 400;
 }
-html .about-page article :is(.abstract, .compact-card-body, .detail-field-value)
-  :is(p, li, span):not(.presentation-distinction) {
+html .about-page article :is(.abstract, .compact-card-body, .detail-field-value) :is(p, li, span):not(.presentation-distinction) {
   color: inherit;
 }
 html .about-page article > .clearfix a,
@@ -195,7 +263,9 @@ html[data-theme="dark"] .about-page {
   --honor-surface: #182029;
   --honor-border: #34424e;
 }
-.about-page #publication-results .periodical .venue-abbr { opacity: 1; }
+.about-page #publication-results .periodical .venue-abbr {
+  opacity: 1;
+}
 
 /* Restore the original independent honor cards after mobile's list overrides.
  * Scope to Honors so teaching and other disclosure layouts stay unchanged. */
@@ -269,7 +339,9 @@ html .about-page .honors-section .compact-card[open] {
 html .about-page .honors-section.honors-section--grouped {
   display: block;
 }
-.about-page .honors-stage + .honors-stage { margin-top: 6px; }
+.about-page .honors-stage + .honors-stage {
+  margin-top: 6px;
+}
 .about-page .honors-stage-title {
   margin: 0 0 4px;
   font-size: 0.7rem;
@@ -289,7 +361,9 @@ html .about-page .honors-section.honors-section--grouped {
   }
 }
 @media (max-width: 767.98px) {
-  .about-page .honors-stage-cards { grid-template-columns: minmax(0, 1fr); }
+  .about-page .honors-stage-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 /* Legacy literal link colors should not compete with the shared palette.
  * Presentation distinctions and venue-ranking badges retain their own colors. */
@@ -830,7 +904,9 @@ html[data-theme="dark"] .about-page .publication-summary__note.presentation-dist
     overflow: visible;
     position: relative;
   }
-  .about-page #publication-results .abbr:not(:has(img)) { display: none; }
+  .about-page #publication-results .abbr:not(:has(img)) {
+    display: none;
+  }
   .about-page #publication-results .abbr figure {
     width: 80%;
     height: auto;
@@ -936,8 +1012,7 @@ html .about-page :is(.content-collapse-button, .section-disclosure-control):focu
 }
 
 /* Disclosure actions echo the unobtrusive introduction language link. */
-html .about-page :is(.section-disclosure-control, .content-collapse-button,
-  .timeline-item-hint, .pub-category__hint) {
+html .about-page :is(.section-disclosure-control, .content-collapse-button, .timeline-item-hint, .pub-category__hint) {
   color: var(--text-soft, #7f8c8d);
   font-size: 0.76rem;
   font-weight: 500;
@@ -967,8 +1042,7 @@ html .about-page .section-disclosure-control .section-title-hint {
   color: inherit;
 }
 
-html .about-page :is(.pub-category__hint-expand, .pub-category__hint-collapse,
-  .content-collapse-button, .timeline-item-hint)::after {
+html .about-page :is(.pub-category__hint-expand, .pub-category__hint-collapse, .content-collapse-button, .timeline-item-hint)::after {
   content: " ↗";
   margin-left: 0.18rem;
   opacity: 0.6;
@@ -982,7 +1056,9 @@ html .about-page .content-disclosure-actions {
 html .about-page .content-collapse-button {
   padding: 0;
   border-bottom: 1px solid transparent;
-  transition: color 160ms ease, border-color 160ms ease;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease;
 }
 
 html .about-page :is(.content-collapse-button, .section-disclosure-control):hover {
@@ -1278,7 +1354,9 @@ html .about-page .research-logo-tag:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html .about-page .research-logo-tag { transition: none; }
+  html .about-page .research-logo-tag {
+    transition: none;
+  }
 }
 
 html .about-page .research-outlook {
@@ -1336,11 +1414,24 @@ html .about-page :is(.logo-label, .logo-lab-at, .detail-title, .publications .ti
   line-height: 1.35;
 }
 
-html .about-page :is(article > .clearfix > [data-language] > p,
-  .interest-card, .research-summary p, .hobbies-intro, .service-list li,
-  .service-role, .service-details, .compact-card, .compact-title, .compact-card-body,
-  .detail-card-content, .detail-field-value,
-  .publications .smooth-paper-panel, .publications .smooth-paper-panel p) {
+html
+  .about-page
+  :is(
+    article > .clearfix > [data-language] > p,
+    .interest-card,
+    .research-summary p,
+    .hobbies-intro,
+    .service-list li,
+    .service-role,
+    .service-details,
+    .compact-card,
+    .compact-title,
+    .compact-card-body,
+    .detail-card-content,
+    .detail-field-value,
+    .publications .smooth-paper-panel,
+    .publications .smooth-paper-panel p
+  ) {
   font-size: var(--type-body);
   line-height: 1.5;
 }
@@ -1353,33 +1444,50 @@ html .about-page .service-role {
   font-weight: 600;
 }
 
-html .about-page :is(.service-details, .service-role, .research-summary p,
-  .hobbies-intro, .interest-card, .compact-title, .compact-card-body, .detail-field-value)
+html
+  .about-page
+  :is(.service-details, .service-role, .research-summary p, .hobbies-intro, .interest-card, .compact-title, .compact-card-body, .detail-field-value)
   :is(a, span, em, strong, button) {
   font-size: inherit;
   line-height: inherit;
 }
 
-html .about-page :is(.publications .author, .publications .periodical,
-  .logo-role, .logo-meta-row, .logo-year, .logo-location, .detail-title-meta,
-  .detail-field-label, .pub-category__summary, .section-title-hint,
-  .section-disclosure-control, .content-collapse-button, .pub-category__hint,
-  .timeline-expand-hint, .timeline-item-hint, .intro-language-toggle,
-  .page-last-updated) {
+html
+  .about-page
+  :is(
+    .publications .author,
+    .publications .periodical,
+    .logo-role,
+    .logo-meta-row,
+    .logo-year,
+    .logo-location,
+    .detail-title-meta,
+    .detail-field-label,
+    .pub-category__summary,
+    .section-title-hint,
+    .section-disclosure-control,
+    .content-collapse-button,
+    .pub-category__hint,
+    .timeline-expand-hint,
+    .timeline-item-hint,
+    .intro-language-toggle,
+    .page-last-updated
+  ) {
   font-size: var(--type-meta);
   line-height: 1.45;
 }
 
-html .about-page :is(.publications .author, .publications .periodical,
-  .logo-meta-row, .detail-title-meta, .pub-category__summary)
-  :is(a, span, em):not(.ccf-badge, .core-badge, .sci-badge,
-    .presentation-statistics, .pub-category__hint) {
+html
+  .about-page
+  :is(.publications .author, .publications .periodical, .logo-meta-row, .detail-title-meta, .pub-category__summary)
+  :is(a, span, em):not(.ccf-badge, .core-badge, .sci-badge, .presentation-statistics, .pub-category__hint) {
   font-size: inherit;
   line-height: inherit;
 }
 
-html .about-page :is(.honors-stage-title, .research-trajectory__meta,
-  .research-foundations__label, .compact-card .year, .publication-summary__count) {
+html
+  .about-page
+  :is(.honors-stage-title, .research-trajectory__meta, .research-foundations__label, .compact-card .year, .publication-summary__count) {
   font-size: var(--type-meta);
   line-height: 1.4;
 }
@@ -1407,15 +1515,28 @@ html .about-page .news th {
 
 /* Education and research cards use the existing prose scale, not a separate
  * large card-title size. Institution names are distinguished by weight. */
-html .about-page .timeline-section :is(.logo-label, .logo-lab-at, .logo-role,
-  .logo-meta-row, .logo-year, .logo-location, .detail-title, .detail-title-meta,
-  .detail-tag, .detail-card-content, .detail-fields, .detail-field-value) {
+html
+  .about-page
+  .timeline-section
+  :is(
+    .logo-label,
+    .logo-lab-at,
+    .logo-role,
+    .logo-meta-row,
+    .logo-year,
+    .logo-location,
+    .detail-title,
+    .detail-title-meta,
+    .detail-tag,
+    .detail-card-content,
+    .detail-fields,
+    .detail-field-value
+  ) {
   font-size: var(--type-body);
   line-height: 1.5;
 }
 
-html .about-page .timeline-section :is(.logo-text-group, .detail-title-meta,
-  .detail-tag, .detail-field-value) :is(span, a, em, strong) {
+html .about-page .timeline-section :is(.logo-text-group, .detail-title-meta, .detail-tag, .detail-field-value) :is(span, a, em, strong) {
   font-size: inherit;
   line-height: inherit;
 }
@@ -1434,8 +1555,7 @@ html .about-page .timeline-section :is(.logo-role, .logo-meta-row, .logo-year, .
 }
 
 /* Expanded details keep the same compact scale as their institution cards. */
-html .about-page .timeline-section :is(.detail-card-content, .detail-title,
-  .detail-fields, .detail-field-value) {
+html .about-page .timeline-section :is(.detail-card-content, .detail-title, .detail-fields, .detail-field-value) {
   font-size: var(--type-meta);
   line-height: 1.4;
 }
@@ -1450,8 +1570,7 @@ html .about-page .timeline-section .detail-card-content :is(span, a, p, li, em, 
   line-height: inherit;
 }
 
-html .about-page .timeline-section .detail-card-content :is(.detail-field-label,
-  .detail-title-meta, .detail-tag) {
+html .about-page .timeline-section .detail-card-content :is(.detail-field-label, .detail-title-meta, .detail-tag) {
   font-size: var(--type-caption);
 }
 

@@ -4,7 +4,7 @@
 
 title: Xiaofeng Tan · 谭晓锋
 first_name: Xiaofeng
-middle_name: 
+middle_name:
 last_name: Tan
 Chinese_name: 谭晓锋
 email: xiaofengtan@seu.edu.cn
@@ -20,7 +20,7 @@ icon: 0.png # the emoji used as the favicon (alternatively, provide image name i
 
 url: https://xiaofeng-tan.github.io # the base hostname & protocol for your site
 
-baseurl:  # the subpath of your site, e.g. /blog/. Leave blank for root
+baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: true # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button

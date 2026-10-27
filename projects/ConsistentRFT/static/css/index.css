@@ -1,22 +1,27 @@
 /* 现代化学术页面样式 */
 body {
-  font-family: 'Inter', 'Noto Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Inter",
+    "Noto Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 .footer .icon-link {
-    font-size: 25px;
-    color: #374151;
-    transition: color 0.2s ease;
+  font-size: 25px;
+  color: #374151;
+  transition: color 0.2s ease;
 }
 
 .footer .icon-link:hover {
-    color: #2563eb;
+  color: #2563eb;
 }
 
 .link-block a {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .dnerf {
@@ -29,36 +34,36 @@ body {
 }
 
 .teaser {
-  font-family: 'Inter', 'Noto Sans', sans-serif;
+  font-family: "Inter", "Noto Sans", sans-serif;
 }
 
 .publication-title {
-    font-family: 'Inter', 'Noto Sans', sans-serif;
+  font-family: "Inter", "Noto Sans", sans-serif;
 }
 
 .publication-authors {
-    font-family: 'Inter', 'Noto Sans', sans-serif;
+  font-family: "Inter", "Noto Sans", sans-serif;
 }
 
 .publication-venue {
-    color: #6b7280;
-    width: fit-content;
-    font-weight: 600;
+  color: #6b7280;
+  width: fit-content;
+  font-weight: 600;
 }
 
 .publication-awards {
-    color: #dc2626;
-    width: fit-content;
-    font-weight: 600;
+  color: #dc2626;
+  width: fit-content;
+  font-weight: 600;
 }
 
 .publication-authors a {
-   color: #2563eb !important;
-   transition: color 0.2s ease;
+  color: #2563eb !important;
+  transition: color 0.2s ease;
 }
 
 .publication-authors a:hover {
-    color: #1d4ed8 !important;
+  color: #1d4ed8 !important;
 }
 
 .author-block {
@@ -66,20 +71,20 @@ body {
 }
 
 .publication-video {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-    overflow: hidden;
-    border-radius: 12px;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 .publication-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .results-carousel {
@@ -101,7 +106,7 @@ body {
   background: #374151;
 }
 
-.eql-cntrb { 
+.eql-cntrb {
   font-size: smaller;
 }
 
@@ -115,12 +120,12 @@ body {
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .video-list video:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
-
-

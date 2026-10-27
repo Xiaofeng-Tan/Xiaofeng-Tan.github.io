@@ -1,5 +1,7 @@
 /* The hidden attribute must win over existing component display declarations. */
-.about-page [hidden] { display: none !important; }
+.about-page [hidden] {
+  display: none !important;
+}
 
 /*
  * Reading-first small-screen layout. Loaded after main.css and language.css
@@ -17,7 +19,9 @@
     gap: 0;
     max-width: 100%;
   }
-  #navbar .navbar-toggler { display: none; }
+  #navbar .navbar-toggler {
+    display: none;
+  }
   #navbar #navbarNav {
     display: flex !important;
     flex-basis: 100%;
@@ -78,13 +82,24 @@
     min-height: 0;
     padding: 0;
   }
-  #navbar #search-toggle i { font-size: 1.125rem; }
-  #navbar .toggle-container { margin: 0; }
+  #navbar #search-toggle i {
+    font-size: 1.125rem;
+  }
+  #navbar .toggle-container {
+    margin: 0;
+  }
   html[data-theme="dark"] #navbar .nav-link,
-  html[data-theme="dark"] #navbar #search-toggle { color: var(--text); }
+  html[data-theme="dark"] #navbar #search-toggle {
+    color: var(--text);
+  }
 
-  #navbar { padding-top: 0; padding-bottom: 0; }
-  body.fixed-top-nav { padding-top: 48px; }
+  #navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  body.fixed-top-nav {
+    padding-top: 48px;
+  }
   body > .container[role="main"] {
     width: 100%;
     max-width: 640px;
@@ -93,10 +108,14 @@
     margin-top: 18px !important;
   }
 
-  [id^="sec-"] { scroll-margin-top: 100px; }
+  [id^="sec-"] {
+    scroll-margin-top: 100px;
+  }
 
   /* A compact identity block, then full-width prose, not text beside a photo. */
-  .about-page > .container[role="main"] { position: relative; }
+  .about-page > .container[role="main"] {
+    position: relative;
+  }
   .about-page .post-header {
     min-height: 0;
     padding-right: 0;
@@ -112,7 +131,9 @@
     margin-bottom: 0;
     white-space: nowrap;
   }
-  .about-page .post-title::after { display: none; }
+  .about-page .post-title::after {
+    display: none;
+  }
   .about-page .post-title .name-separator {
     display: inline;
     margin: 0 0.16em;
@@ -131,8 +152,13 @@
     width: 64px;
     margin: 0;
   }
-  .about-page .profile figure { margin: 0; }
-  .about-page .profile img { width: 100%; height: auto; }
+  .about-page .profile figure {
+    margin: 0;
+  }
+  .about-page .profile img {
+    width: 100%;
+    height: auto;
+  }
   .about-page .social-icons-header {
     display: flex;
     flex-wrap: wrap;
@@ -157,7 +183,9 @@
     overflow-wrap: break-word;
   }
   .about-page article > .clearfix > [data-language] > p,
-  .about-page .hobbies-intro { margin-bottom: 10px; }
+  .about-page .hobbies-intro {
+    margin-bottom: 10px;
+  }
   .about-page article > .clearfix .interest-card {
     padding: 0;
     border: 0;
@@ -165,7 +193,9 @@
     background: transparent;
     margin: 0;
   }
-  .about-page .interest-card__divider { margin: 10px 0; }
+  .about-page .interest-card__divider {
+    margin: 10px 0;
+  }
   .about-page .contact-reveal {
     min-height: 24px;
     max-width: 100%;
@@ -177,7 +207,9 @@
     min-height: 28px;
     font-size: 0.8125rem;
   }
-  .intro-language-switch { margin: 0; }
+  .intro-language-switch {
+    margin: 0;
+  }
   .about-page .section-title {
     display: flex;
     align-items: baseline;
@@ -190,16 +222,30 @@
     padding: 0 0 6px;
     letter-spacing: 0;
   }
-  .about-page .section-title::before { display: none; }
+  .about-page .section-title::before {
+    display: none;
+  }
   .about-page :is(.timeline-section, .education-section, .honors-section, .service-section, .hobbies-section) {
     margin-top: 0;
     margin-bottom: 0;
   }
 
   /* Compact date rail, with complete dates retained and a flexible text column. */
-  .news .table-responsive { overflow: visible; max-height: none !important; }
-  .news table, .news tbody, .news tr, .news th, .news td { display: block; width: 100%; }
-  .news table { margin: 0; }
+  .news .table-responsive {
+    overflow: visible;
+    max-height: none !important;
+  }
+  .news table,
+  .news tbody,
+  .news tr,
+  .news th,
+  .news td {
+    display: block;
+    width: 100%;
+  }
+  .news table {
+    margin: 0;
+  }
   .news table tr {
     display: grid;
     grid-template-columns: 66px minmax(0, 1fr);
@@ -219,7 +265,11 @@
     background: transparent;
     border: 0;
   }
-  .news table tr td { padding: 0 !important; font-size: 0.82rem; line-height: 1.4; }
+  .news table tr td {
+    padding: 0 !important;
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
   .news table tr td > span.news-content,
   .news table tr td > span.news-content *,
   .news table tr td > a,
@@ -273,8 +323,23 @@
     background: transparent;
     box-shadow: none;
   }
-  .about-page .timeline-logo { width: 32px; height: 32px; flex-shrink: 0; margin: 0; box-shadow: none; }
-  .about-page .logo-text-group { display: flex; flex-direction: row; flex-wrap: wrap; gap: 2px 8px; flex: 1; min-width: 0; text-align: left; align-items: baseline; }
+  .about-page .timeline-logo {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+  .about-page .logo-text-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px 8px;
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+    align-items: baseline;
+  }
   .about-page :is(.logo-label, .logo-lab-at, .logo-role, .logo-year, .logo-meta-row, .logo-location) {
     max-width: none;
     white-space: normal;
@@ -282,11 +347,33 @@
     text-overflow: clip;
     line-height: 1.4;
   }
-  .about-page :is(.logo-label, .logo-lab-at) { flex-basis: 100%; font-size: 0.9375rem; }
-  .about-page :is(.logo-role, .logo-meta-row, .logo-year, .logo-location) { font-size: 0.8125rem; color: var(--text-muted); }
-  .about-page .logo-meta-row { display: inline-flex; flex-wrap: nowrap; gap: 2px 8px; width: 100%; min-width: 0; white-space: nowrap; }
-  .about-page .logo-year { flex: 0 0 auto; white-space: nowrap; }
-  .about-page .logo-location { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .about-page :is(.logo-label, .logo-lab-at) {
+    flex-basis: 100%;
+    font-size: 0.9375rem;
+  }
+  .about-page :is(.logo-role, .logo-meta-row, .logo-year, .logo-location) {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+  .about-page .logo-meta-row {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: 2px 8px;
+    width: 100%;
+    min-width: 0;
+    white-space: nowrap;
+  }
+  .about-page .logo-year {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+  .about-page .logo-location {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .about-page .logo-item::after {
     content: "";
     position: static;
@@ -298,26 +385,82 @@
     transform: rotate(45deg);
     background: none;
   }
-  .about-page .logo-item.active::after { transform: rotate(225deg); }
-  .about-page .detail-card { grid-column: 1 / -1; width: 100%; }
-  .about-page .detail-card.active { margin: 4px 0 8px; border-radius: 6px; }
-  .about-page .detail-mark { display: none; } /* Same logo is immediately above. */
-  .about-page .detail-card-content { min-width: 0; width: 100%; }
-  .about-page .detail-header { display: block; }
-  .about-page .detail-title { font-size: 0.9375rem; line-height: 1.4; }
-  .about-page .detail-title-meta { font-size: 0.8125rem; line-height: 1.35; flex-wrap: wrap; gap: 2px 8px; }
-  .about-page .detail-title-meta--education { flex-wrap: nowrap; gap: 6px; }
-  .about-page .detail-tags { flex-wrap: wrap; justify-content: flex-start; margin-top: 8px; }
-  .about-page .detail-tag { font-size: 0.8125rem; white-space: normal; }
-  .about-page .detail-fields { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin-top: 10px; }
-  .about-page .detail-field { grid-column: 1 / -1; display: block; }
-  .about-page .detail-field-label { display: block; margin-bottom: 4px; font-size: 0.75rem; }
-  .about-page .detail-field-value { font-size: 0.9375rem; line-height: 1.4; }
-  .about-page .education-ranking-entry { flex-wrap: wrap; }
+  .about-page .logo-item.active::after {
+    transform: rotate(225deg);
+  }
+  .about-page .detail-card {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+  .about-page .detail-card.active {
+    margin: 4px 0 8px;
+    border-radius: 6px;
+  }
+  .about-page .detail-mark {
+    display: none;
+  } /* Same logo is immediately above. */
+  .about-page .detail-card-content {
+    min-width: 0;
+    width: 100%;
+  }
+  .about-page .detail-header {
+    display: block;
+  }
+  .about-page .detail-title {
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+  .about-page .detail-title-meta {
+    font-size: 0.8125rem;
+    line-height: 1.35;
+    flex-wrap: wrap;
+    gap: 2px 8px;
+  }
+  .about-page .detail-title-meta--education {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+  .about-page .detail-tags {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+  .about-page .detail-tag {
+    font-size: 0.8125rem;
+    white-space: normal;
+  }
+  .about-page .detail-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .about-page .detail-field {
+    grid-column: 1 / -1;
+    display: block;
+  }
+  .about-page .detail-field-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+  }
+  .about-page .detail-field-value {
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+  .about-page .education-ranking-entry {
+    flex-wrap: wrap;
+  }
 
   /* Papers: text-only on phones; hide the entire figure column, not just its image. */
-  .about-page .publications-grouped { gap: 8px; margin: 0; }
-  .publications .bibliography { padding-left: 0; margin: 0; }
+  .about-page .publications-grouped {
+    gap: 8px;
+    margin: 0;
+  }
+  .publications .bibliography {
+    padding-left: 0;
+    margin: 0;
+  }
   .publications .bibliography > li {
     padding: 12px 0;
     margin: 0 !important; /* Override the theme's li spacing, including !important. */
@@ -327,15 +470,51 @@
     box-shadow: none;
     background: transparent;
   }
-  .publications .bibliography > li > .row { display: flex; flex-direction: column; margin: 0; gap: 0; }
-  .publications .bibliography > li > .row > div { flex: 0 0 auto; width: 100%; max-width: 100%; padding: 0; min-width: 0; }
-  .publications .bibliography > li > .row > .abbr { display: none; }
-  .publications .title { font-size: 1rem; line-height: 1.3; letter-spacing: 0; margin-bottom: 4px; }
-  .publications .author { font-size: 0.875rem; line-height: 1.4; overflow-wrap: anywhere; }
-  .publications .periodical { font-size: 0.875rem; line-height: 1.4; margin-top: 4px; overflow-wrap: anywhere; }
-  .publications .periodical .venue-abbr { font-size: inherit; }
-  .publications :is(.ccf-badge, .core-badge, .sci-badge) { font-size: 0.75rem; }
-  .publications .links { display: flex; flex-wrap: wrap; gap: 2px 12px; margin-top: 4px; }
+  .publications .bibliography > li > .row {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 0;
+  }
+  .publications .bibliography > li > .row > div {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    min-width: 0;
+  }
+  .publications .bibliography > li > .row > .abbr {
+    display: none;
+  }
+  .publications .title {
+    font-size: 1rem;
+    line-height: 1.3;
+    letter-spacing: 0;
+    margin-bottom: 4px;
+  }
+  .publications .author {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+  .publications .periodical {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin-top: 4px;
+    overflow-wrap: anywhere;
+  }
+  .publications .periodical .venue-abbr {
+    font-size: inherit;
+  }
+  .publications :is(.ccf-badge, .core-badge, .sci-badge) {
+    font-size: 0.75rem;
+  }
+  .publications .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 12px;
+    margin-top: 4px;
+  }
   .publications .links a {
     display: inline-flex;
     align-items: center;
@@ -347,11 +526,25 @@
     text-transform: none;
     color: var(--primary) !important;
   }
-  .publications .links a + a::before { content: none; }
-  .publications .periodical:empty { display: none; }
-  .publications .hidden.open { max-height: none; }
-  .publications .abstract p { font-size: 0.9375rem; line-height: 1.5; text-align: left; }
-  .publications pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.8125rem; }
+  .publications .links a + a::before {
+    content: none;
+  }
+  .publications .periodical:empty {
+    display: none;
+  }
+  .publications .hidden.open {
+    max-height: none;
+  }
+  .publications .abstract p {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .publications pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-size: 0.8125rem;
+  }
 
   /* Honors / TA retain all details without miniature multi-column cards. */
   .about-page .honors-cv-row {
@@ -359,14 +552,24 @@
     gap: 2px 10px;
     padding: 5px 0;
   }
-  .about-page .honors-cv-title { grid-column: 1; grid-row: 1; }
-  .about-page .honors-cv-year { grid-column: 2; grid-row: 1; }
+  .about-page .honors-cv-title {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .about-page .honors-cv-year {
+    grid-column: 2;
+    grid-row: 1;
+  }
   .about-page .honors-cv-institution {
     grid-column: 1 / -1;
     grid-row: 2;
     font-size: 0.95em;
   }
-  .about-page :is(.honors-section, .teaching-cards) { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .about-page :is(.honors-section, .teaching-cards) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
   .about-page .compact-card {
     font-size: 0.9375rem;
     box-shadow: none;
@@ -383,23 +586,75 @@
     min-height: 44px;
     line-height: 1.4;
   }
-  .about-page .compact-title { font-size: 0.9375rem; white-space: normal; }
-  .about-page .compact-card summary::after { grid-column: 3; grid-row: 1; text-align: right; }
-  .about-page .compact-card .year { font-size: 0.8125rem; white-space: normal; text-align: right; max-width: 90px; }
-  .about-page .compact-card-body { font-size: 0.9375rem; line-height: 1.45; }
-  .pub-category__summary { min-height: 32px; padding: 4px 0; gap: 8px; flex-wrap: wrap; text-transform: none; letter-spacing: 0; }
-  .pub-category__label { font-size: 0.8125rem; }
-  .about-page .pub-category__body { padding-bottom: 0; }
-  .teaching-summary-meta { font-size: 0.8125rem; }
-  .about-page .service-list { padding: 0; }
-  .about-page .service-list li { display: block; padding: 6px 0; font-size: 0.9375rem; line-height: 1.45; }
-  .about-page .service-role { display: block; font-size: 0.9375rem; margin-bottom: 2px; }
-  .about-page .service-details { display: block; font-size: 0.82rem; line-height: 1.45; }
-  .about-page .hobbies-intro { margin-bottom: 10px; }
+  .about-page .compact-title {
+    font-size: 0.9375rem;
+    white-space: normal;
+  }
+  .about-page .compact-card summary::after {
+    grid-column: 3;
+    grid-row: 1;
+    text-align: right;
+  }
+  .about-page .compact-card .year {
+    font-size: 0.8125rem;
+    white-space: normal;
+    text-align: right;
+    max-width: 90px;
+  }
+  .about-page .compact-card-body {
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+  .pub-category__summary {
+    min-height: 32px;
+    padding: 4px 0;
+    gap: 8px;
+    flex-wrap: wrap;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .pub-category__label {
+    font-size: 0.8125rem;
+  }
+  .about-page .pub-category__body {
+    padding-bottom: 0;
+  }
+  .teaching-summary-meta {
+    font-size: 0.8125rem;
+  }
+  .about-page .service-list {
+    padding: 0;
+  }
+  .about-page .service-list li {
+    display: block;
+    padding: 6px 0;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+  }
+  .about-page .service-role {
+    display: block;
+    font-size: 0.9375rem;
+    margin-bottom: 2px;
+  }
+  .about-page .service-details {
+    display: block;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+  .about-page .hobbies-intro {
+    margin-bottom: 10px;
+  }
 
-  .about-page .social { margin-top: 18px; }
-  .about-page .contact-icons { gap: 6px; }
-  .about-page .page-last-updated { margin-top: 12px; padding-top: 8px; }
+  .about-page .social {
+    margin-top: 18px;
+  }
+  .about-page .contact-icons {
+    gap: 6px;
+  }
+  .about-page .page-last-updated {
+    margin-top: 12px;
+    padding-top: 8px;
+  }
 
   /* Lower half: understated headings and compact information rows.
    * Keep this hierarchy local to publications and the sections that follow. */
@@ -433,7 +688,9 @@
   .about-page .misc-section > .hobbies-section {
     margin-top: 4px;
   }
-  .about-page .publications-grouped { gap: 4px; }
+  .about-page .publications-grouped {
+    gap: 4px;
+  }
   .about-page .publication-summary {
     margin: -1px 0 6px;
     padding: 7px 9px;
@@ -472,23 +729,41 @@
   .about-page .publication-summary__row {
     gap: 2px 4px;
   }
-  .about-page .publications-grouped .pub-category { border-bottom: 0; }
+  .about-page .publications-grouped .pub-category {
+    border-bottom: 0;
+  }
   .about-page .publications-grouped .pub-category__summary {
     min-height: 28px;
     padding: 2px 0;
     color: var(--text-muted);
   }
-  .about-page .publications-grouped .pub-category__body .publications { margin: 0; }
-  .about-page .publications .bibliography > li { padding: 8px 0; border: 0; }
+  .about-page .publications-grouped .pub-category__body .publications {
+    margin: 0;
+  }
+  .about-page .publications .bibliography > li {
+    padding: 8px 0;
+    border: 0;
+  }
   .about-page .publications .title {
     margin-bottom: 3px;
     font-weight: 500;
     line-height: 1.28;
   }
-  .about-page .publications .author { line-height: 1.35; }
-  .about-page .publications .periodical { margin-top: 3px; line-height: 1.35; }
-  .about-page .publications .links { gap: 0 9px; margin-top: 3px; }
-  .about-page .publications .links a { min-height: 28px; padding: 3px 0; }
+  .about-page .publications .author {
+    line-height: 1.35;
+  }
+  .about-page .publications .periodical {
+    margin-top: 3px;
+    line-height: 1.35;
+  }
+  .about-page .publications .links {
+    gap: 0 9px;
+    margin-top: 3px;
+  }
+  .about-page .publications .links a {
+    min-height: 28px;
+    padding: 3px 0;
+  }
   .about-page .compact-card summary {
     padding: 7px 0;
     min-height: 38px;
@@ -521,15 +796,30 @@
     font-size: 0.75rem;
     line-height: 1.3;
   }
-  .about-page .teaching-section > .pub-category { border-bottom: 0; }
-  .about-page .teaching-section .pub-category__summary { min-height: 30px; padding: 3px 0; }
+  .about-page .teaching-section > .pub-category {
+    border-bottom: 0;
+  }
+  .about-page .teaching-section .pub-category__summary {
+    min-height: 30px;
+    padding: 3px 0;
+  }
   .about-page .service-list li {
     padding: 6px 0;
     border-bottom: 1px solid var(--border);
   }
-  .about-page .service-role { font-size: 0.875rem; margin-bottom: 2px; }
-  .about-page .service-details { font-size: 0.82rem; line-height: 1.4; }
-  .about-page .hobbies-intro { font-size: 0.9375rem; line-height: 1.45; margin-bottom: 8px; }
+  .about-page .service-role {
+    font-size: 0.875rem;
+    margin-bottom: 2px;
+  }
+  .about-page .service-details {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+  .about-page .hobbies-intro {
+    font-size: 0.9375rem;
+    line-height: 1.45;
+    margin-bottom: 8px;
+  }
 
   /* Long sections use native vertical scrolling instead of progressive
    * "show more" controls. This keeps every item reachable with a swipe. */
@@ -613,31 +903,71 @@
     letter-spacing: 0;
   }
 
-  .cv-container h4 { font-size: 1.125rem; line-height: 1.4; }
-  .cv-container .btn { min-height: 44px; padding: 10px 14px; white-space: normal; }
-  .cv-container .d-flex { gap: 12px; }
-  #cv-preview { height: 65vh; min-height: 360px; }
-  body { padding-bottom: 0; }
+  .cv-container h4 {
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+  .cv-container .btn {
+    min-height: 44px;
+    padding: 10px 14px;
+    white-space: normal;
+  }
+  .cv-container .d-flex {
+    gap: 12px;
+  }
+  #cv-preview {
+    height: 65vh;
+    min-height: 360px;
+  }
+  body {
+    padding-bottom: 0;
+  }
   footer.fixed-bottom {
     position: static;
     margin-top: 16px;
   }
-  footer { padding-bottom: max(16px, env(safe-area-inset-bottom)); }
-  footer .container { font-size: 0.8125rem; line-height: 1.5; }
-  .copy-toast { max-width: calc(100vw - 32px); white-space: normal; }
-  #mascot-container { display: none !important; }
-  :is(a, button, summary, [role="button"]):focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+  footer {
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+  footer .container {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+  .copy-toast {
+    max-width: calc(100vw - 32px);
+    white-space: normal;
+  }
+  #mascot-container {
+    display: none !important;
+  }
+  :is(a, button, summary, [role="button"]):focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+  }
 }
 
 @media screen and (max-width: 359.98px) {
-  body > .container[role="main"] { padding-left: 16px; padding-right: 16px; }
-  .about-page .post-header { padding-right: 0; }
-  .about-page .post-title { font-size: clamp(1.2rem, 7.2vw, 1.65rem); }
-  .about-page article > .profile { right: 16px; width: 60px; }
+  body > .container[role="main"] {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .about-page .post-header {
+    padding-right: 0;
+  }
+  .about-page .post-title {
+    font-size: clamp(1.2rem, 7.2vw, 1.65rem);
+  }
+  .about-page article > .profile {
+    right: 16px;
+    width: 60px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .detail-card, .detail-card-inner { transition: none !important; }
+  .detail-card,
+  .detail-card-inner {
+    transition: none !important;
+  }
 }
 
 /* Shared reading scale for summaries and revealed content, in either language.
@@ -655,8 +985,21 @@
   }
 }
 
-.about-page :is(.logo-role, .logo-meta-row, .logo-year, .logo-location, .detail-title-meta, .detail-tag,
-  .detail-card-content, .detail-fields, .detail-field-value, .compact-card, .compact-title, .compact-card-body),
+.about-page
+  :is(
+    .logo-role,
+    .logo-meta-row,
+    .logo-year,
+    .logo-location,
+    .detail-title-meta,
+    .detail-tag,
+    .detail-card-content,
+    .detail-fields,
+    .detail-field-value,
+    .compact-card,
+    .compact-title,
+    .compact-card-body
+  ),
 .publications .author,
 .publications .bibliography li :is(.abstract.hidden, .award.hidden, .bibtex.hidden) {
   font-size: var(--entry-text-size);
@@ -676,16 +1019,14 @@
 /* Markdown paragraphs and links must inherit the panel's scale rather than
  * picking up larger global paragraph or mobile abstract rules. */
 .about-page :is(.detail-field-value, .compact-card-body) :is(p, li, a, em, strong),
-.publications .bibliography li :is(.abstract.hidden, .award.hidden, .bibtex.hidden)
-  :is(p, li, a, em, strong, pre, code) {
+.publications .bibliography li :is(.abstract.hidden, .award.hidden, .bibtex.hidden) :is(p, li, a, em, strong, pre, code) {
   font-size: inherit;
   line-height: inherit;
 }
 
 /* Nested spans (rankings, locations, Chinese lab names) had their own em/rem
  * sizes. Match the compact summary explicitly, including deeply nested links. */
-.about-page .detail-card :is(.detail-title-meta, .detail-tag, .detail-fields)
-  :is(span, a, p, li, em, strong),
+.about-page .detail-card :is(.detail-title-meta, .detail-tag, .detail-fields) :is(span, a, p, li, em, strong),
 .about-page .compact-card-body :is(span, a, p, li, em, strong) {
   font-size: var(--entry-text-size);
 }
