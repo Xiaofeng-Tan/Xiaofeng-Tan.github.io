@@ -15,3 +15,5 @@ assets/js/language.js
 projects/ConsistentRFT/index.html
 # Starts with a blank line before its front matter, so Jekyll does not render it
 _news/announcement_3.md
+# Unused legacy layout that the pinned Liquid plugin cannot parse
+_layouts/about_old.liquid
