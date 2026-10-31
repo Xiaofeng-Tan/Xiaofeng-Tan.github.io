@@ -458,6 +458,13 @@ body {
 .figure-wrapper.large {
   max-width: 100%;
 }
+/* Wide tables: break out of the 900px column so table text matches body text size */
+.figure-wrapper.wide {
+  width: min(1200px, calc(100vw - 2rem));
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 .figure-caption {
   font-size: 0.86rem;
