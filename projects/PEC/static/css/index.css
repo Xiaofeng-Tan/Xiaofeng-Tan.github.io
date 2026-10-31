@@ -160,10 +160,10 @@ body {
 /* ========== Publication Links ========== */
 .publication-links {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.45rem;
   margin-top: 1.5rem;
-  max-width: 480px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -224,6 +224,12 @@ body {
   background: #24292e !important;
   color: #fff !important;
   border-color: #24292e !important;
+}
+
+.btn-log {
+  background: #2e7d6b !important;
+  color: #fff !important;
+  border-color: #2e7d6b !important;
 }
 
 /* Coming Soon tooltip */
@@ -759,7 +765,7 @@ body {
     text-align: left;
   }
   .publication-links {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     max-width: 100%;
   }
   .publication-links .button {
