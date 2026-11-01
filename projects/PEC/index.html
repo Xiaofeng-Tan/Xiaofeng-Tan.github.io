@@ -39,7 +39,7 @@
             ["\\[", "\\]"],
           ],
         },
-        svg: { fontCache: "global" },
+        svg: { fontCache: "global", scale: 0.92 },
       };
     </script>
     <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
@@ -51,31 +51,45 @@
         <div class="container is-max-desktop">
           <div class="columns is-centered">
             <div class="column has-text-centered">
+              <div class="hero-topbar">
+                <div class="venue-mark" title="NeurIPS 2026 Spotlight">
+                  <span class="venue-mark__icon"><i class="fas fa-award"></i></span>
+                  <span class="venue-mark__text">
+                    <span class="venue-mark__conf">NeurIPS&nbsp;2026</span>
+                    <span class="venue-mark__type">Spotlight</span>
+                  </span>
+                </div>
+                <div class="hero-logos">
+                  <a href="https://www.seu.edu.cn/english/" target="_blank" rel="noopener"><img src="static/images/logos/seu.png" alt="Southeast University" /></a>
+                  <a href="https://palm.seu.edu.cn/" target="_blank" rel="noopener"><img src="static/images/logos/palm.png" alt="PALM Lab" /></a>
+                  <a href="https://open.youtu.qq.com/#/open" target="_blank" rel="noopener"><img src="static/images/logos/youtu.png" alt="Tencent Youtu Lab" /></a>
+                  <a href="https://www.sustech.edu.cn/" target="_blank" rel="noopener"><img src="static/images/logos/sustech.png" alt="Southern University of Science and Technology" /></a>
+                </div>
+              </div>
+
               <h1 class="title is-1 publication-title">
-                When <span class="highlight">Policy Entropy Constraint</span> Fails: Preserving <span class="highlight">Diversity</span> in Flow-based
+                When <span class="highlight">Policy Entropy Constraint</span> Fails: Preserving <span class="highlight">Diversity</span> in Flow&#8209;based
                 RLHF via <span class="highlight">Perceptual Entropy</span>
               </h1>
 
-              <div class="venue-badge venue-badge--spotlight">NeurIPS 2026 · Spotlight</div>
-
               <div class="publication-authors">
-                <span class="author-block"><a href="https://xiaofeng-tan.github.io" target="_blank">Xiaofeng Tan</a><sup>1,2,*</sup>,</span>
-                <span class="author-block">Jun Liu<sup>2</sup>,</span>
-                <span class="author-block">Bin-Bin Gao<sup>2</sup>,</span>
-                <span class="author-block">Yuanting Fan<sup>2</sup>,</span>
-                <span class="author-block">Xi Jiang<sup>3</sup>,</span>
-                <span class="author-block">Chengjie Wang<sup>2</sup>,</span>
-                <span class="author-block">Hongsong Wang<sup>1,&dagger;</sup>,</span>
-                <span class="author-block">Feng Zheng<sup>3,&dagger;</sup></span>
+                <span class="author-block"><a href="https://xiaofeng-tan.github.io" target="_blank">Xiaofeng Tan</a>$^{1,2,*}$,</span>
+                <span class="author-block">Jun Liu$^{2}$,</span>
+                <span class="author-block">Bin-Bin Gao$^{2}$,</span>
+                <span class="author-block">Yuanting Fan$^{2}$,</span>
+                <span class="author-block">Xi Jiang$^{3}$,</span>
+                <span class="author-block">Chengjie Wang$^{2}$,</span>
+                <span class="author-block">Hongsong Wang$^{1,\dagger}$,</span>
+                <span class="author-block">Feng Zheng$^{3,\dagger}$</span>
               </div>
               <div class="publication-affiliations">
-                <span class="affiliation-block"><sup>1</sup>Southeast University,</span>
-                <span class="affiliation-block"><sup>2</sup>Tencent Youtu Lab,</span>
-                <span class="affiliation-block"><sup>3</sup>Southern University of Science and Technology</span>
+                <span class="affiliation-block"><img class="aff-logo" src="static/images/logos/seu.png" alt="" />$^{1}$Southeast University</span>
+                <span class="affiliation-block"><img class="aff-logo" src="static/images/logos/youtu-icon.png" alt="" />$^{2}$Tencent Youtu Lab</span>
+                <span class="affiliation-block"><img class="aff-logo" src="static/images/logos/sustech.png" alt="" />$^{3}$Southern University of Science and Technology</span>
               </div>
               <div class="publication-affiliations" style="font-size: 0.85rem; margin-top: 0.4rem">
-                <span class="affiliation-block"><sup>*</sup>Work done during Xiaofeng Tan's internship at Tencent Youtu Lab.</span>
-                <span class="affiliation-block"><sup>&dagger;</sup>Corresponding authors.</span>
+                <span class="affiliation-block">$^{*}$Work done during Xiaofeng Tan's internship at Tencent Youtu Lab.</span>
+                <span class="affiliation-block">$^{\dagger}$Corresponding authors.</span>
               </div>
 
               <div class="tldr-container">
@@ -215,7 +229,7 @@
           </div>
 
           <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 640px; margin: 0 auto">
+            <div class="figure-wrapper" style="max-width: 600px; margin: 0 auto">
               <img src="static/images/fig_prob.png" alt="Mode-seeking evidence in flow-based RLHF" />
             </div>
             <p class="figure-caption">
@@ -293,7 +307,7 @@
           <div class="equation-block">$\mathcal{R} = -a\exp(\mathcal{H}_{\text{perc}}) + b$</div>
 
           <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 720px; margin: 0 auto">
+            <div class="figure-wrapper" style="max-width: 680px; margin: 0 auto">
               <img src="static/images/fig_relation.png" alt="Relationship between reward and perceptual entropy" />
             </div>
             <p class="figure-caption">
@@ -346,13 +360,6 @@
         <div class="content-block">
           <h2 class="section-title">Experiments</h2>
 
-          <p class="abstract-text" style="font-size: 0.9rem; margin-bottom: 1rem">
-            We build upon Flow-GRPO and evaluate FLUX.dev (PickScore reward, trained on Pick-a-Pic) and SD3.5-M (rule-based rewards). Quality is
-            measured on the HPD test set with PickScore, Aesthetic v2.5, ImageReward, CLIP, HPSv2.1 and Unified Reward; diversity is measured on 100
-            images per prompt over 85 PartiPrompts (8,500 images per method) with feature-space $L_2$ diversity and Vendi Scores. The overall score
-            averages min-max normalized quality and diversity metrics.
-          </p>
-
           <h3 class="subsection-title">Comparison with Entropy-Based Regularization</h3>
           <p class="abstract-text" style="font-size: 0.9rem; margin-bottom: 1rem">
             Native per-step entropy $\mathcal{H}$ provides limited gains under flow matching: standard entropy regularization reaches an overall
@@ -361,12 +368,11 @@
             average of <strong>0.941</strong>.
           </p>
           <div class="figure-container">
-            <div class="figure-wrapper wide">
+            <div class="figure-wrapper" style="max-width: 640px; margin: 0 auto">
               <img src="static/images/tab_main_results.png" alt="Entropy regularization comparison table" />
             </div>
             <p class="figure-caption">
-              <strong>Table 1. Entropy Regularization Comparison.</strong> Gray-shaded rows denote our methods. P.S.=PickScore, I.R.=ImageReward,
-              U.R.=Unified Reward, V.S.=Vendi Score.
+              <strong>Table 1. Entropy Regularization Comparison.</strong> Gray-shaded rows denote our methods.
             </p>
           </div>
 
@@ -376,18 +382,10 @@
             low quality (0.205), whereas Qwen-Image attains high quality (0.711) with a diversity of 0.000. In contrast, Perc-EC ($\lambda=0.10$,
             PickScore) reaches the best overall score of <strong>0.751</strong> with a diversity average of <strong>0.872</strong>.
           </p>
-          <div class="figure-container">
-            <div class="figure-wrapper wide">
-              <img src="static/images/tab_sota.png" alt="SoTA comparison table" />
-            </div>
-            <p class="figure-caption">
-              <strong>Table 2. SoTA Comparison.</strong> Type denotes post-training: N=None, U=Unknown, D=DPO, and R=reinforcement fine-tuning.
-            </p>
-          </div>
 
           <h3 class="subsection-title">Trade-Off between Diversity and Quality</h3>
           <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 900px; margin: 0 auto">
+            <div class="figure-wrapper" style="max-width: 800px; margin: 0 auto">
               <img src="static/images/fig_exp_std_rw.png" alt="Training curves" />
             </div>
             <p class="figure-caption">
@@ -401,43 +399,38 @@
           <p class="abstract-text" style="font-size: 0.9rem; margin-bottom: 1rem">
             Replacing the native per-step entropy $\mathcal{H}$ with perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ inside Perc-EC improves every
             metric (e.g., Aes.v2.5 from 6.372 to 6.412). The perceptual encoder is much smaller than the flow model and is evaluated asynchronously
-            from generation and optimization, so the iteration-time overhead is marginal and peak memory is nearly unchanged.
+            from generation and optimization, so the overhead is marginal: iteration time is $1.01\times$ (PickScore encoder) / $1.03\times$ (DINO encoder) of Flow-GRPO, and
+            peak memory goes from 78.7G to at most 79.2G.
+          </p>
+
+          <h3 class="subsection-title">Generalization to DDPO</h3>
+          <p class="abstract-text" style="font-size: 0.9rem; margin-bottom: 1rem">
+            Native entropy regularization fails to prevent diversity collapse under DDPO: variance still declines at $\lambda=0.05$, while
+            $\lambda=0.10$ quickly destabilizes training. In contrast, <strong>Perc-EC</strong> maintains perceptual variance alongside high reward,
+            and <strong>Perc-VC</strong> enables a controllable quality&ndash;diversity trade-off that progressively expands perceptual variance.
           </p>
           <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 520px; margin: 0 auto">
-              <img src="static/images/tab_ablation_perc_entropy.png" alt="Perceptual entropy ablation table" />
+            <div class="figure-wrapper" style="max-width: 620px; margin: 0 auto">
+              <img src="static/images/fig_ddpo_dynamics.png" alt="Generalization to DDPO" />
             </div>
-            <p class="figure-caption"><strong>Table 3. Perceptual Entropy Ablation.</strong> $\mathcal{H}_{\mathrm{perc}}$ vs. native $\mathcal{H}$ in Perc-EC.</p>
-          </div>
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 510px; margin: 0 auto">
-              <img src="static/images/tab_runtime_overhead.png" alt="Computational cost table" />
-            </div>
-            <p class="figure-caption"><strong>Table 4. Computational Cost.</strong> Iteration time is normalized by Flow-GRPO.</p>
+            <p class="figure-caption">
+              <strong>Figure 7. Generalization to DDPO.</strong> Training dynamics under DDPO. Left: reward $\mathcal{R}$. Right: within-group
+              perceptual variance.
+            </p>
           </div>
 
-          <h3 class="subsection-title">Generalization to Text-to-Video and DDPO</h3>
+          <h3 class="subsection-title">Text-to-Video Generalization</h3>
           <p class="abstract-text" style="font-size: 0.9rem; margin-bottom: 1rem">
-            On <strong>Wan2.1-T2V-1.3B</strong> (Flow-GRPO with VideoPickScore in UniRL), both Flow-GRPO and native entropy regularization erode
-            within-group perceptual variance as reward rises, whereas Perc-EC preserves perceptual diversity alongside high reward. Under
-            <strong>DDPO</strong>, native entropy regularization still loses variance at $\lambda=0.05$ and destabilizes training at $\lambda=0.10$;
-            Perc-EC maintains perceptual variance alongside high reward, and Perc-VC enables a controllable quality&ndash;diversity trade-off.
+            On Wan2.1, both Flow-GRPO and native entropy regularization erode within-group perceptual variance as reward rises, whereas
+            <strong>Perc-EC</strong> preserves perceptual diversity alongside high reward.
           </p>
           <div class="figure-container">
             <div class="figure-wrapper" style="max-width: 620px; margin: 0 auto">
               <img src="static/images/fig_video_eval.png" alt="Text-to-video generalization" />
             </div>
             <p class="figure-caption">
-              <strong>Figure 7. Text-to-Video.</strong> Training dynamics on Wan2.1. Left: reward $\mathcal{R}$. Right: within-group perceptual
-              variance.
-            </p>
-          </div>
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 620px; margin: 0 auto">
-              <img src="static/images/fig_ddpo_dynamics.png" alt="Generalization to DDPO" />
-            </div>
-            <p class="figure-caption">
-              <strong>Figure 8. DDPO.</strong> Training dynamics under DDPO. Left: reward $\mathcal{R}$. Right: within-group perceptual variance.
+              <strong>Figure 8. Text-to-Video Generalization.</strong> Training dynamics on Wan2.1. Left: reward $\mathcal{R}$. Right: within-group
+              perceptual variance.
             </p>
           </div>
 
@@ -495,7 +488,7 @@
           <div class="bibtex-container">
             <button class="copy-btn" onclick="copyBibtex()"><i class="far fa-copy"></i> Copy</button>
             <pre class="bibtex"><code>@article{tan2026perceptualentropy,
-  title={When Policy Entropy Constraint Fails: Preserving Diversity in Flow-based RLHF via Perceptual Entropy},
+  title={When Policy Entropy Constraint Fails: Preserving Diversity in Flow&#8209;based RLHF via Perceptual Entropy},
   author={Tan, Xiaofeng and Liu, Jun and Gao, Bin-Bin and Fan, Yuanting and Jiang, Xi and Wang, Chengjie and Wang, Hongsong and Zheng, Feng},
   booktitle={Advances in Neural Information Processing Systems},
   note={NeurIPS 2026 Spotlight},
