@@ -63,48 +63,40 @@ body {
 .venue-mark {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  text-align: left;
-}
-
-.venue-mark__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #f6d77a 0%, #c9962a 70%, #9c6b12 100%);
-  color: #fff;
-  font-size: 1.2rem;
-  box-shadow: 0 2px 6px rgba(156, 107, 18, 0.35);
+  padding: 0.32rem 0.8rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  background: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  color: #4b5563;
 }
 
 .venue-mark__text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.05;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .venue-mark__conf {
-  font-family: "Noto Sans", sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #7a5a1a;
+  font-weight: 600;
+  color: #1f2937;
 }
 
 .venue-mark__type {
-  font-family: "Noto Serif", Georgia, serif;
-  font-style: italic;
-  font-weight: 700;
-  font-size: 1.85rem;
-  letter-spacing: 0.01em;
-  background: linear-gradient(100deg, #a3293a 0%, #c9962a 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #a3293a;
+}
+
+.venue-mark__type::before {
+  content: "";
+  width: 1px;
+  height: 0.8em;
+  background: #d1d5db;
 }
 
 .hero-logos {
@@ -516,7 +508,7 @@ body {
 
 /* ========== Figures ========== */
 .figure-container {
-  margin: 1.5rem 0;
+  margin: 1.5rem auto;
 }
 
 .figure-wrapper {
@@ -852,9 +844,6 @@ body {
   }
   .hero-logos img {
     height: 32px;
-  }
-  .venue-mark__type {
-    font-size: 1.45rem;
   }
   .publication-links {
     grid-template-columns: repeat(2, 1fr);
