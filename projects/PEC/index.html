@@ -53,7 +53,6 @@
             <div class="column has-text-centered">
               <div class="hero-topbar">
                 <div class="venue-mark" title="NeurIPS 2026 Spotlight">
-                  <span class="venue-mark__icon"><i class="fas fa-award"></i></span>
                   <span class="venue-mark__text">
                     <span class="venue-mark__conf">NeurIPS&nbsp;2026</span>
                     <span class="venue-mark__type">Spotlight</span>
@@ -62,14 +61,13 @@
                 <div class="hero-logos">
                   <a href="https://www.seu.edu.cn/english/" target="_blank" rel="noopener"><img src="static/images/logos/seu.png" alt="Southeast University" /></a>
                   <a href="https://palm.seu.edu.cn/" target="_blank" rel="noopener"><img src="static/images/logos/palm.png" alt="PALM Lab" /></a>
-                  <a href="https://open.youtu.qq.com/#/open" target="_blank" rel="noopener"><img src="static/images/logos/youtu.png" alt="Tencent Youtu Lab" /></a>
+                  <a href="https://open.youtu.qq.com/#/open" target="_blank" rel="noopener"><img src="static/images/logos/youtu.png" alt="Tencent YouTu Lab" /></a>
                   <a href="https://www.sustech.edu.cn/" target="_blank" rel="noopener"><img src="static/images/logos/sustech.png" alt="Southern University of Science and Technology" /></a>
                 </div>
               </div>
 
               <h1 class="title is-1 publication-title">
-                When <span class="highlight">Policy Entropy Constraint</span> Fails: Preserving <span class="highlight">Diversity</span> in Flow&#8209;based
-                RLHF via <span class="highlight">Perceptual Entropy</span>
+                When Policy Entropy Constraint Fails: Preserving Diversity in Flow&#8209;based RLHF via Perceptual Entropy
               </h1>
 
               <div class="publication-authors">
@@ -84,11 +82,11 @@
               </div>
               <div class="publication-affiliations">
                 <span class="affiliation-block"><img class="aff-logo" src="static/images/logos/seu.png" alt="" />$^{1}$Southeast University</span>
-                <span class="affiliation-block"><img class="aff-logo" src="static/images/logos/youtu-icon.png" alt="" />$^{2}$Tencent Youtu Lab</span>
+                <span class="affiliation-block"><img class="aff-logo" src="static/images/logos/youtu-icon.png" alt="" />$^{2}$Tencent YouTu Lab</span>
                 <span class="affiliation-block"><img class="aff-logo" src="static/images/logos/sustech.png" alt="" />$^{3}$Southern University of Science and Technology</span>
               </div>
               <div class="publication-affiliations" style="font-size: 0.85rem; margin-top: 0.4rem">
-                <span class="affiliation-block">$^{*}$Work done during Xiaofeng Tan's internship at Tencent Youtu Lab.</span>
+                <span class="affiliation-block">$^{*}$Work done during an internship at Tencent YouTu Lab.</span>
                 <span class="affiliation-block">$^{\dagger}$Corresponding authors.</span>
               </div>
 
@@ -100,7 +98,7 @@
               </div>
 
               <div class="publication-links">
-                <a href="javascript:void(0)" class="button btn-paper btn-cs" onclick="showTooltip(this, 'Coming Soon')">
+                <a href="static/pdf/PerceptualEntropy_NeurIPS2026.pdf" target="_blank" rel="noopener" class="button btn-paper">
                   <span class="icon"><i class="fas fa-file-alt"></i></span>
                   <span>Paper</span>
                 </a>
@@ -114,7 +112,7 @@
                 </a>
                 <a href="https://xiaofeng-tan.github.io/PerceptualEntropyLog/" target="_blank" rel="noopener" class="button btn-log">
                   <span class="icon"><i class="fas fa-book-open"></i></span>
-                  <span>Log</span>
+                  <span>Training Log</span>
                 </a>
               </div>
             </div>
@@ -183,8 +181,8 @@
             </p>
           </div>
 
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 690px; margin: 0 auto">
+          <div class="figure-container" style="max-width: 690px">
+            <div class="figure-wrapper">
               <img src="static/images/fig_motivation.png" alt="Motivation: constant policy entropy vs. collapsing perceptual diversity" />
             </div>
             <p class="figure-caption">
@@ -218,8 +216,8 @@
             <strong>encourages broad coverage of multiple high-reward regions in perceptual space</strong>, rather than convergence to a single peak.
           </p>
 
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 480px; margin: 0 auto">
+          <div class="figure-container" style="max-width: 480px">
+            <div class="figure-wrapper">
               <img src="static/images/fig_finite_batch_schematic.png" alt="Optimization behavior: mode-seeking GRPO vs. ideal coverage" />
             </div>
             <p class="figure-caption">
@@ -228,8 +226,8 @@
             </p>
           </div>
 
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 600px; margin: 0 auto">
+          <div class="figure-container" style="max-width: 600px">
+            <div class="figure-wrapper">
               <img src="static/images/fig_prob.png" alt="Mode-seeking evidence in flow-based RLHF" />
             </div>
             <p class="figure-caption">
@@ -306,8 +304,8 @@
 
           <div class="equation-block">$\mathcal{R} = -a\exp(\mathcal{H}_{\text{perc}}) + b$</div>
 
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 680px; margin: 0 auto">
+          <div class="figure-container" style="max-width: 680px">
+            <div class="figure-wrapper">
               <img src="static/images/fig_relation.png" alt="Relationship between reward and perceptual entropy" />
             </div>
             <p class="figure-caption">
@@ -341,8 +339,8 @@
             Both shaped rewards are optimized with the standard GRPO clipped surrogate.
           </p>
 
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 900px; margin: 0 auto">
+          <div class="figure-container" style="max-width: 900px">
+            <div class="figure-wrapper">
               <img src="static/images/fig_kl_cmp.png" alt="KL divergence comparison" />
             </div>
             <p class="figure-caption">
@@ -367,8 +365,8 @@
             0.427, and <strong>Perc-EC</strong> ($\lambda=0.10$, PickScore) achieves the best overall score of <strong>0.755</strong> with a diversity
             average of <strong>0.941</strong>.
           </p>
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 640px; margin: 0 auto">
+          <div class="figure-container" style="max-width: 640px">
+            <div class="figure-wrapper">
               <img src="static/images/tab_main_results.png" alt="Entropy regularization comparison table" />
             </div>
             <p class="figure-caption">
@@ -384,8 +382,8 @@
           </p>
 
           <h3 class="subsection-title">Trade-Off between Diversity and Quality</h3>
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 800px; margin: 0 auto">
+          <div class="figure-container" style="max-width: 800px">
+            <div class="figure-wrapper">
               <img src="static/images/fig_exp_std_rw.png" alt="Training curves" />
             </div>
             <p class="figure-caption">
@@ -409,8 +407,8 @@
             $\lambda=0.10$ quickly destabilizes training. In contrast, <strong>Perc-EC</strong> maintains perceptual variance alongside high reward,
             and <strong>Perc-VC</strong> enables a controllable quality&ndash;diversity trade-off that progressively expands perceptual variance.
           </p>
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 620px; margin: 0 auto">
+          <div class="figure-container" style="max-width: 620px">
+            <div class="figure-wrapper">
               <img src="static/images/fig_ddpo_dynamics.png" alt="Generalization to DDPO" />
             </div>
             <p class="figure-caption">
@@ -424,8 +422,8 @@
             On Wan2.1, both Flow-GRPO and native entropy regularization erode within-group perceptual variance as reward rises, whereas
             <strong>Perc-EC</strong> preserves perceptual diversity alongside high reward.
           </p>
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 620px; margin: 0 auto">
+          <div class="figure-container" style="max-width: 620px">
+            <div class="figure-wrapper">
               <img src="static/images/fig_video_eval.png" alt="Text-to-video generalization" />
             </div>
             <p class="figure-caption">
@@ -435,8 +433,8 @@
           </div>
 
           <h3 class="subsection-title">Per-Prompt Diversity</h3>
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 900px; margin: 0 auto">
+          <div class="figure-container" style="max-width: 900px">
+            <div class="figure-wrapper">
               <img src="static/images/fig_per_prompt_dumbbell.png" alt="Per-prompt Vendi scores" />
             </div>
             <p class="figure-caption">
@@ -470,8 +468,8 @@
             <strong>82%</strong> of diversity judgments, while image quality is rated comparably (38% Perc-EC vs. 43% Flow-GRPO, 19% no
             preference).
           </p>
-          <div class="figure-container">
-            <div class="figure-wrapper" style="max-width: 380px; margin: 0 auto">
+          <div class="figure-container" style="max-width: 380px">
+            <div class="figure-wrapper">
               <img src="static/images/app_user_study.png" alt="User study preferences" />
             </div>
             <p class="figure-caption"><strong>User Study Preferences.</strong></p>
@@ -488,10 +486,9 @@
           <div class="bibtex-container">
             <button class="copy-btn" onclick="copyBibtex()"><i class="far fa-copy"></i> Copy</button>
             <pre class="bibtex"><code>@article{tan2026perceptualentropy,
-  title={When Policy Entropy Constraint Fails: Preserving Diversity in Flow&#8209;based RLHF via Perceptual Entropy},
+  title={When Policy Entropy Constraint Fails: Preserving Diversity in Flow-based RLHF via Perceptual Entropy},
   author={Tan, Xiaofeng and Liu, Jun and Gao, Bin-Bin and Fan, Yuanting and Jiang, Xi and Wang, Chengjie and Wang, Hongsong and Zheng, Feng},
-  booktitle={Advances in Neural Information Processing Systems},
-  note={NeurIPS 2026 Spotlight},
+  journal={arXiv preprint arXiv:2605.12112},
   year={2026}
 }</code></pre>
           </div>
