@@ -59,10 +59,16 @@
                   </span>
                 </div>
                 <div class="hero-logos">
-                  <a href="https://www.seu.edu.cn/english/" target="_blank" rel="noopener"><img src="static/images/logos/seu.png" alt="Southeast University" /></a>
+                  <a href="https://www.seu.edu.cn/english/" target="_blank" rel="noopener"
+                    ><img src="static/images/logos/seu.png" alt="Southeast University"
+                  /></a>
                   <a href="https://palm.seu.edu.cn/" target="_blank" rel="noopener"><img src="static/images/logos/palm.png" alt="PALM Lab" /></a>
-                  <a href="https://open.youtu.qq.com/#/open" target="_blank" rel="noopener"><img src="static/images/logos/youtu.png" alt="Tencent YouTu Lab" /></a>
-                  <a href="https://www.sustech.edu.cn/" target="_blank" rel="noopener"><img src="static/images/logos/sustech.png" alt="Southern University of Science and Technology" /></a>
+                  <a href="https://open.youtu.qq.com/#/open" target="_blank" rel="noopener"
+                    ><img src="static/images/logos/youtu.png" alt="Tencent YouTu Lab"
+                  /></a>
+                  <a href="https://www.sustech.edu.cn/" target="_blank" rel="noopener"
+                    ><img src="static/images/logos/sustech.png" alt="Southern University of Science and Technology"
+                  /></a>
                 </div>
               </div>
 
@@ -83,7 +89,9 @@
               <div class="publication-affiliations">
                 <span class="affiliation-block"><img class="aff-logo" src="static/images/logos/seu.png" alt="" />$^{1}$Southeast University</span>
                 <span class="affiliation-block"><img class="aff-logo" src="static/images/logos/youtu-icon.png" alt="" />$^{2}$Tencent YouTu Lab</span>
-                <span class="affiliation-block"><img class="aff-logo" src="static/images/logos/sustech.png" alt="" />$^{3}$Southern University of Science and Technology</span>
+                <span class="affiliation-block"
+                  ><img class="aff-logo" src="static/images/logos/sustech.png" alt="" />$^{3}$Southern University of Science and Technology</span
+                >
               </div>
               <div class="publication-affiliations" style="font-size: 0.85rem; margin-top: 0.4rem">
                 <span class="affiliation-block">$^{*}$Work done during an internship at Tencent YouTu Lab.</span>
@@ -104,9 +112,9 @@
                 </div>
                 <p class="remark-text">
                   Standard VAEs primarily extract low-level features, making VAE-space entropy $\mathcal{H}$ insensitive to semantic diversity. For
-                  example, slightly altering eye size in a portrait shifts VAE latents while leaving high-level semantics nearly unchanged. In contrast,
-                  perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ in a high-level representation space directly captures semantic variations and
-                  reliably detects diversity collapse.
+                  example, slightly altering eye size in a portrait shifts VAE latents while leaving high-level semantics nearly unchanged. In
+                  contrast, perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ in a high-level representation space directly captures semantic
+                  variations and reliably detects diversity collapse.
                 </p>
               </div>
 
@@ -167,8 +175,8 @@
             to prevent the model from converging to a narrow high-reward region in the perceptual space. To this end, we introduce
             <strong>perceptual entropy</strong> that captures diversity in a perceptual space and maintains the property of standard entropy. Building
             upon this insight, we propose two entropy-regularized strategies, <strong>Perceptual Entropy Constraint (Perc-EC)</strong> and
-            <strong>Perceptual VAE Constraint (Perc-VC)</strong>, to preserve perceptual diversity and improve generation quality. Experiments
-            across two base models (FLUX.dev, SD3.5-M), neural and rule-based rewards, and three perceptual spaces (PickScore, DINO, CLIP) demonstrate
+            <strong>Perceptual VAE Constraint (Perc-VC)</strong>, to preserve perceptual diversity and improve generation quality. Experiments across
+            two base models (FLUX.dev, SD3.5-M), neural and rule-based rewards, and three perceptual spaces (PickScore, DINO, CLIP) demonstrate
             consistent gains in the quality-diversity trade-off; Perc-EC achieves the best overall score of <strong>0.755</strong> (vs. Flow-GRPO's
             0.347) with a diversity average of <strong>0.941</strong> (vs. Flow-GRPO's 0.010).
           </p>
@@ -215,8 +223,8 @@
 
           <h3 class="subsection-title">Why Does Diversity Still Collapse?</h3>
           <p class="abstract-text" style="font-size: 0.93rem">
-            We trace the collapse to the <strong>mode-seeking nature</strong> of on-policy policy gradients. With $p_{\theta_{\mathrm{old}}}$ and
-            the advantage $\mathcal{A}$ fixed within an update, the policy gradient locally minimizes a <strong>reverse KL</strong> to an
+            We trace the collapse to the <strong>mode-seeking nature</strong> of on-policy policy gradients. With $p_{\theta_{\mathrm{old}}}$ and the
+            advantage $\mathcal{A}$ fixed within an update, the policy gradient locally minimizes a <strong>reverse KL</strong> to an
             advantage-induced target $p_{\mathcal{A}} \propto p_{\theta_{\mathrm{old}}}\exp(\mathcal{A})$:
           </p>
           <div class="equation-block">
@@ -224,8 +232,8 @@
             D_{\mathrm{KL}}\big(p_\theta \,\|\, p_{\theta_{\mathrm{old}}}\big) \Big)$
           </div>
           <p class="abstract-text" style="font-size: 0.93rem">
-            Since $p_{\mathcal{A}}$ is sampled from the old policy, unexplored perceptual modes are excluded from optimization, and repeated
-            on-policy updates concentrate probability mass on a <strong>single high-reward mode</strong>. This motivates an RLHF framework that
+            Since $p_{\mathcal{A}}$ is sampled from the old policy, unexplored perceptual modes are excluded from optimization, and repeated on-policy
+            updates concentrate probability mass on a <strong>single high-reward mode</strong>. This motivates an RLHF framework that
             <strong>encourages broad coverage of multiple high-reward regions in perceptual space</strong>, rather than convergence to a single peak.
           </p>
 
@@ -244,8 +252,8 @@
               <img src="static/images/fig_prob.png" alt="Mode-seeking evidence in flow-based RLHF" />
             </div>
             <p class="figure-caption">
-              <strong>Figure 3.</strong> Training dynamics metrics. (a) Variance of reward and standard deviation of samples; (b) maximum and
-              minimum advantage probabilities $p_{\mathcal{A}}$ during training. Both decline, consistent with mode-seeking contraction.
+              <strong>Figure 3.</strong> Training dynamics metrics. (a) Variance of reward and standard deviation of samples; (b) maximum and minimum
+              advantage probabilities $p_{\mathcal{A}}$ during training. Both decline, consistent with mode-seeking contraction.
             </p>
           </div>
         </div>
@@ -273,8 +281,8 @@
             <p class="remark-text">
               Standard VAEs primarily extract low-level features, making VAE-space entropy $\mathcal{H}$ insensitive to semantic diversity. For
               example, slightly altering eye size in a portrait shifts VAE latents while leaving high-level semantics nearly unchanged. In contrast,
-              perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ in a high-level representation space directly captures semantic variations and
-              reliably detects diversity collapse.
+              perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ in a high-level representation space directly captures semantic variations and reliably
+              detects diversity collapse.
             </p>
           </div>
 
@@ -286,12 +294,12 @@
           </p>
           <div class="equation-block">
             $$p_\theta^{\mathrm{perc}}(\mathbf{x}_{t-1}^k\mid\mathbf{x}_t^k,c) := \mathcal{N}\big(\phi(\mathbf{x}_{t-1}^k);\,\phi(\mathbf{m}^k),\,
-            \sigma_t^2\,\mathrm{d}t\,\mathbf{I}\big), \qquad \mathcal{H}_{\text{perc}}(p_\theta) =
-            \mathbb{E}_{t,k}\big[-\log p_\theta^{\mathrm{perc}}(\mathbf{x}_{t-1}^k\mid\mathbf{x}_t^k,c)\big]$$
+            \sigma_t^2\,\mathrm{d}t\,\mathbf{I}\big), \qquad \mathcal{H}_{\text{perc}}(p_\theta) = \mathbb{E}_{t,k}\big[-\log
+            p_\theta^{\mathrm{perc}}(\mathbf{x}_{t-1}^k\mid\mathbf{x}_t^k,c)\big]$$
           </div>
           <p class="abstract-text" style="font-size: 0.93rem">
-            where $\mathbf{m}^k$ denotes the old-policy mean $\mu_{\theta_{\mathrm{old}}}(\mathbf{x}_t^k,t,c)$. For neural network-based rewards, we use
-            the PickScore encoder as $\mathcal{E}_{p}$ to avoid additional computational cost; frozen DINO or CLIP encoders also work.
+            where $\mathbf{m}^k$ denotes the old-policy mean $\mu_{\theta_{\mathrm{old}}}(\mathbf{x}_t^k,t,c)$. For neural network-based rewards, we
+            use the PickScore encoder as $\mathcal{E}_{p}$ to avoid additional computational cost; frozen DINO or CLIP encoders also work.
           </p>
 
           <div class="remark-box">
@@ -302,10 +310,10 @@
             <p class="remark-text">
               Let $\mathbf{z}_{t-1}=\phi(\mathbf{x}_{t-1})$. Assume that, within a local reverse step, the perceptual encoder is approximately
               mean-preserving, i.e., $\mathbb{E}[\mathbf{z}_{t-1}\mid \mathbf{x}_t]\approx \phi(\mathbf{m})$. Then perceptual entropy tracks the
-              expected conditional feature-space variance:
-              $$\mathcal{H}_{\text{perc}}(p_\theta) \approx \mathbb{E}_{t,\mathbf{x}_t}\!\left[\frac{\mathrm{Var}(\mathbf{z}_{t-1}\mid \mathbf{x}_t)}{2\sigma_t^2\,\mathrm{d}t}\right] - C_t.$$
-              Perceptual entropy thus captures local perceptual dispersion, paralleling the latent-space variance relation of constant policy
-              entropy and aligning with entropy-regularization analyses in LLMs.
+              expected conditional feature-space variance: $$\mathcal{H}_{\text{perc}}(p_\theta) \approx
+              \mathbb{E}_{t,\mathbf{x}_t}\!\left[\frac{\mathrm{Var}(\mathbf{z}_{t-1}\mid \mathbf{x}_t)}{2\sigma_t^2\,\mathrm{d}t}\right] - C_t.$$
+              Perceptual entropy thus captures local perceptual dispersion, paralleling the latent-space variance relation of constant policy entropy
+              and aligning with entropy-regularization analyses in LLMs.
             </p>
           </div>
 
@@ -329,10 +337,10 @@
 
           <h3 class="subsection-title">Perceptual Entropy Constraint (Perc-EC)</h3>
           <p class="abstract-text" style="font-size: 0.93rem">
-            Since perceptual entropy is a reliable surrogate for conditional variance, Perc-EC maximizes it directly:
-            $\max_\theta\, \mathbb{E}_{\mathbf{x}\sim p_\theta}[\mathcal{R}(\mathbf{x},c)] + \lambda\,\mathcal{H}_{\text{perc}}(p_\theta)$. To avoid
-            competing gradients against the primary reward, we use <strong>perceptual reward shaping</strong>: the constraint is folded into the reward
-            so that perceptual and task rewards are jointly normalized within the same GRPO rollout group:
+            Since perceptual entropy is a reliable surrogate for conditional variance, Perc-EC maximizes it directly: $\max_\theta\,
+            \mathbb{E}_{\mathbf{x}\sim p_\theta}[\mathcal{R}(\mathbf{x},c)] + \lambda\,\mathcal{H}_{\text{perc}}(p_\theta)$. To avoid competing
+            gradients against the primary reward, we use <strong>perceptual reward shaping</strong>: the constraint is folded into the reward so that
+            perceptual and task rewards are jointly normalized within the same GRPO rollout group:
           </p>
           <div class="equation-block">
             $\tilde{\mathcal{R}}_{\textit{Perc-EC}}^k = \mathcal{R}(\mathbf{x}_0^k, c) - \lambda\,\mathbb{E}_t\big[\log
@@ -346,11 +354,10 @@
           </p>
           <div class="equation-block">
             $\tilde{\mathcal{R}}_{\textit{Perc-VC}}^k = \mathcal{R}(\mathbf{x}_0^k,c) - \lambda\,\mathbb{E}_t\big[\log
-            p_\theta^{\mathrm{perc}}(\mathbf{x}_{t-1}^k\mid\mathbf{x}_t^k,c) - \log p_\theta^{\mathrm{vae}}(\mathbf{x}_{t-1}^k\mid\mathbf{x}_t^k,c)\big]$
+            p_\theta^{\mathrm{perc}}(\mathbf{x}_{t-1}^k\mid\mathbf{x}_t^k,c) - \log
+            p_\theta^{\mathrm{vae}}(\mathbf{x}_{t-1}^k\mid\mathbf{x}_t^k,c)\big]$
           </div>
-          <p class="abstract-text" style="font-size: 0.93rem">
-            Both shaped rewards are optimized with the standard GRPO clipped surrogate.
-          </p>
+          <p class="abstract-text" style="font-size: 0.93rem">Both shaped rewards are optimized with the standard GRPO clipped surrogate.</p>
 
           <div class="figure-container" style="max-width: 900px">
             <div class="figure-wrapper">
@@ -373,18 +380,16 @@
 
           <h3 class="subsection-title">Comparison with Entropy-Based Regularization</h3>
           <p class="abstract-text" style="font-size: 0.9rem; margin-bottom: 1rem">
-            Native per-step entropy $\mathcal{H}$ provides limited gains under flow matching: standard entropy regularization reaches an overall
-            score of 0.245, comparable to Flow-GRPO w/ KL (0.242). Simply replacing $\mathcal{H}$ with $\mathcal{H}_{\mathrm{perc}}$ raises it to
-            0.427, and <strong>Perc-EC</strong> ($\lambda=0.10$, PickScore) achieves the best overall score of <strong>0.755</strong> with a diversity
-            average of <strong>0.941</strong>.
+            Native per-step entropy $\mathcal{H}$ provides limited gains under flow matching: standard entropy regularization reaches an overall score
+            of 0.245, comparable to Flow-GRPO w/ KL (0.242). Simply replacing $\mathcal{H}$ with $\mathcal{H}_{\mathrm{perc}}$ raises it to 0.427, and
+            <strong>Perc-EC</strong> ($\lambda=0.10$, PickScore) achieves the best overall score of <strong>0.755</strong> with a diversity average of
+            <strong>0.941</strong>.
           </p>
           <div class="figure-container" style="max-width: 640px">
             <div class="figure-wrapper">
               <img src="static/images/tab_main_results.png" alt="Entropy regularization comparison table" />
             </div>
-            <p class="figure-caption">
-              <strong>Table 1. Entropy Regularization Comparison.</strong> Gray-shaded rows denote our methods.
-            </p>
+            <p class="figure-caption"><strong>Table 1. Entropy Regularization Comparison.</strong> Gray-shaded rows denote our methods.</p>
           </div>
 
           <h3 class="subsection-title">Comparison with SoTA Models</h3>
@@ -400,8 +405,8 @@
               <img src="static/images/fig_exp_std_rw.png" alt="Training curves" />
             </div>
             <p class="figure-caption">
-              <strong>Figure 6.</strong> Training dynamics of Flow-GRPO, Flow-GRPO w/ KL, and Perc-EC. (a) Mean reward. (b) Reward standard
-              deviation. Flow-GRPO improves quality but reduces diversity; KL alleviates the drop at a quality cost; Perc-EC strikes a better balance
+              <strong>Figure 6.</strong> Training dynamics of Flow-GRPO, Flow-GRPO w/ KL, and Perc-EC. (a) Mean reward. (b) Reward standard deviation.
+              Flow-GRPO improves quality but reduces diversity; KL alleviates the drop at a quality cost; Perc-EC strikes a better balance
               ($\lambda{=}0.10$ preserves diversity, $\lambda{=}0.05$ keeps quality close to Flow-GRPO).
             </p>
           </div>
@@ -410,8 +415,8 @@
           <p class="abstract-text" style="font-size: 0.9rem; margin-bottom: 1rem">
             Replacing the native per-step entropy $\mathcal{H}$ with perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ inside Perc-EC improves every
             metric (e.g., Aes.v2.5 from 6.372 to 6.412). The perceptual encoder is much smaller than the flow model and is evaluated asynchronously
-            from generation and optimization, so the overhead is marginal: iteration time is $1.01\times$ (PickScore encoder) / $1.03\times$ (DINO encoder) of Flow-GRPO, and
-            peak memory goes from 78.7G to at most 79.2G.
+            from generation and optimization, so the overhead is marginal: iteration time is $1.01\times$ (PickScore encoder) / $1.03\times$ (DINO
+            encoder) of Flow-GRPO, and peak memory goes from 78.7G to at most 79.2G.
           </p>
 
           <h3 class="subsection-title">Generalization to DDPO</h3>
@@ -476,10 +481,9 @@
 
           <h3 class="subsection-title">User Study</h3>
           <p class="abstract-text" style="font-size: 0.9rem; margin-bottom: 1rem">
-            In a blind, randomized, side-by-side study comparing Perc-EC with Flow-GRPO, 20 volunteers provided 100 judgments over 20 unique
-            image-set pairs (five independent judgments per pair). Perc-EC is preferred in <strong>64%</strong> of overall judgments and
-            <strong>82%</strong> of diversity judgments, while image quality is rated comparably (38% Perc-EC vs. 43% Flow-GRPO, 19% no
-            preference).
+            In a blind, randomized, side-by-side study comparing Perc-EC with Flow-GRPO, 20 volunteers provided 100 judgments over 20 unique image-set
+            pairs (five independent judgments per pair). Perc-EC is preferred in <strong>64%</strong> of overall judgments and <strong>82%</strong> of
+            diversity judgments, while image quality is rated comparably (38% Perc-EC vs. 43% Flow-GRPO, 19% no preference).
           </p>
           <div class="figure-container" style="max-width: 380px">
             <div class="figure-wrapper">
