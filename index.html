@@ -2289,7 +2289,7 @@ function revealAndCopyContact(button, text, label) {
             <strong>SUSTech</strong>, on the key barriers in image-generation post-training:
             <a href="/projects/ConsistentRFT/index.html">DPGO</a> (under review) reduces low- and high-level perceptual
             hallucinations by 49% and 38% on average, respectively; <a href="/projects/PEC/index.html">PEC</a> (NeurIPS 2026,
-            <strong>Spotlight</strong>) mitigates diversity collapse, raising the evaluated quality–diversity score from 0.366 to 0.734.
+            <strong>Spotlight</strong>) mitigates diversity collapse, raising the evaluated quality–diversity score from 0.347 to 0.755.
           </p>
         </li>
         <li class="research-trajectory__item">
@@ -2315,11 +2315,11 @@ function revealAndCopyContact(button, text, label) {
 </span>
 </div>
           <p>
-            At <strong>Tencent HY</strong>, I study the reliability of reward supervision and learning progression, collaborating with Jiaxin Lin at <strong>Tencent</strong>, and with Prof.
-            <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a>, <a href="https://yuanhaobo.me/" rel="external nofollow noopener" target="_blank">Haobo Yuan</a>, and
-            <a href="https://vllab.ucmerced.edu/people/" rel="external nofollow noopener" target="_blank">Tiancheng Shen</a> as a remote visiting student at <strong>UC Merced</strong>. Our
-            <a href="/projects/spatialcritic/">SpatialCritic</a> (under review) addresses these challenges in spatial
-            generation, achieving 95.08% spatial-preference verification accuracy on our SpaRW-Eval benchmark.
+            At <strong>Tencent HY</strong>, I study the reliability of reward supervision and learning progression, collaborating with Jiaxin Lin at
+            <strong>Tencent</strong>, and with Prof. <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a>,
+            <a href="https://yuanhaobo.me/" rel="external nofollow noopener" target="_blank">Haobo Yuan</a>, and <a href="https://vllab.ucmerced.edu/people/" rel="external nofollow noopener" target="_blank">Tiancheng Shen</a> as a remote visiting
+            student at <strong>UC Merced</strong>. Our <a href="/projects/spatialcritic/">SpatialCritic</a> (under review)
+            addresses these challenges in spatial generation, achieving 95.08% spatial-preference verification accuracy on our SpaRW-Eval benchmark.
           </p>
         </li>
       </ol>
@@ -2410,7 +2410,7 @@ function revealAndCopyContact(button, text, label) {
             在 <strong>Tencent YouTu</strong>，我与腾讯的
             <a href="https://scholar.google.com/citations?user=JIKuf4AAAAAJ" rel="external nofollow noopener" target="_blank">Jun Liu</a>、<a href="https://csgaobb.github.io/" rel="external nofollow noopener" target="_blank">Bin-Bin Gao</a>、<a href="https://retofan233.github.io/" rel="external nofollow noopener" target="_blank">Yuanting Fan</a>，以及<strong>南方科技大学</strong>的
             <a href="https://www.sustech.edu.cn/en/faculties/zhengfeng.html" rel="external nofollow noopener" target="_blank">Feng Zheng</a> 教授、<a href="https://jam-cc.github.io/" rel="external nofollow noopener" target="_blank">Xi Jiang</a>
-            合作，研究图像生成后训练中的关键障碍：<a href="/projects/ConsistentRFT/index.html">DPGO</a>（在投）使低层、高层感知幻觉分别平均减少 49%、38%；<a href="/projects/PEC/index.html">PEC</a>（NeurIPS 2026，<strong>Spotlight</strong>）缓解多样性崩溃，将所评测的质量与多样性综合得分从 0.366 提升至 0.734。
+            合作，研究图像生成后训练中的关键障碍：<a href="/projects/ConsistentRFT/index.html">DPGO</a>（在投）使低层、高层感知幻觉分别平均减少 49%、38%；<a href="/projects/PEC/index.html">PEC</a>（NeurIPS 2026，<strong>Spotlight</strong>）缓解多样性崩溃，将所评测的质量与多样性综合得分从 0.347 提升至 0.755。
           </p>
         </li>
         <li class="research-trajectory__item">
@@ -2436,7 +2436,8 @@ function revealAndCopyContact(button, text, label) {
 </span>
 </div>
           <p>
-            在 <strong>Tencent HY</strong>，我进一步研究奖励监督的可靠性与学习进程，与 <strong>Tencent</strong> 的 Jiaxin Lin 合作，并以远程访问学生身份与 <strong>UC Merced</strong> 的
+            在 <strong>Tencent HY</strong>，我进一步研究奖励监督的可靠性与学习进程，与 <strong>Tencent</strong> 的 Jiaxin Lin
+            合作，并以远程访问学生身份与 <strong>UC Merced</strong> 的
             <a href="https://faculty.ucmerced.edu/mhyang/" rel="external nofollow noopener" target="_blank">Ming-Hsuan Yang</a> 教授、<a href="https://yuanhaobo.me/" rel="external nofollow noopener" target="_blank">Haobo Yuan</a>、<a href="https://vllab.ucmerced.edu/people/" rel="external nofollow noopener" target="_blank">Tiancheng Shen</a> 合作。我们提出的
             <a href="/projects/spatialcritic/">SpatialCritic</a>（在投）针对空间生成中的这些问题，在我们构建的空间偏好评测基准
             SpaRW-Eval 上实现 95.08% 的验证准确率。
@@ -2903,7 +2904,7 @@ function revealAndCopyContact(button, text, label) {
     
       <!-- Hidden abstract block -->
       <div class="abstract hidden">
-        <p>RLHF is widely used to align flow-matching text-to-image models with human preferences, but often leads to severe diversity collapse after fine-tuning. In RL, diversity is often assumed to correlate with policy entropy, motivating entropy regularization. However, we show this intuition breaks in flow models: policy entropy remains constant, even while perceptual diversity collapses. We explain this mismatch both theoretically and empirically: the constant entropy arises from the fixed, pre-defined noise schedule, while the diversity collapse is driven by the mode-seeking nature of policy gradients. As a result, policy entropy fails to prevent the model from converging to a narrow high-reward region in the perceptual space. To this end, we introduce perceptual entropy that captures diversity in a perceptual space and maintains the property of standard entropy. Building upon this insight, we propose two entropy-regularized strategies, Perceptual Entropy Constraint (PEC) and Perceptual Constraints on Generation Space (PCVAE), to preserve perceptual diversity and improve the quality. Experiments across two base models (FLUX.dev, SD3.5-M), neural and rule-based rewards, and three perceptual spaces (PickScore, DINO, CLIP) demonstrate consistent gains in the quality-diversity trade-off; PEC achieves the best overall score of 0.734 (vs. baseline’s 0.366); a complementary setting of PEC further reaches a diversity average of 0.989 (vs. baseline’s 0.047).</p>
+        <p>RLHF is widely used to align flow-matching text-to-image models with human preferences, but often leads to severe diversity collapse after fine-tuning. In RL, diversity is often assumed to correlate with policy entropy, motivating entropy regularization. However, we show this intuition breaks in flow models: policy entropy remains constant, even while perceptual diversity collapses. We explain this mismatch both theoretically and empirically: the constant entropy arises from the fixed, pre-defined noise schedule, while the diversity collapse is driven by the mode-seeking nature of policy gradients. As a result, policy entropy fails to prevent the model from converging to a narrow high-reward region in the perceptual space. To this end, we introduce perceptual entropy that captures diversity in a perceptual space and maintains the property of standard entropy. Building upon this insight, we propose two entropy-regularized strategies, Perceptual Entropy Constraint (Perc-EC) and Perceptual VAE Constraint (Perc-VC), to preserve perceptual diversity and improve generation quality. Experiments across two base models (FLUX.dev, SD3.5-M), neural and rule-based rewards, and three perceptual spaces (PickScore, DINO, CLIP) demonstrate consistent gains in the quality-diversity trade-off; Perc-EC achieves the best overall score of 0.755 (vs. Flow-GRPO’s 0.347) with a diversity average of 0.941 (vs. Flow-GRPO’s 0.010).</p>
       </div>
     
 
@@ -4488,7 +4489,7 @@ function revealAndCopyContact(button, text, label) {
   <!-- Page-level Last Updated -->
   <div class="page-last-updated">
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <span>Last updated: <time datetime="2026-11-01T10:06:23+00:00">November 01, 2026</time></span>
+    <span>Last updated: <time datetime="2026-11-01T10:18:16+00:00">November 01, 2026</time></span>
   </div>
 </article>
 
