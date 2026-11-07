@@ -127,9 +127,13 @@
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
                 </a>
-                <a href="javascript:void(0)" class="button btn-code btn-cs" onclick="showTooltip(this, 'Coming Soon')">
+                <a href="https://github.com/Xiaofeng-Tan/PerceptualEntropy" target="_blank" rel="noopener" class="button btn-code">
                   <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
+                </a>
+                <a href="static/pdf/PerceptualEntropy_NeurIPS2026_Poster.pdf" target="_blank" rel="noopener" class="button btn-poster">
+                  <span class="icon"><i class="fas fa-image"></i></span>
+                  <span>Poster</span>
                 </a>
                 <a href="https://xiaofeng-tan.github.io/PerceptualEntropyLog/" target="_blank" rel="noopener" class="button btn-log">
                   <span class="icon"><i class="fas fa-book-open"></i></span>
@@ -231,6 +235,11 @@
             D_{\mathrm{KL}}\big(p_\theta \,\|\, p_{\theta_{\mathrm{old}}}\big) \Big)$
           </div>
           <p class="abstract-text" style="font-size: 0.93rem">
+            Both KL terms place $p_\theta$ as the first argument, i.e., they are <strong>reverse KL</strong> divergences. The first is
+            mode-seeking and drives the policy toward high-reward regions in the perceptual space, while the KL term w.r.t.
+            $p_{\theta_{\mathrm{old}}}$ pushes the current policy away from the old one to encourage optimization.
+          </p>
+          <p class="abstract-text" style="font-size: 0.93rem">
             Since $p_{\mathcal{A}}$ is sampled from the old policy, unexplored perceptual modes are excluded from optimization, and repeated on-policy
             updates concentrate probability mass on a <strong>single high-reward mode</strong>. This motivates an RLHF framework that
             <strong>encourages broad coverage of multiple high-reward regions in perceptual space</strong>, rather than convergence to a single peak.
@@ -298,7 +307,7 @@
           </div>
           <p class="abstract-text" style="font-size: 0.93rem">
             where $\mathbf{m}^k$ denotes the old-policy mean $\mu_{\theta_{\mathrm{old}}}(\mathbf{x}_t^k,t,c)$. For neural network-based rewards, we
-            use the PickScore encoder as $\mathcal{E}_{p}$ to avoid additional computational cost; frozen DINO or CLIP encoders also work.
+            use the PickScore encoder as $\mathcal{E}_{p}$ to avoid additional computational cost; a frozen DINO encoder also works.
           </p>
 
           <div class="remark-box">
@@ -455,8 +464,8 @@
               <img src="static/images/fig_per_prompt_dumbbell.png" alt="Per-prompt Vendi scores" />
             </div>
             <p class="figure-caption">
-              <strong>Figure 9. Per-Prompt Vendi Scores.</strong> For each feature space, the top-50 PartiPrompts are selected by Perc-VC score and
-              sorted by Flow-GRPO score, with 100 samples per prompt. Left: CLIP. Middle: DINO. Right: DINOv2.
+              <strong>Figure 9. Per-Prompt Vendi Scores.</strong> Perc-EC ($\lambda=0.10$) uses perceptual entropy from DINO space. For each
+              feature space, the top-50 PartiPrompts are included, with 100 samples per prompt. Left: CLIP. Right: DINO.
             </p>
           </div>
         </div>
@@ -494,8 +503,25 @@
       </div>
     </section>
 
-    <!-- BibTeX -->
+    <!-- Poster -->
     <section class="section alt-bg">
+      <div class="container is-max-desktop">
+        <div class="content-block">
+          <h2 class="section-title">Poster</h2>
+          <div class="figure-container">
+            <div class="figure-wrapper large">
+              <a href="static/pdf/PerceptualEntropy_NeurIPS2026_Poster.pdf" target="_blank" rel="noopener"
+                ><img src="static/images/poster.jpg" alt="NeurIPS 2026 poster"
+              /></a>
+            </div>
+            <p class="figure-caption"><strong>NeurIPS 2026 Spotlight Poster.</strong> Click the poster to open the full-resolution PDF.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BibTeX -->
+    <section class="section">
       <div class="container is-max-desktop">
         <div class="content-block">
           <h2 class="section-title">BibTeX</h2>

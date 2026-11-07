@@ -236,10 +236,10 @@ body {
 /* ========== Publication Links ========== */
 .publication-links {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 0.45rem;
   margin-top: 1.5rem;
-  max-width: 600px;
+  max-width: 720px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -300,6 +300,12 @@ body {
   background: #24292e !important;
   color: #fff !important;
   border-color: #24292e !important;
+}
+
+.btn-poster {
+  background: #7d3c98 !important;
+  color: #fff !important;
+  border-color: #7d3c98 !important;
 }
 
 .btn-log {
