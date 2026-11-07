@@ -131,7 +131,7 @@
                   <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
                 </a>
-                <a href="static/pdf/PerceptualEntropy_NeurIPS2026_Poster.pdf" target="_blank" rel="noopener" class="button btn-poster">
+                <a href="#poster" class="button btn-poster">
                   <span class="icon"><i class="fas fa-image"></i></span>
                   <span>Poster</span>
                 </a>
@@ -260,8 +260,9 @@
               <img src="static/images/fig_prob.png" alt="Mode-seeking evidence in flow-based RLHF" />
             </div>
             <p class="figure-caption">
-              <strong>Figure 3.</strong> Training dynamics metrics. (a) Variance of reward and standard deviation of samples; (b) maximum and minimum
-              advantage probabilities $p_{\mathcal{A}}$ during training. Both decline, consistent with mode-seeking contraction.
+              <strong>Figure 3.</strong> Training dynamics metrics. (a) Standard deviation of reward and variance of samples; (b) maximum and
+              minimum advantage probabilities $\operatorname{Softmax}(\mathcal{A}(\mathbf{x}_0,c))$ during training. The dispersion of the
+              normalized advantage weights shrinks while reward variance and sample diversity decline, consistent with mode-seeking contraction.
             </p>
           </div>
         </div>
@@ -423,7 +424,7 @@
           <p class="abstract-text" style="font-size: 0.9rem; margin-bottom: 1rem">
             Replacing the native per-step entropy $\mathcal{H}$ with perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ inside Perc-EC improves every
             metric (e.g., Aes.v2.5 from 6.372 to 6.412). The perceptual encoder is much smaller than the flow model and is evaluated asynchronously
-            from generation and optimization, so the overhead is marginal: iteration time is $1.01\times$ (PickScore encoder) / $1.03\times$ (DINO
+            from generation and optimization (Flux.Dev: 12B; PickScore encoder: $\sim$0.6B; VAE decoder: $\sim$0.08B), so the overhead is marginal: iteration time is $1.01\times$ (PickScore encoder) / $1.03\times$ (DINO
             encoder) of Flow-GRPO, and peak memory goes from 78.7G to at most 79.2G.
           </p>
 
@@ -504,17 +505,18 @@
     </section>
 
     <!-- Poster -->
-    <section class="section alt-bg">
+    <section class="section alt-bg" id="poster">
       <div class="container is-max-desktop">
         <div class="content-block">
           <h2 class="section-title">Poster</h2>
           <div class="figure-container">
             <div class="figure-wrapper large">
-              <a href="static/pdf/PerceptualEntropy_NeurIPS2026_Poster.pdf" target="_blank" rel="noopener"
+              <a href="static/images/poster.jpg" target="_blank" rel="noopener"
                 ><img src="static/images/poster.jpg" alt="NeurIPS 2026 poster"
               /></a>
             </div>
-            <p class="figure-caption"><strong>NeurIPS 2026 Spotlight Poster.</strong> Click the poster to open the full-resolution PDF.</p>
+            <p class="figure-caption"><strong>NeurIPS 2026 Spotlight Poster.</strong> Click the poster to view it at full resolution, or
+              <a href="static/pdf/PerceptualEntropy_NeurIPS2026_Poster.pdf" target="_blank" rel="noopener">download the PDF</a>.</p>
           </div>
         </div>
       </div>
