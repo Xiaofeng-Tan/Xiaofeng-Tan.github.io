@@ -80,11 +80,17 @@
                 <span class="author-block"><a href="https://xiaofeng-tan.github.io" target="_blank">Xiaofeng Tan</a>$^{1,2,*}$,</span>
                 <span class="author-block"><a href="https://scholar.google.com/citations?user=JIKuf4AAAAAJ" target="_blank">Jun Liu</a>$^{2}$,</span>
                 <span class="author-block"><a href="https://csgaobb.github.io/" target="_blank">Bin-Bin Gao</a>$^{2}$,</span>
-                <span class="author-block"><a href="https://scholar.google.com/citations?user=SD4CZKAAAAAJ" target="_blank">Yuanting Fan</a>$^{2}$,</span>
+                <span class="author-block"
+                  ><a href="https://scholar.google.com/citations?user=SD4CZKAAAAAJ" target="_blank">Yuanting Fan</a>$^{2}$,</span
+                >
                 <span class="author-block"><a href="https://scholar.google.com/citations?user=XtU4nDYAAAAJ" target="_blank">Xi Jiang</a>$^{3}$,</span>
-                <span class="author-block"><a href="https://scholar.google.com/citations?user=fqte5H4AAAAJ" target="_blank">Chengjie Wang</a>$^{2}$,</span>
+                <span class="author-block"
+                  ><a href="https://scholar.google.com/citations?user=fqte5H4AAAAJ" target="_blank">Chengjie Wang</a>$^{2}$,</span
+                >
                 <span class="author-block"><a href="https://hongsong-wang.github.io/" target="_blank">Hongsong Wang</a>$^{1,\dagger}$,</span>
-                <span class="author-block"><a href="https://scholar.google.com/citations?user=PcmyXHMAAAAJ" target="_blank">Feng Zheng</a>$^{3,\dagger}$</span>
+                <span class="author-block"
+                  ><a href="https://scholar.google.com/citations?user=PcmyXHMAAAAJ" target="_blank">Feng Zheng</a>$^{3,\dagger}$</span
+                >
               </div>
               <div class="publication-affiliations">
                 <span class="affiliation-block"><img class="aff-logo" src="static/images/logos/seu.png" alt="" />$^{1}$Southeast University</span>
@@ -172,12 +178,12 @@
           <h2 class="section-title">Poster</h2>
           <div class="figure-container">
             <div class="figure-wrapper large">
-              <a href="static/images/poster.jpg" target="_blank" rel="noopener"
-                ><img src="static/images/poster.jpg" alt="NeurIPS 2026 poster"
-              /></a>
+              <a href="static/images/poster.jpg" target="_blank" rel="noopener"><img src="static/images/poster.jpg" alt="NeurIPS 2026 poster" /></a>
             </div>
-            <p class="figure-caption"><strong>NeurIPS 2026 Spotlight Poster.</strong> Click the poster to view it at full resolution, or
-              <a href="static/pdf/PerceptualEntropy_NeurIPS2026_Poster.pdf" target="_blank" rel="noopener">download the PDF</a>.</p>
+            <p class="figure-caption">
+              <strong>NeurIPS 2026 Spotlight Poster.</strong> Click the poster to view it at full resolution, or
+              <a href="static/pdf/PerceptualEntropy_NeurIPS2026_Poster.pdf" target="_blank" rel="noopener">download the PDF</a>.
+            </p>
           </div>
         </div>
       </div>
@@ -253,9 +259,9 @@
             D_{\mathrm{KL}}\big(p_\theta \,\|\, p_{\theta_{\mathrm{old}}}\big) \Big)$
           </div>
           <p class="abstract-text" style="font-size: 0.93rem">
-            Both KL terms place $p_\theta$ as the first argument, i.e., they are <strong>reverse KL</strong> divergences. The first is
-            mode-seeking and drives the policy toward high-reward regions in the perceptual space, while the KL term w.r.t.
-            $p_{\theta_{\mathrm{old}}}$ pushes the current policy away from the old one to encourage optimization.
+            Both KL terms place $p_\theta$ as the first argument, i.e., they are <strong>reverse KL</strong> divergences. The first is mode-seeking
+            and drives the policy toward high-reward regions in the perceptual space, while the KL term w.r.t. $p_{\theta_{\mathrm{old}}}$ pushes the
+            current policy away from the old one to encourage optimization.
           </p>
           <p class="abstract-text" style="font-size: 0.93rem">
             Since $p_{\mathcal{A}}$ is sampled from the old policy, unexplored perceptual modes are excluded from optimization, and repeated on-policy
@@ -278,9 +284,9 @@
               <img src="static/images/fig_prob.png" alt="Mode-seeking evidence in flow-based RLHF" />
             </div>
             <p class="figure-caption">
-              <strong>Figure 3.</strong> Training dynamics metrics. (a) Standard deviation of reward and variance of samples; (b) maximum and
-              minimum advantage probabilities $\operatorname{Softmax}(\mathcal{A}(\mathbf{x}_0,c))$ during training. The dispersion of the
-              normalized advantage weights shrinks while reward variance and sample diversity decline, consistent with mode-seeking contraction.
+              <strong>Figure 3.</strong> Training dynamics metrics. (a) Standard deviation of reward and variance of samples; (b) maximum and minimum
+              advantage probabilities $\operatorname{Softmax}(\mathcal{A}(\mathbf{x}_0,c))$ during training. The dispersion of the normalized
+              advantage weights shrinks while reward variance and sample diversity decline, consistent with mode-seeking contraction.
             </p>
           </div>
         </div>
@@ -442,8 +448,9 @@
           <p class="abstract-text" style="font-size: 0.9rem; margin-bottom: 1rem">
             Replacing the native per-step entropy $\mathcal{H}$ with perceptual entropy $\mathcal{H}_{\mathrm{perc}}$ inside Perc-EC improves every
             metric (e.g., Aes.v2.5 from 6.372 to 6.412). The perceptual encoder is much smaller than the flow model and is evaluated asynchronously
-            from generation and optimization (Flux.Dev: 12B; PickScore encoder: $\sim$0.6B; VAE decoder: $\sim$0.08B), so the overhead is marginal: iteration time is $1.01\times$ (PickScore encoder) / $1.03\times$ (DINO
-            encoder) of Flow-GRPO, and peak memory goes from 78.7G to at most 79.2G.
+            from generation and optimization (Flux.Dev: 12B; PickScore encoder: $\sim$0.6B; VAE decoder: $\sim$0.08B), so the overhead is marginal:
+            iteration time is $1.01\times$ (PickScore encoder) / $1.03\times$ (DINO encoder) of Flow-GRPO, and peak memory goes from 78.7G to at most
+            79.2G.
           </p>
 
           <h3 class="subsection-title">Generalization to DDPO</h3>
@@ -483,8 +490,8 @@
               <img src="static/images/fig_per_prompt_dumbbell.png" alt="Per-prompt Vendi scores" />
             </div>
             <p class="figure-caption">
-              <strong>Figure 9. Per-Prompt Vendi Scores.</strong> Perc-EC ($\lambda=0.10$) uses perceptual entropy from DINO space. For each
-              feature space, the top-50 PartiPrompts are included, with 100 samples per prompt. Left: CLIP. Right: DINO.
+              <strong>Figure 9. Per-Prompt Vendi Scores.</strong> Perc-EC ($\lambda=0.10$) uses perceptual entropy from DINO space. For each feature
+              space, the top-50 PartiPrompts are included, with 100 samples per prompt. Left: CLIP. Right: DINO.
             </p>
           </div>
         </div>
